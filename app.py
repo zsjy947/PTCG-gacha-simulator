@@ -124,13 +124,18 @@ def _thumb_for(src: Path, dest: Path) -> bool:
     if Image is None or not src.exists():
         return False
     try:
+        dest.parent.mkdir(parents=True, exist_ok=True)
         with Image.open(src) as im:
             w, h = im.size
             if w > THUMB_WIDTH:
                 im = im.resize((THUMB_WIDTH, round(h * THUMB_WIDTH / w)), Image.LANCZOS)
             im.save(dest, "WEBP", quality=82, method=4)
         return True
-    except Exception:
+    except Exception as e:
+        try:  # 冻结环境排障：把缩略图异常落盘
+            (IMG_CACHE / "thumb_error.log").write_text(repr(e), encoding="utf-8")
+        except Exception:
+            pass
         return False
 
 
@@ -286,9 +291,14 @@ def card_thumb(code: str, idx: str):
         return jsonify({"error": "非法参数"}), 400
     src = IMG_CACHE / code / f"{idx}.png"
     dest = IMG_CACHE / "thumb" / code / f"{idx}.webp"
-    if _thumb_for(src, dest) or _cached_fetch(MIK_IMG.format(code=code, idx=idx), src) and _thumb_for(src, dest):
-        return send_file(dest, mimetype="image/webp", max_age=86400)
-    return jsonify({"error": "图片获取失败"}), 404
+    if not _thumb_for(src, dest):
+        # 缩略图不可用（如 Pillow 缺失）时下载原图并兜底直出，保证有图
+        _cached_fetch(MIK_IMG.format(code=code, idx=idx), src)
+        if not _thumb_for(src, dest):
+            if src.exists() and src.stat().st_size > 0:
+                return send_file(src, mimetype="image/png", max_age=86400)
+            return jsonify({"error": "图片获取失败"}), 404
+    return send_file(dest, mimetype="image/webp", max_age=86400)
 
 
 @app.get("/icon/<code>")
