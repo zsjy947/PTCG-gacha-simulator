@@ -116,10 +116,9 @@ function jsSpecProbabilities(spec, pools) {
 const DATA = {
   async sets() {
     if (!ASSET) return api("/api/sets");
-    const [idx, meta] = await Promise.all([
-      fetch("assets/sets_index.json").then((r) => r.json()),
-      fetch("assets/gacha_data.json").then((r) => r.json()),
-    ]);
+    // 数据由 build_assets 以 JS 文件内嵌（file:// 下 fetch 不可用）
+    const idx = window.__SETS_INDEX__ || [];
+    const meta = window.__GACHA_META__ || { sets: {}, fallback: { specs: [] } };
     state.gachaMeta = meta;
     const groups = {};
     for (const s of idx) {
@@ -139,7 +138,18 @@ const DATA = {
       const d = await api(`/api/sets/${encodeURIComponent(setId)}/cards`);
       return d.cards;
     }
-    const cards = await fetch(`assets/cards/${setId}.json`).then((r) => r.json());
+    window.__CARD_FILES__ = window.__CARD_FILES__ || {};
+    if (!window.__CARD_FILES__[setId]) {
+      // 动态注入 script 标签加载该弹卡表
+      await new Promise((resolve, reject) => {
+        const sc = document.createElement("script");
+        sc.src = `assets/cards/${setId}.js`;
+        sc.onload = resolve;
+        sc.onerror = () => reject(new Error(`卡表 ${setId} 加载失败`));
+        document.head.appendChild(sc);
+      });
+    }
+    const cards = window.__CARD_FILES__[setId] || [];
     for (const c of cards) c.image = imgURL(c.setCode, c.cardIndex);
     return cards;
   },
@@ -167,12 +177,15 @@ const DATA = {
   },
   async detail(code, idx) {
     if (!ASSET) return api(`/api/card/${encodeURIComponent(code)}/${encodeURIComponent(idx)}`);
-    const r = await fetch(`${MIK_API}/card/card-detail`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ setCode: code, cardIndex: idx }),
+    // file:// 环境用 XHR（fetch 到 https 会受 CORS 限制）
+    return new Promise((resolve, reject) => {
+      const x = new XMLHttpRequest();
+      x.open("POST", `${MIK_API}/card/card-detail`, true);
+      x.setRequestHeader("Content-Type", "application/json");
+      x.onload = () => { try { resolve(JSON.parse(x.responseText)); } catch (e) { reject(e); } };
+      x.onerror = () => reject(new Error("详情接口网络错误"));
+      x.send(JSON.stringify({ setCode: code, cardIndex: idx }));
     });
-    return r.json();
   },
 };
 function escapeHtml(s) {

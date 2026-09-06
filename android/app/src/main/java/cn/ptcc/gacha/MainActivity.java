@@ -23,6 +23,7 @@ public class MainActivity extends Activity {
         s.setJavaScriptEnabled(true);
         s.setDomStorageEnabled(true);
         s.setAllowFileAccess(true);
+        s.setAllowFileAccessFromFileURLs(true);
         // file:// 资产直连 mik.moe 的卡图与详情接口，需要放开跨域
         s.setAllowUniversalAccessFromFileURLs(true);
         s.setLoadWithOverviewMode(true);

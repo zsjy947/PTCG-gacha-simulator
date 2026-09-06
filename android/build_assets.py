@@ -48,6 +48,10 @@ def main():
                         '<script>window.__ASSET_MODE__=true;'
                         'window.__ASSET_BASE__="https://tcg.mik.moe/static";</script>\n'
                         '<script src="app.js"></script>')
+    html = html.replace('<script src="app.js"></script>',
+                        '<script src="assets/sets_index.js"></script>\n'
+                        '<script src="assets/meta.js"></script>\n'
+                        '<script src="app.js"></script>')
     (WWW / "index.html").write_text(html, encoding="utf-8")
     shutil.copy2(ROOT / "static" / "style.css", WWW / "style.css")
     shutil.copy2(ROOT / "static" / "app.js", WWW / "app.js")
@@ -63,17 +67,26 @@ def main():
             "count": s["count"],
             "specs": spec_brief_full(s["code"]),
         }
-    (WWW / "assets" / "sets_index.json").write_text(
-        json.dumps(idx, ensure_ascii=False), encoding="utf-8")
-    (WWW / "assets" / "gacha_data.json").write_text(
-        json.dumps({
-            "sets": sets_meta,
-            "fallback": {"specs": spec_brief_full("__generic__")},
-        }, ensure_ascii=False), encoding="utf-8")
+    # 数据以 JS 文件内嵌：file:// 下 script 标签不受 fetch/XHR 限制
+    def js_assign(var: str, obj) -> str:
+        return f"window[{var!r}] = " + json.dumps(obj, ensure_ascii=False) + ";"
 
-    # 每弹卡表
+    (WWW / "assets" / "sets_index.js").write_text(
+        js_assign("__SETS_INDEX__", idx), encoding="utf-8")
+    (WWW / "assets" / "meta.js").write_text(js_assign("__GACHA_META__", {
+        "sets": sets_meta,
+        "fallback": {"specs": spec_brief_full("__generic__")},
+    }), encoding="utf-8")
+
+    # 每弹卡表（JS 文件，动态 script 标签按需加载）
+    cards_dir = WWW / "assets" / "cards"
+    cards_dir.mkdir(exist_ok=True)
     for f in (data / "cards").glob("*.json"):
-        shutil.copy2(f, WWW / "assets" / "cards" / f.name)
+        cards = json.loads(f.read_text(encoding="utf-8"))
+        js = ("window.__CARD_FILES__ = window.__CARD_FILES__ || {};" + chr(10)
+              + f"window.__CARD_FILES__[{f.stem!r}] = "
+              + json.dumps(cards, ensure_ascii=False) + ";")
+        (cards_dir / (f.stem + ".js")).write_text(js, encoding="utf-8")
 
     n_cards = len(list((WWW / "assets" / "cards").glob("*.json")))
     print(f"资产生成完成: {WWW}")
