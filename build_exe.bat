@@ -7,6 +7,8 @@ python -m PyInstaller --noconfirm --onefile --noconsole ^
   --add-data "static;static" ^
   --add-data "data\sets_index.json;data" ^
   --add-data "data\cards;data\cards" ^
+  --collect-all webview ^
+  --collect-all PIL ^
   app.py
 if errorlevel 1 (
   echo 打包失败，请先 pip install pyinstaller
