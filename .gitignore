@@ -11,3 +11,4 @@ android/app/build/
 android/.gradle/
 android/local.properties
 *.apk.idsig
+android/app/src/main/assets/www/
