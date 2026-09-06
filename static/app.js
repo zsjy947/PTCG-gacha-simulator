@@ -37,12 +37,144 @@ async function api(url, opts) {
   return body;
 }
 
-function cardImage(c) {
-  return c.image || `/img/${c.setCode}/${c.cardIndex}`;
+/* 资产模式（安卓 APK）：无后端，数据内嵌、JS 本地抽卡、卡图直连图源 */
+const ASSET = !!window.__ASSET_MODE__;
+const MIK_STATIC = window.__ASSET_BASE__ || "https://tcg.mik.moe/static";
+const MIK_API = "https://tcg.mik.moe/api/v3";
+const RARITY_ALIAS = { "●": "C", "○": "C", "◆": "U", "◇": "U", "★": "R", "★★": "RR", "★★★": "SAR" };
+
+function imgURL(code, idx) {
+  return ASSET ? `${MIK_STATIC}/img/${code}/${idx}.png` : `/img/${code}/${idx}`;
 }
 function thumbURL(c) {
-  return `/thumb/${c.setCode}/${c.cardIndex}`;
+  return ASSET ? imgURL(c.setCode, c.cardIndex) : `/thumb/${c.setCode}/${c.cardIndex}`;
 }
+function cardImage(c) {
+  return c.image || imgURL(c.setCode, c.cardIndex);
+}
+function iconURL(code) {
+  return ASSET ? `${MIK_STATIC}/setCode/${code}.png` : `/icon/${code}`;
+}
+
+/* ---- 本地抽卡引擎（资产模式） ---- */
+function buildPools(cards) {
+  const pools = {};
+  for (const c of cards) {
+    const r = c.rarity || "N";
+    const k = RARITY_ALIAS[r] || r;
+    (pools[k] = pools[k] || []).push(c);
+  }
+  return pools;
+}
+function normalizeWeights(weights, available) {
+  const w = Object.entries(weights).filter(([r, v]) => available.includes(r) && v > 0);
+  if (!w.length) return null;
+  const total = w.reduce((a, [, v]) => a + v, 0);
+  return Object.fromEntries(w.map(([r, v]) => [r, v / total]));
+}
+function pickRarity(probs) {
+  let roll = Math.random(), acc = 0;
+  for (const [r, p] of Object.entries(probs)) { acc += p; if (roll <= acc) return r; }
+  return Object.keys(probs).pop();
+}
+function pickCard(pools, rarity, cards) {
+  const pool = rarity ? pools[rarity] : null;
+  const src = pool && pool.length ? pool : cards;
+  return { ...src[Math.floor(Math.random() * src.length)] };
+}
+function jsDrawPack(pools, cards, spec) {
+  const variants = spec.variants || [{ note: spec.note || "", slots: spec.slots }];
+  const v = variants[Math.floor(Math.random() * variants.length)];
+  const available = Object.keys(pools);
+  return v.slots.map((slot) => {
+    const probs = normalizeWeights(slot.weights, available);
+    const card = pickCard(pools, probs ? pickRarity(probs) : null, cards);
+    card.slotName = slot.name;
+    card.slotKind = slot.kind;
+    return card;
+  });
+}
+function jsSpecProbabilities(spec, pools) {
+  const slotTable = (slots) => slots.map((slot) => {
+    const probs = normalizeWeights(slot.weights, Object.keys(pools)) || {};
+    return {
+      name: slot.name, kind: slot.kind, fallback: !probs,
+      probabilities: Object.entries(probs)
+        .map(([r, p]) => ({ rarity: r, p, pool: (pools[r] || []).length }))
+        .sort((a, b) => b.p - a.p),
+    };
+  });
+  const variants = spec.variants || [{ note: spec.note || "", slots: spec.slots }];
+  return {
+    id: spec.id, label: spec.label, note: spec.note, price: spec.price,
+    packSize: variants[0].slots.length,
+    variants: variants.map((v) => ({ note: v.note, slots: slotTable(v.slots) })),
+  };
+}
+
+/* ---- 数据访问层：服务模式 / 资产模式 ---- */
+const DATA = {
+  async sets() {
+    if (!ASSET) return api("/api/sets");
+    const [idx, meta] = await Promise.all([
+      fetch("assets/sets_index.json").then((r) => r.json()),
+      fetch("assets/gacha_data.json").then((r) => r.json()),
+    ]);
+    state.gachaMeta = meta;
+    const groups = {};
+    for (const s of idx) {
+      if (!s.count) continue;
+      const m = meta.sets[s.code];
+      const entry = { ...s, specs: m ? m.specs : meta.fallback.specs };
+      (groups[s.seriesZh || "其他"] = groups[s.seriesZh || "其他"] || []).push(entry);
+    }
+    const order = ["超级进化系列", "朱&紫 系列", "剑&盾 系列", "太阳&月亮 系列", "30周年庆典"];
+    const result = [];
+    for (const g of order) if (groups[g]) { result.push({ group: g, sets: groups[g] }); delete groups[g]; }
+    for (const g of Object.keys(groups)) result.push({ group: g, sets: groups[g] });
+    return { groups: result };
+  },
+  async cards(setId) {
+    if (!ASSET) {
+      const d = await api(`/api/sets/${encodeURIComponent(setId)}/cards`);
+      return d.cards;
+    }
+    const cards = await fetch(`assets/cards/${setId}.json`).then((r) => r.json());
+    for (const c of cards) c.image = imgURL(c.setCode, c.cardIndex);
+    return cards;
+  },
+  async probabilities(setId) {
+    if (!ASSET) return api(`/api/sets/${encodeURIComponent(setId)}/probabilities`);
+    const cards = await DATA.cards(setId);
+    const pools = buildPools(cards);
+    return { specs: state.current.specs.map((sp) => jsSpecProbabilities(sp, pools)) };
+  },
+  async draw(setId, spec, packs) {
+    if (!ASSET) {
+      return api("/api/draw", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ set: setId, spec: spec.key, packs }),
+      });
+    }
+    const cards = await DATA.cards(setId);
+    const pools = buildPools(cards);
+    const packsOut = [];
+    for (let i = 0; i < packs; i++) packsOut.push(jsDrawPack(pools, cards, spec));
+    return {
+      packs: packsOut.map((p) => p.map((c) => ({ ...c, image: imgURL(c.setCode, c.cardIndex) }))),
+    };
+  },
+  async detail(code, idx) {
+    if (!ASSET) return api(`/api/card/${encodeURIComponent(code)}/${encodeURIComponent(idx)}`);
+    const r = await fetch(`${MIK_API}/card/card-detail`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ setCode: code, cardIndex: idx }),
+    });
+    return r.json();
+  },
+};
 function escapeHtml(s) {
   return String(s ?? "").replace(/[&<>"']/g, (m) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[m]));
 }
@@ -104,7 +236,7 @@ function addColl(setId, cards) {
 async function loadSets() {
   const box = $("#setGroups");
   try {
-    const data = await api("/api/sets");
+    const data = await DATA.sets();
     state.sets = data.groups.flatMap((g) => g.sets.map((s) => ({ ...s, group: g.group })));
     const frag = document.createDocumentFragment();
     for (const g of data.groups) {
@@ -121,7 +253,7 @@ async function loadSets() {
           <span class="si-name"><b>${escapeHtml(s.name)}</b><span>${escapeHtml(s.code)}</span></span>
           <span class="si-count">${s.count}</span>`;
         const img = document.createElement("img");
-        img.src = `/icon/${s.code}`;
+        img.src = iconURL(s.code);
         img.alt = "";
         img.onload = () => b.querySelector(".no-icon").replaceWith(img);
         img.onerror = () => {};
@@ -154,7 +286,7 @@ function selectSet(id) {
   state.spec = s.specs.find((x) => x.default) || s.specs[0];
   $$(".set-item").forEach((el) => el.classList.toggle("active", el.dataset.id === id));
   $("#hero").innerHTML = `
-    <div class="hero-icon"><img src="/icon/${s.code}" alt="" style="max-width:64px;max-height:48px;object-fit:contain" onerror="this.outerHTML='🎯'"></div>
+    <div class="hero-icon"><img src="${iconURL(s.code)}" alt="" style="max-width:64px;max-height:48px;object-fit:contain" onerror="this.outerHTML='🎯'"></div>
     <div class="hero-info">
       <h2>${escapeHtml(s.name)}</h2>
       <p>${escapeHtml(s.group)} · ${s.count} 张卡牌</p>
@@ -204,10 +336,10 @@ function renderSpecButtons() {
 
 async function loadSetCards(id) {
   if (state.cards.has(id)) return state.cards.get(id);
-  const data = await api(`/api/sets/${encodeURIComponent(id)}/cards`);
-  state.cards.set(id, data.cards);
-  fillRarityFilter(data.cards);
-  return data.cards;
+  const cards = await DATA.cards(id);
+  state.cards.set(id, cards);
+  fillRarityFilter(cards);
+  return cards;
 }
 
 /* ---------------- 抽卡 ---------------- */
@@ -216,11 +348,7 @@ async function draw(spec, packs) {
   state.drawing = true;
   $$(".draw-actions .btn").forEach((b) => (b.disabled = true));
   try {
-    const data = await api("/api/draw", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ set: state.current.id, spec: spec.key, packs }),
-    });
+    const data = await DATA.draw(state.current.id, spec, packs);
     state.packs = data.packs;
     state.packIdx = 0;
     state.flipped = data.packs.map(() => new Set());
@@ -245,14 +373,6 @@ function openOverlay(spec, packs) {
   pack.classList.remove("burst");
   pack.style.display = "";
   $("#packLabel").textContent = `${state.current.name} · ${spec.label}`;
-  const art = $("#packArtImg");
-  if (!ASSET) {
-    art.src = `/static/packs/${state.current.code}.png`;
-    art.hidden = false;
-    art.onerror = () => { art.hidden = true; };
-    art.onload = () => { $("#packSvg").style.display = "none"; };
-  } else { art.hidden = true; }
-  $("#packSvg").style.display = "";
   pack.dataset.specKey = spec.key;
   pack.dataset.packs = packs;
   $("#packStage").querySelector(".pack-hint").textContent = "点击卡包 撕开！";
@@ -447,9 +567,8 @@ function renderCollection() {
       sel.appendChild(o);
     }
     if (state.current) sel.value = state.current.id;
-  } else if (state.current) {
-    sel.value = state.current.id;
   }
+  if (!sel.value && state.current) sel.value = state.current.id;
   const setId = sel.value;
   const box = getColl()[setId] || {};
   const sortMode = $("#collSort").value;
@@ -556,7 +675,7 @@ async function showProbabilities() {
   $("#probBody").innerHTML = `<p class="prob-note">载入中…</p>`;
   $("#probOverlay").hidden = false;
   try {
-    const data = await api(`/api/sets/${encodeURIComponent(state.current.id)}/probabilities`);
+    const data = await DATA.probabilities(state.current.id);
     const specHtml = data.specs.map((sp) => {
       const variants = sp.variants.map((v) => `
         <div class="prob-variant">
@@ -585,7 +704,7 @@ async function showDetail(code, idx) {
   $("#detailBody").innerHTML = `<p class="prob-note">载入中…</p>`;
   $("#detailOverlay").hidden = false;
   try {
-    const data = await api(`/api/card/${encodeURIComponent(code)}/${encodeURIComponent(idx)}`);
+    const data = await DATA.detail(code, idx);
     const c = data.data;
     if (!c) throw new Error("无数据");
     $("#detailTitle").textContent = c.name || "卡牌详情";
