@@ -80,6 +80,12 @@
       <div class="page-head">
         <h2>收藏册（本浏览器）</h2>
         <div class="page-head-tools">
+          <select id="collSort">
+            <option value="rarity">按稀有度</option>
+            <option value="index">按卡牌编号</option>
+            <option value="name">按卡牌名称</option>
+            <option value="count">按获得张数</option>
+          </select>
           <select id="collSet"></select>
           <button class="mini-btn" id="btnExportColl">导出 JSON</button>
           <button class="mini-btn danger" id="btnClearColl">清空收藏</button>
@@ -110,7 +116,8 @@
       <div class="pack" id="pack">
         <div class="pack-shine"></div>
         <div class="pack-top"></div>
-        <div class="pack-art">
+        <img id="packArtImg" class="pack-img" alt="" hidden>
+        <div class="pack-art" id="packSvg">
           <svg class="pokeball spin" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#f5f6f8" stroke="#20242c" stroke-width="7"/><path d="M5 50a45 45 0 0 1 90 0z" fill="#e3350d"/><circle cx="50" cy="50" r="17" fill="#f5f6f8" stroke="#20242c" stroke-width="7"/><circle cx="50" cy="50" r="7" fill="#cfd6e0"/></svg>
         </div>
         <div class="pack-label" id="packLabel">补充包</div>

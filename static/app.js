@@ -374,12 +374,12 @@ function openOverlay(spec, packs) {
   pack.style.display = "";
   $("#packLabel").textContent = `${state.current.name} · ${spec.label}`;
   const art = $("#packArtImg");
-  if (!ASSET) {
-    art.src = `/static/packs/${state.current.code}.png`;
-    art.hidden = false;
-    art.onerror = () => { art.hidden = true; };
-    art.onload = () => { $("#packSvg").style.display = "none"; };
-  } else { art.hidden = true; }
+  art.src = ASSET
+    ? `packs/${state.current.code}.png`
+    : `/static/packs/${state.current.code}.png`;
+  art.hidden = false;
+  art.onerror = () => { art.hidden = true; $("#packSvg").style.display = ""; };
+  art.onload = () => { $("#packSvg").style.display = "none"; };
   $("#packSvg").style.display = "";
   pack.dataset.specKey = spec.key;
   pack.dataset.packs = packs;

@@ -51,6 +51,12 @@ def main():
     (WWW / "index.html").write_text(html, encoding="utf-8")
     shutil.copy2(ROOT / "static" / "style.css", WWW / "style.css")
     shutil.copy2(ROOT / "static" / "app.js", WWW / "app.js")
+    shutil.copy2(ROOT / "static" / "cardback.png", WWW / "cardback.png")
+    packs_src = ROOT / "static" / "packs"
+    if packs_src.exists():
+        (WWW / "packs").mkdir(exist_ok=True)
+        for f in packs_src.glob("*.png"):
+            shutil.copy2(f, WWW / "packs" / f.name)
 
     # 弹索引 + 抽卡规格元数据
     idx = json.loads((data / "sets_index.json").read_text(encoding="utf-8"))
