@@ -224,11 +224,9 @@ async function draw(spec, packs) {
     state.packs = data.packs;
     state.packIdx = 0;
     state.flipped = data.packs.map(() => new Set());
+    // 抽卡记录/统计/收藏在卡牌全部翻开后才写入（见 maybeRecordPack）
+    state.pending = { spec, recorded: data.packs.map(() => false) };
     openOverlay(spec, packs);
-    addHistory(spec, packs, data.packs);
-    const flat = data.packs.flat();
-    addStats(state.current.id, flat, data.packs.length);
-    addColl(state.current.id, flat);
   } catch (e) {
     alert(`抽卡失败：${e.message}`);
   } finally {
@@ -247,6 +245,14 @@ function openOverlay(spec, packs) {
   pack.classList.remove("burst");
   pack.style.display = "";
   $("#packLabel").textContent = `${state.current.name} · ${spec.label}`;
+  const art = $("#packArtImg");
+  if (!ASSET) {
+    art.src = `/static/packs/${state.current.code}.png`;
+    art.hidden = false;
+    art.onerror = () => { art.hidden = true; };
+    art.onload = () => { $("#packSvg").style.display = "none"; };
+  } else { art.hidden = true; }
+  $("#packSvg").style.display = "";
   pack.dataset.specKey = spec.key;
   pack.dataset.packs = packs;
   $("#packStage").querySelector(".pack-hint").textContent = "点击卡包 撕开！";
@@ -286,10 +292,12 @@ function renderPackRow() {
   row.innerHTML = "";
   const pack = state.packs[state.packIdx];
   const auto = $("#autoFlip").checked;
-  const stagger = Math.min(90, Math.floor(1200 / Math.max(pack.length, 1)));
+  const stagger = auto
+    ? Math.min(36, Math.floor(600 / Math.max(pack.length, 1)))
+    : Math.min(90, Math.floor(1200 / Math.max(pack.length, 1)));
   pack.forEach((c, i) => {
     const el = document.createElement("div");
-    el.className = "gcard back dealt";
+    el.className = "gcard back dealt" + (auto ? " fast" : "");
     el.dataset.rarity = c.rarity || "N";
     el.style.animationDelay = `${i * stagger}ms`;
     el.innerHTML = `
@@ -303,7 +311,7 @@ function renderPackRow() {
   $("#navPrev").disabled = state.packIdx === 0;
   $("#navNext").disabled = state.packIdx === state.packs.length - 1;
   renderPackSummary();
-  if (auto) setTimeout(() => flipAll(), stagger * pack.length + 650);
+  if (auto) setTimeout(() => flipAll(), stagger * pack.length + 420);
 }
 
 function renderPackSummary() {
@@ -316,6 +324,7 @@ function renderPackSummary() {
   const pack = state.packs[state.packIdx];
   const done = state.flipped[state.packIdx].size;
   if (done < pack.length) { box.textContent = `点击卡牌翻开（${done}/${pack.length}）`; return; }
+  maybeRecordPack(state.packIdx);
   const cnt = {};
   pack.forEach((c) => { const r = c.rarity || "N"; cnt[r] = (cnt[r] || 0) + 1; });
   const chips = RARITY_ORDER.filter((r) => cnt[r])
@@ -340,10 +349,38 @@ function flipCard(el, i) {
 
 function flipAll() {
   const row = $$("#cardsRow .gcard");
-  row.forEach((el, i) => setTimeout(() => flipCard(el, i), i * 60));
+  const gap = row[0] && row[0].classList.contains("fast") ? 22 : 60;
+  row.forEach((el, i) => setTimeout(() => flipCard(el, i), i * gap));
 }
 
-function closeOverlay() { $("#overlay").hidden = true; }
+/* 该包全部翻开后才写入抽卡记录、统计与收藏 */
+function maybeRecordPack(pi) {
+  const p = state.pending;
+  if (!p || p.recorded[pi]) return;
+  if (state.flipped[pi].size < state.packs[pi].length) return;
+  p.recorded[pi] = true;
+  const cards = state.packs[pi];
+  addHistory(p.spec, 1, cards);
+  addStats(state.current.id, cards, 1);
+  addColl(state.current.id, cards);
+}
+
+/* 关闭遮罩时把未翻完的包静默入账，保证统计不失真 */
+function recordUnfinished() {
+  const p = state.pending;
+  if (!p) return;
+  p.recorded.forEach((done, pi) => {
+    if (done) return;
+    p.recorded[pi] = true;
+    const cards = state.packs[pi];
+    addHistory(p.spec, 1, cards);
+    addStats(state.current.id, cards, 1);
+    addColl(state.current.id, cards);
+  });
+  state.pending = null;
+}
+
+function closeOverlay() { recordUnfinished(); $("#overlay").hidden = true; }
 
 /* ---------------- 历史记录 ---------------- */
 function addHistory(spec, packs, result) {
@@ -415,8 +452,13 @@ function renderCollection() {
   }
   const setId = sel.value;
   const box = getColl()[setId] || {};
-  const entries = Object.values(box).sort((a, b) =>
-    RARITY_ORDER.indexOf(a.rarity) - RARITY_ORDER.indexOf(b.rarity) || a.cardIndex.localeCompare(b.cardIndex));
+  const sortMode = $("#collSort").value;
+  const entries = Object.values(box).sort((a, b) => {
+    if (sortMode === "index") return a.cardIndex.localeCompare(b.cardIndex, undefined, { numeric: true });
+    if (sortMode === "name") return a.name.localeCompare(b.name, "zh-Hans-CN");
+    if (sortMode === "count") return b.count - a.count || RARITY_ORDER.indexOf(a.rarity) - RARITY_ORDER.indexOf(b.rarity);
+    return RARITY_ORDER.indexOf(a.rarity) - RARITY_ORDER.indexOf(b.rarity) || a.cardIndex.localeCompare(b.cardIndex);
+  });
   const total = entries.reduce((a, e) => a + e.count, 0);
   $("#collSummary").innerHTML = entries.length
     ? `<span><b>${entries.length}</b>种卡牌</span><span><b>${total}</b>张总计</span>
@@ -616,6 +658,7 @@ function init() {
   });
   $("#btnExportColl").addEventListener("click", exportCollection);
   $("#collSet").addEventListener("change", renderCollection);
+  $("#collSort").addEventListener("change", renderCollection);
   $("#clRarity").addEventListener("change", drawCardList);
   $("#clSearch").addEventListener("input", drawCardList);
 
