@@ -373,14 +373,6 @@ function openOverlay(spec, packs) {
   pack.classList.remove("burst");
   pack.style.display = "";
   $("#packLabel").textContent = `${state.current.name} · ${spec.label}`;
-  const art = $("#packArtImg");
-  art.src = ASSET
-    ? `packs/${state.current.code}.png`
-    : `/static/packs/${state.current.code}.png`;
-  art.hidden = false;
-  art.onerror = () => { art.hidden = true; $("#packSvg").style.display = ""; };
-  art.onload = () => { $("#packSvg").style.display = "none"; };
-  $("#packSvg").style.display = "";
   pack.dataset.specKey = spec.key;
   pack.dataset.packs = packs;
   $("#packStage").querySelector(".pack-hint").textContent = "点击卡包 撕开！";
@@ -575,9 +567,8 @@ function renderCollection() {
       sel.appendChild(o);
     }
     if (state.current) sel.value = state.current.id;
-  } else if (state.current) {
-    sel.value = state.current.id;
   }
+  if (!sel.value && state.current) sel.value = state.current.id;
   const setId = sel.value;
   const box = getColl()[setId] || {};
   const sortMode = $("#collSort").value;

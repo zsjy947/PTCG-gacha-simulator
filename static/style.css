@@ -228,12 +228,6 @@ select option { background: #17203a; color: var(--txt); }
 .pack-top { position: absolute; top: 0; left: 0; right: 0; height: 52px; background: rgba(0,0,0,.28); border-bottom: 2px dashed rgba(255,255,255,.4); }
 .pack-top::after { content: "POKÉMON TCG"; position: absolute; left: 0; right: 0; top: 16px; text-align: center; color: rgba(255,255,255,.75); font-size: 12px; letter-spacing: 5px; font-weight: 700; }
 .pack-art { filter: drop-shadow(0 8px 18px rgba(0,0,0,.35)); }
-.pack-img {
-  position: absolute; left: 10px; right: 10px; top: 8px; bottom: 44px;
-  width: calc(100% - 20px); height: calc(100% - 52px);
-  object-fit: contain; z-index: 2;
-  filter: drop-shadow(0 10px 22px rgba(0,0,0,.45));
-}
 .pack-label {
   position: absolute; bottom: 18px; left: 12px; right: 12px; color: #fff;
   font-size: 15px; font-weight: 800; letter-spacing: 2px;
