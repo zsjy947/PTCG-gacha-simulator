@@ -1,0 +1,196 @@
+[
+ {
+  "setCode": "CSVH2pC",
+  "cardIndex": "001",
+  "cardName": "狗仔包",
+  "rarity": "无标记",
+  "effectId": "69d59214321f51dae336d7524619d85e",
+  "cardType": "Pokemon",
+  "yorenCode": "P0926",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "69",
+  "nameEn": "Fidough"
+ },
+ {
+  "setCode": "CSVH2pC",
+  "cardIndex": "002",
+  "cardName": "麻花犬",
+  "rarity": "无标记",
+  "effectId": "2d300a3fe8950215cbf5cfc3f93526fd",
+  "cardType": "Pokemon",
+  "yorenCode": "P0927",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "99",
+  "nameEn": "Dachsbun"
+ },
+ {
+  "setCode": "CSVH2pC",
+  "cardIndex": "003",
+  "cardName": "墓仔狗",
+  "rarity": "无标记",
+  "effectId": "21dc5a4142b6b12d0d7b42ffb54b73e1",
+  "cardType": "Pokemon",
+  "yorenCode": "P0971",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "70",
+  "nameEn": "Greavard"
+ },
+ {
+  "setCode": "CSVH2pC",
+  "cardIndex": "004",
+  "cardName": "墓扬犬",
+  "rarity": "无标记",
+  "effectId": "53f500b41d6a69224f3b75191779ca81",
+  "cardType": "Pokemon",
+  "yorenCode": "P0972",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "168",
+  "nameEn": "Houndstone"
+ },
+ {
+  "setCode": "CSVH2pC",
+  "cardIndex": "005",
+  "cardName": "偶叫獒",
+  "rarity": "无标记",
+  "effectId": "09cdfb73ee107c3e23e2b9cd4e6be3d8",
+  "cardType": "Pokemon",
+  "yorenCode": "P0942",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "71",
+  "nameEn": "Maschiff"
+ },
+ {
+  "setCode": "CSVH2pC",
+  "cardIndex": "006",
+  "cardName": "獒教父",
+  "rarity": "无标记",
+  "effectId": "7231c2e30e18848a31ccddc572c4eb58",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1284",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "188",
+  "nameEn": "Mabosstiff"
+ },
+ {
+  "setCode": "CSVH1pC",
+  "cardIndex": "GRA",
+  "cardName": "基本草能量",
+  "rarity": "无标记",
+  "effectId": "5e2d0ce37ca0c539aa45908da10544a0",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y457",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "1",
+  "nameEn": "Grass Energy"
+ },
+ {
+  "setCode": "CSVH1pC",
+  "cardIndex": "FIR",
+  "cardName": "基本火能量",
+  "rarity": "无标记",
+  "effectId": "22db5405bf0cce61a00aa8082cdd1e65",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y458",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "2",
+  "nameEn": "Fire Energy"
+ },
+ {
+  "setCode": "CSVH1pC",
+  "cardIndex": "WAT",
+  "cardName": "基本水能量",
+  "rarity": "无标记",
+  "effectId": "0cf075ae61b8a0b4e9151e5146c3aa26",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y459",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "3",
+  "nameEn": "Water Energy"
+ },
+ {
+  "setCode": "CSVH1pC",
+  "cardIndex": "LIG",
+  "cardName": "基本雷能量",
+  "rarity": "无标记",
+  "effectId": "45550fd10011f6ade7eef16ba88788cf",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y460",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "4",
+  "nameEn": "Lightning Energy"
+ },
+ {
+  "setCode": "CSVH1pC",
+  "cardIndex": "PSY",
+  "cardName": "基本超能量",
+  "rarity": "无标记",
+  "effectId": "41b2d1a95fafc35e4cf39383ffae928a",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y461",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "5",
+  "nameEn": "Psychic Energy"
+ },
+ {
+  "setCode": "CSVH1pC",
+  "cardIndex": "FIG",
+  "cardName": "基本斗能量",
+  "rarity": "无标记",
+  "effectId": "9fedb80a97ddd5cc8b8022a21364c326",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y462",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "6",
+  "nameEn": "Fighting Energy"
+ },
+ {
+  "setCode": "CSVH1pC",
+  "cardIndex": "DAR",
+  "cardName": "基本恶能量",
+  "rarity": "无标记",
+  "effectId": "46c769fc57a6c250c560df648bb779f8",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y463",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "7",
+  "nameEn": "Darkness Energy"
+ },
+ {
+  "setCode": "CSVH1pC",
+  "cardIndex": "MET",
+  "cardName": "基本钢能量",
+  "rarity": "无标记",
+  "effectId": "4557c01497b81767fdaa0004089ecfb3",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y464",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "8",
+  "nameEn": "Metal Energy"
+ }
+]

@@ -1,0 +1,1298 @@
+[
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "001",
+  "cardName": "火斑喵",
+  "rarity": "C",
+  "effectId": "21c2e5e10d96646ad387a4889be27bf6",
+  "cardType": "Pokemon",
+  "yorenCode": "P725",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "24",
+  "nameEn": "Litten"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "002",
+  "cardName": "炎热喵",
+  "rarity": "C",
+  "effectId": "7756afba52ebfdbae6bd3fd6c59d6536",
+  "cardType": "Pokemon",
+  "yorenCode": "P726",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "16",
+  "nameEn": "Torracat"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "003",
+  "cardName": "砰头小丑GX",
+  "rarity": "RR",
+  "effectId": "8d60748f25bf4d559fa11bf4fd71bc43",
+  "cardType": "Pokemon",
+  "yorenCode": "Y238",
+  "is": [
+   "GX",
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "52",
+  "nameEn": "Blacephalon-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "004",
+  "cardName": "墨海马",
+  "rarity": "C",
+  "effectId": "3c880814c59b2677065b6a3a67351be5",
+  "cardType": "Pokemon",
+  "yorenCode": "P116",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "BUS",
+  "cardIndexEn": "29",
+  "nameEn": "Horsea"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "005",
+  "cardName": "海刺龙",
+  "rarity": "C",
+  "effectId": "3363d7eb075be13243d2317071cca7ec",
+  "cardType": "Pokemon",
+  "yorenCode": "P117",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "BUS",
+  "cardIndexEn": "30",
+  "nameEn": "Seadra"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "006",
+  "cardName": "刺龙王GX",
+  "rarity": "RR",
+  "effectId": "9e22b4aaef0146975be2bbdb1cdb5599",
+  "cardType": "Pokemon",
+  "yorenCode": "Y239",
+  "is": [
+   "GX",
+   "Stage 2"
+  ],
+  "setCodeEn": "DRM",
+  "cardIndexEn": "18",
+  "nameEn": "Kingdra-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "007",
+  "cardName": "帕奇利兹",
+  "rarity": "C",
+  "effectId": "dfc4d21d0e27b1f3c76e4c8075934e0b",
+  "cardType": "Pokemon",
+  "yorenCode": "P417",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "80",
+  "nameEn": "Pachirisu"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "008",
+  "cardName": "电飞鼠",
+  "rarity": "C",
+  "effectId": "5cc31ff8416db79db24ccad63baeb660",
+  "cardType": "Pokemon",
+  "yorenCode": "P587",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "46",
+  "nameEn": "Emolga"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "009",
+  "cardName": "卡璞・鸣鸣◇",
+  "rarity": "PR",
+  "effectId": "80e6e5423f0888eab469dcb71f2d43b9",
+  "cardType": "Pokemon",
+  "yorenCode": "P785",
+  "is": [
+   "Prism Star",
+   "Basic"
+  ],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "51",
+  "nameEn": "Tapu Koko Prism Star"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "010",
+  "cardName": "捷拉奥拉GX",
+  "rarity": "RR",
+  "effectId": "207cb164f68f24dfbee80ece361cc822",
+  "cardType": "Pokemon",
+  "yorenCode": "Y240",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "86",
+  "nameEn": "Zeraora-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "011",
+  "cardName": "阿罗拉 臭泥",
+  "rarity": "C",
+  "effectId": "63025556475bcaacad36c0cb434df203",
+  "cardType": "Pokemon",
+  "yorenCode": "P088",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "57",
+  "nameEn": "Alolan Grimer"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "012",
+  "cardName": "阿罗拉 臭臭泥",
+  "rarity": "R",
+  "effectId": "8ebe85c3356b4049083d662fef8ee5a3",
+  "cardType": "Pokemon",
+  "yorenCode": "P089",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "58",
+  "nameEn": "Alolan Muk"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "013",
+  "cardName": "骑拉帝纳",
+  "rarity": "R",
+  "effectId": "3af82afb206adbaa42f46d2d267077d4",
+  "cardType": "Pokemon",
+  "yorenCode": "P487",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "97",
+  "nameEn": "Giratina"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "014",
+  "cardName": "谜拟丘",
+  "rarity": "R",
+  "effectId": "0cf6a6de07bf6092ac1715e18a823921",
+  "cardType": "Pokemon",
+  "yorenCode": "P778",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "GRI",
+  "cardIndexEn": "58",
+  "nameEn": "Mimikyu"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "015",
+  "cardName": "破破舵轮",
+  "rarity": "R",
+  "effectId": "075ff55bd6b3785e18416c54c66b7962",
+  "cardType": "Pokemon",
+  "yorenCode": "P781",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "GRI",
+  "cardIndexEn": "59",
+  "nameEn": "Dhelmise"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "016",
+  "cardName": "卡璞・蝶蝶",
+  "rarity": "R",
+  "effectId": "f902656453cf0d169316e6274a537a21",
+  "cardType": "Pokemon",
+  "yorenCode": "P786",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SMP",
+  "cardIndexEn": "45",
+  "nameEn": "Tapu Lele"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "017",
+  "cardName": "科斯莫古",
+  "rarity": "C",
+  "effectId": "e8880b6817dfbc87a104aaedcca99cf6",
+  "cardType": "Pokemon",
+  "yorenCode": "P789",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "64",
+  "nameEn": "Cosmog"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "018",
+  "cardName": "科斯莫姆",
+  "rarity": "C",
+  "effectId": "f19971259cf1c135c4592660cf243b8e",
+  "cardType": "Pokemon",
+  "yorenCode": "P790",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "65",
+  "nameEn": "Cosmoem"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "019",
+  "cardName": "露奈雅拉◇",
+  "rarity": "PR",
+  "effectId": "705533de7149fd54fcb8ada440188e55",
+  "cardType": "Pokemon",
+  "yorenCode": "Y390",
+  "is": [
+   "Prism Star",
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "62",
+  "nameEn": "Lunala Prism Star"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "020",
+  "cardName": "奈克洛兹玛 拂晓之翼",
+  "rarity": "R",
+  "effectId": "e29682e692bddb386ba36760c8be9b5e",
+  "cardType": "Pokemon",
+  "yorenCode": "P800",
+  "is": [
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "SMP",
+  "cardIndexEn": "106",
+  "nameEn": "Dawn Wings Necrozma"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "021",
+  "cardName": "奈克洛兹玛 拂晓之翼GX",
+  "rarity": "RR",
+  "effectId": "4ca1fb91bf754af36a0c49bc59fb84bf",
+  "cardType": "Pokemon",
+  "yorenCode": "Y241",
+  "is": [
+   "GX",
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "63",
+  "nameEn": "Dawn Wings Necrozma-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "022",
+  "cardName": "岩狗狗",
+  "rarity": "C",
+  "effectId": "06c59d22cb476c1521eb5f4e270d7d3a",
+  "cardType": "Pokemon",
+  "yorenCode": "P744",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SMP",
+  "cardIndexEn": "120",
+  "nameEn": "Rockruff"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "023",
+  "cardName": "鬃岩狼人GX",
+  "rarity": "RR",
+  "effectId": "6691a7b5a6e60dc064e9a7b9f85f0490",
+  "cardType": "Pokemon",
+  "yorenCode": "Y130",
+  "is": [
+   "GX",
+   "Stage 1"
+  ],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "82",
+  "nameEn": "Lycanroc-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "024",
+  "cardName": "投掷猴",
+  "rarity": "C",
+  "effectId": "cc73a8f6a78e437e7ae6af5e9d7cf519",
+  "cardType": "Pokemon",
+  "yorenCode": "P766",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "70",
+  "nameEn": "Passimian"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "025",
+  "cardName": "狃拉",
+  "rarity": "C",
+  "effectId": "b32128da9af874fed0625ac35fbda9b1",
+  "cardType": "Pokemon",
+  "yorenCode": "P215",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "73",
+  "nameEn": "Sneasel"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "026",
+  "cardName": "玛狃拉",
+  "rarity": "R",
+  "effectId": "4c9cec05683a86d443f937e8088d84c5",
+  "cardType": "Pokemon",
+  "yorenCode": "P461",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "74",
+  "nameEn": "Weavile"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "027",
+  "cardName": "阿勃梭鲁",
+  "rarity": "R",
+  "effectId": "a5af7cf39c4d5d481035ee8be6fe4d94",
+  "cardType": "Pokemon",
+  "yorenCode": "P359",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "88",
+  "nameEn": "Absol"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "028",
+  "cardName": "胡帕",
+  "rarity": "R",
+  "effectId": "76489a2ed926da2114bb58b940bfdd01",
+  "cardType": "Pokemon",
+  "yorenCode": "P720",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "55",
+  "nameEn": "Hoopa"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "029",
+  "cardName": "炽焰咆哮虎GX",
+  "rarity": "RR",
+  "effectId": "e6ef2dd186d2837ece153413fcc7a9f5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y178",
+  "is": [
+   "GX",
+   "Stage 2"
+  ],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "97",
+  "nameEn": "Incineroar-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "030",
+  "cardName": "阿罗拉 地鼠",
+  "rarity": "C",
+  "effectId": "b83782aabf2e9287cb56920600f52771",
+  "cardType": "Pokemon",
+  "yorenCode": "P050",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "78",
+  "nameEn": "Alolan Diglett"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "031",
+  "cardName": "阿罗拉 三地鼠",
+  "rarity": "C",
+  "effectId": "aae933abb314e77ee73d1f1dee704e46",
+  "cardType": "Pokemon",
+  "yorenCode": "P051",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "79",
+  "nameEn": "Alolan Dugtrio"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "032",
+  "cardName": "索尔迦雷欧GX",
+  "rarity": "RR",
+  "effectId": "3ad95692bd975559f96911b56ae7a0a6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y21",
+  "is": [
+   "GX",
+   "Stage 2"
+  ],
+  "setCodeEn": "SMP",
+  "cardIndexEn": "104",
+  "nameEn": "Solgaleo-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "033",
+  "cardName": "索尔迦雷欧◇",
+  "rarity": "PR",
+  "effectId": "dbd05e9ffc46db1dbe3bd4fff142fe64",
+  "cardType": "Pokemon",
+  "yorenCode": "Y391",
+  "is": [
+   "Prism Star",
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "89",
+  "nameEn": "Solgaleo Prism Star"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "034",
+  "cardName": "奈克洛兹玛 黄昏之鬃",
+  "rarity": "R",
+  "effectId": "7228e0fc71a372cd6adddecd41c93628",
+  "cardType": "Pokemon",
+  "yorenCode": "P800",
+  "is": [
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "SMP",
+  "cardIndexEn": "107",
+  "nameEn": "Dusk Mane Necrozma"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "035",
+  "cardName": "奈克洛兹玛 黄昏之鬃GX",
+  "rarity": "RR",
+  "effectId": "5f1640d20011ce95340d280c3abddb32",
+  "cardType": "Pokemon",
+  "yorenCode": "Y242",
+  "is": [
+   "GX",
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "90",
+  "nameEn": "Dusk Mane Necrozma-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "036",
+  "cardName": "拉帝亚斯◇",
+  "rarity": "PR",
+  "effectId": "063de50df182bd85aa73f9c0c2c9948d",
+  "cardType": "Pokemon",
+  "yorenCode": "P380",
+  "is": [
+   "Prism Star",
+   "Basic"
+  ],
+  "setCodeEn": "CES",
+  "cardIndexEn": "107",
+  "nameEn": "Latias Prism Star"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "037",
+  "cardName": "百变怪◇",
+  "rarity": "PR",
+  "effectId": "be722a82269a572afb90b98576280d73",
+  "cardType": "Pokemon",
+  "yorenCode": "P132",
+  "is": [
+   "Prism Star",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "154",
+  "nameEn": "Ditto Prism Star"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "038",
+  "cardName": "洛奇亚GX",
+  "rarity": "RR",
+  "effectId": "d15490ef399ad1df3fbd64474d6d2b1b",
+  "cardType": "Pokemon",
+  "yorenCode": "Y243",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "159",
+  "nameEn": "Lugia-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "039",
+  "cardName": "电气能量管",
+  "rarity": "U",
+  "effectId": "6c95599ffa50cf5e2a67cae71a443853",
+  "cardType": "Item",
+  "yorenCode": "Y244",
+  "is": [],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "172",
+  "nameEn": "Electropower"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "040",
+  "cardName": "神秘宝藏",
+  "rarity": "U",
+  "effectId": "1d4f707c69a6cdc5e245eca6e11f7655",
+  "cardType": "Item",
+  "yorenCode": "Y245",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "113",
+  "nameEn": "Mysterious Treasure"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "041",
+  "cardName": "迷失四叶草",
+  "rarity": "C",
+  "effectId": "f2d0cafb28f003861524776008424070",
+  "cardType": "Item",
+  "yorenCode": "Y246",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "129",
+  "nameEn": "Missing Clover"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "042",
+  "cardName": "妖精坠饰 究极异兽",
+  "rarity": "U",
+  "effectId": "2fd2512d103f85f7c7cd6b067a7b514a",
+  "cardType": "Tool",
+  "yorenCode": "Y247",
+  "is": [],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "142",
+  "nameEn": "Fairy Charm UB"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "043",
+  "cardName": "妖精坠饰【斗】",
+  "rarity": "U",
+  "effectId": "3f729e6a5991a89257b0e67af2669567",
+  "cardType": "Tool",
+  "yorenCode": "Y248",
+  "is": [],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "176",
+  "nameEn": "Fairy Charm Fighting"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "044",
+  "cardName": "空木博士的指导",
+  "rarity": "U",
+  "effectId": "e171f6a5f1ae95a1f150d25f25ab4afb",
+  "cardType": "Supporter",
+  "yorenCode": "Y249",
+  "is": [],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "188",
+  "nameEn": "Professor Elm's Lecture"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "045",
+  "cardName": "电次",
+  "rarity": "U",
+  "effectId": "b9853a9e32deea098110fcbeb76105d9",
+  "cardType": "Supporter",
+  "yorenCode": "Y250",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "135",
+  "nameEn": "Volkner"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "046",
+  "cardName": "弗拉达利◇",
+  "rarity": "PR",
+  "effectId": "7ba469ff3d3bbca3bad9b0e19d5f4b94",
+  "cardType": "Supporter",
+  "yorenCode": "Y251",
+  "is": [
+   "Prism Star"
+  ],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "110",
+  "nameEn": "Lysandre Prism Star"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "047",
+  "cardName": "球果匠人",
+  "rarity": "U",
+  "effectId": "c2f2d4900eedfd011013ebdee4da31bb",
+  "cardType": "Supporter",
+  "yorenCode": "Y252",
+  "is": [],
+  "setCodeEn": "CES",
+  "cardIndexEn": "124",
+  "nameEn": "Apricorn Maker"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "048",
+  "cardName": "琉琪亚",
+  "rarity": "U",
+  "effectId": "8cbc793ab11e9fb579179c64997da530",
+  "cardType": "Supporter",
+  "yorenCode": "Y253",
+  "is": [],
+  "setCodeEn": "CES",
+  "cardIndexEn": "137",
+  "nameEn": "Lisia"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "049",
+  "cardName": "阿渡◇",
+  "rarity": "PR",
+  "effectId": "8bf6c35f9db61927b280ee144526648d",
+  "cardType": "Supporter",
+  "yorenCode": "Y254",
+  "is": [
+   "Prism Star"
+  ],
+  "setCodeEn": "DRM",
+  "cardIndexEn": "61",
+  "nameEn": "Lance Prism Star"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "050",
+  "cardName": "朝蜜",
+  "rarity": "U",
+  "effectId": "e0b55e6f43316805550ef90dc831e404",
+  "cardType": "Supporter",
+  "yorenCode": "Y255",
+  "is": [],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "149",
+  "nameEn": "Morgan"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "051",
+  "cardName": "昼珠",
+  "rarity": "U",
+  "effectId": "08f9167931c706756265b5eddbd23dd7",
+  "cardType": "Supporter",
+  "yorenCode": "Y256",
+  "is": [],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "137",
+  "nameEn": "Dana"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "052",
+  "cardName": "夕丝",
+  "rarity": "U",
+  "effectId": "15070cd07e1d9ef1f53a7295833626b3",
+  "cardType": "Supporter",
+  "yorenCode": "Y257",
+  "is": [],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "141",
+  "nameEn": "Evelyn"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "053",
+  "cardName": "夜妮",
+  "rarity": "U",
+  "effectId": "f336ab93bdca0c5c4260b1398c55da76",
+  "cardType": "Supporter",
+  "yorenCode": "Y258",
+  "is": [],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "151",
+  "nameEn": "Nita"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "054",
+  "cardName": "惩戒祠堂",
+  "rarity": "U",
+  "effectId": "0522f1078027321cd4553937d097db69",
+  "cardType": "Stadium",
+  "yorenCode": "Y259",
+  "is": [],
+  "setCodeEn": "CES",
+  "cardIndexEn": "143",
+  "nameEn": "Shrine of Punishment"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "055",
+  "cardName": "被破坏殆尽的原野",
+  "rarity": "U",
+  "effectId": "95c1d7589b6e22222f205db912415cfe",
+  "cardType": "Stadium",
+  "yorenCode": "Y260",
+  "is": [],
+  "setCodeEn": "CIN",
+  "cardIndexEn": "93",
+  "nameEn": "Devoured Field"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "056",
+  "cardName": "天冠山",
+  "rarity": "U",
+  "effectId": "f6d837bffa2298b7847c2bc6f761b32d",
+  "cardType": "Stadium",
+  "yorenCode": "Y261",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "130",
+  "nameEn": "Mt. Coronet"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "057",
+  "cardName": "奇迹迷宫◇",
+  "rarity": "PR",
+  "effectId": "5c700391a315fb8718326437d9277f32",
+  "cardType": "Stadium",
+  "yorenCode": "Y262",
+  "is": [
+   "Prism Star"
+  ],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "158",
+  "nameEn": "Wondrous Labyrinth Prism Star"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "058",
+  "cardName": "组合能量【草】【火】【水】",
+  "rarity": "U",
+  "effectId": "f2815392978ba95851cc3c75e7594f8f",
+  "cardType": "Special Energy",
+  "yorenCode": "Y263",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "137",
+  "nameEn": "Unit Energy GRW"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "059",
+  "cardName": "组合能量【雷】【超】【钢】",
+  "rarity": "U",
+  "effectId": "6d53cc2aa3fafb7a1182c0303d614bda",
+  "cardType": "Special Energy",
+  "yorenCode": "Y264",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "138",
+  "nameEn": "Unit Energy LPM"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "060",
+  "cardName": "组合能量【斗】【恶】【妖】",
+  "rarity": "U",
+  "effectId": "9d120ba7d3e0603527fc4748f5dc12ea",
+  "cardType": "Special Energy",
+  "yorenCode": "Y265",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "118",
+  "nameEn": "Unit Energy FDY"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "061",
+  "cardName": "砰头小丑GX",
+  "rarity": "SR",
+  "effectId": "8d60748f25bf4d559fa11bf4fd71bc43",
+  "cardType": "Pokemon",
+  "yorenCode": "Y238",
+  "is": [
+   "GX",
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "52",
+  "nameEn": "Blacephalon-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "062",
+  "cardName": "刺龙王GX",
+  "rarity": "SR",
+  "effectId": "9e22b4aaef0146975be2bbdb1cdb5599",
+  "cardType": "Pokemon",
+  "yorenCode": "Y239",
+  "is": [
+   "GX",
+   "Stage 2"
+  ],
+  "setCodeEn": "DRM",
+  "cardIndexEn": "18",
+  "nameEn": "Kingdra-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "063",
+  "cardName": "捷拉奥拉GX",
+  "rarity": "SR",
+  "effectId": "207cb164f68f24dfbee80ece361cc822",
+  "cardType": "Pokemon",
+  "yorenCode": "Y240",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "86",
+  "nameEn": "Zeraora-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "064",
+  "cardName": "奈克洛兹玛 拂晓之翼GX",
+  "rarity": "SR",
+  "effectId": "4ca1fb91bf754af36a0c49bc59fb84bf",
+  "cardType": "Pokemon",
+  "yorenCode": "Y241",
+  "is": [
+   "GX",
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "63",
+  "nameEn": "Dawn Wings Necrozma-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "065",
+  "cardName": "炽焰咆哮虎GX",
+  "rarity": "SR",
+  "effectId": "e6ef2dd186d2837ece153413fcc7a9f5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y178",
+  "is": [
+   "GX",
+   "Stage 2"
+  ],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "97",
+  "nameEn": "Incineroar-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "066",
+  "cardName": "奈克洛兹玛 黄昏之鬃GX",
+  "rarity": "SR",
+  "effectId": "5f1640d20011ce95340d280c3abddb32",
+  "cardType": "Pokemon",
+  "yorenCode": "Y242",
+  "is": [
+   "GX",
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "90",
+  "nameEn": "Dusk Mane Necrozma-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "067",
+  "cardName": "洛奇亚GX",
+  "rarity": "SR",
+  "effectId": "d15490ef399ad1df3fbd64474d6d2b1b",
+  "cardType": "Pokemon",
+  "yorenCode": "Y243",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "159",
+  "nameEn": "Lugia-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "068",
+  "cardName": "电次",
+  "rarity": "SR",
+  "effectId": "b9853a9e32deea098110fcbeb76105d9",
+  "cardType": "Supporter",
+  "yorenCode": "Y250",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "135",
+  "nameEn": "Volkner"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "069",
+  "cardName": "琉琪亚",
+  "rarity": "SR",
+  "effectId": "8cbc793ab11e9fb579179c64997da530",
+  "cardType": "Supporter",
+  "yorenCode": "Y253",
+  "is": [],
+  "setCodeEn": "CES",
+  "cardIndexEn": "137",
+  "nameEn": "Lisia"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "070",
+  "cardName": "朝蜜",
+  "rarity": "SR",
+  "effectId": "e0b55e6f43316805550ef90dc831e404",
+  "cardType": "Supporter",
+  "yorenCode": "Y255",
+  "is": [],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "149",
+  "nameEn": "Morgan"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "071",
+  "cardName": "昼珠",
+  "rarity": "SR",
+  "effectId": "08f9167931c706756265b5eddbd23dd7",
+  "cardType": "Supporter",
+  "yorenCode": "Y256",
+  "is": [],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "137",
+  "nameEn": "Dana"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "072",
+  "cardName": "夕丝",
+  "rarity": "SR",
+  "effectId": "15070cd07e1d9ef1f53a7295833626b3",
+  "cardType": "Supporter",
+  "yorenCode": "Y257",
+  "is": [],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "141",
+  "nameEn": "Evelyn"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "073",
+  "cardName": "夜妮",
+  "rarity": "SR",
+  "effectId": "f336ab93bdca0c5c4260b1398c55da76",
+  "cardType": "Supporter",
+  "yorenCode": "Y258",
+  "is": [],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "151",
+  "nameEn": "Nita"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "074",
+  "cardName": "砰头小丑GX",
+  "rarity": "HR",
+  "effectId": "8d60748f25bf4d559fa11bf4fd71bc43",
+  "cardType": "Pokemon",
+  "yorenCode": "Y238",
+  "is": [
+   "GX",
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "52",
+  "nameEn": "Blacephalon-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "075",
+  "cardName": "刺龙王GX",
+  "rarity": "HR",
+  "effectId": "9e22b4aaef0146975be2bbdb1cdb5599",
+  "cardType": "Pokemon",
+  "yorenCode": "Y239",
+  "is": [
+   "GX",
+   "Stage 2"
+  ],
+  "setCodeEn": "DRM",
+  "cardIndexEn": "18",
+  "nameEn": "Kingdra-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "076",
+  "cardName": "捷拉奥拉GX",
+  "rarity": "HR",
+  "effectId": "207cb164f68f24dfbee80ece361cc822",
+  "cardType": "Pokemon",
+  "yorenCode": "Y240",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "86",
+  "nameEn": "Zeraora-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "077",
+  "cardName": "奈克洛兹玛 拂晓之翼GX",
+  "rarity": "HR",
+  "effectId": "4ca1fb91bf754af36a0c49bc59fb84bf",
+  "cardType": "Pokemon",
+  "yorenCode": "Y241",
+  "is": [
+   "GX",
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "63",
+  "nameEn": "Dawn Wings Necrozma-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "078",
+  "cardName": "炽焰咆哮虎GX",
+  "rarity": "HR",
+  "effectId": "e6ef2dd186d2837ece153413fcc7a9f5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y178",
+  "is": [
+   "GX",
+   "Stage 2"
+  ],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "97",
+  "nameEn": "Incineroar-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "079",
+  "cardName": "奈克洛兹玛 黄昏之鬃GX",
+  "rarity": "HR",
+  "effectId": "5f1640d20011ce95340d280c3abddb32",
+  "cardType": "Pokemon",
+  "yorenCode": "Y242",
+  "is": [
+   "GX",
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "90",
+  "nameEn": "Dusk Mane Necrozma-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "080",
+  "cardName": "洛奇亚GX",
+  "rarity": "HR",
+  "effectId": "d15490ef399ad1df3fbd64474d6d2b1b",
+  "cardType": "Pokemon",
+  "yorenCode": "Y243",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "159",
+  "nameEn": "Lugia-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "081",
+  "cardName": "索尔迦雷欧GX",
+  "rarity": "UR",
+  "effectId": "3ad95692bd975559f96911b56ae7a0a6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y21",
+  "is": [
+   "GX",
+   "Stage 2"
+  ],
+  "setCodeEn": "SMP",
+  "cardIndexEn": "104",
+  "nameEn": "Solgaleo-GX"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "082",
+  "cardName": "电气能量管",
+  "rarity": "UR",
+  "effectId": "6c95599ffa50cf5e2a67cae71a443853",
+  "cardType": "Item",
+  "yorenCode": "Y244",
+  "is": [],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "172",
+  "nameEn": "Electropower"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "083",
+  "cardName": "神秘宝藏",
+  "rarity": "UR",
+  "effectId": "1d4f707c69a6cdc5e245eca6e11f7655",
+  "cardType": "Item",
+  "yorenCode": "Y245",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "113",
+  "nameEn": "Mysterious Treasure"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "084",
+  "cardName": "迷失四叶草",
+  "rarity": "UR",
+  "effectId": "f2d0cafb28f003861524776008424070",
+  "cardType": "Item",
+  "yorenCode": "Y246",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "129",
+  "nameEn": "Missing Clover"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "085",
+  "cardName": "惩戒祠堂",
+  "rarity": "UR",
+  "effectId": "0522f1078027321cd4553937d097db69",
+  "cardType": "Stadium",
+  "yorenCode": "Y259",
+  "is": [],
+  "setCodeEn": "CES",
+  "cardIndexEn": "143",
+  "nameEn": "Shrine of Punishment"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "086",
+  "cardName": "组合能量【草】【火】【水】",
+  "rarity": "UR",
+  "effectId": "f2815392978ba95851cc3c75e7594f8f",
+  "cardType": "Special Energy",
+  "yorenCode": "Y263",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "137",
+  "nameEn": "Unit Energy GRW"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "087",
+  "cardName": "组合能量【雷】【超】【钢】",
+  "rarity": "UR",
+  "effectId": "6d53cc2aa3fafb7a1182c0303d614bda",
+  "cardType": "Special Energy",
+  "yorenCode": "Y264",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "138",
+  "nameEn": "Unit Energy LPM"
+ },
+ {
+  "setCode": "CSM1.5C",
+  "cardIndex": "088",
+  "cardName": "组合能量【斗】【恶】【妖】",
+  "rarity": "UR",
+  "effectId": "9d120ba7d3e0603527fc4748f5dc12ea",
+  "cardType": "Special Energy",
+  "yorenCode": "Y265",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "118",
+  "nameEn": "Unit Energy FDY"
+ }
+]

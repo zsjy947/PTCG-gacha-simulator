@@ -1,0 +1,99 @@
+[
+ {
+  "setCode": "CSVH5pC",
+  "cardIndex": "001",
+  "cardName": "风速狗ex",
+  "rarity": "无标记",
+  "effectId": "66378c2615a68f5114c244aaa8d4a646",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1274",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "32",
+  "nameEn": "Arcanine ex"
+ },
+ {
+  "setCode": "CSVH5pC",
+  "cardIndex": "002",
+  "cardName": "呆呆王ex",
+  "rarity": "无标记",
+  "effectId": "a7eb3d36fe16b1c33fbc3b6badaf3553",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1308",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "86",
+  "nameEn": "Slowking ex"
+ },
+ {
+  "setCode": "CSVH5pC",
+  "cardIndex": "003",
+  "cardName": "咚咚鼠ex",
+  "rarity": "无标记",
+  "effectId": "9b9e52e7f566cea63f6513314fd53313",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1309",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "93",
+  "nameEn": "Dedenne ex"
+ },
+ {
+  "setCode": "CSVH5pC",
+  "cardIndex": "004",
+  "cardName": "谜拟丘ex",
+  "rarity": "无标记",
+  "effectId": "43ad04d09856a0a742cbf9b432792ac0",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1280",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "69",
+  "nameEn": "Mimikyu ex"
+ },
+ {
+  "setCode": "CSVH5pC",
+  "cardIndex": "005",
+  "cardName": "路卡利欧ex",
+  "rarity": "无标记",
+  "effectId": "f6f4cedb1b50474bbcc68fd279168286",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1199",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "51",
+  "nameEn": "Lucario ex"
+ },
+ {
+  "setCode": "CSVH5pC",
+  "cardIndex": "006",
+  "cardName": "故勒顿ex",
+  "rarity": "无标记",
+  "effectId": "1d75a8974ad24952cc961bbb1a27ffc8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1201",
+  "is": [
+   "ex",
+   "Ancient",
+   "Basic"
+  ],
+  "setCodeEn": "TEF",
+  "cardIndexEn": "120",
+  "nameEn": "Koraidon ex"
+ }
+]

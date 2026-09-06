@@ -1,0 +1,130 @@
+[
+ {
+  "setCode": "CSMYC",
+  "cardIndex": "001",
+  "cardName": "叶伊布GX",
+  "rarity": "无标记",
+  "effectId": "f89d4a2bd88ecdff6631018c2eae4f89",
+  "cardType": "Pokemon",
+  "yorenCode": "Y61",
+  "is": [
+   "GX",
+   "Stage 1"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "13",
+  "nameEn": "Leafeon-GX"
+ },
+ {
+  "setCode": "CSMYC",
+  "cardIndex": "002",
+  "cardName": "冰伊布GX",
+  "rarity": "无标记",
+  "effectId": "714728b55c9f12046d38cf9b94590170",
+  "cardType": "Pokemon",
+  "yorenCode": "Y123",
+  "is": [
+   "GX",
+   "Stage 1"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "38",
+  "nameEn": "Glaceon V"
+ },
+ {
+  "setCode": "CSMYC",
+  "cardIndex": "003",
+  "cardName": "太阳伊布GX",
+  "rarity": "无标记",
+  "effectId": "914ec9a40d113796f716ae6b76054be8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y9",
+  "is": [
+   "GX",
+   "Stage 1"
+  ],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "61",
+  "nameEn": "Espeon-GX"
+ },
+ {
+  "setCode": "CSMYC",
+  "cardIndex": "004",
+  "cardName": "月亮伊布GX",
+  "rarity": "无标记",
+  "effectId": "b09d183a4d30f7527583bbe358dea11f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y75",
+  "is": [
+   "GX",
+   "Stage 1"
+  ],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "80",
+  "nameEn": "Umbreon-GX"
+ },
+ {
+  "setCode": "CSMYC",
+  "cardIndex": "005",
+  "cardName": "仙子伊布GX",
+  "rarity": "无标记",
+  "effectId": "da1ca0adf8edb81262a4813927ed8ce3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y134",
+  "is": [
+   "GX",
+   "Stage 1"
+  ],
+  "setCodeEn": "GRI",
+  "cardIndexEn": "92",
+  "nameEn": "Sylveon-GX"
+ },
+ {
+  "setCode": "CSMYC",
+  "cardIndex": "006",
+  "cardName": "伊布GX",
+  "rarity": "无标记",
+  "effectId": "763d43dbda802ce5888de4c96c0852c8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y266",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "SMP",
+  "cardIndexEn": "175",
+  "nameEn": "Eevee-GX"
+ },
+ {
+  "setCode": "CSMYC",
+  "cardIndex": "007",
+  "cardName": "伊布GX",
+  "rarity": "无标记",
+  "effectId": "763d43dbda802ce5888de4c96c0852c8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y266",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "SMP",
+  "cardIndexEn": "175",
+  "nameEn": "Eevee-GX"
+ },
+ {
+  "setCode": "CSMYC",
+  "cardIndex": "008",
+  "cardName": "伊布GX",
+  "rarity": "无标记",
+  "effectId": "763d43dbda802ce5888de4c96c0852c8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y266",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "SMP",
+  "cardIndexEn": "175",
+  "nameEn": "Eevee-GX"
+ }
+]

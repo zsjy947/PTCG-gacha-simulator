@@ -1,0 +1,1429 @@
+[
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "001",
+  "cardName": "阿罗拉 椰蛋树V",
+  "rarity": "RR",
+  "effectId": "03d0d6dcf7518cafe287b8b0f904cc79",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1155",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "PGO",
+  "cardIndexEn": "5",
+  "nameEn": "Alolan Exeggutor V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "002",
+  "cardName": "橡实果",
+  "rarity": "C",
+  "effectId": "ed45f99f82d5e70946c2d96fb5b8db8b",
+  "cardType": "Pokemon",
+  "yorenCode": "P273",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "11",
+  "nameEn": "Seedot"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "003",
+  "cardName": "长鼻叶",
+  "rarity": "U",
+  "effectId": "a5c68316e93ca146f2244f95c3c723c2",
+  "cardType": "Pokemon",
+  "yorenCode": "P274",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "12",
+  "nameEn": "Nuzleaf"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "004",
+  "cardName": "狡猾天狗",
+  "rarity": "R",
+  "effectId": "33de959d5d83f63d0b73551045a78c32",
+  "cardType": "Pokemon",
+  "yorenCode": "P275",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "13",
+  "nameEn": "Shiftry"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "005",
+  "cardName": "尖牙笼",
+  "rarity": "C",
+  "effectId": "04dca339f7b2d0a95fa833fa39dc22e6",
+  "cardType": "Pokemon",
+  "yorenCode": "P455",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "12",
+  "nameEn": "Carnivine"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "006",
+  "cardName": "叶伊布",
+  "rarity": "U",
+  "effectId": "1aded3d739715e3892816a29e05feaab",
+  "cardType": "Pokemon",
+  "yorenCode": "P470",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "13",
+  "nameEn": "Leafeon"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "007",
+  "cardName": "布里卡隆V",
+  "rarity": "RR",
+  "effectId": "d5738caf2933d811fa8d73f84801077a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1156",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "15",
+  "nameEn": "Chesnaught V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "008",
+  "cardName": "蕾冠王",
+  "rarity": "R",
+  "effectId": "0666b1473d9dfe007151b346c6322617",
+  "cardType": "Pokemon",
+  "yorenCode": "P898",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "17",
+  "nameEn": "Calyrex"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "009",
+  "cardName": "熔岩虫",
+  "rarity": "C",
+  "effectId": "9df707a531962c57b0ad8c0a35e6ac84",
+  "cardType": "Pokemon",
+  "yorenCode": "P218",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "21",
+  "nameEn": "Slugma"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "010",
+  "cardName": "熔岩蜗牛",
+  "rarity": "U",
+  "effectId": "2b98310c1b9371736a2a0c9193290ec1",
+  "cardType": "Pokemon",
+  "yorenCode": "P219",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "22",
+  "nameEn": "Magcargo"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "011",
+  "cardName": "炎帝",
+  "rarity": "R",
+  "effectId": "94a59a00509fb87dbb8ac6228df57d06",
+  "cardType": "Pokemon",
+  "yorenCode": "P244",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "21",
+  "nameEn": "Entei"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "012",
+  "cardName": "妖火红狐V",
+  "rarity": "RR",
+  "effectId": "21cad77ee66ee136c386e766736ec247",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1157",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "27",
+  "nameEn": "Delphox V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "013",
+  "cardName": "阿罗拉 六尾V",
+  "rarity": "RR",
+  "effectId": "442ab9e00c571bdb7047869a848b5db8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1158",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "33",
+  "nameEn": "Alolan Vulpix V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "014",
+  "cardName": "阿罗拉 六尾VSTAR",
+  "rarity": "RRR",
+  "effectId": "365fd85efe38d55f8d2eefb727b32ad3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1159",
+  "is": [
+   "V",
+   "VSTAR"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "34",
+  "nameEn": "Alolan Vulpix VSTAR"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "015",
+  "cardName": "急冻鸟",
+  "rarity": "R",
+  "effectId": "3ec40924dec2d561dd9c6d3756c90a0a",
+  "cardType": "Pokemon",
+  "yorenCode": "P144",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PGO",
+  "cardIndexEn": "24",
+  "nameEn": "Articuno"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "016",
+  "cardName": "丑丑鱼",
+  "rarity": "C",
+  "effectId": "0a045d54d534e1778f19cbe1a15bf590",
+  "cardType": "Pokemon",
+  "yorenCode": "P349",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "39",
+  "nameEn": "Feebas"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "017",
+  "cardName": "美纳斯",
+  "rarity": "U",
+  "effectId": "3cbc136755ac81843377f149885c8f6e",
+  "cardType": "Pokemon",
+  "yorenCode": "P350",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG2",
+  "nameEn": "Milotic"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "018",
+  "cardName": "盖欧卡",
+  "rarity": "R",
+  "effectId": "209f1310fd06b20f10385b4fc20dc683",
+  "cardType": "Pokemon",
+  "yorenCode": "P382",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "36",
+  "nameEn": "Kyogre"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "019",
+  "cardName": "冰伊布",
+  "rarity": "U",
+  "effectId": "a53107c66fa28ddf237127d9034edb6b",
+  "cardType": "Pokemon",
+  "yorenCode": "P471",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "38",
+  "nameEn": "Glaceon"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "020",
+  "cardName": "光辉甲贺忍蛙",
+  "rarity": "K",
+  "effectId": "09445b8c32fd4abef4230ebcdc964096",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1160",
+  "is": [
+   "Radiant",
+   "Basic"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "46",
+  "nameEn": "Radiant Greninja"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "021",
+  "cardName": "皮卡丘",
+  "rarity": "C",
+  "effectId": "0ddc7a05c32568e09d4a81e497704044",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "49",
+  "nameEn": "Pikachu"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "022",
+  "cardName": "雷丘",
+  "rarity": "U",
+  "effectId": "fd5bc06a2f897d405ba7654b5154ad66",
+  "cardType": "Pokemon",
+  "yorenCode": "P026",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "50",
+  "nameEn": "Raichu"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "023",
+  "cardName": "洛托姆V",
+  "rarity": "RR",
+  "effectId": "8ef5ff61fd97838af568f00fe3b0e3ea",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1161",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "58",
+  "nameEn": "Rotom V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "024",
+  "cardName": "洛托姆VSTAR",
+  "rarity": "RRR",
+  "effectId": "d145ef04793b4b9c9ebc7a519ca49e44",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1162",
+  "is": [
+   "V",
+   "VSTAR"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "46",
+  "nameEn": "Rotom VSTAR"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "025",
+  "cardName": "光辉虫电宝",
+  "rarity": "K",
+  "effectId": "ec1ddf09a2885e10917510f79c98ec37",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1163",
+  "is": [
+   "Radiant",
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "51",
+  "nameEn": "Radiant Charjabug"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "026",
+  "cardName": "迷唇姐",
+  "rarity": "U",
+  "effectId": "bc4bad4643cc9f4214cd6ae9f590862e",
+  "cardType": "Pokemon",
+  "yorenCode": "P124",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG4",
+  "nameEn": "Jynx"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "027",
+  "cardName": "未知图腾V",
+  "rarity": "RR",
+  "effectId": "ba71b8cd625d6c79b4a6d6674617da8e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1164",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "65",
+  "nameEn": "Unown V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "028",
+  "cardName": "未知图腾VSTAR",
+  "rarity": "RRR",
+  "effectId": "2906f68616c7296e94d7d62e94f42528",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1165",
+  "is": [
+   "V",
+   "VSTAR"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "66",
+  "nameEn": "Unown VSTAR"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "029",
+  "cardName": "拉鲁拉丝",
+  "rarity": "C",
+  "effectId": "5a6897e20f399a4a0e2403f06a0c3e55",
+  "cardType": "Pokemon",
+  "yorenCode": "P280",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "67",
+  "nameEn": "Ralts"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "030",
+  "cardName": "奇鲁莉安",
+  "rarity": "C",
+  "effectId": "4abd956bdf3e956fcf679120601760ff",
+  "cardType": "Pokemon",
+  "yorenCode": "P281",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "68",
+  "nameEn": "Kirlia"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "031",
+  "cardName": "沙奈朵",
+  "rarity": "U",
+  "effectId": "e10166827bde5e3d94bd5c8d9fede0fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P282",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG5",
+  "nameEn": "Gardevoir"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "032",
+  "cardName": "勾魂眼",
+  "rarity": "R",
+  "effectId": "11e3c629e34562a7061a05c483eb5718",
+  "cardType": "Pokemon",
+  "yorenCode": "P302",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "70",
+  "nameEn": "Sableye"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "033",
+  "cardName": "克雷色利亚",
+  "rarity": "R",
+  "effectId": "5a56387211377cf56bfeb12751a5eed3",
+  "cardType": "Pokemon",
+  "yorenCode": "P488",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "74",
+  "nameEn": "Cresselia"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "034",
+  "cardName": "妙喵",
+  "rarity": "C",
+  "effectId": "ac569ef210f35f94e1f143e52fa59447",
+  "cardType": "Pokemon",
+  "yorenCode": "P677",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "81",
+  "nameEn": "Espurr"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "035",
+  "cardName": "超能妙喵",
+  "rarity": "U",
+  "effectId": "c4245276002bfd7a586d5c6f4378a911",
+  "cardType": "Pokemon",
+  "yorenCode": "P678",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "82",
+  "nameEn": "Meowstic"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "036",
+  "cardName": "咚咚鼠",
+  "rarity": "C",
+  "effectId": "bfa74f57b2fc7979bf915ab68e6ec6ea",
+  "cardType": "Pokemon",
+  "yorenCode": "P702",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "85",
+  "nameEn": "Dedenne"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "037",
+  "cardName": "布莉姆温V",
+  "rarity": "RR",
+  "effectId": "c8a6776ac5e609fd7917236e6b16ae5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y767",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "65",
+  "nameEn": "Hatterene V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "038",
+  "cardName": "布莉姆温VMAX",
+  "rarity": "RRR",
+  "effectId": "8d63070400f6558cd375ab10d14de1a3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1166",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "66",
+  "nameEn": "Hatterene VMAX"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "039",
+  "cardName": "黑暗鸦",
+  "rarity": "C",
+  "effectId": "0ab0c5d060d982c74bcf26a0412af26e",
+  "cardType": "Pokemon",
+  "yorenCode": "P198",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "106",
+  "nameEn": "Murkrow"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "040",
+  "cardName": "乌鸦头头",
+  "rarity": "U",
+  "effectId": "7640cbf469cd5c38dccd2fa6cb24654f",
+  "cardType": "Pokemon",
+  "yorenCode": "P430",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "107",
+  "nameEn": "Honchkrow"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "041",
+  "cardName": "花岩怪",
+  "rarity": "C",
+  "effectId": "a8afbf7b985b6c6a6438e03d8c81abed",
+  "cardType": "Pokemon",
+  "yorenCode": "P442",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "89",
+  "nameEn": "Spiritomb"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "042",
+  "cardName": "莫鲁贝可",
+  "rarity": "C",
+  "effectId": "2fad57cdaca5b1356b793329ab19950e",
+  "cardType": "Pokemon",
+  "yorenCode": "P877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "116",
+  "nameEn": "Morpeko"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "043",
+  "cardName": "齿轮儿",
+  "rarity": "C",
+  "effectId": "7f8b8eb203d9532b1fdc46e22bc2a3e7",
+  "cardType": "Pokemon",
+  "yorenCode": "P599",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "123",
+  "nameEn": "Klink"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "044",
+  "cardName": "齿轮组",
+  "rarity": "C",
+  "effectId": "5447a0a61327890544c37a362021ec64",
+  "cardType": "Pokemon",
+  "yorenCode": "P600",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "124",
+  "nameEn": "Klang"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "045",
+  "cardName": "齿轮怪",
+  "rarity": "U",
+  "effectId": "a85ceaa73a61f791cea1ebdc0bc2553a",
+  "cardType": "Pokemon",
+  "yorenCode": "P601",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "125",
+  "nameEn": "Klinklang"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "046",
+  "cardName": "托戈德玛尔",
+  "rarity": "C",
+  "effectId": "2113c2fab8dd8f7161ead427a9b5af5f",
+  "cardType": "Pokemon",
+  "yorenCode": "P777",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "127",
+  "nameEn": "Togedemaru"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "047",
+  "cardName": "玛机雅娜",
+  "rarity": "U",
+  "effectId": "16d1915de28b11d536209c8a1e716152",
+  "cardType": "Pokemon",
+  "yorenCode": "P801",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "128",
+  "nameEn": "Magearna"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "048",
+  "cardName": "苍响",
+  "rarity": "R",
+  "effectId": "acfcb6ee43e28a5f1c41f51576cee267",
+  "cardType": "Pokemon",
+  "yorenCode": "P888",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "94",
+  "nameEn": "Zacian"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "049",
+  "cardName": "藏玛然特",
+  "rarity": "R",
+  "effectId": "354ba2d0df40cde93977a7fc7c7af622",
+  "cardType": "Pokemon",
+  "yorenCode": "P889",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "97",
+  "nameEn": "Zamazenta"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "050",
+  "cardName": "迷你龙",
+  "rarity": "C",
+  "effectId": "49c25ed53f74546bd2cf87e1d8492a39",
+  "cardType": "Pokemon",
+  "yorenCode": "P147",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "129",
+  "nameEn": "Dratini"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "051",
+  "cardName": "哈克龙",
+  "rarity": "U",
+  "effectId": "18b2bc41a79cb5fa91449ccf8355ecfe",
+  "cardType": "Pokemon",
+  "yorenCode": "P148",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "130",
+  "nameEn": "Dragonair"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "052",
+  "cardName": "快龙",
+  "rarity": "R",
+  "effectId": "9e8be2902833a0204277092dcdf11853",
+  "cardType": "Pokemon",
+  "yorenCode": "P149",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "131",
+  "nameEn": "Dragonite"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "053",
+  "cardName": "基格尔德",
+  "rarity": "C",
+  "effectId": "815c4444bbf05a4ad8b34d5651a62be8",
+  "cardType": "Pokemon",
+  "yorenCode": "P718",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "134",
+  "nameEn": "Zygarde"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "054",
+  "cardName": "雷吉铎拉戈V",
+  "rarity": "RR",
+  "effectId": "90c9e117fa846938024ae15eb859f1b6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1167",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "135",
+  "nameEn": "Regidrago V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "055",
+  "cardName": "雷吉铎拉戈VSTAR",
+  "rarity": "RRR",
+  "effectId": "749d2f12d33057c8cc20e52c1b11bcbf",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1168",
+  "is": [
+   "V",
+   "VSTAR"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "136",
+  "nameEn": "Regidrago VSTAR"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "056",
+  "cardName": "伊布",
+  "rarity": "C",
+  "effectId": "1a6650542218f00b0468fd3e1511c049",
+  "cardType": "Pokemon",
+  "yorenCode": "P133",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "119",
+  "nameEn": "Eevee"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "057",
+  "cardName": "多边兽",
+  "rarity": "C",
+  "effectId": "85d813adbf20decb624b3fc34b3a8bf0",
+  "cardType": "Pokemon",
+  "yorenCode": "P137",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "140",
+  "nameEn": "Porygon"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "058",
+  "cardName": "多边兽2型",
+  "rarity": "C",
+  "effectId": "9c24e916d56dc0a9ff1fe4a3d94e872a",
+  "cardType": "Pokemon",
+  "yorenCode": "P233",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "141",
+  "nameEn": "Porygon2"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "059",
+  "cardName": "多边兽乙型",
+  "rarity": "U",
+  "effectId": "25e8e42d6a1bc1eccc53726a0055e2c4",
+  "cardType": "Pokemon",
+  "yorenCode": "P474",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "142",
+  "nameEn": "Porygon-Z"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "060",
+  "cardName": "图图犬",
+  "rarity": "C",
+  "effectId": "0a3e34f2cc4fb33cf76a0c3fc715c071",
+  "cardType": "Pokemon",
+  "yorenCode": "P235",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG10",
+  "nameEn": "Smeargle"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "061",
+  "cardName": "聒噪鸟",
+  "rarity": "C",
+  "effectId": "a94eaf8296438b5964546885e8a25340",
+  "cardType": "Pokemon",
+  "yorenCode": "P441",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "112",
+  "nameEn": "Chatot"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "062",
+  "cardName": "工具箱",
+  "rarity": "U",
+  "effectId": "59ddf3cc5c481ff4fa090262e6747a74",
+  "cardType": "Item",
+  "yorenCode": "Y1169",
+  "is": [],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "168",
+  "nameEn": "Tool Box"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "063",
+  "cardName": "健行鞋",
+  "rarity": "U",
+  "effectId": "70d14b4a5a9c15581b8a0c8dfd325717",
+  "cardType": "Item",
+  "yorenCode": "Y1150",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "156",
+  "nameEn": "Trekking Shoes"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "064",
+  "cardName": "应急果冻",
+  "rarity": "U",
+  "effectId": "56a847e3573ccf9a991205169463218f",
+  "cardType": "Tool",
+  "yorenCode": "Y1170",
+  "is": [],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "155",
+  "nameEn": "Emergency Jelly"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "065",
+  "cardName": "恐慌面具",
+  "rarity": "U",
+  "effectId": "0761a288935953f1a812fb8c42bc2f05",
+  "cardType": "Tool",
+  "yorenCode": "Y1171",
+  "is": [],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "165",
+  "nameEn": "Panic Mask"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "066",
+  "cardName": "森林封印石",
+  "rarity": "R",
+  "effectId": "9fa9943ccda36f417ac3cb675177c216",
+  "cardType": "Tool",
+  "yorenCode": "Y1172",
+  "is": [],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "156",
+  "nameEn": "Forest Seal Stone"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "067",
+  "cardName": "奇巴纳",
+  "rarity": "U",
+  "effectId": "b57ebec9231ad4d91a71ab1360fcbba1",
+  "cardType": "Supporter",
+  "yorenCode": "Y831",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "152",
+  "nameEn": "Raihan"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "068",
+  "cardName": "菜种的活力",
+  "rarity": "U",
+  "effectId": "20644bce385069fcc3d66d70409d1ff3",
+  "cardType": "Supporter",
+  "yorenCode": "Y1173",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "143",
+  "nameEn": "Gardenia's Vigor"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "069",
+  "cardName": "美蓉",
+  "rarity": "U",
+  "effectId": "6fe336e29f55ec72df3d918bd30a351a",
+  "cardType": "Supporter",
+  "yorenCode": "Y701",
+  "is": [],
+  "setCodeEn": "CRE",
+  "cardIndexEn": "146",
+  "nameEn": "Melony"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "070",
+  "cardName": "阿渡",
+  "rarity": "U",
+  "effectId": "2df65fcd5de0d9d9e24486b059981cdf",
+  "cardType": "Supporter",
+  "yorenCode": "Y1174",
+  "is": [],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "159",
+  "nameEn": "Lance"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "071",
+  "cardName": "崩塌的竞技场",
+  "rarity": "U",
+  "effectId": "fb3628071280487676f79281696ffbd9",
+  "cardType": "Stadium",
+  "yorenCode": "Y1175",
+  "is": [],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "137",
+  "nameEn": "Collapsed Stadium"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "072",
+  "cardName": "V防守能量",
+  "rarity": "U",
+  "effectId": "88bf9902f1d769a667bbd3939fc757de",
+  "cardType": "Special Energy",
+  "yorenCode": "Y1176",
+  "is": [],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "169",
+  "nameEn": "V Guard Energy"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "073",
+  "cardName": "阿罗拉 椰蛋树V",
+  "rarity": "SR",
+  "effectId": "03d0d6dcf7518cafe287b8b0f904cc79",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1155",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "PGO",
+  "cardIndexEn": "5",
+  "nameEn": "Alolan Exeggutor V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "074",
+  "cardName": "布里卡隆V",
+  "rarity": "SR",
+  "effectId": "d5738caf2933d811fa8d73f84801077a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1156",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "15",
+  "nameEn": "Chesnaught V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "075",
+  "cardName": "妖火红狐V",
+  "rarity": "SR",
+  "effectId": "21cad77ee66ee136c386e766736ec247",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1157",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "27",
+  "nameEn": "Delphox V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "076",
+  "cardName": "阿罗拉 六尾V",
+  "rarity": "SR",
+  "effectId": "442ab9e00c571bdb7047869a848b5db8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1158",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "33",
+  "nameEn": "Alolan Vulpix V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "077",
+  "cardName": "洛托姆V",
+  "rarity": "SR",
+  "effectId": "8ef5ff61fd97838af568f00fe3b0e3ea",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1161",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "58",
+  "nameEn": "Rotom V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "078",
+  "cardName": "洛托姆V",
+  "rarity": "SR",
+  "effectId": "8ef5ff61fd97838af568f00fe3b0e3ea",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1161",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "58",
+  "nameEn": "Rotom V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "079",
+  "cardName": "未知图腾V",
+  "rarity": "SR",
+  "effectId": "ba71b8cd625d6c79b4a6d6674617da8e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1164",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "65",
+  "nameEn": "Unown V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "080",
+  "cardName": "未知图腾V",
+  "rarity": "SR",
+  "effectId": "ba71b8cd625d6c79b4a6d6674617da8e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1164",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "65",
+  "nameEn": "Unown V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "081",
+  "cardName": "雷吉铎拉戈V",
+  "rarity": "SR",
+  "effectId": "90c9e117fa846938024ae15eb859f1b6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1167",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "135",
+  "nameEn": "Regidrago V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "082",
+  "cardName": "雷吉铎拉戈V",
+  "rarity": "SR",
+  "effectId": "90c9e117fa846938024ae15eb859f1b6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1167",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "135",
+  "nameEn": "Regidrago V"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "083",
+  "cardName": "菜种的活力",
+  "rarity": "SR",
+  "effectId": "20644bce385069fcc3d66d70409d1ff3",
+  "cardType": "Supporter",
+  "yorenCode": "Y1173",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "143",
+  "nameEn": "Gardenia's Vigor"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "084",
+  "cardName": "阿渡",
+  "rarity": "SR",
+  "effectId": "2df65fcd5de0d9d9e24486b059981cdf",
+  "cardType": "Supporter",
+  "yorenCode": "Y1174",
+  "is": [],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "159",
+  "nameEn": "Lance"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "085",
+  "cardName": "布莉姆温VMAX",
+  "rarity": "SAR",
+  "effectId": "8d63070400f6558cd375ab10d14de1a3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1166",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "66",
+  "nameEn": "Hatterene VMAX"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "086",
+  "cardName": "奇巴纳",
+  "rarity": "SAR",
+  "effectId": "b57ebec9231ad4d91a71ab1360fcbba1",
+  "cardType": "Supporter",
+  "yorenCode": "Y831",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "152",
+  "nameEn": "Raihan"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "087",
+  "cardName": "菜种的活力",
+  "rarity": "SAR",
+  "effectId": "20644bce385069fcc3d66d70409d1ff3",
+  "cardType": "Supporter",
+  "yorenCode": "Y1173",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "143",
+  "nameEn": "Gardenia's Vigor"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "088",
+  "cardName": "美蓉",
+  "rarity": "SAR",
+  "effectId": "6fe336e29f55ec72df3d918bd30a351a",
+  "cardType": "Supporter",
+  "yorenCode": "Y701",
+  "is": [],
+  "setCodeEn": "CRE",
+  "cardIndexEn": "146",
+  "nameEn": "Melony"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "089",
+  "cardName": "阿罗拉 六尾VSTAR",
+  "rarity": "HR",
+  "effectId": "365fd85efe38d55f8d2eefb727b32ad3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1159",
+  "is": [
+   "V",
+   "VSTAR"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "34",
+  "nameEn": "Alolan Vulpix VSTAR"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "090",
+  "cardName": "未知图腾VSTAR",
+  "rarity": "HR",
+  "effectId": "2906f68616c7296e94d7d62e94f42528",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1165",
+  "is": [
+   "V",
+   "VSTAR"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "66",
+  "nameEn": "Unown VSTAR"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "091",
+  "cardName": "雷吉铎拉戈VSTAR",
+  "rarity": "HR",
+  "effectId": "749d2f12d33057c8cc20e52c1b11bcbf",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1168",
+  "is": [
+   "V",
+   "VSTAR"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "136",
+  "nameEn": "Regidrago VSTAR"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "092",
+  "cardName": "菜种的活力",
+  "rarity": "HR",
+  "effectId": "20644bce385069fcc3d66d70409d1ff3",
+  "cardType": "Supporter",
+  "yorenCode": "Y1173",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "143",
+  "nameEn": "Gardenia's Vigor"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "093",
+  "cardName": "阿渡",
+  "rarity": "HR",
+  "effectId": "2df65fcd5de0d9d9e24486b059981cdf",
+  "cardType": "Supporter",
+  "yorenCode": "Y1174",
+  "is": [],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "159",
+  "nameEn": "Lance"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "094",
+  "cardName": "健行鞋",
+  "rarity": "UR",
+  "effectId": "70d14b4a5a9c15581b8a0c8dfd325717",
+  "cardType": "Item",
+  "yorenCode": "Y1150",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "156",
+  "nameEn": "Trekking Shoes"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "095",
+  "cardName": "崩塌的竞技场",
+  "rarity": "UR",
+  "effectId": "fb3628071280487676f79281696ffbd9",
+  "cardType": "Stadium",
+  "yorenCode": "Y1175",
+  "is": [],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "137",
+  "nameEn": "Collapsed Stadium"
+ },
+ {
+  "setCode": "CS6.5C",
+  "cardIndex": "096",
+  "cardName": "V防守能量",
+  "rarity": "UR",
+  "effectId": "88bf9902f1d769a667bbd3939fc757de",
+  "cardType": "Special Energy",
+  "yorenCode": "Y1176",
+  "is": [],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "169",
+  "nameEn": "V Guard Energy"
+ }
+]

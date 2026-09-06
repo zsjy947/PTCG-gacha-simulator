@@ -1,0 +1,13 @@
+__pycache__/
+build/
+dist/
+*.spec
+data/img_cache/
+data/icon_cache/
+data/detail_cache/
+android/sdk/
+android/build/
+android/app/build/
+android/.gradle/
+android/local.properties
+*.apk.idsig
