@@ -1,0 +1,1414 @@
+[
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "001",
+  "cardName": "破破舵轮V",
+  "rarity": "RR",
+  "effectId": "b6ab931281c1b87ffac3482415155e24",
+  "cardType": "Pokemon",
+  "yorenCode": "Y575",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "9",
+  "nameEn": "Dhelmise V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "002",
+  "cardName": "破破舵轮VMAX",
+  "rarity": "RRR",
+  "effectId": "516a3687e0fe0c1e341c2f34d6a55e57",
+  "cardType": "Pokemon",
+  "yorenCode": "Y576",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "10",
+  "nameEn": "Dhelmise VMAX"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "003",
+  "cardName": "索侦虫",
+  "rarity": "C",
+  "effectId": "23b256b989c7ee8486a9d856f5ea50b0",
+  "cardType": "Pokemon",
+  "yorenCode": "P824",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "16",
+  "nameEn": "Blipbug"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "004",
+  "cardName": "天罩虫",
+  "rarity": "C",
+  "effectId": "d0cffd0eddfab8689354532d74b51893",
+  "cardType": "Pokemon",
+  "yorenCode": "P825",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "18",
+  "nameEn": "Dottler"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "005",
+  "cardName": "以欧路普",
+  "rarity": "U",
+  "effectId": "24b5bd65c7eaee6f26b9672f389956f1",
+  "cardType": "Pokemon",
+  "yorenCode": "P826",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "19",
+  "nameEn": "Orbeetle"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "006",
+  "cardName": "白蓬蓬V",
+  "rarity": "RR",
+  "effectId": "df0a601dce1822f11b93c250936de521",
+  "cardType": "Pokemon",
+  "yorenCode": "Y577",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "19",
+  "nameEn": "Eldegoss V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "007",
+  "cardName": "啃果虫",
+  "rarity": "C",
+  "effectId": "bbde4deb952189bf5e4aed503ab2267b",
+  "cardType": "Pokemon",
+  "yorenCode": "P840",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "21",
+  "nameEn": "Applin"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "008",
+  "cardName": "苹裹龙",
+  "rarity": "R",
+  "effectId": "1ed83d26338496c26be8cbfa6848efdc",
+  "cardType": "Pokemon",
+  "yorenCode": "P841",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "22",
+  "nameEn": "Flapple"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "009",
+  "cardName": "丰蜜龙",
+  "rarity": "R",
+  "effectId": "1ab8e791e83aec77025181ccdd2d835f",
+  "cardType": "Pokemon",
+  "yorenCode": "P842",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "23",
+  "nameEn": "Appletun"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "010",
+  "cardName": "伽勒尔 魔墙人偶",
+  "rarity": "C",
+  "effectId": "6a6cf8d4d800f44228a8c63dde42761f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y552",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "35",
+  "nameEn": "Galarian Mr. Mime"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "011",
+  "cardName": "伽勒尔 踏冰人偶",
+  "rarity": "U",
+  "effectId": "06699096c83253687ec40c8103273b57",
+  "cardType": "Pokemon",
+  "yorenCode": "P866",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "79",
+  "nameEn": "Galarian Mr. Rime"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "012",
+  "cardName": "丑丑鱼",
+  "rarity": "C",
+  "effectId": "20e9d39c72e7e5d6d6488208e9ae0972",
+  "cardType": "Pokemon",
+  "yorenCode": "P349",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "38",
+  "nameEn": "Feebas"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "013",
+  "cardName": "美纳斯",
+  "rarity": "R",
+  "effectId": "22abf93537b806bae76556404b6f4d7a",
+  "cardType": "Pokemon",
+  "yorenCode": "P350",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "148",
+  "nameEn": "Dragonair"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "014",
+  "cardName": "美纳斯V",
+  "rarity": "RR",
+  "effectId": "3cb2e22d2d2f4dfee5a77069b32bdfc3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y578",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "43",
+  "nameEn": "Milotic V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "015",
+  "cardName": "灯笼鱼",
+  "rarity": "C",
+  "effectId": "398a16fd0b691dc1338df270025182f7",
+  "cardType": "Pokemon",
+  "yorenCode": "P170",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "67",
+  "nameEn": "Chinchou"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "016",
+  "cardName": "电灯怪",
+  "rarity": "U",
+  "effectId": "69dd399ab5ac7a7c50f6cd114f0ba4b1",
+  "cardType": "Pokemon",
+  "yorenCode": "P171",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "69",
+  "nameEn": "Lanturn"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "017",
+  "cardName": "锹农炮虫V",
+  "rarity": "RR",
+  "effectId": "1ff4daa23448707d1dba6e81be447c61",
+  "cardType": "Pokemon",
+  "yorenCode": "Y579",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "60",
+  "nameEn": "Vikavolt V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "018",
+  "cardName": "电音婴",
+  "rarity": "C",
+  "effectId": "10554e1e11a125c8fcda429b9b03e80e",
+  "cardType": "Pokemon",
+  "yorenCode": "P848",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "68",
+  "nameEn": "Toxel"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "019",
+  "cardName": "颤弦蝾螈",
+  "rarity": "U",
+  "effectId": "c81e091c8e889a1e9c511cb2aec22d30",
+  "cardType": "Pokemon",
+  "yorenCode": "P849",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "69",
+  "nameEn": "Toxtricity"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "020",
+  "cardName": "皮皮",
+  "rarity": "C",
+  "effectId": "08173902810d2f99669a8890176ea1de",
+  "cardType": "Pokemon",
+  "yorenCode": "P035",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "74",
+  "nameEn": "Clefairy"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "021",
+  "cardName": "皮可西",
+  "rarity": "R",
+  "effectId": "9c572c45fa364ea5226e0c887be6f847",
+  "cardType": "Pokemon",
+  "yorenCode": "P036",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "75",
+  "nameEn": "Clefable"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "022",
+  "cardName": "咚咚鼠",
+  "rarity": "C",
+  "effectId": "b154aaa51a993f7615d7f45ef75fcdf3",
+  "cardType": "Pokemon",
+  "yorenCode": "P702",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "80",
+  "nameEn": "Dedenne"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "023",
+  "cardName": "来悲茶",
+  "rarity": "C",
+  "effectId": "07c0d411c01889750442fc687de897fe",
+  "cardType": "Pokemon",
+  "yorenCode": "P854",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "82",
+  "nameEn": "Sinistea"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "024",
+  "cardName": "怖思壶",
+  "rarity": "U",
+  "effectId": "03b8bbd685dff9c86e82000004d476fa",
+  "cardType": "Pokemon",
+  "yorenCode": "P855",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "81",
+  "nameEn": "Polteageist"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "025",
+  "cardName": "多龙巴鲁托V",
+  "rarity": "RR",
+  "effectId": "244899efba3e35a23cc59188a47892a9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y580",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "92",
+  "nameEn": "Dragapult V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "026",
+  "cardName": "多龙巴鲁托VMAX",
+  "rarity": "RRR",
+  "effectId": "60d66256ec74c53777a4e2ed84012da0",
+  "cardType": "Pokemon",
+  "yorenCode": "Y581",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "93",
+  "nameEn": "Dragapult VMAX"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "027",
+  "cardName": "瓦斯弹",
+  "rarity": "C",
+  "effectId": "41dba4192c38e666c8e3e4ef83d7bf15",
+  "cardType": "Pokemon",
+  "yorenCode": "P109",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "41",
+  "nameEn": "Koffing"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "028",
+  "cardName": "伽勒尔 双弹瓦斯",
+  "rarity": "R",
+  "effectId": "654876354d93b3d21aaebe452fc68582",
+  "cardType": "Pokemon",
+  "yorenCode": "Y582",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "113",
+  "nameEn": "Galarian Weezing"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "029",
+  "cardName": "伽勒尔 喵喵",
+  "rarity": "C",
+  "effectId": "a5036752c386964f0c94443ccfb94147",
+  "cardType": "Pokemon",
+  "yorenCode": "Y509",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "126",
+  "nameEn": "Galarian Meowth"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "030",
+  "cardName": "伽勒尔 喵头目",
+  "rarity": "R",
+  "effectId": "5eb2dedb3706c4592b57173939f6f277",
+  "cardType": "Pokemon",
+  "yorenCode": "P863",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "128",
+  "nameEn": "Galarian Perrserker"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "031",
+  "cardName": "伽勒尔 泥巴鱼V",
+  "rarity": "RR",
+  "effectId": "fae4a5b0a6b9177f3ccb0a21028a7c07",
+  "cardType": "Pokemon",
+  "yorenCode": "Y583",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "128",
+  "nameEn": "Galarian Stunfisk V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "032",
+  "cardName": "咕咕",
+  "rarity": "C",
+  "effectId": "ebae5ecf167d2009d0820360059c85ca",
+  "cardType": "Pokemon",
+  "yorenCode": "P163",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "143",
+  "nameEn": "Hoothoot"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "033",
+  "cardName": "猫头夜鹰",
+  "rarity": "U",
+  "effectId": "ec24a6f556deef5a5a3947a8798743b4",
+  "cardType": "Pokemon",
+  "yorenCode": "P164",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "27",
+  "nameEn": "Noctowl"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "034",
+  "cardName": "掘掘兔",
+  "rarity": "C",
+  "effectId": "5b4b3679397c0c83fefa4a88d9307974",
+  "cardType": "Pokemon",
+  "yorenCode": "P659",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "82",
+  "nameEn": "Bunnelby"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "035",
+  "cardName": "掘地兔",
+  "rarity": "U",
+  "effectId": "6e3eb35675da1066a46db299f4508331",
+  "cardType": "Pokemon",
+  "yorenCode": "P660",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "147",
+  "nameEn": "Diggersby"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "036",
+  "cardName": "智挥猩",
+  "rarity": "R",
+  "effectId": "bd65663a2fd431f142c335ebd9720eb9",
+  "cardType": "Pokemon",
+  "yorenCode": "P765",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "148",
+  "nameEn": "Oranguru"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "037",
+  "cardName": "稚山雀",
+  "rarity": "C",
+  "effectId": "712c6bd2f57e14f2185f8f97bad1c0eb",
+  "cardType": "Pokemon",
+  "yorenCode": "P821",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "154",
+  "nameEn": "Rookidee"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "038",
+  "cardName": "蓝鸦",
+  "rarity": "C",
+  "effectId": "11c3fc459587a1288b9f048c7ae4d5ec",
+  "cardType": "Pokemon",
+  "yorenCode": "P822",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "155",
+  "nameEn": "Corvisquire"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "039",
+  "cardName": "钢铠鸦",
+  "rarity": "R",
+  "effectId": "69bb733f6dc655c48e8b8f6d3a753a28",
+  "cardType": "Pokemon",
+  "yorenCode": "P823",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "156",
+  "nameEn": "Corviknight"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "040",
+  "cardName": "古月鸟V",
+  "rarity": "RR",
+  "effectId": "e04b7347eab55845cfd7c429e4c0a1f8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y584",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "155",
+  "nameEn": "Cramorant V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "041",
+  "cardName": "古月鸟VMAX",
+  "rarity": "RRR",
+  "effectId": "d7615dff516f8aa7c3a1338c5e3126f5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y585",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "55",
+  "nameEn": "Cramorant VMAX"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "042",
+  "cardName": "奇异罐头",
+  "rarity": "U",
+  "effectId": "a7ef8eff87b7b6bfaf631a4b01b691d2",
+  "cardType": "Item",
+  "yorenCode": "Y586",
+  "is": [],
+  "setCodeEn": "CPA",
+  "cardIndexEn": "66",
+  "nameEn": "Suspicious Food Tin"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "043",
+  "cardName": "回收网",
+  "rarity": "U",
+  "effectId": "0bba669a06b39a2c8a5f827f5a032e67",
+  "cardType": "Item",
+  "yorenCode": "Y587",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "165",
+  "nameEn": "Scoop Up Net"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "044",
+  "cardName": "超级球",
+  "rarity": "U",
+  "effectId": "1838e8afe529b519a57dd8bbd307905a",
+  "cardType": "Item",
+  "yorenCode": "Y197",
+  "is": [],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "60",
+  "nameEn": "Great Ball"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "045",
+  "cardName": "相仿铃铛",
+  "rarity": "U",
+  "effectId": "e1c2d40544c3b0e686bc857a5c5c345c",
+  "cardType": "Item",
+  "yorenCode": "Y588",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "161",
+  "nameEn": "Familiar Bell"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "046",
+  "cardName": "足量水桶",
+  "rarity": "U",
+  "effectId": "7d19ced4336f8a8803bd308ec344ee57",
+  "cardType": "Item",
+  "yorenCode": "Y589",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "156",
+  "nameEn": "Capacious Bucket"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "047",
+  "cardName": "道具拆除器",
+  "rarity": "U",
+  "effectId": "095ae468baa54fac82ba9306bd0ee377",
+  "cardType": "Item",
+  "yorenCode": "Y590",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "168",
+  "nameEn": "Tool Scrapper"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "048",
+  "cardName": "奥利薇",
+  "rarity": "U",
+  "effectId": "9ac60220085149b5a99cdc09c7887fc0",
+  "cardType": "Supporter",
+  "yorenCode": "Y591",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "163",
+  "nameEn": "Oleana"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "049",
+  "cardName": "卡芜",
+  "rarity": "U",
+  "effectId": "619743dfcff98ceef6a0b86b5b24254b",
+  "cardType": "Supporter",
+  "yorenCode": "Y592",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "163",
+  "nameEn": "Kabu"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "050",
+  "cardName": "宝可梦培育家的培训",
+  "rarity": "U",
+  "effectId": "8214656185807375ff7af2e8f0797331",
+  "cardType": "Supporter",
+  "yorenCode": "Y593",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "166",
+  "nameEn": "Pokémon Breeder's Nurturing"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "051",
+  "cardName": "伽勒尔矿山",
+  "rarity": "U",
+  "effectId": "96e7bbf1adcb7934340f7617dc2b7ea5",
+  "cardType": "Stadium",
+  "yorenCode": "Y594",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "160",
+  "nameEn": "Galar Mine"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "052",
+  "cardName": "高温【火】能量",
+  "rarity": "U",
+  "effectId": "53586e400249778f459b3029eda36644",
+  "cardType": "Special Energy",
+  "yorenCode": "Y595",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "174",
+  "nameEn": "Heat Fire Energy"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "053",
+  "cardName": "高速【雷】能量",
+  "rarity": "U",
+  "effectId": "162010f6b1a4fe57599b496300212718",
+  "cardType": "Special Energy",
+  "yorenCode": "Y596",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "173",
+  "nameEn": "Speed Lightning Energy"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "054",
+  "cardName": "惊悚【超】能量",
+  "rarity": "U",
+  "effectId": "1f687b20d568f0bdfa724b619fc6e882",
+  "cardType": "Special Energy",
+  "yorenCode": "Y597",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "172",
+  "nameEn": "Horror Psychic Energy"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "055",
+  "cardName": "捕获能量",
+  "rarity": "U",
+  "effectId": "867d083731830c859cc06245c1b13032",
+  "cardType": "Special Energy",
+  "yorenCode": "Y598",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "171",
+  "nameEn": "Capture Energy"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "056",
+  "cardName": "索侦虫",
+  "rarity": "S",
+  "effectId": "23b256b989c7ee8486a9d856f5ea50b0",
+  "cardType": "Pokemon",
+  "yorenCode": "P824",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "16",
+  "nameEn": "Blipbug"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "057",
+  "cardName": "天罩虫",
+  "rarity": "S",
+  "effectId": "d0cffd0eddfab8689354532d74b51893",
+  "cardType": "Pokemon",
+  "yorenCode": "P825",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "18",
+  "nameEn": "Dottler"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "058",
+  "cardName": "以欧路普",
+  "rarity": "S",
+  "effectId": "24b5bd65c7eaee6f26b9672f389956f1",
+  "cardType": "Pokemon",
+  "yorenCode": "P826",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "19",
+  "nameEn": "Orbeetle"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "059",
+  "cardName": "啃果虫",
+  "rarity": "S",
+  "effectId": "bbde4deb952189bf5e4aed503ab2267b",
+  "cardType": "Pokemon",
+  "yorenCode": "P840",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "21",
+  "nameEn": "Applin"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "060",
+  "cardName": "苹裹龙",
+  "rarity": "S",
+  "effectId": "1ed83d26338496c26be8cbfa6848efdc",
+  "cardType": "Pokemon",
+  "yorenCode": "P841",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "22",
+  "nameEn": "Flapple"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "061",
+  "cardName": "丰蜜龙",
+  "rarity": "S",
+  "effectId": "1ab8e791e83aec77025181ccdd2d835f",
+  "cardType": "Pokemon",
+  "yorenCode": "P842",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "23",
+  "nameEn": "Appletun"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "062",
+  "cardName": "伽勒尔 魔墙人偶",
+  "rarity": "S",
+  "effectId": "6a6cf8d4d800f44228a8c63dde42761f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y552",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "35",
+  "nameEn": "Galarian Mr. Mime"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "063",
+  "cardName": "伽勒尔 踏冰人偶",
+  "rarity": "S",
+  "effectId": "06699096c83253687ec40c8103273b57",
+  "cardType": "Pokemon",
+  "yorenCode": "P866",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "79",
+  "nameEn": "Galarian Mr. Rime"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "064",
+  "cardName": "咚咚鼠",
+  "rarity": "S",
+  "effectId": "b154aaa51a993f7615d7f45ef75fcdf3",
+  "cardType": "Pokemon",
+  "yorenCode": "P702",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "80",
+  "nameEn": "Dedenne"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "065",
+  "cardName": "来悲茶",
+  "rarity": "S",
+  "effectId": "07c0d411c01889750442fc687de897fe",
+  "cardType": "Pokemon",
+  "yorenCode": "P854",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "82",
+  "nameEn": "Sinistea"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "066",
+  "cardName": "怖思壶",
+  "rarity": "S",
+  "effectId": "03b8bbd685dff9c86e82000004d476fa",
+  "cardType": "Pokemon",
+  "yorenCode": "P855",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "81",
+  "nameEn": "Polteageist"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "067",
+  "cardName": "瓦斯弹",
+  "rarity": "S",
+  "effectId": "41dba4192c38e666c8e3e4ef83d7bf15",
+  "cardType": "Pokemon",
+  "yorenCode": "P109",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "41",
+  "nameEn": "Koffing"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "068",
+  "cardName": "伽勒尔 双弹瓦斯",
+  "rarity": "S",
+  "effectId": "654876354d93b3d21aaebe452fc68582",
+  "cardType": "Pokemon",
+  "yorenCode": "Y582",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "113",
+  "nameEn": "Galarian Weezing"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "069",
+  "cardName": "伽勒尔 喵喵",
+  "rarity": "S",
+  "effectId": "a5036752c386964f0c94443ccfb94147",
+  "cardType": "Pokemon",
+  "yorenCode": "Y509",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "126",
+  "nameEn": "Galarian Meowth"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "070",
+  "cardName": "伽勒尔 喵头目",
+  "rarity": "S",
+  "effectId": "5eb2dedb3706c4592b57173939f6f277",
+  "cardType": "Pokemon",
+  "yorenCode": "P863",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "128",
+  "nameEn": "Galarian Perrserker"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "071",
+  "cardName": "掘掘兔",
+  "rarity": "S",
+  "effectId": "5b4b3679397c0c83fefa4a88d9307974",
+  "cardType": "Pokemon",
+  "yorenCode": "P659",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "82",
+  "nameEn": "Bunnelby"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "072",
+  "cardName": "智挥猩",
+  "rarity": "S",
+  "effectId": "bd65663a2fd431f142c335ebd9720eb9",
+  "cardType": "Pokemon",
+  "yorenCode": "P765",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "148",
+  "nameEn": "Oranguru"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "073",
+  "cardName": "破破舵轮V",
+  "rarity": "SR",
+  "effectId": "b6ab931281c1b87ffac3482415155e24",
+  "cardType": "Pokemon",
+  "yorenCode": "Y575",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "9",
+  "nameEn": "Dhelmise V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "074",
+  "cardName": "白蓬蓬V",
+  "rarity": "SR",
+  "effectId": "df0a601dce1822f11b93c250936de521",
+  "cardType": "Pokemon",
+  "yorenCode": "Y577",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "19",
+  "nameEn": "Eldegoss V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "075",
+  "cardName": "美纳斯V",
+  "rarity": "SR",
+  "effectId": "3cb2e22d2d2f4dfee5a77069b32bdfc3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y578",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "43",
+  "nameEn": "Milotic V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "076",
+  "cardName": "锹农炮虫V",
+  "rarity": "SR",
+  "effectId": "1ff4daa23448707d1dba6e81be447c61",
+  "cardType": "Pokemon",
+  "yorenCode": "Y579",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "60",
+  "nameEn": "Vikavolt V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "077",
+  "cardName": "多龙巴鲁托V",
+  "rarity": "SR",
+  "effectId": "244899efba3e35a23cc59188a47892a9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y580",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "92",
+  "nameEn": "Dragapult V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "078",
+  "cardName": "伽勒尔 泥巴鱼V",
+  "rarity": "SR",
+  "effectId": "fae4a5b0a6b9177f3ccb0a21028a7c07",
+  "cardType": "Pokemon",
+  "yorenCode": "Y583",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "128",
+  "nameEn": "Galarian Stunfisk V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "079",
+  "cardName": "古月鸟V",
+  "rarity": "SR",
+  "effectId": "e04b7347eab55845cfd7c429e4c0a1f8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y584",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "155",
+  "nameEn": "Cramorant V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "080",
+  "cardName": "奥利薇",
+  "rarity": "SR",
+  "effectId": "9ac60220085149b5a99cdc09c7887fc0",
+  "cardType": "Supporter",
+  "yorenCode": "Y591",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "163",
+  "nameEn": "Oleana"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "081",
+  "cardName": "卡芜",
+  "rarity": "SR",
+  "effectId": "619743dfcff98ceef6a0b86b5b24254b",
+  "cardType": "Supporter",
+  "yorenCode": "Y592",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "163",
+  "nameEn": "Kabu"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "082",
+  "cardName": "宝可梦培育家的培训",
+  "rarity": "SR",
+  "effectId": "8214656185807375ff7af2e8f0797331",
+  "cardType": "Supporter",
+  "yorenCode": "Y593",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "166",
+  "nameEn": "Pokémon Breeder's Nurturing"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "083",
+  "cardName": "白蓬蓬V",
+  "rarity": "SSR",
+  "effectId": "df0a601dce1822f11b93c250936de521",
+  "cardType": "Pokemon",
+  "yorenCode": "Y577",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "19",
+  "nameEn": "Eldegoss V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "084",
+  "cardName": "多龙巴鲁托V",
+  "rarity": "SSR",
+  "effectId": "244899efba3e35a23cc59188a47892a9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y580",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "92",
+  "nameEn": "Dragapult V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "085",
+  "cardName": "多龙巴鲁托VMAX",
+  "rarity": "SSR",
+  "effectId": "60d66256ec74c53777a4e2ed84012da0",
+  "cardType": "Pokemon",
+  "yorenCode": "Y581",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "93",
+  "nameEn": "Dragapult VMAX"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "086",
+  "cardName": "古月鸟V",
+  "rarity": "SSR",
+  "effectId": "e04b7347eab55845cfd7c429e4c0a1f8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y584",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "155",
+  "nameEn": "Cramorant V"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "087",
+  "cardName": "多龙巴鲁托VMAX",
+  "rarity": "HR",
+  "effectId": "60d66256ec74c53777a4e2ed84012da0",
+  "cardType": "Pokemon",
+  "yorenCode": "Y581",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "93",
+  "nameEn": "Dragapult VMAX"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "088",
+  "cardName": "奥利薇",
+  "rarity": "HR",
+  "effectId": "9ac60220085149b5a99cdc09c7887fc0",
+  "cardType": "Supporter",
+  "yorenCode": "Y591",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "163",
+  "nameEn": "Oleana"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "089",
+  "cardName": "卡芜",
+  "rarity": "HR",
+  "effectId": "619743dfcff98ceef6a0b86b5b24254b",
+  "cardType": "Supporter",
+  "yorenCode": "Y592",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "163",
+  "nameEn": "Kabu"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "090",
+  "cardName": "宝可梦培育家的培训",
+  "rarity": "HR",
+  "effectId": "8214656185807375ff7af2e8f0797331",
+  "cardType": "Supporter",
+  "yorenCode": "Y593",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "166",
+  "nameEn": "Pokémon Breeder's Nurturing"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "091",
+  "cardName": "伽勒尔 喵头目",
+  "rarity": "UR",
+  "effectId": "5eb2dedb3706c4592b57173939f6f277",
+  "cardType": "Pokemon",
+  "yorenCode": "P863",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "128",
+  "nameEn": "Galarian Perrserker"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "092",
+  "cardName": "智挥猩",
+  "rarity": "UR",
+  "effectId": "bd65663a2fd431f142c335ebd9720eb9",
+  "cardType": "Pokemon",
+  "yorenCode": "P765",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "148",
+  "nameEn": "Oranguru"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "093",
+  "cardName": "奇异罐头",
+  "rarity": "UR",
+  "effectId": "a7ef8eff87b7b6bfaf631a4b01b691d2",
+  "cardType": "Item",
+  "yorenCode": "Y586",
+  "is": [],
+  "setCodeEn": "CPA",
+  "cardIndexEn": "66",
+  "nameEn": "Suspicious Food Tin"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "094",
+  "cardName": "回收网",
+  "rarity": "UR",
+  "effectId": "0bba669a06b39a2c8a5f827f5a032e67",
+  "cardType": "Item",
+  "yorenCode": "Y587",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "165",
+  "nameEn": "Scoop Up Net"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "095",
+  "cardName": "道具拆除器",
+  "rarity": "UR",
+  "effectId": "095ae468baa54fac82ba9306bd0ee377",
+  "cardType": "Item",
+  "yorenCode": "Y590",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "168",
+  "nameEn": "Tool Scrapper"
+ },
+ {
+  "setCode": "CS1.5C",
+  "cardIndex": "096",
+  "cardName": "捕获能量",
+  "rarity": "UR",
+  "effectId": "867d083731830c859cc06245c1b13032",
+  "cardType": "Special Energy",
+  "yorenCode": "Y598",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "171",
+  "nameEn": "Capture Energy"
+ }
+]

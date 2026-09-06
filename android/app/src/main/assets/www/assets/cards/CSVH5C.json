@@ -1,0 +1,889 @@
+[
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "001",
+  "cardName": "斯魔茶",
+  "rarity": "无标记",
+  "effectId": "acdfbe83a6bf379a019f6fe22a3057df",
+  "cardType": "Pokemon",
+  "yorenCode": "P1012",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "21",
+  "nameEn": "Poltchageist"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "002",
+  "cardName": "来悲粗茶",
+  "rarity": "无标记",
+  "effectId": "defef39f399206a6de240aab5caa7f6b",
+  "cardType": "Pokemon",
+  "yorenCode": "P1013",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "22",
+  "nameEn": "Sinistcha"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "003",
+  "cardName": "厄诡椪 碧草面具",
+  "rarity": "无标记",
+  "effectId": "1c37cb988f49943fae72b78a7640d8ff",
+  "cardType": "Pokemon",
+  "yorenCode": "P1017",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "26",
+  "nameEn": "Teal Mask Ogerpon"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "004",
+  "cardName": "炎帝",
+  "rarity": "无标记",
+  "effectId": "5136a1f1ea16c49a0cc9ca25f17919b4",
+  "cardType": "Pokemon",
+  "yorenCode": "P244",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "30",
+  "nameEn": "Entei"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "005",
+  "cardName": "呆火驼",
+  "rarity": "无标记",
+  "effectId": "460d48d873796cb3b7187e11c9ef7eea",
+  "cardType": "Pokemon",
+  "yorenCode": "P322",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "11",
+  "nameEn": "Numel"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "006",
+  "cardName": "喷火驼",
+  "rarity": "无标记",
+  "effectId": "e7770d55aed14cfcce01ea0232628478",
+  "cardType": "Pokemon",
+  "yorenCode": "P323",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "32",
+  "nameEn": "Camerupt"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "007",
+  "cardName": "炭小侍",
+  "rarity": "无标记",
+  "effectId": "eeb7358d62afc8eb5c64a265da342026",
+  "cardType": "Pokemon",
+  "yorenCode": "P0935",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "25",
+  "nameEn": "Charcadet"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "008",
+  "cardName": "红莲铠骑",
+  "rarity": "无标记",
+  "effectId": "4f4c17fe9f3429419f9e344fbecb140d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0936",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "15",
+  "nameEn": "Armarouge"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "009",
+  "cardName": "古玉鱼",
+  "rarity": "无标记",
+  "effectId": "4e1e775eaafb11028f5378ede92cb964",
+  "cardType": "Pokemon",
+  "yorenCode": "P1004",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "29",
+  "nameEn": "Chi-Yu"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "010",
+  "cardName": "帕底亚 肯泰罗",
+  "rarity": "无标记",
+  "effectId": "d83e81e5ef48eb5560b1e2ee5a49c498",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1245",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "41",
+  "nameEn": "Paldean Tauros"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "011",
+  "cardName": "信使鸟",
+  "rarity": "无标记",
+  "effectId": "32b67ceeb1d709444413903a625b2137",
+  "cardType": "Pokemon",
+  "yorenCode": "P225",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "46",
+  "nameEn": "Delibird"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "012",
+  "cardName": "超梦ex",
+  "rarity": "无标记",
+  "effectId": "6d3105b73115117f34af8a1ff693f730",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1335",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "58",
+  "nameEn": "Mewtwo ex"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "013",
+  "cardName": "捷拉奥拉",
+  "rarity": "无标记",
+  "effectId": "99012ce3601ecb5bf0b07cf84200e3a9",
+  "cardType": "Pokemon",
+  "yorenCode": "P807",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TEF",
+  "cardIndexEn": "57",
+  "nameEn": "Zeraora"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "014",
+  "cardName": "天然雀",
+  "rarity": "无标记",
+  "effectId": "2317be04afe1bd94899a29fe09b84d96",
+  "cardType": "Pokemon",
+  "yorenCode": "P177",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "25",
+  "nameEn": "Natu"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "015",
+  "cardName": "天然鸟",
+  "rarity": "无标记",
+  "effectId": "bcd9644ea935ce567829f4a76756059b",
+  "cardType": "Pokemon",
+  "yorenCode": "P178",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "26",
+  "nameEn": "Xatu"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "016",
+  "cardName": "太阳伊布",
+  "rarity": "无标记",
+  "effectId": "5a4fe4fcf5ad5ac0d9b4c3ea762ddfd6",
+  "cardType": "Pokemon",
+  "yorenCode": "P196",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "86",
+  "nameEn": "Espeon"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "017",
+  "cardName": "大嘴娃",
+  "rarity": "无标记",
+  "effectId": "f7148d5bcbde2b7ae3ebed5e23b835d0",
+  "cardType": "Pokemon",
+  "yorenCode": "P303",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "89",
+  "nameEn": "Mawile"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "018",
+  "cardName": "拉帝欧斯",
+  "rarity": "无标记",
+  "effectId": "b422c11d9ec14623c9103ff11aa5e8dc",
+  "cardType": "Pokemon",
+  "yorenCode": "P381",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "73",
+  "nameEn": "Latios"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "019",
+  "cardName": "哲尔尼亚斯",
+  "rarity": "无标记",
+  "effectId": "cecc9da7344032ff5659549d915900f3",
+  "cardType": "Pokemon",
+  "yorenCode": "P716",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSP",
+  "cardIndexEn": "88",
+  "nameEn": "Xerneas"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "020",
+  "cardName": "花舞鸟",
+  "rarity": "无标记",
+  "effectId": "38995c7975dbaa1b8b9d7b3902a3f5bc",
+  "cardType": "Pokemon",
+  "yorenCode": "P741",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "65",
+  "nameEn": "Oricorio"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "021",
+  "cardName": "迷你龙",
+  "rarity": "无标记",
+  "effectId": "a7a35dcc917e408b1338518b2f1abc61",
+  "cardType": "Pokemon",
+  "yorenCode": "P147",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "157",
+  "nameEn": "Dratini"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "022",
+  "cardName": "哈克龙",
+  "rarity": "无标记",
+  "effectId": "bbcd58f1f26d5ecdef799c07a55d7ba0",
+  "cardType": "Pokemon",
+  "yorenCode": "P148",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "158",
+  "nameEn": "Dragonair"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "023",
+  "cardName": "快龙ex",
+  "rarity": "无标记",
+  "effectId": "4e774180e5b16e3fc9d37174c8505ca3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1314",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "159",
+  "nameEn": "Dragonite ex"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "024",
+  "cardName": "米立龙",
+  "rarity": "无标记",
+  "effectId": "2369078c91e4c1ddd5e54bdf9132f6a3",
+  "cardType": "Pokemon",
+  "yorenCode": "P0978",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "141",
+  "nameEn": "Tatsugiri"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "025",
+  "cardName": "伊布",
+  "rarity": "无标记",
+  "effectId": "b8aaf66c1209ba720cdcabdb011e06e7",
+  "cardType": "Pokemon",
+  "yorenCode": "P133",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "166",
+  "nameEn": "Eevee"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "026",
+  "cardName": "多边兽",
+  "rarity": "无标记",
+  "effectId": "916edb62487aade310a9746e823e7235",
+  "cardType": "Pokemon",
+  "yorenCode": "P137",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "142",
+  "nameEn": "Porygon"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "027",
+  "cardName": "多边兽2型",
+  "rarity": "无标记",
+  "effectId": "b09ee66958ecb7a84ab287de60dd532d",
+  "cardType": "Pokemon",
+  "yorenCode": "P233",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "143",
+  "nameEn": "Porygon2"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "028",
+  "cardName": "多边兽乙型",
+  "rarity": "无标记",
+  "effectId": "38021ad1bc77019b932f3a8d2f1e9d82",
+  "cardType": "Pokemon",
+  "yorenCode": "P474",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "144",
+  "nameEn": "Porygon-Z"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "029",
+  "cardName": "猫鼬斩",
+  "rarity": "无标记",
+  "effectId": "2f1c411af233bb9b5edc10ea31899cfe",
+  "cardType": "Pokemon",
+  "yorenCode": "P335",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSP",
+  "cardIndexEn": "149",
+  "nameEn": "Zangoose"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "030",
+  "cardName": "热带龙",
+  "rarity": "无标记",
+  "effectId": "1cfbf450b968a9226ea9935295247466",
+  "cardType": "Pokemon",
+  "yorenCode": "P357",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "123",
+  "nameEn": "Tropius"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "031",
+  "cardName": "聒噪鸟",
+  "rarity": "无标记",
+  "effectId": "d47b6db6cf0022b21d3c35134874b4d0",
+  "cardType": "Pokemon",
+  "yorenCode": "P441",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TEF",
+  "cardIndexEn": "132",
+  "nameEn": "Chatot"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "032",
+  "cardName": "怒鹦哥",
+  "rarity": "无标记",
+  "effectId": "85a8a487838d4470512cd4f024910ce3",
+  "cardType": "Pokemon",
+  "yorenCode": "P0931",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "162",
+  "nameEn": "Squawkabilly"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "033",
+  "cardName": "缠红鹤",
+  "rarity": "无标记",
+  "effectId": "6abcb501027c910806f6a0c452ad6e9b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0973",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "165",
+  "nameEn": "Flamigo"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "034",
+  "cardName": "能量回收",
+  "rarity": "无标记",
+  "effectId": "8538726d6cdfad2fa3ca5f4b462c12c5",
+  "cardType": "Item",
+  "yorenCode": "Y1438",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "116",
+  "nameEn": "Energy Retrieval"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "035",
+  "cardName": "能量转移",
+  "rarity": "无标记",
+  "effectId": "294212d9c02dc0acb886a7ef01ebeac4",
+  "cardType": "Item",
+  "yorenCode": "Y193",
+  "is": [],
+  "setCodeEn": "CES",
+  "cardIndexEn": "129",
+  "nameEn": "Energy Switch"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "036",
+  "cardName": "能量输送",
+  "rarity": "无标记",
+  "effectId": "e508908b9311c0ef5e70e9de44892e26",
+  "cardType": "Item",
+  "yorenCode": "Y1642",
+  "is": [],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "128",
+  "nameEn": "Energy Search"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "037",
+  "cardName": "伤药",
+  "rarity": "无标记",
+  "effectId": "187d694096b96c54af0f7463c5e2b2b4",
+  "cardType": "Item",
+  "yorenCode": "Y1641",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "127",
+  "nameEn": "Potion"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "038",
+  "cardName": "超级球",
+  "rarity": "无标记",
+  "effectId": "1838e8afe529b519a57dd8bbd307905a",
+  "cardType": "Item",
+  "yorenCode": "Y197",
+  "is": [],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "60",
+  "nameEn": "Great Ball"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "039",
+  "cardName": "推理套装",
+  "rarity": "无标记",
+  "effectId": "b2ed6eb5dd7e6221d6673540adb331ab",
+  "cardType": "Item",
+  "yorenCode": "Y1520",
+  "is": [],
+  "setCodeEn": "SSP",
+  "cardIndexEn": "171",
+  "nameEn": "Deduction Kit"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "040",
+  "cardName": "厉害钓竿",
+  "rarity": "无标记",
+  "effectId": "c9c948169525fbb3dce70c477ec7a90a",
+  "cardType": "Item",
+  "yorenCode": "Y1643",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "188",
+  "nameEn": "Super Rod"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "041",
+  "cardName": "巢穴球",
+  "rarity": "无标记",
+  "effectId": "1af63a7e2cb7a79215474ad8db8fd8fd",
+  "cardType": "Item",
+  "yorenCode": "Y30",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "123",
+  "nameEn": "Nest Ball"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "042",
+  "cardName": "高级球",
+  "rarity": "无标记",
+  "effectId": "a337ed34a45e63c6d21d98c3d8e0cb6e",
+  "cardType": "Item",
+  "yorenCode": "Y1644",
+  "is": [],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "68",
+  "nameEn": "Ultra Ball"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "043",
+  "cardName": "神奇糖果",
+  "rarity": "无标记",
+  "effectId": "d3891abcfe3277c8811cde06741d3236",
+  "cardType": "Item",
+  "yorenCode": "Y1436",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "129",
+  "nameEn": "Rare Candy"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "044",
+  "cardName": "宝可梦交替",
+  "rarity": "无标记",
+  "effectId": "7c0b20e121c9d0e0d2d8a43524f7494e",
+  "cardType": "Item",
+  "yorenCode": "Y1645",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "132",
+  "nameEn": "Switch"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "045",
+  "cardName": "宝可梦捕捉器",
+  "rarity": "无标记",
+  "effectId": "3a6d419769778b40091e69fbd76737ec",
+  "cardType": "Item",
+  "yorenCode": "Y1439",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "126",
+  "nameEn": "Pokémon Catcher"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "046",
+  "cardName": "学习装置",
+  "rarity": "无标记",
+  "effectId": "40d67cc66ad153ee1d54c6213c50b4a1",
+  "cardType": "Tool",
+  "yorenCode": "Y37",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "118",
+  "nameEn": "Exp. Share"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "047",
+  "cardName": "西餐厨师",
+  "rarity": "无标记",
+  "effectId": "80b8fdcb857d20280f0740fedb27f1bb",
+  "cardType": "Supporter",
+  "yorenCode": "Y753",
+  "is": [],
+  "setCodeEn": "FST",
+  "cardIndexEn": "228",
+  "nameEn": "Cook"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "048",
+  "cardName": "冲浪手",
+  "rarity": "无标记",
+  "effectId": "565a02f4e75076963c6a884ae3622ff1",
+  "cardType": "Supporter",
+  "yorenCode": "Y1485",
+  "is": [],
+  "setCodeEn": "SSP",
+  "cardIndexEn": "187",
+  "nameEn": "Surfer"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "049",
+  "cardName": "裁判",
+  "rarity": "无标记",
+  "effectId": "0a9bdf265647461dd5c6c827ffc19e61",
+  "cardType": "Supporter",
+  "yorenCode": "Y1646",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "108",
+  "nameEn": "Judge"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "050",
+  "cardName": "天星队手下",
+  "rarity": "无标记",
+  "effectId": "b54276b42598426febfe34bb67d5f075",
+  "cardType": "Supporter",
+  "yorenCode": "Y1263",
+  "is": [],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "195",
+  "nameEn": "Team Star Grunt"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "051",
+  "cardName": "紫竽",
+  "rarity": "无标记",
+  "effectId": "a3c4d099d726c7dfa4393e7e218661db",
+  "cardType": "Supporter",
+  "yorenCode": "Y1540",
+  "is": [],
+  "setCodeEn": "SCR",
+  "cardIndexEn": "139",
+  "nameEn": "Lacey"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "052",
+  "cardName": "短裤小子",
+  "rarity": "无标记",
+  "effectId": "2577a3de8118cc5c48db5a7e98d349f5",
+  "cardType": "Supporter",
+  "yorenCode": "Y1647",
+  "is": [],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "198",
+  "nameEn": "Youngster"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "053",
+  "cardName": "妮莫",
+  "rarity": "无标记",
+  "effectId": "a92166813712f19229ea95ebb897baf3",
+  "cardType": "Supporter",
+  "yorenCode": "Y1640",
+  "is": [],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "238",
+  "nameEn": "Nemona"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "054",
+  "cardName": "博士的研究",
+  "rarity": "无标记",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "055",
+  "cardName": "瓢太",
+  "rarity": "无标记",
+  "effectId": "2a5c07699e0820cfe5c46e053652023f",
+  "cardType": "Supporter",
+  "yorenCode": "Y1377",
+  "is": [],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "173",
+  "nameEn": "Roark"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "056",
+  "cardName": "米莫莎",
+  "rarity": "无标记",
+  "effectId": "9633328b8477513ca950a1a266c83502",
+  "cardType": "Supporter",
+  "yorenCode": "Y1216",
+  "is": [],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "179",
+  "nameEn": "Miriam"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "057",
+  "cardName": "梅洛可",
+  "rarity": "无标记",
+  "effectId": "f9162d9c9d98c74523257f17dcb6053b",
+  "cardType": "Supporter",
+  "yorenCode": "Y1354",
+  "is": [],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "167",
+  "nameEn": "Mela"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "058",
+  "cardName": "莉普",
+  "rarity": "无标记",
+  "effectId": "166ae0b1574cad5d4327d0bf4ddd672a",
+  "cardType": "Supporter",
+  "yorenCode": "Y1379",
+  "is": [],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "181",
+  "nameEn": "Tulip"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "GRA",
+  "cardName": "基本草能量",
+  "rarity": "无标记",
+  "effectId": "5e2d0ce37ca0c539aa45908da10544a0",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y457",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "1",
+  "nameEn": "Grass Energy"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "FIR",
+  "cardName": "基本火能量",
+  "rarity": "无标记",
+  "effectId": "22db5405bf0cce61a00aa8082cdd1e65",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y458",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "2",
+  "nameEn": "Fire Energy"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "WAT",
+  "cardName": "基本水能量",
+  "rarity": "无标记",
+  "effectId": "0cf075ae61b8a0b4e9151e5146c3aa26",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y459",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "3",
+  "nameEn": "Water Energy"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "LIG",
+  "cardName": "基本雷能量",
+  "rarity": "无标记",
+  "effectId": "45550fd10011f6ade7eef16ba88788cf",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y460",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "4",
+  "nameEn": "Lightning Energy"
+ },
+ {
+  "setCode": "CSVH5C",
+  "cardIndex": "PSY",
+  "cardName": "基本超能量",
+  "rarity": "无标记",
+  "effectId": "41b2d1a95fafc35e4cf39383ffae928a",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y461",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "5",
+  "nameEn": "Psychic Energy"
+ }
+]

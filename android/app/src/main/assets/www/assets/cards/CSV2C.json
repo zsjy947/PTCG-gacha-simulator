@@ -1,0 +1,2416 @@
+[
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "001",
+  "cardName": "赫拉克罗斯",
+  "rarity": "U",
+  "effectId": "6429787fcca16e00bd78948a68615e1b",
+  "cardType": "Pokemon",
+  "yorenCode": "P214",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "6",
+  "nameEn": "Heracross"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "002",
+  "cardName": "热带龙",
+  "rarity": "C",
+  "effectId": "3babcf8863899c99e105332be778e2fe",
+  "cardType": "Pokemon",
+  "yorenCode": "P357",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "7",
+  "nameEn": "Tropius"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "003",
+  "cardName": "三蜜蜂",
+  "rarity": "C",
+  "effectId": "196df4473acc69754eb528f91c262db2",
+  "cardType": "Pokemon",
+  "yorenCode": "P415",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "8",
+  "nameEn": "Combee"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "004",
+  "cardName": "蜂女王",
+  "rarity": "U",
+  "effectId": "dc2e32571ad08778e9f70e8ca6d5b44d",
+  "cardType": "Pokemon",
+  "yorenCode": "P416",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "9",
+  "nameEn": "Vespiquen"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "005",
+  "cardName": "哎呀球菇",
+  "rarity": "C",
+  "effectId": "bcb39ccb0ba0496e180c5790c38b238f",
+  "cardType": "Pokemon",
+  "yorenCode": "P590",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "9",
+  "nameEn": "Foongus"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "006",
+  "cardName": "败露球菇",
+  "rarity": "U",
+  "effectId": "baefdf0dcad8970cef047ea3cb5bd349",
+  "cardType": "Pokemon",
+  "yorenCode": "P591",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "10",
+  "nameEn": "Amoonguss"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "007",
+  "cardName": "粉蝶虫",
+  "rarity": "C",
+  "effectId": "7a2695d3fbec6ed9d95ced7d72e1595c",
+  "cardType": "Pokemon",
+  "yorenCode": "P664",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "8",
+  "nameEn": "Scatterbug"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "008",
+  "cardName": "粉蝶蛹",
+  "rarity": "C",
+  "effectId": "e263beae94fc3c8ad9777c42e76545d4",
+  "cardType": "Pokemon",
+  "yorenCode": "P665",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "9",
+  "nameEn": "Spewpa"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "009",
+  "cardName": "彩粉蝶",
+  "rarity": "U",
+  "effectId": "c3fd031117b0fabd84b26239136ba4e1",
+  "cardType": "Pokemon",
+  "yorenCode": "P666",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "10",
+  "nameEn": "Vivillon"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "010",
+  "cardName": "新叶喵",
+  "rarity": "C",
+  "effectId": "abbc452834ba485711758d74d3028696",
+  "cardType": "Pokemon",
+  "yorenCode": "P0906",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "13",
+  "nameEn": "Sprigatito"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "011",
+  "cardName": "蒂蕾喵",
+  "rarity": "C",
+  "effectId": "b49466f5df9dfcef38331df65187f068",
+  "cardType": "Pokemon",
+  "yorenCode": "P0907",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "14",
+  "nameEn": "Floragato"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "012",
+  "cardName": "魔幻假面喵ex",
+  "rarity": "RR",
+  "effectId": "0779cd043d2977d004c2cfff5503c939",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1244",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "15",
+  "nameEn": "Meowscarada ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "013",
+  "cardName": "豆蟋蟀",
+  "rarity": "C",
+  "effectId": "94f264516c3f783c2f8cd390849cb166",
+  "cardType": "Pokemon",
+  "yorenCode": "P0919",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "20",
+  "nameEn": "Nymble"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "014",
+  "cardName": "烈腿蝗",
+  "rarity": "R",
+  "effectId": "61f3cccc04d15b35585539d9315bbafd",
+  "cardType": "Pokemon",
+  "yorenCode": "P0920",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "21",
+  "nameEn": "Lokix"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "015",
+  "cardName": "帕底亚 肯泰罗",
+  "rarity": "U",
+  "effectId": "441b186e3c40a58c3fa22423f42154e0",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1245",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "28",
+  "nameEn": "Paldean Tauros"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "016",
+  "cardName": "小狮狮",
+  "rarity": "C",
+  "effectId": "db3744ac27f99c1da6e25448a6d9f02a",
+  "cardType": "Pokemon",
+  "yorenCode": "P667",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "31",
+  "nameEn": "Litleo"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "017",
+  "cardName": "火炎狮",
+  "rarity": "U",
+  "effectId": "647a4fd076b97a76792d3476c4dd4a7b",
+  "cardType": "Pokemon",
+  "yorenCode": "P668",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "32",
+  "nameEn": "Pyroar"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "018",
+  "cardName": "花舞鸟",
+  "rarity": "R",
+  "effectId": "92c3a87d74b0a175ab766b7e950951fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P741",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "33",
+  "nameEn": "Oricorio"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "019",
+  "cardName": "呆火鳄",
+  "rarity": "C",
+  "effectId": "923d53db36e32f425f7e0d26a7699694",
+  "cardType": "Pokemon",
+  "yorenCode": "P0909",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "35",
+  "nameEn": "Fuecoco"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "020",
+  "cardName": "炙烫鳄",
+  "rarity": "C",
+  "effectId": "f97c73b1a3af51562173f02c6ebd810d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0910",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "36",
+  "nameEn": "Crocalor"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "021",
+  "cardName": "骨纹巨声鳄ex",
+  "rarity": "RR",
+  "effectId": "df0547ccf34cc7afdc73b98ca61e874a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1246",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "37",
+  "nameEn": "Skeledirge ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "022",
+  "cardName": "帕底亚 肯泰罗",
+  "rarity": "U",
+  "effectId": "d83e81e5ef48eb5560b1e2ee5a49c498",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1245",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "41",
+  "nameEn": "Paldean Tauros"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "023",
+  "cardName": "鲤鱼王",
+  "rarity": "C",
+  "effectId": "905adbb57ac87f5d52047e18f2dee58d",
+  "cardType": "Pokemon",
+  "yorenCode": "P129",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "42",
+  "nameEn": "Magikarp"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "024",
+  "cardName": "暴鲤龙",
+  "rarity": "R",
+  "effectId": "b390ccd7c6e38e790f99f92334515212",
+  "cardType": "Pokemon",
+  "yorenCode": "P130",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "43",
+  "nameEn": "Gyarados"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "025",
+  "cardName": "信使鸟",
+  "rarity": "C",
+  "effectId": "32b67ceeb1d709444413903a625b2137",
+  "cardType": "Pokemon",
+  "yorenCode": "P225",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "46",
+  "nameEn": "Delibird"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "026",
+  "cardName": "泳圈鼬",
+  "rarity": "C",
+  "effectId": "7cb9b47194d4b03f17961fa0510be36f",
+  "cardType": "Pokemon",
+  "yorenCode": "P418",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "48",
+  "nameEn": "Buizel"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "027",
+  "cardName": "浮潜鼬",
+  "rarity": "U",
+  "effectId": "95ee19d01539bb0e8674288929105f4f",
+  "cardType": "Pokemon",
+  "yorenCode": "P419",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "49",
+  "nameEn": "Floatzel"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "028",
+  "cardName": "呱呱泡蛙",
+  "rarity": "C",
+  "effectId": "1785ef12e7e0d8684836a788a0a89e22",
+  "cardType": "Pokemon",
+  "yorenCode": "P656",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "56",
+  "nameEn": "Froakie"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "029",
+  "cardName": "呱头蛙",
+  "rarity": "C",
+  "effectId": "7d2d05c9ef03e91f0c58620230ea1e47",
+  "cardType": "Pokemon",
+  "yorenCode": "P657",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "57",
+  "nameEn": "Frogadier"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "030",
+  "cardName": "甲贺忍蛙ex",
+  "rarity": "RR",
+  "effectId": "896c46f6e7358dd4bc43b974cd63d28e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1247",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "54",
+  "nameEn": "Greninja ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "031",
+  "cardName": "润水鸭",
+  "rarity": "C",
+  "effectId": "79e4af1a14e72f571a859c0ed329fc2e",
+  "cardType": "Pokemon",
+  "yorenCode": "P0912",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "49",
+  "nameEn": "Quaxly"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "032",
+  "cardName": "涌跃鸭",
+  "rarity": "C",
+  "effectId": "a8d31041837721105011aa829ca8a3b9",
+  "cardType": "Pokemon",
+  "yorenCode": "P0913",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "51",
+  "nameEn": "Quaxwell"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "033",
+  "cardName": "狂欢浪舞鸭ex",
+  "rarity": "RR",
+  "effectId": "7de11e7472d436c11a164e6d930565f5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1248",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "52",
+  "nameEn": "Quaquaval ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "034",
+  "cardName": "走鲸",
+  "rarity": "C",
+  "effectId": "575d81ccd9df34d68dd47332fe317123",
+  "cardType": "Pokemon",
+  "yorenCode": "P0974",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "58",
+  "nameEn": "Cetoddle"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "035",
+  "cardName": "浩大鲸",
+  "rarity": "U",
+  "effectId": "88f44b8ef88950c49ada79827aea8a75",
+  "cardType": "Pokemon",
+  "yorenCode": "P0975",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "60",
+  "nameEn": "Cetitan"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "036",
+  "cardName": "小磁怪",
+  "rarity": "C",
+  "effectId": "ace38c46277a54785c65568606be8e92",
+  "cardType": "Pokemon",
+  "yorenCode": "P081",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "63",
+  "nameEn": "Magnemite"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "037",
+  "cardName": "三合一磁怪",
+  "rarity": "C",
+  "effectId": "37bc0840e1787c39c91930cd5a28b8aa",
+  "cardType": "Pokemon",
+  "yorenCode": "P082",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "64",
+  "nameEn": "Magneton"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "038",
+  "cardName": "自爆磁怪",
+  "rarity": "U",
+  "effectId": "4d97633c223ce4fccb614d1278c79ad5",
+  "cardType": "Pokemon",
+  "yorenCode": "P462",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "65",
+  "nameEn": "Magnezone"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "039",
+  "cardName": "小猫怪",
+  "rarity": "C",
+  "effectId": "0b3d33e400ea9d08987bb04012cae231",
+  "cardType": "Pokemon",
+  "yorenCode": "P403",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "69",
+  "nameEn": "Shinx"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "040",
+  "cardName": "勒克猫",
+  "rarity": "C",
+  "effectId": "11dcda177f55548b829d381ca6fe5990",
+  "cardType": "Pokemon",
+  "yorenCode": "P404",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "70",
+  "nameEn": "Luxio"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "041",
+  "cardName": "伦琴猫",
+  "rarity": "R",
+  "effectId": "a4f457f1464c3410022b76ab77c11272",
+  "cardType": "Pokemon",
+  "yorenCode": "P405",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "71",
+  "nameEn": "Luxray"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "042",
+  "cardName": "洛托姆",
+  "rarity": "C",
+  "effectId": "a45897ffd3b7b197fba65217a6ca35ab",
+  "cardType": "Pokemon",
+  "yorenCode": "P479",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "69",
+  "nameEn": "Rotom"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "043",
+  "cardName": "布拨",
+  "rarity": "C",
+  "effectId": "a4040af402680cfd72e286c733dbd8ff",
+  "cardType": "Pokemon",
+  "yorenCode": "P0921",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "74",
+  "nameEn": "Pawmi"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "044",
+  "cardName": "布土拨",
+  "rarity": "C",
+  "effectId": "3c31c1bcd20260baa71e3801b4913d43",
+  "cardType": "Pokemon",
+  "yorenCode": "P0922",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "75",
+  "nameEn": "Pawmo"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "045",
+  "cardName": "巴布土拨",
+  "rarity": "R",
+  "effectId": "0925e60e6d0f48c7d2751a4bf85da740",
+  "cardType": "Pokemon",
+  "yorenCode": "P0923",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "76",
+  "nameEn": "Pawmot"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "046",
+  "cardName": "光蚪仔",
+  "rarity": "C",
+  "effectId": "146ff677430178e59eb6907caa93fa8a",
+  "cardType": "Pokemon",
+  "yorenCode": "P0938",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "75",
+  "nameEn": "Tadbulb"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "047",
+  "cardName": "电肚蛙",
+  "rarity": "U",
+  "effectId": "7a0a2b914efbfff0a5ddd3ef6f1f8e33",
+  "cardType": "Pokemon",
+  "yorenCode": "P0939",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "78",
+  "nameEn": "Bellibolt"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "048",
+  "cardName": "电海燕",
+  "rarity": "C",
+  "effectId": "1047ee5e4a6801fc2e13458fff0db6ff",
+  "cardType": "Pokemon",
+  "yorenCode": "P0940",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "81",
+  "nameEn": "Wattrel"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "049",
+  "cardName": "大电海燕",
+  "rarity": "U",
+  "effectId": "d3d0d382f33d21bec60110d55ca99dad",
+  "cardType": "Pokemon",
+  "yorenCode": "P0941",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "82",
+  "nameEn": "Kilowattrel"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "050",
+  "cardName": "密勒顿ex",
+  "rarity": "RR",
+  "effectId": "976bcc2cc45e8cf2b736c6117e99b273",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1196",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "79",
+  "nameEn": "Miraidon ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "051",
+  "cardName": "梦妖",
+  "rarity": "C",
+  "effectId": "f06e27c6165e2df81fb2c010ab31a00d",
+  "cardType": "Pokemon",
+  "yorenCode": "P200",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "87",
+  "nameEn": "Misdreavus"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "052",
+  "cardName": "梦妖魔",
+  "rarity": "U",
+  "effectId": "a172c21fb25a50d6ea06a54ee8dde86f",
+  "cardType": "Pokemon",
+  "yorenCode": "P429",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "88",
+  "nameEn": "Mismagius"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "053",
+  "cardName": "拉鲁拉丝",
+  "rarity": "C",
+  "effectId": "daccaa8fc34b41e47e77be2143eea71b",
+  "cardType": "Pokemon",
+  "yorenCode": "P280",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "84",
+  "nameEn": "Ralts"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "054",
+  "cardName": "奇鲁莉安",
+  "rarity": "C",
+  "effectId": "773a7c5bc165bd5d75321bc7c29fdd25",
+  "cardType": "Pokemon",
+  "yorenCode": "P281",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "85",
+  "nameEn": "Kirlia"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "055",
+  "cardName": "沙奈朵ex",
+  "rarity": "RR",
+  "effectId": "bd134d7d84e9f1a837a74b061fcb5f40",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1249",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "86",
+  "nameEn": "Gardevoir ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "056",
+  "cardName": "大嘴娃",
+  "rarity": "C",
+  "effectId": "f7148d5bcbde2b7ae3ebed5e23b835d0",
+  "cardType": "Pokemon",
+  "yorenCode": "P303",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "89",
+  "nameEn": "Mawile"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "057",
+  "cardName": "跳跳猪",
+  "rarity": "C",
+  "effectId": "7a5d3f4cb0e0087cebcf13364f9fdb10",
+  "cardType": "Pokemon",
+  "yorenCode": "P325",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "90",
+  "nameEn": "Spoink"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "058",
+  "cardName": "噗噗猪",
+  "rarity": "U",
+  "effectId": "a14cb8d47b816c3b0c22907d589745ea",
+  "cardType": "Pokemon",
+  "yorenCode": "P326",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "91",
+  "nameEn": "Grumpig"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "059",
+  "cardName": "拉帝亚斯",
+  "rarity": "R",
+  "effectId": "5c79cc44250f0c04ca77b457c6575ae1",
+  "cardType": "Pokemon",
+  "yorenCode": "P380",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "139",
+  "nameEn": "Latias"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "060",
+  "cardName": "飘飘球",
+  "rarity": "C",
+  "effectId": "8e295bb9597fb1ebbc2c6d58a98e0839",
+  "cardType": "Pokemon",
+  "yorenCode": "P425",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "89",
+  "nameEn": "Drifloon"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "061",
+  "cardName": "随风球",
+  "rarity": "U",
+  "effectId": "3681b2671b2cfb5cf4381d72d87ed2f6",
+  "cardType": "Pokemon",
+  "yorenCode": "P426",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "90",
+  "nameEn": "Drifblim"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "062",
+  "cardName": "哥德宝宝",
+  "rarity": "C",
+  "effectId": "6f82d22ac43066353e6489db31d9af7f",
+  "cardType": "Pokemon",
+  "yorenCode": "P574",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "90",
+  "nameEn": "Gothita"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "063",
+  "cardName": "哥德小童",
+  "rarity": "C",
+  "effectId": "010e2f7d66891e38350276d7fead1a06",
+  "cardType": "Pokemon",
+  "yorenCode": "P575",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "91",
+  "nameEn": "Gothorita"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "064",
+  "cardName": "哥德小姐",
+  "rarity": "U",
+  "effectId": "85a620394bb8cdffe29220897eb1af93",
+  "cardType": "Pokemon",
+  "yorenCode": "P576",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "92",
+  "nameEn": "Gothitelle"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "065",
+  "cardName": "咚咚鼠",
+  "rarity": "C",
+  "effectId": "c4455fdabeed46ed79f6f8228f19204a",
+  "cardType": "Pokemon",
+  "yorenCode": "P702",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "94",
+  "nameEn": "Dedenne"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "066",
+  "cardName": "来悲茶",
+  "rarity": "C",
+  "effectId": "74a0e830258d0bddb4501a518e4e9d83",
+  "cardType": "Pokemon",
+  "yorenCode": "P854",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "97",
+  "nameEn": "Sinistea"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "067",
+  "cardName": "怖思壶",
+  "rarity": "U",
+  "effectId": "9d53dbead2f13cbdfed44f0b4cf55c91",
+  "cardType": "Pokemon",
+  "yorenCode": "P855",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "98",
+  "nameEn": "Polteageist"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "068",
+  "cardName": "小锻匠",
+  "rarity": "C",
+  "effectId": "0ab1a2448f2340e050148aed1be92096",
+  "cardType": "Pokemon",
+  "yorenCode": "P0957",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "100",
+  "nameEn": "Tinkatink"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "069",
+  "cardName": "巧锻匠",
+  "rarity": "C",
+  "effectId": "6524e978122a39f6604807114ed95b21",
+  "cardType": "Pokemon",
+  "yorenCode": "P0958",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "103",
+  "nameEn": "Tinkatuff"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "070",
+  "cardName": "巨锻匠",
+  "rarity": "U",
+  "effectId": "cbedbed5404ce4244afd7898a7ab9ffc",
+  "cardType": "Pokemon",
+  "yorenCode": "P0959",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "140",
+  "nameEn": "Tinkaton"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "071",
+  "cardName": "地鼠",
+  "rarity": "C",
+  "effectId": "a6874d02713bf25e96bec0054531fcb5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y395",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "103",
+  "nameEn": "Diglett"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "072",
+  "cardName": "三地鼠",
+  "rarity": "U",
+  "effectId": "2d176ff96edbda538f6d34eb68b1633c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y396",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "104",
+  "nameEn": "Dugtrio"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "073",
+  "cardName": "帕底亚 肯泰罗",
+  "rarity": "U",
+  "effectId": "12706f018cf165b8c3cdb32bc9322dc8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1245",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "108",
+  "nameEn": "Paldean Tauros"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "074",
+  "cardName": "幕下力士",
+  "rarity": "C",
+  "effectId": "22c763cbd56407da67451672d8562c1c",
+  "cardType": "Pokemon",
+  "yorenCode": "P296",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "112",
+  "nameEn": "Makuhita"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "075",
+  "cardName": "铁掌力士",
+  "rarity": "R",
+  "effectId": "d9a065abbc5c0884e633ba5a62c259a4",
+  "cardType": "Pokemon",
+  "yorenCode": "P297",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "113",
+  "nameEn": "Hariyama"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "076",
+  "cardName": "利欧路",
+  "rarity": "C",
+  "effectId": "26fec1aeef38ddb9ae2f0a7f8d0ae55b",
+  "cardType": "Pokemon",
+  "yorenCode": "P447",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "113",
+  "nameEn": "Riolu"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "077",
+  "cardName": "路卡利欧",
+  "rarity": "U",
+  "effectId": "fb5800a38a0ba9b027057786c6a001cc",
+  "cardType": "Pokemon",
+  "yorenCode": "P448",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "114",
+  "nameEn": "Lucario"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "078",
+  "cardName": "岩狗狗",
+  "rarity": "C",
+  "effectId": "7ad2bc8b4b21e7888a07cff9bb069efe",
+  "cardType": "Pokemon",
+  "yorenCode": "P744",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "116",
+  "nameEn": "Rockruff"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "079",
+  "cardName": "鬃岩狼人ex",
+  "rarity": "RR",
+  "effectId": "d6da28bb383c2e63427487860d0fcbf8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1250",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "117",
+  "nameEn": "Lycanroc ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "080",
+  "cardName": "毛崖蟹",
+  "rarity": "R",
+  "effectId": "80a81678a132c7cc170b780db0899d04",
+  "cardType": "Pokemon",
+  "yorenCode": "P0950",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "122",
+  "nameEn": "Klawf"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "081",
+  "cardName": "故勒顿ex",
+  "rarity": "RR",
+  "effectId": "fb9a17d3a0314996c5ac2973a22d38bb",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1201",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "124",
+  "nameEn": "Koraidon ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "082",
+  "cardName": "臭泥",
+  "rarity": "C",
+  "effectId": "cc078a25b266fcfc4c6ff5759ea69b51",
+  "cardType": "Pokemon",
+  "yorenCode": "Y539",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "126",
+  "nameEn": "Grimer"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "083",
+  "cardName": "臭臭泥",
+  "rarity": "U",
+  "effectId": "be941b42e658289aa076a8688bc6511f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y540",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "127",
+  "nameEn": "Muk"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "084",
+  "cardName": "帕底亚 乌波",
+  "rarity": "C",
+  "effectId": "ac37a3137c24e986d2713988b76d5b5d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0194",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "129",
+  "nameEn": "Paldean Wooper"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "085",
+  "cardName": "帕底亚 土王ex",
+  "rarity": "RR",
+  "effectId": "87cc640402d6b606ee4ef78b7c9d2689",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1251",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "130",
+  "nameEn": "Paldean Clodsire ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "086",
+  "cardName": "黑暗鸦",
+  "rarity": "C",
+  "effectId": "df9ab2da2e3e3f6807c605d02cbabc2d",
+  "cardType": "Pokemon",
+  "yorenCode": "P198",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "131",
+  "nameEn": "Murkrow"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "087",
+  "cardName": "乌鸦头头",
+  "rarity": "U",
+  "effectId": "e73dfaeaf8fc39c51ba3a8abe57ba56f",
+  "cardType": "Pokemon",
+  "yorenCode": "P430",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "132",
+  "nameEn": "Honchkrow"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "088",
+  "cardName": "勾魂眼",
+  "rarity": "R",
+  "effectId": "dfd0339775ec3bf6947870639f3d64f4",
+  "cardType": "Pokemon",
+  "yorenCode": "P302",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "136",
+  "nameEn": "Sableye"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "089",
+  "cardName": "花岩怪",
+  "rarity": "U",
+  "effectId": "38164af4bc8edf9fab06b9ee584d1d86",
+  "cardType": "Pokemon",
+  "yorenCode": "P442",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "129",
+  "nameEn": "Spiritomb"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "090",
+  "cardName": "单首龙",
+  "rarity": "C",
+  "effectId": "704eee9482500518b43659ebd139af57",
+  "cardType": "Pokemon",
+  "yorenCode": "P633",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "138",
+  "nameEn": "Deino"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "091",
+  "cardName": "双首暴龙",
+  "rarity": "C",
+  "effectId": "d411f89ecbd062f9b4ca6fa3daff9aca",
+  "cardType": "Pokemon",
+  "yorenCode": "P634",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "139",
+  "nameEn": "Zweilous"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "092",
+  "cardName": "三首恶龙",
+  "rarity": "R",
+  "effectId": "ed1bcde047fa4f515cf51d1fd6f7ef79",
+  "cardType": "Pokemon",
+  "yorenCode": "P635",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "140",
+  "nameEn": "Hydreigon"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "093",
+  "cardName": "夜盗火蜥",
+  "rarity": "C",
+  "effectId": "3b38b5035e8f337da86b4fc28851b259",
+  "cardType": "Pokemon",
+  "yorenCode": "P757",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "139",
+  "nameEn": "Salandit"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "094",
+  "cardName": "焰后蜥",
+  "rarity": "U",
+  "effectId": "fdefecb5bd29b560b9f8fdd9a1fdbae7",
+  "cardType": "Pokemon",
+  "yorenCode": "P758",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "140",
+  "nameEn": "Salazzle"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "095",
+  "cardName": "偶叫獒",
+  "rarity": "C",
+  "effectId": "8a90beef67eb927870bbdd4cc5f2c7a0",
+  "cardType": "Pokemon",
+  "yorenCode": "P0942",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "136",
+  "nameEn": "Maschiff"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "096",
+  "cardName": "獒教父ex",
+  "rarity": "RR",
+  "effectId": "2ad1956291ce47b0becb0bf68f89ec82",
+  "cardType": "Pokemon",
+  "yorenCode": "P0943",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "86",
+  "nameEn": "Mabosstiff ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "097",
+  "cardName": "盔甲鸟",
+  "rarity": "C",
+  "effectId": "3178a79a5b8a41b1b9ba41f30af276ec",
+  "cardType": "Pokemon",
+  "yorenCode": "P227",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "142",
+  "nameEn": "Skarmory"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "098",
+  "cardName": "铜象",
+  "rarity": "C",
+  "effectId": "7c29f160b349e32c9eba9d46688411bd",
+  "cardType": "Pokemon",
+  "yorenCode": "P878",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "149",
+  "nameEn": "Cufant"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "099",
+  "cardName": "大王铜象ex",
+  "rarity": "RR",
+  "effectId": "6743b9624831bf2307918dce25e1fb2d",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1252",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "150",
+  "nameEn": "Copperajah ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "100",
+  "cardName": "吉利蛋",
+  "rarity": "C",
+  "effectId": "aa5a79480a657c6e54a555d74c3bd8f9",
+  "cardType": "Pokemon",
+  "yorenCode": "P113",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "144",
+  "nameEn": "Chansey"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "101",
+  "cardName": "幸福蛋",
+  "rarity": "U",
+  "effectId": "25afdbc3629323ff4576ed268772010e",
+  "cardType": "Pokemon",
+  "yorenCode": "P242",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "145",
+  "nameEn": "Blissey"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "102",
+  "cardName": "姆克儿",
+  "rarity": "C",
+  "effectId": "c4df6a472d1cb1a57837168dd684e2dd",
+  "cardType": "Pokemon",
+  "yorenCode": "P396",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "148",
+  "nameEn": "Starly"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "103",
+  "cardName": "姆克鸟",
+  "rarity": "C",
+  "effectId": "570d56d61266fdc63cfb4e5a9bf918bb",
+  "cardType": "Pokemon",
+  "yorenCode": "P397",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "149",
+  "nameEn": "Staravia"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "104",
+  "cardName": "姆克鹰",
+  "rarity": "U",
+  "effectId": "672d60941047034ba541617b89bac33d",
+  "cardType": "Pokemon",
+  "yorenCode": "P398",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "150",
+  "nameEn": "Staraptor"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "105",
+  "cardName": "怒鹦哥ex",
+  "rarity": "RR",
+  "effectId": "1b951205e53e179bde0905c4a194d9ee",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1253",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "75",
+  "nameEn": "Squawkabilly ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "106",
+  "cardName": "滋汁鼹",
+  "rarity": "C",
+  "effectId": "a9ad8d6237cb6ee7c19d79e2547c5299",
+  "cardType": "Pokemon",
+  "yorenCode": "P0944",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "99",
+  "nameEn": "Shroodle"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "107",
+  "cardName": "涂标客ex",
+  "rarity": "RR",
+  "effectId": "751cbb4d7a5f1f06c24311883f094556",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1254",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "100",
+  "nameEn": "Grafaiai ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "108",
+  "cardName": "摩托蜥",
+  "rarity": "R",
+  "effectId": "e44b38e73465057cc8659da8ea9ba406",
+  "cardType": "Pokemon",
+  "yorenCode": "P0967",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "164",
+  "nameEn": "Cyclizar"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "109",
+  "cardName": "缠红鹤",
+  "rarity": "U",
+  "effectId": "937a52352503e40dc9eb6949adb87a39",
+  "cardType": "Pokemon",
+  "yorenCode": "P0973",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "170",
+  "nameEn": "Flamigo"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "110",
+  "cardName": "巢穴球",
+  "rarity": "U",
+  "effectId": "1af63a7e2cb7a79215474ad8db8fd8fd",
+  "cardType": "Item",
+  "yorenCode": "Y30",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "123",
+  "nameEn": "Nest Ball"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "111",
+  "cardName": "鼓励信",
+  "rarity": "U",
+  "effectId": "5ad6b7f0c1b9da35cd0d284de31b65a3",
+  "cardType": "Item",
+  "yorenCode": "Y1255",
+  "is": [],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "189",
+  "nameEn": "Letter of Encouragement"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "112",
+  "cardName": "神奇糖果",
+  "rarity": "U",
+  "effectId": "d3891abcfe3277c8811cde06741d3236",
+  "cardType": "Item",
+  "yorenCode": "Y89",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "129",
+  "nameEn": "Rare Candy"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "113",
+  "cardName": "宝可装置3.0",
+  "rarity": "U",
+  "effectId": "768b545a38fccd5e265093b5adce10af",
+  "cardType": "Item",
+  "yorenCode": "Y287",
+  "is": [],
+  "setCodeEn": "UNB",
+  "cardIndexEn": "182",
+  "nameEn": "Pokégear 3.0"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "114",
+  "cardName": "坚硬束带",
+  "rarity": "U",
+  "effectId": "6ec876cf4467166edf6e90fa1cc321eb",
+  "cardType": "Tool",
+  "yorenCode": "Y1256",
+  "is": [],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "165",
+  "nameEn": "Rigid Band"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "115",
+  "cardName": "活力头带",
+  "rarity": "U",
+  "effectId": "f474805425d4849d8dc4c8c1e1af750a",
+  "cardType": "Tool",
+  "yorenCode": "Y521",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "185",
+  "nameEn": "Vitality Band"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "116",
+  "cardName": "凸凸头盔",
+  "rarity": "U",
+  "effectId": "d226a48968273b46b67299d93a5daea5",
+  "cardType": "Tool",
+  "yorenCode": "Y646",
+  "is": [],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "159",
+  "nameEn": "Rocky Helmet"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "117",
+  "cardName": "吃剩的东西",
+  "rarity": "U",
+  "effectId": "0fcddba74c886d08a9cfb9c81a5ad78a",
+  "cardType": "Tool",
+  "yorenCode": "Y1242",
+  "is": [],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "163",
+  "nameEn": "Leftovers"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "118",
+  "cardName": "莉佳的邀请",
+  "rarity": "U",
+  "effectId": "0176c179359368cdb84ff754e0bbd701",
+  "cardType": "Supporter",
+  "yorenCode": "Y1257",
+  "is": [],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "160",
+  "nameEn": "Erika's Invitation"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "119",
+  "cardName": "阿枫",
+  "rarity": "U",
+  "effectId": "cc93a088d00a6d0aeb3795ea1ac47490",
+  "cardType": "Supporter",
+  "yorenCode": "Y1258",
+  "is": [],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "177",
+  "nameEn": "Katy"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "120",
+  "cardName": "凰檗",
+  "rarity": "U",
+  "effectId": "c8fc9afcd1e2e7643267a07fbe9f0ed8",
+  "cardType": "Supporter",
+  "yorenCode": "Y1259",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "179",
+  "nameEn": "Dendra"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "121",
+  "cardName": "克拉韦尔",
+  "rarity": "U",
+  "effectId": "34d5f45eed2300c33aeced1346f783da",
+  "cardType": "Supporter",
+  "yorenCode": "Y1260",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "177",
+  "nameEn": "Clavell"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "122",
+  "cardName": "萨瓦罗",
+  "rarity": "U",
+  "effectId": "b9c904c0285e30282f6bc5b43b5479c4",
+  "cardType": "Supporter",
+  "yorenCode": "Y1261",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "187",
+  "nameEn": "Saguaro"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "123",
+  "cardName": "裁判",
+  "rarity": "U",
+  "effectId": "0a9bdf265647461dd5c6c827ffc19e61",
+  "cardType": "Supporter",
+  "yorenCode": "Y219",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "108",
+  "nameEn": "Judge"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "124",
+  "cardName": "秋明",
+  "rarity": "U",
+  "effectId": "728ac5bc1d091cd97f9c3915eb074149",
+  "cardType": "Supporter",
+  "yorenCode": "Y1262",
+  "is": [],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "77",
+  "nameEn": "Atticus"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "125",
+  "cardName": "天星队手下",
+  "rarity": "U",
+  "effectId": "b54276b42598426febfe34bb67d5f075",
+  "cardType": "Supporter",
+  "yorenCode": "Y1263",
+  "is": [],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "195",
+  "nameEn": "Team Star Grunt"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "126",
+  "cardName": "月光之丘",
+  "rarity": "U",
+  "effectId": "2027b11b9630f8c24d2fdf19130a7111",
+  "cardType": "Stadium",
+  "yorenCode": "Y1264",
+  "is": [],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "81",
+  "nameEn": "Moonlit Hill"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "127",
+  "cardName": "深钵镇",
+  "rarity": "U",
+  "effectId": "c117bea3cc758d46430d6bef11062a56",
+  "cardType": "Stadium",
+  "yorenCode": "Y1265",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "171",
+  "nameEn": "Artazon"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "128",
+  "cardName": "逆转能量",
+  "rarity": "U",
+  "effectId": "cbadb3473273c14cf667d495d44d111b",
+  "cardType": "Special Energy",
+  "yorenCode": "Y1266",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "192",
+  "nameEn": "Reversal Energy"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "129",
+  "cardName": "热带龙",
+  "rarity": "AR",
+  "effectId": "3babcf8863899c99e105332be778e2fe",
+  "cardType": "Pokemon",
+  "yorenCode": "P357",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "7",
+  "nameEn": "Tropius"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "130",
+  "cardName": "火炎狮",
+  "rarity": "AR",
+  "effectId": "647a4fd076b97a76792d3476c4dd4a7b",
+  "cardType": "Pokemon",
+  "yorenCode": "P668",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "32",
+  "nameEn": "Pyroar"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "131",
+  "cardName": "电肚蛙",
+  "rarity": "AR",
+  "effectId": "7a0a2b914efbfff0a5ddd3ef6f1f8e33",
+  "cardType": "Pokemon",
+  "yorenCode": "P0939",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "78",
+  "nameEn": "Bellibolt"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "132",
+  "cardName": "拉鲁拉丝",
+  "rarity": "AR",
+  "effectId": "daccaa8fc34b41e47e77be2143eea71b",
+  "cardType": "Pokemon",
+  "yorenCode": "P280",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "84",
+  "nameEn": "Ralts"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "133",
+  "cardName": "奇鲁莉安",
+  "rarity": "AR",
+  "effectId": "773a7c5bc165bd5d75321bc7c29fdd25",
+  "cardType": "Pokemon",
+  "yorenCode": "P281",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "85",
+  "nameEn": "Kirlia"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "134",
+  "cardName": "帕底亚 肯泰罗",
+  "rarity": "AR",
+  "effectId": "12706f018cf165b8c3cdb32bc9322dc8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1245",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "108",
+  "nameEn": "Paldean Tauros"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "135",
+  "cardName": "毛崖蟹",
+  "rarity": "AR",
+  "effectId": "80a81678a132c7cc170b780db0899d04",
+  "cardType": "Pokemon",
+  "yorenCode": "P0950",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "122",
+  "nameEn": "Klawf"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "136",
+  "cardName": "缠红鹤",
+  "rarity": "AR",
+  "effectId": "937a52352503e40dc9eb6949adb87a39",
+  "cardType": "Pokemon",
+  "yorenCode": "P0973",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "170",
+  "nameEn": "Flamigo"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "137",
+  "cardName": "魔幻假面喵ex",
+  "rarity": "SR",
+  "effectId": "0779cd043d2977d004c2cfff5503c939",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1244",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "15",
+  "nameEn": "Meowscarada ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "138",
+  "cardName": "骨纹巨声鳄ex",
+  "rarity": "SR",
+  "effectId": "df0547ccf34cc7afdc73b98ca61e874a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1246",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "37",
+  "nameEn": "Skeledirge ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "139",
+  "cardName": "狂欢浪舞鸭ex",
+  "rarity": "SR",
+  "effectId": "7de11e7472d436c11a164e6d930565f5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1248",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "52",
+  "nameEn": "Quaquaval ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "140",
+  "cardName": "沙奈朵ex",
+  "rarity": "SR",
+  "effectId": "bd134d7d84e9f1a837a74b061fcb5f40",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1249",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "86",
+  "nameEn": "Gardevoir ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "141",
+  "cardName": "鬃岩狼人ex",
+  "rarity": "SR",
+  "effectId": "d6da28bb383c2e63427487860d0fcbf8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1250",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "117",
+  "nameEn": "Lycanroc ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "142",
+  "cardName": "帕底亚 土王ex",
+  "rarity": "SR",
+  "effectId": "87cc640402d6b606ee4ef78b7c9d2689",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1251",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "130",
+  "nameEn": "Paldean Clodsire ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "143",
+  "cardName": "大王铜象ex",
+  "rarity": "SR",
+  "effectId": "6743b9624831bf2307918dce25e1fb2d",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1252",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "150",
+  "nameEn": "Copperajah ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "144",
+  "cardName": "怒鹦哥ex",
+  "rarity": "SR",
+  "effectId": "1b951205e53e179bde0905c4a194d9ee",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1253",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "75",
+  "nameEn": "Squawkabilly ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "145",
+  "cardName": "莉佳的邀请",
+  "rarity": "SR",
+  "effectId": "0176c179359368cdb84ff754e0bbd701",
+  "cardType": "Supporter",
+  "yorenCode": "Y1257",
+  "is": [],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "160",
+  "nameEn": "Erika's Invitation"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "146",
+  "cardName": "阿枫",
+  "rarity": "SR",
+  "effectId": "cc93a088d00a6d0aeb3795ea1ac47490",
+  "cardType": "Supporter",
+  "yorenCode": "Y1258",
+  "is": [],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "177",
+  "nameEn": "Katy"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "147",
+  "cardName": "凰檗",
+  "rarity": "SR",
+  "effectId": "c8fc9afcd1e2e7643267a07fbe9f0ed8",
+  "cardType": "Supporter",
+  "yorenCode": "Y1259",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "179",
+  "nameEn": "Dendra"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "148",
+  "cardName": "克拉韦尔",
+  "rarity": "SR",
+  "effectId": "34d5f45eed2300c33aeced1346f783da",
+  "cardType": "Supporter",
+  "yorenCode": "Y1260",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "177",
+  "nameEn": "Clavell"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "149",
+  "cardName": "萨瓦罗",
+  "rarity": "SR",
+  "effectId": "b9c904c0285e30282f6bc5b43b5479c4",
+  "cardType": "Supporter",
+  "yorenCode": "Y1261",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "187",
+  "nameEn": "Saguaro"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "150",
+  "cardName": "裁判",
+  "rarity": "SR",
+  "effectId": "0a9bdf265647461dd5c6c827ffc19e61",
+  "cardType": "Supporter",
+  "yorenCode": "Y219",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "108",
+  "nameEn": "Judge"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "151",
+  "cardName": "天星队手下",
+  "rarity": "SR",
+  "effectId": "b54276b42598426febfe34bb67d5f075",
+  "cardType": "Supporter",
+  "yorenCode": "Y1263",
+  "is": [],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "195",
+  "nameEn": "Team Star Grunt"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "152",
+  "cardName": "魔幻假面喵ex",
+  "rarity": "SAR",
+  "effectId": "0779cd043d2977d004c2cfff5503c939",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1244",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "15",
+  "nameEn": "Meowscarada ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "153",
+  "cardName": "骨纹巨声鳄ex",
+  "rarity": "SAR",
+  "effectId": "df0547ccf34cc7afdc73b98ca61e874a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1246",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "37",
+  "nameEn": "Skeledirge ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "154",
+  "cardName": "狂欢浪舞鸭ex",
+  "rarity": "SAR",
+  "effectId": "7de11e7472d436c11a164e6d930565f5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1248",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "52",
+  "nameEn": "Quaquaval ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "155",
+  "cardName": "沙奈朵ex",
+  "rarity": "SAR",
+  "effectId": "bd134d7d84e9f1a837a74b061fcb5f40",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1249",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "86",
+  "nameEn": "Gardevoir ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "156",
+  "cardName": "怒鹦哥ex",
+  "rarity": "SAR",
+  "effectId": "1b951205e53e179bde0905c4a194d9ee",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1253",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "75",
+  "nameEn": "Squawkabilly ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "157",
+  "cardName": "莉佳的邀请",
+  "rarity": "SAR",
+  "effectId": "0176c179359368cdb84ff754e0bbd701",
+  "cardType": "Supporter",
+  "yorenCode": "Y1257",
+  "is": [],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "160",
+  "nameEn": "Erika's Invitation"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "158",
+  "cardName": "凰檗",
+  "rarity": "SAR",
+  "effectId": "c8fc9afcd1e2e7643267a07fbe9f0ed8",
+  "cardType": "Supporter",
+  "yorenCode": "Y1259",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "179",
+  "nameEn": "Dendra"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "159",
+  "cardName": "萨瓦罗",
+  "rarity": "SAR",
+  "effectId": "b9c904c0285e30282f6bc5b43b5479c4",
+  "cardType": "Supporter",
+  "yorenCode": "Y1261",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "187",
+  "nameEn": "Saguaro"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "160",
+  "cardName": "魔幻假面喵ex",
+  "rarity": "UR",
+  "effectId": "0779cd043d2977d004c2cfff5503c939",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1244",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "15",
+  "nameEn": "Meowscarada ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "161",
+  "cardName": "骨纹巨声鳄ex",
+  "rarity": "UR",
+  "effectId": "df0547ccf34cc7afdc73b98ca61e874a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1246",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "37",
+  "nameEn": "Skeledirge ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "162",
+  "cardName": "狂欢浪舞鸭ex",
+  "rarity": "UR",
+  "effectId": "7de11e7472d436c11a164e6d930565f5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1248",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "52",
+  "nameEn": "Quaquaval ex"
+ },
+ {
+  "setCode": "CSV2C",
+  "cardIndex": "163",
+  "cardName": "深钵镇",
+  "rarity": "UR",
+  "effectId": "c117bea3cc758d46430d6bef11062a56",
+  "cardType": "Stadium",
+  "yorenCode": "Y1265",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "171",
+  "nameEn": "Artazon"
+ }
+]

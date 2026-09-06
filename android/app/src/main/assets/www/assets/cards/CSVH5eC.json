@@ -1,0 +1,725 @@
+[
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "001",
+  "cardName": "绿毛虫",
+  "rarity": "无标记",
+  "effectId": "d0544f1a0920b65f99b9133a57cc99b0",
+  "cardType": "Pokemon",
+  "yorenCode": "P010",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "1",
+  "nameEn": "Caterpie"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "002",
+  "cardName": "铁甲蛹",
+  "rarity": "无标记",
+  "effectId": "748478192dae34b7921720faa617448d",
+  "cardType": "Pokemon",
+  "yorenCode": "P011",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "2",
+  "nameEn": "Metapod"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "003",
+  "cardName": "巴大蝶",
+  "rarity": "无标记",
+  "effectId": "b9908901b16e7ad0b98462bb8d1b3e90",
+  "cardType": "Pokemon",
+  "yorenCode": "P012",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "3",
+  "nameEn": "Butterfree"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "004",
+  "cardName": "派拉斯",
+  "rarity": "无标记",
+  "effectId": "6eff2791c5aed5166f1a2daf9e56fc9c",
+  "cardType": "Pokemon",
+  "yorenCode": "P046",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "4",
+  "nameEn": "Paras"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "005",
+  "cardName": "派拉斯特",
+  "rarity": "无标记",
+  "effectId": "d25d333ff1ff6ffee99792f8ac44cf86",
+  "cardType": "Pokemon",
+  "yorenCode": "P047",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "5",
+  "nameEn": "Parasect"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "006",
+  "cardName": "盖盖虫",
+  "rarity": "无标记",
+  "effectId": "f27515cec1b1122932b1cb2d5f86768b",
+  "cardType": "Pokemon",
+  "yorenCode": "P588",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "9",
+  "nameEn": "Karrablast"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "007",
+  "cardName": "小木灵",
+  "rarity": "无标记",
+  "effectId": "2a7e420cfe344d991754f5bc4b73ad3f",
+  "cardType": "Pokemon",
+  "yorenCode": "P708",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "12",
+  "nameEn": "Phantump"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "008",
+  "cardName": "朽木妖",
+  "rarity": "无标记",
+  "effectId": "4d7de76fd7959e9b55a3f5bde7490919",
+  "cardType": "Pokemon",
+  "yorenCode": "P709",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "13",
+  "nameEn": "Trevenant"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "009",
+  "cardName": "六尾",
+  "rarity": "无标记",
+  "effectId": "8fa9d639b9e284f8c258978387769f87",
+  "cardType": "Pokemon",
+  "yorenCode": "Y393",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSP",
+  "cardIndexEn": "16",
+  "nameEn": "Vulpix"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "010",
+  "cardName": "九尾",
+  "rarity": "无标记",
+  "effectId": "fa8683a3541077b92d42166d478ec36e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y394",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SSP",
+  "cardIndexEn": "17",
+  "nameEn": "Ninetales"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "011",
+  "cardName": "烧火蚣",
+  "rarity": "无标记",
+  "effectId": "959d63be7f5040820a20bb0b5b8de448",
+  "cardType": "Pokemon",
+  "yorenCode": "P850",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSP",
+  "cardIndexEn": "27",
+  "nameEn": "Sizzlipede"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "012",
+  "cardName": "焚焰蚣",
+  "rarity": "无标记",
+  "effectId": "27e0a162f8ba85a2bd2d9ffde8a8778c",
+  "cardType": "Pokemon",
+  "yorenCode": "P851",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SSP",
+  "cardIndexEn": "28",
+  "nameEn": "Centiskorch"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "013",
+  "cardName": "铁炮鱼",
+  "rarity": "无标记",
+  "effectId": "a5d67bcd1068432a5bedcc7d16281764",
+  "cardType": "Pokemon",
+  "yorenCode": "P223",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "33",
+  "nameEn": "Remoraid"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "014",
+  "cardName": "章鱼桶",
+  "rarity": "无标记",
+  "effectId": "3f5ded580aff1896b1ff55c99949ceff",
+  "cardType": "Pokemon",
+  "yorenCode": "P224",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "34",
+  "nameEn": "Octillery"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "015",
+  "cardName": "水君",
+  "rarity": "无标记",
+  "effectId": "9877f52ab4084dc62a4c70bbe4574b5a",
+  "cardType": "Pokemon",
+  "yorenCode": "P245",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "24",
+  "nameEn": "Suicune"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "016",
+  "cardName": "荧光鱼",
+  "rarity": "无标记",
+  "effectId": "59a7c95eff0b362006b1ad601ffeb1b8",
+  "cardType": "Pokemon",
+  "yorenCode": "P456",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SCR",
+  "cardIndexEn": "35",
+  "nameEn": "Finneon"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "017",
+  "cardName": "霓虹鱼",
+  "rarity": "无标记",
+  "effectId": "321a9db5997fdc0c889ea59efa9d2152",
+  "cardType": "Pokemon",
+  "yorenCode": "P457",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SCR",
+  "cardIndexEn": "36",
+  "nameEn": "Lumineon"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "018",
+  "cardName": "雪笠怪",
+  "rarity": "无标记",
+  "effectId": "8a99c85e31a48e09034e3b0d5080ec20",
+  "cardType": "Pokemon",
+  "yorenCode": "P459",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "59",
+  "nameEn": "Snover"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "019",
+  "cardName": "暴雪王",
+  "rarity": "无标记",
+  "effectId": "8c55b1f30c1a18210df1ab107fd7780d",
+  "cardType": "Pokemon",
+  "yorenCode": "P460",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "60",
+  "nameEn": "Abomasnow"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "020",
+  "cardName": "阿罗拉 小拳石",
+  "rarity": "无标记",
+  "effectId": "631da2364acaf1a8e627f27341f24f88",
+  "cardType": "Pokemon",
+  "yorenCode": "P074",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "44",
+  "nameEn": "Alolan Geodude"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "021",
+  "cardName": "阿罗拉 隆隆石",
+  "rarity": "无标记",
+  "effectId": "c5318c090053390599ee1cb6639b16a1",
+  "cardType": "Pokemon",
+  "yorenCode": "P075",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "45",
+  "nameEn": "Alolan Graveler"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "022",
+  "cardName": "阿罗拉 隆隆岩",
+  "rarity": "无标记",
+  "effectId": "3efbe6bf992b18c855391fa1ded45adc",
+  "cardType": "Pokemon",
+  "yorenCode": "P076",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "46",
+  "nameEn": "Alolan Golem"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "023",
+  "cardName": "来电汪",
+  "rarity": "无标记",
+  "effectId": "cdb7163331681d969b5b77c8cf1c92c8",
+  "cardType": "Pokemon",
+  "yorenCode": "P835",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TEF",
+  "cardIndexEn": "58",
+  "nameEn": "Yamper"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "024",
+  "cardName": "逐电犬",
+  "rarity": "无标记",
+  "effectId": "7bcf052f147fa5a9bc1b1749f1e18ed2",
+  "cardType": "Pokemon",
+  "yorenCode": "P836",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "TEF",
+  "cardIndexEn": "59",
+  "nameEn": "Boltund"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "025",
+  "cardName": "魔墙人偶",
+  "rarity": "无标记",
+  "effectId": "0cedd8db0370e74e79445b411228f486",
+  "cardType": "Pokemon",
+  "yorenCode": "P122",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "58",
+  "nameEn": "Mr. Mime"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "026",
+  "cardName": "怨影娃娃",
+  "rarity": "无标记",
+  "effectId": "bb04df2c423cbd352eccd79b240453c5",
+  "cardType": "Pokemon",
+  "yorenCode": "P353",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "90",
+  "nameEn": "Shuppet"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "027",
+  "cardName": "诅咒娃娃",
+  "rarity": "无标记",
+  "effectId": "04cb7a5607e2d5e5a5a3daeefc15f64a",
+  "cardType": "Pokemon",
+  "yorenCode": "P354",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "91",
+  "nameEn": "Banette"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "028",
+  "cardName": "铁哑铃",
+  "rarity": "无标记",
+  "effectId": "91731be6e268686cb526300ed4f6d1ce",
+  "cardType": "Pokemon",
+  "yorenCode": "P374",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "61",
+  "nameEn": "Beldum"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "029",
+  "cardName": "金属怪",
+  "rarity": "无标记",
+  "effectId": "b6fa9e6df3e748846cc4f3fd3a04b552",
+  "cardType": "Pokemon",
+  "yorenCode": "P375",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "62",
+  "nameEn": "Metang"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "030",
+  "cardName": "巨金怪",
+  "rarity": "无标记",
+  "effectId": "c34c7ad3228c0d01a4ef0efb1c7e4e73",
+  "cardType": "Pokemon",
+  "yorenCode": "P376",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "63",
+  "nameEn": "Metagross"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "031",
+  "cardName": "利欧路",
+  "rarity": "无标记",
+  "effectId": "2d6d4258da0ef1ca622a749c8e35b76e",
+  "cardType": "Pokemon",
+  "yorenCode": "P447",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "50",
+  "nameEn": "Riolu"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "032",
+  "cardName": "螺钉地鼠",
+  "rarity": "无标记",
+  "effectId": "611e99690019fbbe50a5cba9c5081dd8",
+  "cardType": "Pokemon",
+  "yorenCode": "P529",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SSP",
+  "cardIndexEn": "108",
+  "nameEn": "Drilbur"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "033",
+  "cardName": "龙头地鼠",
+  "rarity": "无标记",
+  "effectId": "6ecef7b601f3d0d14a1e328212ebb879",
+  "cardType": "Pokemon",
+  "yorenCode": "P530",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SSP",
+  "cardIndexEn": "109",
+  "nameEn": "Excadrill"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "034",
+  "cardName": "顽皮熊猫",
+  "rarity": "无标记",
+  "effectId": "d547aa66ff9c875186779002c9784522",
+  "cardType": "Pokemon",
+  "yorenCode": "P674",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "83",
+  "nameEn": "Pancham"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "035",
+  "cardName": "霸道熊猫",
+  "rarity": "无标记",
+  "effectId": "0a99811965720b19418c01cd48104390",
+  "cardType": "Pokemon",
+  "yorenCode": "P675",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "99",
+  "nameEn": "Pangoro"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "036",
+  "cardName": "下石鸟",
+  "rarity": "无标记",
+  "effectId": "01eaf8f2f1de4c7e0cbb64f269b57f1b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0962",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "101",
+  "nameEn": "Bombirdier"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "037",
+  "cardName": "骑士蜗牛",
+  "rarity": "无标记",
+  "effectId": "4f09902d1d536fe533cd95005d0ba9a8",
+  "cardType": "Pokemon",
+  "yorenCode": "P589",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "102",
+  "nameEn": "Escavalier"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "038",
+  "cardName": "铜象",
+  "rarity": "无标记",
+  "effectId": "2cc76c007cf0b7e14d24ca4ae7a39520",
+  "cardType": "Pokemon",
+  "yorenCode": "P878",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "109",
+  "nameEn": "Cufant"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "039",
+  "cardName": "大王铜象",
+  "rarity": "无标记",
+  "effectId": "8421d42c696f0e0969ca4950ce3cd64c",
+  "cardType": "Pokemon",
+  "yorenCode": "P879",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "110",
+  "nameEn": "Copperajah"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "040",
+  "cardName": "大葱鸭",
+  "rarity": "无标记",
+  "effectId": "1099db3df34e3dd1ef0ddd05e3dbe1e5",
+  "cardType": "Pokemon",
+  "yorenCode": "P083",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "132",
+  "nameEn": "Farfetch'd"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "041",
+  "cardName": "肯泰罗",
+  "rarity": "无标记",
+  "effectId": "3d52b732f3fd8ee853e6baf3099b2f36",
+  "cardType": "Pokemon",
+  "yorenCode": "P128",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "152",
+  "nameEn": "Tauros"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "042",
+  "cardName": "长尾怪手",
+  "rarity": "无标记",
+  "effectId": "12dd4b2dab7f248fe9f8884d575a461d",
+  "cardType": "Pokemon",
+  "yorenCode": "P190",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "137",
+  "nameEn": "Aipom"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "043",
+  "cardName": "双尾怪手",
+  "rarity": "无标记",
+  "effectId": "b1ae4293757f2f94e8f79ee2a1fc029e",
+  "cardType": "Pokemon",
+  "yorenCode": "P424",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "138",
+  "nameEn": "Ambipom"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "044",
+  "cardName": "空手道王的修炼",
+  "rarity": "无标记",
+  "effectId": "a444b83881df9e2a0225aee95bbc853a",
+  "cardType": "Supporter",
+  "yorenCode": "Y1496",
+  "is": [],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "96",
+  "nameEn": "Black Belt's Training"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "045",
+  "cardName": "空手道王的修炼",
+  "rarity": "无标记",
+  "effectId": "a444b83881df9e2a0225aee95bbc853a",
+  "cardType": "Supporter",
+  "yorenCode": "Y1496",
+  "is": [],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "96",
+  "nameEn": "Black Belt's Training"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "046",
+  "cardName": "空手道王的修炼",
+  "rarity": "无标记",
+  "effectId": "a444b83881df9e2a0225aee95bbc853a",
+  "cardType": "Supporter",
+  "yorenCode": "Y1496",
+  "is": [],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "96",
+  "nameEn": "Black Belt's Training"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "047",
+  "cardName": "博士的研究",
+  "rarity": "无标记",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "048",
+  "cardName": "博士的研究",
+  "rarity": "无标记",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ },
+ {
+  "setCode": "CSVH5eC",
+  "cardIndex": "049",
+  "cardName": "博士的研究",
+  "rarity": "无标记",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ }
+]

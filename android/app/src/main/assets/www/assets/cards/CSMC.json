@@ -1,0 +1,197 @@
+[
+ {
+  "setCode": "CSMC",
+  "cardIndex": "001",
+  "cardName": "喷火龙",
+  "rarity": "无标记",
+  "effectId": "c0af2c65c0e00a0e9ab8f7732f14d76d",
+  "cardType": "Pokemon",
+  "yorenCode": "P006",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "25",
+  "nameEn": "Charizard"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "002",
+  "cardName": "茸茸羊",
+  "rarity": "无标记",
+  "effectId": "d5d752ec0bcddea7be5977eb1ac25083",
+  "cardType": "Pokemon",
+  "yorenCode": "P180",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "55",
+  "nameEn": "Flaaffy"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "003",
+  "cardName": "捷克罗姆",
+  "rarity": "无标记",
+  "effectId": "e76d27a7615be05faa589cd3c3074e34",
+  "cardType": "Pokemon",
+  "yorenCode": "P644",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "60",
+  "nameEn": "Zekrom"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "004",
+  "cardName": "咚咚鼠",
+  "rarity": "无标记",
+  "effectId": "c7f54140d4c1e37b59c15e824b8af5f7",
+  "cardType": "Pokemon",
+  "yorenCode": "P702",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "67",
+  "nameEn": "Dedenne"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "005",
+  "cardName": "霜奶仙",
+  "rarity": "无标记",
+  "effectId": "18c8cbd1276bcdeae1396f03325422fd",
+  "cardType": "Pokemon",
+  "yorenCode": "P869",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "71",
+  "nameEn": "Alcremie"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "006",
+  "cardName": "诡角鹿",
+  "rarity": "无标记",
+  "effectId": "83c3dabfb6a14c50e69b2653d516b254",
+  "cardType": "Pokemon",
+  "yorenCode": "P899",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "69",
+  "nameEn": "Wyrdeer"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "007",
+  "cardName": "劈斧螳螂",
+  "rarity": "无标记",
+  "effectId": "92bc402bd75e63da2cec6d9bf60920ec",
+  "cardType": "Pokemon",
+  "yorenCode": "P900",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "86",
+  "nameEn": "Kleavor"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "008",
+  "cardName": "阿利多斯",
+  "rarity": "无标记",
+  "effectId": "28272138366871363bf0e56285e5a395",
+  "cardType": "Pokemon",
+  "yorenCode": "P168",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "103",
+  "nameEn": "Ariados"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "009",
+  "cardName": "花岩怪",
+  "rarity": "无标记",
+  "effectId": "ce37981b31fd3093b0de831342355be8",
+  "cardType": "Pokemon",
+  "yorenCode": "P442",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "117",
+  "nameEn": "Spiritomb"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "010",
+  "cardName": "伽勒尔 堵拦熊",
+  "rarity": "无标记",
+  "effectId": "eb0841258e8dd0cd23487b41a363914f",
+  "cardType": "Pokemon",
+  "yorenCode": "P862",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "119",
+  "nameEn": "Galarian Obstagoon"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "011",
+  "cardName": "赤面龙",
+  "rarity": "无标记",
+  "effectId": "e10cdfac520de232f12258b6084e5ccf",
+  "cardType": "Pokemon",
+  "yorenCode": "P621",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "113",
+  "nameEn": "Druddigon"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "012",
+  "cardName": "咕咕",
+  "rarity": "无标记",
+  "effectId": "b29082e0768689ead2517e1ce8757140",
+  "cardType": "Pokemon",
+  "yorenCode": "P163",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "120",
+  "nameEn": "Hoothoot"
+ },
+ {
+  "setCode": "CSMC",
+  "cardIndex": "013",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "b2ca3f1c3cbb52b5ac8b03754ac6fa69",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "52",
+  "nameEn": "Pikachu"
+ }
+]

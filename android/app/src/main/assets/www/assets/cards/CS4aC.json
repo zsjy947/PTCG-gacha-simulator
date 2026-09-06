@@ -1,0 +1,2821 @@
+[
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "001",
+  "cardName": "绿毛虫",
+  "rarity": "C",
+  "effectId": "fcf1c447b7ab1f9fa38fbe3ca7af53dd",
+  "cardType": "Pokemon",
+  "yorenCode": "P010",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "1",
+  "nameEn": "Caterpie"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "002",
+  "cardName": "铁甲蛹",
+  "rarity": "C",
+  "effectId": "54583edd41c4ecf5da8e4f523ff4a01a",
+  "cardType": "Pokemon",
+  "yorenCode": "P011",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "2",
+  "nameEn": "Metapod"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "003",
+  "cardName": "巴大蝶",
+  "rarity": "R",
+  "effectId": "2d0f982d1d351c48a88d508a7812df42",
+  "cardType": "Pokemon",
+  "yorenCode": "P012",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "3",
+  "nameEn": "Butterfree"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "004",
+  "cardName": "凯罗斯",
+  "rarity": "U",
+  "effectId": "364f27a2597f1e9d08cdfdfdd9c38506",
+  "cardType": "Pokemon",
+  "yorenCode": "P127",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "1",
+  "nameEn": "Pinsir"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "005",
+  "cardName": "蘑蘑菇",
+  "rarity": "C",
+  "effectId": "44ae24c04815e014c381afac9cf399e0",
+  "cardType": "Pokemon",
+  "yorenCode": "P285",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "4",
+  "nameEn": "Shroomish"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "006",
+  "cardName": "斗笠菇",
+  "rarity": "C",
+  "effectId": "6935723716380fbd0d22f6e165b18abc",
+  "cardType": "Pokemon",
+  "yorenCode": "P286",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "5",
+  "nameEn": "Breloom"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "007",
+  "cardName": "热带龙",
+  "rarity": "C",
+  "effectId": "68cbeddd71a7a119cbe4f037699098e4",
+  "cardType": "Pokemon",
+  "yorenCode": "P357",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "6",
+  "nameEn": "Tropius"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "008",
+  "cardName": "叶伊布V",
+  "rarity": "RR",
+  "effectId": "4f75e9bccab3471d053eefade6edf2c8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y803",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "7",
+  "nameEn": "Leafeon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "009",
+  "cardName": "叶伊布VMAX",
+  "rarity": "RRR",
+  "effectId": "b3f4e40396ed995c751355e46a94664f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y804",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "8",
+  "nameEn": "Leafeon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "010",
+  "cardName": "花椰猴",
+  "rarity": "C",
+  "effectId": "0efb292483da67f14aeb2a69c4724877",
+  "cardType": "Pokemon",
+  "yorenCode": "P511",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "7",
+  "nameEn": "Pansage"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "011",
+  "cardName": "花椰猿",
+  "rarity": "C",
+  "effectId": "f988984dc058410d543188568eea18e4",
+  "cardType": "Pokemon",
+  "yorenCode": "P512",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "8",
+  "nameEn": "Simisage"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "012",
+  "cardName": "沙铃仙人掌",
+  "rarity": "U",
+  "effectId": "67fdc9d85261aab49a486f0f4e3d931c",
+  "cardType": "Pokemon",
+  "yorenCode": "P556",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "12",
+  "nameEn": "Maractus"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "013",
+  "cardName": "毕力吉翁",
+  "rarity": "U",
+  "effectId": "6f231677fc2ccbd7407abbafeaca6896",
+  "cardType": "Pokemon",
+  "yorenCode": "P640",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "15",
+  "nameEn": "Virizion"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "014",
+  "cardName": "强颚鸡母虫",
+  "rarity": "C",
+  "effectId": "9d32d7e662a914d98cfd4d8232ec26a6",
+  "cardType": "Pokemon",
+  "yorenCode": "P736",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "15",
+  "nameEn": "Grubbin"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "015",
+  "cardName": "甜冷美后V",
+  "rarity": "RR",
+  "effectId": "2ae1ea70c8ad010f4ff48ff486d1f565",
+  "cardType": "Pokemon",
+  "yorenCode": "Y805",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "21",
+  "nameEn": "Tsareena V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "016",
+  "cardName": "幼棉棉",
+  "rarity": "C",
+  "effectId": "d7623e6ed0703a837b4acc4169fbc5c6",
+  "cardType": "Pokemon",
+  "yorenCode": "P829",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "15",
+  "nameEn": "Gossifleur"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "017",
+  "cardName": "白蓬蓬",
+  "rarity": "R",
+  "effectId": "d72215369ae8fa64fab718ca7303ae65",
+  "cardType": "Pokemon",
+  "yorenCode": "P830",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "16",
+  "nameEn": "Eldegoss"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "018",
+  "cardName": "六尾",
+  "rarity": "C",
+  "effectId": "fcda8f0023bcfad7a32f04832b8f617e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y393",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "28",
+  "nameEn": "Vulpix"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "019",
+  "cardName": "九尾",
+  "rarity": "C",
+  "effectId": "c9c011333a68544165fbe0fd8e49fa7a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y394",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "31",
+  "nameEn": "Ninetales"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "020",
+  "cardName": "火伊布V",
+  "rarity": "RR",
+  "effectId": "36314b698267c582a74869a67452e8a5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y806",
+  "is": [
+   "V",
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "149",
+  "nameEn": "Flareon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "021",
+  "cardName": "火伊布VMAX",
+  "rarity": "RRR",
+  "effectId": "6ec85fab2192ab50bd37351fc058b0d3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y807",
+  "is": [
+   "V",
+   "Single Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "18",
+  "nameEn": "Flareon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "022",
+  "cardName": "爆香猴",
+  "rarity": "C",
+  "effectId": "a27df13355ee6ac311d3eb641fa8039a",
+  "cardType": "Pokemon",
+  "yorenCode": "P513",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "37",
+  "nameEn": "Pansear"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "023",
+  "cardName": "爆香猿",
+  "rarity": "C",
+  "effectId": "50b8e0c620a60302c92c465ee09a81b1",
+  "cardType": "Pokemon",
+  "yorenCode": "P514",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "38",
+  "nameEn": "Simisear"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "024",
+  "cardName": "烧火蚣",
+  "rarity": "C",
+  "effectId": "a99a0fe2ab1935fd9b370a1eb83e97da",
+  "cardType": "Pokemon",
+  "yorenCode": "P850",
+  "is": [
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "47",
+  "nameEn": "Sizzlipede"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "025",
+  "cardName": "焚焰蚣",
+  "rarity": "U",
+  "effectId": "6de32e1c6e1aadff0f608a4f379af42e",
+  "cardType": "Pokemon",
+  "yorenCode": "P851",
+  "is": [
+   "Rapid Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "48",
+  "nameEn": "Centiskorch"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "026",
+  "cardName": "水伊布V",
+  "rarity": "RR",
+  "effectId": "45da6290279c6867f9a8840ef7dc279a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y808",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "150",
+  "nameEn": "Vaporeon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "027",
+  "cardName": "水伊布VMAX",
+  "rarity": "RRR",
+  "effectId": "1fc16ae5a6694e63f65cdc8f41c1f127",
+  "cardType": "Pokemon",
+  "yorenCode": "Y809",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "30",
+  "nameEn": "Vaporeon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "028",
+  "cardName": "巨翅飞鱼",
+  "rarity": "C",
+  "effectId": "9381dc12475af7c9908b0387214aaa0d",
+  "cardType": "Pokemon",
+  "yorenCode": "P226",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "61",
+  "nameEn": "Mantine"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "029",
+  "cardName": "水跃鱼",
+  "rarity": "C",
+  "effectId": "a6e59acf30366deaf15611075dae46e2",
+  "cardType": "Pokemon",
+  "yorenCode": "P258",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "62",
+  "nameEn": "Mudkip"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "030",
+  "cardName": "沼跃鱼",
+  "rarity": "U",
+  "effectId": "3346d680aac94eea40a859d1fe0935dc",
+  "cardType": "Pokemon",
+  "yorenCode": "P259",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "63",
+  "nameEn": "Marshtomp"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "031",
+  "cardName": "巨沼怪",
+  "rarity": "R",
+  "effectId": "0fe3c6688b9faba6c239f2ee9db65cb2",
+  "cardType": "Pokemon",
+  "yorenCode": "P260",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "64",
+  "nameEn": "Swampert"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "032",
+  "cardName": "丑丑鱼",
+  "rarity": "C",
+  "effectId": "9f6e471a44a2de04ca5d969d0820f945",
+  "cardType": "Pokemon",
+  "yorenCode": "P349",
+  "is": [
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "37",
+  "nameEn": "Feebas"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "033",
+  "cardName": "美纳斯",
+  "rarity": "U",
+  "effectId": "ee19fce8726c65c2985f17631e3e747b",
+  "cardType": "Pokemon",
+  "yorenCode": "P350",
+  "is": [
+   "Rapid Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "38",
+  "nameEn": "Milotic"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "034",
+  "cardName": "冰伊布V",
+  "rarity": "RR",
+  "effectId": "291b0a045eab64df4dd780c7dff6562c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y810",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "40",
+  "nameEn": "Glaceon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "035",
+  "cardName": "冰伊布VMAX",
+  "rarity": "RRR",
+  "effectId": "ab60926b4f395ce696be200bd48ee9d7",
+  "cardType": "Pokemon",
+  "yorenCode": "Y811",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "41",
+  "nameEn": "Glaceon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "036",
+  "cardName": "冷水猴",
+  "rarity": "C",
+  "effectId": "7bb56b581424afcbbe49126ce3195b91",
+  "cardType": "Pokemon",
+  "yorenCode": "P515",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "68",
+  "nameEn": "Panpour"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "037",
+  "cardName": "冷水猿",
+  "rarity": "C",
+  "effectId": "7d32c038175039d666b61a43d65c41d4",
+  "cardType": "Pokemon",
+  "yorenCode": "P516",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "69",
+  "nameEn": "Simipour"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "038",
+  "cardName": "铁臂枪虾",
+  "rarity": "C",
+  "effectId": "4f93e49082b42fa7e2482a4329df8eea",
+  "cardType": "Pokemon",
+  "yorenCode": "P692",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "74",
+  "nameEn": "Clauncher"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "039",
+  "cardName": "钢炮臂虾",
+  "rarity": "C",
+  "effectId": "8e33596d829fd52a793e053af5b43928",
+  "cardType": "Pokemon",
+  "yorenCode": "P693",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "75",
+  "nameEn": "Clawitzer"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "040",
+  "cardName": "好胜毛蟹V",
+  "rarity": "RR",
+  "effectId": "d07bde3c99865c848bc1007de838595f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y812",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "76",
+  "nameEn": "Crabominable V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "041",
+  "cardName": "弱丁鱼",
+  "rarity": "U",
+  "effectId": "3cf5df3330ff71fea68af1b46853bc3f",
+  "cardType": "Pokemon",
+  "yorenCode": "P746",
+  "is": [
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "46",
+  "nameEn": "Wishiwashi"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "042",
+  "cardName": "拳海参",
+  "rarity": "C",
+  "effectId": "30496b1bde62e31754b6d7dd933b6b7c",
+  "cardType": "Pokemon",
+  "yorenCode": "P771",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "77",
+  "nameEn": "Pyukumuku"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "043",
+  "cardName": "冰砌鹅",
+  "rarity": "U",
+  "effectId": "5afacea7581127638cdae5412ec72ddf",
+  "cardType": "Pokemon",
+  "yorenCode": "P875",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "47",
+  "nameEn": "Eiscue"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "044",
+  "cardName": "皮卡丘",
+  "rarity": "C",
+  "effectId": "92232f11f1695da9ba19c808ba16d400",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "49",
+  "nameEn": "Pikachu"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "045",
+  "cardName": "雷丘",
+  "rarity": "R",
+  "effectId": "abd12ded2cf37d77f8f1d9ebc5bceb95",
+  "cardType": "Pokemon",
+  "yorenCode": "P026",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "50",
+  "nameEn": "Raichu"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "046",
+  "cardName": "霹雳电球",
+  "rarity": "C",
+  "effectId": "8fb0b60c24bdb22707b3703db75c90fe",
+  "cardType": "Pokemon",
+  "yorenCode": "P100",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "87",
+  "nameEn": "Voltorb"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "047",
+  "cardName": "顽皮雷弹",
+  "rarity": "U",
+  "effectId": "4a93f1186014aee39c3201a0b84b6b52",
+  "cardType": "Pokemon",
+  "yorenCode": "P101",
+  "is": [
+   "Single Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "88",
+  "nameEn": "Electrode"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "048",
+  "cardName": "雷伊布V",
+  "rarity": "RR",
+  "effectId": "4d5b4e1611240499f0dd600a603f3d63",
+  "cardType": "Pokemon",
+  "yorenCode": "Y813",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "151",
+  "nameEn": "Jolteon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "049",
+  "cardName": "雷伊布VMAX",
+  "rarity": "RRR",
+  "effectId": "654fefd52baf51b41379e7fb08eb4d3d",
+  "cardType": "Pokemon",
+  "yorenCode": "Y814",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "51",
+  "nameEn": "Jolteon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "050",
+  "cardName": "麻麻小鱼",
+  "rarity": "C",
+  "effectId": "82e4d662e421112c68273c540880aaf6",
+  "cardType": "Pokemon",
+  "yorenCode": "P602",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "95",
+  "nameEn": "Tynamo"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "051",
+  "cardName": "麻麻鳗",
+  "rarity": "C",
+  "effectId": "d4cc246bae39afe1091d8ce6c2ab90dd",
+  "cardType": "Pokemon",
+  "yorenCode": "P603",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "96",
+  "nameEn": "Eelektrik"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "052",
+  "cardName": "麻麻鳗鱼王",
+  "rarity": "U",
+  "effectId": "63994e2cc751dac19bd4bef0e98c9b42",
+  "cardType": "Pokemon",
+  "yorenCode": "P604",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "97",
+  "nameEn": "Eelektross"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "053",
+  "cardName": "虫电宝",
+  "rarity": "C",
+  "effectId": "463045fffca088336e68b8fc88baa81d",
+  "cardType": "Pokemon",
+  "yorenCode": "P737",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "100",
+  "nameEn": "Charjabug"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "054",
+  "cardName": "锹农炮虫",
+  "rarity": "U",
+  "effectId": "3a045580505d9adfe13eab21d7a524ae",
+  "cardType": "Pokemon",
+  "yorenCode": "P738",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "101",
+  "nameEn": "Vikavolt"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "055",
+  "cardName": "电音婴",
+  "rarity": "C",
+  "effectId": "a2948758b4777a916dd75123526088e1",
+  "cardType": "Pokemon",
+  "yorenCode": "P848",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "105",
+  "nameEn": "Toxel"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "056",
+  "cardName": "颤弦蝾螈",
+  "rarity": "R",
+  "effectId": "b934b678c4aded5101c96c8d496e385a",
+  "cardType": "Pokemon",
+  "yorenCode": "P849",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "107",
+  "nameEn": "Toxtricity"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "057",
+  "cardName": "迷唇姐",
+  "rarity": "C",
+  "effectId": "71e385666168171aff68503666df905b",
+  "cardType": "Pokemon",
+  "yorenCode": "P124",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "112",
+  "nameEn": "Jynx"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "058",
+  "cardName": "太阳伊布V",
+  "rarity": "RR",
+  "effectId": "60e738cba820a8537ab828bb9a92b055",
+  "cardType": "Pokemon",
+  "yorenCode": "Y815",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "64",
+  "nameEn": "Espeon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "059",
+  "cardName": "太阳伊布VMAX",
+  "rarity": "RRR",
+  "effectId": "2bb83e983fa24dc10d5af13295cd4dcd",
+  "cardType": "Pokemon",
+  "yorenCode": "Y816",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "65",
+  "nameEn": "Espeon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "060",
+  "cardName": "果然翁",
+  "rarity": "U",
+  "effectId": "8584cad1d02f19586d19e7dd13ae31cd",
+  "cardType": "Pokemon",
+  "yorenCode": "P202",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "66",
+  "nameEn": "Wobbuffet"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "061",
+  "cardName": "布鲁",
+  "rarity": "C",
+  "effectId": "03aba329ee757229b7a9a367243f34c2",
+  "cardType": "Pokemon",
+  "yorenCode": "P209",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "115",
+  "nameEn": "Snubbull"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "062",
+  "cardName": "布鲁皇",
+  "rarity": "U",
+  "effectId": "0b561fb1c274cbabb17c5c09267c4e11",
+  "cardType": "Pokemon",
+  "yorenCode": "P210",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "116",
+  "nameEn": "Granbull"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "063",
+  "cardName": "大嘴娃",
+  "rarity": "C",
+  "effectId": "b8a1df19279acdf4a67b63aa29796a8c",
+  "cardType": "Pokemon",
+  "yorenCode": "P303",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "119",
+  "nameEn": "Mawile"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "064",
+  "cardName": "象征鸟",
+  "rarity": "C",
+  "effectId": "c451f7aec30b78a4f80dcc6962bcf7dc",
+  "cardType": "Pokemon",
+  "yorenCode": "P561",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "123",
+  "nameEn": "Sigilyph"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "065",
+  "cardName": "花蓓蓓",
+  "rarity": "C",
+  "effectId": "0dba9716623177e684f2ab075e7c8230",
+  "cardType": "Pokemon",
+  "yorenCode": "P669",
+  "is": [
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "71",
+  "nameEn": "Flabébé"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "066",
+  "cardName": "花叶蒂",
+  "rarity": "U",
+  "effectId": "bcecc9ba7aba54f66f510f552160e7ef",
+  "cardType": "Pokemon",
+  "yorenCode": "P670",
+  "is": [
+   "Rapid Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "72",
+  "nameEn": "Floette"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "067",
+  "cardName": "花洁夫人",
+  "rarity": "R",
+  "effectId": "a1d4c834e94af63b7ae7ab24af070b3e",
+  "cardType": "Pokemon",
+  "yorenCode": "P671",
+  "is": [
+   "Rapid Strike",
+   "Stage 2"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "73",
+  "nameEn": "Florges"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "068",
+  "cardName": "仙子伊布V",
+  "rarity": "RR",
+  "effectId": "51424056023e903e2fb1d6571a2ae420",
+  "cardType": "Pokemon",
+  "yorenCode": "Y817",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "74",
+  "nameEn": "Sylveon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "069",
+  "cardName": "仙子伊布VMAX",
+  "rarity": "RRR",
+  "effectId": "ece3ca97bd0efebd86278da68831291e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y818",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "75",
+  "nameEn": "Sylveon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "070",
+  "cardName": "咚咚鼠",
+  "rarity": "C",
+  "effectId": "c7f54140d4c1e37b59c15e824b8af5f7",
+  "cardType": "Pokemon",
+  "yorenCode": "P702",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "67",
+  "nameEn": "Dedenne"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "071",
+  "cardName": "南瓜精",
+  "rarity": "C",
+  "effectId": "e44aa42dbd758726928f617586b3c174",
+  "cardType": "Pokemon",
+  "yorenCode": "P710",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "76",
+  "nameEn": "Pumpkaboo"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "072",
+  "cardName": "南瓜怪人",
+  "rarity": "U",
+  "effectId": "7001422890b32b78f805bf20b03fdf7b",
+  "cardType": "Pokemon",
+  "yorenCode": "P711",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "77",
+  "nameEn": "Gourgeist"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "073",
+  "cardName": "沙丘娃",
+  "rarity": "C",
+  "effectId": "f72c0eccb3d61369622e42fe35bda9cc",
+  "cardType": "Pokemon",
+  "yorenCode": "P769",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "125",
+  "nameEn": "Sandygast"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "074",
+  "cardName": "噬沙堡爷",
+  "rarity": "U",
+  "effectId": "2eb34aaa0fa4d456dd3b7e35f7aa6d51",
+  "cardType": "Pokemon",
+  "yorenCode": "P770",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "126",
+  "nameEn": "Palossand"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "075",
+  "cardName": "小拳石",
+  "rarity": "C",
+  "effectId": "b10b87657ccabdf5a3547a0e7e8cb9da",
+  "cardType": "Pokemon",
+  "yorenCode": "Y399",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "135",
+  "nameEn": "Geodude"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "076",
+  "cardName": "隆隆石",
+  "rarity": "C",
+  "effectId": "ddb581992eac9dbba2508f50e918a766",
+  "cardType": "Pokemon",
+  "yorenCode": "Y400",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "68",
+  "nameEn": "Graveler"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "077",
+  "cardName": "隆隆岩",
+  "rarity": "U",
+  "effectId": "508c5ba58d41ee084a92761a778aad9f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y401",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "137",
+  "nameEn": "Golem"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "078",
+  "cardName": "天蝎",
+  "rarity": "C",
+  "effectId": "61ec6c7d2ab58d78e5c8c7a36413c856",
+  "cardType": "Pokemon",
+  "yorenCode": "P207",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "140",
+  "nameEn": "Gligar"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "079",
+  "cardName": "天蝎王",
+  "rarity": "C",
+  "effectId": "d84b2c851bdbaa640836fe9f0617ccaf",
+  "cardType": "Pokemon",
+  "yorenCode": "P472",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "141",
+  "nameEn": "Gliscor"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "080",
+  "cardName": "恰雷姆V",
+  "rarity": "RR",
+  "effectId": "04e31a6119c31789e1f730c0c7fb9162",
+  "cardType": "Pokemon",
+  "yorenCode": "Y819",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "83",
+  "nameEn": "Medicham V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "081",
+  "cardName": "天秤偶",
+  "rarity": "C",
+  "effectId": "adb17a9436c80bcc4dda18eebb18e9ef",
+  "cardType": "Pokemon",
+  "yorenCode": "P343",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "144",
+  "nameEn": "Baltoy"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "082",
+  "cardName": "念力土偶",
+  "rarity": "U",
+  "effectId": "884186dd1dee71ccf830428c42afca78",
+  "cardType": "Pokemon",
+  "yorenCode": "P344",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "145",
+  "nameEn": "Claydol"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "083",
+  "cardName": "伽勒尔 火焰鸟",
+  "rarity": "R",
+  "effectId": "0fe958ef8de5dea7e0bc296f64cba9c9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y820",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "93",
+  "nameEn": "Galarian Moltres"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "084",
+  "cardName": "月亮伊布V",
+  "rarity": "RR",
+  "effectId": "dd034dc234592dfeb5e8ff4406643b47",
+  "cardType": "Pokemon",
+  "yorenCode": "Y821",
+  "is": [
+   "V",
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "94",
+  "nameEn": "Umbreon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "085",
+  "cardName": "月亮伊布VMAX",
+  "rarity": "RRR",
+  "effectId": "fd6d95baa6ad6adecdd4f2242cc2a1de",
+  "cardType": "Pokemon",
+  "yorenCode": "Y822",
+  "is": [
+   "V",
+   "Single Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "95",
+  "nameEn": "Umbreon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "086",
+  "cardName": "不良蛙",
+  "rarity": "C",
+  "effectId": "2495d2cd63705506e678c9487ecce30e",
+  "cardType": "Pokemon",
+  "yorenCode": "P453",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "245",
+  "nameEn": "Croagunk"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "087",
+  "cardName": "毒骷蛙",
+  "rarity": "U",
+  "effectId": "7718057f1364649e8e77784be97f459d",
+  "cardType": "Pokemon",
+  "yorenCode": "P454",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "166",
+  "nameEn": "Toxicroak"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "088",
+  "cardName": "破破袋",
+  "rarity": "C",
+  "effectId": "20b85aab41299c3beb1858e94e18cc68",
+  "cardType": "Pokemon",
+  "yorenCode": "P568",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "168",
+  "nameEn": "Trubbish"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "089",
+  "cardName": "灰尘山",
+  "rarity": "U",
+  "effectId": "9c3102c458b3bcd6d7a5eaea4315c12c",
+  "cardType": "Pokemon",
+  "yorenCode": "P569",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "169",
+  "nameEn": "Garbodor"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "090",
+  "cardName": "秃鹰丫头",
+  "rarity": "C",
+  "effectId": "6f44333c875db8afc5758575e964a6d6",
+  "cardType": "Pokemon",
+  "yorenCode": "P629",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "172",
+  "nameEn": "Vullaby"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "091",
+  "cardName": "秃鹰娜",
+  "rarity": "C",
+  "effectId": "9772d8dbf0816e5815587538e9f9503c",
+  "cardType": "Pokemon",
+  "yorenCode": "P630",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "173",
+  "nameEn": "Mandibuzz"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "092",
+  "cardName": "捣蛋小妖",
+  "rarity": "C",
+  "effectId": "f42d6910dc0e6f3957134c803fbdb404",
+  "cardType": "Pokemon",
+  "yorenCode": "P859",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "176",
+  "nameEn": "Impidimp"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "093",
+  "cardName": "诈唬魔",
+  "rarity": "U",
+  "effectId": "a6de640ade5bf52f11583d0f93f0876f",
+  "cardType": "Pokemon",
+  "yorenCode": "P860",
+  "is": [
+   "Single Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "177",
+  "nameEn": "Morgrem"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "094",
+  "cardName": "长毛巨魔",
+  "rarity": "R",
+  "effectId": "25d72955d8e4b0fc9fa6fd8818beeb03",
+  "cardType": "Pokemon",
+  "yorenCode": "P861",
+  "is": [
+   "Single Strike",
+   "Stage 2"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "178",
+  "nameEn": "Grimmsnarl"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "095",
+  "cardName": "伽勒尔 喵喵",
+  "rarity": "C",
+  "effectId": "e6522cdd43b8c0664c697e60ea3b0b37",
+  "cardType": "Pokemon",
+  "yorenCode": "Y509",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "180",
+  "nameEn": "Galarian Meowth"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "096",
+  "cardName": "伽勒尔 喵头目",
+  "rarity": "U",
+  "effectId": "9e5490b2d931f161bd8a72728eabfcd1",
+  "cardType": "Pokemon",
+  "yorenCode": "P863",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "181",
+  "nameEn": "Galarian Perrserker"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "097",
+  "cardName": "盔甲鸟",
+  "rarity": "C",
+  "effectId": "eca387d2a9359cb90f1384e3157dd305",
+  "cardType": "Pokemon",
+  "yorenCode": "P227",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "182",
+  "nameEn": "Skarmory"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "098",
+  "cardName": "钥圈儿",
+  "rarity": "C",
+  "effectId": "316fab226b33b1d4b615c6de23ad25ce",
+  "cardType": "Pokemon",
+  "yorenCode": "P707",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "186",
+  "nameEn": "Klefki"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "099",
+  "cardName": "帝牙卢卡",
+  "rarity": "R",
+  "effectId": "a8055986277af3fce138783c99fd9f81",
+  "cardType": "Pokemon",
+  "yorenCode": "P483",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "112",
+  "nameEn": "Dialga"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "100",
+  "cardName": "单首龙",
+  "rarity": "C",
+  "effectId": "67c649e41b8ed2f17c2fae1ae53087fb",
+  "cardType": "Pokemon",
+  "yorenCode": "P633",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "113",
+  "nameEn": "Deino"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "101",
+  "cardName": "双首暴龙",
+  "rarity": "C",
+  "effectId": "2e8ed0f8a0ac00b45d7e64183fe1ea21",
+  "cardType": "Pokemon",
+  "yorenCode": "P634",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "114",
+  "nameEn": "Zweilous"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "102",
+  "cardName": "三首恶龙",
+  "rarity": "R",
+  "effectId": "74f1d75b856f2dbc751fb56914b7623d",
+  "cardType": "Pokemon",
+  "yorenCode": "P635",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "115",
+  "nameEn": "Hydreigon"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "103",
+  "cardName": "酋雷姆",
+  "rarity": "R",
+  "effectId": "d595ce4efe180d927b665da5f118b317",
+  "cardType": "Pokemon",
+  "yorenCode": "P646",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "116",
+  "nameEn": "Kyurem"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "104",
+  "cardName": "基格尔德",
+  "rarity": "R",
+  "effectId": "6ff986d31e1e7317b37b1260df53b42c",
+  "cardType": "Pokemon",
+  "yorenCode": "P718",
+  "is": [
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "118",
+  "nameEn": "Zygarde"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "105",
+  "cardName": "老翁龙",
+  "rarity": "U",
+  "effectId": "a1000c28e9bb8dfd82698124d5a00bbe",
+  "cardType": "Pokemon",
+  "yorenCode": "P780",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "119",
+  "nameEn": "Drampa"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "106",
+  "cardName": "铝钢龙V",
+  "rarity": "RR",
+  "effectId": "adef1ba5575375701e077107899749f9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y510",
+  "is": [
+   "V",
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "103",
+  "nameEn": "Duraludon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "107",
+  "cardName": "铝钢龙VMAX",
+  "rarity": "RRR",
+  "effectId": "c31da43623f82c51dbf6e9deb189cb5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y823",
+  "is": [
+   "V",
+   "Single Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "123",
+  "nameEn": "Duraludon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "108",
+  "cardName": "喵喵",
+  "rarity": "C",
+  "effectId": "9f4acb3c2346959e4a203f99be278056",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "199",
+  "nameEn": "Meowth"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "109",
+  "cardName": "猫老大",
+  "rarity": "U",
+  "effectId": "281a135ad4191ad9c65ae4e2683e2704",
+  "cardType": "Pokemon",
+  "yorenCode": "Y398",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "200",
+  "nameEn": "Persian"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "110",
+  "cardName": "袋兽",
+  "rarity": "U",
+  "effectId": "e217a8b06eae6ae413103278d75d589d",
+  "cardType": "Pokemon",
+  "yorenCode": "P115",
+  "is": [
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "204",
+  "nameEn": "Kangaskhan"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "111",
+  "cardName": "伊布",
+  "rarity": "C",
+  "effectId": "5312e39b6e465f24e7300af252e28e77",
+  "cardType": "Pokemon",
+  "yorenCode": "P133",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "125",
+  "nameEn": "Eevee"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "112",
+  "cardName": "土龙弟弟",
+  "rarity": "U",
+  "effectId": "8ef5a96d765feee9c39c0a4441c34217",
+  "cardType": "Pokemon",
+  "yorenCode": "P206",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "207",
+  "nameEn": "Dunsparce"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "113",
+  "cardName": "惊角鹿",
+  "rarity": "C",
+  "effectId": "621d0e54e56de1828147be4b1a915ac0",
+  "cardType": "Pokemon",
+  "yorenCode": "P234",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "208",
+  "nameEn": "Stantler"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "114",
+  "cardName": "图图犬",
+  "rarity": "C",
+  "effectId": "f056d56689766b04108d90160e9eea09",
+  "cardType": "Pokemon",
+  "yorenCode": "P235",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "128",
+  "nameEn": "Smeargle"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "115",
+  "cardName": "懒人獭",
+  "rarity": "C",
+  "effectId": "55fec29ff7d8396f2c9f825abb8b5968",
+  "cardType": "Pokemon",
+  "yorenCode": "P287",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "129",
+  "nameEn": "Slakoth"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "116",
+  "cardName": "过动猿",
+  "rarity": "C",
+  "effectId": "9e19eb25eb388766ae976ecd5f3a0bbf",
+  "cardType": "Pokemon",
+  "yorenCode": "P288",
+  "is": [
+   "Single Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "130",
+  "nameEn": "Vigoroth"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "117",
+  "cardName": "请假王",
+  "rarity": "R",
+  "effectId": "df6568e27a80b874572f837dfc7267b2",
+  "cardType": "Pokemon",
+  "yorenCode": "P289",
+  "is": [
+   "Single Strike",
+   "Stage 2"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "131",
+  "nameEn": "Slaking"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "118",
+  "cardName": "掉包杯",
+  "rarity": "U",
+  "effectId": "978076a7cff84ee34eff4060eb302df0",
+  "cardType": "Item",
+  "yorenCode": "Y824",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "162",
+  "nameEn": "Switching Cups"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "119",
+  "cardName": "梦境球",
+  "rarity": "U",
+  "effectId": "c5303bc3337b90c359619e70a08b461e",
+  "cardType": "Item",
+  "yorenCode": "Y825",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "146",
+  "nameEn": "Dream Ball"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "120",
+  "cardName": "救援行李箱",
+  "rarity": "U",
+  "effectId": "5d9c6caf8816898b4f8d13feaa970206",
+  "cardType": "Item",
+  "yorenCode": "Y826",
+  "is": [],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "142",
+  "nameEn": "Rescue Carrier"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "121",
+  "cardName": "挖洞手套",
+  "rarity": "U",
+  "effectId": "99aa579afb0af64b2aae1d34ac0a292c",
+  "cardType": "Tool",
+  "yorenCode": "Y827",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "145",
+  "nameEn": "Digging Gloves"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "122",
+  "cardName": "一击卷轴 牙龙之卷",
+  "rarity": "U",
+  "effectId": "afa842aa85c5abd7124f3f113936348c",
+  "cardType": "Tool",
+  "yorenCode": "Y828",
+  "is": [
+   "Single Strike"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "158",
+  "nameEn": "Single Strike Scroll of the Fanged Dragon"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "123",
+  "cardName": "橡胶手套",
+  "rarity": "U",
+  "effectId": "25cd0f1455e92824e9d96613368e5c02",
+  "cardType": "Tool",
+  "yorenCode": "Y829",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "156",
+  "nameEn": "Rubber Gloves"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "124",
+  "cardName": "全罩防守",
+  "rarity": "U",
+  "effectId": "9a271368d9fb1435894e9baa88dde55f",
+  "cardType": "Tool",
+  "yorenCode": "Y830",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "148",
+  "nameEn": "Full Face Guard"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "125",
+  "cardName": "奇巴纳",
+  "rarity": "U",
+  "effectId": "b57ebec9231ad4d91a71ab1360fcbba1",
+  "cardType": "Supporter",
+  "yorenCode": "Y831",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "152",
+  "nameEn": "Raihan"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "126",
+  "cardName": "莎娜",
+  "rarity": "C",
+  "effectId": "46b33c7c1cc0e748153eb878e058d30b",
+  "cardType": "Supporter",
+  "yorenCode": "Y754",
+  "is": [],
+  "setCodeEn": "FST",
+  "cardIndexEn": "240",
+  "nameEn": "Shauna"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "127",
+  "cardName": "女学生",
+  "rarity": "C",
+  "effectId": "4393f0066f2e9b385ee59107578f2de9",
+  "cardType": "Supporter",
+  "yorenCode": "Y832",
+  "is": [],
+  "setCodeEn": "FST",
+  "cardIndexEn": "239",
+  "nameEn": "Schoolgirl"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "128",
+  "cardName": "玛瓜",
+  "rarity": "U",
+  "effectId": "03ec7568064d2553d1a7bcdc8f5b9f2a",
+  "cardType": "Supporter",
+  "yorenCode": "Y833",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "149",
+  "nameEn": "Gordie"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "129",
+  "cardName": "模仿少女",
+  "rarity": "C",
+  "effectId": "4e01a05b2e386a5c77eba517f93ce538",
+  "cardType": "Supporter",
+  "yorenCode": "Y107",
+  "is": [],
+  "setCodeEn": "CES",
+  "cardIndexEn": "127",
+  "nameEn": "Copycat"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "130",
+  "cardName": "结晶洞窟",
+  "rarity": "U",
+  "effectId": "1b79bb29529b4275c80d096ca8331240",
+  "cardType": "Stadium",
+  "yorenCode": "Y834",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "144",
+  "nameEn": "Crystal Cave"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "131",
+  "cardName": "时尚广场",
+  "rarity": "U",
+  "effectId": "398e856744d75226d2b1e47d55a76cb5",
+  "cardType": "Stadium",
+  "yorenCode": "Y835",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "157",
+  "nameEn": "Shopping Center"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "132",
+  "cardName": "宝藏能量",
+  "rarity": "U",
+  "effectId": "4419ad2a928dd603e6db73901023c464",
+  "cardType": "Special Energy",
+  "yorenCode": "Y836",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "165",
+  "nameEn": "Treasure Energy"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "133",
+  "cardName": "叶伊布V",
+  "rarity": "SR",
+  "effectId": "4f75e9bccab3471d053eefade6edf2c8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y803",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "7",
+  "nameEn": "Leafeon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "134",
+  "cardName": "叶伊布V",
+  "rarity": "SR",
+  "effectId": "4f75e9bccab3471d053eefade6edf2c8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y803",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "7",
+  "nameEn": "Leafeon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "135",
+  "cardName": "甜冷美后V",
+  "rarity": "SR",
+  "effectId": "2ae1ea70c8ad010f4ff48ff486d1f565",
+  "cardType": "Pokemon",
+  "yorenCode": "Y805",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "21",
+  "nameEn": "Tsareena V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "136",
+  "cardName": "火伊布V",
+  "rarity": "SR",
+  "effectId": "36314b698267c582a74869a67452e8a5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y806",
+  "is": [
+   "V",
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "149",
+  "nameEn": "Flareon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "137",
+  "cardName": "火伊布V",
+  "rarity": "SR",
+  "effectId": "36314b698267c582a74869a67452e8a5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y806",
+  "is": [
+   "V",
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "149",
+  "nameEn": "Flareon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "138",
+  "cardName": "水伊布V",
+  "rarity": "SR",
+  "effectId": "45da6290279c6867f9a8840ef7dc279a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y808",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "150",
+  "nameEn": "Vaporeon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "139",
+  "cardName": "水伊布V",
+  "rarity": "SR",
+  "effectId": "45da6290279c6867f9a8840ef7dc279a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y808",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "150",
+  "nameEn": "Vaporeon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "140",
+  "cardName": "冰伊布V",
+  "rarity": "SR",
+  "effectId": "291b0a045eab64df4dd780c7dff6562c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y810",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "40",
+  "nameEn": "Glaceon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "141",
+  "cardName": "冰伊布V",
+  "rarity": "SR",
+  "effectId": "291b0a045eab64df4dd780c7dff6562c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y810",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "40",
+  "nameEn": "Glaceon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "142",
+  "cardName": "好胜毛蟹V",
+  "rarity": "SR",
+  "effectId": "d07bde3c99865c848bc1007de838595f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y812",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "76",
+  "nameEn": "Crabominable V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "143",
+  "cardName": "雷伊布V",
+  "rarity": "SR",
+  "effectId": "4d5b4e1611240499f0dd600a603f3d63",
+  "cardType": "Pokemon",
+  "yorenCode": "Y813",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "151",
+  "nameEn": "Jolteon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "144",
+  "cardName": "雷伊布V",
+  "rarity": "SR",
+  "effectId": "4d5b4e1611240499f0dd600a603f3d63",
+  "cardType": "Pokemon",
+  "yorenCode": "Y813",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "151",
+  "nameEn": "Jolteon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "145",
+  "cardName": "太阳伊布V",
+  "rarity": "SR",
+  "effectId": "60e738cba820a8537ab828bb9a92b055",
+  "cardType": "Pokemon",
+  "yorenCode": "Y815",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "64",
+  "nameEn": "Espeon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "146",
+  "cardName": "太阳伊布V",
+  "rarity": "SR",
+  "effectId": "60e738cba820a8537ab828bb9a92b055",
+  "cardType": "Pokemon",
+  "yorenCode": "Y815",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "64",
+  "nameEn": "Espeon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "147",
+  "cardName": "仙子伊布V",
+  "rarity": "SR",
+  "effectId": "51424056023e903e2fb1d6571a2ae420",
+  "cardType": "Pokemon",
+  "yorenCode": "Y817",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "74",
+  "nameEn": "Sylveon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "148",
+  "cardName": "仙子伊布V",
+  "rarity": "SR",
+  "effectId": "51424056023e903e2fb1d6571a2ae420",
+  "cardType": "Pokemon",
+  "yorenCode": "Y817",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "74",
+  "nameEn": "Sylveon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "149",
+  "cardName": "恰雷姆V",
+  "rarity": "SR",
+  "effectId": "04e31a6119c31789e1f730c0c7fb9162",
+  "cardType": "Pokemon",
+  "yorenCode": "Y819",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "83",
+  "nameEn": "Medicham V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "150",
+  "cardName": "恰雷姆V",
+  "rarity": "SR",
+  "effectId": "04e31a6119c31789e1f730c0c7fb9162",
+  "cardType": "Pokemon",
+  "yorenCode": "Y819",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "83",
+  "nameEn": "Medicham V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "151",
+  "cardName": "月亮伊布V",
+  "rarity": "SR",
+  "effectId": "dd034dc234592dfeb5e8ff4406643b47",
+  "cardType": "Pokemon",
+  "yorenCode": "Y821",
+  "is": [
+   "V",
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "94",
+  "nameEn": "Umbreon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "152",
+  "cardName": "月亮伊布V",
+  "rarity": "SR",
+  "effectId": "dd034dc234592dfeb5e8ff4406643b47",
+  "cardType": "Pokemon",
+  "yorenCode": "Y821",
+  "is": [
+   "V",
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "94",
+  "nameEn": "Umbreon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "153",
+  "cardName": "铝钢龙V",
+  "rarity": "SR",
+  "effectId": "adef1ba5575375701e077107899749f9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y510",
+  "is": [
+   "V",
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "103",
+  "nameEn": "Duraludon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "154",
+  "cardName": "铝钢龙V",
+  "rarity": "SR",
+  "effectId": "adef1ba5575375701e077107899749f9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y510",
+  "is": [
+   "V",
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "103",
+  "nameEn": "Duraludon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "155",
+  "cardName": "奇巴纳",
+  "rarity": "SR",
+  "effectId": "b57ebec9231ad4d91a71ab1360fcbba1",
+  "cardType": "Supporter",
+  "yorenCode": "Y831",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "152",
+  "nameEn": "Raihan"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "156",
+  "cardName": "莎娜",
+  "rarity": "SR",
+  "effectId": "46b33c7c1cc0e748153eb878e058d30b",
+  "cardType": "Supporter",
+  "yorenCode": "Y754",
+  "is": [],
+  "setCodeEn": "FST",
+  "cardIndexEn": "240",
+  "nameEn": "Shauna"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "157",
+  "cardName": "女学生",
+  "rarity": "SR",
+  "effectId": "4393f0066f2e9b385ee59107578f2de9",
+  "cardType": "Supporter",
+  "yorenCode": "Y832",
+  "is": [],
+  "setCodeEn": "FST",
+  "cardIndexEn": "239",
+  "nameEn": "Schoolgirl"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "158",
+  "cardName": "玛瓜",
+  "rarity": "SR",
+  "effectId": "03ec7568064d2553d1a7bcdc8f5b9f2a",
+  "cardType": "Supporter",
+  "yorenCode": "Y833",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "149",
+  "nameEn": "Gordie"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "159",
+  "cardName": "模仿少女",
+  "rarity": "SR",
+  "effectId": "4e01a05b2e386a5c77eba517f93ce538",
+  "cardType": "Supporter",
+  "yorenCode": "Y107",
+  "is": [],
+  "setCodeEn": "CES",
+  "cardIndexEn": "127",
+  "nameEn": "Copycat"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "160",
+  "cardName": "仙子伊布V",
+  "rarity": "CSR",
+  "effectId": "51424056023e903e2fb1d6571a2ae420",
+  "cardType": "Pokemon",
+  "yorenCode": "Y817",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "74",
+  "nameEn": "Sylveon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "161",
+  "cardName": "仙子伊布VMAX",
+  "rarity": "CSR",
+  "effectId": "ece3ca97bd0efebd86278da68831291e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y818",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "75",
+  "nameEn": "Sylveon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "162",
+  "cardName": "月亮伊布V",
+  "rarity": "CSR",
+  "effectId": "dd034dc234592dfeb5e8ff4406643b47",
+  "cardType": "Pokemon",
+  "yorenCode": "Y821",
+  "is": [
+   "V",
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "94",
+  "nameEn": "Umbreon V"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "163",
+  "cardName": "月亮伊布VMAX",
+  "rarity": "CSR",
+  "effectId": "fd6d95baa6ad6adecdd4f2242cc2a1de",
+  "cardType": "Pokemon",
+  "yorenCode": "Y822",
+  "is": [
+   "V",
+   "Single Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "95",
+  "nameEn": "Umbreon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "164",
+  "cardName": "铝钢龙VMAX",
+  "rarity": "CSR",
+  "effectId": "c31da43623f82c51dbf6e9deb189cb5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y823",
+  "is": [
+   "V",
+   "Single Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "123",
+  "nameEn": "Duraludon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "165",
+  "cardName": "叶伊布VMAX",
+  "rarity": "HR",
+  "effectId": "b3f4e40396ed995c751355e46a94664f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y804",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "8",
+  "nameEn": "Leafeon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "166",
+  "cardName": "叶伊布VMAX",
+  "rarity": "HR",
+  "effectId": "b3f4e40396ed995c751355e46a94664f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y804",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "8",
+  "nameEn": "Leafeon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "167",
+  "cardName": "冰伊布VMAX",
+  "rarity": "HR",
+  "effectId": "ab60926b4f395ce696be200bd48ee9d7",
+  "cardType": "Pokemon",
+  "yorenCode": "Y811",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "41",
+  "nameEn": "Glaceon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "168",
+  "cardName": "冰伊布VMAX",
+  "rarity": "HR",
+  "effectId": "ab60926b4f395ce696be200bd48ee9d7",
+  "cardType": "Pokemon",
+  "yorenCode": "Y811",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "41",
+  "nameEn": "Glaceon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "169",
+  "cardName": "太阳伊布VMAX",
+  "rarity": "HR",
+  "effectId": "2bb83e983fa24dc10d5af13295cd4dcd",
+  "cardType": "Pokemon",
+  "yorenCode": "Y816",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "65",
+  "nameEn": "Espeon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "170",
+  "cardName": "仙子伊布VMAX",
+  "rarity": "HR",
+  "effectId": "ece3ca97bd0efebd86278da68831291e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y818",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "75",
+  "nameEn": "Sylveon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "171",
+  "cardName": "仙子伊布VMAX",
+  "rarity": "HR",
+  "effectId": "ece3ca97bd0efebd86278da68831291e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y818",
+  "is": [
+   "V",
+   "Rapid Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "75",
+  "nameEn": "Sylveon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "172",
+  "cardName": "月亮伊布VMAX",
+  "rarity": "HR",
+  "effectId": "fd6d95baa6ad6adecdd4f2242cc2a1de",
+  "cardType": "Pokemon",
+  "yorenCode": "Y822",
+  "is": [
+   "V",
+   "Single Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "95",
+  "nameEn": "Umbreon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "173",
+  "cardName": "月亮伊布VMAX",
+  "rarity": "HR",
+  "effectId": "fd6d95baa6ad6adecdd4f2242cc2a1de",
+  "cardType": "Pokemon",
+  "yorenCode": "Y822",
+  "is": [
+   "V",
+   "Single Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "95",
+  "nameEn": "Umbreon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "174",
+  "cardName": "铝钢龙VMAX",
+  "rarity": "HR",
+  "effectId": "c31da43623f82c51dbf6e9deb189cb5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y823",
+  "is": [
+   "V",
+   "Single Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "123",
+  "nameEn": "Duraludon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "175",
+  "cardName": "铝钢龙VMAX",
+  "rarity": "HR",
+  "effectId": "c31da43623f82c51dbf6e9deb189cb5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y823",
+  "is": [
+   "V",
+   "Single Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "123",
+  "nameEn": "Duraludon VMAX"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "176",
+  "cardName": "奇巴纳",
+  "rarity": "HR",
+  "effectId": "b57ebec9231ad4d91a71ab1360fcbba1",
+  "cardType": "Supporter",
+  "yorenCode": "Y831",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "152",
+  "nameEn": "Raihan"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "177",
+  "cardName": "莎娜",
+  "rarity": "HR",
+  "effectId": "46b33c7c1cc0e748153eb878e058d30b",
+  "cardType": "Supporter",
+  "yorenCode": "Y754",
+  "is": [],
+  "setCodeEn": "FST",
+  "cardIndexEn": "240",
+  "nameEn": "Shauna"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "178",
+  "cardName": "女学生",
+  "rarity": "HR",
+  "effectId": "4393f0066f2e9b385ee59107578f2de9",
+  "cardType": "Supporter",
+  "yorenCode": "Y832",
+  "is": [],
+  "setCodeEn": "FST",
+  "cardIndexEn": "239",
+  "nameEn": "Schoolgirl"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "179",
+  "cardName": "玛瓜",
+  "rarity": "HR",
+  "effectId": "03ec7568064d2553d1a7bcdc8f5b9f2a",
+  "cardType": "Supporter",
+  "yorenCode": "Y833",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "149",
+  "nameEn": "Gordie"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "180",
+  "cardName": "模仿少女",
+  "rarity": "HR",
+  "effectId": "4e01a05b2e386a5c77eba517f93ce538",
+  "cardType": "Supporter",
+  "yorenCode": "Y107",
+  "is": [],
+  "setCodeEn": "CES",
+  "cardIndexEn": "127",
+  "nameEn": "Copycat"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "181",
+  "cardName": "全罩防守",
+  "rarity": "UR",
+  "effectId": "9a271368d9fb1435894e9baa88dde55f",
+  "cardType": "Tool",
+  "yorenCode": "Y830",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "148",
+  "nameEn": "Full Face Guard"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "182",
+  "cardName": "结晶洞窟",
+  "rarity": "UR",
+  "effectId": "1b79bb29529b4275c80d096ca8331240",
+  "cardType": "Stadium",
+  "yorenCode": "Y834",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "144",
+  "nameEn": "Crystal Cave"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "183",
+  "cardName": "基本火能量",
+  "rarity": "UR",
+  "effectId": "22db5405bf0cce61a00aa8082cdd1e65",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y458",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "2",
+  "nameEn": "Fire Energy"
+ },
+ {
+  "setCode": "CS4aC",
+  "cardIndex": "184",
+  "cardName": "基本恶能量",
+  "rarity": "UR",
+  "effectId": "46c769fc57a6c250c560df648bb779f8",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y463",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "7",
+  "nameEn": "Darkness Energy"
+ }
+]

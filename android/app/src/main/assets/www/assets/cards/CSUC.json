@@ -1,0 +1,197 @@
+[
+ {
+  "setCode": "CSUC",
+  "cardIndex": "001",
+  "cardName": "派拉斯特",
+  "rarity": "无标记",
+  "effectId": "9a01f80c4a1d539b352c2f74a9e9f8a8",
+  "cardType": "Pokemon",
+  "yorenCode": "P047",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "5",
+  "nameEn": "Parasect"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "002",
+  "cardName": "罗丝雷朵",
+  "rarity": "无标记",
+  "effectId": "df0048f15ecf761727f7adf781b3d661",
+  "cardType": "Pokemon",
+  "yorenCode": "P407",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "15",
+  "nameEn": "Roserade"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "003",
+  "cardName": "水晶灯火灵",
+  "rarity": "无标记",
+  "effectId": "55f56880f8a7a53575fe79d0f1c3e762",
+  "cardType": "Pokemon",
+  "yorenCode": "P609",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "26",
+  "nameEn": "Chandelure"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "004",
+  "cardName": "美纳斯",
+  "rarity": "无标记",
+  "effectId": "3cbc136755ac81843377f149885c8f6e",
+  "cardType": "Pokemon",
+  "yorenCode": "P350",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG2",
+  "nameEn": "Milotic"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "005",
+  "cardName": "耿鬼",
+  "rarity": "无标记",
+  "effectId": "99ba68a5754ffe25e8c21c7bbfce199f",
+  "cardType": "Pokemon",
+  "yorenCode": "P094",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "241",
+  "nameEn": "Gengar"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "006",
+  "cardName": "迷唇姐",
+  "rarity": "无标记",
+  "effectId": "bc4bad4643cc9f4214cd6ae9f590862e",
+  "cardType": "Pokemon",
+  "yorenCode": "P124",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG4",
+  "nameEn": "Jynx"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "007",
+  "cardName": "沙奈朵",
+  "rarity": "无标记",
+  "effectId": "e10166827bde5e3d94bd5c8d9fede0fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P282",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG5",
+  "nameEn": "Gardevoir"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "008",
+  "cardName": "洗翠 风速狗",
+  "rarity": "无标记",
+  "effectId": "5bb43763779c6c62e61101151e1468c3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y977",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "84",
+  "nameEn": "Hisuian Arcanine"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "009",
+  "cardName": "大狼犬",
+  "rarity": "无标记",
+  "effectId": "812355218d30be2d6188a5e0846da9d7",
+  "cardType": "Pokemon",
+  "yorenCode": "P262",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "96",
+  "nameEn": "Mightyena"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "010",
+  "cardName": "卡比兽",
+  "rarity": "无标记",
+  "effectId": "642ba201c56f670b7af8ea0450f8ab07",
+  "cardType": "Pokemon",
+  "yorenCode": "P143",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "143",
+  "nameEn": "Snorlax"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "011",
+  "cardName": "图图犬",
+  "rarity": "无标记",
+  "effectId": "0a3e34f2cc4fb33cf76a0c3fc715c071",
+  "cardType": "Pokemon",
+  "yorenCode": "P235",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG10",
+  "nameEn": "Smeargle"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "012",
+  "cardName": "七夕青鸟",
+  "rarity": "无标记",
+  "effectId": "a69b14092289d2b3a01030d5f39095e9",
+  "cardType": "Pokemon",
+  "yorenCode": "P334",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "143",
+  "nameEn": "Altaria"
+ },
+ {
+  "setCode": "CSUC",
+  "cardIndex": "013",
+  "cardName": "长尾火狐",
+  "rarity": "无标记",
+  "effectId": "e0b43dc717ec922f96e5c3193153e37e",
+  "cardType": "Pokemon",
+  "yorenCode": "P654",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "26",
+  "nameEn": "Braixen"
+ }
+]

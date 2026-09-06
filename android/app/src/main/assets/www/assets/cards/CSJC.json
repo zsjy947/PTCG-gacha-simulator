@@ -1,0 +1,234 @@
+[
+ {
+  "setCode": "CSJC",
+  "cardIndex": "001",
+  "cardName": "花舞鸟",
+  "rarity": "无标记",
+  "effectId": "b0caa048900c300078f2d84e154745e8",
+  "cardType": "Pokemon",
+  "yorenCode": "P741",
+  "is": [
+   "Fusion Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "42",
+  "nameEn": "Oricorio"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "002",
+  "cardName": "颤弦蝾螈",
+  "rarity": "无标记",
+  "effectId": "ea3e335d8b099fb6318ca7abc290077e",
+  "cardType": "Pokemon",
+  "yorenCode": "P849",
+  "is": [
+   "Fusion Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "108",
+  "nameEn": "Toxtricity"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "003",
+  "cardName": "伽勒尔 急冻鸟",
+  "rarity": "无标记",
+  "effectId": "1c894c8a6ae5ddddbdf5f4fa2edec6a5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y887",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "63",
+  "nameEn": "Galarian Articuno"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "004",
+  "cardName": "梦幻",
+  "rarity": "无标记",
+  "effectId": "7ee5b42d3abb080eb8eb81e3b071d4d7",
+  "cardType": "Pokemon",
+  "yorenCode": "P151",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CEL",
+  "cardIndexEn": "11",
+  "nameEn": "Mew"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "005",
+  "cardName": "代欧奇希斯",
+  "rarity": "无标记",
+  "effectId": "d940e40aaebb085b2342448eb9731fd6",
+  "cardType": "Pokemon",
+  "yorenCode": "P386",
+  "is": [
+   "Single Strike",
+   "Rapid Strike",
+   "Fusion Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "120",
+  "nameEn": "Deoxys"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "006",
+  "cardName": "伽勒尔 闪电鸟",
+  "rarity": "无标记",
+  "effectId": "532991344d3c331894df1d030b9a0c8b",
+  "cardType": "Pokemon",
+  "yorenCode": "Y846",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "82",
+  "nameEn": "Galarian Zapdos"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "007",
+  "cardName": "伽勒尔 火焰鸟",
+  "rarity": "无标记",
+  "effectId": "0fe958ef8de5dea7e0bc296f64cba9c9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y820",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "93",
+  "nameEn": "Galarian Moltres"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "008",
+  "cardName": "七夕青鸟",
+  "rarity": "无标记",
+  "effectId": "b5b6da116ffd62023aeee9494ddab580",
+  "cardType": "Pokemon",
+  "yorenCode": "P334",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "106",
+  "nameEn": "Altaria"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "009",
+  "cardName": "拉帝亚斯",
+  "rarity": "无标记",
+  "effectId": "298b3a271adb7b4b616a215a7b46f9a5",
+  "cardType": "Pokemon",
+  "yorenCode": "P380",
+  "is": [
+   "Fusion Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "193",
+  "nameEn": "Latias"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "010",
+  "cardName": "高级球",
+  "rarity": "无标记",
+  "effectId": "a337ed34a45e63c6d21d98c3d8e0cb6e",
+  "cardType": "Item",
+  "yorenCode": "Y151",
+  "is": [],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "68",
+  "nameEn": "Ultra Ball"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "011",
+  "cardName": "精灵球",
+  "rarity": "无标记",
+  "effectId": "3558baba016e38b4151a8f6056fec575",
+  "cardType": "Item",
+  "yorenCode": "Y209",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "125",
+  "nameEn": "Poké Ball"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "012",
+  "cardName": "卡芜",
+  "rarity": "无标记",
+  "effectId": "619743dfcff98ceef6a0b86b5b24254b",
+  "cardType": "Supporter",
+  "yorenCode": "Y592",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "163",
+  "nameEn": "Kabu"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "013",
+  "cardName": "彩豆",
+  "rarity": "无标记",
+  "effectId": "6983f0f53c279c85aa0a7a2265f98970",
+  "cardType": "Supporter",
+  "yorenCode": "Y620",
+  "is": [],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "147",
+  "nameEn": "Bea"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "014",
+  "cardName": "玛瓜",
+  "rarity": "无标记",
+  "effectId": "03ec7568064d2553d1a7bcdc8f5b9f2a",
+  "cardType": "Supporter",
+  "yorenCode": "Y833",
+  "is": [],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "149",
+  "nameEn": "Gordie"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "015",
+  "cardName": "亚洛",
+  "rarity": "无标记",
+  "effectId": "d257c237e03cbf6d83f566f9356b822e",
+  "cardType": "Supporter",
+  "yorenCode": "Y530",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "161",
+  "nameEn": "Milo"
+ },
+ {
+  "setCode": "CSJC",
+  "cardIndex": "016",
+  "cardName": "露璃娜",
+  "rarity": "无标记",
+  "effectId": "fc90c61b3998144101e8e35a5b081a1b",
+  "cardType": "Supporter",
+  "yorenCode": "Y651",
+  "is": [],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "157",
+  "nameEn": "Nessa"
+ }
+]

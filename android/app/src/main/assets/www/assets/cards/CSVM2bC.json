@@ -1,0 +1,471 @@
+[
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "001",
+  "cardName": "含羞苞",
+  "rarity": "无标记",
+  "effectId": "28505a8ad6e07e74382c1b5e09737932",
+  "cardType": "Pokemon",
+  "yorenCode": "P0406",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "4",
+  "nameEn": "Budew"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "002",
+  "cardName": "愿增猿",
+  "rarity": "无标记",
+  "effectId": "66fee12502043db7d92b97b0d62b0f59",
+  "cardType": "Pokemon",
+  "yorenCode": "P1015",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "95",
+  "nameEn": "Munkidori"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "003",
+  "cardName": "摔角鹰人",
+  "rarity": "无标记",
+  "effectId": "74b83ef8987d072950dfe3bde3364d87",
+  "cardType": "Pokemon",
+  "yorenCode": "P701",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "118",
+  "nameEn": "Hawlucha"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "004",
+  "cardName": "吉雉鸡ex",
+  "rarity": "无标记",
+  "effectId": "ab6c3357e2b8a8385a68da738f41e0c1",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1455",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "SFA",
+  "cardIndexEn": "38",
+  "nameEn": "Fezandipiti ex"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "005",
+  "cardName": "多龙梅西亚",
+  "rarity": "无标记",
+  "effectId": "e793842faf5a8017e5456f898b1bf9d2",
+  "cardType": "Pokemon",
+  "yorenCode": "P885",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "71",
+  "nameEn": "Dreepy"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "006",
+  "cardName": "多龙奇",
+  "rarity": "无标记",
+  "effectId": "4e13cd08de3b6d141ce8e2f09d17a3a4",
+  "cardType": "Pokemon",
+  "yorenCode": "P886",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "72",
+  "nameEn": "Drakloak"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "007",
+  "cardName": "多龙巴鲁托ex",
+  "rarity": "无标记",
+  "effectId": "52a205820de799a53a689f23cbeb8622",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1459",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "73",
+  "nameEn": "Dragapult ex"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "008",
+  "cardName": "米立龙",
+  "rarity": "无标记",
+  "effectId": "1ceeba6dac51ccc19833c5a513fe3fc6",
+  "cardType": "Pokemon",
+  "yorenCode": "P0978",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "131",
+  "nameEn": "Tatsugiri"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "009",
+  "cardName": "月月熊 赫月ex",
+  "rarity": "无标记",
+  "effectId": "f2afef80b13b8f6a071facbcade0251c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1461",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "141",
+  "nameEn": "Bloodmoon Ursaluna ex"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "010",
+  "cardName": "不公印章",
+  "rarity": "无标记",
+  "effectId": "d324e01179ab048ed023bf4a20bf658d",
+  "cardType": "Item",
+  "yorenCode": "Y1462",
+  "is": [
+   "ACE SPEC"
+  ],
+  "setCodeEn": "TWM",
+  "cardIndexEn": "165",
+  "nameEn": "Unfair Stamp"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "011",
+  "cardName": "反击捕捉器",
+  "rarity": "无标记",
+  "effectId": "06bc00d5dcec33898dc6db2e4c4d10ec",
+  "cardType": "Item",
+  "yorenCode": "Y147",
+  "is": [],
+  "setCodeEn": "CIN",
+  "cardIndexEn": "91",
+  "nameEn": "Counter Catcher"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "012",
+  "cardName": "大地容器",
+  "rarity": "无标记",
+  "effectId": "e366f56ecd3f805a28294109a1a37453",
+  "cardType": "Item",
+  "yorenCode": "Y1371",
+  "is": [
+   "Ancient"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "106",
+  "nameEn": "Earthen Vessel"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "013",
+  "cardName": "友好宝芬",
+  "rarity": "无标记",
+  "effectId": "f866dfee26cd6b0dbbb52b74438d0a59",
+  "cardType": "Item",
+  "yorenCode": "Y1403",
+  "is": [],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "101",
+  "nameEn": "Buddy-Buddy Poffin"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "014",
+  "cardName": "巢穴球",
+  "rarity": "无标记",
+  "effectId": "1af63a7e2cb7a79215474ad8db8fd8fd",
+  "cardType": "Item",
+  "yorenCode": "Y30",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "123",
+  "nameEn": "Nest Ball"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "015",
+  "cardName": "高级球",
+  "rarity": "无标记",
+  "effectId": "a337ed34a45e63c6d21d98c3d8e0cb6e",
+  "cardType": "Item",
+  "yorenCode": "Y151",
+  "is": [],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "68",
+  "nameEn": "Ultra Ball"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "016",
+  "cardName": "神奇糖果",
+  "rarity": "无标记",
+  "effectId": "d3891abcfe3277c8811cde06741d3236",
+  "cardType": "Item",
+  "yorenCode": "Y89",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "129",
+  "nameEn": "Rare Candy"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "017",
+  "cardName": "宝可梦交替",
+  "rarity": "无标记",
+  "effectId": "7c0b20e121c9d0e0d2d8a43524f7494e",
+  "cardType": "Item",
+  "yorenCode": "Y118",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "132",
+  "nameEn": "Switch"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "018",
+  "cardName": "夜间担架",
+  "rarity": "无标记",
+  "effectId": "3e6f1daf545dfed48d0588dd50792a2e",
+  "cardType": "Item",
+  "yorenCode": "Y1472",
+  "is": [],
+  "setCodeEn": "SFA",
+  "cardIndexEn": "61",
+  "nameEn": "Night Stretcher"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "019",
+  "cardName": "学习装置",
+  "rarity": "无标记",
+  "effectId": "40d67cc66ad153ee1d54c6213c50b4a1",
+  "cardType": "Tool",
+  "yorenCode": "Y37",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "118",
+  "nameEn": "Exp. Share"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "020",
+  "cardName": "紧急滑板",
+  "rarity": "无标记",
+  "effectId": "0b4cc131a19862f92acf71494f29a0ed",
+  "cardType": "Tool",
+  "yorenCode": "Y1411",
+  "is": [],
+  "setCodeEn": "TEF",
+  "cardIndexEn": "159",
+  "nameEn": "Rescue Board"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "021",
+  "cardName": "不服输头带",
+  "rarity": "无标记",
+  "effectId": "e242d711feffd98f3fbb5c511d00d667",
+  "cardType": "Tool",
+  "yorenCode": "Y1210",
+  "is": [],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "169",
+  "nameEn": "Defiance Band"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "022",
+  "cardName": "招式学习器 进化",
+  "rarity": "无标记",
+  "effectId": "43386015be5c073ba2e5b9d3692ece3f",
+  "cardType": "Tool",
+  "yorenCode": "Y1347",
+  "is": [],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "178",
+  "nameEn": "Technical Machine: Evolution"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "023",
+  "cardName": "招式学习器 退化",
+  "rarity": "无标记",
+  "effectId": "e228e825c541ce80e2507c557cb506c3",
+  "cardType": "Tool",
+  "yorenCode": "Y1348",
+  "is": [],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "177",
+  "nameEn": "Technical Machine: Devolution"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "024",
+  "cardName": "吉尼亚",
+  "rarity": "无标记",
+  "effectId": "a8a2b27c2641d8d7212fc887ca032e4c",
+  "cardType": "Supporter",
+  "yorenCode": "Y1213",
+  "is": [],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "175",
+  "nameEn": "Jacq"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "025",
+  "cardName": "小刚的发掘",
+  "rarity": "无标记",
+  "effectId": "8d9b3076693b9f692bae94d057498720",
+  "cardType": "Supporter",
+  "yorenCode": "Y1620",
+  "is": [],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "146",
+  "nameEn": "Brock's Scouting"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "026",
+  "cardName": "奇树",
+  "rarity": "无标记",
+  "effectId": "af514f82d182aeae5327b2c360df703d",
+  "cardType": "Supporter",
+  "yorenCode": "Y1294",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "185",
+  "nameEn": "Iono"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "027",
+  "cardName": "博士的研究",
+  "rarity": "无标记",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "028",
+  "cardName": "弗图博士的剧本",
+  "rarity": "无标记",
+  "effectId": "73d5f46ecf3a6d71b23ce7bc1a28d4f4",
+  "cardType": "Supporter",
+  "yorenCode": "Y1378",
+  "is": [],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "121",
+  "nameEn": "Professor Turo's Scenario"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "029",
+  "cardName": "派帕",
+  "rarity": "无标记",
+  "effectId": "5bdbc985f9aa2e6f248b53f6f35d1d37",
+  "cardType": "Supporter",
+  "yorenCode": "Y1214",
+  "is": [],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "166",
+  "nameEn": "Arven"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "030",
+  "cardName": "老大的指令",
+  "rarity": "无标记",
+  "effectId": "8e1fa2c9018db938084c94c7c970d419",
+  "cardType": "Supporter",
+  "yorenCode": "Y487",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "154",
+  "nameEn": "Boss's Orders"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "031",
+  "cardName": "深钵镇",
+  "rarity": "无标记",
+  "effectId": "c117bea3cc758d46430d6bef11062a56",
+  "cardType": "Stadium",
+  "yorenCode": "Y1265",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "171",
+  "nameEn": "Artazon"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "032",
+  "cardName": "宝可梦联盟总部",
+  "rarity": "无标记",
+  "effectId": "b87089abe625a7abb3c523074a8497df",
+  "cardType": "Stadium",
+  "yorenCode": "Y1381",
+  "is": [],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "192",
+  "nameEn": "Pokémon League Headquarters"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "033",
+  "cardName": "新冲天能量",
+  "rarity": "无标记",
+  "effectId": "83aba7d0c92c81e8c03b3785af695c2f",
+  "cardType": "Special Energy",
+  "yorenCode": "Y1429",
+  "is": [
+   "ACE SPEC"
+  ],
+  "setCodeEn": "TEF",
+  "cardIndexEn": "162",
+  "nameEn": "Neo Upper Energy"
+ },
+ {
+  "setCode": "CSVM2bC",
+  "cardIndex": "034",
+  "cardName": "夜光能量",
+  "rarity": "无标记",
+  "effectId": "540ee48bb93584e4bfe3d7f5d0ee0efc",
+  "cardType": "Special Energy",
+  "yorenCode": "Y1218",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "191",
+  "nameEn": "Luminous Energy"
+ }
+]

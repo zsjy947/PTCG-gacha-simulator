@@ -1,0 +1,148 @@
+[
+ {
+  "setCode": "CSMPnC",
+  "cardIndex": "001",
+  "cardName": "拉帝欧斯",
+  "rarity": "无标记",
+  "effectId": "a74e178e90538417f9439864a26dcba6",
+  "cardType": "Pokemon",
+  "yorenCode": "P381",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "41",
+  "nameEn": "Latios"
+ },
+ {
+  "setCode": "CSMPnC",
+  "cardIndex": "002",
+  "cardName": "拉帝欧斯GX",
+  "rarity": "无标记",
+  "effectId": "2712ac8ad58c251415d7201eaf41c802",
+  "cardType": "Pokemon",
+  "yorenCode": "Y347",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "UNM",
+  "cardIndexEn": "78",
+  "nameEn": "Latios-GX"
+ },
+ {
+  "setCode": "CSMPnC",
+  "cardIndex": "003",
+  "cardName": "象征鸟GX",
+  "rarity": "无标记",
+  "effectId": "cd7ad85eadfcbfa0f38c0ca9c38a09a7",
+  "cardType": "Pokemon",
+  "yorenCode": "Y773",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "98",
+  "nameEn": "Sigilyph-GX"
+ },
+ {
+  "setCode": "CSMPnC",
+  "cardIndex": "004",
+  "cardName": "卡璞・蝶蝶",
+  "rarity": "无标记",
+  "effectId": "f902656453cf0d169316e6274a537a21",
+  "cardType": "Pokemon",
+  "yorenCode": "P786",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SMP",
+  "cardIndexEn": "45",
+  "nameEn": "Tapu Lele"
+ },
+ {
+  "setCode": "CSMPnC",
+  "cardIndex": "005",
+  "cardName": "卡璞・蝶蝶GX",
+  "rarity": "无标记",
+  "effectId": "b51a447f6a997133079cf5712d9d52a4",
+  "cardType": "Pokemon",
+  "yorenCode": "Y11",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "GRI",
+  "cardIndexEn": "60",
+  "nameEn": "Tapu Lele-GX"
+ },
+ {
+  "setCode": "CSMPnC",
+  "cardIndex": "006",
+  "cardName": "砰头小丑",
+  "rarity": "无标记",
+  "effectId": "54bd47b2df6c1825d22004722d0ec1ac",
+  "cardType": "Pokemon",
+  "yorenCode": "P806",
+  "is": [
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "CEC",
+  "cardIndexEn": "104",
+  "nameEn": "Blacephalon"
+ },
+ {
+  "setCode": "CSMPnC",
+  "cardIndex": "007",
+  "cardName": "反击捕捉器",
+  "rarity": "无标记",
+  "effectId": "06bc00d5dcec33898dc6db2e4c4d10ec",
+  "cardType": "Item",
+  "yorenCode": "Y147",
+  "is": [],
+  "setCodeEn": "CIN",
+  "cardIndexEn": "91",
+  "nameEn": "Counter Catcher"
+ },
+ {
+  "setCode": "CSMPnC",
+  "cardIndex": "008",
+  "cardName": "学习装置",
+  "rarity": "无标记",
+  "effectId": "40d67cc66ad153ee1d54c6213c50b4a1",
+  "cardType": "Tool",
+  "yorenCode": "Y37",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "118",
+  "nameEn": "Exp. Share"
+ },
+ {
+  "setCode": "CSMPnC",
+  "cardIndex": "009",
+  "cardName": "讲究头带",
+  "rarity": "无标记",
+  "effectId": "5265a14bd829350ee78a51d430ffc6df",
+  "cardType": "Tool",
+  "yorenCode": "Y154",
+  "is": [],
+  "setCodeEn": "GRI",
+  "cardIndexEn": "121",
+  "nameEn": "Choice Band"
+ },
+ {
+  "setCode": "CSMPnC",
+  "cardIndex": "010",
+  "cardName": "莉佳的款待",
+  "rarity": "无标记",
+  "effectId": "d2fe08de4eab8df633fe368bc3ce263d",
+  "cardType": "Supporter",
+  "yorenCode": "Y296",
+  "is": [],
+  "setCodeEn": "HIF",
+  "cardIndexEn": "56",
+  "nameEn": "Erika's Hospitality"
+ }
+]

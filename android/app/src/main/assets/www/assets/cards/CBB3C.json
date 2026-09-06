@@ -1,0 +1,2031 @@
+[
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0101",
+  "cardName": "皮可西",
+  "rarity": "●",
+  "effectId": "cae24aba46134427b6c27356344dab57",
+  "cardType": "Pokemon",
+  "yorenCode": "P036",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "36",
+  "nameEn": "Clefable"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0102",
+  "cardName": "皮可西",
+  "rarity": "●",
+  "effectId": "cae24aba46134427b6c27356344dab57",
+  "cardType": "Pokemon",
+  "yorenCode": "P036",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "36",
+  "nameEn": "Clefable"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0103",
+  "cardName": "皮可西",
+  "rarity": "◆",
+  "effectId": "cae24aba46134427b6c27356344dab57",
+  "cardType": "Pokemon",
+  "yorenCode": "P036",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "36",
+  "nameEn": "Clefable"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0104",
+  "cardName": "皮可西",
+  "rarity": "◆",
+  "effectId": "cae24aba46134427b6c27356344dab57",
+  "cardType": "Pokemon",
+  "yorenCode": "P036",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "36",
+  "nameEn": "Clefable"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0105",
+  "cardName": "皮可西",
+  "rarity": "★",
+  "effectId": "cae24aba46134427b6c27356344dab57",
+  "cardType": "Pokemon",
+  "yorenCode": "P036",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "36",
+  "nameEn": "Clefable"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0106",
+  "cardName": "皮可西",
+  "rarity": "★★",
+  "effectId": "cae24aba46134427b6c27356344dab57",
+  "cardType": "Pokemon",
+  "yorenCode": "P036",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "36",
+  "nameEn": "Clefable"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0107",
+  "cardName": "皮可西ex",
+  "rarity": "★",
+  "effectId": "22aa0a3656a9ddf256559bf3ef3c69e1",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1224",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "CRE",
+  "cardIndexEn": "119",
+  "nameEn": "Blissey V"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0201",
+  "cardName": "喵喵",
+  "rarity": "●",
+  "effectId": "a5695ce17af7706d74a6f902e6b08cf5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "52",
+  "nameEn": "Meowth"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0202",
+  "cardName": "喵喵",
+  "rarity": "●",
+  "effectId": "a5695ce17af7706d74a6f902e6b08cf5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "52",
+  "nameEn": "Meowth"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0203",
+  "cardName": "喵喵",
+  "rarity": "◆",
+  "effectId": "a5695ce17af7706d74a6f902e6b08cf5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "52",
+  "nameEn": "Meowth"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0204",
+  "cardName": "喵喵",
+  "rarity": "◆",
+  "effectId": "a5695ce17af7706d74a6f902e6b08cf5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "52",
+  "nameEn": "Meowth"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0205",
+  "cardName": "喵喵",
+  "rarity": "★",
+  "effectId": "a5695ce17af7706d74a6f902e6b08cf5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "52",
+  "nameEn": "Meowth"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0206",
+  "cardName": "喵喵",
+  "rarity": "★★",
+  "effectId": "a5695ce17af7706d74a6f902e6b08cf5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "52",
+  "nameEn": "Meowth"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0207",
+  "cardName": "喵喵",
+  "rarity": "★★★",
+  "effectId": "a5695ce17af7706d74a6f902e6b08cf5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "52",
+  "nameEn": "Meowth"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0301",
+  "cardName": "耿鬼",
+  "rarity": "●",
+  "effectId": "faf5d0231672dd5f6aeae224e3d07f7a",
+  "cardType": "Pokemon",
+  "yorenCode": "P094",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "57",
+  "nameEn": "Gengar"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0302",
+  "cardName": "耿鬼",
+  "rarity": "●",
+  "effectId": "faf5d0231672dd5f6aeae224e3d07f7a",
+  "cardType": "Pokemon",
+  "yorenCode": "P094",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "57",
+  "nameEn": "Gengar"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0303",
+  "cardName": "耿鬼",
+  "rarity": "◆",
+  "effectId": "faf5d0231672dd5f6aeae224e3d07f7a",
+  "cardType": "Pokemon",
+  "yorenCode": "P094",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "57",
+  "nameEn": "Gengar"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0304",
+  "cardName": "耿鬼",
+  "rarity": "◆",
+  "effectId": "faf5d0231672dd5f6aeae224e3d07f7a",
+  "cardType": "Pokemon",
+  "yorenCode": "P094",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "57",
+  "nameEn": "Gengar"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0305",
+  "cardName": "耿鬼",
+  "rarity": "★",
+  "effectId": "faf5d0231672dd5f6aeae224e3d07f7a",
+  "cardType": "Pokemon",
+  "yorenCode": "P094",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "57",
+  "nameEn": "Gengar"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0306",
+  "cardName": "耿鬼",
+  "rarity": "★★",
+  "effectId": "faf5d0231672dd5f6aeae224e3d07f7a",
+  "cardType": "Pokemon",
+  "yorenCode": "P094",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "57",
+  "nameEn": "Gengar"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0307",
+  "cardName": "耿鬼",
+  "rarity": "★★★",
+  "effectId": "faf5d0231672dd5f6aeae224e3d07f7a",
+  "cardType": "Pokemon",
+  "yorenCode": "P094",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "57",
+  "nameEn": "Gengar"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0401",
+  "cardName": "卡拉卡拉",
+  "rarity": "●",
+  "effectId": "90ea33cf292363efe76c5d7cf9722e77",
+  "cardType": "Pokemon",
+  "yorenCode": "P104",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "104",
+  "nameEn": "Cubone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0402",
+  "cardName": "卡拉卡拉",
+  "rarity": "●",
+  "effectId": "90ea33cf292363efe76c5d7cf9722e77",
+  "cardType": "Pokemon",
+  "yorenCode": "P104",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "104",
+  "nameEn": "Cubone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0403",
+  "cardName": "卡拉卡拉",
+  "rarity": "◆",
+  "effectId": "90ea33cf292363efe76c5d7cf9722e77",
+  "cardType": "Pokemon",
+  "yorenCode": "P104",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "104",
+  "nameEn": "Cubone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0404",
+  "cardName": "卡拉卡拉",
+  "rarity": "◆",
+  "effectId": "90ea33cf292363efe76c5d7cf9722e77",
+  "cardType": "Pokemon",
+  "yorenCode": "P104",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "104",
+  "nameEn": "Cubone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0405",
+  "cardName": "卡拉卡拉",
+  "rarity": "★",
+  "effectId": "90ea33cf292363efe76c5d7cf9722e77",
+  "cardType": "Pokemon",
+  "yorenCode": "P104",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "104",
+  "nameEn": "Cubone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0406",
+  "cardName": "卡拉卡拉",
+  "rarity": "★★",
+  "effectId": "90ea33cf292363efe76c5d7cf9722e77",
+  "cardType": "Pokemon",
+  "yorenCode": "P104",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "104",
+  "nameEn": "Cubone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0407",
+  "cardName": "卡拉卡拉",
+  "rarity": "★★★",
+  "effectId": "90ea33cf292363efe76c5d7cf9722e77",
+  "cardType": "Pokemon",
+  "yorenCode": "P104",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "104",
+  "nameEn": "Cubone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0501",
+  "cardName": "黑鲁加",
+  "rarity": "●",
+  "effectId": "cd0b5049b3c7298eefad16064a866864",
+  "cardType": "Pokemon",
+  "yorenCode": "P229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "34",
+  "nameEn": "Houndoom"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0502",
+  "cardName": "黑鲁加",
+  "rarity": "●",
+  "effectId": "cd0b5049b3c7298eefad16064a866864",
+  "cardType": "Pokemon",
+  "yorenCode": "P229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "34",
+  "nameEn": "Houndoom"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0503",
+  "cardName": "黑鲁加",
+  "rarity": "◆",
+  "effectId": "cd0b5049b3c7298eefad16064a866864",
+  "cardType": "Pokemon",
+  "yorenCode": "P229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "34",
+  "nameEn": "Houndoom"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0504",
+  "cardName": "黑鲁加",
+  "rarity": "◆",
+  "effectId": "cd0b5049b3c7298eefad16064a866864",
+  "cardType": "Pokemon",
+  "yorenCode": "P229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "34",
+  "nameEn": "Houndoom"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0505",
+  "cardName": "黑鲁加",
+  "rarity": "★",
+  "effectId": "cd0b5049b3c7298eefad16064a866864",
+  "cardType": "Pokemon",
+  "yorenCode": "P229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "34",
+  "nameEn": "Houndoom"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0506",
+  "cardName": "黑鲁加",
+  "rarity": "★★",
+  "effectId": "cd0b5049b3c7298eefad16064a866864",
+  "cardType": "Pokemon",
+  "yorenCode": "P229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "34",
+  "nameEn": "Houndoom"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0507",
+  "cardName": "黑鲁加ex",
+  "rarity": "★",
+  "effectId": "0c496eec468f6513c723be629f61180e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1283",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "134",
+  "nameEn": "Houndoom"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0601",
+  "cardName": "沙奈朵",
+  "rarity": "●",
+  "effectId": "e10166827bde5e3d94bd5c8d9fede0fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P282",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG5",
+  "nameEn": "Gardevoir"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0602",
+  "cardName": "沙奈朵",
+  "rarity": "●",
+  "effectId": "e10166827bde5e3d94bd5c8d9fede0fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P282",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG5",
+  "nameEn": "Gardevoir"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0603",
+  "cardName": "沙奈朵",
+  "rarity": "◆",
+  "effectId": "e10166827bde5e3d94bd5c8d9fede0fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P282",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG5",
+  "nameEn": "Gardevoir"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0604",
+  "cardName": "沙奈朵",
+  "rarity": "◆",
+  "effectId": "e10166827bde5e3d94bd5c8d9fede0fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P282",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG5",
+  "nameEn": "Gardevoir"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0605",
+  "cardName": "沙奈朵",
+  "rarity": "★",
+  "effectId": "e10166827bde5e3d94bd5c8d9fede0fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P282",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG5",
+  "nameEn": "Gardevoir"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0606",
+  "cardName": "沙奈朵",
+  "rarity": "★★",
+  "effectId": "e10166827bde5e3d94bd5c8d9fede0fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P282",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "TG5",
+  "nameEn": "Gardevoir"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0607",
+  "cardName": "沙奈朵ex",
+  "rarity": "★",
+  "effectId": "bd134d7d84e9f1a837a74b061fcb5f40",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1249",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "86",
+  "nameEn": "Gardevoir ex"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0701",
+  "cardName": "诅咒娃娃",
+  "rarity": "●",
+  "effectId": "4ac05241e43c531a210c4c6853e2dc88",
+  "cardType": "Pokemon",
+  "yorenCode": "P354",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "73",
+  "nameEn": "Banette"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0702",
+  "cardName": "诅咒娃娃",
+  "rarity": "●",
+  "effectId": "4ac05241e43c531a210c4c6853e2dc88",
+  "cardType": "Pokemon",
+  "yorenCode": "P354",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "73",
+  "nameEn": "Banette"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0703",
+  "cardName": "诅咒娃娃",
+  "rarity": "◆",
+  "effectId": "4ac05241e43c531a210c4c6853e2dc88",
+  "cardType": "Pokemon",
+  "yorenCode": "P354",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "73",
+  "nameEn": "Banette"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0704",
+  "cardName": "诅咒娃娃",
+  "rarity": "◆",
+  "effectId": "4ac05241e43c531a210c4c6853e2dc88",
+  "cardType": "Pokemon",
+  "yorenCode": "P354",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "73",
+  "nameEn": "Banette"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0705",
+  "cardName": "诅咒娃娃",
+  "rarity": "★",
+  "effectId": "4ac05241e43c531a210c4c6853e2dc88",
+  "cardType": "Pokemon",
+  "yorenCode": "P354",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "73",
+  "nameEn": "Banette"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0706",
+  "cardName": "诅咒娃娃",
+  "rarity": "★★",
+  "effectId": "4ac05241e43c531a210c4c6853e2dc88",
+  "cardType": "Pokemon",
+  "yorenCode": "P354",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "73",
+  "nameEn": "Banette"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0707",
+  "cardName": "诅咒娃娃ex",
+  "rarity": "★",
+  "effectId": "ffe8874ed7810f9ecd8209d4a09ade59",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1197",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "88",
+  "nameEn": "Banette ex"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0801",
+  "cardName": "阿勃梭鲁",
+  "rarity": "●",
+  "effectId": "5e3292ce2ac95b2dd7583478f18ae124",
+  "cardType": "Pokemon",
+  "yorenCode": "P359",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "113",
+  "nameEn": "Absol"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0802",
+  "cardName": "阿勃梭鲁",
+  "rarity": "●",
+  "effectId": "5e3292ce2ac95b2dd7583478f18ae124",
+  "cardType": "Pokemon",
+  "yorenCode": "P359",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "113",
+  "nameEn": "Absol"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0803",
+  "cardName": "阿勃梭鲁",
+  "rarity": "◆",
+  "effectId": "5e3292ce2ac95b2dd7583478f18ae124",
+  "cardType": "Pokemon",
+  "yorenCode": "P359",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "113",
+  "nameEn": "Absol"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0804",
+  "cardName": "阿勃梭鲁",
+  "rarity": "◆",
+  "effectId": "5e3292ce2ac95b2dd7583478f18ae124",
+  "cardType": "Pokemon",
+  "yorenCode": "P359",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "113",
+  "nameEn": "Absol"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0805",
+  "cardName": "阿勃梭鲁",
+  "rarity": "★",
+  "effectId": "5e3292ce2ac95b2dd7583478f18ae124",
+  "cardType": "Pokemon",
+  "yorenCode": "P359",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "113",
+  "nameEn": "Absol"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0806",
+  "cardName": "阿勃梭鲁",
+  "rarity": "★★",
+  "effectId": "5e3292ce2ac95b2dd7583478f18ae124",
+  "cardType": "Pokemon",
+  "yorenCode": "P359",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "113",
+  "nameEn": "Absol"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0807",
+  "cardName": "阿勃梭鲁ex",
+  "rarity": "★",
+  "effectId": "91d7344a8c2c7ebb238010c11a29e7b4",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1202",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "135",
+  "nameEn": "Absol ex"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0901",
+  "cardName": "梦妖魔",
+  "rarity": "●",
+  "effectId": "a172c21fb25a50d6ea06a54ee8dde86f",
+  "cardType": "Pokemon",
+  "yorenCode": "P429",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "88",
+  "nameEn": "Mismagius"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0902",
+  "cardName": "梦妖魔",
+  "rarity": "●",
+  "effectId": "a172c21fb25a50d6ea06a54ee8dde86f",
+  "cardType": "Pokemon",
+  "yorenCode": "P429",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "88",
+  "nameEn": "Mismagius"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0903",
+  "cardName": "梦妖魔",
+  "rarity": "◆",
+  "effectId": "a172c21fb25a50d6ea06a54ee8dde86f",
+  "cardType": "Pokemon",
+  "yorenCode": "P429",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "88",
+  "nameEn": "Mismagius"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0904",
+  "cardName": "梦妖魔",
+  "rarity": "◆",
+  "effectId": "a172c21fb25a50d6ea06a54ee8dde86f",
+  "cardType": "Pokemon",
+  "yorenCode": "P429",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "88",
+  "nameEn": "Mismagius"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0905",
+  "cardName": "梦妖魔",
+  "rarity": "★",
+  "effectId": "a172c21fb25a50d6ea06a54ee8dde86f",
+  "cardType": "Pokemon",
+  "yorenCode": "P429",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "88",
+  "nameEn": "Mismagius"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0906",
+  "cardName": "梦妖魔",
+  "rarity": "★★",
+  "effectId": "a172c21fb25a50d6ea06a54ee8dde86f",
+  "cardType": "Pokemon",
+  "yorenCode": "P429",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "88",
+  "nameEn": "Mismagius"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "0907",
+  "cardName": "梦妖魔",
+  "rarity": "★★★",
+  "effectId": "a172c21fb25a50d6ea06a54ee8dde86f",
+  "cardType": "Pokemon",
+  "yorenCode": "P429",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "88",
+  "nameEn": "Mismagius"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1001",
+  "cardName": "达克莱伊",
+  "rarity": "●",
+  "effectId": "a2eb8cf24f672a561393edcd9d9527fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P491",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "136",
+  "nameEn": "Darkrai"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1002",
+  "cardName": "达克莱伊",
+  "rarity": "●",
+  "effectId": "a2eb8cf24f672a561393edcd9d9527fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P491",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "136",
+  "nameEn": "Darkrai"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1003",
+  "cardName": "达克莱伊",
+  "rarity": "◆",
+  "effectId": "a2eb8cf24f672a561393edcd9d9527fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P491",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "136",
+  "nameEn": "Darkrai"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1004",
+  "cardName": "达克莱伊",
+  "rarity": "◆",
+  "effectId": "a2eb8cf24f672a561393edcd9d9527fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P491",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "136",
+  "nameEn": "Darkrai"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1005",
+  "cardName": "达克莱伊",
+  "rarity": "★",
+  "effectId": "a2eb8cf24f672a561393edcd9d9527fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P491",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "136",
+  "nameEn": "Darkrai"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1006",
+  "cardName": "达克莱伊",
+  "rarity": "★★",
+  "effectId": "a2eb8cf24f672a561393edcd9d9527fc",
+  "cardType": "Pokemon",
+  "yorenCode": "P491",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "136",
+  "nameEn": "Darkrai"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1007",
+  "cardName": "达克莱伊ex",
+  "rarity": "★",
+  "effectId": "fd519fe3b3659a446ed783450f2e0788",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1360",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "110",
+  "nameEn": "Darkrai ex"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1101",
+  "cardName": "水晶灯火灵",
+  "rarity": "●",
+  "effectId": "5ce5accdd9a9de9f3206e050fa8c100e",
+  "cardType": "Pokemon",
+  "yorenCode": "P609",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "38",
+  "nameEn": "Chandelure"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1102",
+  "cardName": "水晶灯火灵",
+  "rarity": "●",
+  "effectId": "5ce5accdd9a9de9f3206e050fa8c100e",
+  "cardType": "Pokemon",
+  "yorenCode": "P609",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "38",
+  "nameEn": "Chandelure"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1103",
+  "cardName": "水晶灯火灵",
+  "rarity": "◆",
+  "effectId": "5ce5accdd9a9de9f3206e050fa8c100e",
+  "cardType": "Pokemon",
+  "yorenCode": "P609",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "38",
+  "nameEn": "Chandelure"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1104",
+  "cardName": "水晶灯火灵",
+  "rarity": "◆",
+  "effectId": "5ce5accdd9a9de9f3206e050fa8c100e",
+  "cardType": "Pokemon",
+  "yorenCode": "P609",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "38",
+  "nameEn": "Chandelure"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1105",
+  "cardName": "水晶灯火灵",
+  "rarity": "★",
+  "effectId": "5ce5accdd9a9de9f3206e050fa8c100e",
+  "cardType": "Pokemon",
+  "yorenCode": "P609",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "38",
+  "nameEn": "Chandelure"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1106",
+  "cardName": "水晶灯火灵",
+  "rarity": "★★",
+  "effectId": "5ce5accdd9a9de9f3206e050fa8c100e",
+  "cardType": "Pokemon",
+  "yorenCode": "P609",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "38",
+  "nameEn": "Chandelure"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1107",
+  "cardName": "水晶灯火灵",
+  "rarity": "★★★",
+  "effectId": "5ce5accdd9a9de9f3206e050fa8c100e",
+  "cardType": "Pokemon",
+  "yorenCode": "P609",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "38",
+  "nameEn": "Chandelure"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1201",
+  "cardName": "鬃岩狼人",
+  "rarity": "●",
+  "effectId": "966e9e41641c19bc0635a32b21b82557",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "117",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1202",
+  "cardName": "鬃岩狼人",
+  "rarity": "●",
+  "effectId": "966e9e41641c19bc0635a32b21b82557",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "117",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1203",
+  "cardName": "鬃岩狼人",
+  "rarity": "◆",
+  "effectId": "966e9e41641c19bc0635a32b21b82557",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "117",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1204",
+  "cardName": "鬃岩狼人",
+  "rarity": "◆",
+  "effectId": "966e9e41641c19bc0635a32b21b82557",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "117",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1205",
+  "cardName": "鬃岩狼人",
+  "rarity": "★",
+  "effectId": "966e9e41641c19bc0635a32b21b82557",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "117",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1206",
+  "cardName": "鬃岩狼人",
+  "rarity": "★★",
+  "effectId": "966e9e41641c19bc0635a32b21b82557",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "117",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1207",
+  "cardName": "鬃岩狼人ex",
+  "rarity": "★",
+  "effectId": "d6da28bb383c2e63427487860d0fcbf8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1250",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "117",
+  "nameEn": "Lycanroc ex"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1301",
+  "cardName": "谜拟丘",
+  "rarity": "●",
+  "effectId": "4ba364fe554ffe8577561515bc8b5979",
+  "cardType": "Pokemon",
+  "yorenCode": "P778",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "37",
+  "nameEn": "Mimikyu"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1302",
+  "cardName": "谜拟丘",
+  "rarity": "●",
+  "effectId": "4ba364fe554ffe8577561515bc8b5979",
+  "cardType": "Pokemon",
+  "yorenCode": "P778",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "37",
+  "nameEn": "Mimikyu"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1303",
+  "cardName": "谜拟丘",
+  "rarity": "◆",
+  "effectId": "4ba364fe554ffe8577561515bc8b5979",
+  "cardType": "Pokemon",
+  "yorenCode": "P778",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "37",
+  "nameEn": "Mimikyu"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1304",
+  "cardName": "谜拟丘",
+  "rarity": "◆",
+  "effectId": "4ba364fe554ffe8577561515bc8b5979",
+  "cardType": "Pokemon",
+  "yorenCode": "P778",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "37",
+  "nameEn": "Mimikyu"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1305",
+  "cardName": "谜拟丘",
+  "rarity": "★",
+  "effectId": "4ba364fe554ffe8577561515bc8b5979",
+  "cardType": "Pokemon",
+  "yorenCode": "P778",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "37",
+  "nameEn": "Mimikyu"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1306",
+  "cardName": "谜拟丘",
+  "rarity": "★★",
+  "effectId": "4ba364fe554ffe8577561515bc8b5979",
+  "cardType": "Pokemon",
+  "yorenCode": "P778",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "37",
+  "nameEn": "Mimikyu"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1307",
+  "cardName": "谜拟丘",
+  "rarity": "★★★",
+  "effectId": "4ba364fe554ffe8577561515bc8b5979",
+  "cardType": "Pokemon",
+  "yorenCode": "P778",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "37",
+  "nameEn": "Mimikyu"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1401",
+  "cardName": "莫鲁贝可",
+  "rarity": "●",
+  "effectId": "f189ac39dca6332f0b3af7b65cea8220",
+  "cardType": "Pokemon",
+  "yorenCode": "P877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "121",
+  "nameEn": "Morpeko"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1402",
+  "cardName": "莫鲁贝可",
+  "rarity": "●",
+  "effectId": "f189ac39dca6332f0b3af7b65cea8220",
+  "cardType": "Pokemon",
+  "yorenCode": "P877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "121",
+  "nameEn": "Morpeko"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1403",
+  "cardName": "莫鲁贝可",
+  "rarity": "◆",
+  "effectId": "f189ac39dca6332f0b3af7b65cea8220",
+  "cardType": "Pokemon",
+  "yorenCode": "P877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "121",
+  "nameEn": "Morpeko"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1404",
+  "cardName": "莫鲁贝可",
+  "rarity": "◆",
+  "effectId": "f189ac39dca6332f0b3af7b65cea8220",
+  "cardType": "Pokemon",
+  "yorenCode": "P877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "121",
+  "nameEn": "Morpeko"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1405",
+  "cardName": "莫鲁贝可",
+  "rarity": "★",
+  "effectId": "f189ac39dca6332f0b3af7b65cea8220",
+  "cardType": "Pokemon",
+  "yorenCode": "P877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "121",
+  "nameEn": "Morpeko"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1406",
+  "cardName": "莫鲁贝可",
+  "rarity": "★★",
+  "effectId": "f189ac39dca6332f0b3af7b65cea8220",
+  "cardType": "Pokemon",
+  "yorenCode": "P877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "121",
+  "nameEn": "Morpeko"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1407",
+  "cardName": "莫鲁贝可",
+  "rarity": "★★★",
+  "effectId": "f189ac39dca6332f0b3af7b65cea8220",
+  "cardType": "Pokemon",
+  "yorenCode": "P877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "121",
+  "nameEn": "Morpeko"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1501",
+  "cardName": "苍炎刃鬼",
+  "rarity": "●",
+  "effectId": "fc5e491975675af8d521d6d5b4e37f4d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0937",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "40",
+  "nameEn": "Ceruledge"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1502",
+  "cardName": "苍炎刃鬼",
+  "rarity": "●",
+  "effectId": "fc5e491975675af8d521d6d5b4e37f4d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0937",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "40",
+  "nameEn": "Ceruledge"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1503",
+  "cardName": "苍炎刃鬼",
+  "rarity": "◆",
+  "effectId": "fc5e491975675af8d521d6d5b4e37f4d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0937",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "40",
+  "nameEn": "Ceruledge"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1504",
+  "cardName": "苍炎刃鬼",
+  "rarity": "◆",
+  "effectId": "fc5e491975675af8d521d6d5b4e37f4d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0937",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "40",
+  "nameEn": "Ceruledge"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1505",
+  "cardName": "苍炎刃鬼",
+  "rarity": "★",
+  "effectId": "fc5e491975675af8d521d6d5b4e37f4d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0937",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "40",
+  "nameEn": "Ceruledge"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1506",
+  "cardName": "苍炎刃鬼",
+  "rarity": "★★",
+  "effectId": "fc5e491975675af8d521d6d5b4e37f4d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0937",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "40",
+  "nameEn": "Ceruledge"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1507",
+  "cardName": "苍炎刃鬼",
+  "rarity": "★★★",
+  "effectId": "fc5e491975675af8d521d6d5b4e37f4d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0937",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "40",
+  "nameEn": "Ceruledge"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1601",
+  "cardName": "墓仔狗",
+  "rarity": "●",
+  "effectId": "21dc5a4142b6b12d0d7b42ffb54b73e1",
+  "cardType": "Pokemon",
+  "yorenCode": "P0971",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "70",
+  "nameEn": "Greavard"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1602",
+  "cardName": "墓仔狗",
+  "rarity": "●",
+  "effectId": "21dc5a4142b6b12d0d7b42ffb54b73e1",
+  "cardType": "Pokemon",
+  "yorenCode": "P0971",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "70",
+  "nameEn": "Greavard"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1603",
+  "cardName": "墓仔狗",
+  "rarity": "◆",
+  "effectId": "21dc5a4142b6b12d0d7b42ffb54b73e1",
+  "cardType": "Pokemon",
+  "yorenCode": "P0971",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "70",
+  "nameEn": "Greavard"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1604",
+  "cardName": "墓仔狗",
+  "rarity": "◆",
+  "effectId": "21dc5a4142b6b12d0d7b42ffb54b73e1",
+  "cardType": "Pokemon",
+  "yorenCode": "P0971",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "70",
+  "nameEn": "Greavard"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1605",
+  "cardName": "墓仔狗",
+  "rarity": "★",
+  "effectId": "21dc5a4142b6b12d0d7b42ffb54b73e1",
+  "cardType": "Pokemon",
+  "yorenCode": "P0971",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "70",
+  "nameEn": "Greavard"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1606",
+  "cardName": "墓仔狗",
+  "rarity": "★★",
+  "effectId": "21dc5a4142b6b12d0d7b42ffb54b73e1",
+  "cardType": "Pokemon",
+  "yorenCode": "P0971",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "70",
+  "nameEn": "Greavard"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1607",
+  "cardName": "墓仔狗",
+  "rarity": "★★★",
+  "effectId": "21dc5a4142b6b12d0d7b42ffb54b73e1",
+  "cardType": "Pokemon",
+  "yorenCode": "P0971",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "70",
+  "nameEn": "Greavard"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1701",
+  "cardName": "墓扬犬",
+  "rarity": "●",
+  "effectId": "d5eb3cf4ca88b34ec93938a1e32912e2",
+  "cardType": "Pokemon",
+  "yorenCode": "P0972",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "101",
+  "nameEn": "Houndstone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1702",
+  "cardName": "墓扬犬",
+  "rarity": "●",
+  "effectId": "d5eb3cf4ca88b34ec93938a1e32912e2",
+  "cardType": "Pokemon",
+  "yorenCode": "P0972",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "101",
+  "nameEn": "Houndstone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1703",
+  "cardName": "墓扬犬",
+  "rarity": "◆",
+  "effectId": "d5eb3cf4ca88b34ec93938a1e32912e2",
+  "cardType": "Pokemon",
+  "yorenCode": "P0972",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "101",
+  "nameEn": "Houndstone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1704",
+  "cardName": "墓扬犬",
+  "rarity": "◆",
+  "effectId": "d5eb3cf4ca88b34ec93938a1e32912e2",
+  "cardType": "Pokemon",
+  "yorenCode": "P0972",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "101",
+  "nameEn": "Houndstone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1705",
+  "cardName": "墓扬犬",
+  "rarity": "★",
+  "effectId": "d5eb3cf4ca88b34ec93938a1e32912e2",
+  "cardType": "Pokemon",
+  "yorenCode": "P0972",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "101",
+  "nameEn": "Houndstone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1706",
+  "cardName": "墓扬犬",
+  "rarity": "★★",
+  "effectId": "d5eb3cf4ca88b34ec93938a1e32912e2",
+  "cardType": "Pokemon",
+  "yorenCode": "P0972",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "101",
+  "nameEn": "Houndstone"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1707",
+  "cardName": "墓扬犬ex",
+  "rarity": "★",
+  "effectId": "a4435766dbeaa8dba4a1f8ab6734f833",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1310",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "102",
+  "nameEn": "Houndstone ex"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1801",
+  "cardName": "弃世猴",
+  "rarity": "●",
+  "effectId": "ea313f5fb16a8fa1ee1594a403534d27",
+  "cardType": "Pokemon",
+  "yorenCode": "P0979",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "109",
+  "nameEn": "Annihilape"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1802",
+  "cardName": "弃世猴",
+  "rarity": "●",
+  "effectId": "ea313f5fb16a8fa1ee1594a403534d27",
+  "cardType": "Pokemon",
+  "yorenCode": "P0979",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "109",
+  "nameEn": "Annihilape"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1803",
+  "cardName": "弃世猴",
+  "rarity": "◆",
+  "effectId": "ea313f5fb16a8fa1ee1594a403534d27",
+  "cardType": "Pokemon",
+  "yorenCode": "P0979",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "109",
+  "nameEn": "Annihilape"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1804",
+  "cardName": "弃世猴",
+  "rarity": "◆",
+  "effectId": "ea313f5fb16a8fa1ee1594a403534d27",
+  "cardType": "Pokemon",
+  "yorenCode": "P0979",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "109",
+  "nameEn": "Annihilape"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1805",
+  "cardName": "弃世猴",
+  "rarity": "★",
+  "effectId": "ea313f5fb16a8fa1ee1594a403534d27",
+  "cardType": "Pokemon",
+  "yorenCode": "P0979",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "109",
+  "nameEn": "Annihilape"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1806",
+  "cardName": "弃世猴",
+  "rarity": "★★",
+  "effectId": "ea313f5fb16a8fa1ee1594a403534d27",
+  "cardType": "Pokemon",
+  "yorenCode": "P0979",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "109",
+  "nameEn": "Annihilape"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1807",
+  "cardName": "弃世猴ex",
+  "rarity": "★",
+  "effectId": "d40fc2a40f4cbceda6572708b515a8c6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1304",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "32",
+  "nameEn": "Annihilape ex"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1901",
+  "cardName": "厉害钓竿",
+  "rarity": "★★",
+  "effectId": "c9c948169525fbb3dce70c477ec7a90a",
+  "cardType": "Item",
+  "yorenCode": "Y1207",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "188",
+  "nameEn": "Super Rod"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1902",
+  "cardName": "巢穴球",
+  "rarity": "★★",
+  "effectId": "1af63a7e2cb7a79215474ad8db8fd8fd",
+  "cardType": "Item",
+  "yorenCode": "Y30",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "123",
+  "nameEn": "Nest Ball"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1903",
+  "cardName": "宝可梦交替",
+  "rarity": "★★",
+  "effectId": "7c0b20e121c9d0e0d2d8a43524f7494e",
+  "cardType": "Item",
+  "yorenCode": "Y118",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "132",
+  "nameEn": "Switch"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "1904",
+  "cardName": "派帕",
+  "rarity": "★★★",
+  "effectId": "5bdbc985f9aa2e6f248b53f6f35d1d37",
+  "cardType": "Supporter",
+  "yorenCode": "Y1214",
+  "is": [],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "166",
+  "nameEn": "Arven"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "2001",
+  "cardName": "基本斗能量",
+  "rarity": "★★★",
+  "effectId": "9fedb80a97ddd5cc8b8022a21364c326",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y462",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "6",
+  "nameEn": "Fighting Energy"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "2002",
+  "cardName": "基本钢能量",
+  "rarity": "★★★",
+  "effectId": "4557c01497b81767fdaa0004089ecfb3",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y464",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "8",
+  "nameEn": "Metal Energy"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "2003",
+  "cardName": "夜光能量",
+  "rarity": "★★★",
+  "effectId": "540ee48bb93584e4bfe3d7f5d0ee0efc",
+  "cardType": "Special Energy",
+  "yorenCode": "Y1218",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "191",
+  "nameEn": "Luminous Energy"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "2004",
+  "cardName": "基本斗能量",
+  "rarity": "★★★",
+  "effectId": "9fedb80a97ddd5cc8b8022a21364c326",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y462",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "6",
+  "nameEn": "Fighting Energy"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "2005",
+  "cardName": "基本钢能量",
+  "rarity": "★★★",
+  "effectId": "4557c01497b81767fdaa0004089ecfb3",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y464",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "8",
+  "nameEn": "Metal Energy"
+ },
+ {
+  "setCode": "CBB3C",
+  "cardIndex": "2006",
+  "cardName": "夜光能量",
+  "rarity": "★★★",
+  "effectId": "540ee48bb93584e4bfe3d7f5d0ee0efc",
+  "cardType": "Special Energy",
+  "yorenCode": "Y1218",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "191",
+  "nameEn": "Luminous Energy"
+ }
+]

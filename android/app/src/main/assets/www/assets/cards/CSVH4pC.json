@@ -1,0 +1,202 @@
+[
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "001",
+  "cardName": "狙射树枭ex",
+  "rarity": "无标记",
+  "effectId": "b7adaa30787295955460c706cadf920b",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1192",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "15",
+  "nameEn": "Decidueye ex"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "002",
+  "cardName": "皮卡丘ex",
+  "rarity": "无标记",
+  "effectId": "1eaae287d10eadf45b92a25941dd974f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1223",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "28",
+  "nameEn": "Pikachu ex"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "003",
+  "cardName": "密勒顿ex",
+  "rarity": "无标记",
+  "effectId": "976bcc2cc45e8cf2b736c6117e99b273",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1196",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "79",
+  "nameEn": "Miraidon ex"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "004",
+  "cardName": "巨锻匠ex",
+  "rarity": "无标记",
+  "effectId": "132754175b93ba17efadd9d03dabaae9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1198",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "31",
+  "nameEn": "Tinkaton ex"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "005",
+  "cardName": "故勒顿ex",
+  "rarity": "无标记",
+  "effectId": "fb9a17d3a0314996c5ac2973a22d38bb",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1201",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "124",
+  "nameEn": "Koraidon ex"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "006",
+  "cardName": "卡比兽ex",
+  "rarity": "无标记",
+  "effectId": "e1a977f29fb1fd630aa32c786c406e30",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1495",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "76",
+  "nameEn": "Snorlax ex"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "GRA",
+  "cardName": "基本草能量",
+  "rarity": "无标记",
+  "effectId": "5e2d0ce37ca0c539aa45908da10544a0",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y457",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "1",
+  "nameEn": "Grass Energy"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "FIR",
+  "cardName": "基本火能量",
+  "rarity": "无标记",
+  "effectId": "22db5405bf0cce61a00aa8082cdd1e65",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y458",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "2",
+  "nameEn": "Fire Energy"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "WAT",
+  "cardName": "基本水能量",
+  "rarity": "无标记",
+  "effectId": "0cf075ae61b8a0b4e9151e5146c3aa26",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y459",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "3",
+  "nameEn": "Water Energy"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "LIG",
+  "cardName": "基本雷能量",
+  "rarity": "无标记",
+  "effectId": "45550fd10011f6ade7eef16ba88788cf",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y460",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "4",
+  "nameEn": "Lightning Energy"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "PSY",
+  "cardName": "基本超能量",
+  "rarity": "无标记",
+  "effectId": "41b2d1a95fafc35e4cf39383ffae928a",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y461",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "5",
+  "nameEn": "Psychic Energy"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "FIG",
+  "cardName": "基本斗能量",
+  "rarity": "无标记",
+  "effectId": "9fedb80a97ddd5cc8b8022a21364c326",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y462",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "6",
+  "nameEn": "Fighting Energy"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "DAR",
+  "cardName": "基本恶能量",
+  "rarity": "无标记",
+  "effectId": "46c769fc57a6c250c560df648bb779f8",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y463",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "7",
+  "nameEn": "Darkness Energy"
+ },
+ {
+  "setCode": "CSVH4pC",
+  "cardIndex": "MET",
+  "cardName": "基本钢能量",
+  "rarity": "无标记",
+  "effectId": "4557c01497b81767fdaa0004089ecfb3",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y464",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "8",
+  "nameEn": "Metal Energy"
+ }
+]

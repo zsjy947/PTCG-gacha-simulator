@@ -1,0 +1,305 @@
+[
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "001",
+  "cardName": "瓦斯弹",
+  "rarity": "无标记",
+  "effectId": "1f3298e3024523cfba8890815cb907ec",
+  "cardType": "Pokemon",
+  "yorenCode": "P109",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CEC",
+  "cardIndexEn": "76",
+  "nameEn": "Koffing"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "002",
+  "cardName": "双弹瓦斯",
+  "rarity": "无标记",
+  "effectId": "060a3b8392714b31bc6d5e911ccfcb47",
+  "cardType": "Pokemon",
+  "yorenCode": "P110",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "CEC",
+  "cardIndexEn": "77",
+  "nameEn": "Weezing"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "003",
+  "cardName": "怨影娃娃",
+  "rarity": "无标记",
+  "effectId": "1db0a19969e52081a656d789bf58e7f4",
+  "cardType": "Pokemon",
+  "yorenCode": "P353",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CES",
+  "cardIndexEn": "63",
+  "nameEn": "Shuppet"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "004",
+  "cardName": "诅咒娃娃",
+  "rarity": "无标记",
+  "effectId": "a5eaba2a1b7488c5915fb3ad073b8346",
+  "cardType": "Pokemon",
+  "yorenCode": "P354",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "CES",
+  "cardIndexEn": "65",
+  "nameEn": "Banette"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "005",
+  "cardName": "诅咒娃娃GX",
+  "rarity": "无标记",
+  "effectId": "fdb31ee84649295d3b7adb3042c7ecf5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y10",
+  "is": [
+   "GX",
+   "Stage 1"
+  ],
+  "setCodeEn": "CES",
+  "cardIndexEn": "66",
+  "nameEn": "Banette-GX"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "006",
+  "cardName": "洛托姆",
+  "rarity": "无标记",
+  "effectId": "cf07800c0608f3292554d9d23a5e0719",
+  "cardType": "Pokemon",
+  "yorenCode": "P479",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CEC",
+  "cardIndexEn": "86",
+  "nameEn": "Rotom"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "007",
+  "cardName": "骑拉帝纳",
+  "rarity": "无标记",
+  "effectId": "3af82afb206adbaa42f46d2d267077d4",
+  "cardType": "Pokemon",
+  "yorenCode": "P487",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "97",
+  "nameEn": "Giratina"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "008",
+  "cardName": "猫鼬斩",
+  "rarity": "无标记",
+  "effectId": "d20abef955db9d843ed6c39956599700",
+  "cardType": "Pokemon",
+  "yorenCode": "P335",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CEC",
+  "cardIndexEn": "173",
+  "nameEn": "Zangoose"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "009",
+  "cardName": "离洞绳",
+  "rarity": "无标记",
+  "effectId": "c6bc96f30e19315b2e59451b3f9b92cd",
+  "cardType": "Item",
+  "yorenCode": "Y144",
+  "is": [],
+  "setCodeEn": "BUS",
+  "cardIndexEn": "114",
+  "nameEn": "Escape Rope"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "010",
+  "cardName": "高级球",
+  "rarity": "无标记",
+  "effectId": "a337ed34a45e63c6d21d98c3d8e0cb6e",
+  "cardType": "Item",
+  "yorenCode": "Y151",
+  "is": [],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "68",
+  "nameEn": "Ultra Ball"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "011",
+  "cardName": "宝可梦交替",
+  "rarity": "无标记",
+  "effectId": "7c0b20e121c9d0e0d2d8a43524f7494e",
+  "cardType": "Item",
+  "yorenCode": "Y118",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "132",
+  "nameEn": "Switch"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "012",
+  "cardName": "神秘宝藏",
+  "rarity": "无标记",
+  "effectId": "1d4f707c69a6cdc5e245eca6e11f7655",
+  "cardType": "Item",
+  "yorenCode": "Y245",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "113",
+  "nameEn": "Mysterious Treasure"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "013",
+  "cardName": "重置印章",
+  "rarity": "无标记",
+  "effectId": "def5e99bba1e4e626e057446a532bd4c",
+  "cardType": "Item",
+  "yorenCode": "Y291",
+  "is": [],
+  "setCodeEn": "UNM",
+  "cardIndexEn": "206",
+  "nameEn": "Reset Stamp"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "014",
+  "cardName": "救援担架",
+  "rarity": "无标记",
+  "effectId": "fffc2733c1f540d3e3d73efae9149cc3",
+  "cardType": "Item",
+  "yorenCode": "Y92",
+  "is": [],
+  "setCodeEn": "GRI",
+  "cardIndexEn": "130",
+  "nameEn": "Rescue Stretcher"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "015",
+  "cardName": "咒术之符",
+  "rarity": "无标记",
+  "effectId": "5b62e633cb3d58338b111076b2f79d55",
+  "cardType": "Tool",
+  "yorenCode": "Y40",
+  "is": [],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "190",
+  "nameEn": "Spell Tag"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "016",
+  "cardName": "游客",
+  "rarity": "无标记",
+  "effectId": "21b0ef596c450d171a90a70a45b625da",
+  "cardType": "Supporter",
+  "yorenCode": "Y163",
+  "is": [],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "189",
+  "nameEn": "Sightseer"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "017",
+  "cardName": "古兹马",
+  "rarity": "无标记",
+  "effectId": "043c8d19088bc915f1ca8059791f1709",
+  "cardType": "Supporter",
+  "yorenCode": "Y45",
+  "is": [],
+  "setCodeEn": "BUS",
+  "cardIndexEn": "115",
+  "nameEn": "Guzma"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "018",
+  "cardName": "坂木的放逐",
+  "rarity": "无标记",
+  "effectId": "4ca879b49ef707fd6b350b0f84590f4d",
+  "cardType": "Supporter",
+  "yorenCode": "Y358",
+  "is": [],
+  "setCodeEn": "HIF",
+  "cardIndexEn": "57",
+  "nameEn": "Giovanni's Exile"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "019",
+  "cardName": "裁判",
+  "rarity": "无标记",
+  "effectId": "0a9bdf265647461dd5c6c827ffc19e61",
+  "cardType": "Supporter",
+  "yorenCode": "Y219",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "108",
+  "nameEn": "Judge"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "020",
+  "cardName": "竹兰",
+  "rarity": "无标记",
+  "effectId": "ba7207ec9f88f61be17b834192169fef",
+  "cardType": "Supporter",
+  "yorenCode": "Y166",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "119",
+  "nameEn": "Cynthia"
+ },
+ {
+  "setCode": "CSMPeC",
+  "cardIndex": "021",
+  "cardName": "霍米加",
+  "rarity": "无标记",
+  "effectId": "28dd06651afde1b9ac4b620615b98958",
+  "cardType": "Supporter",
+  "yorenCode": "Y436",
+  "is": [],
+  "setCodeEn": "CEC",
+  "cardIndexEn": "205",
+  "nameEn": "Roxie"
+ },
+ {
+  "setCode": "CSM1DC",
+  "cardIndex": "PSY",
+  "cardName": "基本超能量",
+  "rarity": "无标记",
+  "effectId": "41b2d1a95fafc35e4cf39383ffae928a",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y461",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "5",
+  "nameEn": "Psychic Energy"
+ }
+]

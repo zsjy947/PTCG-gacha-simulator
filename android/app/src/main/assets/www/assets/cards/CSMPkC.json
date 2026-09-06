@@ -1,0 +1,147 @@
+[
+ {
+  "setCode": "CSMPkC",
+  "cardIndex": "001",
+  "cardName": "炎帝GX",
+  "rarity": "无标记",
+  "effectId": "fac324bb310488aa4ac3f40cc9bde050",
+  "cardType": "Pokemon",
+  "yorenCode": "Y3",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "10",
+  "nameEn": "Entei-GX"
+ },
+ {
+  "setCode": "CSMPkC",
+  "cardIndex": "002",
+  "cardName": "凤王GX",
+  "rarity": "无标记",
+  "effectId": "b76f26430c8b76bdc0d4aed85607cb76",
+  "cardType": "Pokemon",
+  "yorenCode": "Y4",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "BUS",
+  "cardIndexEn": "21",
+  "nameEn": "Ho-Oh-GX"
+ },
+ {
+  "setCode": "CSMPkC",
+  "cardIndex": "003",
+  "cardName": "煤炭龟",
+  "rarity": "无标记",
+  "effectId": "c925e322ec0d20f91adf0fff246d4080",
+  "cardType": "Pokemon",
+  "yorenCode": "P324",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CES",
+  "cardIndexEn": "29",
+  "nameEn": "Torkoal"
+ },
+ {
+  "setCode": "CSMPkC",
+  "cardIndex": "004",
+  "cardName": "比克提尼",
+  "rarity": "无标记",
+  "effectId": "ece39362669c5ad99bb2444a6e25511f",
+  "cardType": "Pokemon",
+  "yorenCode": "P494",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOT",
+  "cardIndexEn": "49",
+  "nameEn": "Victini"
+ },
+ {
+  "setCode": "CSMPkC",
+  "cardIndex": "005",
+  "cardName": "爆焰龟兽",
+  "rarity": "无标记",
+  "effectId": "ba7d0a9d4c4a3447639b4a9cecaae184",
+  "cardType": "Pokemon",
+  "yorenCode": "P776",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRM",
+  "cardIndexEn": "50",
+  "nameEn": "Turtonator"
+ },
+ {
+  "setCode": "CSMPkC",
+  "cardIndex": "006",
+  "cardName": "老翁龙GX",
+  "rarity": "无标记",
+  "effectId": "b4fe3f518d413ed69a69a7d9c4b97ba2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y83",
+  "is": [
+   "GX",
+   "Basic"
+  ],
+  "setCodeEn": "GRI",
+  "cardIndexEn": "115",
+  "nameEn": "Drampa-GX"
+ },
+ {
+  "setCode": "CSMPkC",
+  "cardIndex": "007",
+  "cardName": "能量转移",
+  "rarity": "无标记",
+  "effectId": "294212d9c02dc0acb886a7ef01ebeac4",
+  "cardType": "Item",
+  "yorenCode": "Y193",
+  "is": [],
+  "setCodeEn": "CES",
+  "cardIndexEn": "129",
+  "nameEn": "Energy Switch"
+ },
+ {
+  "setCode": "CSMPkC",
+  "cardIndex": "008",
+  "cardName": "能量再利用",
+  "rarity": "无标记",
+  "effectId": "8399ac187218ab69e12cc78b09b5cc90",
+  "cardType": "Item",
+  "yorenCode": "Y146",
+  "is": [],
+  "setCodeEn": "GRI",
+  "cardIndexEn": "123",
+  "nameEn": "Energy Recycler"
+ },
+ {
+  "setCode": "CSMPkC",
+  "cardIndex": "009",
+  "cardName": "超强药水",
+  "rarity": "无标记",
+  "effectId": "d1a16a413a28e022140dc63d29e88d72",
+  "cardType": "Item",
+  "yorenCode": "Y327",
+  "is": [],
+  "setCodeEn": "UNM",
+  "cardIndexEn": "198",
+  "nameEn": "Great Potion"
+ },
+ {
+  "setCode": "CSMPkC",
+  "cardIndex": "010",
+  "cardName": "朋友手册",
+  "rarity": "无标记",
+  "effectId": "a47d5a8ed00e14a2146fc511745d23b5",
+  "cardType": "Item",
+  "yorenCode": "Y87",
+  "is": [],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "132",
+  "nameEn": "Pal Pad"
+ }
+]

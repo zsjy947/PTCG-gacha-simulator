@@ -1,0 +1,1159 @@
+[
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "001",
+  "cardName": "时拉比",
+  "rarity": "A",
+  "effectId": "7b319780ced9e9b757c5871943470d76",
+  "cardType": "Pokemon",
+  "yorenCode": "P251",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "9",
+  "nameEn": "Celebi"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "002",
+  "cardName": "橡实果",
+  "rarity": "C",
+  "effectId": "8e27b3d6d0bb0fa51cb3996be5bad030",
+  "cardType": "Pokemon",
+  "yorenCode": "P273",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "10",
+  "nameEn": "Seedot"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "003",
+  "cardName": "长鼻叶",
+  "rarity": "C",
+  "effectId": "7081fec16f55cd8367b3be7e6711a74c",
+  "cardType": "Pokemon",
+  "yorenCode": "P274",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "11",
+  "nameEn": "Nuzleaf"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "004",
+  "cardName": "狡猾天狗",
+  "rarity": "U",
+  "effectId": "6fbaeaa310936e55d0209afd08397095",
+  "cardType": "Pokemon",
+  "yorenCode": "P275",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "12",
+  "nameEn": "Shiftry"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "005",
+  "cardName": "火伊布",
+  "rarity": "U",
+  "effectId": "0feb49fe437a4bc13599ee6a9bf863e3",
+  "cardType": "Pokemon",
+  "yorenCode": "P136",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "26",
+  "nameEn": "Flareon"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "006",
+  "cardName": "火稚鸡",
+  "rarity": "C",
+  "effectId": "346a9f67aa0e39d69fc1b64d05fdda8f",
+  "cardType": "Pokemon",
+  "yorenCode": "P255",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "22",
+  "nameEn": "Torchic"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "007",
+  "cardName": "力壮鸡",
+  "rarity": "C",
+  "effectId": "6e5da76f785880b0250d8fc1b0c392c2",
+  "cardType": "Pokemon",
+  "yorenCode": "P256",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "23",
+  "nameEn": "Combusken"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "008",
+  "cardName": "火焰鸡",
+  "rarity": "R",
+  "effectId": "0c0fbcf0756055801387a8f6f83dfb3e",
+  "cardType": "Pokemon",
+  "yorenCode": "P257",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "24",
+  "nameEn": "Blaziken"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "009",
+  "cardName": "烈箭鹰V",
+  "rarity": "RR",
+  "effectId": "a924e1e835deea8d5916d5f5633c1ecb",
+  "cardType": "Pokemon",
+  "yorenCode": "Y655",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "29",
+  "nameEn": "Talonflame V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "010",
+  "cardName": "水伊布",
+  "rarity": "U",
+  "effectId": "2989727a40a4e22026fd65993918cc1b",
+  "cardType": "Pokemon",
+  "yorenCode": "P134",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "30",
+  "nameEn": "Vaporeon"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "011",
+  "cardName": "水水獭",
+  "rarity": "C",
+  "effectId": "58ccaa109260d0abfbfc66f6233aa735",
+  "cardType": "Pokemon",
+  "yorenCode": "P501",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "33",
+  "nameEn": "Oshawott"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "012",
+  "cardName": "双刃丸",
+  "rarity": "C",
+  "effectId": "ff2253573fc4e6f6fd2eac1308ff6a62",
+  "cardType": "Pokemon",
+  "yorenCode": "P502",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "34",
+  "nameEn": "Dewott"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "013",
+  "cardName": "大剑鬼",
+  "rarity": "U",
+  "effectId": "b80fbf38a3cf596ed826bbd355e6baae",
+  "cardType": "Pokemon",
+  "yorenCode": "P503",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "35",
+  "nameEn": "Samurott"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "014",
+  "cardName": "雷伊布",
+  "rarity": "U",
+  "effectId": "868c9abff2a5c9eaef81d85c940138cd",
+  "cardType": "Pokemon",
+  "yorenCode": "P135",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "47",
+  "nameEn": "Jolteon"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "015",
+  "cardName": "落雷兽",
+  "rarity": "C",
+  "effectId": "369d1f52d51dc4a964b844bd167fbbfe",
+  "cardType": "Pokemon",
+  "yorenCode": "P309",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "51",
+  "nameEn": "Electrike"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "016",
+  "cardName": "雷电兽",
+  "rarity": "U",
+  "effectId": "47f535136172d06011f7a3c6c9e581b9",
+  "cardType": "Pokemon",
+  "yorenCode": "P310",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "52",
+  "nameEn": "Manectric"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "017",
+  "cardName": "夜巡灵",
+  "rarity": "C",
+  "effectId": "0cf95ed26b6c6a41c6cfe15bd5874ea0",
+  "cardType": "Pokemon",
+  "yorenCode": "P355",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "69",
+  "nameEn": "Duskull"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "018",
+  "cardName": "彷徨夜灵",
+  "rarity": "U",
+  "effectId": "3b0333b26411000be552b42d66f85c88",
+  "cardType": "Pokemon",
+  "yorenCode": "P356",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "70",
+  "nameEn": "Dusclops"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "019",
+  "cardName": "黑夜魔灵",
+  "rarity": "R",
+  "effectId": "ef0e0b572e27038a96ab57faff80706f",
+  "cardType": "Pokemon",
+  "yorenCode": "P477",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "71",
+  "nameEn": "Dusknoir"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "020",
+  "cardName": "谜拟丘",
+  "rarity": "U",
+  "effectId": "ed7ffaf0dd4cc0531f6405742f69af16",
+  "cardType": "Pokemon",
+  "yorenCode": "P778",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "81",
+  "nameEn": "Mimikyu"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "021",
+  "cardName": "伽勒尔 魔灵珊瑚V",
+  "rarity": "RR",
+  "effectId": "25e0fbc5cd69e0285ded62bb266f975c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y656",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "CPA",
+  "cardIndexEn": "21",
+  "nameEn": "Galarian Cursola V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "022",
+  "cardName": "腕力",
+  "rarity": "C",
+  "effectId": "af26e9a5e8a2350560148816052273c9",
+  "cardType": "Pokemon",
+  "yorenCode": "P066",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CPA",
+  "cardIndexEn": "24",
+  "nameEn": "Machop"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "023",
+  "cardName": "豪力",
+  "rarity": "U",
+  "effectId": "5630794fbeca2eb9342cdb6252d1aa38",
+  "cardType": "Pokemon",
+  "yorenCode": "P067",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "CPA",
+  "cardIndexEn": "25",
+  "nameEn": "Machoke"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "024",
+  "cardName": "怪力",
+  "rarity": "R",
+  "effectId": "fd1ee98f9d70528387cc0bbe9da01bc1",
+  "cardType": "Pokemon",
+  "yorenCode": "P068",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "CPA",
+  "cardIndexEn": "26",
+  "nameEn": "Machamp"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "025",
+  "cardName": "伽勒尔 葱游兵V",
+  "rarity": "RR",
+  "effectId": "d4ca11e1d2bf6b5d0b6030dc97962d63",
+  "cardType": "Pokemon",
+  "yorenCode": "Y657",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "43",
+  "nameEn": "Galarian Sirfetch'd V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "026",
+  "cardName": "伽勒尔 蛇纹熊",
+  "rarity": "C",
+  "effectId": "860c4046cbbf72ef2842c886618994a3",
+  "cardType": "Pokemon",
+  "yorenCode": "P263",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CPA",
+  "cardIndexEn": "35",
+  "nameEn": "Galarian Zigzagoon"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "027",
+  "cardName": "伽勒尔 直冲熊",
+  "rarity": "C",
+  "effectId": "85f1a9f4bef323c8cfdfbda5988e2178",
+  "cardType": "Pokemon",
+  "yorenCode": "P264",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "CPA",
+  "cardIndexEn": "36",
+  "nameEn": "Galarian Linoone"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "028",
+  "cardName": "伽勒尔 堵拦熊",
+  "rarity": "R",
+  "effectId": "00eba1861fc5c7b14c33d64feae27068",
+  "cardType": "Pokemon",
+  "yorenCode": "P862",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "CPA",
+  "cardIndexEn": "37",
+  "nameEn": "Galarian Obstagoon"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "029",
+  "cardName": "伊裴尔塔尔",
+  "rarity": "A",
+  "effectId": "f1fda8ca189415968e424ca4966e5a60",
+  "cardType": "Pokemon",
+  "yorenCode": "P717",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "46",
+  "nameEn": "Yveltal"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "030",
+  "cardName": "基拉祈",
+  "rarity": "A",
+  "effectId": "fc1d2296efcdf18006eb9fd5bcf31357",
+  "cardType": "Pokemon",
+  "yorenCode": "P385",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "119",
+  "nameEn": "Jirachi"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "031",
+  "cardName": "齿轮儿",
+  "rarity": "C",
+  "effectId": "c99110658e31e8dda3b7b91120ec783b",
+  "cardType": "Pokemon",
+  "yorenCode": "P599",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "125",
+  "nameEn": "Klink"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "032",
+  "cardName": "齿轮组",
+  "rarity": "C",
+  "effectId": "51e317dfd3348fe5a868270df473f8c5",
+  "cardType": "Pokemon",
+  "yorenCode": "P600",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "126",
+  "nameEn": "Klang"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "033",
+  "cardName": "齿轮怪",
+  "rarity": "U",
+  "effectId": "e7c8fda3a3cfe3a6ae20cebd9eed840b",
+  "cardType": "Pokemon",
+  "yorenCode": "P601",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "127",
+  "nameEn": "Klinklang"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "034",
+  "cardName": "坚盾剑怪V",
+  "rarity": "RR",
+  "effectId": "41a150506e1e7aab40a7ae9485e518ac",
+  "cardType": "Pokemon",
+  "yorenCode": "Y658",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "126",
+  "nameEn": "Aegislash V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "035",
+  "cardName": "坚盾剑怪VMAX",
+  "rarity": "RRR",
+  "effectId": "a8fc17872c72201ae207d749cded8ccd",
+  "cardType": "Pokemon",
+  "yorenCode": "Y659",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "127",
+  "nameEn": "Aegislash VMAX"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "036",
+  "cardName": "铜象",
+  "rarity": "C",
+  "effectId": "c057ffc59860a1be6bfa57141e91ed1e",
+  "cardType": "Pokemon",
+  "yorenCode": "P878",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "49",
+  "nameEn": "Cufant"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "037",
+  "cardName": "大王铜象",
+  "rarity": "R",
+  "effectId": "b74aa2c2570e211a7d313dfc527447e3",
+  "cardType": "Pokemon",
+  "yorenCode": "P879",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "132",
+  "nameEn": "Copperajah"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "038",
+  "cardName": "百变怪V",
+  "rarity": "RR",
+  "effectId": "81b779d68a18a2fbcc1a4564af041275",
+  "cardType": "Pokemon",
+  "yorenCode": "Y660",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "50",
+  "nameEn": "Ditto V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "039",
+  "cardName": "百变怪VMAX",
+  "rarity": "RRR",
+  "effectId": "c8b32895a60eee3eae1500d91f80de7c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y661",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "51",
+  "nameEn": "Ditto VMAX"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "040",
+  "cardName": "伊布",
+  "rarity": "C",
+  "effectId": "a9dfe23b060bbeb43a6756c7514bae7a",
+  "cardType": "Pokemon",
+  "yorenCode": "P133",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "130",
+  "nameEn": "Eevee"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "041",
+  "cardName": "洛奇亚",
+  "rarity": "R",
+  "effectId": "6504d78d8e85e0ecea4366c4f24ef9d2",
+  "cardType": "Pokemon",
+  "yorenCode": "P249",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "69",
+  "nameEn": "Lugia"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "042",
+  "cardName": "傲骨燕",
+  "rarity": "C",
+  "effectId": "ac13dd287780c192108ec17003a6abb6",
+  "cardType": "Pokemon",
+  "yorenCode": "P276",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "133",
+  "nameEn": "Taillow"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "043",
+  "cardName": "大王燕",
+  "rarity": "C",
+  "effectId": "0cb18a1802fab297faf4563ec1f23417",
+  "cardType": "Pokemon",
+  "yorenCode": "P277",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "134",
+  "nameEn": "Swellow"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "044",
+  "cardName": "波克基斯V",
+  "rarity": "RR",
+  "effectId": "eb376b915a8a3926dc7330d814855abb",
+  "cardType": "Pokemon",
+  "yorenCode": "Y662",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "140",
+  "nameEn": "Togekiss V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "045",
+  "cardName": "波克基斯VMAX",
+  "rarity": "RRR",
+  "effectId": "511c31eb941f4ff371910e6a25db10b8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y663",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "141",
+  "nameEn": "Togekiss VMAX"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "046",
+  "cardName": "先机球",
+  "rarity": "U",
+  "effectId": "c89c8584a6bb1ebaa5c87b8b2d7d0b1e",
+  "cardType": "Item",
+  "yorenCode": "Y479",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "179",
+  "nameEn": "Quick Ball"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "047",
+  "cardName": "涡轮补丁",
+  "rarity": "U",
+  "effectId": "143a9e6e2c7c666c974b25fbaebca372",
+  "cardType": "Item",
+  "yorenCode": "Y664",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "172",
+  "nameEn": "Turbo Patch"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "048",
+  "cardName": "腐朽的剑",
+  "rarity": "U",
+  "effectId": "5d489449ccfb5a9f624ada7f23ba35e9",
+  "cardType": "Tool",
+  "yorenCode": "Y665",
+  "is": [],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "62",
+  "nameEn": "Rusted Sword"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "049",
+  "cardName": "腐朽的盾",
+  "rarity": "U",
+  "effectId": "cd7763774dd2073f54e985330869926f",
+  "cardType": "Tool",
+  "yorenCode": "Y666",
+  "is": [],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "61",
+  "nameEn": "Rusted Shield"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "050",
+  "cardName": "回忆胶囊",
+  "rarity": "U",
+  "effectId": "82820a28bca9e492678c069a770a9b7a",
+  "cardType": "Tool",
+  "yorenCode": "Y667",
+  "is": [],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "155",
+  "nameEn": "Memory Capsule"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "051",
+  "cardName": "大姐姐",
+  "rarity": "U",
+  "effectId": "ff9a6845ffaaf2192fa7d69e0a2aaa95",
+  "cardType": "Supporter",
+  "yorenCode": "Y668",
+  "is": [],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "148",
+  "nameEn": "Beauty"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "052",
+  "cardName": "索德与西尔迪",
+  "rarity": "C",
+  "effectId": "296448492d721fe7a431179142f35679",
+  "cardType": "Supporter",
+  "yorenCode": "Y669",
+  "is": [],
+  "setCodeEn": "BST",
+  "cardIndexEn": "135",
+  "nameEn": "Sordward & Shielbert"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "053",
+  "cardName": "博士的研究",
+  "rarity": "U",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "054",
+  "cardName": "阿球",
+  "rarity": "U",
+  "effectId": "7c48e8ecb6a88177b5ef2fd0375f6701",
+  "cardType": "Supporter",
+  "yorenCode": "Y670",
+  "is": [],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "57",
+  "nameEn": "Ball Guy"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "055",
+  "cardName": "老大的指令",
+  "rarity": "U",
+  "effectId": "8e1fa2c9018db938084c94c7c970d419",
+  "cardType": "Supporter",
+  "yorenCode": "Y487",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "154",
+  "nameEn": "Boss's Orders"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "056",
+  "cardName": "洛兹",
+  "rarity": "U",
+  "effectId": "251549a96cecd89dcfe35efe277bbcde",
+  "cardType": "Supporter",
+  "yorenCode": "Y671",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "168",
+  "nameEn": "Rose"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "057",
+  "cardName": "洛兹大厦",
+  "rarity": "U",
+  "effectId": "ad5d9925d3ad9baccf1613b4e33440a6",
+  "cardType": "Stadium",
+  "yorenCode": "Y672",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "169",
+  "nameEn": "Rose Tower"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "058",
+  "cardName": "芳香【草】能量",
+  "rarity": "U",
+  "effectId": "8fc39d4419660aed21766912f0e154d6",
+  "cardType": "Special Energy",
+  "yorenCode": "Y673",
+  "is": [],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "162",
+  "nameEn": "Aromatic Grass Energy"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "059",
+  "cardName": "涂层【钢】能量",
+  "rarity": "U",
+  "effectId": "2c760df842e33056e3010b45b3cc83ae",
+  "cardType": "Special Energy",
+  "yorenCode": "Y674",
+  "is": [],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "163",
+  "nameEn": "Coating Metal Energy"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "060",
+  "cardName": "铜象",
+  "rarity": "S",
+  "effectId": "c057ffc59860a1be6bfa57141e91ed1e",
+  "cardType": "Pokemon",
+  "yorenCode": "P878",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "49",
+  "nameEn": "Cufant"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "061",
+  "cardName": "大王铜象",
+  "rarity": "S",
+  "effectId": "b74aa2c2570e211a7d313dfc527447e3",
+  "cardType": "Pokemon",
+  "yorenCode": "P879",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "132",
+  "nameEn": "Copperajah"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "062",
+  "cardName": "烈箭鹰V",
+  "rarity": "SR",
+  "effectId": "a924e1e835deea8d5916d5f5633c1ecb",
+  "cardType": "Pokemon",
+  "yorenCode": "Y655",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "29",
+  "nameEn": "Talonflame V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "063",
+  "cardName": "伽勒尔 魔灵珊瑚V",
+  "rarity": "SR",
+  "effectId": "25e0fbc5cd69e0285ded62bb266f975c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y656",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "CPA",
+  "cardIndexEn": "21",
+  "nameEn": "Galarian Cursola V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "064",
+  "cardName": "伽勒尔 葱游兵V",
+  "rarity": "SR",
+  "effectId": "d4ca11e1d2bf6b5d0b6030dc97962d63",
+  "cardType": "Pokemon",
+  "yorenCode": "Y657",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SP",
+  "cardIndexEn": "43",
+  "nameEn": "Galarian Sirfetch'd V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "065",
+  "cardName": "坚盾剑怪V",
+  "rarity": "SR",
+  "effectId": "41a150506e1e7aab40a7ae9485e518ac",
+  "cardType": "Pokemon",
+  "yorenCode": "Y658",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "126",
+  "nameEn": "Aegislash V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "066",
+  "cardName": "波克基斯V",
+  "rarity": "SR",
+  "effectId": "eb376b915a8a3926dc7330d814855abb",
+  "cardType": "Pokemon",
+  "yorenCode": "Y662",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "140",
+  "nameEn": "Togekiss V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "067",
+  "cardName": "大姐姐",
+  "rarity": "SR",
+  "effectId": "ff9a6845ffaaf2192fa7d69e0a2aaa95",
+  "cardType": "Supporter",
+  "yorenCode": "Y668",
+  "is": [],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "148",
+  "nameEn": "Beauty"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "068",
+  "cardName": "博士的研究",
+  "rarity": "SR",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "069",
+  "cardName": "阿球",
+  "rarity": "SR",
+  "effectId": "7c48e8ecb6a88177b5ef2fd0375f6701",
+  "cardType": "Supporter",
+  "yorenCode": "Y670",
+  "is": [],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "57",
+  "nameEn": "Ball Guy"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "070",
+  "cardName": "老大的指令",
+  "rarity": "SR",
+  "effectId": "8e1fa2c9018db938084c94c7c970d419",
+  "cardType": "Supporter",
+  "yorenCode": "Y487",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "154",
+  "nameEn": "Boss's Orders"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "071",
+  "cardName": "洛兹",
+  "rarity": "SR",
+  "effectId": "251549a96cecd89dcfe35efe277bbcde",
+  "cardType": "Supporter",
+  "yorenCode": "Y671",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "168",
+  "nameEn": "Rose"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "072",
+  "cardName": "百变怪V",
+  "rarity": "SSR",
+  "effectId": "81b779d68a18a2fbcc1a4564af041275",
+  "cardType": "Pokemon",
+  "yorenCode": "Y660",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "50",
+  "nameEn": "Ditto V"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "073",
+  "cardName": "百变怪VMAX",
+  "rarity": "SSR",
+  "effectId": "c8b32895a60eee3eae1500d91f80de7c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y661",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "SHF",
+  "cardIndexEn": "51",
+  "nameEn": "Ditto VMAX"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "074",
+  "cardName": "坚盾剑怪VMAX",
+  "rarity": "HR",
+  "effectId": "a8fc17872c72201ae207d749cded8ccd",
+  "cardType": "Pokemon",
+  "yorenCode": "Y659",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "127",
+  "nameEn": "Aegislash VMAX"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "075",
+  "cardName": "波克基斯VMAX",
+  "rarity": "HR",
+  "effectId": "511c31eb941f4ff371910e6a25db10b8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y663",
+  "is": [
+   "V",
+   "VMAX"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "141",
+  "nameEn": "Togekiss VMAX"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "076",
+  "cardName": "大姐姐",
+  "rarity": "HR",
+  "effectId": "ff9a6845ffaaf2192fa7d69e0a2aaa95",
+  "cardType": "Supporter",
+  "yorenCode": "Y668",
+  "is": [],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "148",
+  "nameEn": "Beauty"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "077",
+  "cardName": "洛兹",
+  "rarity": "HR",
+  "effectId": "251549a96cecd89dcfe35efe277bbcde",
+  "cardType": "Supporter",
+  "yorenCode": "Y671",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "168",
+  "nameEn": "Rose"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "078",
+  "cardName": "涡轮补丁",
+  "rarity": "UR",
+  "effectId": "143a9e6e2c7c666c974b25fbaebca372",
+  "cardType": "Item",
+  "yorenCode": "Y664",
+  "is": [],
+  "setCodeEn": "DAA",
+  "cardIndexEn": "172",
+  "nameEn": "Turbo Patch"
+ },
+ {
+  "setCode": "CS2.5C",
+  "cardIndex": "079",
+  "cardName": "回忆胶囊",
+  "rarity": "UR",
+  "effectId": "82820a28bca9e492678c069a770a9b7a",
+  "cardType": "Tool",
+  "yorenCode": "Y667",
+  "is": [],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "155",
+  "nameEn": "Memory Capsule"
+ }
+]

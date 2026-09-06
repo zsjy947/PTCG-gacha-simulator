@@ -101,3 +101,22 @@ PTCG/
 
 卡表数据与卡图来自公开网络，仅供学习交流与个人娱乐。
 宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。
+
+## 安卓 APK（android-apk 分支）
+
+在 `android-apk` 分支上，同一套前端被改造成纯资产模式（无 Python 后端）：
+卡表/弹索引内嵌进 APK，抽卡引擎（规格/变体/划档概率）移植为 JS 本地运行，
+卡牌牌面由 WebView 直连 mik.moe 图源在线加载。
+
+```bash
+git checkout android-apk
+python android/build_assets.py    # 生成 android/app/src/main/assets/www/
+python android/build_apk.py       # 产出 dist/宝可梦卡牌抽卡.apk
+```
+
+- 构建链：aapt2 → javac → d8 → zipalign → apksigner（不依赖 Gradle/AGP）。
+- JDK 17 / build-tools 34 / platform-34 需预先解压到 `android/sdk/`
+  （下载脚本见 sdk-dl/ 中三个 zip 的来源 URL，详见构建脚本头部说明）。
+- 签名密钥 `android/gacha.keystore`（自动生成，口令 ptccgacha），
+  正式分发前请自行换签。
+- 系统要求：Android 7.0+（WebView 内核，建议系统 WebView 保持更新）。

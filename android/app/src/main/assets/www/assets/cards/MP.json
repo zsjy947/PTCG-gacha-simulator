@@ -1,0 +1,17 @@
+[
+ {
+  "setCode": "MP",
+  "cardIndex": "001",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "6ef3282b5f137b6aca368df21f3407f7",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SVP",
+  "cardIndexEn": "101",
+  "nameEn": "Pikachu"
+ }
+]

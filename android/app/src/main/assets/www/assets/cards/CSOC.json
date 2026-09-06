@@ -1,0 +1,268 @@
+[
+ {
+  "setCode": "CSOC",
+  "cardIndex": "001",
+  "cardName": "花舞鸟",
+  "rarity": "无标记",
+  "effectId": "b0caa048900c300078f2d84e154745e8",
+  "cardType": "Pokemon",
+  "yorenCode": "P741",
+  "is": [
+   "Fusion Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "42",
+  "nameEn": "Oricorio"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "002",
+  "cardName": "梦幻V",
+  "rarity": "无标记",
+  "effectId": "8ef99d3723d8d093237491ef5181f060",
+  "cardType": "Pokemon",
+  "yorenCode": "Y503",
+  "is": [
+   "V",
+   "Fusion Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "113",
+  "nameEn": "Mew V"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "003",
+  "cardName": "盖诺赛克特V",
+  "rarity": "无标记",
+  "effectId": "a5c078835f9bf583964c79788037cbfd",
+  "cardType": "Pokemon",
+  "yorenCode": "Y852",
+  "is": [
+   "V",
+   "Fusion Strike",
+   "Basic"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "185",
+  "nameEn": "Genesect V"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "004",
+  "cardName": "离洞绳",
+  "rarity": "无标记",
+  "effectId": "c6bc96f30e19315b2e59451b3f9b92cd",
+  "cardType": "Item",
+  "yorenCode": "Y144",
+  "is": [],
+  "setCodeEn": "BUS",
+  "cardIndexEn": "114",
+  "nameEn": "Escape Rope"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "005",
+  "cardName": "交替推车",
+  "rarity": "无标记",
+  "effectId": "8342fe3eeec6f897f3271be1aa26a412",
+  "cardType": "Item",
+  "yorenCode": "Y951",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "154",
+  "nameEn": "Switch Cart"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "006",
+  "cardName": "机器鹕",
+  "rarity": "无标记",
+  "effectId": "d6175dcc0216ef77e71ea1531ea43c4a",
+  "cardType": "Item",
+  "yorenCode": "Y896",
+  "is": [],
+  "setCodeEn": "FST",
+  "cardIndexEn": "229",
+  "nameEn": "Cram-o-matic"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "007",
+  "cardName": "先机球",
+  "rarity": "无标记",
+  "effectId": "c89c8584a6bb1ebaa5c87b8b2d7d0b1e",
+  "cardType": "Item",
+  "yorenCode": "Y479",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "179",
+  "nameEn": "Quick Ball"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "008",
+  "cardName": "交错切换机",
+  "rarity": "无标记",
+  "effectId": "dd793839198f7b960547a854d9696a47",
+  "cardType": "Item",
+  "yorenCode": "Y897",
+  "is": [
+   "Fusion Strike"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "230",
+  "nameEn": "Cross Switcher"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "009",
+  "cardName": "高级球",
+  "rarity": "无标记",
+  "effectId": "a337ed34a45e63c6d21d98c3d8e0cb6e",
+  "cardType": "Item",
+  "yorenCode": "Y151",
+  "is": [],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "68",
+  "nameEn": "Ultra Ball"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "010",
+  "cardName": "对战会员通行证",
+  "rarity": "无标记",
+  "effectId": "56cd50256367c569de23ddff7ad15bbf",
+  "cardType": "Item",
+  "yorenCode": "Y900",
+  "is": [],
+  "setCodeEn": "FST",
+  "cardIndexEn": "225",
+  "nameEn": "Battle VIP Pass"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "011",
+  "cardName": "强力糖锭",
+  "rarity": "无标记",
+  "effectId": "c6f68ffb2f09f384923919c0c9461f67",
+  "cardType": "Item",
+  "yorenCode": "Y859",
+  "is": [
+   "Fusion Strike"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "236",
+  "nameEn": "Power Tablet"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "012",
+  "cardName": "讲究腰带",
+  "rarity": "无标记",
+  "effectId": "36939b241f51e497487feb52e0ea8994",
+  "cardType": "Tool",
+  "yorenCode": "Y933",
+  "is": [],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "135",
+  "nameEn": "Choice Belt"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "013",
+  "cardName": "小菊儿的璀璨",
+  "rarity": "无标记",
+  "effectId": "a7f8fbd26b4802bd5409f0d9c9cc89a5",
+  "cardType": "Supporter",
+  "yorenCode": "Y865",
+  "is": [
+   "Fusion Strike"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "233",
+  "nameEn": "Elesa's Sparkle"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "014",
+  "cardName": "裁判",
+  "rarity": "无标记",
+  "effectId": "0a9bdf265647461dd5c6c827ffc19e61",
+  "cardType": "Supporter",
+  "yorenCode": "Y219",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "108",
+  "nameEn": "Judge"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "015",
+  "cardName": "博士的研究",
+  "rarity": "无标记",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "016",
+  "cardName": "皮欧尼",
+  "rarity": "无标记",
+  "effectId": "792b22488db7468df437c82947cf7b31",
+  "cardType": "Supporter",
+  "yorenCode": "Y793",
+  "is": [],
+  "setCodeEn": "CRE",
+  "cardIndexEn": "150",
+  "nameEn": "Peony"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "017",
+  "cardName": "老大的指令",
+  "rarity": "无标记",
+  "effectId": "8e1fa2c9018db938084c94c7c970d419",
+  "cardType": "Supporter",
+  "yorenCode": "Y487",
+  "is": [],
+  "setCodeEn": "RCL",
+  "cardIndexEn": "154",
+  "nameEn": "Boss's Orders"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "018",
+  "cardName": "双重涡轮能量",
+  "rarity": "无标记",
+  "effectId": "9c04dd0addf56a7b2c88476bc8e45c0e",
+  "cardType": "Special Energy",
+  "yorenCode": "Y935",
+  "is": [],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "151",
+  "nameEn": "Double Turbo Energy"
+ },
+ {
+  "setCode": "CSOC",
+  "cardIndex": "019",
+  "cardName": "汇流能量",
+  "rarity": "无标记",
+  "effectId": "dafd84cb30315c5124cd7c1bc7be4a84",
+  "cardType": "Special Energy",
+  "yorenCode": "Y873",
+  "is": [
+   "Fusion Strike"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "244",
+  "nameEn": "Fusion Strike Energy"
+ }
+]
