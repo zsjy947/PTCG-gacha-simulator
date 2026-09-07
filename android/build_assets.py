@@ -62,14 +62,15 @@ def main():
     idx = json.loads((data / "sets_index.json").read_text(encoding="utf-8"))
     sets_meta = {}
     for s in idx:
-        group, drawable = config.product_group(s["code"])
-        sets_meta[s["code"]] = {
+        # 以条目 id 为键（收集啦151 拆分弹共享 code=151C，各自 id 不同）
+        group, drawable = config.product_group(s["id"])
+        sets_meta[s["id"]] = {
             "name": s["name"],
             "seriesZh": s["seriesZh"],
             "group": group,
             "drawable": drawable,
             "count": s["count"],
-            "specs": spec_brief_full(s["code"]) if drawable else [],
+            "specs": spec_brief_full(s["id"]) if drawable else [],
         }
     # 数据以 JS 文件内嵌：file:// 下 script 标签不受 fetch/XHR 限制
     def js_assign(var: str, obj) -> str:

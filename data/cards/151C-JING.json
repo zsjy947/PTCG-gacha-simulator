@@ -1,0 +1,2852 @@
+[
+ {
+  "setCode": "151C",
+  "cardIndex": "172",
+  "cardName": "皮卡丘",
+  "rarity": "AR",
+  "effectId": "8aae450a2e50fb89d7fc193818c621f7",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "25",
+  "nameEn": "Pikachu"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "189",
+  "cardName": "胡地ex",
+  "rarity": "SAR",
+  "effectId": "24e0c45ee1da8f67e91dd59810192153",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1186",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "65",
+  "nameEn": "Alakazam ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "191",
+  "cardName": "梦幻ex",
+  "rarity": "SAR",
+  "effectId": "49669fcf461deacebeb5755c11ec51f1",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1191",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "151",
+  "nameEn": "Mew ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "001",
+  "cardName": "妙蛙种子",
+  "rarity": "C",
+  "effectId": "7d73d2551f239520310e08cc069677c9",
+  "cardType": "Pokemon",
+  "yorenCode": "P001",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "1",
+  "nameEn": "Bulbasaur"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "002",
+  "cardName": "妙蛙草",
+  "rarity": "U",
+  "effectId": "b26a61ef313a5827b81221bf90ef0dd6",
+  "cardType": "Pokemon",
+  "yorenCode": "P002",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "2",
+  "nameEn": "Ivysaur"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "003",
+  "cardName": "妙蛙花ex",
+  "rarity": "RR",
+  "effectId": "4010d1a9cef60d9e1642d6386d0229ca",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1180",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "3",
+  "nameEn": "Venusaur ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "004",
+  "cardName": "小火龙",
+  "rarity": "C",
+  "effectId": "7d8db29232cb263d7a9f27342814dff9",
+  "cardType": "Pokemon",
+  "yorenCode": "P004",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "7",
+  "nameEn": "Charmander"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "005",
+  "cardName": "火恐龙",
+  "rarity": "U",
+  "effectId": "5c0e1214b56b8b00c3853bd00635a5de",
+  "cardType": "Pokemon",
+  "yorenCode": "P005",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "5",
+  "nameEn": "Charmeleon"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "006",
+  "cardName": "喷火龙ex",
+  "rarity": "RR",
+  "effectId": "89f822e1410b928f4857b33b8891994a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1181",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "6",
+  "nameEn": "Charizard ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "007",
+  "cardName": "杰尼龟",
+  "rarity": "C",
+  "effectId": "45100afac93d5778365ab0f8f3654343",
+  "cardType": "Pokemon",
+  "yorenCode": "P007",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "7",
+  "nameEn": "Squirtle"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "008",
+  "cardName": "卡咪龟",
+  "rarity": "U",
+  "effectId": "a2eae88a7b0415e98a588d1209ab6aaa",
+  "cardType": "Pokemon",
+  "yorenCode": "P008",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "8",
+  "nameEn": "Wartortle"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "009",
+  "cardName": "水箭龟ex",
+  "rarity": "RR",
+  "effectId": "a3445e1f0d46497aa3cf8b41db6e6346",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1182",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "9",
+  "nameEn": "Blastoise ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "010",
+  "cardName": "绿毛虫",
+  "rarity": "C",
+  "effectId": "cee9879db5019d27515090101e545b9c",
+  "cardType": "Pokemon",
+  "yorenCode": "P010",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "10",
+  "nameEn": "Caterpie"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "011",
+  "cardName": "铁甲蛹",
+  "rarity": "C",
+  "effectId": "4fe2c643dbe29f93b5eaef64a3e15ab3",
+  "cardType": "Pokemon",
+  "yorenCode": "P011",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "11",
+  "nameEn": "Metapod"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "012",
+  "cardName": "巴大蝶",
+  "rarity": "U",
+  "effectId": "cfd21f69206f8ee5861543700643611f",
+  "cardType": "Pokemon",
+  "yorenCode": "P012",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "12",
+  "nameEn": "Butterfree"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "013",
+  "cardName": "独角虫",
+  "rarity": "C",
+  "effectId": "36671e76af2cb65e166242db9f1e2680",
+  "cardType": "Pokemon",
+  "yorenCode": "P013",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "13",
+  "nameEn": "Weedle"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "014",
+  "cardName": "铁壳蛹",
+  "rarity": "C",
+  "effectId": "096490aad5611a82155be5cd76b01c0b",
+  "cardType": "Pokemon",
+  "yorenCode": "P014",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "14",
+  "nameEn": "Kakuna"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "015",
+  "cardName": "大针蜂",
+  "rarity": "R",
+  "effectId": "cea1f4ad9b2a8c7fe6364840c840cf89",
+  "cardType": "Pokemon",
+  "yorenCode": "P015",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "15",
+  "nameEn": "Beedrill"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "016",
+  "cardName": "波波",
+  "rarity": "C",
+  "effectId": "c52439ea1ed321c25091b60e04c0d1da",
+  "cardType": "Pokemon",
+  "yorenCode": "P016",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "16",
+  "nameEn": "Pidgey"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "017",
+  "cardName": "比比鸟",
+  "rarity": "C",
+  "effectId": "b49bd864d4eba1284fd004de01446b81",
+  "cardType": "Pokemon",
+  "yorenCode": "P017",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "17",
+  "nameEn": "Pidgeotto"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "018",
+  "cardName": "大比鸟",
+  "rarity": "U",
+  "effectId": "a07184ef45649d34ff903dc1839aa464",
+  "cardType": "Pokemon",
+  "yorenCode": "P018",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "18",
+  "nameEn": "Pidgeot"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "019",
+  "cardName": "小拉达",
+  "rarity": "C",
+  "effectId": "972bed61dd9c4b1278795b6fedba8282",
+  "cardType": "Pokemon",
+  "yorenCode": "P0019",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "19",
+  "nameEn": "Rattata"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "020",
+  "cardName": "拉达",
+  "rarity": "U",
+  "effectId": "0f1afdc1d53dbb5e4ab5e72ee4e936a8",
+  "cardType": "Pokemon",
+  "yorenCode": "P0020",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "20",
+  "nameEn": "Raticate"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "021",
+  "cardName": "烈雀",
+  "rarity": "C",
+  "effectId": "5a50d1d34d510223647aeb29b4d261a0",
+  "cardType": "Pokemon",
+  "yorenCode": "P021",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "21",
+  "nameEn": "Spearow"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "022",
+  "cardName": "大嘴雀",
+  "rarity": "U",
+  "effectId": "b609b0203f031333a3d6687968bd8831",
+  "cardType": "Pokemon",
+  "yorenCode": "P022",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "22",
+  "nameEn": "Fearow"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "023",
+  "cardName": "阿柏蛇",
+  "rarity": "C",
+  "effectId": "fdace5fca23e8cd0dbf8ae8ca7a2386f",
+  "cardType": "Pokemon",
+  "yorenCode": "P023",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "23",
+  "nameEn": "Ekans"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "024",
+  "cardName": "阿柏怪ex",
+  "rarity": "RR",
+  "effectId": "bb70883bf63f4d18b115bdb9e8927c74",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1183",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "24",
+  "nameEn": "Arbok ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "025",
+  "cardName": "皮卡丘",
+  "rarity": "C",
+  "effectId": "8aae450a2e50fb89d7fc193818c621f7",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "25",
+  "nameEn": "Pikachu"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "026",
+  "cardName": "雷丘",
+  "rarity": "R",
+  "effectId": "a5b612b7666a4a944bfebcd414e2a2fb",
+  "cardType": "Pokemon",
+  "yorenCode": "P026",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "26",
+  "nameEn": "Raichu"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "027",
+  "cardName": "穿山鼠",
+  "rarity": "C",
+  "effectId": "e6a6c620c63c3dd5d498c8f4c90eb5ee",
+  "cardType": "Pokemon",
+  "yorenCode": "Y890",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "27",
+  "nameEn": "Sandshrew"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "028",
+  "cardName": "穿山王",
+  "rarity": "U",
+  "effectId": "8087aaa4014f70a1ac806c933aee6f0f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y891",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "28",
+  "nameEn": "Sandslash"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "029",
+  "cardName": "尼多兰",
+  "rarity": "C",
+  "effectId": "593e504ab05e9e34660986f1a38646ea",
+  "cardType": "Pokemon",
+  "yorenCode": "P029",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "29",
+  "nameEn": "Nidoran♀"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "030",
+  "cardName": "尼多娜",
+  "rarity": "U",
+  "effectId": "b96c82da55263a2ee669c2f3a714a1ae",
+  "cardType": "Pokemon",
+  "yorenCode": "P030",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "30",
+  "nameEn": "Nidorina"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "031",
+  "cardName": "尼多后",
+  "rarity": "U",
+  "effectId": "030e45948c28f453f14be82e9acc1d5a",
+  "cardType": "Pokemon",
+  "yorenCode": "P031",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "31",
+  "nameEn": "Nidoqueen"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "032",
+  "cardName": "尼多朗",
+  "rarity": "C",
+  "effectId": "b7b081ad1c0a8d58f75ba3dadcc55235",
+  "cardType": "Pokemon",
+  "yorenCode": "P032",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "32",
+  "nameEn": "Nidoran♂"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "033",
+  "cardName": "尼多力诺",
+  "rarity": "U",
+  "effectId": "9dfa735ff56723e0b82ebac89d4fc04b",
+  "cardType": "Pokemon",
+  "yorenCode": "P033",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "33",
+  "nameEn": "Nidorino"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "034",
+  "cardName": "尼多王",
+  "rarity": "R",
+  "effectId": "f3c05de96aabe31d93a633f29cd4733a",
+  "cardType": "Pokemon",
+  "yorenCode": "P034",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "34",
+  "nameEn": "Nidoking"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "035",
+  "cardName": "皮皮",
+  "rarity": "C",
+  "effectId": "03b4239cd2061eb23b13824b7b6cc7b8",
+  "cardType": "Pokemon",
+  "yorenCode": "P035",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "35",
+  "nameEn": "Clefairy"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "036",
+  "cardName": "皮可西",
+  "rarity": "U",
+  "effectId": "cae24aba46134427b6c27356344dab57",
+  "cardType": "Pokemon",
+  "yorenCode": "P036",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "36",
+  "nameEn": "Clefable"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "037",
+  "cardName": "六尾",
+  "rarity": "C",
+  "effectId": "69ed5349e09109505e3bc8eed9410dac",
+  "cardType": "Pokemon",
+  "yorenCode": "Y393",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "37",
+  "nameEn": "Vulpix"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "038",
+  "cardName": "九尾ex",
+  "rarity": "RR",
+  "effectId": "30914588c220d10bfac9631ac55104c9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1184",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "38",
+  "nameEn": "Ninetales ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "039",
+  "cardName": "胖丁",
+  "rarity": "C",
+  "effectId": "b8bd3bf528e9fa4393d52184385b44ee",
+  "cardType": "Pokemon",
+  "yorenCode": "P039",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "39",
+  "nameEn": "Jigglypuff"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "040",
+  "cardName": "胖可丁ex",
+  "rarity": "RR",
+  "effectId": "516be65a62315ebe0518c79f8a9197ff",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1185",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "40",
+  "nameEn": "Wigglytuff ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "041",
+  "cardName": "超音蝠",
+  "rarity": "C",
+  "effectId": "4683b33b8ec1c5c4f1eb0d2ab50cbd5e",
+  "cardType": "Pokemon",
+  "yorenCode": "P041",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "41",
+  "nameEn": "Zubat"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "042",
+  "cardName": "大嘴蝠",
+  "rarity": "U",
+  "effectId": "9d9724a6f660c12412f6e7a1d49cb327",
+  "cardType": "Pokemon",
+  "yorenCode": "P042",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "42",
+  "nameEn": "Golbat"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "043",
+  "cardName": "走路草",
+  "rarity": "C",
+  "effectId": "eb50689029b003aef35f307d8480a0eb",
+  "cardType": "Pokemon",
+  "yorenCode": "P043",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "43",
+  "nameEn": "Oddish"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "044",
+  "cardName": "臭臭花",
+  "rarity": "U",
+  "effectId": "e8f87f371600b27e056a47ca85d533f2",
+  "cardType": "Pokemon",
+  "yorenCode": "P044",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "44",
+  "nameEn": "Gloom"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "045",
+  "cardName": "霸王花",
+  "rarity": "R",
+  "effectId": "fffb5a175598c79561ddef878b9d4fb1",
+  "cardType": "Pokemon",
+  "yorenCode": "P045",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "45",
+  "nameEn": "Vileplume"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "046",
+  "cardName": "派拉斯",
+  "rarity": "C",
+  "effectId": "57ffb91a79d6357d12d73046a2db21a1",
+  "cardType": "Pokemon",
+  "yorenCode": "P046",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "46",
+  "nameEn": "Paras"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "047",
+  "cardName": "派拉斯特",
+  "rarity": "U",
+  "effectId": "fcb742fddb5cdd472b987a283ea6c613",
+  "cardType": "Pokemon",
+  "yorenCode": "P047",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "47",
+  "nameEn": "Parasect"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "048",
+  "cardName": "毛球",
+  "rarity": "C",
+  "effectId": "f1cbc42a175c88f64f42ebbfdfd344c6",
+  "cardType": "Pokemon",
+  "yorenCode": "P048",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "48",
+  "nameEn": "Venonat"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "049",
+  "cardName": "摩鲁蛾",
+  "rarity": "U",
+  "effectId": "e5994ccb6b5ddfc70616c2a563ba889f",
+  "cardType": "Pokemon",
+  "yorenCode": "P049",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "49",
+  "nameEn": "Venomoth"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "050",
+  "cardName": "地鼠",
+  "rarity": "C",
+  "effectId": "f4ddf6a316b6eaf7ec301ff8d52a4f67",
+  "cardType": "Pokemon",
+  "yorenCode": "Y395",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "50",
+  "nameEn": "Diglett"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "051",
+  "cardName": "三地鼠",
+  "rarity": "U",
+  "effectId": "7da1db983e80d0655a51b6f2923b51a7",
+  "cardType": "Pokemon",
+  "yorenCode": "Y396",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "51",
+  "nameEn": "Dugtrio"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "052",
+  "cardName": "喵喵",
+  "rarity": "C",
+  "effectId": "a5695ce17af7706d74a6f902e6b08cf5",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "52",
+  "nameEn": "Meowth"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "053",
+  "cardName": "猫老大",
+  "rarity": "U",
+  "effectId": "900669ade06a39a346b3e5baec678cd9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y398",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "53",
+  "nameEn": "Persian"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "054",
+  "cardName": "可达鸭",
+  "rarity": "C",
+  "effectId": "fbe2e6f8d724493dd215dd99d60ce617",
+  "cardType": "Pokemon",
+  "yorenCode": "P054",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "54",
+  "nameEn": "Psyduck"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "055",
+  "cardName": "哥达鸭",
+  "rarity": "U",
+  "effectId": "3001656b88699566dc4e7f103996428b",
+  "cardType": "Pokemon",
+  "yorenCode": "P055",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "55",
+  "nameEn": "Golduck"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "056",
+  "cardName": "猴怪",
+  "rarity": "C",
+  "effectId": "5b4d31030edadc59ea58e166809de622",
+  "cardType": "Pokemon",
+  "yorenCode": "P056",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "56",
+  "nameEn": "Mankey"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "057",
+  "cardName": "火暴猴",
+  "rarity": "U",
+  "effectId": "bab9262648c8be5db74fafb887cc2c45",
+  "cardType": "Pokemon",
+  "yorenCode": "P057",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "57",
+  "nameEn": "Primeape"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "058",
+  "cardName": "卡蒂狗",
+  "rarity": "C",
+  "effectId": "83a3c2f8246c86b68d5f5d0db4098aa0",
+  "cardType": "Pokemon",
+  "yorenCode": "P058",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "58",
+  "nameEn": "Growlithe"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "059",
+  "cardName": "风速狗",
+  "rarity": "U",
+  "effectId": "2f4ae52efdfaed20b0b91f8ddc0ed33b",
+  "cardType": "Pokemon",
+  "yorenCode": "P059",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "59",
+  "nameEn": "Arcanine"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "060",
+  "cardName": "蚊香蝌蚪",
+  "rarity": "C",
+  "effectId": "aa9f0e6fd65362b15e9f91afcc2eb7b9",
+  "cardType": "Pokemon",
+  "yorenCode": "P060",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "60",
+  "nameEn": "Poliwag"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "061",
+  "cardName": "蚊香君",
+  "rarity": "C",
+  "effectId": "e74584d8bf06a57e91b997092874192d",
+  "cardType": "Pokemon",
+  "yorenCode": "P061",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "61",
+  "nameEn": "Poliwhirl"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "062",
+  "cardName": "蚊香泳士",
+  "rarity": "U",
+  "effectId": "50125746581857532188e42340e2f6c7",
+  "cardType": "Pokemon",
+  "yorenCode": "P062",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "62",
+  "nameEn": "Poliwrath"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "063",
+  "cardName": "凯西",
+  "rarity": "C",
+  "effectId": "5b39897578b2ec2125cdc3d1bb5c74d6",
+  "cardType": "Pokemon",
+  "yorenCode": "P0063",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "63",
+  "nameEn": "Abra"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "064",
+  "cardName": "勇基拉",
+  "rarity": "U",
+  "effectId": "33b40f0da6b2deaa93ceb56319c24765",
+  "cardType": "Pokemon",
+  "yorenCode": "P0064",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "64",
+  "nameEn": "Kadabra"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "065",
+  "cardName": "胡地ex",
+  "rarity": "RR",
+  "effectId": "24e0c45ee1da8f67e91dd59810192153",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1186",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "65",
+  "nameEn": "Alakazam ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "066",
+  "cardName": "腕力",
+  "rarity": "C",
+  "effectId": "a39d9895b2a8de3a6f210fad8eed71ca",
+  "cardType": "Pokemon",
+  "yorenCode": "P066",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "66",
+  "nameEn": "Machop"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "067",
+  "cardName": "豪力",
+  "rarity": "U",
+  "effectId": "7072f6c11ab0b7a347be132df28906b4",
+  "cardType": "Pokemon",
+  "yorenCode": "P067",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "67",
+  "nameEn": "Machoke"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "068",
+  "cardName": "怪力",
+  "rarity": "R",
+  "effectId": "4e27a57e912edabe81d062f0f9919b25",
+  "cardType": "Pokemon",
+  "yorenCode": "P068",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "68",
+  "nameEn": "Machamp"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "069",
+  "cardName": "喇叭芽",
+  "rarity": "C",
+  "effectId": "6a9c812f7c69f9e9a1e6fa565a19ff2b",
+  "cardType": "Pokemon",
+  "yorenCode": "P069",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "69",
+  "nameEn": "Bellsprout"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "070",
+  "cardName": "口呆花",
+  "rarity": "C",
+  "effectId": "b65b61649527bbe2c39d37349a260ed1",
+  "cardType": "Pokemon",
+  "yorenCode": "P070",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "70",
+  "nameEn": "Weepinbell"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "071",
+  "cardName": "大食花",
+  "rarity": "U",
+  "effectId": "d445a78f3c4b0a9d5a96c550b8c3e312",
+  "cardType": "Pokemon",
+  "yorenCode": "P071",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "71",
+  "nameEn": "Victreebel"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "072",
+  "cardName": "玛瑙水母",
+  "rarity": "C",
+  "effectId": "6e3e04a36995273c34afb9a58faee22c",
+  "cardType": "Pokemon",
+  "yorenCode": "P072",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "72",
+  "nameEn": "Tentacool"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "073",
+  "cardName": "毒刺水母",
+  "rarity": "U",
+  "effectId": "527b8852f69e1c47892ec82f1e62f409",
+  "cardType": "Pokemon",
+  "yorenCode": "P073",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "73",
+  "nameEn": "Tentacruel"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "074",
+  "cardName": "小拳石",
+  "rarity": "C",
+  "effectId": "324b3cc671d9d734fbb38db0904d0fb0",
+  "cardType": "Pokemon",
+  "yorenCode": "Y399",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "74",
+  "nameEn": "Geodude"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "075",
+  "cardName": "隆隆石",
+  "rarity": "U",
+  "effectId": "0d87f455b178baa441aba74bc6290141",
+  "cardType": "Pokemon",
+  "yorenCode": "Y400",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "75",
+  "nameEn": "Graveler"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "076",
+  "cardName": "隆隆岩ex",
+  "rarity": "RR",
+  "effectId": "5c0152a6ab1ec2fc79fe53ad2d674233",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1187",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "76",
+  "nameEn": "Golem ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "077",
+  "cardName": "小火马",
+  "rarity": "C",
+  "effectId": "4bf6b2c42ca09b4bdba051659f3cf59c",
+  "cardType": "Pokemon",
+  "yorenCode": "P077",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "77",
+  "nameEn": "Ponyta"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "078",
+  "cardName": "烈焰马",
+  "rarity": "U",
+  "effectId": "af8f2d943d80b7c740c993db3106d5da",
+  "cardType": "Pokemon",
+  "yorenCode": "P078",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "78",
+  "nameEn": "Rapidash"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "079",
+  "cardName": "呆呆兽",
+  "rarity": "C",
+  "effectId": "70a75c1e9aa166b9c20f683fb2840307",
+  "cardType": "Pokemon",
+  "yorenCode": "P079",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "79",
+  "nameEn": "Slowpoke"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "080",
+  "cardName": "呆壳兽",
+  "rarity": "U",
+  "effectId": "2f6842ad04ec8fd0f25862bf9165e50d",
+  "cardType": "Pokemon",
+  "yorenCode": "P080",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "80",
+  "nameEn": "Slowbro"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "081",
+  "cardName": "小磁怪",
+  "rarity": "C",
+  "effectId": "5c0716ee309a1b95a0ae5c534069b0d2",
+  "cardType": "Pokemon",
+  "yorenCode": "P081",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "81",
+  "nameEn": "Magnemite"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "082",
+  "cardName": "三合一磁怪",
+  "rarity": "U",
+  "effectId": "931e2f158ec3c68670b629c12bda158b",
+  "cardType": "Pokemon",
+  "yorenCode": "P082",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "82",
+  "nameEn": "Magneton"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "083",
+  "cardName": "大葱鸭",
+  "rarity": "C",
+  "effectId": "db55c7e9696b579b501296465053818b",
+  "cardType": "Pokemon",
+  "yorenCode": "P083",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "83",
+  "nameEn": "Farfetch'd"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "084",
+  "cardName": "嘟嘟",
+  "rarity": "C",
+  "effectId": "f4d3cb54f0c01ba9b5f2a4cb9fce9ec3",
+  "cardType": "Pokemon",
+  "yorenCode": "P084",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "84",
+  "nameEn": "Doduo"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "085",
+  "cardName": "嘟嘟利",
+  "rarity": "R",
+  "effectId": "3c059ab293ff488fdfe4b1b8282053b2",
+  "cardType": "Pokemon",
+  "yorenCode": "P085",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "85",
+  "nameEn": "Dodrio"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "086",
+  "cardName": "小海狮",
+  "rarity": "C",
+  "effectId": "9e6d22fdde25fabbfb1ec8e5534c3095",
+  "cardType": "Pokemon",
+  "yorenCode": "P086",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "86",
+  "nameEn": "Seel"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "087",
+  "cardName": "白海狮",
+  "rarity": "U",
+  "effectId": "490d6d1b160b19d4b7fabb9077c5b348",
+  "cardType": "Pokemon",
+  "yorenCode": "P087",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "87",
+  "nameEn": "Dewgong"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "088",
+  "cardName": "臭泥",
+  "rarity": "C",
+  "effectId": "78fb10878de4c0e64776219d5f999d94",
+  "cardType": "Pokemon",
+  "yorenCode": "Y539",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "88",
+  "nameEn": "Grimer"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "089",
+  "cardName": "臭臭泥",
+  "rarity": "U",
+  "effectId": "01622a812b2ed31b509cfc2fe7e55e7a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y540",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "89",
+  "nameEn": "Muk"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "090",
+  "cardName": "大舌贝",
+  "rarity": "C",
+  "effectId": "77bcae7524db85265d5ab064705bdf40",
+  "cardType": "Pokemon",
+  "yorenCode": "P090",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "90",
+  "nameEn": "Shellder"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "091",
+  "cardName": "刺甲贝",
+  "rarity": "U",
+  "effectId": "d67fc1ebe0959512f57c654ad07c126d",
+  "cardType": "Pokemon",
+  "yorenCode": "P091",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "91",
+  "nameEn": "Cloyster"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "092",
+  "cardName": "鬼斯",
+  "rarity": "C",
+  "effectId": "afe72cfaed6efc3c59572098c9db11f9",
+  "cardType": "Pokemon",
+  "yorenCode": "P092",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "92",
+  "nameEn": "Gastly"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "093",
+  "cardName": "鬼斯通",
+  "rarity": "U",
+  "effectId": "645a088d30f06cad09e9f187d68e8235",
+  "cardType": "Pokemon",
+  "yorenCode": "P093",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "93",
+  "nameEn": "Haunter"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "094",
+  "cardName": "耿鬼",
+  "rarity": "R",
+  "effectId": "ca20baa5307608ad3500c000630bc417",
+  "cardType": "Pokemon",
+  "yorenCode": "P094",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "94",
+  "nameEn": "Gengar"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "095",
+  "cardName": "大岩蛇",
+  "rarity": "U",
+  "effectId": "7aa2900dc7cc9995f4d427f236a7a35c",
+  "cardType": "Pokemon",
+  "yorenCode": "P095",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "95",
+  "nameEn": "Onix"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "096",
+  "cardName": "催眠貘",
+  "rarity": "C",
+  "effectId": "d4bb3b723aad5f23cc72bd9949190223",
+  "cardType": "Pokemon",
+  "yorenCode": "P096",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "96",
+  "nameEn": "Drowzee"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "097",
+  "cardName": "引梦貘人",
+  "rarity": "U",
+  "effectId": "d6fb14eedfae0f55df14a427a37dcbdc",
+  "cardType": "Pokemon",
+  "yorenCode": "P097",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "97",
+  "nameEn": "Hypno"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "098",
+  "cardName": "大钳蟹",
+  "rarity": "C",
+  "effectId": "f3ef2026059c966c75bee39c4a17ab41",
+  "cardType": "Pokemon",
+  "yorenCode": "P098",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "98",
+  "nameEn": "Krabby"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "099",
+  "cardName": "巨钳蟹",
+  "rarity": "U",
+  "effectId": "9604c9ee9aa16eab16594016eb6a8f3e",
+  "cardType": "Pokemon",
+  "yorenCode": "P099",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "99",
+  "nameEn": "Kingler"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "100",
+  "cardName": "霹雳电球",
+  "rarity": "C",
+  "effectId": "f9f8aaf20dbb1b132196cde6b3ffcff1",
+  "cardType": "Pokemon",
+  "yorenCode": "P100",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "100",
+  "nameEn": "Voltorb"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "101",
+  "cardName": "顽皮雷弹",
+  "rarity": "R",
+  "effectId": "62f50b4be4cd17b922f1a877700e082f",
+  "cardType": "Pokemon",
+  "yorenCode": "P101",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "101",
+  "nameEn": "Electrode"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "102",
+  "cardName": "蛋蛋",
+  "rarity": "C",
+  "effectId": "71954e8f48607eab4be9940475db3991",
+  "cardType": "Pokemon",
+  "yorenCode": "P102",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "102",
+  "nameEn": "Exeggcute"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "103",
+  "cardName": "椰蛋树",
+  "rarity": "U",
+  "effectId": "ab5b23a3ff1ea02cc25353558b18db98",
+  "cardType": "Pokemon",
+  "yorenCode": "Y402",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "103",
+  "nameEn": "Exeggutor"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "104",
+  "cardName": "卡拉卡拉",
+  "rarity": "C",
+  "effectId": "90ea33cf292363efe76c5d7cf9722e77",
+  "cardType": "Pokemon",
+  "yorenCode": "P104",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "104",
+  "nameEn": "Cubone"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "105",
+  "cardName": "嘎啦嘎啦",
+  "rarity": "R",
+  "effectId": "5f4cff4432edcae9352228122ad60a5c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y712",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "105",
+  "nameEn": "Marowak"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "106",
+  "cardName": "飞腿郎",
+  "rarity": "U",
+  "effectId": "dd83b8cb2e337fa21ac9e4c000474e61",
+  "cardType": "Pokemon",
+  "yorenCode": "P106",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "106",
+  "nameEn": "Hitmonlee"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "107",
+  "cardName": "快拳郎",
+  "rarity": "U",
+  "effectId": "2f8c7bff0b47ad66b9babe8d4809f218",
+  "cardType": "Pokemon",
+  "yorenCode": "P107",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "107",
+  "nameEn": "Hitmonchan"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "108",
+  "cardName": "大舌头",
+  "rarity": "C",
+  "effectId": "e7ef7c3a14f0ef714b2b7f3481be76e2",
+  "cardType": "Pokemon",
+  "yorenCode": "P108",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "108",
+  "nameEn": "Lickitung"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "109",
+  "cardName": "瓦斯弹",
+  "rarity": "C",
+  "effectId": "740212108bdc461067d307656fa54444",
+  "cardType": "Pokemon",
+  "yorenCode": "P109",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "109",
+  "nameEn": "Koffing"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "110",
+  "cardName": "双弹瓦斯",
+  "rarity": "R",
+  "effectId": "4440e6376169f5f5f5fa67e413fe5e54",
+  "cardType": "Pokemon",
+  "yorenCode": "P110",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "110",
+  "nameEn": "Weezing"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "111",
+  "cardName": "独角犀牛",
+  "rarity": "C",
+  "effectId": "f52cb0af446cac79435b17ad22ca4b1a",
+  "cardType": "Pokemon",
+  "yorenCode": "P111",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "111",
+  "nameEn": "Rhyhorn"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "112",
+  "cardName": "钻角犀兽",
+  "rarity": "U",
+  "effectId": "747e3b384eecd1a7579f35dcbb6902a6",
+  "cardType": "Pokemon",
+  "yorenCode": "P112",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "112",
+  "nameEn": "Rhydon"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "113",
+  "cardName": "吉利蛋",
+  "rarity": "R",
+  "effectId": "79513e01fbf5084d23e6c60232e2338c",
+  "cardType": "Pokemon",
+  "yorenCode": "P113",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "113",
+  "nameEn": "Chansey"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "114",
+  "cardName": "蔓藤怪",
+  "rarity": "C",
+  "effectId": "5460bb55c559aba91804e4b90216a51a",
+  "cardType": "Pokemon",
+  "yorenCode": "P114",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "114",
+  "nameEn": "Tangela"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "115",
+  "cardName": "袋兽ex",
+  "rarity": "RR",
+  "effectId": "e1555d800204a6c8ce034a2de70b5dd6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1188",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "115",
+  "nameEn": "Kangaskhan ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "116",
+  "cardName": "墨海马",
+  "rarity": "C",
+  "effectId": "3cf38a88687c5684be3bd0e2c9583fe2",
+  "cardType": "Pokemon",
+  "yorenCode": "P116",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "116",
+  "nameEn": "Horsea"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "117",
+  "cardName": "海刺龙",
+  "rarity": "U",
+  "effectId": "33a5adc811a7f39316c9ad99fd258bf1",
+  "cardType": "Pokemon",
+  "yorenCode": "P117",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "117",
+  "nameEn": "Seadra"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "118",
+  "cardName": "角金鱼",
+  "rarity": "C",
+  "effectId": "55a2a28b940f04a9f9b9ca4f9f26de7e",
+  "cardType": "Pokemon",
+  "yorenCode": "P118",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "118",
+  "nameEn": "Goldeen"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "119",
+  "cardName": "金鱼王",
+  "rarity": "U",
+  "effectId": "a39cf5beb2c96d4e123f2613ba9d2066",
+  "cardType": "Pokemon",
+  "yorenCode": "P119",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "119",
+  "nameEn": "Seaking"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "120",
+  "cardName": "海星星",
+  "rarity": "C",
+  "effectId": "e858eb2a4f00e3cc3016a01be5770a4d",
+  "cardType": "Pokemon",
+  "yorenCode": "P120",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "120",
+  "nameEn": "Staryu"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "121",
+  "cardName": "宝石海星",
+  "rarity": "R",
+  "effectId": "198216869cd7db300b356dd2cdb154d3",
+  "cardType": "Pokemon",
+  "yorenCode": "P121",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "121",
+  "nameEn": "Starmie"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "122",
+  "cardName": "魔墙人偶",
+  "rarity": "R",
+  "effectId": "80a75d44c581616107d8989048e71481",
+  "cardType": "Pokemon",
+  "yorenCode": "P122",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "122",
+  "nameEn": "Mr. Mime"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "123",
+  "cardName": "飞天螳螂",
+  "rarity": "U",
+  "effectId": "fe8b1bda35af50a16e59e2dcd7cd473f",
+  "cardType": "Pokemon",
+  "yorenCode": "P123",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "123",
+  "nameEn": "Scyther"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "124",
+  "cardName": "迷唇姐ex",
+  "rarity": "RR",
+  "effectId": "a98ad996c5f2ea8760cbfe1df017322b",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1189",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "124",
+  "nameEn": "Jynx ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "125",
+  "cardName": "电击兽",
+  "rarity": "C",
+  "effectId": "f814a34502f6c97a015f849612e401f1",
+  "cardType": "Pokemon",
+  "yorenCode": "P125",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "125",
+  "nameEn": "Electabuzz"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "126",
+  "cardName": "鸭嘴火兽",
+  "rarity": "C",
+  "effectId": "0395360fd227008ef94d15f515ca3247",
+  "cardType": "Pokemon",
+  "yorenCode": "P126",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "126",
+  "nameEn": "Magmar"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "127",
+  "cardName": "凯罗斯",
+  "rarity": "U",
+  "effectId": "8da099f8f9748cca4e83b97b5dfb4f4a",
+  "cardType": "Pokemon",
+  "yorenCode": "P127",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "127",
+  "nameEn": "Pinsir"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "128",
+  "cardName": "肯泰罗",
+  "rarity": "U",
+  "effectId": "1dbca8c8af4af1a608f33417fec6c38f",
+  "cardType": "Pokemon",
+  "yorenCode": "P128",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "128",
+  "nameEn": "Tauros"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "129",
+  "cardName": "鲤鱼王",
+  "rarity": "C",
+  "effectId": "8c0984f322f01d364d6916e51abf3249",
+  "cardType": "Pokemon",
+  "yorenCode": "P129",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "129",
+  "nameEn": "Magikarp"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "130",
+  "cardName": "暴鲤龙",
+  "rarity": "R",
+  "effectId": "e449f3928891febe911caa978fab334a",
+  "cardType": "Pokemon",
+  "yorenCode": "P130",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "130",
+  "nameEn": "Gyarados"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "131",
+  "cardName": "拉普拉斯",
+  "rarity": "U",
+  "effectId": "e413521ce7d54bef26182e5efc848363",
+  "cardType": "Pokemon",
+  "yorenCode": "P131",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "131",
+  "nameEn": "Lapras"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "132",
+  "cardName": "百变怪",
+  "rarity": "R",
+  "effectId": "63ea5ed31033f1cc5711c2f89bd92692",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1074",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "132",
+  "nameEn": "Ditto"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "133",
+  "cardName": "伊布",
+  "rarity": "C",
+  "effectId": "9736e35ce77fbf8b005f413e20875a8f",
+  "cardType": "Pokemon",
+  "yorenCode": "P133",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "133",
+  "nameEn": "Eevee"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "134",
+  "cardName": "水伊布",
+  "rarity": "R",
+  "effectId": "f3767145a33fa62e5d003a219538f6ff",
+  "cardType": "Pokemon",
+  "yorenCode": "P134",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "22",
+  "nameEn": "Vaporeon"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "135",
+  "cardName": "雷伊布",
+  "rarity": "R",
+  "effectId": "602fe93d3d7170d80368d5fc44606181",
+  "cardType": "Pokemon",
+  "yorenCode": "P135",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "135",
+  "nameEn": "Jolteon"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "136",
+  "cardName": "火伊布",
+  "rarity": "R",
+  "effectId": "57fb68c5d51ebb03cd353a34b6c378ad",
+  "cardType": "Pokemon",
+  "yorenCode": "P136",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "13",
+  "nameEn": "Flareon"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "137",
+  "cardName": "多边兽",
+  "rarity": "C",
+  "effectId": "9b2db4f7478720af7d733151da3822c3",
+  "cardType": "Pokemon",
+  "yorenCode": "P137",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "137",
+  "nameEn": "Porygon"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "138",
+  "cardName": "菊石兽",
+  "rarity": "U",
+  "effectId": "3286eac7d77b6eb6ece4455e31d5358f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1218",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "138",
+  "nameEn": "Omanyte"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "139",
+  "cardName": "多刺菊石兽",
+  "rarity": "R",
+  "effectId": "5961fa559f53bbf27a61f57584958126",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1219",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "139",
+  "nameEn": "Omastar"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "140",
+  "cardName": "化石盔",
+  "rarity": "U",
+  "effectId": "63abc6fbd54349ba42928064916ed14e",
+  "cardType": "Pokemon",
+  "yorenCode": "P1220",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "140",
+  "nameEn": "Kabuto"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "141",
+  "cardName": "镰刀盔",
+  "rarity": "R",
+  "effectId": "14ccadd4dc77af050e6692bae0750596",
+  "cardType": "Pokemon",
+  "yorenCode": "P141",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "141",
+  "nameEn": "Kabutops"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "142",
+  "cardName": "化石翼龙",
+  "rarity": "R",
+  "effectId": "0f4e3b3cde45e46d98c3ec262028b621",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1221",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "142",
+  "nameEn": "Aerodactyl"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "143",
+  "cardName": "卡比兽",
+  "rarity": "U",
+  "effectId": "d03d33ee9e21233ad3760c6313a8de47",
+  "cardType": "Pokemon",
+  "yorenCode": "P143",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "143",
+  "nameEn": "Snorlax"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "144",
+  "cardName": "急冻鸟",
+  "rarity": "R",
+  "effectId": "b03356d1d45aec0246a6017eec47b0a0",
+  "cardType": "Pokemon",
+  "yorenCode": "P144",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "144",
+  "nameEn": "Articuno"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "145",
+  "cardName": "闪电鸟ex",
+  "rarity": "RR",
+  "effectId": "993439008ab2a4ed5f5734d44f187317",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1190",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "145",
+  "nameEn": "Zapdos ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "146",
+  "cardName": "火焰鸟",
+  "rarity": "R",
+  "effectId": "12a2d39e20976bc0d039cf993749467a",
+  "cardType": "Pokemon",
+  "yorenCode": "P146",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "146",
+  "nameEn": "Moltres"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "147",
+  "cardName": "迷你龙",
+  "rarity": "C",
+  "effectId": "fc87eb1df308756771d5b701b8315dd7",
+  "cardType": "Pokemon",
+  "yorenCode": "P147",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "147",
+  "nameEn": "Dratini"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "148",
+  "cardName": "哈克龙",
+  "rarity": "U",
+  "effectId": "f7d3a38a72dadf55719538d29fcd8f61",
+  "cardType": "Pokemon",
+  "yorenCode": "P148",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "148",
+  "nameEn": "Dragonair"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "149",
+  "cardName": "快龙",
+  "rarity": "R",
+  "effectId": "c3615946cf18bc9d5236a90f120830ca",
+  "cardType": "Pokemon",
+  "yorenCode": "P149",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "149",
+  "nameEn": "Dragonite"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "150",
+  "cardName": "超梦",
+  "rarity": "R",
+  "effectId": "fb8e5166a7a3906ca20bc4d24236e340",
+  "cardType": "Pokemon",
+  "yorenCode": "P150",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "150",
+  "nameEn": "Mewtwo"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "151",
+  "cardName": "梦幻ex",
+  "rarity": "RR",
+  "effectId": "49669fcf461deacebeb5755c11ec51f1",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1191",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "151",
+  "nameEn": "Mew ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "152",
+  "cardName": "小火龙",
+  "rarity": "S",
+  "effectId": "7d8db29232cb263d7a9f27342814dff9",
+  "cardType": "Pokemon",
+  "yorenCode": "P004",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAF",
+  "cardIndexEn": "7",
+  "nameEn": "Charmander"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "153",
+  "cardName": "波波",
+  "rarity": "S",
+  "effectId": "c52439ea1ed321c25091b60e04c0d1da",
+  "cardType": "Pokemon",
+  "yorenCode": "P016",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "16",
+  "nameEn": "Pidgey"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "154",
+  "cardName": "比比鸟",
+  "rarity": "S",
+  "effectId": "b49bd864d4eba1284fd004de01446b81",
+  "cardType": "Pokemon",
+  "yorenCode": "P017",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "17",
+  "nameEn": "Pidgeotto"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "155",
+  "cardName": "雷丘",
+  "rarity": "S",
+  "effectId": "a5b612b7666a4a944bfebcd414e2a2fb",
+  "cardType": "Pokemon",
+  "yorenCode": "P026",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "26",
+  "nameEn": "Raichu"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "156",
+  "cardName": "胖丁",
+  "rarity": "S",
+  "effectId": "b8bd3bf528e9fa4393d52184385b44ee",
+  "cardType": "Pokemon",
+  "yorenCode": "P039",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "39",
+  "nameEn": "Jigglypuff"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "157",
+  "cardName": "走路草",
+  "rarity": "S",
+  "effectId": "eb50689029b003aef35f307d8480a0eb",
+  "cardType": "Pokemon",
+  "yorenCode": "P043",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "43",
+  "nameEn": "Oddish"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "158",
+  "cardName": "臭臭花",
+  "rarity": "S",
+  "effectId": "e8f87f371600b27e056a47ca85d533f2",
+  "cardType": "Pokemon",
+  "yorenCode": "P044",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "44",
+  "nameEn": "Gloom"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "159",
+  "cardName": "霸王花",
+  "rarity": "S",
+  "effectId": "fffb5a175598c79561ddef878b9d4fb1",
+  "cardType": "Pokemon",
+  "yorenCode": "P045",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "45",
+  "nameEn": "Vileplume"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "160",
+  "cardName": "凯西",
+  "rarity": "S",
+  "effectId": "5b39897578b2ec2125cdc3d1bb5c74d6",
+  "cardType": "Pokemon",
+  "yorenCode": "P0063",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "63",
+  "nameEn": "Abra"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "161",
+  "cardName": "勇基拉",
+  "rarity": "S",
+  "effectId": "33b40f0da6b2deaa93ceb56319c24765",
+  "cardType": "Pokemon",
+  "yorenCode": "P0064",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "64",
+  "nameEn": "Kadabra"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "162",
+  "cardName": "嘟嘟",
+  "rarity": "S",
+  "effectId": "f4d3cb54f0c01ba9b5f2a4cb9fce9ec3",
+  "cardType": "Pokemon",
+  "yorenCode": "P084",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "84",
+  "nameEn": "Doduo"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "163",
+  "cardName": "嘟嘟利",
+  "rarity": "S",
+  "effectId": "3c059ab293ff488fdfe4b1b8282053b2",
+  "cardType": "Pokemon",
+  "yorenCode": "P085",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "85",
+  "nameEn": "Dodrio"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "164",
+  "cardName": "霹雳电球",
+  "rarity": "S",
+  "effectId": "f9f8aaf20dbb1b132196cde6b3ffcff1",
+  "cardType": "Pokemon",
+  "yorenCode": "P100",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "100",
+  "nameEn": "Voltorb"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "165",
+  "cardName": "顽皮雷弹",
+  "rarity": "S",
+  "effectId": "62f50b4be4cd17b922f1a877700e082f",
+  "cardType": "Pokemon",
+  "yorenCode": "P101",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "101",
+  "nameEn": "Electrode"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "166",
+  "cardName": "海星星",
+  "rarity": "S",
+  "effectId": "e858eb2a4f00e3cc3016a01be5770a4d",
+  "cardType": "Pokemon",
+  "yorenCode": "P120",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "120",
+  "nameEn": "Staryu"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "167",
+  "cardName": "宝石海星",
+  "rarity": "S",
+  "effectId": "198216869cd7db300b356dd2cdb154d3",
+  "cardType": "Pokemon",
+  "yorenCode": "P121",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "121",
+  "nameEn": "Starmie"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "168",
+  "cardName": "百变怪",
+  "rarity": "S",
+  "effectId": "63ea5ed31033f1cc5711c2f89bd92692",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1074",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "132",
+  "nameEn": "Ditto"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "169",
+  "cardName": "卡比兽",
+  "rarity": "S",
+  "effectId": "d03d33ee9e21233ad3760c6313a8de47",
+  "cardType": "Pokemon",
+  "yorenCode": "P143",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "143",
+  "nameEn": "Snorlax"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "174",
+  "cardName": "妙蛙花ex",
+  "rarity": "SR",
+  "effectId": "4010d1a9cef60d9e1642d6386d0229ca",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1180",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "3",
+  "nameEn": "Venusaur ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "175",
+  "cardName": "喷火龙ex",
+  "rarity": "SR",
+  "effectId": "89f822e1410b928f4857b33b8891994a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1181",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "6",
+  "nameEn": "Charizard ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "176",
+  "cardName": "水箭龟ex",
+  "rarity": "SR",
+  "effectId": "a3445e1f0d46497aa3cf8b41db6e6346",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1182",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "9",
+  "nameEn": "Blastoise ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "177",
+  "cardName": "阿柏怪ex",
+  "rarity": "SR",
+  "effectId": "bb70883bf63f4d18b115bdb9e8927c74",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1183",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "24",
+  "nameEn": "Arbok ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "178",
+  "cardName": "九尾ex",
+  "rarity": "SR",
+  "effectId": "30914588c220d10bfac9631ac55104c9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1184",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "38",
+  "nameEn": "Ninetales ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "179",
+  "cardName": "胖可丁ex",
+  "rarity": "SR",
+  "effectId": "516be65a62315ebe0518c79f8a9197ff",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1185",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "40",
+  "nameEn": "Wigglytuff ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "180",
+  "cardName": "胡地ex",
+  "rarity": "SR",
+  "effectId": "24e0c45ee1da8f67e91dd59810192153",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1186",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "65",
+  "nameEn": "Alakazam ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "181",
+  "cardName": "隆隆岩ex",
+  "rarity": "SR",
+  "effectId": "5c0152a6ab1ec2fc79fe53ad2d674233",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1187",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "76",
+  "nameEn": "Golem ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "182",
+  "cardName": "袋兽ex",
+  "rarity": "SR",
+  "effectId": "e1555d800204a6c8ce034a2de70b5dd6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1188",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "115",
+  "nameEn": "Kangaskhan ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "183",
+  "cardName": "迷唇姐ex",
+  "rarity": "SR",
+  "effectId": "a98ad996c5f2ea8760cbfe1df017322b",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1189",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "124",
+  "nameEn": "Jynx ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "184",
+  "cardName": "闪电鸟ex",
+  "rarity": "SR",
+  "effectId": "993439008ab2a4ed5f5734d44f187317",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1190",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "145",
+  "nameEn": "Zapdos ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "185",
+  "cardName": "梦幻ex",
+  "rarity": "SR",
+  "effectId": "49669fcf461deacebeb5755c11ec51f1",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1191",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "151",
+  "nameEn": "Mew ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "186",
+  "cardName": "胖可丁ex",
+  "rarity": "SSR",
+  "effectId": "516be65a62315ebe0518c79f8a9197ff",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1185",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "40",
+  "nameEn": "Wigglytuff ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "187",
+  "cardName": "胡地ex",
+  "rarity": "SSR",
+  "effectId": "24e0c45ee1da8f67e91dd59810192153",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1186",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "65",
+  "nameEn": "Alakazam ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "188",
+  "cardName": "梦幻ex",
+  "rarity": "SSR",
+  "effectId": "49669fcf461deacebeb5755c11ec51f1",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1191",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "151",
+  "nameEn": "Mew ex"
+ },
+ {
+  "setCode": "151C",
+  "cardIndex": "192",
+  "cardName": "梦幻ex",
+  "rarity": "UR",
+  "effectId": "49669fcf461deacebeb5755c11ec51f1",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1191",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "151",
+  "nameEn": "Mew ex"
+ }
+]

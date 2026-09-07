@@ -99,8 +99,8 @@ _CS_MAIN = {
     "CS3AC", "CS3BC", "CS3.5C", "CS4AC", "CS4BC", "CS4.5C",
     "CS5AC", "CS5BC", "CS5.5C", "CS6AC", "CS6BC", "CS6.5C",
 }
-# 朱&紫 补充包 + 收集啦151（5张装瘦包 + 20张装肥包）
-_CSV_MAIN = {f"CSV{i}C" for i in range(1, 11)} | {"151C"}
+# 朱&紫 补充包 + 收集啦151 四弹（旅/望/惊/聚，5张装瘦包 + 20张装肥包）
+_CSV_MAIN = {f"CSV{i}C" for i in range(1, 11)} | {"151C-LV", "151C-WANG", "151C-JING", "151C-JU"}
 # 太阳&月亮 补充包（5张装 + 25张装）
 _CSM_MAIN = {"CSM1AC", "CSM1BC", "CSM1CC", "CSM1.5C", "CSM2AC", "CSM2BC", "CSM2CC", "CSM2.5C"}
 # 对战派对（盒装/组合/改造包，固定内容）
