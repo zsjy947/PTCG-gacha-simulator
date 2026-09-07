@@ -5,6 +5,7 @@
 抽卡规格数据（由 config.py 导出，JS 端本地抽卡与概率公示共用）。
 """
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -41,17 +42,17 @@ def main():
         shutil.rmtree(WWW)
     (WWW / "assets" / "cards").mkdir(parents=True, exist_ok=True)
 
-    # 前端三件套（index.html 注入资产模式）
+    # 前端三件套（index.html 注入资产模式；链接带版本号防 WebView 缓存）
+    import time as _time
+    ver = str(int(_time.time()))
     html = (ROOT / "static" / "index.html").read_text(encoding="utf-8")
-    html = html.replace('href="/static/style.css"', 'href="style.css"')
-    html = html.replace('<script src="/static/app.js"></script>',
-                        '<script>window.__ASSET_MODE__=true;'
-                        'window.__ASSET_BASE__="https://tcg.mik.moe/static";</script>\n'
-                        '<script src="app.js"></script>')
-    html = html.replace('<script src="app.js"></script>',
-                        '<script src="assets/sets_index.js"></script>\n'
-                        '<script src="assets/meta.js"></script>\n'
-                        '<script src="app.js"></script>')
+    html = re.sub(r'href="/static/style\.css[^"]*"', f'href="style.css?v={ver}"', html)
+    inject = (f'<script>window.__ASSET_MODE__=true;'
+              f'window.__ASSET_BASE__="https://tcg.mik.moe/static";</script>\n'
+              f'<script src="assets/sets_index.js?v={ver}"></script>\n'
+              f'<script src="assets/meta.js?v={ver}"></script>\n'
+              f'<script src="app.js?v={ver}"></script>')
+    html = re.sub(r'<script src="/static/app\.js[^"]*"></script>', inject, html)
     (WWW / "index.html").write_text(html, encoding="utf-8")
     shutil.copy2(ROOT / "static" / "style.css", WWW / "style.css")
     shutil.copy2(ROOT / "static" / "app.js", WWW / "app.js")
@@ -88,7 +89,7 @@ def main():
               + json.dumps(cards, ensure_ascii=False) + ";")
         (cards_dir / (f.stem + ".js")).write_text(js, encoding="utf-8")
 
-    n_cards = len(list((WWW / "assets" / "cards").glob("*.json")))
+    n_cards = len(list((WWW / "assets" / "cards").glob("*.js")))
     print(f"资产生成完成: {WWW}")
     print(f"  卡表 {n_cards} 弹, 索引 {len(idx)} 条")
     return 0
