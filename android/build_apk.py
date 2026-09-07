@@ -94,21 +94,40 @@ def main():
     run([BUILD_TOOLS / "zipalign.exe", "-f", "4",
          OUT / "base.apk", OUT / "aligned.apk"])
 
-    # 7) 生成签名密钥（首次）并签名
+    # 7) 签名密钥：本地生成、绝不入库（.gitignore 已排除）。
+    #    口令优先取环境变量 PTCG_KEYSTORE_PASS，其次 android/keystore.properties
+    #    （同样是本地文件），都没有则生成随机口令并写入该文件。
+    import os
+    import secrets
     keystore = ANDROID / "gacha.keystore"
+    props = ANDROID / "keystore.properties"
+    store_pass = os.environ.get("PTCG_KEYSTORE_PASS", "")
+    if not store_pass and props.exists():
+        for line in props.read_text(encoding="utf-8").splitlines():
+            if line.startswith("PTCG_KEYSTORE_PASS="):
+                store_pass = line.split("=", 1)[1].strip()
     if not keystore.exists():
+        if not store_pass:
+            store_pass = secrets.token_urlsafe(24)
         run([JDK / "bin" / "keytool.exe", "-genkeypair",
              "-keystore", keystore, "-alias", "gacha",
              "-keyalg", "RSA", "-keysize", "2048", "-validity", "10000",
-             "-storepass", "ptccgacha", "-keypass", "ptccgacha",
+             "-storepass", store_pass, "-keypass", store_pass,
              "-dname", "CN=PTCC Gacha, OU=Personal, O=ptcc, C=CN"])
+    if not store_pass:
+        raise SystemExit(f"签名口令缺失：请设置 PTCG_KEYSTORE_PASS 或写入 {props}")
+    if not props.exists():
+        props.write_text(
+            "# 本地签名口令（勿提交，已在 .gitignore 中排除）\n"
+            f"PTCG_KEYSTORE_PASS={store_pass}\n", encoding="utf-8")
+        print(">> 已生成签名密钥与本地口令文件 keystore.properties（勿外传）")
 
     dist = ROOT / "dist"
     dist.mkdir(exist_ok=True)
     apk = dist / APK_NAME
     run([BUILD_TOOLS / "apksigner.bat", "sign",
-         "--ks", keystore, "--ks-pass", "pass:ptccgacha",
-         "--key-pass", "pass:ptccgacha",
+         "--ks", keystore, "--ks-pass", f"pass:{store_pass}",
+         "--key-pass", f"pass:{store_pass}",
          "--out", apk, OUT / "aligned.apk"])
 
     # 8) 校验

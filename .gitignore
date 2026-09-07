@@ -13,3 +13,6 @@ android/local.properties
 *.apk.idsig
 android/app/src/main/assets/www/
 android/sdk-dl/
+android/*.keystore
+android/keystore.properties
+*.keystore
