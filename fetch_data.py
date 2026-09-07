@@ -118,10 +118,35 @@ def main():
     expansions = fetch_all_expansions()
     print(f"   共 {len(expansions)} 个弹")
 
+    # ---- 收集啦151：按官方四弹（旅→望→惊→聚）拆分为四个可拆弹 ----
+    # 同一卡表再版：185 张各弹共享，每弹另有 1-3 张独占插画卡。
+    # 卡图编号相同，均沿用 151C 的图源；仅数据文件与条目拆分。
+    src_151 = CARDS_DIR / "151C.json"
+    wave_file = DATA / "waves_151.json"
+    split_151 = [
+        ("151C-LV", "收集啦151 旅", "旅"),
+        ("151C-WANG", "收集啦151 望", "望"),
+        ("151C-JING", "收集啦151 惊", "惊"),
+        ("151C-JU", "收集啦151 聚", "聚"),
+    ]
+    if src_151.exists() and wave_file.exists():
+        merged = json.loads(src_151.read_text(encoding="utf-8"))
+        waves = json.loads(wave_file.read_text(encoding="utf-8"))["waves"]
+        from collections import Counter
+        appear = Counter(n for nums in waves.values() for n in nums)
+        for sid, sname, wkey in split_151:
+            nums = set(waves.get(wkey) or [])
+            subset = [c for c in merged if str(c["cardIndex"]).zfill(3) in nums]
+            (CARDS_DIR / f"{sid}.json").write_text(
+                json.dumps(subset, ensure_ascii=False, indent=1), encoding="utf-8")
+            print(f"   [151拆分] {sname}（{sid}）{len(subset)} 张")
+
     seen = {}
     index = []
     for i, e in enumerate(expansions, 1):
         code = e["setCode"]
+        if code == "151C" and wave_file.exists():
+            continue  # 已拆分为旅/望/惊/聚四弹
         series = derive_series(code)
         name = e.get("setName") or code
         fid = set_file_id(code, series, seen)
@@ -150,6 +175,22 @@ def main():
             "seriesZh": SERIES_ZH.get(series, "特典卡" if series == "PROMO" else "其他"),
             "count": len(cards),
         })
+
+    # 拆分弹插入索引（替换 151C 的位置）
+    if (CARDS_DIR / "151C-LV.json").exists():
+        pos = next((i for i, e in enumerate(index) if e["id"] == "151C"), len(index))
+        index = [e for e in index if e["id"] != "151C"]
+        entries_151 = []
+        for sid, sname, wkey in split_151:
+            f = CARDS_DIR / f"{sid}.json"
+            if f.exists():
+                n = len(json.loads(f.read_text(encoding="utf-8")))
+                entries_151.append({
+                    "id": sid, "code": "151C", "name": sname,
+                    "series": "Scarlet & Violet", "seriesZh": "朱&紫 系列",
+                    "count": n,
+                })
+        index[pos:pos] = entries_151
 
     (DATA / "sets_index.json").write_text(
         json.dumps(index, ensure_ascii=False, indent=1), encoding="utf-8"

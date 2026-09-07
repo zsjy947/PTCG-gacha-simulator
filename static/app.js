@@ -123,7 +123,7 @@ const DATA = {
     const groups = {};
     for (const s of idx) {
       if (!s.count) continue;
-      const m = meta.sets[s.code] || {};
+      const m = meta.sets[s.id] || {};
       const entry = { ...s, specs: m.specs || [], drawable: !!m.drawable, group: m.group || "其他" };
       (groups[entry.group] = groups[entry.group] || []).push(entry);
     }

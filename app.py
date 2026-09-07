@@ -42,16 +42,27 @@ DETAIL_CACHE = DATA / "detail_cache"
 
 
 def _ensure_writable_data():
-    """exe 首次运行时，把打包内置的卡表数据释放到可写目录。"""
+    """exe 每次启动都用打包内置的最新卡表数据刷新可写目录（%LOCALAPPDATA%）。
+
+    旧版本遗留的本地数据可能过期（弹索引拆分/新增/分类调整等），必须整体覆盖，
+    否则 exe 会一直沿用旧卡表。
+    """
     if DATA == BUNDLED_DATA:
         return
     DATA.mkdir(parents=True, exist_ok=True)
-    idx = DATA / "sets_index.json"
-    if not idx.exists() and (BUNDLED_DATA / "sets_index.json").exists():
-        shutil.copy2(BUNDLED_DATA / "sets_index.json", idx)
+    bundled_idx = BUNDLED_DATA / "sets_index.json"
+    if bundled_idx.exists():
+        shutil.copy2(bundled_idx, DATA / "sets_index.json")
     src_cards, dst_cards = BUNDLED_DATA / "cards", DATA / "cards"
-    if (src_cards / "CSV9.5C.json").exists() and not (dst_cards / "CSV9.5C.json").exists():
+    if src_cards.exists():
         dst_cards.mkdir(parents=True, exist_ok=True)
+        bundled_names = {f.name for f in src_cards.glob("*.json")}
+        for f in dst_cards.glob("*.json"):  # 清理内置包已不存在的旧卡表
+            if f.name not in bundled_names:
+                try:
+                    f.unlink()
+                except OSError:
+                    pass
         for f in src_cards.glob("*.json"):
             shutil.copy2(f, dst_cards / f.name)
 
@@ -201,10 +212,11 @@ def api_sets():
         if not s.get("count"):
             continue  # 数据源无卡牌索引的弹（如特典卡）不展示
         s = dict(s)
-        group, drawable = config.product_group(s["code"])
+        # 用条目 id 而非 code：收集啦151 拆分弹共享 code=151C，须按各自 id 归类
+        group, drawable = config.product_group(s["id"])
         s["group"] = group
         s["drawable"] = drawable
-        s["specs"] = _spec_brief(s["code"])
+        s["specs"] = _spec_brief(s["id"])
         groups.setdefault(group, []).append(s)
     result = [{"group": g, "sets": groups[g]}
               for g in config.GROUP_ORDER if g in groups]
