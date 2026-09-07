@@ -1,12 +1,12 @@
-# 宝可梦卡牌（简中）模拟抽卡
+# PTCG模拟拆卡（宝可梦卡牌 · 简中）
 
-一个按**弹（扩展系列）**分类的简体中文宝可梦卡牌模拟抽卡器：
+一个按**弹（扩展系列）**分类的简体中文宝可梦卡牌模拟拆卡器：
 选择弹包 → 按该弹**官方发售规格**开包（5张瘦包 / 20张肥包 / 25张装 / 10张装 / 宝石包 4张全闪等）→
 3D 翻卡看牌面（卡图从网络实时获取并缓存）。内置概率公示、收藏册与完整卡表浏览。
 
 ## 快速开始（exe，免安装）
 
-双击 `dist\宝可梦卡牌模拟抽卡.exe` 即可 —— 程序会自动启动本地服务并打开浏览器。
+双击 `dist\宝可梦卡牌模拟拆卡.exe` 即可 —— 程序会自动启动本地服务并打开浏览器。
 
 - 卡表数据已内置；卡牌牌面首次显示时联网下载并缓存到 `%LOCALAPPDATA%\PTCGGacha`。
 - 重新打包：修改代码后运行 `build_exe.bat`（需要 `pip install pyinstaller`）。
@@ -59,7 +59,7 @@ python app.py
 - **开包 / 十连**：卡包撕开动画、逐张 3D 翻卡、高稀有度光效；十连为 10 包连开、逐包翻看。
 - **概率公示**：每弹每个规格、每个槽位（平卡位/闪卡位）的概率与池大小，含封入变体（太晶盛聚）。
 - **卡牌详情**：点击任意卡查看简中效果文本、HP/属性/招式/画师等。
-- **收藏册与统计**：抽卡记录、每弹统计（包数/张数/RR+ 计数/最高稀有度）、收藏册可导出 JSON（浏览器本地保存）。
+- **收藏册与统计**：拆卡记录、每弹统计（包数/张数/RR+ 计数/最高稀有度）、收藏册可导出 JSON（浏览器本地保存）。
 - **卡表浏览**：完整卡表 + 稀有度筛选 + 卡名搜索。
 
 ## 数据来源
@@ -74,7 +74,7 @@ python app.py
 ```
 PTCG/
 ├─ app.py              # 服务入口（API + 图片代理 + 冻结 exe 路径适配）
-├─ gacha.py            # 抽卡引擎（规格/变体槽位 + 稀有度卡池）
+├─ gacha.py            # 拆卡引擎（规格/变体槽位 + 稀有度卡池）
 ├─ config.py           # 各弹规格映射与划档概率配置
 ├─ fetch_data.py       # 从 mik.moe 同步各弹卡表
 ├─ build_exe.bat       # 一键打包 exe
@@ -83,7 +83,7 @@ PTCG/
 │  ├─ sets_index.json  # 弹索引
 │  ├─ cards/           # 每弹卡牌列表
 │  └─ *_cache/         # 运行时缓存（图片/图标/详情）
-└─ dist/宝可梦卡牌模拟抽卡.exe
+└─ dist/宝可梦卡牌模拟拆卡.exe
 ```
 
 ## API 一览
@@ -105,13 +105,13 @@ PTCG/
 ## 安卓 APK（android-apk 分支）
 
 在 `android-apk` 分支上，同一套前端被改造成纯资产模式（无 Python 后端）：
-卡表/弹索引内嵌进 APK，抽卡引擎（规格/变体/划档概率）移植为 JS 本地运行，
+卡表/弹索引内嵌进 APK，拆卡引擎（规格/变体/划档概率）移植为 JS 本地运行，
 卡牌牌面由 WebView 直连 mik.moe 图源在线加载。
 
 ```bash
 git checkout android-apk
 python android/build_assets.py    # 生成 android/app/src/main/assets/www/
-python android/build_apk.py       # 产出 dist/宝可梦卡牌抽卡.apk
+python android/build_apk.py       # 产出 dist/PTCG模拟拆卡.apk
 ```
 
 - 构建链：aapt2 → javac → d8 → zipalign → apksigner（不依赖 Gradle/AGP）。
