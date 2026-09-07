@@ -382,7 +382,7 @@ async function draw(spec, packs) {
     state.pending = { spec, recorded: data.packs.map(() => false) };
     openOverlay(spec, packs);
   } catch (e) {
-    alert(`抽卡失败：${e.message}`);
+    alert(`拆卡失败：${e.message}`);
   } finally {
     state.drawing = false;
     $$(".draw-actions .btn").forEach((b) => (b.disabled = false));
@@ -539,7 +539,7 @@ function addHistory(spec, packs, result) {
 function renderHistory() {
   const box = $("#history");
   if (!state.history.length) {
-    box.innerHTML = `<div class="empty-tip">还没有记录，去抽一发吧！</div>`;
+    box.innerHTML = `<div class="empty-tip">还没有记录，去拆一发吧！</div>`;
     return;
   }
   box.innerHTML = "";
@@ -619,7 +619,7 @@ function renderCollection() {
     const d = document.createElement("div");
     d.className = "coll-card";
     d.innerHTML = `
-      <img loading="lazy" decoding="async" src="/thumb/${e.setCode}/${e.cardIndex}" alt="${escapeHtml(e.name)}">
+      <img loading="lazy" decoding="async" src="${thumbURL(e)}" alt="${escapeHtml(e.name)}">
       <div class="cc-x">×${e.count}</div>
       <div class="cc-name">${rarBadge(e.rarity)}${escapeHtml(e.name)} <span>${escapeHtml(e.cardIndex)}</span></div>`;
     d.addEventListener("click", () => showDetail(e.setCode, e.cardIndex));
@@ -716,8 +716,6 @@ async function showProbabilities() {
         </div>`;
     }).join("");
     $("#probBody").innerHTML = `
-      <p class="prob-note">官方未公布每张卡的精确出货率。本页展示的为程序<b>划档概率</b>（可在 config.py 中调整），
-      规格依据官方发售公告：每弹的包张数与平卡/闪卡构成见下，槽位内部概率已按本弹实际稀有度卡池归一化。</p>
       ${specHtml}`;
   } catch (e) {
     $("#probBody").innerHTML = `<p class="prob-note">载入失败：${escapeHtml(e.message)}</p>`;
@@ -742,7 +740,7 @@ async function showDetail(code, idx) {
         ${a.text ? `<div>${escapeHtml(a.text)}</div>` : ""}
       </div>`).join("");
     $("#detailBody").innerHTML = `
-      <div class="d-img"><img src="/img/${c.setCode}/${c.cardIndex}" alt="${escapeHtml(c.name)}"></div>
+      <div class="d-img"><img src="${imgURL(c.setCode, c.cardIndex)}" alt="${escapeHtml(c.name)}"></div>
       <div class="d-info">
         <h4>${escapeHtml(c.name)} <span style="font-size:12px;color:var(--txt2)">${escapeHtml(c.nameEn || "")}</span></h4>
         <div class="d-sub">${escapeHtml(c.setCode)}-${escapeHtml(c.cardIndex)} · ${RARITY_LABEL[c.rarity] || c.rarity || "—"} · ${escapeHtml(c.artist || "")}</div>

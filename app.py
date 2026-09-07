@@ -346,7 +346,7 @@ if __name__ == "__main__":
         ).start()
         time.sleep(1.0)
         webview.create_window(
-            "宝可梦卡牌 · 简中模拟抽卡",
+            "PTCG模拟拆卡",
             url,
             width=1360, height=900, min_size=(960, 640),
             background_color="#0b0f1a",
@@ -356,5 +356,5 @@ if __name__ == "__main__":
         # 无 pywebview 时回退到浏览器
         if getattr(sys, "frozen", False) or os.environ.get("PTCG_OPEN"):
             threading.Timer(1.2, lambda: webbrowser.open(url)).start()
-        print(f"宝可梦卡牌（简中）模拟抽卡 → {url}")
+        print(f"PTCG模拟拆卡 → {url}")
         app.run(host="127.0.0.1", port=port, debug=False, threaded=True)

@@ -141,13 +141,14 @@ def spec_probabilities(set_id: str, spec: dict) -> dict:
             })
         return out
 
-    variants = spec.get("variants") or [{"note": spec.get("note", ""), "slots": spec["slots"]}]
+    variants = spec.get("variants") or [{"note": spec.get("note", ""), "slots": spec.get("slots", [])}]
+    first = variants[0]
     return {
         "id": spec_id,
         "label": spec["label"],
         "note": spec.get("note", ""),
         "price": spec.get("price"),
-        "packSize": len((spec.get("variants") or [{}])[0].get("slots", spec["slots"])),
+        "packSize": len(first.get("slots") or spec.get("slots") or []),
         "variants": [
             {"note": v["note"], "slots": slot_table(v["slots"])} for v in variants
         ],

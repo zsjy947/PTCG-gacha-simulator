@@ -20,7 +20,7 @@ JDK = SDK / "jdk-17.0.20.1+1"
 
 APP_MAIN = ANDROID / "app" / "src" / "main"
 OUT = ANDROID / "build"
-APK_NAME = "宝可梦卡牌抽卡.apk"
+APK_NAME = "PTCG模拟拆卡.apk"
 
 ENV = {
     **__import__("os").environ,
