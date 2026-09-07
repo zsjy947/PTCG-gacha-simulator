@@ -308,9 +308,22 @@ function selectSet(id) {
         ${s.specs.map((sp) => `<span>${escapeHtml(sp.label)}${sp.price ? ` · ${escapeHtml(sp.price)}` : ""}</span>`).join("")}
       </div>
     </div>`;
+  $("#spName").textContent = s.name;
+  $("#spMeta").textContent = `${s.group} · ${s.count} 张`;
+  closeSidebar();
   renderSpecButtons();
   renderStats();
   loadSetCards(s.id).then(() => { if ($("#tab-cardlist").classList.contains("active")) renderCardList(); });
+}
+
+/* 手机端弹包选择抽屉 */
+function openSidebar() {
+  $("#sidebar").classList.add("open");
+  $("#sidebarBackdrop").hidden = false;
+}
+function closeSidebar() {
+  $("#sidebar").classList.remove("open");
+  $("#sidebarBackdrop").hidden = true;
 }
 
 /* ---------------- 规格按钮 ---------------- */
@@ -761,6 +774,9 @@ function init() {
   }));
 
   $("#setSearch").addEventListener("input", (e) => filterSets(e.target.value));
+  $("#setPicker").addEventListener("click", openSidebar);
+  $("#sideClose").addEventListener("click", closeSidebar);
+  $("#sidebarBackdrop").addEventListener("click", closeSidebar);
   $("#probClose").addEventListener("click", () => ($("#probOverlay").hidden = true));
   $("#detailClose").addEventListener("click", () => ($("#detailOverlay").hidden = true));
   [$("#probOverlay"), $("#detailOverlay")].forEach((ov) =>
@@ -795,7 +811,7 @@ function init() {
   $("#clSearch").addEventListener("input", drawCardList);
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { closeOverlay(); $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true; }
+    if (e.key === "Escape") { closeOverlay(); closeSidebar(); $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true; }
     if (!$("#overlay").hidden && e.key === " ") { e.preventDefault(); burstPack(); }
   });
 
