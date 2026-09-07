@@ -1,4 +1,4 @@
-/* 宝可梦卡牌 · 简中模拟抽卡 —— 前端逻辑 */
+/* 宝可梦卡牌 · 简中拆卡模拟 —— 前端逻辑 */
 "use strict";
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -54,6 +54,36 @@ function cardImage(c) {
 }
 function iconURL(code) {
   return ASSET ? `${MIK_STATIC}/setCode/${code}.png` : `/icon/${code}`;
+}
+
+/* 资产模式下远程图片经 XHR 转 Blob 显示（file:// 页面 img 直连远程可能被拦截） */
+const imgBlobCache = new Map();
+function upgradeRemoteImages(root) {
+  if (!ASSET) return;
+  root.querySelectorAll("img[src^='http']").forEach((img) => {
+    const url = img.getAttribute("src");
+    if (!url || img.dataset.blobbed) return;
+    img.dataset.blobbed = "1";
+    let p = imgBlobCache.get(url);
+    if (!p) {
+      p = new Promise((resolve) => {
+        try {
+          const x = new XMLHttpRequest();
+          x.open("GET", url, true);
+          x.responseType = "arraybuffer";
+          x.onload = () => {
+            if (x.status !== 200 || !x.response) { resolve(null); return; }
+            const type = x.getResponseHeader("Content-Type") || "image/png";
+            resolve(URL.createObjectURL(new Blob([x.response], { type })));
+          };
+          x.onerror = () => resolve(null);
+          x.send();
+        } catch { resolve(null); }
+      });
+      imgBlobCache.set(url, p);
+    }
+    p.then((u) => { if (u) img.src = u; });
+  });
 }
 
 /* ---- 本地抽卡引擎（资产模式） ---- */
@@ -127,7 +157,7 @@ const DATA = {
       const entry = { ...s, specs: m.specs || [], drawable: !!m.drawable, group: m.group || "其他" };
       (groups[entry.group] = groups[entry.group] || []).push(entry);
     }
-    const order = ["补充包", "宝石包", "嗨皮系列", "对战派对",
+    const order = ["补充包", "收集啦151", "宝石包", "嗨皮系列", "对战派对",
                    "大师战略卡组", "起始卡组", "专题包", "礼盒·套装", "特典卡"];
     const result = [];
     for (const g of order) if (groups[g]) { result.push({ group: g, sets: groups[g] }); delete groups[g]; }
@@ -277,6 +307,7 @@ async function loadSets() {
     }
     box.innerHTML = "";
     box.appendChild(frag);
+    upgradeRemoteImages(box);
   } catch (e) {
     box.innerHTML = `<div class="side-loading">载入失败：${escapeHtml(e.message)}<br>请先运行 <b>python fetch_data.py</b></div>`;
   }
@@ -311,6 +342,9 @@ function selectSet(id) {
           : "<span>未开放拆卡 · 仅浏览卡表</span>"}
       </div>
     </div>`;
+  const spIcon = document.querySelector("#setPicker .sp-icon");
+  spIcon.innerHTML = `<img src="${iconURL(s.code)}" alt="" style="width:34px;height:24px;object-fit:contain" onerror="this.textContent='🎯'">`;
+  upgradeRemoteImages(spIcon);
   $("#spName").textContent = s.name;
   $("#spMeta").textContent = `${s.group} · ${s.count} 张`;
   closeSidebar();
@@ -571,6 +605,7 @@ function renderHistory() {
       m.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
       rc.appendChild(m);
     }
+    upgradeRemoteImages(rc);
     box.appendChild(div);
   }
 }
@@ -632,6 +667,7 @@ function renderCollection() {
     d.addEventListener("click", () => showDetail(e.setCode, e.cardIndex));
     grid.appendChild(d);
   }
+  upgradeRemoteImages(grid);
 }
 
 function exportCollection() {
@@ -672,6 +708,7 @@ function drawCardList() {
     d.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
     grid.appendChild(d);
   }
+  upgradeRemoteImages(grid);
 }
 function fillRarityFilter(cards) {
   const sel = $("#clRarity");
@@ -764,6 +801,7 @@ async function showDetail(code, idx) {
         <div class="d-effect">${escapeHtml(c.description || "—")}</div>
         ${attacks ? `<div class="d-attacks">${attacks}</div>` : ""}
       </div>`;
+    upgradeRemoteImages(document.querySelector("#detailBody"));
   } catch (e) {
     $("#detailBody").innerHTML = `<p class="prob-note">载入失败：${escapeHtml(e.message)}</p>`;
   }

@@ -1,6 +1,6 @@
-# PTCG模拟拆卡（宝可梦卡牌 · 简中）
+# PTCG拆卡模拟器（宝可梦卡牌 · 简中）
 
-一个按**弹（扩展系列）**分类的简体中文宝可梦卡牌模拟拆卡器：
+一个按**弹（扩展系列）**分类的简体中文宝可梦卡牌拆卡模拟器：
 选择弹包 → 按该弹**官方发售规格**开包（5张瘦包 / 20张肥包 / 25张装 / 10张装 / 宝石包 4张全闪等）→
 3D 翻卡看牌面（卡图从网络实时获取并缓存）。内置概率公示、收藏册与完整卡表浏览。
 
@@ -112,7 +112,7 @@ PTCG/
 ```bash
 git checkout android-apk
 python android/build_assets.py    # 生成 android/app/src/main/assets/www/
-python android/build_apk.py       # 产出 dist/PTCG模拟拆卡.apk
+python android/build_apk.py       # 产出 dist/PTCG拆卡模拟器.apk
 ```
 
 - 构建链：aapt2 → javac → d8 → zipalign → apksigner（不依赖 Gradle/AGP）。
