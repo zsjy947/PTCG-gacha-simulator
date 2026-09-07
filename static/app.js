@@ -118,16 +118,17 @@ const DATA = {
     if (!ASSET) return api("/api/sets");
     // 数据由 build_assets 以 JS 文件内嵌（file:// 下 fetch 不可用）
     const idx = window.__SETS_INDEX__ || [];
-    const meta = window.__GACHA_META__ || { sets: {}, fallback: { specs: [] } };
+    const meta = window.__GACHA_META__ || { sets: {} };
     state.gachaMeta = meta;
     const groups = {};
     for (const s of idx) {
       if (!s.count) continue;
-      const m = meta.sets[s.code];
-      const entry = { ...s, specs: m ? m.specs : meta.fallback.specs };
-      (groups[s.seriesZh || "其他"] = groups[s.seriesZh || "其他"] || []).push(entry);
+      const m = meta.sets[s.code] || {};
+      const entry = { ...s, specs: m.specs || [], drawable: !!m.drawable, group: m.group || "其他" };
+      (groups[entry.group] = groups[entry.group] || []).push(entry);
     }
-    const order = ["超级进化系列", "朱&紫 系列", "剑&盾 系列", "太阳&月亮 系列", "30周年庆典"];
+    const order = ["补充包", "宝石包", "嗨皮系列", "对战派对",
+                   "大师战略卡组", "起始卡组", "专题包", "礼盒·套装", "特典卡"];
     const result = [];
     for (const g of order) if (groups[g]) { result.push({ group: g, sets: groups[g] }); delete groups[g]; }
     for (const g of Object.keys(groups)) result.push({ group: g, sets: groups[g] });
@@ -157,7 +158,7 @@ const DATA = {
     if (!ASSET) return api(`/api/sets/${encodeURIComponent(setId)}/probabilities`);
     const cards = await DATA.cards(setId);
     const pools = buildPools(cards);
-    return { specs: state.current.specs.map((sp) => jsSpecProbabilities(sp, pools)) };
+    return { specs: (state.current.specs || []).map((sp) => jsSpecProbabilities(sp, pools)) };
   },
   async draw(setId, spec, packs) {
     if (!ASSET) {
@@ -305,7 +306,9 @@ function selectSet(id) {
       <p>${escapeHtml(s.group)} · ${s.count} 张卡牌</p>
       <div class="hero-meta">
         <span>弹代码 ${escapeHtml(s.code)}</span>
-        ${s.specs.map((sp) => `<span>${escapeHtml(sp.label)}${sp.price ? ` · ${escapeHtml(sp.price)}` : ""}</span>`).join("")}
+        ${s.specs.length
+          ? s.specs.map((sp) => `<span>${escapeHtml(sp.label)}${sp.price ? ` · ${escapeHtml(sp.price)}` : ""}</span>`).join("")
+          : "<span>未开放拆卡 · 仅浏览卡表</span>"}
       </div>
     </div>`;
   $("#spName").textContent = s.name;
@@ -339,6 +342,10 @@ function renderSpecButtons() {
   const box = $("#drawActions");
   box.innerHTML = "";
   if (!state.current) return;
+  if (!state.current.specs.length) {
+    box.innerHTML = `<div class="empty-tip">该商品无公开随机包规格，未开放拆卡；可切换到「卡表」浏览全部卡牌。</div>`;
+    return;
+  }
   for (const sp of state.current.specs) {
     const b = document.createElement("button");
     b.className = `btn ${specBtnClass(sp)}` + (state.spec && state.spec.key === sp.key ? " spec-active" : "");

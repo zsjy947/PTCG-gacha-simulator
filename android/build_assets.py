@@ -62,11 +62,14 @@ def main():
     idx = json.loads((data / "sets_index.json").read_text(encoding="utf-8"))
     sets_meta = {}
     for s in idx:
+        group, drawable = config.product_group(s["code"])
         sets_meta[s["code"]] = {
             "name": s["name"],
             "seriesZh": s["seriesZh"],
+            "group": group,
+            "drawable": drawable,
             "count": s["count"],
-            "specs": spec_brief_full(s["code"]),
+            "specs": spec_brief_full(s["code"]) if drawable else [],
         }
     # 数据以 JS 文件内嵌：file:// 下 script 标签不受 fetch/XHR 限制
     def js_assign(var: str, obj) -> str:
@@ -74,10 +77,8 @@ def main():
 
     (WWW / "assets" / "sets_index.js").write_text(
         js_assign("__SETS_INDEX__", idx), encoding="utf-8")
-    (WWW / "assets" / "meta.js").write_text(js_assign("__GACHA_META__", {
-        "sets": sets_meta,
-        "fallback": {"specs": spec_brief_full("__generic__")},
-    }), encoding="utf-8")
+    (WWW / "assets" / "meta.js").write_text(
+        js_assign("__GACHA_META__", {"sets": sets_meta}), encoding="utf-8")
 
     # 每弹卡表（JS 文件，动态 script 标签按需加载）
     cards_dir = WWW / "assets" / "cards"

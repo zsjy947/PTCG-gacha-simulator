@@ -201,16 +201,16 @@ def api_sets():
         if not s.get("count"):
             continue  # 数据源无卡牌索引的弹（如特典卡）不展示
         s = dict(s)
+        group, drawable = config.product_group(s["code"])
+        s["group"] = group
+        s["drawable"] = drawable
         s["specs"] = _spec_brief(s["code"])
-        groups.setdefault(s.get("seriesZh") or "其他", []).append(s)
-    order = [config.SERIES_GROUP[k] for k in
-             ("Mega", "Scarlet & Violet", "Sword & Shield", "Sun & Moon", "30th")]
-    result = []
-    for g in order:
-        if g in groups:
-            result.append({"group": g, "sets": groups.pop(g)})
-    for g, sets in groups.items():
-        result.append({"group": g, "sets": sets})
+        groups.setdefault(group, []).append(s)
+    result = [{"group": g, "sets": groups[g]}
+              for g in config.GROUP_ORDER if g in groups]
+    for g, sets in groups.items():  # 兜底：未知分组排最后
+        if g not in config.GROUP_ORDER:
+            result.append({"group": g, "sets": sets})
     if not result:
         return jsonify({"error": "本地暂无弹数据，请先运行 python fetch_data.py"}), 503
     return jsonify({"groups": result})
@@ -245,6 +245,8 @@ def api_draw():
     packs = max(1, min(int(body.get("packs") or 1), 10))
     if not _SAFE.match(set_id):
         return jsonify({"error": "非法弹代码"}), 400
+    if not config.set_specs(set_id):
+        return jsonify({"error": "该商品无公开随机包规格，未开放拆卡（可浏览卡表）"}), 400
     try:
         packs_out = gacha.draw_pack(set_id, spec, packs)
         return jsonify({
