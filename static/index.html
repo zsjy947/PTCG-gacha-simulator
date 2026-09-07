@@ -2,7 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>宝可梦卡牌 · 简中模拟抽卡</title>
 <link rel="stylesheet" href="/static/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23fff' stroke='%23222' stroke-width='6'/%3E%3Cpath d='M4 50a46 46 0 0 1 92 0z' fill='%23e3350d'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23fff' stroke='%23222' stroke-width='6'/%3E%3C/svg%3E">
@@ -32,9 +32,11 @@
 
 <main class="layout">
   <!-- 左侧：弹选择 -->
+  <div class="sidebar-backdrop" id="sidebarBackdrop" hidden></div>
   <aside class="sidebar" id="sidebar">
     <div class="side-head">
       <h2>选择弹包</h2>
+      <button class="side-close" id="sideClose" aria-label="关闭">✕</button>
       <input id="setSearch" type="search" placeholder="搜索弹名 / 代码…" autocomplete="off">
     </div>
     <div class="set-groups" id="setGroups">
@@ -46,6 +48,11 @@
   <section class="content">
     <!-- 抽卡页 -->
     <div id="tab-draw" class="tab-page active">
+      <button class="set-picker" id="setPicker">
+        <span class="sp-icon">🎯</span>
+        <span class="sp-info"><b id="spName">选择弹包</b><span id="spMeta">点击浏览全部系列弹包</span></span>
+        <span class="sp-arrow">▾</span>
+      </button>
       <div class="hero card-glass" id="hero">
         <div class="hero-icon"><svg class="pokeball big" viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="#f5f6f8" stroke="#20242c" stroke-width="7"/><path d="M5 50a45 45 0 0 1 90 0z" fill="#e3350d"/><circle cx="50" cy="50" r="17" fill="#f5f6f8" stroke="#20242c" stroke-width="7"/><circle cx="50" cy="50" r="7" fill="#cfd6e0"/></svg></div>
         <div class="hero-info">
