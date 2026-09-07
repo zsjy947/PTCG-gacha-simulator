@@ -392,14 +392,6 @@
   "count": 167
  },
  {
-  "id": "151C",
-  "code": "151C",
-  "name": "收集啦151",
-  "series": "Scarlet & Violet",
-  "seriesZh": "朱&紫 系列",
-  "count": 192
- },
- {
   "id": "PROMO",
   "code": "PROMO",
   "name": "朱&紫 特典卡",
@@ -1046,5 +1038,37 @@
   "series": "PROMO",
   "seriesZh": "特典卡",
   "count": 0
+ },
+ {
+  "id": "151C-LV",
+  "code": "151C",
+  "name": "收集啦151 旅",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 186
+ },
+ {
+  "id": "151C-WANG",
+  "code": "151C",
+  "name": "收集啦151 望",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 186
+ },
+ {
+  "id": "151C-JING",
+  "code": "151C",
+  "name": "收集啦151 惊",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 188
+ },
+ {
+  "id": "151C-JU",
+  "code": "151C",
+  "name": "收集啦151 聚",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 187
  }
 ]

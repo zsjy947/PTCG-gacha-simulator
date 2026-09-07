@@ -90,7 +90,7 @@ SPECS = {
 
 # ---------------- 商品线分组（界面分类）与拆卡范围 ----------------
 # 仅“有公开随机包规格”的商品开放拆卡；其余只保留分类与卡表浏览。
-GROUP_ORDER = ["补充包", "宝石包", "嗨皮系列", "对战派对",
+GROUP_ORDER = ["补充包", "收集啦151", "宝石包", "嗨皮系列", "对战派对",
                "大师战略卡组", "起始卡组", "专题包", "礼盒·套装", "特典卡"]
 
 # 剑&盾 补充包（官方：5张装 + 25张装）
@@ -99,8 +99,10 @@ _CS_MAIN = {
     "CS3AC", "CS3BC", "CS3.5C", "CS4AC", "CS4BC", "CS4.5C",
     "CS5AC", "CS5BC", "CS5.5C", "CS6AC", "CS6BC", "CS6.5C",
 }
-# 朱&紫 补充包 + 收集啦151 四弹（旅/望/惊/聚，5张装瘦包 + 20张装肥包）
-_CSV_MAIN = {f"CSV{i}C" for i in range(1, 11)} | {"151C-LV", "151C-WANG", "151C-JING", "151C-JU"}
+# 朱&紫 补充包
+_CSV_MAIN = {f"CSV{i}C" for i in range(1, 11)}
+# 收集啦151 四弹（旅/望/惊/聚，同一卡表的再版弹；单独成系列分组）
+_SPLIT_151 = {"151C-LV", "151C-WANG", "151C-JING", "151C-JU"}
 # 太阳&月亮 补充包（5张装 + 25张装）
 _CSM_MAIN = {"CSM1AC", "CSM1BC", "CSM1CC", "CSM1.5C", "CSM2AC", "CSM2BC", "CSM2CC", "CSM2.5C"}
 # 对战派对（盒装/组合/改造包，固定内容）
@@ -118,6 +120,8 @@ def product_group(code: str):
     c = (code or "").upper()
     if c == "CSV9.5C":
         return ("补充包", True)          # 太晶盛聚：10张装
+    if c in _SPLIT_151:
+        return ("收集啦151", True)       # 旅/望/惊/聚：5/20张装
     if c in _CSV_MAIN:
         return ("补充包", True)          # 朱&紫补充包：5/20张装
     if c in _CS_MAIN:
@@ -160,7 +164,7 @@ def family_of(set_code: str, set_name: str = ""):
     code = (set_code or "").upper()
     if code == "CSV9.5C":
         return "tera_fes"
-    if code in _CSV_MAIN:
+    if code in _CSV_MAIN or code in _SPLIT_151:
         return "sv_main"
     if code in _CS_MAIN:
         return "cs_main"
