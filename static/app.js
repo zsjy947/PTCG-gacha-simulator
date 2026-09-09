@@ -609,10 +609,16 @@ function closeOverlay() { recordUnfinished(); $("#overlay").hidden = true; }
 
 /* ---------------- 历史记录 ---------------- */
 function addHistory(spec, packs, result) {
-  const rec = { time: new Date(), packs, specLabel: spec.label, flat: result.flat() };
+  const rec = { time: new Date(), packs, setName: state.current ? state.current.name : "", specLabel: spec.label, flat: result.flat() };
   state.history.unshift(rec);
   if (state.history.length > 30) state.history.pop();
+  store.set("ptcg_history", state.history);
   renderHistory();
+}
+
+function loadHistory() {
+  state.history = (store.get("ptcg_history", []) || []).map((r) => ({ ...r, time: new Date(r.time) }));
+  if (state.history.length) renderHistory();
 }
 
 function renderHistory() {
@@ -627,7 +633,7 @@ function renderHistory() {
     div.className = "draw-record card-glass";
     div.innerHTML = `
       <div class="record-head">
-        <b>${escapeHtml(state.current ? state.current.name : "")} · ${escapeHtml(rec.specLabel)} × ${rec.packs} 包</b>
+        <b>${escapeHtml(rec.setName || (state.current ? state.current.name : ""))} · ${escapeHtml(rec.specLabel)} × ${rec.packs} 包</b>
         <span>${rec.time.toLocaleTimeString("zh-CN")}</span>
       </div>
       <div class="record-cards"></div>`;
@@ -893,6 +899,7 @@ async function clearImageCache() {
 /* ---------------- 事件绑定 ---------------- */
 function init() {
   applyTheme(store.get("ptcg_theme", "dark"));
+  loadHistory();
 
   $$(".tab").forEach((t) => t.addEventListener("click", () => {
     $$(".tab").forEach((x) => x.classList.toggle("active", x === t));
