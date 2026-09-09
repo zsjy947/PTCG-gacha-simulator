@@ -1,10 +1,12 @@
 package cn.ptcc.gacha;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.webkit.JavascriptInterface;
+import android.webkit.JsResult;
 import android.webkit.WebChromeClient;
 import android.webkit.WebResourceRequest;
 import android.webkit.WebResourceResponse;
@@ -55,7 +57,32 @@ public class MainActivity extends Activity {
                 return intercept(request);
             }
         });
-        webView.setWebChromeClient(new WebChromeClient());
+        webView.setWebChromeClient(new WebChromeClient() {
+            // 默认弹窗会带"file:// 网页提示"前缀，自绘去掉来源显示
+            @Override
+            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+                showJsDialog(view, message, false, result);
+                return true;
+            }
+
+            @Override
+            public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
+                showJsDialog(view, message, true, result);
+                return true;
+            }
+
+            private void showJsDialog(WebView view, String message, boolean cancellable, final JsResult result) {
+                AlertDialog.Builder b = new AlertDialog.Builder(view.getContext())
+                        .setTitle("PTCG拆卡模拟器")
+                        .setMessage(message)
+                        .setPositiveButton("确定", (d, w) -> result.confirm());
+                if (cancellable) {
+                    b.setNegativeButton("取消", (d, w) -> result.cancel());
+                    b.setOnCancelListener(d -> result.cancel());
+                }
+                b.show();
+            }
+        });
         webView.setVisibility(View.VISIBLE);
         webView.loadUrl("file:///android_asset/www/index.html");
     }

@@ -807,6 +807,15 @@ async function showDetail(code, idx) {
   }
 }
 
+/* ---------------- 设置：外观主题 ---------------- */
+function applyTheme(t) {
+  document.documentElement.dataset.theme = t;
+  const info = $("#themeInfo");
+  if (info) info.textContent = `当前：${t === "light" ? "浅色" : "深色"}模式`;
+  const toggle = $("#themeToggle");
+  if (toggle) toggle.checked = t === "light";
+}
+
 /* ---------------- 设置：图片缓存 ---------------- */
 const nativeBridge = (window.PTCGNative && window.PTCGNative.cacheSize) ? window.PTCGNative : null;
 
@@ -845,6 +854,8 @@ async function clearImageCache() {
 
 /* ---------------- 事件绑定 ---------------- */
 function init() {
+  applyTheme(store.get("ptcg_theme", "dark"));
+
   $$(".tab").forEach((t) => t.addEventListener("click", () => {
     $$(".tab").forEach((x) => x.classList.toggle("active", x === t));
     $$(".tab-page").forEach((p) => p.classList.toggle("active", p.id === `tab-${t.dataset.tab}`));
@@ -891,6 +902,11 @@ function init() {
   $("#clSearch").addEventListener("input", drawCardList);
 
   $("#btnClearCache").addEventListener("click", clearImageCache);
+  $("#themeToggle").addEventListener("change", (e) => {
+    const t = e.target.checked ? "light" : "dark";
+    store.set("ptcg_theme", t);
+    applyTheme(t);
+  });
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") { closeOverlay(); closeSidebar(); $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true; }
