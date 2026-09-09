@@ -27,6 +27,7 @@
     <button class="tab active" data-tab="draw">拆卡</button>
     <button class="tab" data-tab="collection">收藏册</button>
     <button class="tab" data-tab="cardlist">卡表</button>
+    <button class="tab" data-tab="settings">设置</button>
   </nav>
 </header>
 
@@ -112,6 +113,29 @@
         </div>
       </div>
       <div class="cl-grid" id="clGrid"><div class="empty-tip">选择弹包后查看完整卡表</div></div>
+    </div>
+
+    <!-- 设置 -->
+    <div id="tab-settings" class="tab-page">
+      <div class="page-head">
+        <h2>设置</h2>
+      </div>
+      <div class="settings-card card-glass" id="cacheCard">
+        <div class="set-row">
+          <div class="set-row-info">
+            <b>卡图缓存</b>
+            <p id="cacheInfo">正在读取…</p>
+          </div>
+          <button class="mini-btn danger" id="btnClearCache">清除缓存</button>
+        </div>
+        <p class="settings-note">已浏览过的卡牌图会保存在本机，清除后再次浏览需重新联网下载。</p>
+      </div>
+      <div class="settings-card card-glass">
+        <div class="set-row-info">
+          <b>关于</b>
+          <p>PTCG拆卡模拟器 · 卡表数据与卡图来自公开网络（Cryst's Cards Database · tcg.mik.moe），仅供学习交流。宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。</p>
+        </div>
+      </div>
     </div>
   </section>
 </main>

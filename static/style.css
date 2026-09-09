@@ -472,3 +472,10 @@ select option { background: #17203a; color: var(--txt); }
   .cards-row { flex-wrap: wrap; }
   .gcard { width: 150px; height: 210px; flex: 0 0 150px; }
 }
+
+/* 设置页 */
+.settings-card { padding: 16px 18px; margin-bottom: 14px; }
+.set-row { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.set-row-info b { font-size: 15px; }
+.set-row-info p { color: var(--txt2); font-size: 13px; margin-top: 4px; line-height: 1.55; }
+.settings-note { color: var(--txt2); font-size: 12px; margin-top: 10px; border-top: 1px solid var(--line); padding-top: 10px; }

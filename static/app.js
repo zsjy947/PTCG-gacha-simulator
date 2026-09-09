@@ -807,6 +807,42 @@ async function showDetail(code, idx) {
   }
 }
 
+/* ---------------- 设置：图片缓存 ---------------- */
+const nativeBridge = (window.PTCGNative && window.PTCGNative.cacheSize) ? window.PTCGNative : null;
+
+async function refreshCacheInfo() {
+  const el = $("#cacheInfo");
+  const card = $("#cacheCard");
+  try {
+    if (nativeBridge) {
+      el.textContent = `已占用 ${nativeBridge.cacheSize()}`;
+    } else if (!ASSET) {
+      const info = await api("/api/cache/info");
+      el.textContent = `已占用 ${info.label}`;
+    } else {
+      card.hidden = true;
+    }
+  } catch {
+    card.hidden = true;
+  }
+}
+
+async function clearImageCache() {
+  if (!confirm("清除全部已缓存的卡牌图片？清除后再次浏览需重新下载。")) return;
+  const btn = $("#btnClearCache");
+  btn.disabled = true;
+  try {
+    if (nativeBridge) nativeBridge.clearCache();
+    else await api("/api/cache/clear", { method: "POST" });
+    imgBlobCache.clear();
+    await refreshCacheInfo();
+  } catch (e) {
+    alert(`清除失败：${e.message}`);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
 /* ---------------- 事件绑定 ---------------- */
 function init() {
   $$(".tab").forEach((t) => t.addEventListener("click", () => {
@@ -814,6 +850,7 @@ function init() {
     $$(".tab-page").forEach((p) => p.classList.toggle("active", p.id === `tab-${t.dataset.tab}`));
     if (t.dataset.tab === "collection") renderCollection();
     if (t.dataset.tab === "cardlist" && state.current) renderCardList();
+    if (t.dataset.tab === "settings") refreshCacheInfo();
   }));
 
   $("#setSearch").addEventListener("input", (e) => filterSets(e.target.value));
@@ -852,6 +889,8 @@ function init() {
   $("#collSort").addEventListener("change", renderCollection);
   $("#clRarity").addEventListener("change", drawCardList);
   $("#clSearch").addEventListener("input", drawCardList);
+
+  $("#btnClearCache").addEventListener("click", clearImageCache);
 
   document.addEventListener("keydown", (e) => {
     if (e.key === "Escape") { closeOverlay(); closeSidebar(); $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true; }

@@ -4,13 +4,29 @@ import android.app.Activity;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.JavascriptInterface;
 import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+
 public class MainActivity extends Activity {
+    private static final String IMG_HOST = "tcg.mik.moe";
+    private static final String IMG_PREFIX = "/static/img/";
+    private static final String ICON_PREFIX = "/static/setCode/";
+
     private WebView webView;
+    private File imgCacheDir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,6 +34,8 @@ public class MainActivity extends Activity {
         webView = new WebView(this);
         webView.setBackgroundColor(Color.parseColor("#0b0f1a"));
         setContentView(webView);
+
+        imgCacheDir = new File(getCacheDir(), "imgcache");
 
         WebSettings s = webView.getSettings();
         s.setJavaScriptEnabled(true);
@@ -30,10 +48,112 @@ public class MainActivity extends Activity {
         s.setUseWideViewPort(true);
         s.setCacheMode(WebSettings.LOAD_DEFAULT);
 
-        webView.setWebViewClient(new WebViewClient());
+        webView.addJavascriptInterface(new NativeBridge(), "PTCGNative");
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                return intercept(request);
+            }
+        });
         webView.setWebChromeClient(new WebChromeClient());
         webView.setVisibility(View.VISIBLE);
         webView.loadUrl("file:///android_asset/www/index.html");
+    }
+
+    /** 卡图请求经原生磁盘缓存：命中直接回本地文件，未命中下载后落盘再回源内容 */
+    private WebResourceResponse intercept(WebResourceRequest request) {
+        android.net.Uri uri = request.getUrl();
+        if (!IMG_HOST.equals(uri.getHost())) return null;
+        String path = uri.getPath();
+        if (path == null || (!path.startsWith(IMG_PREFIX) && !path.startsWith(ICON_PREFIX))) return null;
+        if (path.contains("..")) return null;
+
+        File dest = new File(imgCacheDir, path);
+        if (!dest.isFile()) {
+            if (!download(uri.toString(), dest)) return null; // 交给 WebView 自行请求
+        }
+        try {
+            WebResourceResponse r = new WebResourceResponse("image/png", null, new FileInputStream(dest));
+            r.setResponseHeaders(java.util.Collections.singletonMap("Access-Control-Allow-Origin", "*"));
+            return r;
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    private boolean download(String spec, File dest) {
+        File tmp = new File(dest.getParentFile(), dest.getName() + "." + System.nanoTime() + ".tmp");
+        InputStream in = null;
+        FileOutputStream out = null;
+        try {
+            HttpURLConnection conn = (HttpURLConnection) new URL(spec).openConnection();            conn.setConnectTimeout(15000);
+            conn.setReadTimeout(30000);
+            if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                conn.disconnect();
+                return false;
+            }
+            //noinspection ResultOfMethodCallIgnored
+            dest.getParentFile().mkdirs();
+            in = conn.getInputStream();
+            out = new FileOutputStream(tmp);
+            byte[] buf = new byte[16384];
+            int n;
+            while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
+            out.flush();
+            if (!tmp.renameTo(dest)) {
+                // 并发下载同一文件时目标已存在，丢弃本份临时文件即可
+                //noinspection ResultOfMethodCallIgnored
+                tmp.delete();
+            }
+            return dest.isFile();
+        } catch (IOException e) {
+            //noinspection ResultOfMethodCallIgnored
+            tmp.delete();
+            return false;
+        } finally {
+            try { if (in != null) in.close(); } catch (IOException ignored) {}
+            try { if (out != null) out.close(); } catch (IOException ignored) {}
+        }
+    }
+
+    private static String humanSize(long bytes) {
+        if (bytes < 1024) return bytes + " B";
+        double mb = bytes / 1048576.0;
+        if (mb < 1) return String.format("%.0f KB", mb * 1024);
+        return String.format("%.1f MB", mb);
+    }
+
+    private static long dirSize(File dir) {
+        File[] files = dir.listFiles();
+        if (files == null) return 0;
+        long total = 0;
+        for (File f : files) total += f.isDirectory() ? dirSize(f) : f.length();
+        return total;
+    }
+
+    private static void deleteRecursive(File dir) {
+        File[] files = dir.listFiles();
+        if (files != null) for (File f : files) {
+            if (f.isDirectory()) deleteRecursive(f);
+            //noinspection ResultOfMethodCallIgnored
+            f.delete();
+        }
+    }
+
+    /** 设置页桥：同步调用（运行在 JavaBridge 线程，允许文件 IO） */
+    private class NativeBridge {
+        @JavascriptInterface
+        public String cacheSize() {
+            return humanSize(dirSize(imgCacheDir));
+        }
+
+        @JavascriptInterface
+        public String clearCache() {
+            deleteRecursive(imgCacheDir);
+            //noinspection ResultOfMethodCallIgnored
+            imgCacheDir.mkdirs();
+            return "ok";
+        }
     }
 
     @Override

@@ -332,6 +332,43 @@ def health():
     return jsonify({"ok": True, "time": time.time()})
 
 
+def _dir_size(path: Path) -> int:
+    total = 0
+    for p in path.rglob("*"):
+        try:
+            if p.is_file():
+                total += p.stat().st_size
+        except OSError:
+            pass
+    return total
+
+
+@app.get("/api/cache/info")
+def cache_info():
+    img = _dir_size(IMG_CACHE)
+    icon = _dir_size(ICON_CACHE)
+    detail = _dir_size(DETAIL_CACHE)
+    total = img + icon + detail
+    return jsonify({
+        "total_bytes": total,
+        "label": f"{total / 1048576:.1f} MB" if total >= 1048576 else f"{total / 1024:.0f} KB",
+    })
+
+
+@app.post("/api/cache/clear")
+def cache_clear():
+    for d in (IMG_CACHE, ICON_CACHE, DETAIL_CACHE):
+        for p in d.rglob("*"):
+            try:
+                if p.is_file():
+                    p.unlink()
+                elif p.is_dir():
+                    shutil.rmtree(p, ignore_errors=True)
+            except OSError:
+                pass
+    return jsonify({"ok": True})
+
+
 # ---------------------------------------------------------------- 启动
 def _free_port(preferred: int = 5000) -> int:
     for port in (preferred, 8123, 8457, 0):
