@@ -29,6 +29,7 @@ public class MainActivity extends Activity {
 
     private WebView webView;
     private File imgCacheDir;
+    private File storeFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class MainActivity extends Activity {
         setContentView(webView);
 
         imgCacheDir = new File(getCacheDir(), "imgcache");
+        storeFile = new File(getFilesDir(), "user_store.json");
 
         WebSettings s = webView.getSettings();
         s.setJavaScriptEnabled(true);
@@ -180,6 +182,29 @@ public class MainActivity extends Activity {
             //noinspection ResultOfMethodCallIgnored
             imgCacheDir.mkdirs();
             return "ok";
+        }
+
+        /** 抽卡记录/收藏册持久化（localStorage 在 WebView 重启后不保证保留） */
+        @JavascriptInterface
+        public void saveStore(String json) {
+            try {
+                FileOutputStream out = new FileOutputStream(storeFile);
+                out.write(json.getBytes("UTF-8"));
+                out.close();
+            } catch (IOException ignored) {}
+        }
+
+        @JavascriptInterface
+        public String loadStore() {
+            try {
+                FileInputStream in = new FileInputStream(storeFile);
+                byte[] buf = new byte[(int) storeFile.length()];
+                int n = in.read(buf);
+                in.close();
+                return n > 0 ? new String(buf, "UTF-8") : "";
+            } catch (IOException e) {
+                return "";
+            }
         }
     }
 

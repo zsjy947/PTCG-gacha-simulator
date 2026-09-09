@@ -332,6 +332,41 @@ def health():
     return jsonify({"ok": True, "time": time.time()})
 
 
+# ---- 抽卡记录/收藏册持久化：前端把 localStorage 的 ptcg_* 键镜像到这里 ----
+USER_STORE = DATA / "user_store.json"
+_store_lock = threading.Lock()
+
+
+@app.get("/api/store/get")
+def store_get():
+    with _store_lock:
+        if USER_STORE.exists():
+            try:
+                return app.response_class(
+                    USER_STORE.read_text(encoding="utf-8"),
+                    mimetype="application/json",
+                )
+            except OSError:
+                pass
+    return jsonify({"data": {}})
+
+
+@app.post("/api/store/set")
+def store_set():
+    body = request.get_json(silent=True) or {}
+    data = body.get("data")
+    if not isinstance(data, dict):
+        return jsonify({"error": "非法参数"}), 400
+    tmp = USER_STORE.with_suffix(".json.tmp")
+    with _store_lock:
+        try:
+            tmp.write_text(json.dumps({"data": data}, ensure_ascii=False), encoding="utf-8")
+            tmp.replace(USER_STORE)
+        except OSError as e:
+            return jsonify({"error": f"写入失败：{e}"}), 500
+    return jsonify({"ok": True})
+
+
 def _dir_size(path: Path) -> int:
     total = 0
     for p in path.rglob("*"):

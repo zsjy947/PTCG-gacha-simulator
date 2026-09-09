@@ -16,3 +16,7 @@ android/sdk-dl/
 android/*.keystore
 android/keystore.properties
 *.keystore
+
+# 用户抽卡记录/收藏册持久化文件（本地数据，不入库）
+data/user_store.json
+data/*.json.tmp

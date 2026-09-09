@@ -233,8 +233,46 @@ function bestRarity(rs) {
 /* 本地存储 */
 const store = {
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
-  set(k, v) { localStorage.setItem(k, JSON.stringify(v)); },
+  set(k, v) { localStorage.setItem(k, JSON.stringify(v)); persistStore(); },
 };
+
+/* ---- 抽卡记录/收藏册持久化：镜像 ptcg_* 键到磁盘（exe→/api/store/*，APK→JS 桥），
+        WebView 的 localStorage 重启后不保证保留 ---- */
+function snapshotStore() {
+  const out = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith("ptcg_")) out[k] = localStorage.getItem(k);
+  }
+  return out;
+}
+function persistStore() {
+  try {
+    const data = snapshotStore();
+    if (nativeBridge && nativeBridge.saveStore) nativeBridge.saveStore(JSON.stringify(data));
+    else if (!ASSET) api("/api/store/set", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data }),
+    }).catch(() => {});
+  } catch {}
+}
+async function restoreStore() {
+  try {
+    let raw = null;
+    if (nativeBridge && nativeBridge.loadStore) raw = nativeBridge.loadStore();
+    else if (!ASSET) {
+      const r = await api("/api/store/get");
+      raw = JSON.stringify(r.data || {});
+    }
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    for (const [k, v] of Object.entries(data.data || data)) {
+      // 只补缺失的键：本地已有（可能更新）时不覆盖
+      if (localStorage.getItem(k) === null && typeof v === "string") localStorage.setItem(k, v);
+    }
+  } catch {}
+}
 const statsKey = () => "ptcg_stats";
 const collKey = () => "ptcg_coll";
 
@@ -916,4 +954,4 @@ function init() {
   loadSets();
 }
 
-init();
+(async () => { await restoreStore(); init(); })();
