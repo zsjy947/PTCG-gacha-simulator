@@ -52,14 +52,24 @@ def _pick_rarity(probs: dict) -> str:
     return next(reversed(probs))
 
 
-def _pick_card(pools: dict, rarity: str | None, cards: list) -> dict:
+def _card_key(card: dict) -> str:
+    return f"{card.get('setCode')}__{card.get('cardIndex')}"
+
+
+def _pick_card(pools: dict, rarity: str | None, cards: list, used: set | None = None) -> dict:
+    """按稀有度池均匀抽卡；包内已出现的卡不再出现（同稀有度池去重，池耗尽退回整弹去重）。"""
     if rarity is None:
         # 兜底：整弹均匀抽（特典/礼盒类弹的权重稀有度全部缺失时）
-        return dict(random.choice(cards))
-    pool = pools.get(rarity)
-    if pool:
-        return dict(random.choice(pool))
-    return dict(random.choice(cards))
+        src = cards
+    else:
+        src = pools.get(rarity) or cards
+    if used:
+        fresh = [c for c in src if _card_key(c) not in used]
+        if not fresh:
+            fresh = [c for c in cards if _card_key(c) not in used]
+        if fresh:
+            src = fresh
+    return dict(random.choice(src))
 
 
 def resolve_spec(set_id: str, spec_id: str | None) -> dict:
@@ -84,13 +94,15 @@ def _slot_probs(slot: dict, set_code: str, spec_id: str, pools: dict):
 
 
 def _draw_by_slots(slots: list, set_code: str, spec_id: str, pools: dict, cards: list) -> list:
-    pack = []
+    pack: list = []
+    used: set = set()  # 本包已出现的卡（setCode__cardIndex），包内不重复
     for slot in slots:
         probs = _slot_probs(slot, set_code, spec_id, pools)
         if probs:
-            card = _pick_card(pools, _pick_rarity(probs), cards)
+            card = _pick_card(pools, _pick_rarity(probs), cards, used)
         else:
-            card = _pick_card(pools, None, cards)
+            card = _pick_card(pools, None, cards, used)
+        used.add(_card_key(card))
         card["slotName"] = slot["name"]
         card["slotKind"] = slot["kind"]
         pack.append(card)

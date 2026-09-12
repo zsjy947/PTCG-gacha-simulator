@@ -107,18 +107,26 @@ function pickRarity(probs) {
   for (const [r, p] of Object.entries(probs)) { acc += p; if (roll <= acc) return r; }
   return Object.keys(probs).pop();
 }
-function pickCard(pools, rarity, cards) {
-  const pool = rarity ? pools[rarity] : null;
-  const src = pool && pool.length ? pool : cards;
+function cardKey(c) { return `${c.setCode}__${c.cardIndex}`; }
+function pickCard(pools, rarity, cards, used) {
+  // 包内已出现的卡不再出现：同稀有度池去重，池耗尽退回整弹去重
+  let src = rarity ? (pools[rarity] && pools[rarity].length ? pools[rarity] : cards) : cards;
+  if (used) {
+    let fresh = src.filter((c) => !used.has(cardKey(c)));
+    if (!fresh.length) fresh = cards.filter((c) => !used.has(cardKey(c)));
+    if (fresh.length) src = fresh;
+  }
   return { ...src[Math.floor(Math.random() * src.length)] };
 }
 function jsDrawPack(pools, cards, spec) {
   const variants = spec.variants || [{ note: spec.note || "", slots: spec.slots }];
   const v = variants[Math.floor(Math.random() * variants.length)];
   const available = Object.keys(pools);
+  const used = new Set();
   return v.slots.map((slot) => {
     const probs = normalizeWeights(slot.weights, available);
-    const card = pickCard(pools, probs ? pickRarity(probs) : null, cards);
+    const card = pickCard(pools, probs ? pickRarity(probs) : null, cards, used);
+    used.add(cardKey(card));
     card.slotName = slot.name;
     card.slotKind = slot.kind;
     return card;
