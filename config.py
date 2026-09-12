@@ -47,27 +47,27 @@ def _holo(n: int) -> list:
 SPECS = {
     "sm5": {
         "id": "5", "label": "5张装", "short": "5张",
-        "note": "4张平卡 + 1张闪卡（必出闪卡）", "price": "10元/包",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）", "price": "10元/包", "priceCny": 10,
         "slots": _normal(4) + _holo(1),
     },
     "sm25": {
         "id": "25", "label": "25张装", "short": "25张",
-        "note": "20张平卡 + 5张闪卡", "price": None,
+        "note": "20张平卡 + 5张闪卡", "price": "50元/包", "priceCny": 50,
         "slots": _normal(20) + _holo(5),
     },
     "sv5": {
         "id": "5", "label": "5张装（瘦包）", "short": "5张",
-        "note": "4张平卡 + 1张闪卡", "price": "10元/包",
+        "note": "4张平卡 + 1张闪卡", "price": "10元/包", "priceCny": 10,
         "slots": _normal(4) + _holo(1),
     },
     "sv20": {
         "id": "20", "label": "20张装（肥包）", "short": "20张",
-        "note": "14张平卡 + 6张闪卡", "price": "50元/包",
+        "note": "14张平卡 + 6张闪卡", "price": "50元/包", "priceCny": 50,
         "slots": _normal(14) + _holo(6),
     },
     "tera10": {
         "id": "10", "label": "10张装", "short": "10张",
-        "note": "7张平卡+3张闪卡 或 6张平卡+4张闪卡", "price": "30元/包",
+        "note": "7张平卡+3张闪卡 或 6张平卡+4张闪卡", "price": "30元/包", "priceCny": 30,
         "variants": [
             {"note": "7平 + 3闪", "slots": _normal(7) + _holo(3)},
             {"note": "6平 + 4闪", "slots": _normal(6) + _holo(4)},
@@ -75,7 +75,7 @@ SPECS = {
     },
     "gem4": {
         "id": "4", "label": "4张装（全闪）", "short": "4张",
-        "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）", "price": None,
+        "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）", "price": "10元/包", "priceCny": 10,
         "slots": (
             _slots("holo", 3, NORMAL_WEIGHTS, "闪卡（普通稀有度）")
             + _slots("holo", 1, HOLO_WEIGHTS, "闪卡（高稀有度）")
@@ -83,7 +83,7 @@ SPECS = {
     },
     "reward1": {
         "id": "1", "label": "奖赏包（1张）", "short": "1张",
-        "note": "每包1张高稀有度闪卡", "price": None,
+        "note": "每包1张高稀有度闪卡", "price": "未计价", "priceCny": None,
         "slots": _slots("holo", 1, HOLO_WEIGHTS, "闪卡"),
     },
 }

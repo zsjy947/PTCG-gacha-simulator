@@ -297,7 +297,58 @@ function clearStats(setId) {
   const all = store.get(statsKey(), {});
   delete all[setId];
   store.set(statsKey(), all);
+  const sp = store.get(spendKey(), {});
+  if (sp[setId]) { delete sp[setId]; store.set(spendKey(), sp); renderSpend(); }
   renderStats();
+}
+
+/* ---------------- 消费统计（按官方建议零售价记账，全局生效） ---------------- */
+const spendKey = () => "ptcg_spend";
+const spendEnabled = () => store.get("ptcg_spend_enabled", true);
+
+function getSpend(setId) {
+  const all = store.get(spendKey(), {});
+  return all[setId] || { money: 0, packs: 0 };
+}
+function addSpend(setId, spec, packCount) {
+  if (!spendEnabled() || !spec || !spec.priceCny) return;
+  const all = store.get(spendKey(), {});
+  const s = all[setId] || { money: 0, packs: 0 };
+  s.money += spec.priceCny * packCount;
+  s.packs += packCount;
+  all[setId] = s;
+  store.set(spendKey(), all);
+  renderSpend();
+  renderStats(); // 拆卡页"本弹花费"与入账同帧刷新
+}
+function clearSpendAll() {
+  store.set(spendKey(), {});
+  renderSpend();
+  renderStats();
+}
+function fmtMoney(n) { return Number.isInteger(n) ? String(n) : n.toFixed(2); }
+
+function renderSpend() {
+  const info = $("#spendInfo"), list = $("#spendList"), toggle = $("#spendToggle");
+  if (!info) return;
+  toggle.checked = spendEnabled();
+  const all = store.get(spendKey(), {});
+  let money = 0, packs = 0;
+  const rows = [];
+  for (const [id, s] of Object.entries(all)) {
+    money += s.money;
+    packs += s.packs;
+    const set = state.sets ? state.sets.find((x) => x.id === id) : null;
+    rows.push({ name: set ? set.name : id, money: s.money, packs: s.packs });
+  }
+  const avg = packs ? `¥${fmtMoney(Math.round((money / packs) * 100) / 100)}` : "—";
+  info.textContent = spendEnabled()
+    ? `总花费 ¥${fmtMoney(money)} · 共 ${packs} 包 · 平均每包 ${avg}`
+    : `记账已关闭 · 历史累计 ¥${fmtMoney(money)}（${packs} 包）`;
+  rows.sort((a, b) => b.money - a.money);
+  list.innerHTML = rows.map((r) =>
+    `<div class="spend-row"><span class="sr-name">${escapeHtml(r.name)}</span><b>¥${fmtMoney(r.money)}<i>（${r.packs} 包）</i></b></div>`
+  ).join("");
 }
 
 function getColl() { return store.get(collKey(), {}); }
@@ -312,6 +363,24 @@ function addColl(setId, cards) {
   }
   coll[setId] = box;
   store.set(collKey(), coll);
+}
+
+/* ---------------- 应用内确认弹窗（替代原生 confirm：pywebview/WebView 原生弹窗会带源地址前缀） ---------------- */
+let _confirmDone = null;
+function uiConfirm(msg) {
+  return new Promise((resolve) => {
+    _confirmDone = resolve;
+    $("#confirmText").textContent = msg;
+    $("#confirmOverlay").hidden = false;
+    $("#btnConfirmOk").focus();
+  });
+}
+function settleConfirm(v) {
+  if (!_confirmDone) return;
+  const resolve = _confirmDone;
+  _confirmDone = null;
+  $("#confirmOverlay").hidden = true;
+  resolve(v);
 }
 
 /* ---------------- 弹列表 ---------------- */
@@ -461,7 +530,7 @@ async function draw(spec, packs) {
     state.pending = { spec, recorded: data.packs.map(() => false) };
     openOverlay(spec, packs);
   } catch (e) {
-    alert(`拆卡失败：${e.message}`);
+    toast(`拆卡失败：${e.message}`, 3000);
   } finally {
     state.drawing = false;
     $$(".draw-actions .btn").forEach((b) => (b.disabled = false));
@@ -587,6 +656,7 @@ function maybeRecordPack(pi) {
   const cards = state.packs[pi];
   addHistory(p.spec, 1, cards);
   addStats(state.current.id, cards, 1);
+  addSpend(state.current.id, p.spec, 1);
   addColl(state.current.id, cards);
 }
 
@@ -600,6 +670,7 @@ function recordUnfinished() {
     const cards = state.packs[pi];
     addHistory(p.spec, 1, cards);
     addStats(state.current.id, cards, 1);
+    addSpend(state.current.id, p.spec, 1);
     addColl(state.current.id, cards);
   });
   state.pending = null;
@@ -609,7 +680,7 @@ function closeOverlay() { recordUnfinished(); $("#overlay").hidden = true; }
 
 /* ---------------- 历史记录 ---------------- */
 function addHistory(spec, packs, result) {
-  const rec = { time: new Date(), packs, setName: state.current ? state.current.name : "", specLabel: spec.label, flat: result.flat() };
+  const rec = { time: new Date(), packs, setName: state.current ? state.current.name : "", specLabel: spec.label, money: spec && spec.priceCny ? spec.priceCny * packs : 0, flat: result.flat() };
   state.history.unshift(rec);
   if (state.history.length > 30) state.history.pop();
   store.set("ptcg_history", state.history);
@@ -634,7 +705,7 @@ function renderHistory() {
     div.innerHTML = `
       <div class="record-head">
         <b>${escapeHtml(rec.setName || (state.current ? state.current.name : ""))} · ${escapeHtml(rec.specLabel)} × ${rec.packs} 包</b>
-        <span>${rec.time.toLocaleTimeString("zh-CN")}</span>
+        <span>${rec.money ? `¥${fmtMoney(rec.money)} · ` : ""}${rec.time.toLocaleTimeString("zh-CN")}</span>
       </div>
       <div class="record-cards"></div>`;
     const rc = div.querySelector(".record-cards");
@@ -666,6 +737,8 @@ function renderStats() {
   const el = $("#stBest");
   el.textContent = best || "—";
   el.style.color = best ? RARITY_COLOR[best] : "";
+  const sp = getSpend(state.current.id);
+  $("#stSpend").textContent = `¥${fmtMoney(sp.money)}`;
 }
 
 /* ---------------- 收藏册 ---------------- */
@@ -975,7 +1048,7 @@ async function refreshCacheInfo() {
 }
 
 async function clearImageCache() {
-  if (!confirm("清除全部已缓存的卡牌图片？清除后再次浏览需重新下载。")) return;
+  if (!(await uiConfirm("清除全部已缓存的卡牌图片？清除后再次浏览需重新下载。"))) return;
   const btn = $("#btnClearCache");
   btn.disabled = true;
   try {
@@ -984,7 +1057,7 @@ async function clearImageCache() {
     imgBlobCache.clear();
     await refreshCacheInfo();
   } catch (e) {
-    alert(`清除失败：${e.message}`);
+    toast(`清除失败：${e.message}`, 3000);
   } finally {
     btn.disabled = false;
   }
@@ -1029,11 +1102,18 @@ function init() {
   $("#autoFlip").checked = store.get("ptcg_autoflip", false);
   $("#autoFlip").addEventListener("change", (e) => store.set("ptcg_autoflip", e.target.checked));
 
-  $("#btnClearStats").addEventListener("click", () => {
-    if (state.current && confirm(`清空「${state.current.name}」的统计？`)) clearStats(state.current.id);
+  $("#btnClearStats").addEventListener("click", async () => {
+    if (state.current && (await uiConfirm(`清空「${state.current.name}」的统计？`))) clearStats(state.current.id);
   });
-  $("#btnClearColl").addEventListener("click", () => {
-    if (confirm("清空全部收藏记录？")) { store.set(collKey(), {}); renderCollection(); }
+  $("#btnClearSpend").addEventListener("click", async () => {
+    if (await uiConfirm("清零全部消费统计？（拆卡记录不受影响）")) clearSpendAll();
+  });
+  $("#spendToggle").addEventListener("change", (e) => {
+    store.set("ptcg_spend_enabled", e.target.checked);
+    renderSpend();
+  });
+  $("#btnClearColl").addEventListener("click", async () => {
+    if (await uiConfirm("清空全部收藏记录？")) { store.set(collKey(), {}); renderCollection(); }
   });
   $("#btnExportColl").addEventListener("click", exportCollection);
   $("#collSet").addEventListener("change", renderCollection);
@@ -1055,11 +1135,16 @@ function init() {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { closeOverlay(); closeSidebar(); $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true; }
+    if (e.key === "Escape") { closeOverlay(); closeSidebar(); $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true; if (!$("#confirmOverlay").hidden) settleConfirm(false); }
     if (!$("#overlay").hidden && e.key === " ") { e.preventDefault(); burstPack(); }
   });
 
-  loadSets();
+  $("#btnConfirmOk").addEventListener("click", () => settleConfirm(true));
+  $("#btnConfirmCancel").addEventListener("click", () => settleConfirm(false));
+  $("#confirmOverlay").addEventListener("click", (e) => { if (e.target === e.currentTarget) settleConfirm(false); });
+
+  loadSets().then(renderSpend);
+  renderSpend();
 }
 
 (async () => { await restoreStore(); init(); })();

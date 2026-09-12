@@ -162,7 +162,7 @@ select option { background: var(--pop); color: var(--txt); }
 .btn-ghost { background: var(--soft); border: 1px solid var(--line); color: var(--txt); box-shadow: none; min-width: auto; padding: 13px 20px; }
 .btn-ghost .btn-title { font-size: 14px; letter-spacing: 1px; }
 
-.stats-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; padding: 16px 10px; }
+.stats-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; padding: 16px 10px; }
 .stat { text-align: center; }
 .stat b { font-size: 24px; display: block; color: var(--accent); }
 .stat span { font-size: 12px; color: var(--txt2); }
@@ -447,9 +447,9 @@ select option { background: var(--pop); color: var(--txt); }
   .btn .btn-title { font-size: 15.5px; }
   .btn .btn-sub { font-size: 10.5px; }
 
-  .stats-row { grid-template-columns: repeat(4, 1fr); padding: 12px 4px; }
-  .stat b { font-size: 19px; }
-  .stat span { font-size: 10.5px; }
+  .stats-row { grid-template-columns: repeat(5, 1fr); padding: 12px 4px; }
+  .stat b { font-size: 17px; }
+  .stat span { font-size: 10px; }
 
   .history-head { margin-top: 18px; flex-wrap: wrap; gap: 8px; }
 
@@ -497,6 +497,17 @@ select option { background: var(--pop); color: var(--txt); }
 .set-row-info b { font-size: 15px; }
 .set-row-info p { color: var(--txt2); font-size: 13px; margin-top: 4px; line-height: 1.55; }
 .settings-note { color: var(--txt2); font-size: 12px; margin-top: 10px; border-top: 1px solid var(--line); padding-top: 10px; }
+.spend-list { margin-top: 10px; display: flex; flex-direction: column; gap: 6px; }
+.spend-row { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; font-size: 13px; }
+.spend-row .sr-name { color: var(--txt); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.spend-row b { color: var(--accent); flex: 0 0 auto; }
+.spend-row b i { font-style: normal; font-weight: 400; color: var(--txt2); font-size: 11.5px; }
+.confirm-modal { width: min(360px, 88vw); }
+.confirm-text { font-size: 14px; line-height: 1.7; margin-bottom: 18px; }
+.confirm-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.confirm-actions .btn { min-width: auto; padding: 10px 22px; font-size: 13px; }
+.confirm-actions .confirm-danger { background: #e3350d; }
+.confirm-actions .confirm-danger:hover { background: #c72e0b; }
 
 /* ================= 浅色模式 ================= */
 :root[data-theme="light"] {

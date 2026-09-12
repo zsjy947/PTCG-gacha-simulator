@@ -27,6 +27,7 @@ def spec_brief_full(code: str) -> list:
         entry = {
             "id": s["id"], "key": s["key"], "label": s["label"],
             "note": s.get("note", ""), "price": s.get("price"),
+            "priceCny": s.get("priceCny"),
             "packSize": pack_size, "default": i == 0,
             "slots": s.get("slots") or variants[0]["slots"],
         }

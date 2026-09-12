@@ -72,6 +72,7 @@
         <div class="stat"><b id="stCards">0</b><span>获得卡牌</span></div>
         <div class="stat"><b id="stRR">0</b><span>RR 及以上</span></div>
         <div class="stat"><b id="stBest">—</b><span>最高稀有度</span></div>
+        <div class="stat"><b id="stSpend">¥0</b><span>本弹花费</span></div>
       </div>
 
       <div class="history-head">
@@ -142,6 +143,20 @@
           <label class="switch"><input type="checkbox" id="themeToggle"><i></i>浅色模式</label>
         </div>
       </div>
+      <div class="settings-card card-glass" id="spendCard">
+        <div class="set-row">
+          <div class="set-row-info">
+            <b>消费统计</b>
+            <p id="spendInfo">总花费 ¥0 · 共 0 包</p>
+          </div>
+          <div class="update-actions">
+            <button class="mini-btn danger" id="btnClearSpend">清零</button>
+            <label class="switch"><input type="checkbox" id="spendToggle" checked><i></i>记账</label>
+          </div>
+        </div>
+        <div class="spend-list" id="spendList"></div>
+        <p class="settings-note">按官方建议零售价记账：5张装 10 元、20张/25张装 50 元、太晶盛聚 10张装 30 元、宝石包 10 元/包；奖赏包无官方单包定价，不计入。</p>
+      </div>
       <div class="settings-card card-glass" id="cacheCard">
         <div class="set-row">
           <div class="set-row-info">
@@ -161,6 +176,17 @@
     </div>
   </section>
 </main>
+
+<!-- 应用内确认弹窗（替代原生 confirm，避免窗口标题带源地址） -->
+<div class="overlay" id="confirmOverlay" hidden>
+  <div class="modal card-glass confirm-modal">
+    <p class="confirm-text" id="confirmText"></p>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" id="btnConfirmCancel">取消</button>
+      <button class="btn confirm-danger" id="btnConfirmOk">确定</button>
+    </div>
+  </div>
+</div>
 
 <!-- 开包遮罩 -->
 <div class="overlay" id="overlay" hidden>

@@ -194,6 +194,7 @@ def _spec_brief(code: str) -> list:
         "short": s.get("short") or s["id"],
         "note": s.get("note", ""),
         "price": s.get("price"),
+        "priceCny": s.get("priceCny"),
         "packSize": len((s.get("variants") or [{"slots": s["slots"]}])[0]["slots"]),
         "default": i == 0,
     } for i, s in enumerate(specs)]
