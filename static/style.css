@@ -16,6 +16,7 @@
   --overlay: rgba(5, 8, 16, .9);
   --backdrop: rgba(4, 7, 14, .72);
   --pop: #17203a;
+  --solid: #141c2f;
   --line: rgba(255, 255, 255, .09);
   --txt: #e8edf6;
   --txt2: #9aa7bd;
@@ -316,7 +317,7 @@ select option { background: var(--pop); color: var(--txt); }
 @keyframes rb { to { width: 420px; height: 420px; opacity: 0; } }
 
 .stage-actions { display: flex; gap: 12px; justify-content: center; margin-top: 6px; }
-.pack-summary { text-align: center; color: var(--txt2); font-size: 13px; margin: 4px 0 12px; letter-spacing: 1px; }
+.pack-summary { text-align: center; color: var(--txt2); font-size: 13px; margin: 4px auto 12px; letter-spacing: 1px; width: fit-content; padding: 6px 16px; border-radius: 18px; background: var(--solid); border: 1px solid var(--line); }
 
 /* ---------- 通用页面件 ---------- */
 .page-head { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; }
@@ -341,6 +342,7 @@ select option { background: var(--pop); color: var(--txt); }
 
 /* ---------- 模态 ---------- */
 .modal { width: min(680px, 92vw); max-height: 84vh; overflow-y: auto; padding: 20px 22px; }
+.modal.card-glass { background: var(--solid); }
 .modal-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 14px; }
 .modal-head h3 { font-size: 16px; letter-spacing: 1px; }
 .modal-body { font-size: 13.5px; color: var(--txt); }
@@ -406,7 +408,6 @@ select option { background: var(--pop); color: var(--txt); }
     padding-bottom: calc(4px + env(safe-area-inset-bottom));
     border-radius: 0; border: 0; border-top: 1px solid var(--line);
     background: var(--bar-solid);
-    box-shadow: 0 -6px 18px rgba(0, 0, 0, .5);
   }
   .tab { flex: 1; text-align: center; padding: 9px 0 7px; font-size: 13.5px; border-radius: 10px; }
 
@@ -513,6 +514,7 @@ select option { background: var(--pop); color: var(--txt); }
   --overlay: rgba(38, 48, 70, .42);
   --backdrop: rgba(38, 48, 70, .35);
   --pop: #ffffff;
+  --solid: #ffffff;
   --accent: #a8730a;
   --line: rgba(18, 28, 52, .12);
   --txt: #1d2534;
