@@ -527,3 +527,22 @@ select option { background: var(--pop); color: var(--txt); }
 :root[data-theme="light"] .pack-tab { background: #ffffff; }
 .upd-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--red); margin-left: 5px; vertical-align: 2px; }
 .update-actions { display: flex; gap: 8px; flex: 0 0 auto; }
+
+/* 轻提示 toast */
+#toast {
+  position: fixed; left: 50%; bottom: calc(96px + env(safe-area-inset-bottom));
+  transform: translate(-50%, 12px);
+  max-width: min(84vw, 420px);
+  background: rgba(18, 24, 38, .95); color: #fff;
+  border: 1px solid var(--line); border-radius: 12px;
+  padding: 11px 18px; font-size: 13.5px; text-align: center;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, .45);
+  opacity: 0; pointer-events: none; transition: opacity .22s ease, transform .22s ease;
+  z-index: 300;
+}
+#toast.show { opacity: 1; transform: translate(-50%, 0); }
+:root[data-theme="light"] #toast { background: rgba(40, 50, 72, .96); }
+
+/* 按钮按压反馈 */
+.mini-btn:active:not(:disabled) { transform: scale(.94); }
+.mini-btn { transition: .12s; }

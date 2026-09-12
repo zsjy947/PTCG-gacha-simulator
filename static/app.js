@@ -891,8 +891,28 @@ function setUpdateUI(text, downloadUrl) {
   }
 }
 
+/* 轻提示：自动消失，用于更新检查等操作的明确反馈 */
+function toast(msg, ms = 2400) {
+  let t = document.querySelector("#toast");
+  if (!t) {
+    t = document.createElement("div");
+    t.id = "toast";
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  // 触发重绘以重播过渡动画
+  void t.offsetWidth;
+  t.classList.add("show");
+  clearTimeout(toast._h);
+  toast._h = setTimeout(() => t.classList.remove("show"), ms);
+}
+
 async function checkUpdate(manual) {
-  if (manual) setUpdateUI("正在检查更新…", null);
+  const btn = $("#btnCheckUpdate");
+  if (manual) {
+    setUpdateUI("正在检查更新…", null);
+    if (btn) btn.disabled = true;
+  }
   const ctl = new AbortController();
   const timer = setTimeout(() => ctl.abort(), 5000); // 国内网络超时静默失败，不影响使用
   try {
@@ -907,13 +927,19 @@ async function checkUpdate(manual) {
       const ext = ASSET ? ".apk" : ".exe";
       const hit = (rel.assets || []).find((a) => a.name.endsWith(ext));
       setUpdateUI(`发现新版本 v${latest}（当前 v${appVersion}）`, hit ? hit.browser_download_url : RELEASE_PAGE);
+      if (manual) toast(`发现新版本 v${latest}，点击「前往下载」更新`);
     } else {
       setUpdateUI(`已是最新版本 v${appVersion}`, null);
+      if (manual) toast(`已是最新版本 v${appVersion}`);
     }
   } catch (e) {
     clearTimeout(timer);
-    if (manual) setUpdateUI("检查失败：暂时连不上 GitHub，请稍后重试或到项目主页查看", RELEASE_PAGE);
-    else setUpdateUI(`当前版本 v${appVersion}`, null);
+    if (manual) {
+      setUpdateUI("检查失败：暂时连不上 GitHub，请稍后重试或到项目主页查看", RELEASE_PAGE);
+      toast("检查失败：暂时连不上 GitHub");
+    } else setUpdateUI(`当前版本 v${appVersion}`, null);
+  } finally {
+    if (manual && btn) btn.disabled = false;
   }
 }
 
