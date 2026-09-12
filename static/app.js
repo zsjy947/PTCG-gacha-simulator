@@ -454,6 +454,8 @@ function selectSet(id) {
   upgradeRemoteImages(spIcon);
   $("#spName").textContent = s.name;
   $("#spMeta").textContent = `${s.group} · ${s.count} 张`;
+  const sbSet = $("#sbSet");
+  if (sbSet) sbSet.textContent = `当前弹包：${s.name}（${s.code} · ${s.count} 张）`;
   closeSidebar();
   renderSpecButtons();
   renderStats();
@@ -1024,6 +1026,8 @@ async function initVersion() {
   } catch { appVersion = ""; }
   const about = $("#aboutVersion");
   if (about) about.textContent = appVersion ? `PTCG拆卡模拟器 v${appVersion}` : "PTCG拆卡模拟器";
+  const sbV = $("#sbVersion");
+  if (sbV && appVersion) sbV.textContent = `PTCG拆卡模拟器 v${appVersion}`;
   if (appVersion) checkUpdate(false);
 }
 
