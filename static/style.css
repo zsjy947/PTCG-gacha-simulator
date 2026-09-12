@@ -410,6 +410,8 @@ select option { background: var(--pop); color: var(--txt); }
     background: var(--bar-solid);
   }
   .tab { flex: 1; text-align: center; padding: 9px 0 7px; font-size: 13.5px; border-radius: 10px; }
+  /* 底部导航按键去投影，避免与系统栏区域脱节 */
+  .tab.active { box-shadow: none; }
 
   .layout { flex-direction: column; }
   .content { padding: 12px 12px calc(86px + env(safe-area-inset-bottom)); }

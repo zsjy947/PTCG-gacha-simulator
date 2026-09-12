@@ -858,6 +858,8 @@ function applyTheme(t) {
   if (info) info.textContent = `当前：${t === "light" ? "浅色" : "深色"}模式`;
   const toggle = $("#themeToggle");
   if (toggle) toggle.checked = t === "light";
+  // APK：状态栏/导航栏颜色跟随主题，保证全屏色彩统一
+  if (nativeBridge && nativeBridge.setSystemBars) nativeBridge.setSystemBars(t === "light");
 }
 
 /* ---------------- 设置：版本更新检查 ---------------- */

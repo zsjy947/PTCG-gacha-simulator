@@ -35,11 +35,13 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         webView = new WebView(this);
-        webView.setBackgroundColor(Color.parseColor("#0b0f1a"));
         setContentView(webView);
 
         imgCacheDir = new File(getCacheDir(), "imgcache");
         storeFile = new File(getFilesDir(), "user_store.json");
+
+        // 系统栏颜色跟随页面主题（初值先读本地记录的主题，避免浅色用户冷启动闪黑）
+        applySystemBarTheme(readStoreRaw().matches("(?s).*\"ptcg_theme\"\\s*:\\s*\"light\".*"));
 
         WebSettings s = webView.getSettings();
         s.setJavaScriptEnabled(true);
@@ -175,6 +177,35 @@ public class MainActivity extends Activity {
         }
     }
 
+    private String readStoreRaw() {
+        try (FileInputStream in = new FileInputStream(storeFile)) {
+            byte[] buf = new byte[(int) storeFile.length()];
+            int n = in.read(buf);
+            return n > 0 ? new String(buf, "UTF-8") : "";
+        } catch (IOException e) {
+            return "";
+        }
+    }
+
+    /** 系统栏颜色取与页面顶栏/底部导航一致的底色，保证全屏色彩统一 */
+    private static String barHex(boolean light) {
+        return light ? "#fafbfe" : "#0a0e18";
+    }
+
+    private void applySystemBarTheme(boolean light) {
+        int color = Color.parseColor(barHex(light));
+        getWindow().setStatusBarColor(color);
+        getWindow().setNavigationBarColor(color);
+        // WebView 自身底色也跟随（页面内容未铺满/惯性滚动露出时保持一致）
+        webView.setBackgroundColor(Color.parseColor(light ? "#eef1f8" : "#0b0f1a"));
+        View decor = getWindow().getDecorView();
+        int lightFlags = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+        int flags = decor.getSystemUiVisibility();
+        if (light) flags |= lightFlags;
+        else flags &= ~lightFlags;
+        decor.setSystemUiVisibility(flags);
+    }
+
     /** 设置页桥：同步调用（运行在 JavaBridge 线程，允许文件 IO） */
     private class NativeBridge {
         @JavascriptInterface
@@ -190,6 +221,17 @@ public class MainActivity extends Activity {
             return "ok";
         }
 
+        /** 深浅色切换时同步系统状态栏/导航栏颜色，并强制 WebView 整体重绘
+         *  （固定定位的底部导航在 WebView 里可能保留旧色块图块，切 tab 才刷新） */
+        @JavascriptInterface
+        public void setSystemBars(final boolean light) {
+            runOnUiThread(() -> {
+                applySystemBarTheme(light);
+                webView.invalidate();
+                webView.getRootView().invalidate();
+            });
+        }
+
         /** 抽卡记录/收藏册持久化（localStorage 在 WebView 重启后不保证保留） */
         @JavascriptInterface
         public void saveStore(String json) {
@@ -202,15 +244,7 @@ public class MainActivity extends Activity {
 
         @JavascriptInterface
         public String loadStore() {
-            try {
-                FileInputStream in = new FileInputStream(storeFile);
-                byte[] buf = new byte[(int) storeFile.length()];
-                int n = in.read(buf);
-                in.close();
-                return n > 0 ? new String(buf, "UTF-8") : "";
-            } catch (IOException e) {
-                return "";
-            }
+            return readStoreRaw();
         }
     }
 
