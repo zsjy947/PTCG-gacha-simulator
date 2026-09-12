@@ -7,6 +7,7 @@
 
 依赖：android/sdk/ 下已解压 JDK 17、build-tools 34、platform-34（见 README）。
 """
+import re
 import subprocess
 import sys
 from pathlib import Path
@@ -21,6 +22,21 @@ JDK = SDK / "jdk-17.0.20.1+1"
 APP_MAIN = ANDROID / "app" / "src" / "main"
 OUT = ANDROID / "build"
 APK_NAME = "PTCG拆卡模拟器.apk"
+
+# 版本号同步自 version.py（versionCode = 主*10000 + 次*100 + 修订，保证单调递增）
+sys.path.insert(0, str(ROOT))
+from version import APP_VERSION as _VER
+
+_v = [int(x) for x in _VER.split(".")]
+while len(_v) < 3:
+    _v.append(0)
+VERSION_CODE = _v[0] * 10000 + _v[1] * 100 + _v[2]
+MANIFEST = APP_MAIN / "AndroidManifest.xml"
+_m = MANIFEST.read_text(encoding="utf-8")
+_m = re.sub(r'android:versionCode="\d+"', f'android:versionCode="{VERSION_CODE}"', _m)
+_m = re.sub(r'android:versionName="[^"]*"', f'android:versionName="{_VER}"', _m)
+MANIFEST.write_text(_m, encoding="utf-8")
+print(f"Manifest 版本同步: versionName={_VER} versionCode={VERSION_CODE}")
 
 ENV = {
     **__import__("os").environ,

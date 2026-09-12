@@ -14,8 +14,8 @@ ROOT = Path(__file__).resolve().parent.parent
 sys.path.insert(0, str(ROOT))
 
 import config
+from version import APP_VERSION
 
-ROOT = Path(__file__).resolve().parent.parent
 WWW = ROOT / "android" / "app" / "src" / "main" / "assets" / "www"
 
 
@@ -79,7 +79,9 @@ def main():
     (WWW / "assets" / "sets_index.js").write_text(
         js_assign("__SETS_INDEX__", idx), encoding="utf-8")
     (WWW / "assets" / "meta.js").write_text(
-        js_assign("__GACHA_META__", {"sets": sets_meta}), encoding="utf-8")
+        js_assign("__GACHA_META__", {"sets": sets_meta})
+        + "\n" + js_assign("__APP_VERSION__", APP_VERSION),
+        encoding="utf-8")
 
     # 每弹卡表（JS 文件，动态 script 标签按需加载）
     cards_dir = WWW / "assets" / "cards"

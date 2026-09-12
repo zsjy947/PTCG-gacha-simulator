@@ -860,6 +860,72 @@ function applyTheme(t) {
   if (toggle) toggle.checked = t === "light";
 }
 
+/* ---------------- 设置：版本更新检查 ---------------- */
+const RELEASE_API = "https://api.github.com/repos/zsjy947/PTCG-gacha-simulator/releases/latest";
+const RELEASE_PAGE = "https://github.com/zsjy947/PTCG-gacha-simulator/releases/latest";
+let appVersion = "";
+let latestDownload = "";
+
+function cmpVersion(a, b) {
+  const pa = String(a).split(".").map(Number), pb = String(b).split(".").map(Number);
+  for (let i = 0; i < 3; i++) {
+    const d = (pa[i] || 0) - (pb[i] || 0);
+    if (d) return d;
+  }
+  return 0;
+}
+
+function setUpdateUI(text, downloadUrl) {
+  $("#updateInfo").textContent = text;
+  latestDownload = downloadUrl || "";
+  $("#btnGoDownload").hidden = !latestDownload;
+  // 发现新版时在「设置」标签上加红点提醒
+  const dot = document.querySelector(".tab[data-tab='settings']");
+  if (dot) {
+    const mark = dot.querySelector(".upd-dot");
+    if (latestDownload && !mark) {
+      const s = document.createElement("i");
+      s.className = "upd-dot";
+      dot.appendChild(s);
+    } else if (!latestDownload && mark) mark.remove();
+  }
+}
+
+async function checkUpdate(manual) {
+  if (manual) setUpdateUI("正在检查更新…", null);
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 5000); // 国内网络超时静默失败，不影响使用
+  try {
+    const r = await fetch(RELEASE_API, { signal: ctl.signal, headers: { Accept: "application/vnd.github+json" } });
+    clearTimeout(timer);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const rel = await r.json();
+    const latest = String(rel.tag_name || "").replace(/^v/, "");
+    if (!/^\d+(\.\d+)*$/.test(latest)) throw new Error("版本号解析失败");
+    if (cmpVersion(latest, appVersion) > 0) {
+      // 优先给当前平台的安装包直链，找不到再退回 release 页面
+      const ext = ASSET ? ".apk" : ".exe";
+      const hit = (rel.assets || []).find((a) => a.name.endsWith(ext));
+      setUpdateUI(`发现新版本 v${latest}（当前 v${appVersion}）`, hit ? hit.browser_download_url : RELEASE_PAGE);
+    } else {
+      setUpdateUI(`已是最新版本 v${appVersion}`, null);
+    }
+  } catch (e) {
+    clearTimeout(timer);
+    if (manual) setUpdateUI("检查失败：暂时连不上 GitHub，请稍后重试或到项目主页查看", RELEASE_PAGE);
+    else setUpdateUI(`当前版本 v${appVersion}`, null);
+  }
+}
+
+async function initVersion() {
+  try {
+    appVersion = (ASSET ? window.__APP_VERSION__ : (await api("/api/version")).version) || "";
+  } catch { appVersion = ""; }
+  const about = $("#aboutVersion");
+  if (about) about.textContent = appVersion ? `PTCG拆卡模拟器 v${appVersion}` : "PTCG拆卡模拟器";
+  if (appVersion) checkUpdate(false);
+}
+
 /* ---------------- 设置：图片缓存 ---------------- */
 const nativeBridge = (window.PTCGNative && window.PTCGNative.cacheSize) ? window.PTCGNative : null;
 
@@ -900,6 +966,7 @@ async function clearImageCache() {
 function init() {
   applyTheme(store.get("ptcg_theme", "dark"));
   loadHistory();
+  initVersion();
 
   $$(".tab").forEach((t) => t.addEventListener("click", () => {
     $$(".tab").forEach((x) => x.classList.toggle("active", x === t));
@@ -947,6 +1014,12 @@ function init() {
   $("#clSearch").addEventListener("input", drawCardList);
 
   $("#btnClearCache").addEventListener("click", clearImageCache);
+  $("#btnCheckUpdate").addEventListener("click", () => checkUpdate(true));
+  $("#btnGoDownload").addEventListener("click", () => {
+    if (!latestDownload) return;
+    if (ASSET) location.href = latestDownload; // WebView 导航触发 DownloadListener → 系统浏览器
+    else window.open(latestDownload, "_blank");
+  });
   $("#themeToggle").addEventListener("change", (e) => {
     const t = e.target.checked ? "light" : "dark";
     store.set("ptcg_theme", t);

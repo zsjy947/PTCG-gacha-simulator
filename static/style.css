@@ -525,3 +525,5 @@ select option { background: var(--pop); color: var(--txt); }
 :root[data-theme="light"] .mini-btn,
 :root[data-theme="light"] .side-close,
 :root[data-theme="light"] .pack-tab { background: #ffffff; }
+.upd-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--red); margin-left: 5px; vertical-align: 2px; }
+.update-actions { display: flex; gap: 8px; flex: 0 0 auto; }

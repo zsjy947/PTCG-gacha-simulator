@@ -23,6 +23,7 @@ from flask import Flask, jsonify, request, send_file, send_from_directory
 
 import config
 import gacha
+from version import APP_VERSION
 
 # ---------------------------------------------------------------- 路径（兼容 PyInstaller 冻结环境）
 def _resolve_dirs():
@@ -330,6 +331,11 @@ def set_icon(code: str):
 @app.get("/api/health")
 def health():
     return jsonify({"ok": True, "time": time.time()})
+
+
+@app.get("/api/version")
+def app_version():
+    return jsonify({"version": APP_VERSION})
 
 
 # ---- 抽卡记录/收藏册持久化：前端把 localStorage 的 ptcg_* 键镜像到这里 ----
