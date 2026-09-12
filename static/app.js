@@ -293,12 +293,12 @@ function addStats(setId, cards, packCount) {
   store.set(statsKey(), all);
   renderStats();
 }
-function clearStats(setId) {
-  const all = store.get(statsKey(), {});
-  delete all[setId];
-  store.set(statsKey(), all);
-  const sp = store.get(spendKey(), {});
-  if (sp[setId]) { delete sp[setId]; store.set(spendKey(), sp); renderSpend(); }
+function clearStatsAll() {
+  /* 清空全部统计：各弹统计 + 拆卡记录；收藏册与消费统计各自单独清理，不受影响 */
+  store.set(statsKey(), {});
+  state.history = [];
+  store.set("ptcg_history", state.history);
+  renderHistory();
   renderStats();
 }
 
@@ -1107,7 +1107,7 @@ function init() {
   $("#autoFlip").addEventListener("change", (e) => store.set("ptcg_autoflip", e.target.checked));
 
   $("#btnClearStats").addEventListener("click", async () => {
-    if (state.current && (await uiConfirm(`清空「${state.current.name}」的统计？`))) clearStats(state.current.id);
+    if (await uiConfirm("清空全部拆卡统计与拆卡记录？（收藏册与消费统计不受影响）")) clearStatsAll();
   });
   $("#btnClearSpend").addEventListener("click", async () => {
     if (await uiConfirm("清零全部消费统计？（拆卡记录不受影响）")) clearSpendAll();
