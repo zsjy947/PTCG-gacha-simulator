@@ -1,0 +1,14 @@
+.page { padding: 20rpx 24rpx 0; }
+.s-card { padding: 26rpx 28rpx; margin-bottom: 20rpx; display: flex; flex-direction: column; gap: 14rpx; }
+.s-row { display: flex; align-items: center; justify-content: space-between; gap: 20rpx; }
+.s-info { display: flex; flex-direction: column; gap: 6rpx; flex: 1; }
+.s-title { font-size: 28rpx; font-weight: 800; }
+.s-sub { font-size: 22rpx; color: var(--txt2); }
+.s-note { font-size: 20rpx; color: var(--txt2); line-height: 1.7; }
+.s-actions { display: flex; justify-content: flex-end; }
+.mini-btn { font-size: 22rpx; padding: 10rpx 24rpx; border-radius: 14rpx; background: var(--soft); border: 1rpx solid var(--line); color: var(--txt); }
+.mini-btn.danger { color: #ff8f7a; border-color: rgba(227, 53, 13, .4); }
+.spend-row { display: flex; justify-content: space-between; font-size: 23rpx; padding: 8rpx 0; border-bottom: 1rpx solid var(--line); }
+.spend-row:last-of-type { border-bottom: 0; }
+.sp-name { color: var(--txt); flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.sp-val { color: var(--txt2); }

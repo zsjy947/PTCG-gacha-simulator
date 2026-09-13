@@ -1,0 +1,30 @@
+{
+  "pages": [
+    "pages/draw/draw",
+    "pages/collection/collection",
+    "pages/cardlist/cardlist",
+    "pages/settings/settings"
+  ],
+  "window": {
+    "navigationBarTitleText": "卡牌拆卡模拟器",
+    "navigationBarBackgroundColor": "#0a0e18",
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#0b0f1a",
+    "backgroundTextStyle": "light"
+  },
+  "tabBar": {
+    "color": "#9aa7bd",
+    "selectedColor": "#ffce4a",
+    "backgroundColor": "#0a0e18",
+    "borderStyle": "black",
+    "list": [
+      { "pagePath": "pages/draw/draw", "text": "拆卡" },
+      { "pagePath": "pages/collection/collection", "text": "收藏册" },
+      { "pagePath": "pages/cardlist/cardlist", "text": "卡表" },
+      { "pagePath": "pages/settings/settings", "text": "设置" }
+    ]
+  },
+  "style": "v2",
+  "lazyCodeLoading": "requiredComponents",
+  "sitemapLocation": "sitemap.json"
+}

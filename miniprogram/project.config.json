@@ -1,0 +1,22 @@
+{
+  "description": "PTCG 简中拆卡模拟器（小程序端）",
+  "appid": "touristappid",
+  "compileType": "miniprogram",
+  "libVersion": "3.4.10",
+  "setting": {
+    "es6": true,
+    "postcss": true,
+    "minified": true,
+    "urlCheck": false,
+    "ignoreUploadUnusedFiles": true
+  },
+  "packOptions": {
+    "ignore": [
+      { "type": "file", "value": ".eslintrc.js" }
+    ]
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  }
+}

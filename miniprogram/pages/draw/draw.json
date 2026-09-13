@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "拆卡",
+  "usingComponents": {
+    "card-detail": "/components/card-detail/card-detail"
+  }
+}

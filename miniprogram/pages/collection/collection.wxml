@@ -1,0 +1,45 @@
+<view class="page {{theme === 'light' ? 'light' : ''}}">
+  <view class="page-head">
+    <text class="page-head-title">收藏册</text>
+    <view class="head-tools">
+      <picker mode="selector" range="{{sortNames}}" value="{{sortIdx}}" bindchange="onPickSort">
+        <view class="picker-box">{{sortNames[sortIdx]}} ▾</view>
+      </picker>
+      <picker mode="selector" range="{{setNames}}" value="{{setIdx}}" bindchange="onPickSet">
+        <view class="picker-box set-pick">{{setNames[setIdx]}} ▾</view>
+      </picker>
+    </view>
+  </view>
+
+  <view class="tools-row">
+    <view class="switch" bindtap="exportColl">📤 导出 JSON（复制）</view>
+    <switch checked="{{missingOnly}}" bindchange="toggleMissing" color="#e3350d" />
+    <text class="switch-label">只看缺卡</text>
+    <view class="switch danger" bindtap="clearColl">🗑 清空收藏</view>
+  </view>
+
+  <view class="summary card-glass"><text>{{summary}}</text></view>
+
+  <view class="progress" wx:if="{{progress.show}}">
+    <view class="progress-bar"><view class="progress-fill" style="width:{{progress.pct}}%"></view></view>
+    <text class="progress-text">{{progress.text}}</text>
+  </view>
+
+  <view class="coll-grid">
+    <view class="empty-tip" wx:if="{{!cards.length}}">{{isMissing ? "🎉 该弹已收集完成！" : "抽到的卡会自动收藏在这里"}}</view>
+    <view class="coll-card {{item.missing ? 'missing' : ''}}" wx:for="{{cards}}" wx:key="key"
+          data-set="{{item.setCode}}" data-idx="{{item.cardIndex}}" data-name="{{item.name}}" data-rarity="{{item.rarity}}"
+          bindtap="onCardTap">
+      <image src="{{item.image}}" mode="aspectFill" lazy-load />
+      <view class="cc-x">{{item.missing ? "缺" : "×" + item.count}}</view>
+      <view class="cc-name">
+        <text class="rar-badge" style="background:{{item.badgeBg}}">{{item.rarity}}</text>
+        <text class="cc-n">{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="height: 40rpx"></view>
+</view>
+
+<card-detail show="{{detailShow}}" set-code="{{detailSet}}" card-index="{{detailIdx}}"
+             fallback-name="{{detailName}}" fallback-rarity="{{detailRarity}}" bind:close="closeDetail" />

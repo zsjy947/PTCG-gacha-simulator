@@ -1,0 +1,4 @@
+{
+  "desc": "全部页面允许被微信索引",
+  "rules": [{ "action": "allow", "page": "*" }]
+}
