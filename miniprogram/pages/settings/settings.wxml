@@ -1,0 +1,49 @@
+<view class="page {{theme === 'light' ? 'light' : ''}}">
+  <view class="page-head"><text class="page-head-title">设置</text></view>
+
+  <!-- 外观 -->
+  <view class="s-card card-glass">
+    <view class="s-row">
+      <view class="s-info"><text class="s-title">外观</text><text class="s-sub">深色 / 浅色模式</text></view>
+      <switch checked="{{theme === 'light'}}" bindchange="toggleTheme" color="#ffce4a" />
+    </view>
+  </view>
+
+  <!-- 消费统计 -->
+  <view class="s-card card-glass">
+    <view class="s-row">
+      <view class="s-info">
+        <text class="s-title">消费统计</text>
+        <text class="s-sub" decode="{{true}}">总花费 ¥{{spendTotal}} · 共 {{spendPacks}} 包 · 平均每包 {{spendAvg}}</text>
+      </view>
+      <switch checked="{{spendEnabled}}" bindchange="toggleSpend" color="#ffce4a" />
+    </view>
+    <view class="spend-row" wx:for="{{spendRows}}" wx:key="id">
+      <text class="sp-name">{{item.name}}</text>
+      <text class="sp-val">{{item.text}}</text>
+    </view>
+    <view class="s-actions">
+      <view class="mini-btn danger" bindtap="clearSpend">清零</view>
+    </view>
+    <text class="s-note">{{priceNote}}</text>
+  </view>
+
+  <!-- 数据 -->
+  <view class="s-card card-glass">
+    <view class="s-row">
+      <view class="s-info"><text class="s-title">本地数据</text><text class="s-sub">收藏册 / 统计 / 记录占用：{{storageLabel}}</text></view>
+      <view class="mini-btn danger" bindtap="clearStats">清空统计</view>
+    </view>
+    <text class="s-note">收藏册可在收藏册页「导出 JSON」备份到剪贴板；数据仅保存在本机，删除小程序前请先备份。</text>
+  </view>
+
+  <!-- 关于 -->
+  <view class="s-card card-glass">
+    <view class="s-info">
+      <text class="s-title">关于</text>
+      <text class="s-sub">卡牌拆卡模拟器 v{{version}}（小程序端）</text>
+      <text class="s-note">卡表数据与卡图来自公开网络（Cryst's Cards Database · tcg.mik.moe），仅供学习交流与个人娱乐。本应用为概率模拟工具，与任何实体卡牌商品无关，不涉及真实交易。宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。</text>
+    </view>
+  </view>
+  <view style="height: 40rpx"></view>
+</view>

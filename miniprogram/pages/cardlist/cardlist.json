@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "卡表",
+  "usingComponents": {
+    "card-detail": "/components/card-detail/card-detail"
+  }
+}

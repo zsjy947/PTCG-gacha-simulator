@@ -1,0 +1,38 @@
+<view class="mask" wx:if="{{show}}" bindtap="onClose">
+  <view class="modal" catchtap="noop">
+    <view class="modal-head">
+      <text class="modal-title">{{detail.name || '卡牌详情'}}</text>
+      <text class="close-btn" bindtap="onClose">✕</text>
+    </view>
+    <scroll-view scroll-y class="modal-body">
+      <block wx:if="{{loading}}">
+        <view class="empty-tip">载入中…</view>
+      </block>
+      <block wx:elif="{{detail}}">
+        <view class="d-wrap">
+          <image class="d-img" src="{{img}}" mode="widthFix" />
+          <view class="d-info">
+            <view class="d-name">
+              <text class="rar-badge" style="background:{{rarColor}}">{{detail.rarity || '—'}}</text>
+              <text>{{detail.name}}</text>
+            </view>
+            <view class="d-sub" wx:if="{{!degraded}}">{{setCode}}-{{cardIndex}} · {{rarLabel}}{{detail.artist ? ' · ' + detail.artist : ''}}</view>
+            <view class="d-grid" wx:if="{{!degraded}}">
+              <text>HP {{detail.hp || '—'}}</text>
+              <text>属性 {{detail.energy || '—'}}</text>
+              <text>阶段 {{detail.stage || '—'}}</text>
+              <text>弱点 {{detail.weak || '—'}}</text>
+            </view>
+            <view class="d-effect" wx:if="{{detail.ability}}">【特性】{{detail.ability}}</view>
+            <view class="d-effect" wx:if="{{detail.description}}">{{detail.description}}</view>
+            <view class="d-attack" wx:for="{{detail.attacks}}" wx:key="name">
+              <text class="a-name">{{item.name}}　{{item.damage}}</text>
+              <text class="a-text" wx:if="{{item.text}}">{{item.text}}</text>
+            </view>
+            <view class="d-degrade" wx:if="{{degraded}}">详细文本需要联网获取（需在小程序后台配置 tcg.mik.moe 合法域名），当前仅展示卡表基础信息。</view>
+          </view>
+        </view>
+      </block>
+    </scroll-view>
+  </view>
+</view>

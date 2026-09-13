@@ -1,0 +1,189 @@
+<view class="page {{theme === 'light' ? 'light' : ''}}">
+
+  <!-- 弹包选择 -->
+  <view class="set-picker card-glass" bindtap="togglePicker">
+    <view class="sp-info">
+      <text class="sp-name">{{current ? current.name : "选择弹包"}}</text>
+      <text class="sp-meta">{{current ? current.group + " · " + current.count + " 张" : "点击浏览全部系列弹包"}}</text>
+    </view>
+    <text class="sp-arrow">▾</text>
+  </view>
+
+  <!-- 弹包抽屉 -->
+  <view class="drawer-mask" wx:if="{{showPicker}}" bindtap="togglePicker">
+    <view class="drawer" catchtap="noop">
+      <view class="drawer-head">
+        <input class="drawer-search" placeholder="搜索弹名 / 代码…" placeholder-class="ph"
+               value="{{searchText}}" bindinput="onSearch" />
+        <text class="close-btn" bindtap="togglePicker">✕</text>
+      </view>
+      <scroll-view scroll-y class="drawer-body">
+        <block wx:for="{{groups}}" wx:key="group" wx:for-item="g">
+          <view wx:if="{{!g.allHidden}}">
+            <view class="group-title">{{g.group}} · {{g.sets.length}} 弹</view>
+            <view wx:for="{{g.sets}}" wx:key="id"
+                  class="set-item {{current.id === item.id ? 'active' : ''}} {{item.hidden ? 'hide' : ''}}"
+                  data-id="{{item.id}}" bindtap="selectSet">
+              <image class="set-icon" src="{{item.icon}}" mode="aspectFit" lazy-load />
+              <view class="si-name">
+                <text class="si-title">{{item.name}}</text>
+                <text class="si-code">{{item.code}}</text>
+              </view>
+              <text class="si-count">{{item.count}}</text>
+            </view>
+          </view>
+        </block>
+      </scroll-view>
+    </view>
+  </view>
+
+  <!-- 当前弹信息 -->
+  <view class="hero card-glass" wx:if="{{current}}">
+    <view class="hero-line1">
+      <text class="hero-name">{{current.name}}</text>
+      <text class="hero-count">{{current.count}} 张</text>
+    </view>
+    <view class="hero-specs">
+      <text class="hero-tag" wx:for="{{heroSpecs}}" wx:key="*this">{{item}}</text>
+      <text class="hero-tag none" wx:if="{{!drawable}}">未开放拆卡 · 仅浏览卡表</text>
+    </view>
+  </view>
+  <view class="hero card-glass" wx:else>
+    <text class="empty-tip">先选择一个弹包，再点击开包按钮开始拆卡</text>
+  </view>
+
+  <!-- 操作按钮 -->
+  <view class="spec-grid" wx:if="{{current && drawable}}">
+    <view wx:for="{{specButtons}}" wx:key="key"
+          class="btn kind-{{item.kind}}" data-key="{{item.key}}" bindtap="onSpecTap">
+      <text class="btn-title">{{item.label}}</text>
+      <text class="btn-sub">{{item.sub}}</text>
+    </view>
+  </view>
+  <view class="empty-tip" wx:if="{{current && !drawable}}">该商品无公开随机包规格，可切到「卡表」浏览全部卡牌。</view>
+
+  <!-- 统计 -->
+  <view class="stats-row card-glass" wx:if="{{current}}">
+    <view class="stat"><text class="stat-b">{{stats.packs}}</text><text class="stat-s">已开包数</text></view>
+    <view class="stat"><text class="stat-b">{{stats.cards}}</text><text class="stat-s">获得卡牌</text></view>
+    <view class="stat"><text class="stat-b">{{stats.rrUp}}</text><text class="stat-s">RR 及以上</text></view>
+    <view class="stat"><text class="stat-b" style="color:{{stats.bestColor}}">{{stats.best}}</text><text class="stat-s">最高稀有度</text></view>
+    <view class="stat"><text class="stat-b">¥{{stats.spend}}</text><text class="stat-s">本弹花费</text></view>
+  </view>
+
+  <!-- 拆卡记录 -->
+  <view class="rec-head"><text class="page-head-title">拆卡记录</text></view>
+  <view class="empty-tip" wx:if="{{!history.length}}">还没有记录，去拆一发吧！</view>
+  <view class="record card-glass" wx:for="{{history}}" wx:key="time">
+    <view class="rec-line">
+      <text class="rec-title">{{item.setName}} · {{item.specLabel}} × {{item.packs}} 包</text>
+      <text class="rec-meta">{{item.money ? "¥" + item.money + " · " : ""}}{{item.timeText}}</text>
+    </view>
+    <scroll-view scroll-x class="rec-cards" enable-flex>
+      <view class="mini-card" wx:for="{{item.cards}}" wx:for-item="c" wx:key="cardIndex"
+            data-set="{{c.setCode}}" data-idx="{{c.cardIndex}}" data-name="{{c.cardName}}" data-rarity="{{c.rarity}}"
+            bindtap="showDetail">
+        <image src="{{c.image}}" mode="aspectFill" lazy-load />
+        <text class="mc-name">{{c.cardName}}</text>
+        <text class="mc-rar" style="color:{{c.rarityColor || '#9aa5b1'}}">{{c.rarity}}</text>
+      </view>
+    </scroll-view>
+  </view>
+  <view style="height: 40rpx"></view>
+</view>
+
+<!-- 开包遮罩 -->
+<view class="draw-mask" wx:if="{{drawState}}">
+  <!-- 撕包 -->
+  <view class="pack-stage" wx:if="{{drawState.stage === 'pack'}}" bindtap="burstPack">
+    <view class="pack">
+      <view class="pack-top"></view>
+      <view class="pack-art"></view>
+      <view class="pack-label">{{current.name}} · {{drawState.spec.label}}</view>
+    </view>
+    <text class="pack-hint">点击卡包 撕开！</text>
+  </view>
+
+  <!-- 翻卡 -->
+  <view class="cards-stage" wx:if="{{drawState.stage === 'cards'}}">
+    <view class="pack-nav" wx:if="{{drawState.packs.length > 1}}">
+      <text class="nav-btn {{drawState.packIdx === 0 ? 'disabled' : ''}}" data-d="-1" bindtap="navPack">‹ 上一包</text>
+      <text class="nav-info">第 {{drawState.packIdx + 1}} / {{drawState.packs.length}} 包</text>
+      <text class="nav-btn {{drawState.packIdx === drawState.packs.length - 1 ? 'disabled' : ''}}" data-d="1" bindtap="navPack">下一包 ›</text>
+    </view>
+
+    <view class="cards-row">
+      <view class="gcard {{drawState.flipped[drawState.packIdx][i] ? 'flipped' : ''}}"
+            wx:for="{{drawState.view}}" wx:key="cardIndex"
+            style="animation-delay: {{index * 60}}ms"
+            data-pi="{{drawState.packIdx}}" data-i="{{index}}" bindtap="tapCard">
+        <view class="gcard-inner">
+          <view class="gface back"></view>
+          <view class="gface front" data-rarity="{{item.rarity}}">
+            <image src="{{item.image}}" mode="aspectFill" />
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="stage-actions">
+      <view class="btn btn-ghost" bindtap="flipAll"><text class="btn-title">全部翻开</text></view>
+      <view class="btn btn-ghost" bindtap="againDraw"><text class="btn-title">再来一次</text></view>
+      <view class="btn btn-ghost" bindtap="closeDraw"><text class="btn-title">收起</text></view>
+    </view>
+  </view>
+</view>
+
+<!-- 概率公示 -->
+<view class="overlay-mask" wx:if="{{probShow}}" bindtap="closeProb">
+  <view class="modal" catchtap="noop">
+    <view class="modal-head"><text class="modal-title">{{current.name}} · 概率公示</text>
+      <text class="close-x" bindtap="closeProb">✕</text></view>
+    <scroll-view scroll-y class="modal-body">
+      <view class="prob-spec" wx:for="{{probSpecs}}" wx:key="label">
+        <view class="prob-spec-title">{{item.label}}{{item.price ? " · " + item.price : ""}}</view>
+        <view class="prob-note">{{item.note}}</view>
+        <view class="prob-variant" wx:for="{{item.variants}}" wx:for-item="v" wx:key="note">
+          <view class="prob-variant-note" wx:if="{{item.variants.length > 1}}">封入变体：{{v.note}}（每包随机）</view>
+          <view class="prob-slot" wx:for="{{v.slots}}" wx:for-item="slot" wx:key="name">
+            <view class="slot-name">{{slot.name}} <text class="slot-kind">{{slot.kind === 'holo' ? '闪卡位' : '平卡位'}}</text></view>
+            <view class="prob-note" wx:if="{{slot.fallback}}">该弹无对应稀有度结构，此槽位从全弹随机抽取。</view>
+            <view class="prob-line" wx:for="{{slot.lines}}" wx:for-item="line" wx:key="rarity">
+              <text class="pl-r" style="color:{{line.color}}">{{line.rarity}}</text>
+              <view class="pl-bar"><view class="pl-fill" style="width:{{line.width}};background:{{line.color}}"></view></view>
+              <text class="pl-p">{{line.pct}}（池 {{line.pool}} 张）</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+</view>
+
+<!-- 期望计算 -->
+<view class="overlay-mask" wx:if="{{expectShow}}" bindtap="closeExpect">
+  <view class="modal" catchtap="noop">
+    <view class="modal-head"><text class="modal-title">{{current.name}} · 目标卡期望计算</text>
+      <text class="close-x" bindtap="closeExpect">✕</text></view>
+    <scroll-view scroll-y class="modal-body">
+      <view class="prob-spec" wx:for="{{expectSpecs}}" wx:key="label">
+        <view class="prob-spec-title">{{item.label}}{{item.price ? " · " + item.price : ""}}</view>
+        <view class="expect-table">
+          <view class="et-row et-head">
+            <text>稀有度</text><text>单包出现率</text><text>指定一张卡</text><text>期望花费</text>
+          </view>
+          <view class="et-row" wx:for="{{item.rows}}" wx:for-item="r" wx:key="rarity">
+            <text style="color:{{r.color}};font-weight:800">{{r.rarity}}</text>
+            <text>{{r.pPackText}}</text>
+            <text>{{r.cardText}}</text>
+            <text>{{r.moneyText}}</text>
+          </view>
+        </view>
+      </view>
+      <view class="prob-note">基于划档概率模型的数学期望（几何分布），仅估算"平均而言"，非保底承诺。</view>
+    </scroll-view>
+  </view>
+</view>
+
+<card-detail show="{{detailShow}}" set-code="{{detailSet}}" card-index="{{detailIdx}}"
+             fallback-name="{{detailName}}" fallback-rarity="{{detailRarity}}" bind:close="closeDetail" />

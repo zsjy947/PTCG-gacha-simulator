@@ -1,0 +1,33 @@
+<view class="page {{theme === 'light' ? 'light' : ''}}">
+  <view class="page-head">
+    <picker mode="selector" range="{{setNames}}" value="{{setIdx}}" bindchange="onPickSet">
+      <view class="picker-box set-pick">{{setNames[setIdx]}} ▾</view>
+    </picker>
+  </view>
+
+  <view class="filter-row">
+    <input class="search" placeholder="搜索卡名…" placeholder-class="ph"
+           value="{{searchText}}" bindinput="onSearch" confirm-type="search" />
+    <picker mode="selector" range="{{rarityNames}}" value="{{rarityIdx}}" bindchange="onPickRarity">
+      <view class="picker-box">{{rarityNames[rarityIdx]}} ▾</view>
+    </picker>
+  </view>
+
+  <view class="count" wx:if="{{total}}">{{shown}}/{{total}} 张</view>
+  <view class="cl-grid">
+    <view class="empty-tip" wx:if="{{!view.length}}">没有匹配的卡牌</view>
+    <view class="cl-card" wx:for="{{view}}" wx:key="cardIndex"
+          data-set="{{item.setCode}}" data-idx="{{item.cardIndex}}" data-name="{{item.cardName}}" data-rarity="{{item.rarity}}"
+          bindtap="onCardTap">
+      <image src="{{item.image}}" mode="aspectFill" lazy-load />
+      <view class="cl-name">
+        <text class="rar-badge" style="background:{{item.color}}">{{item.rarity}}</text>
+        <text class="cl-n">{{item.cardName}}</text>
+      </view>
+    </view>
+  </view>
+  <view style="height: 40rpx"></view>
+</view>
+
+<card-detail show="{{detailShow}}" set-code="{{detailSet}}" card-index="{{detailIdx}}"
+             fallback-name="{{detailName}}" fallback-rarity="{{detailRarity}}" bind:close="closeDetail" />

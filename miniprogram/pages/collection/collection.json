@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "收藏册",
+  "usingComponents": {
+    "card-detail": "/components/card-detail/card-detail"
+  }
+}
