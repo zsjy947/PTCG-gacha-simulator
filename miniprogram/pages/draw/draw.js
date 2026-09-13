@@ -50,7 +50,11 @@ Page({
     const history = (store.get("ptcg_history", []) || []).map((r) => ({
       ...r,
       timeText: new Date(r.time).toLocaleTimeString("zh-CN", { hour: "2-digit", minute: "2-digit" }),
-      cards: (r.flat || []).map((c) => ({ ...c, image: data.imgURL(c.setCode, c.cardIndex) })),
+      cards: (r.flat || []).map((c) => ({
+        ...c,
+        image: data.imgURL(c.setCode, c.cardIndex),
+        rarityColor: ui.rarColor(c.rarity),
+      })),
     }));
 
     this.setData({
