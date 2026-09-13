@@ -75,15 +75,18 @@ python app.py
 ```
 PTCG/
 ├─ app.py              # 服务入口（API + 图片代理 + 冻结 exe 路径适配）
-├─ gacha.py            # 拆卡引擎（规格/变体槽位 + 稀有度卡池）
+├─ gacha.py            # Python 拆卡引擎（服务端用；与 shared/gacha.js 同种子对拍）
+├─ shared/gacha.js     # JS 拆卡引擎（唯一权威实现：exe / APK / 小程序三端共用）
 ├─ config.py           # 各弹规格映射与划档概率配置
-├─ fetch_data.py       # 从 mik.moe 同步各弹卡表
+├─ fetch_data.py       # 从 mik.moe 同步各弹卡表 + 生成数据清单 manifest.json
 ├─ build_exe.bat       # 一键打包 exe
+├─ tests/              # 引擎一致性测试（Python↔JS 同种子对拍 + 统计落位）
 ├─ static/             # 前端（index.html / style.css / app.js）
 ├─ data/
 │  ├─ sets_index.json  # 弹索引
+│  ├─ manifest.json    # 数据清单（热更新增量比对用）
 │  ├─ cards/           # 每弹卡牌列表
-│  └─ *_cache/         # 运行时缓存（图片/图标/详情）
+│  └─ *_cache/         # 运行时缓存（图片/图标/详情，图片缓存带 LRU 上限）
 └─ dist/宝可梦卡牌模拟拆卡.exe
 ```
 
@@ -99,6 +102,19 @@ PTCG/
 | `GET /img/<弹>/<编号>` · `GET /icon/<弹>` | 图片代理（磁盘缓存） |
 
 ## 更新记录
+
+### v1.2.0
+
+- 收藏册完成度与缺卡清单：每弹显示"已收集 X/Y 种（百分比）"进度条，新增「只看缺卡」模式直击缺口
+- 目标卡期望成本计算：基于划档概率模型计算"抽到指定某张卡"的期望包数与期望花费（每规格每稀有度）
+- 整盒模拟：主弹系列一键 30 包连开，汇总条统计 RR+ 数量、最高稀有度与合计花费
+- 拆卡战报图：canvas 生成当前卡包战报（卡图网格 + 稀有度统计），APK 保存到相册目录、PC 直接下载
+- 卡表数据热更新：设置页可从远程 manifest 按弹增量更新卡表（无需等新版本），「恢复内置」一键回退
+- 数据自动同步：GitHub Actions 每周全量同步 mik.moe 卡表并生成 data/manifest.json
+- 引擎统一：拆卡引擎抽取为 `shared/gacha.js` 唯一权威实现（exe 服务端复用 / APK 内嵌 / 小程序共用），
+  新增 Python↔JS 同种子逐卡对拍 + 统计落位测试（`tests/`），CI 每次推送自动回归
+- 性能与健壮性：大弹卡表增量渲染（滚动续载）、服务端图片缓存 LRU 上限（默认 600MB，`PTCG_IMG_CACHE_MB` 可调）、
+  APK 原生图缓 500MB 最旧淘汰、代理接口限流与出站超时收紧
 
 ### v1.1.0
 

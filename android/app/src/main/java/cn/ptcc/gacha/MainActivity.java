@@ -21,11 +21,16 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
 
 public class MainActivity extends Activity {
     private static final String IMG_HOST = "tcg.mik.moe";
     private static final String IMG_PREFIX = "/static/img/";
     private static final String ICON_PREFIX = "/static/setCode/";
+    private static final long IMG_CACHE_MAX_BYTES = 500L * 1024 * 1024; // 原生图缓上限，超过按最旧淘汰
 
     private WebView webView;
     private File imgCacheDir;
@@ -142,6 +147,7 @@ public class MainActivity extends Activity {
                 //noinspection ResultOfMethodCallIgnored
                 tmp.delete();
             }
+            evictOldCache();
             return dest.isFile();
         } catch (IOException e) {
             //noinspection ResultOfMethodCallIgnored
@@ -150,6 +156,38 @@ public class MainActivity extends Activity {
         } finally {
             try { if (in != null) in.close(); } catch (IOException ignored) {}
             try { if (out != null) out.close(); } catch (IOException ignored) {}
+        }
+    }
+
+    /** 缓存超过上限时按最后修改时间从旧到新淘汰，直到回到上限 90%（LRU 简化版） */
+    private void evictOldCache() {
+        File[] all = listFilesRecursive(imgCacheDir);
+        long total = 0;
+        for (File f : all) total += f.length();
+        if (total <= IMG_CACHE_MAX_BYTES) return;
+        long target = (long) (IMG_CACHE_MAX_BYTES * 0.9);
+        Arrays.sort(all, Comparator.comparingLong(File::lastModified));
+        for (File f : all) {
+            if (total <= target) break;
+            long len = f.length();
+            //noinspection ResultOfMethodCallIgnored
+            f.delete();
+            total -= len;
+        }
+    }
+
+    private static File[] listFilesRecursive(File dir) {
+        List<File> out = new ArrayList<>();
+        collectFiles(dir, out);
+        return out.toArray(new File[0]);
+    }
+
+    private static void collectFiles(File dir, List<File> out) {
+        File[] files = dir.listFiles();
+        if (files == null) return;
+        for (File f : files) {
+            if (f.isDirectory()) collectFiles(f, out);
+            else out.add(f);
         }
     }
 
@@ -245,6 +283,25 @@ public class MainActivity extends Activity {
         @JavascriptInterface
         public String loadStore() {
             return readStoreRaw();
+        }
+
+        /** 拆卡战报图保存：base64 PNG 落盘到应用外部图片目录（无需存储权限），返回绝对路径 */
+        @JavascriptInterface
+        public String saveImage(String base64) {
+            try {
+                byte[] data = android.util.Base64.decode(base64, android.util.Base64.DEFAULT);
+                File dir = getExternalFilesDir(android.os.Environment.DIRECTORY_PICTURES);
+                if (dir == null) dir = getFilesDir();
+                //noinspection ResultOfMethodCallIgnored
+                dir.mkdirs();
+                File out = new File(dir, "PTCG战报_" + System.currentTimeMillis() + ".png");
+                FileOutputStream fo = new FileOutputStream(out);
+                fo.write(data);
+                fo.close();
+                return out.getAbsolutePath();
+            } catch (Exception e) {
+                return "";
+            }
         }
     }
 

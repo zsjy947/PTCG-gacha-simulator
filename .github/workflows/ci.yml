@@ -1,0 +1,22 @@
+name: CI
+
+on:
+  push:
+    branches: ["*"]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 安装依赖
+        run: pip install flask requests pillow
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - name: 引擎一致性测试（Python ↔ JS 同种子对拍 + 统计落位）
+        run: python -m unittest discover -s tests -v

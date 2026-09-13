@@ -16,6 +16,7 @@ import sys
 import threading
 import time
 import webbrowser
+from collections import deque
 from pathlib import Path
 
 import requests
@@ -37,6 +38,7 @@ def _resolve_dirs():
 
 BUNDLED_DATA, DATA = _resolve_dirs()
 STATIC_DIR = (Path(getattr(sys, "_MEIPASS", "")) / "static") if getattr(sys, "frozen", False) else Path(__file__).parent / "static"
+SHARED_DIR = (Path(getattr(sys, "_MEIPASS", "")) / "shared") if getattr(sys, "frozen", False) else Path(__file__).parent / "shared"
 IMG_CACHE = DATA / "img_cache"
 ICON_CACHE = DATA / "icon_cache"
 DETAIL_CACHE = DATA / "detail_cache"
@@ -81,9 +83,81 @@ MIK_API = "https://tcg.mik.moe/api/v3"
 _SAFE = re.compile(r"^[A-Za-z0-9._\-]{1,40}$")
 _http = requests.Session()
 _http.headers["User-Agent"] = "Mozilla/5.0 ptcc-gacha"
+_OUT_TIMEOUT = (5, 15)   # 出站请求（连接, 读取）超时：上游卡住时快速失败
 _guard = threading.Lock()
 _locks: dict = {}   # 每个目标文件一把锁：不同图片并行下载，互不阻塞
 _inflight: set = set()
+
+# ---------------------------------------------------------------- 代理限流（防止本机代理被滥用打满上游）
+RL_WINDOW = 60.0        # 统计窗口
+RL_LIMIT = 90           # 窗口内最多请求数（正常拆卡/浏览远低于此值）
+_rl_lock = threading.Lock()
+_rl_hits: dict = {}
+
+
+def _rate_limited() -> bool:
+    ip = request.headers.get("X-Forwarded-For", request.remote_addr or "?").split(",")[0].strip()
+    now = time.monotonic()
+    with _rl_lock:
+        q = _rl_hits.get(ip)
+        if q is None:
+            q = _rl_hits[ip] = deque()
+        while q and now - q[0] > RL_WINDOW:
+            q.popleft()
+        if len(q) >= RL_LIMIT:
+            return True
+        q.append(now)
+        if len(_rl_hits) > 256:  # 防御性清理，避免长期运行膨胀
+            for k in [k for k, v in _rl_hits.items() if not v]:
+                _rl_hits.pop(k, None)
+    return False
+
+
+# ---------------------------------------------------------------- 图片缓存 LRU 上限
+IMG_CACHE_MB = int(os.environ.get("PTCG_IMG_CACHE_MB") or 600)
+_lru_lock = threading.Lock()
+_lru_size = -1  # 缓存的目录字节数（-1 未初始化）
+
+
+def _dir_bytes(path: Path) -> int:
+    total = 0
+    for p in path.rglob("*"):
+        try:
+            if p.is_file():
+                total += p.stat().st_size
+        except OSError:
+            pass
+    return total
+
+
+def _lru_touch(dest: Path):
+    """命中即续期（mtime 仍是下载时间的文件最旧，先被淘汰）。"""
+    try:
+        os.utime(dest, None)
+    except OSError:
+        pass
+
+
+def _lru_enforce():
+    """超过上限时按 mtime 从旧到新淘汰，直到回到上限的 90%。"""
+    global _lru_size
+    with _lru_lock:
+        if _lru_size < 0:
+            _lru_size = _dir_bytes(IMG_CACHE)
+        if _lru_size <= IMG_CACHE_MB * 1048576:
+            return
+        files = [(p.stat().st_mtime, p) for p in IMG_CACHE.rglob("*.png") if p.is_file()]
+        files.sort()
+        target = IMG_CACHE_MB * 1048576 * 0.9
+        for _, p in files:
+            if _lru_size <= target:
+                break
+            try:
+                size = p.stat().st_size
+                p.unlink()
+                _lru_size -= size
+            except OSError:
+                break
 
 
 def _lock_for(key: str) -> threading.Lock:
@@ -91,7 +165,7 @@ def _lock_for(key: str) -> threading.Lock:
         return _locks.setdefault(key, threading.Lock())
 
 
-def _cached_fetch(url: str, dest: Path, timeout: int = 30) -> bool:
+def _cached_fetch(url: str, dest: Path, timeout: tuple = _OUT_TIMEOUT) -> bool:
     """下载到缓存目录；同一文件并发请求只下载一次，不同文件并行。"""
     if dest.exists() and dest.stat().st_size > 0:
         return True
@@ -109,6 +183,7 @@ def _cached_fetch(url: str, dest: Path, timeout: int = 30) -> bool:
                     tmp = dest.with_suffix(dest.suffix + ".part")
                     tmp.write_bytes(r.content)
                     tmp.replace(dest)
+                    _lru_enforce()
                     return True
                 if r.status_code == 404:
                     return False
@@ -160,7 +235,7 @@ def _fetch_detail(code: str, idx: str) -> bool:
         r = _http.post(
             f"{MIK_API}/card/card-detail",
             json={"setCode": code, "cardIndex": idx},
-            timeout=30,
+            timeout=_OUT_TIMEOUT,
         )
         data = r.json()
         if data.get("code") == 200 and data.get("data"):
@@ -204,6 +279,12 @@ def _spec_brief(code: str) -> list:
 @app.route("/")
 def index():
     return send_from_directory(app.static_folder, "index.html")
+
+
+@app.get("/static/gacha.js")
+def shared_gacha():
+    """shared/gacha.js：与 Python 引擎同源的 JS 拆卡引擎（tests 同种子对拍）。"""
+    return send_file(SHARED_DIR / "gacha.js", mimetype="text/javascript", max_age=3600)
 
 
 # ---------------------------------------------------------------- API
@@ -253,10 +334,12 @@ def api_set_probabilities(set_id: str):
 
 @app.post("/api/draw")
 def api_draw():
+    if _rate_limited():
+        return jsonify({"error": "请求过于频繁，请稍后再试"}), 429
     body = request.get_json(silent=True) or {}
     set_id = str(body.get("set") or "")
     spec = body.get("spec") or None
-    packs = max(1, min(int(body.get("packs") or 1), 10))
+    packs = max(1, min(int(body.get("packs") or 1), 40))
     if not _SAFE.match(set_id):
         return jsonify({"error": "非法弹代码"}), 400
     if not config.set_specs(set_id):
@@ -274,6 +357,8 @@ def api_draw():
 
 @app.get("/api/card/<set_id>/<idx>")
 def api_card_detail(set_id: str, idx: str):
+    if _rate_limited():
+        return jsonify({"error": "请求过于频繁，请稍后再试"}), 429
     if not (_SAFE.match(set_id) and _SAFE.match(idx)):
         return jsonify({"error": "非法参数"}), 400
     dest = DETAIL_CACHE / f"{set_id}__{idx}.json"
@@ -290,18 +375,23 @@ def _strip_ext(name: str) -> str:
 
 @app.get("/img/<code>/<idx>")
 def card_image(code: str, idx: str):
+    if _rate_limited():
+        return jsonify({"error": "请求过于频繁，请稍后再试"}), 429
     idx = _strip_ext(idx)
     if not (_SAFE.match(code) and _SAFE.match(idx)):
         return jsonify({"error": "非法参数"}), 400
     dest = IMG_CACHE / code / f"{idx}.png"
     ok = _cached_fetch(MIK_IMG.format(code=code, idx=idx), dest)
     if ok:
+        _lru_touch(dest)
         return send_file(dest, mimetype="image/png", max_age=86400)
     return jsonify({"error": "图片获取失败"}), 404
 
 
 @app.get("/thumb/<code>/<idx>")
 def card_thumb(code: str, idx: str):
+    if _rate_limited():
+        return jsonify({"error": "请求过于频繁，请稍后再试"}), 429
     idx = _strip_ext(idx)
     if not (_SAFE.match(code) and _SAFE.match(idx)):
         return jsonify({"error": "非法参数"}), 400
@@ -314,11 +404,14 @@ def card_thumb(code: str, idx: str):
             if src.exists() and src.stat().st_size > 0:
                 return send_file(src, mimetype="image/png", max_age=86400)
             return jsonify({"error": "图片获取失败"}), 404
+    _lru_touch(dest)
     return send_file(dest, mimetype="image/webp", max_age=86400)
 
 
 @app.get("/icon/<code>")
 def set_icon(code: str):
+    if _rate_limited():
+        return jsonify({"error": "请求过于频繁，请稍后再试"}), 429
     code = _strip_ext(code)
     if not _SAFE.match(code):
         return jsonify({"error": "非法参数"}), 400
@@ -399,6 +492,7 @@ def cache_info():
 
 @app.post("/api/cache/clear")
 def cache_clear():
+    global _lru_size
     for d in (IMG_CACHE, ICON_CACHE, DETAIL_CACHE):
         for p in d.rglob("*"):
             try:
@@ -408,6 +502,8 @@ def cache_clear():
                     shutil.rmtree(p, ignore_errors=True)
             except OSError:
                 pass
+    with _lru_lock:
+        _lru_size = 0
     return jsonify({"ok": True})
 
 

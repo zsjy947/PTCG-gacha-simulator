@@ -52,11 +52,14 @@ def main():
               f'window.__ASSET_BASE__="https://tcg.mik.moe/static";</script>\n'
               f'<script src="assets/sets_index.js?v={ver}"></script>\n'
               f'<script src="assets/meta.js?v={ver}"></script>\n'
+              f'<script src="gacha.js?v={ver}"></script>\n'
               f'<script src="app.js?v={ver}"></script>')
     html = re.sub(r'<script src="/static/app\.js[^"]*"></script>', inject, html)
+    html = re.sub(r'<script src="/static/gacha\.js[^"]*"></script>\s*', '', html)
     (WWW / "index.html").write_text(html, encoding="utf-8")
     shutil.copy2(ROOT / "static" / "style.css", WWW / "style.css")
     shutil.copy2(ROOT / "static" / "app.js", WWW / "app.js")
+    shutil.copy2(ROOT / "shared" / "gacha.js", WWW / "gacha.js")
     shutil.copy2(ROOT / "static" / "cardback.png", WWW / "cardback.png")
 
     # 弹索引 + 抽卡规格元数据

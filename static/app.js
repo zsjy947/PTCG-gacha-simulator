@@ -16,6 +16,8 @@ const RARITY_LABEL = {
   "●": "普通 ●", "◆": "非普通 ◆", "★": "稀有 ★", "★★": "双稀有 ★★", "★★★": "特艺术 ★★★", "无标记": "无标记",
 };
 const ENERGY_ZH = { G: "草", R: "火", W: "水", L: "雷", P: "超", F: "斗", D: "恶", M: "钢", Y: "妖", N: "无", C: "无色" };
+const BOX_SIZE = 30;          // 官方补充包整盒包数
+const RENDER_CHUNK = 120;     // 卡表增量渲染分片大小
 
 const state = {
   sets: [],           // 全部弹（扁平）
@@ -41,7 +43,6 @@ async function api(url, opts) {
 const ASSET = !!window.__ASSET_MODE__;
 const MIK_STATIC = window.__ASSET_BASE__ || "https://tcg.mik.moe/static";
 const MIK_API = "https://tcg.mik.moe/api/v3";
-const RARITY_ALIAS = { "●": "C", "○": "C", "◆": "U", "◇": "U", "★": "R", "★★": "RR", "★★★": "SAR" };
 
 function imgURL(code, idx) {
   return ASSET ? `${MIK_STATIC}/img/${code}/${idx}.png` : `/img/${code}/${idx}`;
@@ -86,69 +87,10 @@ function upgradeRemoteImages(root) {
   });
 }
 
-/* ---- 本地抽卡引擎（资产模式） ---- */
-function buildPools(cards) {
-  const pools = {};
-  for (const c of cards) {
-    const r = c.rarity || "N";
-    const k = RARITY_ALIAS[r] || r;
-    (pools[k] = pools[k] || []).push(c);
-  }
-  return pools;
-}
-function normalizeWeights(weights, available) {
-  const w = Object.entries(weights).filter(([r, v]) => available.includes(r) && v > 0);
-  if (!w.length) return null;
-  const total = w.reduce((a, [, v]) => a + v, 0);
-  return Object.fromEntries(w.map(([r, v]) => [r, v / total]));
-}
-function pickRarity(probs) {
-  let roll = Math.random(), acc = 0;
-  for (const [r, p] of Object.entries(probs)) { acc += p; if (roll <= acc) return r; }
-  return Object.keys(probs).pop();
-}
-function cardKey(c) { return `${c.setCode}__${c.cardIndex}`; }
-function pickCard(pools, rarity, cards, used) {
-  // 包内已出现的卡不再出现：同稀有度池去重，池耗尽退回整弹去重
-  let src = rarity ? (pools[rarity] && pools[rarity].length ? pools[rarity] : cards) : cards;
-  if (used) {
-    let fresh = src.filter((c) => !used.has(cardKey(c)));
-    if (!fresh.length) fresh = cards.filter((c) => !used.has(cardKey(c)));
-    if (fresh.length) src = fresh;
-  }
-  return { ...src[Math.floor(Math.random() * src.length)] };
-}
-function jsDrawPack(pools, cards, spec) {
-  const variants = spec.variants || [{ note: spec.note || "", slots: spec.slots }];
-  const v = variants[Math.floor(Math.random() * variants.length)];
-  const available = Object.keys(pools);
-  const used = new Set();
-  return v.slots.map((slot) => {
-    const probs = normalizeWeights(slot.weights, available);
-    const card = pickCard(pools, probs ? pickRarity(probs) : null, cards, used);
-    used.add(cardKey(card));
-    card.slotName = slot.name;
-    card.slotKind = slot.kind;
-    return card;
-  });
-}
-function jsSpecProbabilities(spec, pools) {
-  const slotTable = (slots) => slots.map((slot) => {
-    const probs = normalizeWeights(slot.weights, Object.keys(pools)) || {};
-    return {
-      name: slot.name, kind: slot.kind, fallback: !probs,
-      probabilities: Object.entries(probs)
-        .map(([r, p]) => ({ rarity: r, p, pool: (pools[r] || []).length }))
-        .sort((a, b) => b.p - a.p),
-    };
-  });
-  const variants = spec.variants || [{ note: spec.note || "", slots: spec.slots }];
-  return {
-    id: spec.id, label: spec.label, note: spec.note, price: spec.price,
-    packSize: variants[0].slots.length,
-    variants: variants.map((v) => ({ note: v.note, slots: slotTable(v.slots) })),
-  };
-}
+/* ---- 本地抽卡引擎：统一使用 shared/gacha.js（window.PTCGGacha）----
+ * 服务模式由 /static/gacha.js 提供，资产模式由构建脚本复制到 www/；
+ * Python↔JS 同种子对拍见 tests/test_engine.py，勿在本文件重写引擎逻辑。 */
+const G = () => window.PTCGGacha;
 
 /* ---- 数据访问层：服务模式 / 资产模式 ---- */
 const DATA = {
@@ -173,6 +115,11 @@ const DATA = {
     return { groups: result };
   },
   async cards(setId) {
+    // 热更新覆盖优先（设置页「卡表数据更新」拉取的增量数据，键不带 ptcg_ 前缀、不镜像磁盘）
+    const ov = localStorage.getItem(`datacard_${setId}`);
+    if (ov) {
+      try { return JSON.parse(ov); } catch { localStorage.removeItem(`datacard_${setId}`); }
+    }
     if (!ASSET) {
       const d = await api(`/api/sets/${encodeURIComponent(setId)}/cards`);
       return d.cards;
@@ -195,8 +142,8 @@ const DATA = {
   async probabilities(setId) {
     if (!ASSET) return api(`/api/sets/${encodeURIComponent(setId)}/probabilities`);
     const cards = await DATA.cards(setId);
-    const pools = buildPools(cards);
-    return { specs: (state.current.specs || []).map((sp) => jsSpecProbabilities(sp, pools)) };
+    const pools = G().buildPools(cards);
+    return { specs: (state.current.specs || []).map((sp) => G().specProbabilities(sp, pools)) };
   },
   async draw(setId, spec, packs) {
     if (!ASSET) {
@@ -207,9 +154,9 @@ const DATA = {
       });
     }
     const cards = await DATA.cards(setId);
-    const pools = buildPools(cards);
+    const pools = G().buildPools(cards);
     const packsOut = [];
-    for (let i = 0; i < packs; i++) packsOut.push(jsDrawPack(pools, cards, spec));
+    for (let i = 0; i < packs; i++) packsOut.push(G().drawPack(cards, pools, spec));
     return {
       packs: packsOut.map((p) => p.map((c) => ({ ...c, image: imgURL(c.setCode, c.cardIndex) }))),
     };
@@ -511,6 +458,19 @@ function renderSpecButtons() {
   ten.innerHTML = `<span class="btn-title">十连</span><span class="btn-sub">10 包 · ${escapeHtml(dflt.short)}</span>`;
   ten.addEventListener("click", () => draw(dflt, 10));
   box.appendChild(ten);
+  // 整盒模拟：仅主弹系列（官方补充包整盒 30 包），宝石/奖赏/特殊弹无整盒规格不提供
+  if (["sm5", "sm25", "sv5", "sv20"].includes(dflt.key)) {
+    const boxBtn = document.createElement("button");
+    boxBtn.className = "btn draw-box";
+    boxBtn.innerHTML = `<span class="btn-title">整盒</span><span class="btn-sub">30 包 · ${escapeHtml(dflt.short)} · 汇总统计</span>`;
+    boxBtn.addEventListener("click", () => draw(dflt, BOX_SIZE));
+    box.appendChild(boxBtn);
+  }
+  const calc = document.createElement("button");
+  calc.className = "btn btn-ghost";
+  calc.innerHTML = `<span class="btn-title">目标卡计算</span>`;
+  calc.addEventListener("click", showExpectedCost);
+  box.appendChild(calc);
   const prob = document.createElement("button");
   prob.className = "btn btn-ghost";
   prob.innerHTML = `<span class="btn-title">概率公示</span>`;
@@ -553,6 +513,9 @@ function openOverlay(spec, packs) {
   ov.hidden = false;
   $("#packStage").hidden = false;
   $("#cardsStage").hidden = true;
+  $("#btnReport").hidden = true;
+  $("#boxSummary").hidden = true;
+  $("#boxSummary").innerHTML = "";
   const pack = $("#pack");
   pack.classList.remove("burst");
   pack.style.display = "";
@@ -576,7 +539,33 @@ function showCards() {
   const multi = state.packs.length > 1;
   $("#packNav").hidden = !multi;
   if (multi) renderPackTabs();
+  renderBoxSummary();
+  $("#btnReport").hidden = false;
   renderPackRow();
+}
+
+/* 整盒/十连汇总条：不依赖翻卡进度，开包即统计（含花费） */
+function renderBoxSummary() {
+  const el = $("#boxSummary");
+  if (state.packs.length < 10) { el.hidden = true; return; }
+  const cnt = {};
+  for (const pack of state.packs) for (const c of pack) {
+    const r = c.rarity || "N";
+    cnt[r] = (cnt[r] || 0) + 1;
+  }
+  const rrUp = RARITY_ORDER.slice(0, RARITY_ORDER.indexOf("RR") + 1)
+    .reduce((a, r) => a + (cnt[r] || 0), 0);
+  const best = bestRarity(cnt);
+  const sp = (state.pending && state.pending.spec) || state.spec;
+  const money = sp && sp.priceCny ? sp.priceCny * state.packs.length : 0;
+  const chips = RARITY_ORDER.filter((r) => cnt[r])
+    .map((r) => `<span style="color:${RARITY_COLOR[r]}">${r}×${cnt[r]}</span>`).join(" · ");
+  el.innerHTML = `
+    <div class="box-head"><b>${state.packs.length} 连汇总</b>
+      <span>RR+ 共 <b>${rrUp}</b> 张 · 最高 <b style="color:${RARITY_COLOR[best] || ""}">${best || "—"}</b>
+      ${money ? ` · 合计 ¥${fmtMoney(money)}` : ""}</span></div>
+    <div class="box-chips">${chips}</div>`;
+  el.hidden = false;
 }
 
 function renderPackTabs() {
@@ -752,7 +741,7 @@ function renderStats() {
 }
 
 /* ---------------- 收藏册 ---------------- */
-function renderCollection() {
+async function renderCollection() {
   const sel = $("#collSet");
   if (!sel.options.length) {
     for (const s of state.sets) {
@@ -778,7 +767,55 @@ function renderCollection() {
     ? `<span><b>${entries.length}</b>种卡牌</span><span><b>${total}</b>张总计</span>
        <span><b>${bestRarity(Object.fromEntries(entries.map((e) => [e.rarity, 1]))) || "—"}</b>最高稀有度</span>`
     : `<span>该弹还没有收藏记录</span>`;
+
+  // 完成度与缺卡：以完整卡表为基准（数据缺失时静默跳过）
+  const bar = $("#collBar");
+  const pctText = $("#collPct");
+  let all = null;
+  try { all = await DATA.cards(setId); } catch { all = null; }
+  const totalDistinct = all ? all.length : 0;
+  if (all && totalDistinct) {
+    const pct = Math.min(100, (entries.length / totalDistinct) * 100);
+    bar.style.width = `${pct}%`;
+    pctText.textContent = `已收集 ${entries.length} / ${totalDistinct} 种（${pct.toFixed(1)}%）`;
+    $("#collProgress").hidden = false;
+  } else {
+    $("#collProgress").hidden = true;
+  }
+
   const grid = $("#collGrid");
+  const missingOnly = $("#collMissing").checked;
+  const missCards = () => {
+    const have = new Set(Object.keys(box));
+    return all.filter((c) => !have.has(`${c.setCode}__${c.cardIndex}`));
+  };
+  if (missingOnly) {
+    const missing = all ? missCards() : [];
+    if (!all || !all.length) {
+      grid.innerHTML = `<div class="empty-tip">该弹暂无卡表数据</div>`;
+      return;
+    }
+    if (!missing.length) {
+      grid.innerHTML = `<div class="empty-tip">🎉 该弹已收集完成！</div>`;
+      return;
+    }
+    $("#collSummary").innerHTML = `<span><b>${missing.length}</b>张缺卡</span>
+      <span><b>${entries.length}/${totalDistinct}</b>种已收</span>`;
+    grid.innerHTML = "";
+    for (const c of missing) {
+      const d = document.createElement("div");
+      d.className = "coll-card missing";
+      d.innerHTML = `
+        <img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}">
+        <div class="cc-x">缺</div>
+        <div class="cc-name">${rarBadge(c.rarity || "N")}${escapeHtml(c.cardName)} <span>${escapeHtml(c.cardIndex)}</span></div>`;
+      d.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
+      grid.appendChild(d);
+    }
+    upgradeRemoteImages(grid);
+    return;
+  }
+
   if (!entries.length) {
     grid.innerHTML = `<div class="empty-tip">抽到的卡会自动收藏在这里</div>`;
     return;
@@ -807,8 +844,12 @@ function exportCollection() {
   URL.revokeObjectURL(a.href);
 }
 
-/* ---------------- 卡表 ---------------- */
+/* ---------------- 卡表（增量渲染：大弹按分片追加，滚动到底部自动续载） ---------------- */
 let clAll = [];
+let clFiltered = [];
+let clShown = 0;
+let clObserver = null;
+
 async function renderCardList() {
   if (!state.current) return;
   $("#clTitle").textContent = `${state.current.name} · 完整卡表`;
@@ -816,26 +857,45 @@ async function renderCardList() {
   try { cards = await loadSetCards(state.current.id); }
   catch (e) { $("#clGrid").innerHTML = `<div class="empty-tip">${escapeHtml(e.message)}</div>`; return; }
   clAll = cards;
-  drawCardList();
+  resetCardList();
 }
-function drawCardList() {
+function resetCardList() {
   const kw = $("#clSearch").value.trim().toLowerCase();
   const rar = $("#clRarity").value;
-  const grid = $("#clGrid");
-  const list = clAll.filter((c) =>
+  clFiltered = clAll.filter((c) =>
     (!rar || (c.rarity || "N") === rar) && (!kw || c.cardName.toLowerCase().includes(kw)));
-  if (!list.length) { grid.innerHTML = `<div class="empty-tip">没有匹配的卡牌</div>`; return; }
-  grid.innerHTML = "";
-  for (const c of list) {
+  clShown = 0;
+  $("#clGrid").innerHTML = "";
+  appendCardChunk();
+  if (!clObserver) {
+    clObserver = new IntersectionObserver((es) => {
+      if (es.some((e) => e.isIntersecting) && clShown < clFiltered.length) appendCardChunk();
+    }, { rootMargin: "600px 0px" });
+    clObserver.observe($("#clSentinel"));
+  }
+}
+function appendCardChunk() {
+  const grid = $("#clGrid");
+  const chunk = clFiltered.slice(clShown, clShown + RENDER_CHUNK);
+  clShown += chunk.length;
+  if (!clFiltered.length) {
+    grid.innerHTML = `<div class="empty-tip">没有匹配的卡牌</div>`;
+    $("#clCount").textContent = "";
+    return;
+  }
+  const frag = document.createDocumentFragment();
+  for (const c of chunk) {
     const d = document.createElement("div");
     d.className = "cl-card";
     d.innerHTML = `
       <img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}">
       <div class="cl-name">${rarBadge(c.rarity || "N")}${escapeHtml(c.cardName)}</div>`;
     d.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
-    grid.appendChild(d);
+    frag.appendChild(d);
   }
+  grid.appendChild(frag);
   upgradeRemoteImages(grid);
+  $("#clCount").textContent = `${clShown}/${clFiltered.length} 张`;
 }
 function fillRarityFilter(cards) {
   const sel = $("#clRarity");
@@ -932,6 +992,241 @@ async function showDetail(code, idx) {
   } catch (e) {
     $("#detailBody").innerHTML = `<p class="prob-note">载入失败：${escapeHtml(e.message)}</p>`;
   }
+}
+
+/* ---------------- 目标卡期望成本计算 ---------------- */
+async function showExpectedCost() {
+  if (!state.current) return;
+  $("#expectTitle").textContent = `${state.current.name} · 目标卡期望计算`;
+  $("#expectBody").innerHTML = `<p class="prob-note">计算中…</p>`;
+  $("#expectOverlay").hidden = false;
+  try {
+    const cards = await loadSetCards(state.current.id);
+    const pools = G().buildPools(cards);
+    $("#expectBody").innerHTML = (state.current.specs || []).map((sp) => {
+      const rows = G().expectedCost(sp, pools);
+      const money = (r) => sp.priceCny && Number.isFinite(r.cardPacks)
+        ? `¥${fmtMoney(Math.round(r.cardPacks * sp.priceCny))}` : "—";
+      const body = rows.map((r) => `
+        <tr>
+          <td><span class="pl-r" style="color:${RARITY_COLOR[r.rarity] || ""}">${r.rarity}</span></td>
+          <td>${r.pool} 张</td>
+          <td>${probPct(r.pPack)}</td>
+          <td>${Number.isFinite(r.anyPacks) ? Math.ceil(r.anyPacks) : "—"} 包</td>
+          <td>${Number.isFinite(r.cardPacks) ? Math.ceil(r.cardPacks) : "—"} 包</td>
+          <td>${money(r)}</td>
+        </tr>`).join("");
+      return `
+        <div class="prob-spec">
+          <h4 class="prob-spec-title">${escapeHtml(sp.label)}${sp.price ? ` · ${escapeHtml(sp.price)}` : ""}</h4>
+          <table class="expect-table">
+            <thead><tr><th>稀有度</th><th>池</th><th>单包出现率</th><th>任一该稀有度</th><th>指定一张卡</th><th>期望花费</th></tr></thead>
+            <tbody>${body}</tbody>
+          </table>
+        </div>`;
+    }).join("") + `<p class="prob-note">基于划档概率模型的数学期望（几何分布），仅估算"平均而言"，非保底承诺；实际所需包数波动可能很大。</p>`;
+  } catch (e) {
+    $("#expectBody").innerHTML = `<p class="prob-note">计算失败：${escapeHtml(e.message)}</p>`;
+  }
+}
+
+/* ---------------- 拆卡战报图（canvas 生成，可保存/下载） ---------------- */
+function reportImgEl(url) {
+  return new Promise((resolve) => {
+    const im = new Image();
+    im.crossOrigin = "anonymous";
+    im.onload = () => resolve(im);
+    im.onerror = () => resolve(null);
+    im.src = url;
+  });
+}
+async function reportImage(card) {
+  // 资产模式走 XHR→Blob（缓存复用），保证 canvas 不被跨域污染
+  if (ASSET) {
+    const url = thumbURL(card);
+    let p = imgBlobCache.get(url);
+    if (!p) {
+      p = new Promise((resolve) => {
+        try {
+          const x = new XMLHttpRequest();
+          x.open("GET", url, true);
+          x.responseType = "arraybuffer";
+          x.onload = () => x.status === 200 && x.response
+            ? resolve(URL.createObjectURL(new Blob([x.response], { type: "image/png" })))
+            : resolve(null);
+          x.onerror = () => resolve(null);
+          x.send();
+        } catch { resolve(null); }
+      });
+      imgBlobCache.set(url, p);
+    }
+    const u = await p;
+    return u ? reportImgEl(u) : null;
+  }
+  return reportImgEl(thumbURL(card));
+}
+
+async function showReport() {
+  const pack = state.packs && state.packs[state.packIdx];
+  if (!pack) return;
+  toast("正在生成战报图…");
+  const W = 900, H = 1350;
+  const canvas = document.createElement("canvas");
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext("2d");
+  // 背景
+  const bg = ctx.createLinearGradient(0, 0, 0, H);
+  bg.addColorStop(0, "#101528"); bg.addColorStop(1, "#0a0e18");
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = "#e3350d"; ctx.fillRect(0, 0, W, 8);
+  // 标题
+  ctx.fillStyle = "#f5f6f8";
+  ctx.font = "bold 40px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText("拆卡战报", W / 2, 92);
+  ctx.font = "24px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.fillStyle = "#9aa5b1";
+  const setName = state.current ? `${state.current.name} · ${state.spec ? state.spec.label : ""}` : "";
+  ctx.fillText(setName.slice(0, 24), W / 2, 134);
+  // 卡图网格（最多 20 张，超出截断）
+  const imgs = await Promise.all(pack.slice(0, 20).map(reportImage));
+  const shown = imgs.filter(Boolean).length;
+  const cols = shown <= 4 ? 2 : shown <= 9 ? 3 : shown <= 16 ? 4 : 5;
+  const rows = Math.ceil(Math.max(shown, 1) / cols);
+  const gap = 14;
+  const cellW = Math.floor((W - gap * (cols + 1)) / cols);
+  const cellH = Math.floor(cellW * 1.38);
+  const gridTop = 180;
+  let k = 0;
+  for (const im of imgs) {
+    if (!im) continue;
+    const col = k % cols, row = Math.floor(k / cols);
+    const x = gap + col * (cellW + gap), y = gridTop + row * (cellH + gap);
+    ctx.fillStyle = "#1a2032";
+    ctx.fillRect(x, y, cellW, cellH);
+    ctx.drawImage(im, x, y, cellW, cellH);
+    k++;
+  }
+  // 底部稀有度统计
+  let y = gridTop + rows * (cellH + gap) + 46;
+  const cnt = {};
+  pack.forEach((c) => { const r = c.rarity || "N"; cnt[r] = (cnt[r] || 0) + 1; });
+  ctx.font = "bold 26px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.textAlign = "left";
+  let x = 40;
+  for (const r of RARITY_ORDER) {
+    if (!cnt[r]) continue;
+    ctx.fillStyle = RARITY_COLOR[r] || "#9aa5b1";
+    const label = `${r}×${cnt[r]}`;
+    ctx.fillText(label, x, y);
+    x += ctx.measureText(label).width + 36;
+  }
+  ctx.fillStyle = "#6b7688";
+  ctx.font = "20px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText(new Date().toLocaleDateString("zh-CN") + " · PTCG拆卡模拟器 · 仅供学习交流", W / 2, H - 36);
+  try {
+    const dataURL = canvas.toDataURL("image/png");
+    $("#reportImg").src = dataURL;
+    $("#reportOverlay").hidden = false;
+    $("#btnSaveReport").dataset.url = dataURL;
+  } catch {
+    toast("战报图生成失败（图片跨域受限）", 3000);
+  }
+}
+
+function saveReport() {
+  const url = $("#btnSaveReport").dataset.url;
+  if (!url) return;
+  if (nativeBridge && nativeBridge.saveImage) {
+    const b64 = url.split(",")[1] || "";
+    const path = nativeBridge.saveImage(b64);
+    toast(`已保存到：${path || "相册目录"}`, 3600);
+    return;
+  }
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `ptcg战报_${Date.now()}.png`;
+  a.click();
+  toast("战报图已开始下载");
+}
+
+/* ---------------- 卡表数据热更新 ---------------- */
+const DEFAULT_DATA_SRC = "https://raw.githubusercontent.com/zsjy947/PTCG-gacha-simulator/master/data";
+
+function dataSrcBase() {
+  return (store.get("ptcg_datasrc", "") || DEFAULT_DATA_SRC).replace(/\/+$/, "");
+}
+
+function appliedManifest() { return store.get("ptcg_data_applied", null); }
+
+async function checkDataUpdate(manual) {
+  const info = $("#dataUpdInfo");
+  const btn = $("#btnCheckData");
+  if (manual) { info.textContent = "正在检查卡表更新…"; if (btn) btn.disabled = true; }
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 10000);
+  try {
+    const r = await fetch(`${dataSrcBase()}/manifest.json`, { signal: ctl.signal });
+    clearTimeout(timer);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const manifest = await r.json();
+    const applied = appliedManifest() || {};
+    const localSets = applied.sets || {};
+    const changed = Object.entries(manifest.sets || {})
+      .filter(([id, m]) => !localSets[id] || localSets[id].md5 !== m.md5);
+    const appliedTime = applied.generated ? `（当前：${applied.generated.slice(0, 10)}）` : "";
+    if (!changed.length) {
+      info.textContent = `卡表已是最新${appliedTime}`;
+      if (manual) toast("卡表已是最新");
+      return;
+    }
+    if (manual) {
+      const ok = await uiConfirm(`发现 ${changed.length} 弹卡表有更新（远端 ${manifest.generated.slice(0, 10)}），现在下载吗？`);
+      if (!ok) { info.textContent = `有 ${changed.length} 弹可更新`; return; }
+    }
+    let done = 0, fail = 0;
+    for (const [id, m] of changed) {
+      try {
+        const cr = await fetch(`${dataSrcBase()}/cards/${id}.json`);
+        if (!cr.ok) throw new Error(`HTTP ${cr.status}`);
+        const cards = await cr.json();
+        if (!Array.isArray(cards) || !cards.length || !cards[0].cardIndex) throw new Error("数据异常");
+        try {
+          localStorage.setItem(`datacard_${id}`, JSON.stringify(cards));
+        } catch {
+          throw new Error("本地空间不足，请在设置页清理后重试");
+        }
+        done++;
+      } catch {
+        fail++;
+      }
+    }
+    store.set("ptcg_data_applied", { generated: manifest.generated, sets: manifest.sets });
+    state.cards.clear(); // 清缓存让下次进入按新数据重新加载
+    info.textContent = `已更新 ${done} 弹${fail ? `，失败 ${fail} 弹` : ""}（${manifest.generated.slice(0, 10)}）`;
+    toast(done ? `卡表已更新 ${done} 弹` : "卡表更新失败");
+  } catch (e) {
+    clearTimeout(timer);
+    info.textContent = "检查失败：暂时连不上数据源";
+    if (manual) toast("检查失败：暂时连不上数据源");
+  } finally {
+    if (manual && btn) btn.disabled = false;
+  }
+}
+
+async function resetDataOverride() {
+  if (!(await uiConfirm("恢复为内置卡表数据？热更新下载的数据将被清除。"))) return;
+  const keys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith("datacard_")) keys.push(k);
+  }
+  keys.forEach((k) => localStorage.removeItem(k));
+  store.set("ptcg_data_applied", null);
+  state.cards.clear();
+  $("#dataUpdInfo").textContent = "已恢复内置数据";
+  toast("已恢复内置卡表数据");
 }
 
 /* ---------------- 设置：外观主题 ---------------- */
@@ -1095,7 +1390,9 @@ function init() {
   $("#sidebarBackdrop").addEventListener("click", closeSidebar);
   $("#probClose").addEventListener("click", () => ($("#probOverlay").hidden = true));
   $("#detailClose").addEventListener("click", () => ($("#detailOverlay").hidden = true));
-  [$("#probOverlay"), $("#detailOverlay")].forEach((ov) =>
+  $("#expectClose").addEventListener("click", () => ($("#expectOverlay").hidden = true));
+  $("#reportClose").addEventListener("click", () => ($("#reportOverlay").hidden = true));
+  [$("#probOverlay"), $("#detailOverlay"), $("#expectOverlay"), $("#reportOverlay")].forEach((ov) =>
     ov.addEventListener("click", (e) => { if (e.target === ov) ov.hidden = true; }));
 
   $("#pack").addEventListener("click", burstPack);
@@ -1130,8 +1427,19 @@ function init() {
   $("#btnExportColl").addEventListener("click", exportCollection);
   $("#collSet").addEventListener("change", renderCollection);
   $("#collSort").addEventListener("change", renderCollection);
-  $("#clRarity").addEventListener("change", drawCardList);
-  $("#clSearch").addEventListener("input", drawCardList);
+  $("#collMissing").addEventListener("change", renderCollection);
+  $("#clRarity").addEventListener("change", resetCardList);
+  $("#clSearch").addEventListener("input", resetCardList);
+
+  $("#btnReport").addEventListener("click", showReport);
+  $("#btnSaveReport").addEventListener("click", saveReport);
+
+  $("#dataSrcInput").value = store.get("ptcg_datasrc", "");
+  $("#dataSrcInput").addEventListener("change", (e) => {
+    store.set("ptcg_datasrc", e.target.value.trim());
+  });
+  $("#btnCheckData").addEventListener("click", () => checkDataUpdate(true));
+  $("#btnResetData").addEventListener("click", resetDataOverride);
 
   $("#btnClearCache").addEventListener("click", clearImageCache);
   $("#btnCheckUpdate").addEventListener("click", () => checkUpdate(true));
@@ -1147,7 +1455,12 @@ function init() {
   });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { closeOverlay(); closeSidebar(); $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true; if (!$("#confirmOverlay").hidden) settleConfirm(false); }
+    if (e.key === "Escape") {
+      closeOverlay(); closeSidebar();
+      $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true;
+      $("#expectOverlay").hidden = true; $("#reportOverlay").hidden = true;
+      if (!$("#confirmOverlay").hidden) settleConfirm(false);
+    }
     if (!$("#overlay").hidden && e.key === " ") { e.preventDefault(); burstPack(); }
   });
 

@@ -196,6 +196,24 @@ def main():
         json.dumps(index, ensure_ascii=False, indent=1), encoding="utf-8"
     )
     print(f">> 完成：{len(index)} 个弹，索引已写入 data/sets_index.json")
+
+    # 数据清单：各端「数据热更新」按 md5 做增量比对，清单随仓库提交（raw 直链可拉）
+    import hashlib
+
+    def _md5(p: Path) -> str:
+        return hashlib.md5(p.read_bytes()).hexdigest()
+
+    manifest = {
+        "generated": time.strftime("%Y-%m-%dT%H:%M:%S+08:00"),
+        "sets": {
+            e["id"]: {"count": e["count"], "md5": _md5(CARDS_DIR / f"{e['id']}.json")}
+            for e in index if (CARDS_DIR / f"{e['id']}.json").exists()
+        },
+    }
+    (DATA / "manifest.json").write_text(
+        json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8"
+    )
+    print(f">> 数据清单已写入 data/manifest.json（{len(manifest['sets'])} 弹）")
     return 0
 
 

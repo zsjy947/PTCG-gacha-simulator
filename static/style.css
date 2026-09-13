@@ -594,3 +594,51 @@ select option { background: var(--pop); color: var(--txt); }
 /* 按钮按压反馈 */
 .mini-btn:active:not(:disabled) { transform: scale(.94); }
 .mini-btn { transition: .12s; }
+
+/* ============ v1.2.0 新增：收藏进度/缺卡 · 目标卡计算 · 整盒 · 战报图 · 数据更新 ============ */
+/* 收藏册完成度 */
+.coll-progress { display: flex; align-items: center; gap: 12px; margin: 0 0 14px; }
+.coll-progress[hidden] { display: none; }
+.coll-bar { flex: 1; height: 10px; border-radius: 20px; background: var(--soft); overflow: hidden; }
+.coll-bar i { display: block; height: 100%; width: 0; border-radius: 20px;
+  background: linear-gradient(90deg, var(--r-R), var(--r-RR), var(--r-UR)); transition: width .5s ease; }
+.coll-progress span { font-size: 12.5px; color: var(--txt2); white-space: nowrap; }
+.coll-card.missing img { filter: grayscale(.85) brightness(.55); }
+.coll-card.missing .cc-x { background: var(--red); }
+
+/* 卡表增量渲染 */
+.cl-count { text-align: center; color: var(--txt2); font-size: 12px; padding: 8px 0 2px; }
+#clSentinel { width: 100%; height: 1px; }
+
+/* 整盒/十连汇总条 */
+.box-summary { margin: 4px auto 10px; max-width: 980px; width: calc(100% - 24px);
+  background: var(--card); border: 1px solid var(--line); border-radius: 14px; padding: 12px 16px; }
+.box-summary[hidden] { display: none; }
+.box-summary .box-head { display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.box-summary .box-head b { color: var(--accent); font-size: 15px; }
+.box-summary .box-head span { font-size: 13px; color: var(--txt2); }
+.box-summary .box-chips { margin-top: 6px; font-size: 13px; font-weight: 700; line-height: 1.7; }
+
+/* 整盒按钮（沿用规格按钮视觉） */
+.btn.draw-box { background: linear-gradient(135deg, #2c6f4a, #1d5a63); }
+.btn.draw-box .btn-title { text-shadow: 0 1px 3px rgba(0, 0, 0, .35); }
+
+/* 多包导航：30 包页签横向滚动 */
+.pack-tabs { display: flex; gap: 6px; overflow-x: auto; max-width: 60vw; padding-bottom: 2px; }
+
+/* 目标卡期望计算表 */
+.expect-table { width: 100%; border-collapse: collapse; font-size: 13px; margin: 4px 0 14px; }
+.expect-table th { text-align: left; color: var(--txt2); font-weight: 600; font-size: 12px;
+  padding: 6px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.expect-table td { padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
+.expect-table tr:last-child td { border-bottom: 0; }
+
+/* 战报图弹窗 */
+.report-modal { max-width: min(560px, 92vw); }
+.report-body { display: flex; flex-direction: column; gap: 12px; }
+.report-body img { width: 100%; border-radius: 12px; border: 1px solid var(--line); background: #0a0e18; }
+.report-actions { display: flex; align-items: center; gap: 12px; justify-content: center; }
+.report-hint { font-size: 12px; color: var(--txt2); }
+
+/* 设置页：数据源输入 */
+.data-src-input { width: 100%; margin-top: 10px; font-size: 12px; }
