@@ -1,1 +1,2666 @@
-[]
+[
+ {
+  "setCode": "30thC",
+  "cardIndex": "001",
+  "cardName": "蛋蛋",
+  "rarity": "C",
+  "effectId": "d1f3b4174792a4a51d66a96108302713",
+  "cardType": "Pokemon",
+  "yorenCode": "P102",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "002",
+  "cardName": "阿罗拉 椰蛋树",
+  "rarity": "C",
+  "effectId": "c77d3be6b3f3347323cd1b3df86dde1d",
+  "cardType": "Pokemon",
+  "yorenCode": "P103",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "003",
+  "cardName": "电萤虫",
+  "rarity": "C",
+  "effectId": "e47c3acd5fdeb66f6535ab4daca5ab28",
+  "cardType": "Pokemon",
+  "yorenCode": "P0313",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "004",
+  "cardName": "甜甜萤",
+  "rarity": "C",
+  "effectId": "392dd3f185cc878a05428f48fa76c736",
+  "cardType": "Pokemon",
+  "yorenCode": "P0314",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "005",
+  "cardName": "彩粉蝶",
+  "rarity": "C",
+  "effectId": "48e8990e5652874688fcd2ce0b8cf9e4",
+  "cardType": "Pokemon",
+  "yorenCode": "P666",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "006",
+  "cardName": "火焰鸟",
+  "rarity": "C",
+  "effectId": "efa2faba61d1b2cd26c7371fe79c23b0",
+  "cardType": "Pokemon",
+  "yorenCode": "P146",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "007",
+  "cardName": "凤王",
+  "rarity": "R",
+  "effectId": "040aed788238e1f99d1278fa1ea1a7e7",
+  "cardType": "Pokemon",
+  "yorenCode": "P250",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "008",
+  "cardName": "莱希拉姆",
+  "rarity": "R",
+  "effectId": "eca20db642e6e7ab1af841dc90d9b347",
+  "cardType": "Pokemon",
+  "yorenCode": "P643",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "009",
+  "cardName": "呆火鳄ex",
+  "rarity": "RR",
+  "effectId": "4c6d5da418dfa92f148946c38e0227c6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1653",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "010",
+  "cardName": "呆呆兽",
+  "rarity": "C",
+  "effectId": "2240b955de9bb9bf1339f846e023f1e7",
+  "cardType": "Pokemon",
+  "yorenCode": "P079",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "011",
+  "cardName": "拉普拉斯",
+  "rarity": "C",
+  "effectId": "fcdfdf2c053d45b97f98ac821dbdf7a8",
+  "cardType": "Pokemon",
+  "yorenCode": "P131",
+  "is": [
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "012",
+  "cardName": "急冻鸟",
+  "rarity": "C",
+  "effectId": "831872607eca83307cb94cfa8afc7730",
+  "cardType": "Pokemon",
+  "yorenCode": "P144",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "013",
+  "cardName": "盖欧卡",
+  "rarity": "R",
+  "effectId": "35da9bccad39223d970a5dcaade97abf",
+  "cardType": "Pokemon",
+  "yorenCode": "P382",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "014",
+  "cardName": "帕路奇亚",
+  "rarity": "R",
+  "effectId": "1bb5d4a79e97af758bb961e3501b26a7",
+  "cardType": "Pokemon",
+  "yorenCode": "P484",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "015",
+  "cardName": "甲贺忍蛙ex",
+  "rarity": "RR",
+  "effectId": "de1d3ab0a4a8f5e15498e7a5413c039c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1247",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "016",
+  "cardName": "弱丁鱼",
+  "rarity": "C",
+  "effectId": "2b88722cf752d07c0234a9dd2da0ca39",
+  "cardType": "Pokemon",
+  "yorenCode": "P746",
+  "is": [
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "017",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "b67eb0b4a33026c81e8347de890f489f",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "018",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "0cce96ae9a96da81a435b8bc6b616d40",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "019",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "b4cd2c7e5bd5040d5b3809105f8411be",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "020",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "c24ad9eb6576efbeed0ac25016a926d7",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "021",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "728e4471a1c8d8d5ce730a31051f31a3",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "022",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "cf9419068cb1df6aec5ad050d16039fb",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "023",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "87dc2fa8cddd65cd238e462f2238e000",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "024",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "3d2fc8522ca3ddac6c4db2801923e5b5",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "025",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "eaeb8eb1ce00137885bc19a7a1eef109",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "026",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "5caef03379545b126b26ba32fa3900d8",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "027",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "6198144fca9bc57c5ffa06bcac4c1933",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "028",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "b16f2a48835dd0ee4f9b7a5718feb46f",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "029",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "22ce184c779135e052d5b450abfd9e8c",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "030",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "e744c180a78847f1fb4c25eadc3c08dd",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "031",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "8466088fd32e6b7496ce3462a6e65aff",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "032",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "ed842de73ebe6fb24ce3236e371fa49d",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "033",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "6299b6e51aaec31bb5b709b318f9c956",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "034",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "602b93b1b8f83af2c2ed08ed93715884",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "035",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "d7eb6471145eeef2d692563c27b91367",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "036",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "7753f583491e6aae491e9774e2a778de",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "037",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "707f8f3d4ef85eb5f679761bd0f89fa9",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "038",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "215450d0afa5da811b5be9f24b779ad7",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "039",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "86c2e2cd7c5443dd1ad6e3a0b7bcf6cc",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "040",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "b53b2abedf7bf024e0b886b1e64c7e8e",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "041",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "eca0671907dac835ac5b50bb62c630c3",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "042",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "2abf73288ff5b3acd4652dcf84641f96",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "043",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "53f077cda92c302a72e7f6ab5e57798b",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "044",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "48eaa3fb9a0ead744c6c4cb75e08c2c9",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "045",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "ae37c5bd0e12492200c33c025fd686cb",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "046",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "df07c7c9e66ddd482c9f94cd9015ba3c",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "047",
+  "cardName": "皮卡丘ex",
+  "rarity": "RR",
+  "effectId": "2418309668a6102d250f4bdb4fd89742",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1223",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "048",
+  "cardName": "皮卡丘ex",
+  "rarity": "RR",
+  "effectId": "a15ad334101499f5283f47631736ee1c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1223",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "049",
+  "cardName": "闪电鸟",
+  "rarity": "C",
+  "effectId": "23a00b18e1944b72ea1e1598affc5fe4",
+  "cardType": "Pokemon",
+  "yorenCode": "P145",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "050",
+  "cardName": "捷克罗姆",
+  "rarity": "R",
+  "effectId": "67895895dd26e7d68e8854f48ff88e37",
+  "cardType": "Pokemon",
+  "yorenCode": "P644",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "051",
+  "cardName": "颤弦蝾螈",
+  "rarity": "C",
+  "effectId": "2210e38ce299e07646e3a1a67fc1b258",
+  "cardType": "Pokemon",
+  "yorenCode": "P849",
+  "is": [
+   "Fusion Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "052",
+  "cardName": "莫鲁贝可",
+  "rarity": "C",
+  "effectId": "508470eb99327c31713a9a0543dbb5bc",
+  "cardType": "Pokemon",
+  "yorenCode": "P877",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "053",
+  "cardName": "密勒顿",
+  "rarity": "R",
+  "effectId": "ab01ac05b94cfa923001e55a1dfde220",
+  "cardType": "Pokemon",
+  "yorenCode": "P1008",
+  "is": [
+   "Future",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "054",
+  "cardName": "超梦",
+  "rarity": "R",
+  "effectId": "41d19b25408b67ee69dd56dc60f094f8",
+  "cardType": "Pokemon",
+  "yorenCode": "P150",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "055",
+  "cardName": "超梦ex",
+  "rarity": "RR",
+  "effectId": "11641ee70b056fe9c3ef8d2e04ef6dd7",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1335",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "056",
+  "cardName": "梦幻",
+  "rarity": "R",
+  "effectId": "91e47d789c8f695b74e59253913e15d2",
+  "cardType": "Pokemon",
+  "yorenCode": "P151",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "057",
+  "cardName": "梦幻ex",
+  "rarity": "RR",
+  "effectId": "dd6e658057478ff1eb223c71000b08a2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1191",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "058",
+  "cardName": "太阳伊布",
+  "rarity": "C",
+  "effectId": "4e8f2003856715ec3ae5e5b65ebe2e75",
+  "cardType": "Pokemon",
+  "yorenCode": "P196",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "059",
+  "cardName": "仙子伊布ex",
+  "rarity": "RR",
+  "effectId": "c1adb66087005031a31ed27fb30dcd96",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1507",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "060",
+  "cardName": "未知图腾",
+  "rarity": "C",
+  "effectId": "20f3bd0141978828bc0e191ce5090b98",
+  "cardType": "Pokemon",
+  "yorenCode": "P201",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "061",
+  "cardName": "飘飘球",
+  "rarity": "C",
+  "effectId": "b813a0097cf2b40184888c03f51832fd",
+  "cardType": "Pokemon",
+  "yorenCode": "P425",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "062",
+  "cardName": "水晶灯火灵",
+  "rarity": "C",
+  "effectId": "035ac595564a924d0d2563f374e4adb9",
+  "cardType": "Pokemon",
+  "yorenCode": "P609",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "063",
+  "cardName": "哲尔尼亚斯",
+  "rarity": "R",
+  "effectId": "7b1750e79eb2adf1fc8cc4ba79e713a3",
+  "cardType": "Pokemon",
+  "yorenCode": "P716",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "064",
+  "cardName": "科斯莫古",
+  "rarity": "C",
+  "effectId": "17c900feba1de0e2290e2310bb79731f",
+  "cardType": "Pokemon",
+  "yorenCode": "P789",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "065",
+  "cardName": "科斯莫姆",
+  "rarity": "C",
+  "effectId": "9163fc34feb6948638166d7d08e215a1",
+  "cardType": "Pokemon",
+  "yorenCode": "P790",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "066",
+  "cardName": "露奈雅拉",
+  "rarity": "R",
+  "effectId": "c8015fd4179304101ddb870edfffc872",
+  "cardType": "Pokemon",
+  "yorenCode": "P792",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "067",
+  "cardName": "索财灵",
+  "rarity": "C",
+  "effectId": "9b7a3e1691f97e2d30d8437093c3500c",
+  "cardType": "Pokemon",
+  "yorenCode": "P0999",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "068",
+  "cardName": "固拉多",
+  "rarity": "R",
+  "effectId": "262402030e46715de21eb138e520134f",
+  "cardType": "Pokemon",
+  "yorenCode": "P383",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "069",
+  "cardName": "路卡利欧",
+  "rarity": "C",
+  "effectId": "00265a9c83b1196e14f44c7e6ce90bac",
+  "cardType": "Pokemon",
+  "yorenCode": "P448",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "070",
+  "cardName": "蟾蜍王",
+  "rarity": "C",
+  "effectId": "5e8f8e53cc52507e705900387a3be87a",
+  "cardType": "Pokemon",
+  "yorenCode": "P537",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "071",
+  "cardName": "鬃岩狼人",
+  "rarity": "C",
+  "effectId": "e9c95aca720c468d19bc2c9b4f0e90a8",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Single Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "072",
+  "cardName": "故勒顿",
+  "rarity": "R",
+  "effectId": "7deaab75aeac8b6a9f1a4c6182ee0485",
+  "cardType": "Pokemon",
+  "yorenCode": "P1007",
+  "is": [
+   "Ancient",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "073",
+  "cardName": "尼多兰",
+  "rarity": "C",
+  "effectId": "adc2b7eef45640632f3c67ec02aed83b",
+  "cardType": "Pokemon",
+  "yorenCode": "P029",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "074",
+  "cardName": "尼多娜",
+  "rarity": "C",
+  "effectId": "2212a16966600c8c707bcfbfcce7cd1a",
+  "cardType": "Pokemon",
+  "yorenCode": "P030",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "075",
+  "cardName": "阿罗拉 喵喵",
+  "rarity": "C",
+  "effectId": "a4813d15f7f218c519135b8fa6e6b34d",
+  "cardType": "Pokemon",
+  "yorenCode": "P052",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "076",
+  "cardName": "耿鬼ex",
+  "rarity": "RR",
+  "effectId": "3aa3c4269d9f1a5cd5dcbb52a16a9c1d",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1434",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "077",
+  "cardName": "月亮伊布",
+  "rarity": "C",
+  "effectId": "3860e7c78ea98edb870cdd58b5001170",
+  "cardType": "Pokemon",
+  "yorenCode": "P197",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "078",
+  "cardName": "滑滑小子",
+  "rarity": "C",
+  "effectId": "3dd4bd773322d8d5040badce1f880c61",
+  "cardType": "Pokemon",
+  "yorenCode": "P559",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "079",
+  "cardName": "伊裴尔塔尔",
+  "rarity": "R",
+  "effectId": "d39da7a78d3666d00e84860f5d122649",
+  "cardType": "Pokemon",
+  "yorenCode": "P717",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "080",
+  "cardName": "伽勒尔 喵喵",
+  "rarity": "C",
+  "effectId": "2b9a93502964323c8ee21715e1b9d1ff",
+  "cardType": "Pokemon",
+  "yorenCode": "Y509",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "081",
+  "cardName": "基拉祈ex",
+  "rarity": "RR",
+  "effectId": "b64c857949b418dc7c83e2d803fa5f60",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1654",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "082",
+  "cardName": "帝牙卢卡",
+  "rarity": "R",
+  "effectId": "3ab33883e0c28b50994d0369caf2a261",
+  "cardType": "Pokemon",
+  "yorenCode": "P483",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "083",
+  "cardName": "坚果哑铃",
+  "rarity": "C",
+  "effectId": "e94c582847c08c302ce02aa2f4e3ed55",
+  "cardType": "Pokemon",
+  "yorenCode": "P598",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "084",
+  "cardName": "索尔迦雷欧",
+  "rarity": "R",
+  "effectId": "caeed4efe12242b3c0177cf125d42f12",
+  "cardType": "Pokemon",
+  "yorenCode": "P791",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "085",
+  "cardName": "苍响",
+  "rarity": "R",
+  "effectId": "0b1754ca815d6f06b3ae1dcf7565fc73",
+  "cardType": "Pokemon",
+  "yorenCode": "P888",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "086",
+  "cardName": "藏玛然特",
+  "rarity": "R",
+  "effectId": "a4dd7f1126ac49fc7ec08efe43097cf8",
+  "cardType": "Pokemon",
+  "yorenCode": "P889",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "087",
+  "cardName": "赛富豪",
+  "rarity": "C",
+  "effectId": "fecc124734bc8d0b3d50e6915d4958ee",
+  "cardType": "Pokemon",
+  "yorenCode": "P1000",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "088",
+  "cardName": "暴飞龙ex",
+  "rarity": "RR",
+  "effectId": "8b1f439835db2ae1688662a68d3ac62c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1599",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "089",
+  "cardName": "心鳞宝",
+  "rarity": "C",
+  "effectId": "f9ce260f2d33fd863626d289736c0cc6",
+  "cardType": "Pokemon",
+  "yorenCode": "P782",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "090",
+  "cardName": "鳞甲龙",
+  "rarity": "C",
+  "effectId": "3d3f2ec431904d54a364a75002a7b8c5",
+  "cardType": "Pokemon",
+  "yorenCode": "P783",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "091",
+  "cardName": "杖尾鳞甲龙",
+  "rarity": "C",
+  "effectId": "8860030a26a0467a1fb55e5132c9a479",
+  "cardType": "Pokemon",
+  "yorenCode": "P784",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "092",
+  "cardName": "喵喵",
+  "rarity": "C",
+  "effectId": "ae8b67067d78d9ed2768fcb38a2f18d4",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "093",
+  "cardName": "百变怪",
+  "rarity": "C",
+  "effectId": "06a0c72fadedf66b5169678d05d53132",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1074",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "094",
+  "cardName": "伊布",
+  "rarity": "C",
+  "effectId": "010b6a244ea472834e1384bc4efb7634",
+  "cardType": "Pokemon",
+  "yorenCode": "P133",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "095",
+  "cardName": "卡比兽",
+  "rarity": "C",
+  "effectId": "c580b384fb944d40c09ebdcda9c6d94f",
+  "cardType": "Pokemon",
+  "yorenCode": "P143",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "096",
+  "cardName": "宝宝丁",
+  "rarity": "C",
+  "effectId": "0718f0d8e41f74fee27dd895fab2a9bf",
+  "cardType": "Pokemon",
+  "yorenCode": "P0174",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "097",
+  "cardName": "洛奇亚",
+  "rarity": "R",
+  "effectId": "cb21f414f39c7d17fc3f47144ed2c342",
+  "cardType": "Pokemon",
+  "yorenCode": "P249",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "098",
+  "cardName": "洗翠 索罗亚",
+  "rarity": "C",
+  "effectId": "3ca5cce2de4b9bb9b92726424408d2e9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1068",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "099",
+  "cardName": "洗翠 索罗亚克",
+  "rarity": "C",
+  "effectId": "1aacf3bfb76bd000769bddef339474fe",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1069",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "100",
+  "cardName": "一家鼠",
+  "rarity": "C",
+  "effectId": "4482a5c8b104aa74ad1a4f488e5bdb17",
+  "cardType": "Pokemon",
+  "yorenCode": "P0925",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "101",
+  "cardName": "高级球",
+  "rarity": "C",
+  "effectId": "a337ed34a45e63c6d21d98c3d8e0cb6e",
+  "cardType": "Item",
+  "yorenCode": "Y151",
+  "is": [],
+  "setCodeEn": "SLG",
+  "cardIndexEn": "68",
+  "nameEn": "Ultra Ball"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "102",
+  "cardName": "宝可平板",
+  "rarity": "C",
+  "effectId": "b0754293ea1611bb9f931f02060ceb3b",
+  "cardType": "Item",
+  "yorenCode": "Y1655",
+  "is": [],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "198",
+  "nameEn": "Poké Pad"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "103",
+  "cardName": "宝可梦交替",
+  "rarity": "C",
+  "effectId": "7c0b20e121c9d0e0d2d8a43524f7494e",
+  "cardType": "Item",
+  "yorenCode": "Y118",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "132",
+  "nameEn": "Switch"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "104",
+  "cardName": "阿罗拉 椰蛋树",
+  "rarity": "AR",
+  "effectId": "c77d3be6b3f3347323cd1b3df86dde1d",
+  "cardType": "Pokemon",
+  "yorenCode": "P103",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "105",
+  "cardName": "火焰鸟",
+  "rarity": "AR",
+  "effectId": "efa2faba61d1b2cd26c7371fe79c23b0",
+  "cardType": "Pokemon",
+  "yorenCode": "P146",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "106",
+  "cardName": "拉普拉斯",
+  "rarity": "AR",
+  "effectId": "fcdfdf2c053d45b97f98ac821dbdf7a8",
+  "cardType": "Pokemon",
+  "yorenCode": "P131",
+  "is": [
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "107",
+  "cardName": "急冻鸟",
+  "rarity": "AR",
+  "effectId": "831872607eca83307cb94cfa8afc7730",
+  "cardType": "Pokemon",
+  "yorenCode": "P144",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "108",
+  "cardName": "闪电鸟",
+  "rarity": "AR",
+  "effectId": "23a00b18e1944b72ea1e1598affc5fe4",
+  "cardType": "Pokemon",
+  "yorenCode": "P145",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "109",
+  "cardName": "颤弦蝾螈",
+  "rarity": "AR",
+  "effectId": "2210e38ce299e07646e3a1a67fc1b258",
+  "cardType": "Pokemon",
+  "yorenCode": "P849",
+  "is": [
+   "Fusion Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "110",
+  "cardName": "莫鲁贝可",
+  "rarity": "AR",
+  "effectId": "508470eb99327c31713a9a0543dbb5bc",
+  "cardType": "Pokemon",
+  "yorenCode": "P877",
+  "is": [
+   "Single Strike",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "111",
+  "cardName": "飘飘球",
+  "rarity": "AR",
+  "effectId": "b813a0097cf2b40184888c03f51832fd",
+  "cardType": "Pokemon",
+  "yorenCode": "P425",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "112",
+  "cardName": "水晶灯火灵",
+  "rarity": "AR",
+  "effectId": "035ac595564a924d0d2563f374e4adb9",
+  "cardType": "Pokemon",
+  "yorenCode": "P609",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "113",
+  "cardName": "鬃岩狼人",
+  "rarity": "AR",
+  "effectId": "e9c95aca720c468d19bc2c9b4f0e90a8",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Single Strike",
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "114",
+  "cardName": "尼多娜",
+  "rarity": "AR",
+  "effectId": "2212a16966600c8c707bcfbfcce7cd1a",
+  "cardType": "Pokemon",
+  "yorenCode": "P030",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "115",
+  "cardName": "阿罗拉 喵喵",
+  "rarity": "AR",
+  "effectId": "a4813d15f7f218c519135b8fa6e6b34d",
+  "cardType": "Pokemon",
+  "yorenCode": "P052",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "116",
+  "cardName": "滑滑小子",
+  "rarity": "AR",
+  "effectId": "3dd4bd773322d8d5040badce1f880c61",
+  "cardType": "Pokemon",
+  "yorenCode": "P559",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "117",
+  "cardName": "伽勒尔 喵喵",
+  "rarity": "AR",
+  "effectId": "2b9a93502964323c8ee21715e1b9d1ff",
+  "cardType": "Pokemon",
+  "yorenCode": "Y509",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "118",
+  "cardName": "赛富豪",
+  "rarity": "AR",
+  "effectId": "fecc124734bc8d0b3d50e6915d4958ee",
+  "cardType": "Pokemon",
+  "yorenCode": "P1000",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "119",
+  "cardName": "杖尾鳞甲龙",
+  "rarity": "AR",
+  "effectId": "8860030a26a0467a1fb55e5132c9a479",
+  "cardType": "Pokemon",
+  "yorenCode": "P784",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "120",
+  "cardName": "喵喵",
+  "rarity": "AR",
+  "effectId": "ae8b67067d78d9ed2768fcb38a2f18d4",
+  "cardType": "Pokemon",
+  "yorenCode": "Y397",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "121",
+  "cardName": "百变怪",
+  "rarity": "AR",
+  "effectId": "06a0c72fadedf66b5169678d05d53132",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1074",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "122",
+  "cardName": "洗翠 索罗亚",
+  "rarity": "AR",
+  "effectId": "3ca5cce2de4b9bb9b92726424408d2e9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1068",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "123",
+  "cardName": "一家鼠",
+  "rarity": "AR",
+  "effectId": "4482a5c8b104aa74ad1a4f488e5bdb17",
+  "cardType": "Pokemon",
+  "yorenCode": "P0925",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "124",
+  "cardName": "呆火鳄ex",
+  "rarity": "SAR",
+  "effectId": "4c6d5da418dfa92f148946c38e0227c6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1653",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "125",
+  "cardName": "甲贺忍蛙ex",
+  "rarity": "SAR",
+  "effectId": "de1d3ab0a4a8f5e15498e7a5413c039c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1247",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "126",
+  "cardName": "皮卡丘ex",
+  "rarity": "SAR",
+  "effectId": "2418309668a6102d250f4bdb4fd89742",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1223",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "127",
+  "cardName": "皮卡丘ex",
+  "rarity": "SAR",
+  "effectId": "a15ad334101499f5283f47631736ee1c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1223",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "128",
+  "cardName": "超梦ex",
+  "rarity": "SAR",
+  "effectId": "11641ee70b056fe9c3ef8d2e04ef6dd7",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1335",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "129",
+  "cardName": "梦幻ex",
+  "rarity": "SAR",
+  "effectId": "dd6e658057478ff1eb223c71000b08a2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1191",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "130",
+  "cardName": "仙子伊布ex",
+  "rarity": "SAR",
+  "effectId": "c1adb66087005031a31ed27fb30dcd96",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1507",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "131",
+  "cardName": "耿鬼ex",
+  "rarity": "SAR",
+  "effectId": "3aa3c4269d9f1a5cd5dcbb52a16a9c1d",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1434",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "132",
+  "cardName": "基拉祈ex",
+  "rarity": "SAR",
+  "effectId": "b64c857949b418dc7c83e2d803fa5f60",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1654",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "133",
+  "cardName": "暴飞龙ex",
+  "rarity": "SAR",
+  "effectId": "8b1f439835db2ae1688662a68d3ac62c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1599",
+  "is": [
+   "ex",
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "134",
+  "cardName": "超梦ex",
+  "rarity": "FUR",
+  "effectId": "11641ee70b056fe9c3ef8d2e04ef6dd7",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1335",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "135",
+  "cardName": "梦幻ex",
+  "rarity": "FUR",
+  "effectId": "dd6e658057478ff1eb223c71000b08a2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1191",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "136",
+  "cardName": "皮卡丘",
+  "rarity": "无标记",
+  "effectId": "e852f75c958a686ca82826d43e9c678d",
+  "cardType": "Pokemon",
+  "yorenCode": "P025",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "137",
+  "cardName": "喷火龙",
+  "rarity": "无标记",
+  "effectId": "af9a9eba008079dd7c7c456f35008f89",
+  "cardType": "Pokemon",
+  "yorenCode": "P006",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "138",
+  "cardName": "小霞",
+  "rarity": "无标记",
+  "effectId": "a53490238ad90fa43193db36958a4c95",
+  "cardType": "Supporter",
+  "yorenCode": "Y1656",
+  "is": [],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "139",
+  "cardName": "莉佳的胖丁",
+  "rarity": "无标记",
+  "effectId": "0b1f94c2df084c6f7729bc6e0e4d96da",
+  "cardType": "Pokemon",
+  "yorenCode": "P0039",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "140",
+  "cardName": "狃拉",
+  "rarity": "无标记",
+  "effectId": "6e85e1e09384f55274b57add1d005763",
+  "cardType": "Pokemon",
+  "yorenCode": "P215",
+  "is": [
+   "Rapid Strike",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "141",
+  "cardName": "闪耀时拉比",
+  "rarity": "无标记",
+  "effectId": "4b79cbea1df0061c48a6c03697ee9017",
+  "cardType": "Pokemon",
+  "yorenCode": "Y404",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "142",
+  "cardName": "洛奇亚",
+  "rarity": "无标记",
+  "effectId": "da0b2a4d8336105a5430b7ad4d162b00",
+  "cardType": "Pokemon",
+  "yorenCode": "P249",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "143",
+  "cardName": "优雅猫",
+  "rarity": "无标记",
+  "effectId": "660ec903595d4c0f6cdf22236a338e04",
+  "cardType": "Pokemon",
+  "yorenCode": "P301",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "144",
+  "cardName": "邪恶班基拉斯",
+  "rarity": "无标记",
+  "effectId": "cd99596059ee17130490aa27f12382df",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1657",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "145",
+  "cardName": "巨钳螳螂ex",
+  "rarity": "无标记",
+  "effectId": "576692426c5e2ce4c680f67f677435cd",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1398",
+  "is": [
+   "ex",
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "146",
+  "cardName": "巨金怪",
+  "rarity": "无标记",
+  "effectId": "c4e7c7613d0374497a0e73e26df429cd",
+  "cardType": "Pokemon",
+  "yorenCode": "P376",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "147",
+  "cardName": "帕路奇亚LV.X",
+  "rarity": "无标记",
+  "effectId": "e7e31ef5bb592284eb58dca391ef7e9c",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1658",
+  "is": [
+   "Level Up"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "148",
+  "cardName": "由克希",
+  "rarity": "无标记",
+  "effectId": "5ce69c5f6809492dc3cf32fc5498b32c",
+  "cardType": "Pokemon",
+  "yorenCode": "P480",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "149",
+  "cardName": "叉字蝠G",
+  "rarity": "无标记",
+  "effectId": "adcc902556f71eeac8628c0c70f56e64",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1659",
+  "is": [
+   "SP",
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "150",
+  "cardName": "耿鬼",
+  "rarity": "无标记",
+  "effectId": "54ca61c091eb2457c918700a246913cc",
+  "cardType": "Pokemon",
+  "yorenCode": "P094",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "151",
+  "cardName": "达克莱伊&克雷色利亚LEGEND",
+  "rarity": "无标记",
+  "effectId": "9391f80cebf9d3f419412d313ebe87d3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1660",
+  "is": [
+   "LEGEND"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "152",
+  "cardName": "达克莱伊&克雷色利亚LEGEND",
+  "rarity": "无标记",
+  "effectId": "9391f80cebf9d3f419412d313ebe87d3",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1660",
+  "is": [
+   "LEGEND"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "153",
+  "cardName": "N",
+  "rarity": "无标记",
+  "effectId": "8d9c307cb7f3c4a32822a51922d1ceaa",
+  "cardType": "Supporter",
+  "yorenCode": "Y1661",
+  "is": [],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "154",
+  "cardName": "烈空坐EX",
+  "rarity": "无标记",
+  "effectId": "b4aa0dfb02c4f143273e0962786f0173",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1662",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "155",
+  "cardName": "盖诺赛克特EX",
+  "rarity": "无标记",
+  "effectId": "52612cdfbcfaa0f946267c1d0ee0c92e",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1663",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "156",
+  "cardName": "M沙奈朵EX",
+  "rarity": "无标记",
+  "effectId": "8b5c7681c7f3f048c6a80d214fa31a20",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1664",
+  "is": [
+   "EX",
+   "Mega",
+   "Mega Evolution"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "157",
+  "cardName": "甲贺忍蛙BREAK",
+  "rarity": "无标记",
+  "effectId": "b1c880a65a9fb48f9f20cf381294953d",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1665",
+  "is": [
+   "BREAK Evolution"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "158",
+  "cardName": "索尔迦雷欧GX",
+  "rarity": "无标记",
+  "effectId": "d6177151cb71c3b5ca175725cce360f6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y21",
+  "is": [
+   "GX",
+   "Stage 2"
+  ],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "89",
+  "nameEn": "Solgaleo-GX"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "159",
+  "cardName": "爆肌蚊GX",
+  "rarity": "无标记",
+  "effectId": "86e381a444624e0a7d8b8a51b11429d8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y131",
+  "is": [
+   "GX",
+   "Ultra Beast",
+   "Basic"
+  ],
+  "setCodeEn": "CIN",
+  "cardIndexEn": "57",
+  "nameEn": "Buzzwole-GX"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "160",
+  "cardName": "皮卡丘&捷克罗姆GX",
+  "rarity": "无标记",
+  "effectId": "3b176e71e90dddcfe271566370641056",
+  "cardType": "Pokemon",
+  "yorenCode": "Y323",
+  "is": [
+   "GX",
+   "TAG TEAM",
+   "Basic"
+  ],
+  "setCodeEn": "TEU",
+  "cardIndexEn": "33",
+  "nameEn": "Pikachu & Zekrom-GX"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "161",
+  "cardName": "苍响V",
+  "rarity": "无标记",
+  "effectId": "a8d026ad834413d5726d94dfb9bcdcb6",
+  "cardType": "Pokemon",
+  "yorenCode": "Y546",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "138",
+  "nameEn": "Zacian V"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "162",
+  "cardName": "雷公",
+  "rarity": "无标记",
+  "effectId": "9769199bf1a8bfbc17142da2af6b2537",
+  "cardType": "Pokemon",
+  "yorenCode": "P243",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "VIV",
+  "cardIndexEn": "50",
+  "nameEn": "Raikou"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "163",
+  "cardName": "梦幻VMAX",
+  "rarity": "无标记",
+  "effectId": "22972b30877dae8a919df2d46fe32e99",
+  "cardType": "Pokemon",
+  "yorenCode": "Y844",
+  "is": [
+   "V",
+   "Fusion Strike",
+   "VMAX"
+  ],
+  "setCodeEn": "FST",
+  "cardIndexEn": "114",
+  "nameEn": "Mew VMAX"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "164",
+  "cardName": "阿尔宙斯VSTAR",
+  "rarity": "无标记",
+  "effectId": "9a0982e46cf9a3aaed89e6d3517e7d58",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1022",
+  "is": [
+   "V",
+   "VSTAR"
+  ],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "123",
+  "nameEn": "Arceus VSTAR"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "165",
+  "cardName": "鲤鱼王",
+  "rarity": "无标记",
+  "effectId": "905adbb57ac87f5d52047e18f2dee58d",
+  "cardType": "Pokemon",
+  "yorenCode": "P129",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "42",
+  "nameEn": "Magikarp"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "R",
+  "cardName": "梦幻",
+  "rarity": "RGB",
+  "effectId": "91e47d789c8f695b74e59253913e15d2",
+  "cardType": "Pokemon",
+  "yorenCode": "P151",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "G",
+  "cardName": "梦幻",
+  "rarity": "RGB",
+  "effectId": "91e47d789c8f695b74e59253913e15d2",
+  "cardType": "Pokemon",
+  "yorenCode": "P151",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "B",
+  "cardName": "梦幻",
+  "rarity": "RGB",
+  "effectId": "91e47d789c8f695b74e59253913e15d2",
+  "cardType": "Pokemon",
+  "yorenCode": "P151",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "GRA",
+  "cardName": "基本草能量",
+  "rarity": "无标记",
+  "effectId": "5e2d0ce37ca0c539aa45908da10544a0",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y457",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "1",
+  "nameEn": "Grass Energy"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "FIR",
+  "cardName": "基本火能量",
+  "rarity": "无标记",
+  "effectId": "22db5405bf0cce61a00aa8082cdd1e65",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y458",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "2",
+  "nameEn": "Fire Energy"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "WAT",
+  "cardName": "基本水能量",
+  "rarity": "无标记",
+  "effectId": "0cf075ae61b8a0b4e9151e5146c3aa26",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y459",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "3",
+  "nameEn": "Water Energy"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "LIG",
+  "cardName": "基本雷能量",
+  "rarity": "无标记",
+  "effectId": "45550fd10011f6ade7eef16ba88788cf",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y460",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "4",
+  "nameEn": "Lightning Energy"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "PSY",
+  "cardName": "基本超能量",
+  "rarity": "无标记",
+  "effectId": "41b2d1a95fafc35e4cf39383ffae928a",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y461",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "5",
+  "nameEn": "Psychic Energy"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "FIG",
+  "cardName": "基本斗能量",
+  "rarity": "无标记",
+  "effectId": "9fedb80a97ddd5cc8b8022a21364c326",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y462",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "6",
+  "nameEn": "Fighting Energy"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "DAR",
+  "cardName": "基本恶能量",
+  "rarity": "无标记",
+  "effectId": "46c769fc57a6c250c560df648bb779f8",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y463",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "7",
+  "nameEn": "Darkness Energy"
+ },
+ {
+  "setCode": "30thC",
+  "cardIndex": "MET",
+  "cardName": "基本钢能量",
+  "rarity": "无标记",
+  "effectId": "4557c01497b81767fdaa0004089ecfb3",
+  "cardType": "Basic Energy",
+  "yorenCode": "Y464",
+  "is": [],
+  "setCodeEn": "SVE",
+  "cardIndexEn": "8",
+  "nameEn": "Metal Energy"
+ }
+]

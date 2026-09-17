@@ -1032,6 +1032,22 @@
   "count": 0
  },
  {
+  "id": "30thC",
+  "code": "30thC",
+  "name": "30周年庆典",
+  "series": "Other",
+  "seriesZh": "其他",
+  "count": 176
+ },
+ {
+  "id": "30thDC",
+  "code": "30thDC",
+  "name": "30 周年庆典 豪华卡组套装",
+  "series": "Other",
+  "seriesZh": "其他",
+  "count": 45
+ },
+ {
   "id": "PROMO",
   "code": "PROMO",
   "name": "30周年庆典 特典卡",
