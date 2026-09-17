@@ -7,6 +7,7 @@ python -m PyInstaller --noconfirm --onefile --noconsole ^
   --add-data "static;static" ^
   --add-data "shared;shared" ^
   --add-data "data\sets_index.json;data" ^
+  --add-data "data\manifest.json;data" ^
   --add-data "data\cards;data\cards" ^
   --collect-all webview ^
   --collect-all PIL --icon icon.ico ^
