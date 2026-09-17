@@ -37,6 +37,18 @@
     <text class="s-note">收藏册可在收藏册页「导出 JSON」备份到剪贴板；数据仅保存在本机，删除小程序前请先备份。</text>
   </view>
 
+  <!-- 致谢 -->
+  <view class="s-card card-glass">
+    <view class="s-info">
+      <text class="s-title">致谢</text>
+      <text class="s-note">本应用建立在以下公开资源之上，感谢各方贡献：</text>
+      <text class="s-note">· 卡表 / 卡图 / 详情数据：Cryst's Cards Database（tcg.mik.moe），简中社区维护的宝可梦卡牌数据库</text>
+      <text class="s-note">· 发售规格与定价依据：宝可梦卡牌简中官网（pokemon.cn）各弹发售公告</text>
+      <text class="s-note">· 系列资料参考：神奇宝贝百科（wiki.52poke.com）</text>
+      <text class="s-note">· 版本托管 / 数据同步：GitHub</text>
+    </view>
+  </view>
+
   <!-- 关于 -->
   <view class="s-card card-glass">
     <view class="s-info">
