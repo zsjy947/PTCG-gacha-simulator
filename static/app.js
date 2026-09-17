@@ -1152,10 +1152,38 @@ function saveReport() {
 }
 
 /* ---------------- 卡表数据热更新 ---------------- */
-const DEFAULT_DATA_SRC = "https://raw.githubusercontent.com/zsjy947/PTCG-gacha-simulator/master/data";
+/* 默认源依次尝试：jsDelivr CDN（国内一般可达）→ GitHub raw（常需代理）。
+ * 数据随仓库发布：卡表提交合并到 master 并推送后即可拉到（CDN 对分支引用有数小时缓存）。 */
+const DATA_SOURCES = [
+  "https://cdn.jsdelivr.net/gh/zsjy947/PTCG-gacha-simulator@master/data",
+  "https://raw.githubusercontent.com/zsjy947/PTCG-gacha-simulator/master/data",
+];
 
-function dataSrcBase() {
-  return (store.get("ptcg_datasrc", "") || DEFAULT_DATA_SRC).replace(/\/+$/, "");
+function dataSrcList() {
+  const custom = (store.get("ptcg_datasrc", "") || "").replace(/\/+$/, "");
+  return custom ? [custom] : DATA_SOURCES;
+}
+
+/* 逐源解析 manifest：全部失败时抛出可读错误（区分 404 与网络不可达） */
+async function resolveDataSrc() {
+  let saw404 = false, netFail = false;
+  for (const base of dataSrcList()) {
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 8000);
+    try {
+      const r = await fetch(`${base}/manifest.json`, { signal: ctl.signal });
+      clearTimeout(timer);
+      if (r.ok) return { base, manifest: await r.json() };
+      if (r.status === 404) saw404 = true;
+      else netFail = true;
+    } catch {
+      clearTimeout(timer);
+      netFail = true;
+    }
+  }
+  throw new Error(saw404 && !netFail
+    ? "数据源暂无数据清单：更新尚未发布（需把卡表数据合并到 master 并推送；CDN 缓存有数小时延迟）"
+    : "暂时连不上数据源（GitHub 直连国内常受限，可在下方填写镜像数据源后重试）");
 }
 
 function appliedManifest() { return store.get("ptcg_data_applied", null); }
@@ -1164,13 +1192,8 @@ async function checkDataUpdate(manual) {
   const info = $("#dataUpdInfo");
   const btn = $("#btnCheckData");
   if (manual) { info.textContent = "正在检查卡表更新…"; if (btn) btn.disabled = true; }
-  const ctl = new AbortController();
-  const timer = setTimeout(() => ctl.abort(), 10000);
   try {
-    const r = await fetch(`${dataSrcBase()}/manifest.json`, { signal: ctl.signal });
-    clearTimeout(timer);
-    if (!r.ok) throw new Error(`HTTP ${r.status}`);
-    const manifest = await r.json();
+    const { base, manifest } = await resolveDataSrc();
     const applied = appliedManifest() || {};
     const localSets = applied.sets || {};
     const changed = Object.entries(manifest.sets || {})
@@ -1188,7 +1211,7 @@ async function checkDataUpdate(manual) {
     let done = 0, fail = 0;
     for (const [id, m] of changed) {
       try {
-        const cr = await fetch(`${dataSrcBase()}/cards/${id}.json`);
+        const cr = await fetch(`${base}/cards/${id}.json`);
         if (!cr.ok) throw new Error(`HTTP ${cr.status}`);
         const cards = await cr.json();
         if (!Array.isArray(cards) || !cards.length || !cards[0].cardIndex) throw new Error("数据异常");
@@ -1207,9 +1230,8 @@ async function checkDataUpdate(manual) {
     info.textContent = `已更新 ${done} 弹${fail ? `，失败 ${fail} 弹` : ""}（${manifest.generated.slice(0, 10)}）`;
     toast(done ? `卡表已更新 ${done} 弹` : "卡表更新失败");
   } catch (e) {
-    clearTimeout(timer);
-    info.textContent = "检查失败：暂时连不上数据源";
-    if (manual) toast("检查失败：暂时连不上数据源");
+    info.textContent = e.message || "检查失败";
+    if (manual) toast(e.message || "检查失败", 3600);
   } finally {
     if (manual && btn) btn.disabled = false;
   }
