@@ -1,0 +1,107 @@
+# -*- coding: utf-8 -*-
+"""生成安卓 APK 的 WebView 资产（android/app/src/main/assets/www/）。
+
+内嵌：前端三件套（index.html 注入资产模式标记）、弹索引、每弹卡表、
+抽卡规格数据（由 config.py 导出，JS 端本地抽卡与概率公示共用）。
+"""
+import json
+import re
+import shutil
+import sys
+from pathlib import Path
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
+
+import config
+from version import APP_VERSION
+
+WWW = ROOT / "android" / "app" / "src" / "main" / "assets" / "www"
+
+
+def spec_brief_full(code: str) -> list:
+    specs = []
+    for i, s in enumerate(config.set_specs(code)):
+        variants = s.get("variants")
+        pack_size = len((variants or [{"slots": s["slots"]}])[0]["slots"])
+        entry = {
+            "id": s["id"], "key": s["key"], "label": s["label"],
+            "note": s.get("note", ""), "price": s.get("price"),
+            "priceCny": s.get("priceCny"),
+            "packSize": pack_size, "default": i == 0,
+            "slots": s.get("slots") or variants[0]["slots"],
+        }
+        if variants:
+            entry["variants"] = variants
+        specs.append(entry)
+    return specs
+
+
+def main():
+    data = ROOT / "data"
+    if WWW.exists():
+        shutil.rmtree(WWW)
+    (WWW / "assets" / "cards").mkdir(parents=True, exist_ok=True)
+
+    # 前端三件套（index.html 注入资产模式；链接带版本号防 WebView 缓存）
+    import time as _time
+    ver = str(int(_time.time()))
+    html = (ROOT / "static" / "index.html").read_text(encoding="utf-8")
+    html = re.sub(r'href="/static/style\.css[^"]*"', f'href="style.css?v={ver}"', html)
+    inject = (f'<script>window.__ASSET_MODE__=true;'
+              f'window.__ASSET_BASE__="https://tcg.mik.moe/static";</script>\n'
+              f'<script src="assets/sets_index.js?v={ver}"></script>\n'
+              f'<script src="assets/meta.js?v={ver}"></script>\n'
+              f'<script src="gacha.js?v={ver}"></script>\n'
+              f'<script src="app.js?v={ver}"></script>')
+    html = re.sub(r'<script src="/static/app\.js[^"]*"></script>', inject, html)
+    html = re.sub(r'<script src="/static/gacha\.js[^"]*"></script>\s*', '', html)
+    (WWW / "index.html").write_text(html, encoding="utf-8")
+    shutil.copy2(ROOT / "static" / "style.css", WWW / "style.css")
+    shutil.copy2(ROOT / "static" / "app.js", WWW / "app.js")
+    shutil.copy2(ROOT / "shared" / "gacha.js", WWW / "gacha.js")
+    shutil.copy2(ROOT / "static" / "cardback.png", WWW / "cardback.png")
+
+    # 弹索引 + 抽卡规格元数据
+    idx = json.loads((data / "sets_index.json").read_text(encoding="utf-8"))
+    sets_meta = {}
+    for s in idx:
+        # 以条目 id 为键（收集啦151 拆分弹共享 code=151C，各自 id 不同）
+        group, drawable = config.product_group(s["id"])
+        sets_meta[s["id"]] = {
+            "name": s["name"],
+            "seriesZh": s["seriesZh"],
+            "group": group,
+            "drawable": drawable,
+            "count": s["count"],
+            "specs": spec_brief_full(s["id"]) if drawable else [],
+        }
+    # 数据以 JS 文件内嵌：file:// 下 script 标签不受 fetch/XHR 限制
+    def js_assign(var: str, obj) -> str:
+        return f"window[{var!r}] = " + json.dumps(obj, ensure_ascii=False) + ";"
+
+    (WWW / "assets" / "sets_index.js").write_text(
+        js_assign("__SETS_INDEX__", idx), encoding="utf-8")
+    (WWW / "assets" / "meta.js").write_text(
+        js_assign("__GACHA_META__", {"sets": sets_meta})
+        + "\n" + js_assign("__APP_VERSION__", APP_VERSION),
+        encoding="utf-8")
+
+    # 每弹卡表（JS 文件，动态 script 标签按需加载）
+    cards_dir = WWW / "assets" / "cards"
+    cards_dir.mkdir(exist_ok=True)
+    for f in (data / "cards").glob("*.json"):
+        cards = json.loads(f.read_text(encoding="utf-8"))
+        js = ("window.__CARD_FILES__ = window.__CARD_FILES__ || {};" + chr(10)
+              + f"window.__CARD_FILES__[{f.stem!r}] = "
+              + json.dumps(cards, ensure_ascii=False) + ";")
+        (cards_dir / (f.stem + ".js")).write_text(js, encoding="utf-8")
+
+    n_cards = len(list((WWW / "assets" / "cards").glob("*.js")))
+    print(f"资产生成完成: {WWW}")
+    print(f"  卡表 {n_cards} 弹, 索引 {len(idx)} 条")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())

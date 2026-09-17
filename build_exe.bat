@@ -5,6 +5,7 @@ echo == 正在打包 PTCG拆卡模拟器.exe ...
 python -m PyInstaller --noconfirm --onefile --noconsole ^
   --name "PTCG拆卡模拟器" ^
   --add-data "static;static" ^
+  --add-data "shared;shared" ^
   --add-data "data\sets_index.json;data" ^
   --add-data "data\cards;data\cards" ^
   --collect-all webview ^

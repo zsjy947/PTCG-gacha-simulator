@@ -1,0 +1,316 @@
+package cn.ptcc.gacha;
+
+import android.app.Activity;
+import android.app.AlertDialog;
+import android.graphics.Color;
+import android.os.Bundle;
+import android.view.View;
+import android.webkit.JavascriptInterface;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.List;
+
+public class MainActivity extends Activity {
+    private static final String IMG_HOST = "tcg.mik.moe";
+    private static final String IMG_PREFIX = "/static/img/";
+    private static final String ICON_PREFIX = "/static/setCode/";
+    private static final long IMG_CACHE_MAX_BYTES = 500L * 1024 * 1024; // 原生图缓上限，超过按最旧淘汰
+
+    private WebView webView;
+    private File imgCacheDir;
+    private File storeFile;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        webView = new WebView(this);
+        setContentView(webView);
+
+        imgCacheDir = new File(getCacheDir(), "imgcache");
+        storeFile = new File(getFilesDir(), "user_store.json");
+
+        // 系统栏颜色跟随页面主题（初值先读本地记录的主题，避免浅色用户冷启动闪黑）
+        applySystemBarTheme(readStoreRaw().matches("(?s).*\"ptcg_theme\"\\s*:\\s*\"light\".*"));
+
+        WebSettings s = webView.getSettings();
+        s.setJavaScriptEnabled(true);
+        s.setDomStorageEnabled(true);
+        s.setAllowFileAccess(true);
+        s.setAllowFileAccessFromFileURLs(true);
+        // file:// 资产直连 mik.moe 的卡图与详情接口，需要放开跨域
+        s.setAllowUniversalAccessFromFileURLs(true);
+        s.setLoadWithOverviewMode(true);
+        s.setUseWideViewPort(true);
+        s.setCacheMode(WebSettings.LOAD_DEFAULT);
+
+        webView.addJavascriptInterface(new NativeBridge(), "PTCGNative");
+        // 更新包下载交给系统浏览器（WebView 自身没有下载管理）
+        webView.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) -> {
+            try {
+                startActivity(new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url)));
+            } catch (Exception ignored) {}
+        });
+        webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
+                return intercept(request);
+            }
+        });
+        webView.setWebChromeClient(new WebChromeClient() {
+            // 默认弹窗会带"file:// 网页提示"前缀，自绘去掉来源显示
+            @Override
+            public boolean onJsAlert(WebView view, String url, String message, JsResult result) {
+                showJsDialog(view, message, false, result);
+                return true;
+            }
+
+            @Override
+            public boolean onJsConfirm(WebView view, String url, String message, JsResult result) {
+                showJsDialog(view, message, true, result);
+                return true;
+            }
+
+            private void showJsDialog(WebView view, String message, boolean cancellable, final JsResult result) {
+                AlertDialog.Builder b = new AlertDialog.Builder(view.getContext())
+                        .setTitle("PTCG拆卡模拟器")
+                        .setMessage(message)
+                        .setPositiveButton("确定", (d, w) -> result.confirm());
+                if (cancellable) {
+                    b.setNegativeButton("取消", (d, w) -> result.cancel());
+                    b.setOnCancelListener(d -> result.cancel());
+                }
+                b.show();
+            }
+        });
+        webView.setVisibility(View.VISIBLE);
+        webView.loadUrl("file:///android_asset/www/index.html");
+    }
+
+    /** 卡图请求经原生磁盘缓存：命中直接回本地文件，未命中下载后落盘再回源内容 */
+    private WebResourceResponse intercept(WebResourceRequest request) {
+        android.net.Uri uri = request.getUrl();
+        if (!IMG_HOST.equals(uri.getHost())) return null;
+        String path = uri.getPath();
+        if (path == null || (!path.startsWith(IMG_PREFIX) && !path.startsWith(ICON_PREFIX))) return null;
+        if (path.contains("..")) return null;
+
+        File dest = new File(imgCacheDir, path);
+        if (!dest.isFile()) {
+            if (!download(uri.toString(), dest)) return null; // 交给 WebView 自行请求
+        }
+        try {
+            WebResourceResponse r = new WebResourceResponse("image/png", null, new FileInputStream(dest));
+            r.setResponseHeaders(java.util.Collections.singletonMap("Access-Control-Allow-Origin", "*"));
+            return r;
+        } catch (IOException e) {
+            return null;
+        }
+    }
+
+    private boolean download(String spec, File dest) {
+        File tmp = new File(dest.getParentFile(), dest.getName() + "." + System.nanoTime() + ".tmp");
+        InputStream in = null;
+        FileOutputStream out = null;
+        try {
+            HttpURLConnection conn = (HttpURLConnection) new URL(spec).openConnection();            conn.setConnectTimeout(15000);
+            conn.setReadTimeout(30000);
+            if (conn.getResponseCode() != HttpURLConnection.HTTP_OK) {
+                conn.disconnect();
+                return false;
+            }
+            //noinspection ResultOfMethodCallIgnored
+            dest.getParentFile().mkdirs();
+            in = conn.getInputStream();
+            out = new FileOutputStream(tmp);
+            byte[] buf = new byte[16384];
+            int n;
+            while ((n = in.read(buf)) > 0) out.write(buf, 0, n);
+            out.flush();
+            if (!tmp.renameTo(dest)) {
+                // 并发下载同一文件时目标已存在，丢弃本份临时文件即可
+                //noinspection ResultOfMethodCallIgnored
+                tmp.delete();
+            }
+            evictOldCache();
+            return dest.isFile();
+        } catch (IOException e) {
+            //noinspection ResultOfMethodCallIgnored
+            tmp.delete();
+            return false;
+        } finally {
+            try { if (in != null) in.close(); } catch (IOException ignored) {}
+            try { if (out != null) out.close(); } catch (IOException ignored) {}
+        }
+    }
+
+    /** 缓存超过上限时按最后修改时间从旧到新淘汰，直到回到上限 90%（LRU 简化版） */
+    private void evictOldCache() {
+        File[] all = listFilesRecursive(imgCacheDir);
+        long total = 0;
+        for (File f : all) total += f.length();
+        if (total <= IMG_CACHE_MAX_BYTES) return;
+        long target = (long) (IMG_CACHE_MAX_BYTES * 0.9);
+        Arrays.sort(all, Comparator.comparingLong(File::lastModified));
+        for (File f : all) {
+            if (total <= target) break;
+            long len = f.length();
+            //noinspection ResultOfMethodCallIgnored
+            f.delete();
+            total -= len;
+        }
+    }
+
+    private static File[] listFilesRecursive(File dir) {
+        List<File> out = new ArrayList<>();
+        collectFiles(dir, out);
+        return out.toArray(new File[0]);
+    }
+
+    private static void collectFiles(File dir, List<File> out) {
+        File[] files = dir.listFiles();
+        if (files == null) return;
+        for (File f : files) {
+            if (f.isDirectory()) collectFiles(f, out);
+            else out.add(f);
+        }
+    }
+
+    private static String humanSize(long bytes) {
+        if (bytes < 1024) return bytes + " B";
+        double mb = bytes / 1048576.0;
+        if (mb < 1) return String.format("%.0f KB", mb * 1024);
+        return String.format("%.1f MB", mb);
+    }
+
+    private static long dirSize(File dir) {
+        File[] files = dir.listFiles();
+        if (files == null) return 0;
+        long total = 0;
+        for (File f : files) total += f.isDirectory() ? dirSize(f) : f.length();
+        return total;
+    }
+
+    private static void deleteRecursive(File dir) {
+        File[] files = dir.listFiles();
+        if (files != null) for (File f : files) {
+            if (f.isDirectory()) deleteRecursive(f);
+            //noinspection ResultOfMethodCallIgnored
+            f.delete();
+        }
+    }
+
+    private String readStoreRaw() {
+        try (FileInputStream in = new FileInputStream(storeFile)) {
+            byte[] buf = new byte[(int) storeFile.length()];
+            int n = in.read(buf);
+            return n > 0 ? new String(buf, "UTF-8") : "";
+        } catch (IOException e) {
+            return "";
+        }
+    }
+
+    /** 系统栏颜色取与页面顶栏/底部导航一致的底色，保证全屏色彩统一 */
+    private static String barHex(boolean light) {
+        return light ? "#fafbfe" : "#0a0e18";
+    }
+
+    private void applySystemBarTheme(boolean light) {
+        int color = Color.parseColor(barHex(light));
+        getWindow().setStatusBarColor(color);
+        getWindow().setNavigationBarColor(color);
+        // WebView 自身底色也跟随（页面内容未铺满/惯性滚动露出时保持一致）
+        webView.setBackgroundColor(Color.parseColor(light ? "#eef1f8" : "#0b0f1a"));
+        View decor = getWindow().getDecorView();
+        int lightFlags = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR | View.SYSTEM_UI_FLAG_LIGHT_NAVIGATION_BAR;
+        int flags = decor.getSystemUiVisibility();
+        if (light) flags |= lightFlags;
+        else flags &= ~lightFlags;
+        decor.setSystemUiVisibility(flags);
+    }
+
+    /** 设置页桥：同步调用（运行在 JavaBridge 线程，允许文件 IO） */
+    private class NativeBridge {
+        @JavascriptInterface
+        public String cacheSize() {
+            return humanSize(dirSize(imgCacheDir));
+        }
+
+        @JavascriptInterface
+        public String clearCache() {
+            deleteRecursive(imgCacheDir);
+            //noinspection ResultOfMethodCallIgnored
+            imgCacheDir.mkdirs();
+            return "ok";
+        }
+
+        /** 深浅色切换时同步系统状态栏/导航栏颜色，并强制 WebView 整体重绘
+         *  （固定定位的底部导航在 WebView 里可能保留旧色块图块，切 tab 才刷新） */
+        @JavascriptInterface
+        public void setSystemBars(final boolean light) {
+            runOnUiThread(() -> {
+                applySystemBarTheme(light);
+                webView.invalidate();
+                webView.getRootView().invalidate();
+            });
+        }
+
+        /** 抽卡记录/收藏册持久化（localStorage 在 WebView 重启后不保证保留） */
+        @JavascriptInterface
+        public void saveStore(String json) {
+            try {
+                FileOutputStream out = new FileOutputStream(storeFile);
+                out.write(json.getBytes("UTF-8"));
+                out.close();
+            } catch (IOException ignored) {}
+        }
+
+        @JavascriptInterface
+        public String loadStore() {
+            return readStoreRaw();
+        }
+
+        /** 拆卡战报图保存：base64 PNG 落盘到应用外部图片目录（无需存储权限），返回绝对路径 */
+        @JavascriptInterface
+        public String saveImage(String base64) {
+            try {
+                byte[] data = android.util.Base64.decode(base64, android.util.Base64.DEFAULT);
+                File dir = getExternalFilesDir(android.os.Environment.DIRECTORY_PICTURES);
+                if (dir == null) dir = getFilesDir();
+                //noinspection ResultOfMethodCallIgnored
+                dir.mkdirs();
+                File out = new File(dir, "PTCG战报_" + System.currentTimeMillis() + ".png");
+                FileOutputStream fo = new FileOutputStream(out);
+                fo.write(data);
+                fo.close();
+                return out.getAbsolutePath();
+            } catch (Exception e) {
+                return "";
+            }
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (webView != null && webView.canGoBack()) {
+            webView.goBack();
+        } else {
+            super.onBackPressed();
+        }
+    }
+}

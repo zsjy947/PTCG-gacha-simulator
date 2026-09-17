@@ -16,6 +16,8 @@ const RARITY_LABEL = {
   "●": "普通 ●", "◆": "非普通 ◆", "★": "稀有 ★", "★★": "双稀有 ★★", "★★★": "特艺术 ★★★", "无标记": "无标记",
 };
 const ENERGY_ZH = { G: "草", R: "火", W: "水", L: "雷", P: "超", F: "斗", D: "恶", M: "钢", Y: "妖", N: "无", C: "无色" };
+const BOX_SIZE = 30;          // 官方补充包整盒包数
+const RENDER_CHUNK = 120;     // 卡表增量渲染分片大小
 
 const state = {
   sets: [],           // 全部弹（扁平）
@@ -41,7 +43,6 @@ async function api(url, opts) {
 const ASSET = !!window.__ASSET_MODE__;
 const MIK_STATIC = window.__ASSET_BASE__ || "https://tcg.mik.moe/static";
 const MIK_API = "https://tcg.mik.moe/api/v3";
-const RARITY_ALIAS = { "●": "C", "○": "C", "◆": "U", "◇": "U", "★": "R", "★★": "RR", "★★★": "SAR" };
 
 function imgURL(code, idx) {
   return ASSET ? `${MIK_STATIC}/img/${code}/${idx}.png` : `/img/${code}/${idx}`;
@@ -86,61 +87,10 @@ function upgradeRemoteImages(root) {
   });
 }
 
-/* ---- 本地抽卡引擎（资产模式） ---- */
-function buildPools(cards) {
-  const pools = {};
-  for (const c of cards) {
-    const r = c.rarity || "N";
-    const k = RARITY_ALIAS[r] || r;
-    (pools[k] = pools[k] || []).push(c);
-  }
-  return pools;
-}
-function normalizeWeights(weights, available) {
-  const w = Object.entries(weights).filter(([r, v]) => available.includes(r) && v > 0);
-  if (!w.length) return null;
-  const total = w.reduce((a, [, v]) => a + v, 0);
-  return Object.fromEntries(w.map(([r, v]) => [r, v / total]));
-}
-function pickRarity(probs) {
-  let roll = Math.random(), acc = 0;
-  for (const [r, p] of Object.entries(probs)) { acc += p; if (roll <= acc) return r; }
-  return Object.keys(probs).pop();
-}
-function pickCard(pools, rarity, cards) {
-  const pool = rarity ? pools[rarity] : null;
-  const src = pool && pool.length ? pool : cards;
-  return { ...src[Math.floor(Math.random() * src.length)] };
-}
-function jsDrawPack(pools, cards, spec) {
-  const variants = spec.variants || [{ note: spec.note || "", slots: spec.slots }];
-  const v = variants[Math.floor(Math.random() * variants.length)];
-  const available = Object.keys(pools);
-  return v.slots.map((slot) => {
-    const probs = normalizeWeights(slot.weights, available);
-    const card = pickCard(pools, probs ? pickRarity(probs) : null, cards);
-    card.slotName = slot.name;
-    card.slotKind = slot.kind;
-    return card;
-  });
-}
-function jsSpecProbabilities(spec, pools) {
-  const slotTable = (slots) => slots.map((slot) => {
-    const probs = normalizeWeights(slot.weights, Object.keys(pools)) || {};
-    return {
-      name: slot.name, kind: slot.kind, fallback: !probs,
-      probabilities: Object.entries(probs)
-        .map(([r, p]) => ({ rarity: r, p, pool: (pools[r] || []).length }))
-        .sort((a, b) => b.p - a.p),
-    };
-  });
-  const variants = spec.variants || [{ note: spec.note || "", slots: spec.slots }];
-  return {
-    id: spec.id, label: spec.label, note: spec.note, price: spec.price,
-    packSize: variants[0].slots.length,
-    variants: variants.map((v) => ({ note: v.note, slots: slotTable(v.slots) })),
-  };
-}
+/* ---- 本地抽卡引擎：统一使用 shared/gacha.js（window.PTCGGacha）----
+ * 服务模式由 /static/gacha.js 提供，资产模式由构建脚本复制到 www/；
+ * Python↔JS 同种子对拍见 tests/test_engine.py，勿在本文件重写引擎逻辑。 */
+const G = () => window.PTCGGacha;
 
 /* ---- 数据访问层：服务模式 / 资产模式 ---- */
 const DATA = {
@@ -165,6 +115,11 @@ const DATA = {
     return { groups: result };
   },
   async cards(setId) {
+    // 热更新覆盖优先（设置页「卡表数据更新」拉取的增量数据，键不带 ptcg_ 前缀、不镜像磁盘）
+    const ov = localStorage.getItem(`datacard_${setId}`);
+    if (ov) {
+      try { return JSON.parse(ov); } catch { localStorage.removeItem(`datacard_${setId}`); }
+    }
     if (!ASSET) {
       const d = await api(`/api/sets/${encodeURIComponent(setId)}/cards`);
       return d.cards;
@@ -187,8 +142,8 @@ const DATA = {
   async probabilities(setId) {
     if (!ASSET) return api(`/api/sets/${encodeURIComponent(setId)}/probabilities`);
     const cards = await DATA.cards(setId);
-    const pools = buildPools(cards);
-    return { specs: (state.current.specs || []).map((sp) => jsSpecProbabilities(sp, pools)) };
+    const pools = G().buildPools(cards);
+    return { specs: (state.current.specs || []).map((sp) => G().specProbabilities(sp, pools)) };
   },
   async draw(setId, spec, packs) {
     if (!ASSET) {
@@ -199,9 +154,9 @@ const DATA = {
       });
     }
     const cards = await DATA.cards(setId);
-    const pools = buildPools(cards);
+    const pools = G().buildPools(cards);
     const packsOut = [];
-    for (let i = 0; i < packs; i++) packsOut.push(jsDrawPack(pools, cards, spec));
+    for (let i = 0; i < packs; i++) packsOut.push(G().drawPack(cards, pools, spec));
     return {
       packs: packsOut.map((p) => p.map((c) => ({ ...c, image: imgURL(c.setCode, c.cardIndex) }))),
     };
@@ -233,8 +188,46 @@ function bestRarity(rs) {
 /* 本地存储 */
 const store = {
   get(k, d) { try { return JSON.parse(localStorage.getItem(k)) ?? d; } catch { return d; } },
-  set(k, v) { localStorage.setItem(k, JSON.stringify(v)); },
+  set(k, v) { localStorage.setItem(k, JSON.stringify(v)); persistStore(); },
 };
+
+/* ---- 抽卡记录/收藏册持久化：镜像 ptcg_* 键到磁盘（exe→/api/store/*，APK→JS 桥），
+        WebView 的 localStorage 重启后不保证保留 ---- */
+function snapshotStore() {
+  const out = {};
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith("ptcg_")) out[k] = localStorage.getItem(k);
+  }
+  return out;
+}
+function persistStore() {
+  try {
+    const data = snapshotStore();
+    if (nativeBridge && nativeBridge.saveStore) nativeBridge.saveStore(JSON.stringify(data));
+    else if (!ASSET) api("/api/store/set", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ data }),
+    }).catch(() => {});
+  } catch {}
+}
+async function restoreStore() {
+  try {
+    let raw = null;
+    if (nativeBridge && nativeBridge.loadStore) raw = nativeBridge.loadStore();
+    else if (!ASSET) {
+      const r = await api("/api/store/get");
+      raw = JSON.stringify(r.data || {});
+    }
+    if (!raw) return;
+    const data = JSON.parse(raw);
+    for (const [k, v] of Object.entries(data.data || data)) {
+      // 只补缺失的键：本地已有（可能更新）时不覆盖
+      if (localStorage.getItem(k) === null && typeof v === "string") localStorage.setItem(k, v);
+    }
+  } catch {}
+}
 const statsKey = () => "ptcg_stats";
 const collKey = () => "ptcg_coll";
 
@@ -255,11 +248,62 @@ function addStats(setId, cards, packCount) {
   store.set(statsKey(), all);
   renderStats();
 }
-function clearStats(setId) {
-  const all = store.get(statsKey(), {});
-  delete all[setId];
-  store.set(statsKey(), all);
+function clearStatsAll() {
+  /* 清空全部统计：各弹统计 + 拆卡记录；收藏册与消费统计各自单独清理，不受影响 */
+  store.set(statsKey(), {});
+  state.history = [];
+  store.set("ptcg_history", state.history);
+  renderHistory();
   renderStats();
+}
+
+/* ---------------- 消费统计（按官方建议零售价记账，全局生效） ---------------- */
+const spendKey = () => "ptcg_spend";
+const spendEnabled = () => store.get("ptcg_spend_enabled", true);
+
+function getSpend(setId) {
+  const all = store.get(spendKey(), {});
+  return all[setId] || { money: 0, packs: 0 };
+}
+function addSpend(setId, spec, packCount) {
+  if (!spendEnabled() || !spec || !spec.priceCny) return;
+  const all = store.get(spendKey(), {});
+  const s = all[setId] || { money: 0, packs: 0 };
+  s.money += spec.priceCny * packCount;
+  s.packs += packCount;
+  all[setId] = s;
+  store.set(spendKey(), all);
+  renderSpend();
+  renderStats(); // 拆卡页"本弹花费"与入账同帧刷新
+}
+function clearSpendAll() {
+  store.set(spendKey(), {});
+  renderSpend();
+  renderStats();
+}
+function fmtMoney(n) { return Number.isInteger(n) ? String(n) : n.toFixed(2); }
+
+function renderSpend() {
+  const info = $("#spendInfo"), list = $("#spendList"), toggle = $("#spendToggle");
+  if (!info) return;
+  toggle.checked = spendEnabled();
+  const all = store.get(spendKey(), {});
+  let money = 0, packs = 0;
+  const rows = [];
+  for (const [id, s] of Object.entries(all)) {
+    money += s.money;
+    packs += s.packs;
+    const set = state.sets ? state.sets.find((x) => x.id === id) : null;
+    rows.push({ name: set ? set.name : id, money: s.money, packs: s.packs });
+  }
+  const avg = packs ? `¥${fmtMoney(Math.round((money / packs) * 100) / 100)}` : "—";
+  info.textContent = spendEnabled()
+    ? `总花费 ¥${fmtMoney(money)} · 共 ${packs} 包 · 平均每包 ${avg}`
+    : `记账已关闭 · 历史累计 ¥${fmtMoney(money)}（${packs} 包）`;
+  rows.sort((a, b) => b.money - a.money);
+  list.innerHTML = rows.map((r) =>
+    `<div class="spend-row"><span class="sr-name">${escapeHtml(r.name)}</span><b>¥${fmtMoney(r.money)}<i>（${r.packs} 包）</i></b></div>`
+  ).join("");
 }
 
 function getColl() { return store.get(collKey(), {}); }
@@ -274,6 +318,24 @@ function addColl(setId, cards) {
   }
   coll[setId] = box;
   store.set(collKey(), coll);
+}
+
+/* ---------------- 应用内确认弹窗（替代原生 confirm：pywebview/WebView 原生弹窗会带源地址前缀） ---------------- */
+let _confirmDone = null;
+function uiConfirm(msg) {
+  return new Promise((resolve) => {
+    _confirmDone = resolve;
+    $("#confirmText").textContent = msg;
+    $("#confirmOverlay").hidden = false;
+    $("#btnConfirmOk").focus();
+  });
+}
+function settleConfirm(v) {
+  if (!_confirmDone) return;
+  const resolve = _confirmDone;
+  _confirmDone = null;
+  $("#confirmOverlay").hidden = true;
+  resolve(v);
 }
 
 /* ---------------- 弹列表 ---------------- */
@@ -347,6 +409,8 @@ function selectSet(id) {
   upgradeRemoteImages(spIcon);
   $("#spName").textContent = s.name;
   $("#spMeta").textContent = `${s.group} · ${s.count} 张`;
+  const sbSet = $("#sbSet");
+  if (sbSet) sbSet.textContent = `当前弹包：${s.name}（${s.code} · ${s.count} 张）`;
   closeSidebar();
   renderSpecButtons();
   renderStats();
@@ -394,6 +458,19 @@ function renderSpecButtons() {
   ten.innerHTML = `<span class="btn-title">十连</span><span class="btn-sub">10 包 · ${escapeHtml(dflt.short)}</span>`;
   ten.addEventListener("click", () => draw(dflt, 10));
   box.appendChild(ten);
+  // 整盒模拟：仅主弹系列（官方补充包整盒 30 包），宝石/奖赏/特殊弹无整盒规格不提供
+  if (["sm5", "sm25", "sv5", "sv20"].includes(dflt.key)) {
+    const boxBtn = document.createElement("button");
+    boxBtn.className = "btn draw-box";
+    boxBtn.innerHTML = `<span class="btn-title">整盒</span><span class="btn-sub">30 包 · ${escapeHtml(dflt.short)} · 汇总统计</span>`;
+    boxBtn.addEventListener("click", () => draw(dflt, BOX_SIZE));
+    box.appendChild(boxBtn);
+  }
+  const calc = document.createElement("button");
+  calc.className = "btn btn-ghost";
+  calc.innerHTML = `<span class="btn-title">目标卡计算</span>`;
+  calc.addEventListener("click", showExpectedCost);
+  box.appendChild(calc);
   const prob = document.createElement("button");
   prob.className = "btn btn-ghost";
   prob.innerHTML = `<span class="btn-title">概率公示</span>`;
@@ -423,7 +500,7 @@ async function draw(spec, packs) {
     state.pending = { spec, recorded: data.packs.map(() => false) };
     openOverlay(spec, packs);
   } catch (e) {
-    alert(`拆卡失败：${e.message}`);
+    toast(`拆卡失败：${e.message}`, 3000);
   } finally {
     state.drawing = false;
     $$(".draw-actions .btn").forEach((b) => (b.disabled = false));
@@ -436,6 +513,9 @@ function openOverlay(spec, packs) {
   ov.hidden = false;
   $("#packStage").hidden = false;
   $("#cardsStage").hidden = true;
+  $("#btnReport").hidden = true;
+  $("#boxSummary").hidden = true;
+  $("#boxSummary").innerHTML = "";
   const pack = $("#pack");
   pack.classList.remove("burst");
   pack.style.display = "";
@@ -459,7 +539,33 @@ function showCards() {
   const multi = state.packs.length > 1;
   $("#packNav").hidden = !multi;
   if (multi) renderPackTabs();
+  renderBoxSummary();
+  $("#btnReport").hidden = false;
   renderPackRow();
+}
+
+/* 整盒/十连汇总条：不依赖翻卡进度，开包即统计（含花费） */
+function renderBoxSummary() {
+  const el = $("#boxSummary");
+  if (state.packs.length < 10) { el.hidden = true; return; }
+  const cnt = {};
+  for (const pack of state.packs) for (const c of pack) {
+    const r = c.rarity || "N";
+    cnt[r] = (cnt[r] || 0) + 1;
+  }
+  const rrUp = RARITY_ORDER.slice(0, RARITY_ORDER.indexOf("RR") + 1)
+    .reduce((a, r) => a + (cnt[r] || 0), 0);
+  const best = bestRarity(cnt);
+  const sp = (state.pending && state.pending.spec) || state.spec;
+  const money = sp && sp.priceCny ? sp.priceCny * state.packs.length : 0;
+  const chips = RARITY_ORDER.filter((r) => cnt[r])
+    .map((r) => `<span style="color:${RARITY_COLOR[r]}">${r}×${cnt[r]}</span>`).join(" · ");
+  el.innerHTML = `
+    <div class="box-head"><b>${state.packs.length} 连汇总</b>
+      <span>RR+ 共 <b>${rrUp}</b> 张 · 最高 <b style="color:${RARITY_COLOR[best] || ""}">${best || "—"}</b>
+      ${money ? ` · 合计 ¥${fmtMoney(money)}` : ""}</span></div>
+    <div class="box-chips">${chips}</div>`;
+  el.hidden = false;
 }
 
 function renderPackTabs() {
@@ -549,6 +655,7 @@ function maybeRecordPack(pi) {
   const cards = state.packs[pi];
   addHistory(p.spec, 1, cards);
   addStats(state.current.id, cards, 1);
+  addSpend(state.current.id, p.spec, 1);
   addColl(state.current.id, cards);
 }
 
@@ -562,6 +669,7 @@ function recordUnfinished() {
     const cards = state.packs[pi];
     addHistory(p.spec, 1, cards);
     addStats(state.current.id, cards, 1);
+    addSpend(state.current.id, p.spec, 1);
     addColl(state.current.id, cards);
   });
   state.pending = null;
@@ -571,10 +679,16 @@ function closeOverlay() { recordUnfinished(); $("#overlay").hidden = true; }
 
 /* ---------------- 历史记录 ---------------- */
 function addHistory(spec, packs, result) {
-  const rec = { time: new Date(), packs, specLabel: spec.label, flat: result.flat() };
+  const rec = { time: new Date(), packs, setName: state.current ? state.current.name : "", specLabel: spec.label, money: spec && spec.priceCny ? spec.priceCny * packs : 0, flat: result.flat() };
   state.history.unshift(rec);
   if (state.history.length > 30) state.history.pop();
+  store.set("ptcg_history", state.history);
   renderHistory();
+}
+
+function loadHistory() {
+  state.history = (store.get("ptcg_history", []) || []).map((r) => ({ ...r, time: new Date(r.time) }));
+  if (state.history.length) renderHistory();
 }
 
 function renderHistory() {
@@ -589,8 +703,8 @@ function renderHistory() {
     div.className = "draw-record card-glass";
     div.innerHTML = `
       <div class="record-head">
-        <b>${escapeHtml(state.current ? state.current.name : "")} · ${escapeHtml(rec.specLabel)} × ${rec.packs} 包</b>
-        <span>${rec.time.toLocaleTimeString("zh-CN")}</span>
+        <b>${escapeHtml(rec.setName || (state.current ? state.current.name : ""))} · ${escapeHtml(rec.specLabel)} × ${rec.packs} 包</b>
+        <span>${rec.money ? `¥${fmtMoney(rec.money)} · ` : ""}${rec.time.toLocaleTimeString("zh-CN")}</span>
       </div>
       <div class="record-cards"></div>`;
     const rc = div.querySelector(".record-cards");
@@ -622,10 +736,12 @@ function renderStats() {
   const el = $("#stBest");
   el.textContent = best || "—";
   el.style.color = best ? RARITY_COLOR[best] : "";
+  const sp = getSpend(state.current.id);
+  $("#stSpend").textContent = `¥${fmtMoney(sp.money)}`;
 }
 
 /* ---------------- 收藏册 ---------------- */
-function renderCollection() {
+async function renderCollection() {
   const sel = $("#collSet");
   if (!sel.options.length) {
     for (const s of state.sets) {
@@ -651,7 +767,55 @@ function renderCollection() {
     ? `<span><b>${entries.length}</b>种卡牌</span><span><b>${total}</b>张总计</span>
        <span><b>${bestRarity(Object.fromEntries(entries.map((e) => [e.rarity, 1]))) || "—"}</b>最高稀有度</span>`
     : `<span>该弹还没有收藏记录</span>`;
+
+  // 完成度与缺卡：以完整卡表为基准（数据缺失时静默跳过）
+  const bar = $("#collBar");
+  const pctText = $("#collPct");
+  let all = null;
+  try { all = await DATA.cards(setId); } catch { all = null; }
+  const totalDistinct = all ? all.length : 0;
+  if (all && totalDistinct) {
+    const pct = Math.min(100, (entries.length / totalDistinct) * 100);
+    bar.style.width = `${pct}%`;
+    pctText.textContent = `已收集 ${entries.length} / ${totalDistinct} 种（${pct.toFixed(1)}%）`;
+    $("#collProgress").hidden = false;
+  } else {
+    $("#collProgress").hidden = true;
+  }
+
   const grid = $("#collGrid");
+  const missingOnly = $("#collMissing").checked;
+  const missCards = () => {
+    const have = new Set(Object.keys(box));
+    return all.filter((c) => !have.has(`${c.setCode}__${c.cardIndex}`));
+  };
+  if (missingOnly) {
+    const missing = all ? missCards() : [];
+    if (!all || !all.length) {
+      grid.innerHTML = `<div class="empty-tip">该弹暂无卡表数据</div>`;
+      return;
+    }
+    if (!missing.length) {
+      grid.innerHTML = `<div class="empty-tip">🎉 该弹已收集完成！</div>`;
+      return;
+    }
+    $("#collSummary").innerHTML = `<span><b>${missing.length}</b>张缺卡</span>
+      <span><b>${entries.length}/${totalDistinct}</b>种已收</span>`;
+    grid.innerHTML = "";
+    for (const c of missing) {
+      const d = document.createElement("div");
+      d.className = "coll-card missing";
+      d.innerHTML = `
+        <img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}">
+        <div class="cc-x">缺</div>
+        <div class="cc-name">${rarBadge(c.rarity || "N")}${escapeHtml(c.cardName)} <span>${escapeHtml(c.cardIndex)}</span></div>`;
+      d.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
+      grid.appendChild(d);
+    }
+    upgradeRemoteImages(grid);
+    return;
+  }
+
   if (!entries.length) {
     grid.innerHTML = `<div class="empty-tip">抽到的卡会自动收藏在这里</div>`;
     return;
@@ -680,8 +844,12 @@ function exportCollection() {
   URL.revokeObjectURL(a.href);
 }
 
-/* ---------------- 卡表 ---------------- */
+/* ---------------- 卡表（增量渲染：大弹按分片追加，滚动到底部自动续载） ---------------- */
 let clAll = [];
+let clFiltered = [];
+let clShown = 0;
+let clObserver = null;
+
 async function renderCardList() {
   if (!state.current) return;
   $("#clTitle").textContent = `${state.current.name} · 完整卡表`;
@@ -689,26 +857,45 @@ async function renderCardList() {
   try { cards = await loadSetCards(state.current.id); }
   catch (e) { $("#clGrid").innerHTML = `<div class="empty-tip">${escapeHtml(e.message)}</div>`; return; }
   clAll = cards;
-  drawCardList();
+  resetCardList();
 }
-function drawCardList() {
+function resetCardList() {
   const kw = $("#clSearch").value.trim().toLowerCase();
   const rar = $("#clRarity").value;
-  const grid = $("#clGrid");
-  const list = clAll.filter((c) =>
+  clFiltered = clAll.filter((c) =>
     (!rar || (c.rarity || "N") === rar) && (!kw || c.cardName.toLowerCase().includes(kw)));
-  if (!list.length) { grid.innerHTML = `<div class="empty-tip">没有匹配的卡牌</div>`; return; }
-  grid.innerHTML = "";
-  for (const c of list) {
+  clShown = 0;
+  $("#clGrid").innerHTML = "";
+  appendCardChunk();
+  if (!clObserver) {
+    clObserver = new IntersectionObserver((es) => {
+      if (es.some((e) => e.isIntersecting) && clShown < clFiltered.length) appendCardChunk();
+    }, { rootMargin: "600px 0px" });
+    clObserver.observe($("#clSentinel"));
+  }
+}
+function appendCardChunk() {
+  const grid = $("#clGrid");
+  const chunk = clFiltered.slice(clShown, clShown + RENDER_CHUNK);
+  clShown += chunk.length;
+  if (!clFiltered.length) {
+    grid.innerHTML = `<div class="empty-tip">没有匹配的卡牌</div>`;
+    $("#clCount").textContent = "";
+    return;
+  }
+  const frag = document.createDocumentFragment();
+  for (const c of chunk) {
     const d = document.createElement("div");
     d.className = "cl-card";
     d.innerHTML = `
       <img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}">
       <div class="cl-name">${rarBadge(c.rarity || "N")}${escapeHtml(c.cardName)}</div>`;
     d.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
-    grid.appendChild(d);
+    frag.appendChild(d);
   }
+  grid.appendChild(frag);
   upgradeRemoteImages(grid);
+  $("#clCount").textContent = `${clShown}/${clFiltered.length} 张`;
 }
 function fillRarityFilter(cards) {
   const sel = $("#clRarity");
@@ -807,13 +994,416 @@ async function showDetail(code, idx) {
   }
 }
 
+/* ---------------- 目标卡期望成本计算 ---------------- */
+async function showExpectedCost() {
+  if (!state.current) return;
+  $("#expectTitle").textContent = `${state.current.name} · 目标卡期望计算`;
+  $("#expectBody").innerHTML = `<p class="prob-note">计算中…</p>`;
+  $("#expectOverlay").hidden = false;
+  try {
+    const cards = await loadSetCards(state.current.id);
+    const pools = G().buildPools(cards);
+    $("#expectBody").innerHTML = (state.current.specs || []).map((sp) => {
+      const rows = G().expectedCost(sp, pools);
+      const money = (r) => sp.priceCny && Number.isFinite(r.cardPacks)
+        ? `¥${fmtMoney(Math.round(r.cardPacks * sp.priceCny))}` : "—";
+      const body = rows.map((r) => `
+        <tr>
+          <td><span class="pl-r" style="color:${RARITY_COLOR[r.rarity] || ""}">${r.rarity}</span></td>
+          <td>${r.pool} 张</td>
+          <td>${probPct(r.pPack)}</td>
+          <td>${Number.isFinite(r.anyPacks) ? Math.ceil(r.anyPacks) : "—"} 包</td>
+          <td>${Number.isFinite(r.cardPacks) ? Math.ceil(r.cardPacks) : "—"} 包</td>
+          <td>${money(r)}</td>
+        </tr>`).join("");
+      return `
+        <div class="prob-spec">
+          <h4 class="prob-spec-title">${escapeHtml(sp.label)}${sp.price ? ` · ${escapeHtml(sp.price)}` : ""}</h4>
+          <table class="expect-table">
+            <thead><tr><th>稀有度</th><th>池</th><th>单包出现率</th><th>任一该稀有度</th><th>指定一张卡</th><th>期望花费</th></tr></thead>
+            <tbody>${body}</tbody>
+          </table>
+        </div>`;
+    }).join("") + `<p class="prob-note">基于划档概率模型的数学期望（几何分布），仅估算"平均而言"，非保底承诺；实际所需包数波动可能很大。</p>`;
+  } catch (e) {
+    $("#expectBody").innerHTML = `<p class="prob-note">计算失败：${escapeHtml(e.message)}</p>`;
+  }
+}
+
+/* ---------------- 拆卡战报图（canvas 生成，可保存/下载） ---------------- */
+function reportImgEl(url) {
+  return new Promise((resolve) => {
+    const im = new Image();
+    im.crossOrigin = "anonymous";
+    im.onload = () => resolve(im);
+    im.onerror = () => resolve(null);
+    im.src = url;
+  });
+}
+async function reportImage(card) {
+  // 资产模式走 XHR→Blob（缓存复用），保证 canvas 不被跨域污染
+  if (ASSET) {
+    const url = thumbURL(card);
+    let p = imgBlobCache.get(url);
+    if (!p) {
+      p = new Promise((resolve) => {
+        try {
+          const x = new XMLHttpRequest();
+          x.open("GET", url, true);
+          x.responseType = "arraybuffer";
+          x.onload = () => x.status === 200 && x.response
+            ? resolve(URL.createObjectURL(new Blob([x.response], { type: "image/png" })))
+            : resolve(null);
+          x.onerror = () => resolve(null);
+          x.send();
+        } catch { resolve(null); }
+      });
+      imgBlobCache.set(url, p);
+    }
+    const u = await p;
+    return u ? reportImgEl(u) : null;
+  }
+  return reportImgEl(thumbURL(card));
+}
+
+async function showReport() {
+  const pack = state.packs && state.packs[state.packIdx];
+  if (!pack) return;
+  toast("正在生成战报图…");
+  const W = 900, H = 1350;
+  const canvas = document.createElement("canvas");
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext("2d");
+  // 背景
+  const bg = ctx.createLinearGradient(0, 0, 0, H);
+  bg.addColorStop(0, "#101528"); bg.addColorStop(1, "#0a0e18");
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = "#e3350d"; ctx.fillRect(0, 0, W, 8);
+  // 标题
+  ctx.fillStyle = "#f5f6f8";
+  ctx.font = "bold 40px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText("拆卡战报", W / 2, 92);
+  ctx.font = "24px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.fillStyle = "#9aa5b1";
+  const setName = state.current ? `${state.current.name} · ${state.spec ? state.spec.label : ""}` : "";
+  ctx.fillText(setName.slice(0, 24), W / 2, 134);
+  // 卡图网格（最多 20 张，超出截断）
+  const imgs = await Promise.all(pack.slice(0, 20).map(reportImage));
+  const shown = imgs.filter(Boolean).length;
+  const cols = shown <= 4 ? 2 : shown <= 9 ? 3 : shown <= 16 ? 4 : 5;
+  const rows = Math.ceil(Math.max(shown, 1) / cols);
+  const gap = 14;
+  const cellW = Math.floor((W - gap * (cols + 1)) / cols);
+  const cellH = Math.floor(cellW * 1.38);
+  const gridTop = 180;
+  let k = 0;
+  for (const im of imgs) {
+    if (!im) continue;
+    const col = k % cols, row = Math.floor(k / cols);
+    const x = gap + col * (cellW + gap), y = gridTop + row * (cellH + gap);
+    ctx.fillStyle = "#1a2032";
+    ctx.fillRect(x, y, cellW, cellH);
+    ctx.drawImage(im, x, y, cellW, cellH);
+    k++;
+  }
+  // 底部稀有度统计
+  let y = gridTop + rows * (cellH + gap) + 46;
+  const cnt = {};
+  pack.forEach((c) => { const r = c.rarity || "N"; cnt[r] = (cnt[r] || 0) + 1; });
+  ctx.font = "bold 26px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.textAlign = "left";
+  let x = 40;
+  for (const r of RARITY_ORDER) {
+    if (!cnt[r]) continue;
+    ctx.fillStyle = RARITY_COLOR[r] || "#9aa5b1";
+    const label = `${r}×${cnt[r]}`;
+    ctx.fillText(label, x, y);
+    x += ctx.measureText(label).width + 36;
+  }
+  ctx.fillStyle = "#6b7688";
+  ctx.font = "20px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.textAlign = "center";
+  ctx.fillText(new Date().toLocaleDateString("zh-CN") + " · PTCG拆卡模拟器 · 仅供学习交流", W / 2, H - 36);
+  try {
+    const dataURL = canvas.toDataURL("image/png");
+    $("#reportImg").src = dataURL;
+    $("#reportOverlay").hidden = false;
+    $("#btnSaveReport").dataset.url = dataURL;
+  } catch {
+    toast("战报图生成失败（图片跨域受限）", 3000);
+  }
+}
+
+function saveReport() {
+  const url = $("#btnSaveReport").dataset.url;
+  if (!url) return;
+  if (nativeBridge && nativeBridge.saveImage) {
+    const b64 = url.split(",")[1] || "";
+    const path = nativeBridge.saveImage(b64);
+    toast(`已保存到：${path || "相册目录"}`, 3600);
+    return;
+  }
+  const a = document.createElement("a");
+  a.href = url;
+  a.download = `ptcg战报_${Date.now()}.png`;
+  a.click();
+  toast("战报图已开始下载");
+}
+
+/* ---------------- 卡表数据热更新 ---------------- */
+/* 默认源依次尝试：jsDelivr CDN（国内一般可达）→ GitHub raw（常需代理）。
+ * 数据随仓库发布：卡表提交合并到 master 并推送后即可拉到（CDN 对分支引用有数小时缓存）。 */
+const DATA_SOURCES = [
+  "https://cdn.jsdelivr.net/gh/zsjy947/PTCG-gacha-simulator@master/data",
+  "https://raw.githubusercontent.com/zsjy947/PTCG-gacha-simulator/master/data",
+];
+
+function dataSrcList() {
+  const custom = (store.get("ptcg_datasrc", "") || "").replace(/\/+$/, "");
+  return custom ? [custom] : DATA_SOURCES;
+}
+
+/* 逐源解析 manifest：全部失败时抛出可读错误（区分 404 与网络不可达） */
+async function resolveDataSrc() {
+  let saw404 = false, netFail = false;
+  for (const base of dataSrcList()) {
+    const ctl = new AbortController();
+    const timer = setTimeout(() => ctl.abort(), 8000);
+    try {
+      const r = await fetch(`${base}/manifest.json`, { signal: ctl.signal });
+      clearTimeout(timer);
+      if (r.ok) return { base, manifest: await r.json() };
+      if (r.status === 404) saw404 = true;
+      else netFail = true;
+    } catch {
+      clearTimeout(timer);
+      netFail = true;
+    }
+  }
+  throw new Error(saw404 && !netFail
+    ? "数据源暂无数据清单：更新尚未发布（需把卡表数据合并到 master 并推送；CDN 缓存有数小时延迟）"
+    : "暂时连不上数据源（GitHub 直连国内常受限，可在下方填写镜像数据源后重试）");
+}
+
+function appliedManifest() { return store.get("ptcg_data_applied", null); }
+
+async function checkDataUpdate(manual) {
+  const info = $("#dataUpdInfo");
+  const btn = $("#btnCheckData");
+  if (manual) { info.textContent = "正在检查卡表更新…"; if (btn) btn.disabled = true; }
+  try {
+    const { base, manifest } = await resolveDataSrc();
+    const applied = appliedManifest() || {};
+    const localSets = applied.sets || {};
+    const changed = Object.entries(manifest.sets || {})
+      .filter(([id, m]) => !localSets[id] || localSets[id].md5 !== m.md5);
+    const appliedTime = applied.generated ? `（当前：${applied.generated.slice(0, 10)}）` : "";
+    if (!changed.length) {
+      info.textContent = `卡表已是最新${appliedTime}`;
+      if (manual) toast("卡表已是最新");
+      return;
+    }
+    if (manual) {
+      const ok = await uiConfirm(`发现 ${changed.length} 弹卡表有更新（远端 ${manifest.generated.slice(0, 10)}），现在下载吗？`);
+      if (!ok) { info.textContent = `有 ${changed.length} 弹可更新`; return; }
+    }
+    let done = 0, fail = 0;
+    for (const [id, m] of changed) {
+      try {
+        const cr = await fetch(`${base}/cards/${id}.json`);
+        if (!cr.ok) throw new Error(`HTTP ${cr.status}`);
+        const cards = await cr.json();
+        if (!Array.isArray(cards) || !cards.length || !cards[0].cardIndex) throw new Error("数据异常");
+        try {
+          localStorage.setItem(`datacard_${id}`, JSON.stringify(cards));
+        } catch {
+          throw new Error("本地空间不足，请在设置页清理后重试");
+        }
+        done++;
+      } catch {
+        fail++;
+      }
+    }
+    store.set("ptcg_data_applied", { generated: manifest.generated, sets: manifest.sets });
+    state.cards.clear(); // 清缓存让下次进入按新数据重新加载
+    info.textContent = `已更新 ${done} 弹${fail ? `，失败 ${fail} 弹` : ""}（${manifest.generated.slice(0, 10)}）`;
+    toast(done ? `卡表已更新 ${done} 弹` : "卡表更新失败");
+  } catch (e) {
+    info.textContent = e.message || "检查失败";
+    if (manual) toast(e.message || "检查失败", 3600);
+  } finally {
+    if (manual && btn) btn.disabled = false;
+  }
+}
+
+async function resetDataOverride() {
+  if (!(await uiConfirm("恢复为内置卡表数据？热更新下载的数据将被清除。"))) return;
+  const keys = [];
+  for (let i = 0; i < localStorage.length; i++) {
+    const k = localStorage.key(i);
+    if (k && k.startsWith("datacard_")) keys.push(k);
+  }
+  keys.forEach((k) => localStorage.removeItem(k));
+  store.set("ptcg_data_applied", null);
+  state.cards.clear();
+  $("#dataUpdInfo").textContent = "已恢复内置数据";
+  toast("已恢复内置卡表数据");
+}
+
+/* ---------------- 设置：外观主题 ---------------- */
+function applyTheme(t) {
+  document.documentElement.dataset.theme = t;
+  const info = $("#themeInfo");
+  if (info) info.textContent = `当前：${t === "light" ? "浅色" : "深色"}模式`;
+  const toggle = $("#themeToggle");
+  if (toggle) toggle.checked = t === "light";
+  // APK：状态栏/导航栏颜色跟随主题，保证全屏色彩统一
+  if (nativeBridge && nativeBridge.setSystemBars) nativeBridge.setSystemBars(t === "light");
+}
+
+/* ---------------- 设置：版本更新检查 ---------------- */
+const RELEASE_API = "https://api.github.com/repos/zsjy947/PTCG-gacha-simulator/releases/latest";
+const RELEASE_PAGE = "https://github.com/zsjy947/PTCG-gacha-simulator/releases/latest";
+let appVersion = "";
+let latestDownload = "";
+
+function cmpVersion(a, b) {
+  const pa = String(a).split(".").map(Number), pb = String(b).split(".").map(Number);
+  for (let i = 0; i < 3; i++) {
+    const d = (pa[i] || 0) - (pb[i] || 0);
+    if (d) return d;
+  }
+  return 0;
+}
+
+function setUpdateUI(text, downloadUrl) {
+  $("#updateInfo").textContent = text;
+  latestDownload = downloadUrl || "";
+  $("#btnGoDownload").hidden = !latestDownload;
+  // 发现新版时在「设置」标签上加红点提醒
+  const dot = document.querySelector(".tab[data-tab='settings']");
+  if (dot) {
+    const mark = dot.querySelector(".upd-dot");
+    if (latestDownload && !mark) {
+      const s = document.createElement("i");
+      s.className = "upd-dot";
+      dot.appendChild(s);
+    } else if (!latestDownload && mark) mark.remove();
+  }
+}
+
+/* 轻提示：自动消失，用于更新检查等操作的明确反馈 */
+function toast(msg, ms = 2400) {
+  let t = document.querySelector("#toast");
+  if (!t) {
+    t = document.createElement("div");
+    t.id = "toast";
+    document.body.appendChild(t);
+  }
+  t.textContent = msg;
+  // 触发重绘以重播过渡动画
+  void t.offsetWidth;
+  t.classList.add("show");
+  clearTimeout(toast._h);
+  toast._h = setTimeout(() => t.classList.remove("show"), ms);
+}
+
+async function checkUpdate(manual) {
+  const btn = $("#btnCheckUpdate");
+  if (manual) {
+    setUpdateUI("正在检查更新…", null);
+    if (btn) btn.disabled = true;
+  }
+  const ctl = new AbortController();
+  const timer = setTimeout(() => ctl.abort(), 5000); // 国内网络超时静默失败，不影响使用
+  try {
+    const r = await fetch(RELEASE_API, { signal: ctl.signal, headers: { Accept: "application/vnd.github+json" } });
+    clearTimeout(timer);
+    if (!r.ok) throw new Error(`HTTP ${r.status}`);
+    const rel = await r.json();
+    const latest = String(rel.tag_name || "").replace(/^v/, "");
+    if (!/^\d+(\.\d+)*$/.test(latest)) throw new Error("版本号解析失败");
+    if (cmpVersion(latest, appVersion) > 0) {
+      // 优先给当前平台的安装包直链，找不到再退回 release 页面
+      const ext = ASSET ? ".apk" : ".exe";
+      const hit = (rel.assets || []).find((a) => a.name.endsWith(ext));
+      setUpdateUI(`发现新版本 v${latest}（当前 v${appVersion}）`, hit ? hit.browser_download_url : RELEASE_PAGE);
+      if (manual) toast(`发现新版本 v${latest}，点击「前往下载」更新`);
+    } else {
+      setUpdateUI(`已是最新版本 v${appVersion}`, null);
+      if (manual) toast(`已是最新版本 v${appVersion}`);
+    }
+  } catch (e) {
+    clearTimeout(timer);
+    if (manual) {
+      setUpdateUI("检查失败：暂时连不上 GitHub，请稍后重试或到项目主页查看", RELEASE_PAGE);
+      toast("检查失败：暂时连不上 GitHub");
+    } else setUpdateUI(`当前版本 v${appVersion}`, null);
+  } finally {
+    if (manual && btn) btn.disabled = false;
+  }
+}
+
+async function initVersion() {
+  try {
+    appVersion = (ASSET ? window.__APP_VERSION__ : (await api("/api/version")).version) || "";
+  } catch { appVersion = ""; }
+  const about = $("#aboutVersion");
+  if (about) about.textContent = appVersion ? `PTCG拆卡模拟器 v${appVersion}` : "PTCG拆卡模拟器";
+  const sbV = $("#sbVersion");
+  if (sbV && appVersion) sbV.textContent = `PTCG拆卡模拟器 v${appVersion}`;
+  if (appVersion) checkUpdate(false);
+}
+
+/* ---------------- 设置：图片缓存 ---------------- */
+const nativeBridge = (window.PTCGNative && window.PTCGNative.cacheSize) ? window.PTCGNative : null;
+
+async function refreshCacheInfo() {
+  const el = $("#cacheInfo");
+  const card = $("#cacheCard");
+  try {
+    if (nativeBridge) {
+      el.textContent = `已占用 ${nativeBridge.cacheSize()}`;
+    } else if (!ASSET) {
+      const info = await api("/api/cache/info");
+      el.textContent = `已占用 ${info.label}`;
+    } else {
+      card.hidden = true;
+    }
+  } catch {
+    card.hidden = true;
+  }
+}
+
+async function clearImageCache() {
+  if (!(await uiConfirm("清除全部已缓存的卡牌图片？清除后再次浏览需重新下载。"))) return;
+  const btn = $("#btnClearCache");
+  btn.disabled = true;
+  try {
+    if (nativeBridge) nativeBridge.clearCache();
+    else await api("/api/cache/clear", { method: "POST" });
+    imgBlobCache.clear();
+    await refreshCacheInfo();
+  } catch (e) {
+    toast(`清除失败：${e.message}`, 3000);
+  } finally {
+    btn.disabled = false;
+  }
+}
+
 /* ---------------- 事件绑定 ---------------- */
 function init() {
+  applyTheme(store.get("ptcg_theme", "dark"));
+  loadHistory();
+  initVersion();
+
   $$(".tab").forEach((t) => t.addEventListener("click", () => {
     $$(".tab").forEach((x) => x.classList.toggle("active", x === t));
     $$(".tab-page").forEach((p) => p.classList.toggle("active", p.id === `tab-${t.dataset.tab}`));
     if (t.dataset.tab === "collection") renderCollection();
     if (t.dataset.tab === "cardlist" && state.current) renderCardList();
+    if (t.dataset.tab === "settings") refreshCacheInfo();
   }));
 
   $("#setSearch").addEventListener("input", (e) => filterSets(e.target.value));
@@ -822,7 +1412,9 @@ function init() {
   $("#sidebarBackdrop").addEventListener("click", closeSidebar);
   $("#probClose").addEventListener("click", () => ($("#probOverlay").hidden = true));
   $("#detailClose").addEventListener("click", () => ($("#detailOverlay").hidden = true));
-  [$("#probOverlay"), $("#detailOverlay")].forEach((ov) =>
+  $("#expectClose").addEventListener("click", () => ($("#expectOverlay").hidden = true));
+  $("#reportClose").addEventListener("click", () => ($("#reportOverlay").hidden = true));
+  [$("#probOverlay"), $("#detailOverlay"), $("#expectOverlay"), $("#reportOverlay")].forEach((ov) =>
     ov.addEventListener("click", (e) => { if (e.target === ov) ov.hidden = true; }));
 
   $("#pack").addEventListener("click", burstPack);
@@ -841,24 +1433,65 @@ function init() {
   $("#autoFlip").checked = store.get("ptcg_autoflip", false);
   $("#autoFlip").addEventListener("change", (e) => store.set("ptcg_autoflip", e.target.checked));
 
-  $("#btnClearStats").addEventListener("click", () => {
-    if (state.current && confirm(`清空「${state.current.name}」的统计？`)) clearStats(state.current.id);
+  $("#btnClearStats").addEventListener("click", async () => {
+    if (await uiConfirm("清空全部拆卡统计与拆卡记录？（收藏册与消费统计不受影响）")) clearStatsAll();
   });
-  $("#btnClearColl").addEventListener("click", () => {
-    if (confirm("清空全部收藏记录？")) { store.set(collKey(), {}); renderCollection(); }
+  $("#btnClearSpend").addEventListener("click", async () => {
+    if (await uiConfirm("清零全部消费统计？（拆卡记录不受影响）")) clearSpendAll();
+  });
+  $("#spendToggle").addEventListener("change", (e) => {
+    store.set("ptcg_spend_enabled", e.target.checked);
+    renderSpend();
+  });
+  $("#btnClearColl").addEventListener("click", async () => {
+    if (await uiConfirm("清空全部收藏记录？")) { store.set(collKey(), {}); renderCollection(); }
   });
   $("#btnExportColl").addEventListener("click", exportCollection);
   $("#collSet").addEventListener("change", renderCollection);
   $("#collSort").addEventListener("change", renderCollection);
-  $("#clRarity").addEventListener("change", drawCardList);
-  $("#clSearch").addEventListener("input", drawCardList);
+  $("#collMissing").addEventListener("change", renderCollection);
+  $("#clRarity").addEventListener("change", resetCardList);
+  $("#clSearch").addEventListener("input", resetCardList);
+
+  $("#btnReport").addEventListener("click", showReport);
+  $("#btnSaveReport").addEventListener("click", saveReport);
+
+  $("#dataSrcInput").value = store.get("ptcg_datasrc", "");
+  $("#dataSrcInput").addEventListener("change", (e) => {
+    store.set("ptcg_datasrc", e.target.value.trim());
+  });
+  $("#btnCheckData").addEventListener("click", () => checkDataUpdate(true));
+  $("#btnResetData").addEventListener("click", resetDataOverride);
+
+  $("#btnClearCache").addEventListener("click", clearImageCache);
+  $("#btnCheckUpdate").addEventListener("click", () => checkUpdate(true));
+  $("#btnGoDownload").addEventListener("click", () => {
+    if (!latestDownload) return;
+    if (ASSET) location.href = latestDownload; // WebView 导航触发 DownloadListener → 系统浏览器
+    else window.open(latestDownload, "_blank");
+  });
+  $("#themeToggle").addEventListener("change", (e) => {
+    const t = e.target.checked ? "light" : "dark";
+    store.set("ptcg_theme", t);
+    applyTheme(t);
+  });
 
   document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") { closeOverlay(); closeSidebar(); $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true; }
+    if (e.key === "Escape") {
+      closeOverlay(); closeSidebar();
+      $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true;
+      $("#expectOverlay").hidden = true; $("#reportOverlay").hidden = true;
+      if (!$("#confirmOverlay").hidden) settleConfirm(false);
+    }
     if (!$("#overlay").hidden && e.key === " ") { e.preventDefault(); burstPack(); }
   });
 
-  loadSets();
+  $("#btnConfirmOk").addEventListener("click", () => settleConfirm(true));
+  $("#btnConfirmCancel").addEventListener("click", () => settleConfirm(false));
+  $("#confirmOverlay").addEventListener("click", (e) => { if (e.target === e.currentTarget) settleConfirm(false); });
+
+  loadSets().then(renderSpend);
+  renderSpend();
 }
 
-init();
+(async () => { await restoreStore(); init(); })();

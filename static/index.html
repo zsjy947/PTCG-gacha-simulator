@@ -6,6 +6,7 @@
 <title>PTCG拆卡模拟器</title>
 <link rel="stylesheet" href="/static/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23fff' stroke='%23222' stroke-width='6'/%3E%3Cpath d='M4 50a46 46 0 0 1 92 0z' fill='%23e3350d'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23fff' stroke='%23222' stroke-width='6'/%3E%3C/svg%3E">
+<script>try { if (JSON.parse(localStorage.getItem("ptcg_theme")) === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
 </head>
 <body>
 <div class="bg-decor" aria-hidden="true"></div>
@@ -27,6 +28,7 @@
     <button class="tab active" data-tab="draw">拆卡</button>
     <button class="tab" data-tab="collection">收藏册</button>
     <button class="tab" data-tab="cardlist">卡表</button>
+    <button class="tab" data-tab="settings">设置</button>
   </nav>
 </header>
 
@@ -70,13 +72,14 @@
         <div class="stat"><b id="stCards">0</b><span>获得卡牌</span></div>
         <div class="stat"><b id="stRR">0</b><span>RR 及以上</span></div>
         <div class="stat"><b id="stBest">—</b><span>最高稀有度</span></div>
+        <div class="stat"><b id="stSpend">¥0</b><span>本弹花费</span></div>
       </div>
 
       <div class="history-head">
         <h3>拆卡记录</h3>
         <div class="history-tools">
           <label class="switch"><input type="checkbox" id="autoFlip"><i></i>拆卡后自动翻开</label>
-          <button class="mini-btn" id="btnClearStats">清空统计</button>
+          <button class="mini-btn" id="btnClearStats">清空全部</button>
         </div>
       </div>
       <div class="history" id="history"><div class="empty-tip">还没有记录，去抽一发吧！</div></div>
@@ -94,11 +97,16 @@
             <option value="count">按获得张数</option>
           </select>
           <select id="collSet"></select>
+          <label class="switch"><input type="checkbox" id="collMissing"><i></i>只看缺卡</label>
           <button class="mini-btn" id="btnExportColl">导出 JSON</button>
           <button class="mini-btn danger" id="btnClearColl">清空收藏</button>
         </div>
       </div>
       <div class="coll-summary card-glass" id="collSummary"></div>
+      <div class="coll-progress" id="collProgress" hidden>
+        <div class="coll-bar"><i id="collBar"></i></div>
+        <span id="collPct"></span>
+      </div>
       <div class="coll-grid" id="collGrid"><div class="empty-tip">抽到的卡会自动收藏在这里</div></div>
     </div>
 
@@ -112,9 +120,101 @@
         </div>
       </div>
       <div class="cl-grid" id="clGrid"><div class="empty-tip">选择弹包后查看完整卡表</div></div>
+      <div class="cl-count" id="clCount"></div>
+      <div id="clSentinel"></div>
+    </div>
+
+    <!-- 设置 -->
+    <div id="tab-settings" class="tab-page">
+      <div class="page-head">
+        <h2>设置</h2>
+      </div>
+      <div class="settings-card card-glass" id="updateCard">
+        <div class="set-row">
+          <div class="set-row-info">
+            <b>版本更新</b>
+            <p id="updateInfo">正在检查更新…</p>
+          </div>
+          <div class="update-actions">
+            <button class="mini-btn" id="btnGoDownload" hidden>前往下载</button>
+            <button class="mini-btn" id="btnCheckUpdate">检查更新</button>
+          </div>
+        </div>
+      </div>
+      <div class="settings-card card-glass" id="themeCard">
+        <div class="set-row">
+          <div class="set-row-info">
+            <b>外观</b>
+            <p id="themeInfo">当前：深色模式</p>
+          </div>
+          <label class="switch"><input type="checkbox" id="themeToggle"><i></i>浅色模式</label>
+        </div>
+      </div>
+      <div class="settings-card card-glass" id="spendCard">
+        <div class="set-row">
+          <div class="set-row-info">
+            <b>消费统计</b>
+            <p id="spendInfo">总花费 ¥0 · 共 0 包</p>
+          </div>
+          <div class="update-actions">
+            <button class="mini-btn danger" id="btnClearSpend">清零</button>
+            <label class="switch"><input type="checkbox" id="spendToggle" checked><i></i>记账</label>
+          </div>
+        </div>
+        <div class="spend-list" id="spendList"></div>
+        <p class="settings-note">按官方建议零售价记账：5张装 10 元、20张/25张装 50 元、太晶盛聚 10张装 30 元、宝石包 10 元/包；奖赏包无官方单包定价，不计入。</p>
+      </div>
+      <div class="settings-card card-glass" id="dataUpdCard">
+        <div class="set-row">
+          <div class="set-row-info">
+            <b>卡表数据更新</b>
+            <p id="dataUpdInfo">可从远程数据源增量更新已有弹的卡表（无需等待新版本）</p>
+          </div>
+          <div class="update-actions">
+            <button class="mini-btn danger" id="btnResetData">恢复内置</button>
+            <button class="mini-btn" id="btnCheckData">检查更新</button>
+          </div>
+        </div>
+        <input class="data-src-input" id="dataSrcInput" type="url"
+               placeholder="自定义数据源 manifest 目录（留空：jsDelivr → GitHub raw 依次尝试）" autocomplete="off" spellcheck="false">
+        <p class="settings-note">新弹上线仍需随新版本内置；此处增量更新仅覆盖已有弹的卡表修订。</p>
+      </div>
+      <div class="settings-card card-glass" id="cacheCard">
+        <div class="set-row">
+          <div class="set-row-info">
+            <b>卡图缓存</b>
+            <p id="cacheInfo">正在读取…</p>
+          </div>
+          <button class="mini-btn danger" id="btnClearCache">清除缓存</button>
+        </div>
+        <p class="settings-note">已浏览过的卡牌图会保存在本机，清除后再次浏览需重新联网下载。</p>
+      </div>
+      <div class="settings-card card-glass">
+        <div class="set-row-info">
+          <b>关于</b>
+          <p><span id="aboutVersion">PTCG拆卡模拟器</span> · 卡表数据与卡图来自公开网络（Cryst's Cards Database · tcg.mik.moe），仅供学习交流。宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。</p>
+        </div>
+      </div>
     </div>
   </section>
 </main>
+
+<!-- 底部状态栏（仅桌面端，应用窗口式收边） -->
+<footer class="statusbar">
+  <span class="sb-left"><span id="sbVersion">PTCG拆卡模拟器</span> · 数据来源 tcg.mik.moe</span>
+  <span class="sb-right" id="sbSet">未选择弹包</span>
+</footer>
+
+<!-- 应用内确认弹窗（替代原生 confirm，避免窗口标题带源地址） -->
+<div class="overlay" id="confirmOverlay" hidden>
+  <div class="modal card-glass confirm-modal">
+    <p class="confirm-text" id="confirmText"></p>
+    <div class="confirm-actions">
+      <button class="btn btn-ghost" id="btnConfirmCancel">取消</button>
+      <button class="btn confirm-danger" id="btnConfirmOk">确定</button>
+    </div>
+  </div>
+</div>
 
 <!-- 开包遮罩 -->
 <div class="overlay" id="overlay" hidden>
@@ -138,8 +238,10 @@
         <button class="mini-btn" id="navNext">下一包 ›</button>
       </div>
       <div class="cards-row" id="cardsRow"></div>
+      <div class="box-summary" id="boxSummary" hidden></div>
       <div class="stage-actions">
         <button class="btn btn-ghost" id="btnFlipAll">全部翻开</button>
+        <button class="btn btn-ghost" id="btnReport" hidden>生成战报</button>
         <button class="btn btn-ghost" id="btnAgain">再来一次</button>
         <button class="btn btn-ghost" id="btnCloseOverlay">收起</button>
       </div>
@@ -169,10 +271,39 @@
   </div>
 </div>
 
+<!-- 目标卡期望计算 -->
+<div class="overlay" id="expectOverlay" hidden>
+  <div class="modal card-glass" id="expectModal">
+    <div class="modal-head">
+      <h3 id="expectTitle">目标卡期望计算</h3>
+      <button class="mini-btn" id="expectClose">✕</button>
+    </div>
+    <div class="modal-body" id="expectBody"></div>
+  </div>
+</div>
+
+<!-- 拆卡战报 -->
+<div class="overlay" id="reportOverlay" hidden>
+  <div class="modal card-glass report-modal">
+    <div class="modal-head">
+      <h3>拆卡战报</h3>
+      <button class="mini-btn" id="reportClose">✕</button>
+    </div>
+    <div class="modal-body report-body">
+      <img id="reportImg" alt="拆卡战报图">
+      <div class="report-actions">
+        <button class="btn btn-ghost" id="btnSaveReport">保存图片</button>
+        <span class="report-hint">APK 端保存到相册目录；电脑端直接下载</span>
+      </div>
+    </div>
+  </div>
+</div>
+
 <footer class="foot">
   <p>卡表数据与卡图来自公开网络（Cryst's Cards Database · tcg.mik.moe），仅供学习交流。宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。</p>
 </footer>
 
+<script src="/static/gacha.js"></script>
 <script src="/static/app.js"></script>
 </body>
 </html>

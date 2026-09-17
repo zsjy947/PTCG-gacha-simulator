@@ -16,6 +16,7 @@ import sys
 import threading
 import time
 import webbrowser
+from collections import deque
 from pathlib import Path
 
 import requests
@@ -23,6 +24,7 @@ from flask import Flask, jsonify, request, send_file, send_from_directory
 
 import config
 import gacha
+from version import APP_VERSION
 
 # ---------------------------------------------------------------- 路径（兼容 PyInstaller 冻结环境）
 def _resolve_dirs():
@@ -36,6 +38,7 @@ def _resolve_dirs():
 
 BUNDLED_DATA, DATA = _resolve_dirs()
 STATIC_DIR = (Path(getattr(sys, "_MEIPASS", "")) / "static") if getattr(sys, "frozen", False) else Path(__file__).parent / "static"
+SHARED_DIR = (Path(getattr(sys, "_MEIPASS", "")) / "shared") if getattr(sys, "frozen", False) else Path(__file__).parent / "shared"
 IMG_CACHE = DATA / "img_cache"
 ICON_CACHE = DATA / "icon_cache"
 DETAIL_CACHE = DATA / "detail_cache"
@@ -80,9 +83,99 @@ MIK_API = "https://tcg.mik.moe/api/v3"
 _SAFE = re.compile(r"^[A-Za-z0-9._\-]{1,40}$")
 _http = requests.Session()
 _http.headers["User-Agent"] = "Mozilla/5.0 ptcc-gacha"
+_OUT_TIMEOUT = (5, 15)   # 出站请求（连接, 读取）超时：上游卡住时快速失败
 _guard = threading.Lock()
 _locks: dict = {}   # 每个目标文件一把锁：不同图片并行下载，互不阻塞
 _inflight: set = set()
+
+# ---------------------------------------------------------------- 回源限流（只统计真正回源下载的请求）
+# 命中本地缓存的响应不占额度：一次整盒开包会请求几百张缩略图，缓存建立后必须不受限。
+# 该限制仅防止异常循环/外部扫描把上游 mik.moe 打满，而非限制正常使用。
+FETCH_WINDOW = 60.0      # 统计窗口（秒）
+FETCH_LIMIT = 900        # 窗口内最多回源下载数（≈15 次/秒；冷缓存整盒首开 <700 张仍可一次完成）
+_fetch_lock = threading.Lock()
+_fetch_hits: dict = {}
+
+
+def _fetch_allow() -> bool:
+    ip = request.headers.get("X-Forwarded-For", request.remote_addr or "?").split(",")[0].strip()
+    now = time.monotonic()
+    with _fetch_lock:
+        q = _fetch_hits.get(ip)
+        if q is None:
+            q = _fetch_hits[ip] = deque()
+        while q and now - q[0] > FETCH_WINDOW:
+            q.popleft()
+        if len(q) >= FETCH_LIMIT:
+            return False
+        q.append(now)
+        if len(_fetch_hits) > 256:  # 防御性清理，避免长期运行膨胀
+            for k in [k for k, v in _fetch_hits.items() if not v]:
+                _fetch_hits.pop(k, None)
+    return True
+
+
+# ---------------------------------------------------------------- 图片缓存 LRU 上限
+IMG_CACHE_MB = int(os.environ.get("PTCG_IMG_CACHE_MB") or 600)
+_lru_lock = threading.Lock()
+_lru_size = -1            # 缓存目录字节数（-1 未初始化；下载/淘汰时增量维护）
+_dl_since_enforce = 0     # 距上次 LRU 全量扫描的回源次数（扫描有成本，节流执行）
+
+
+def _dir_bytes(path: Path) -> int:
+    total = 0
+    for p in path.rglob("*"):
+        try:
+            if p.is_file():
+                total += p.stat().st_size
+        except OSError:
+            pass
+    return total
+
+
+def _lru_touch(dest: Path):
+    """命中即续期（mtime 仍是下载时间的文件最旧，先被淘汰）。"""
+    try:
+        os.utime(dest, None)
+    except OSError:
+        pass
+
+
+def _lru_after_download(nbytes: int):
+    """下载落盘后增量记账；超限时每 20 次回源做一轮淘汰扫描。"""
+    global _lru_size, _dl_since_enforce
+    with _lru_lock:
+        if _lru_size >= 0:
+            _lru_size += nbytes
+        _dl_since_enforce += 1
+        over = _lru_size > IMG_CACHE_MB * 1048576
+        due = _dl_since_enforce >= 20
+        if due:
+            _dl_since_enforce = 0
+    if over and due:
+        _lru_enforce()
+
+
+def _lru_enforce():
+    """超过上限时按 mtime 从旧到新淘汰，直到回到上限的 90%。"""
+    global _lru_size
+    with _lru_lock:
+        if _lru_size < 0:
+            _lru_size = _dir_bytes(IMG_CACHE)
+        if _lru_size <= IMG_CACHE_MB * 1048576:
+            return
+        files = [(p.stat().st_mtime, p) for p in IMG_CACHE.rglob("*") if p.is_file()]
+        files.sort()
+        target = IMG_CACHE_MB * 1048576 * 0.9
+        for _, p in files:
+            if _lru_size <= target:
+                break
+            try:
+                size = p.stat().st_size
+                p.unlink()
+                _lru_size -= size
+            except OSError:
+                break
 
 
 def _lock_for(key: str) -> threading.Lock:
@@ -90,10 +183,13 @@ def _lock_for(key: str) -> threading.Lock:
         return _locks.setdefault(key, threading.Lock())
 
 
-def _cached_fetch(url: str, dest: Path, timeout: int = 30) -> bool:
-    """下载到缓存目录；同一文件并发请求只下载一次，不同文件并行。"""
+def _cached_fetch(url: str, dest: Path, timeout: tuple = _OUT_TIMEOUT) -> bool:
+    """下载到缓存目录；同一文件并发请求只下载一次，不同文件并行。
+    仅真正回源时占用限流额度；命中缓存的请求不受限。"""
     if dest.exists() and dest.stat().st_size > 0:
         return True
+    if not _fetch_allow():
+        return False  # 回源额度用尽：本次图片暂缺，窗口过后重试即得
     key = str(dest)
     with _lock_for(key):
         if key in _inflight:
@@ -108,6 +204,7 @@ def _cached_fetch(url: str, dest: Path, timeout: int = 30) -> bool:
                     tmp = dest.with_suffix(dest.suffix + ".part")
                     tmp.write_bytes(r.content)
                     tmp.replace(dest)
+                    _lru_after_download(len(r.content))
                     return True
                 if r.status_code == 404:
                     return False
@@ -151,15 +248,17 @@ def _thumb_for(src: Path, dest: Path) -> bool:
 
 
 def _fetch_detail(code: str, idx: str) -> bool:
-    """mik 详情接口为 POST，拉取后缓存为 JSON 文件。"""
+    """mik 详情接口为 POST，拉取后缓存为 JSON 文件（回源占限流额度，缓存命中不受限）。"""
     dest = DETAIL_CACHE / f"{code}__{idx}.json"
     if dest.exists() and dest.stat().st_size > 0:
         return True
+    if not _fetch_allow():
+        return False
     try:
         r = _http.post(
             f"{MIK_API}/card/card-detail",
             json={"setCode": code, "cardIndex": idx},
-            timeout=30,
+            timeout=_OUT_TIMEOUT,
         )
         data = r.json()
         if data.get("code") == 200 and data.get("data"):
@@ -193,6 +292,7 @@ def _spec_brief(code: str) -> list:
         "short": s.get("short") or s["id"],
         "note": s.get("note", ""),
         "price": s.get("price"),
+        "priceCny": s.get("priceCny"),
         "packSize": len((s.get("variants") or [{"slots": s["slots"]}])[0]["slots"]),
         "default": i == 0,
     } for i, s in enumerate(specs)]
@@ -202,6 +302,12 @@ def _spec_brief(code: str) -> list:
 @app.route("/")
 def index():
     return send_from_directory(app.static_folder, "index.html")
+
+
+@app.get("/static/gacha.js")
+def shared_gacha():
+    """shared/gacha.js：与 Python 引擎同源的 JS 拆卡引擎（tests 同种子对拍）。"""
+    return send_file(SHARED_DIR / "gacha.js", mimetype="text/javascript", max_age=3600)
 
 
 # ---------------------------------------------------------------- API
@@ -254,7 +360,7 @@ def api_draw():
     body = request.get_json(silent=True) or {}
     set_id = str(body.get("set") or "")
     spec = body.get("spec") or None
-    packs = max(1, min(int(body.get("packs") or 1), 10))
+    packs = max(1, min(int(body.get("packs") or 1), 40))
     if not _SAFE.match(set_id):
         return jsonify({"error": "非法弹代码"}), 400
     if not config.set_specs(set_id):
@@ -294,6 +400,7 @@ def card_image(code: str, idx: str):
     dest = IMG_CACHE / code / f"{idx}.png"
     ok = _cached_fetch(MIK_IMG.format(code=code, idx=idx), dest)
     if ok:
+        _lru_touch(dest)
         return send_file(dest, mimetype="image/png", max_age=86400)
     return jsonify({"error": "图片获取失败"}), 404
 
@@ -312,6 +419,7 @@ def card_thumb(code: str, idx: str):
             if src.exists() and src.stat().st_size > 0:
                 return send_file(src, mimetype="image/png", max_age=86400)
             return jsonify({"error": "图片获取失败"}), 404
+    _lru_touch(dest)
     return send_file(dest, mimetype="image/webp", max_age=86400)
 
 
@@ -330,6 +438,86 @@ def set_icon(code: str):
 @app.get("/api/health")
 def health():
     return jsonify({"ok": True, "time": time.time()})
+
+
+@app.get("/api/version")
+def app_version():
+    return jsonify({"version": APP_VERSION})
+
+
+# ---- 抽卡记录/收藏册持久化：前端把 localStorage 的 ptcg_* 键镜像到这里 ----
+USER_STORE = DATA / "user_store.json"
+_store_lock = threading.Lock()
+
+
+@app.get("/api/store/get")
+def store_get():
+    with _store_lock:
+        if USER_STORE.exists():
+            try:
+                return app.response_class(
+                    USER_STORE.read_text(encoding="utf-8"),
+                    mimetype="application/json",
+                )
+            except OSError:
+                pass
+    return jsonify({"data": {}})
+
+
+@app.post("/api/store/set")
+def store_set():
+    body = request.get_json(silent=True) or {}
+    data = body.get("data")
+    if not isinstance(data, dict):
+        return jsonify({"error": "非法参数"}), 400
+    tmp = USER_STORE.with_suffix(".json.tmp")
+    with _store_lock:
+        try:
+            tmp.write_text(json.dumps({"data": data}, ensure_ascii=False), encoding="utf-8")
+            tmp.replace(USER_STORE)
+        except OSError as e:
+            return jsonify({"error": f"写入失败：{e}"}), 500
+    return jsonify({"ok": True})
+
+
+def _dir_size(path: Path) -> int:
+    total = 0
+    for p in path.rglob("*"):
+        try:
+            if p.is_file():
+                total += p.stat().st_size
+        except OSError:
+            pass
+    return total
+
+
+@app.get("/api/cache/info")
+def cache_info():
+    img = _dir_size(IMG_CACHE)
+    icon = _dir_size(ICON_CACHE)
+    detail = _dir_size(DETAIL_CACHE)
+    total = img + icon + detail
+    return jsonify({
+        "total_bytes": total,
+        "label": f"{total / 1048576:.1f} MB" if total >= 1048576 else f"{total / 1024:.0f} KB",
+    })
+
+
+@app.post("/api/cache/clear")
+def cache_clear():
+    global _lru_size
+    for d in (IMG_CACHE, ICON_CACHE, DETAIL_CACHE):
+        for p in d.rglob("*"):
+            try:
+                if p.is_file():
+                    p.unlink()
+                elif p.is_dir():
+                    shutil.rmtree(p, ignore_errors=True)
+            except OSError:
+                pass
+    with _lru_lock:
+        _lru_size = 0
+    return jsonify({"ok": True})
 
 
 # ---------------------------------------------------------------- 启动
