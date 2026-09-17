@@ -90,11 +90,22 @@ def fetch_all_expansions():
 
 
 def fetch_set_cards(code: str, series: str):
+    """按弹拉取完整卡表。
+
+    2026-09 起 mik.moe 前端改版：card-advance-search 要求新版参数结构
+    （type/unique 等，从官方前端 bundle 提取对齐），旧请求体会被后端以
+    「内部错误」拒绝。series 只接受合法系列名（"PROMO" 等会被 Bad request），
+    而 set 已唯一确定弹，故恒传空数组不做系列过滤。
+    """
     cards, page = [], 1
     while True:
-        payload = {"set": [code], "page": page, "pageSize": 100}
-        if series:
-            payload["series"] = series
+        payload = {
+            "type": "advance",
+            "name": "", "text": "", "m": [], "s": [], "label": [], "t": [],
+            "has": [], "weak": [], "rs": [], "series": [], "set": [code],
+            "artist": [], "r": [], "hp": None, "rc": None,
+            "reg": [], "mark": [], "unique": False, "page": page, "pageSize": 100,
+        }
         d = post("card/card-advance-search", payload)
         lst = d.get("list") or []
         cards.extend(lst)
