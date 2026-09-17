@@ -132,17 +132,19 @@ def main():
     if src_151.exists() and wave_file.exists():
         merged = json.loads(src_151.read_text(encoding="utf-8"))
         waves = json.loads(wave_file.read_text(encoding="utf-8"))["waves"]
-        from collections import Counter
-        appear = Counter(n for nums in waves.values() for n in nums)
-        for sid, sname, wkey in split_151:
-            nums = set(waves.get(wkey) or [])
-            subset = [c for c in merged if str(c["cardIndex"]).zfill(3) in nums]
-            (CARDS_DIR / f"{sid}.json").write_text(
-                json.dumps(subset, ensure_ascii=False, indent=1), encoding="utf-8")
-            print(f"   [151拆分] {sname}（{sid}）{len(subset)} 张")
+        if merged:  # 源卡表为空（如上游接口故障）时绝不执行拆分，防止空数据覆盖
+            from collections import Counter
+            appear = Counter(n for nums in waves.values() for n in nums)
+            for sid, sname, wkey in split_151:
+                nums = set(waves.get(wkey) or [])
+                subset = [c for c in merged if str(c["cardIndex"]).zfill(3) in nums]
+                (CARDS_DIR / f"{sid}.json").write_text(
+                    json.dumps(subset, ensure_ascii=False, indent=1), encoding="utf-8")
+                print(f"   [151拆分] {sname}（{sid}）{len(subset)} 张")
 
     seen = {}
     index = []
+    failed = []
     for i, e in enumerate(expansions, 1):
         code = e["setCode"]
         if code == "151C" and wave_file.exists():
@@ -160,11 +162,14 @@ def main():
                 cards = fetch_set_cards(code, series)
             except Exception as exc:  # noqa: BLE001
                 print(f"[{i}/{len(expansions)}] {name}（{code}）拉取失败: {exc}")
-                cards = []
+                failed.append(fid)
+                # 接口异常（上游故障/封禁等）时保留已有卡表，绝不覆盖为空数据
+                cards = json.loads(out.read_text(encoding="utf-8")) if out.exists() else []
             out.write_text(
                 json.dumps(cards, ensure_ascii=False, indent=1), encoding="utf-8"
             )
-            print(f"[{i}/{len(expansions)}] {name}（{code}）同步 {len(cards)} 张")
+            print(f"[{i}/{len(expansions)}] {name}（{code}）同步 {len(cards)} 张"
+                  + ("（保留原有数据）" if fid in failed and cards else ""))
             time.sleep(0.25)
 
         index.append({
@@ -214,6 +219,12 @@ def main():
         json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8"
     )
     print(f">> 数据清单已写入 data/manifest.json（{len(manifest['sets'])} 弹）")
+
+    if failed:
+        print(f">> 注意：{len(failed)} 弹拉取失败（已保留原有数据）：{'、'.join(failed[:10])}"
+              + ("…" if len(failed) > 10 else ""))
+        print(">> 上游接口可能故障或对本环境受限，建议稍后重试；本次不视为成功同步")
+        return 2  # 非零退出码：让 CI/定时任务显式失败，避免提交残缺数据
     return 0
 
 

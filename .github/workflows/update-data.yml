@@ -20,6 +20,8 @@ jobs:
       - run: pip install requests
       - name: 全量同步卡表
         run: python fetch_data.py --force
+      - name: 数据完整性校验（不通过则不提交）
+        run: python tools/verify_data.py
       - name: 有变化才提交
         run: |
           git config user.name "github-actions[bot]"
