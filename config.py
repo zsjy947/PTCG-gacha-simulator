@@ -21,6 +21,13 @@ NORMAL_WEIGHTS = {"C": 65, "U": 35}
 # 闪卡槽位（R 及以上；按弹内实际存在的稀有度归一化）
 HOLO_WEIGHTS = {"R": 70, "RR": 15, "AR": 5, "SR": 4.5, "SAR": 4, "ACE": 1, "UR": 0.5}
 
+# 30周年庆典 补充包通用闪卡槽位（6张全闪中的 5 张随机位；官方未公布概率，划档假设）
+# 池含特款卡（稀有度记号为"无标记"，其中含 30 种皮卡丘）：特款占比较高
+FEST30_WEIGHTS = {"无标记": 26, "C": 22, "R": 20, "RR": 14, "AR": 10, "SAR": 5, "RGB": 2.2, "FUR": 0.8}
+# 特款槽位（官方保底：每包必出 30 种皮卡丘之一；数据中皮卡丘特款为"无标记"，
+# 以无标记池近似，单卡概率略保守）
+FEST30_SPECIAL_WEIGHTS = {"无标记": 100}
+
 # 各弹槽位概率覆盖表（示例）：
 # SET_SPEC_OVERRIDES = {
 #     "CSV9.5C": {  # 太晶盛聚：覆盖 10张装 A 变体闪卡权重
@@ -86,6 +93,13 @@ SPECS = {
         "note": "每包1张高稀有度闪卡", "price": "未计价", "priceCny": None,
         "slots": _slots("holo", 1, HOLO_WEIGHTS, "闪卡"),
     },
+    "fest6": {
+        "id": "6", "label": "6张装（全闪）", "short": "6张",
+        "note": "6张全闪：每包必出1张30周年特款皮卡丘（特款槽以无标记池近似），其余5张随机闪卡；官方未公布概率，划档为假设模型",
+        "price": "18元/包", "priceCny": 18,
+        "slots": _slots("holo", 1, FEST30_SPECIAL_WEIGHTS, "特款闪卡")
+               + _slots("holo", 5, FEST30_WEIGHTS, "闪卡"),
+    },
 }
 
 # ---------------- 商品线分组（界面分类）与拆卡范围 ----------------
@@ -120,6 +134,8 @@ def product_group(code: str):
     c = (code or "").upper()
     if c == "CSV9.5C":
         return ("补充包", True)          # 太晶盛聚：10张装
+    if c == "30THC":
+        return ("补充包", True)          # 30周年庆典：6张装全闪（每包必出特款皮卡丘）
     if c in _SPLIT_151:
         return ("收集啦151", True)       # 旅/望/惊/聚：5/20张装
     if c in _CSV_MAIN:
@@ -156,6 +172,7 @@ FAMILY_SPECS = {
     "tera_fes": ["tera10"],
     "gem_pack": ["gem4"],
     "reward_pack": ["reward1"],
+    "fest30": ["fest6"],
 }
 
 
@@ -164,6 +181,8 @@ def family_of(set_code: str, set_name: str = ""):
     code = (set_code or "").upper()
     if code == "CSV9.5C":
         return "tera_fes"
+    if code == "30THC":
+        return "fest30"
     if code in _CSV_MAIN or code in _SPLIT_151:
         return "sv_main"
     if code in _CS_MAIN:

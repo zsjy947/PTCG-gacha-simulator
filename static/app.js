@@ -4,16 +4,18 @@
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
-const RARITY_ORDER = ["UR", "SAR", "SR", "ACE", "AR", "RR", "R", "U", "C", "N", "★★★", "★★", "★", "◆", "●", "无标记"];
+const RARITY_ORDER = ["FUR", "UR", "SAR", "SR", "ACE", "AR", "RGB", "RR", "R", "U", "C", "N", "★★★", "★★", "★", "◆", "●", "无标记"];
 const RARITY_COLOR = {
   C: "#9aa5b1", U: "#58c470", R: "#4aa8ff", RR: "#ffd75e", AR: "#7ee8fa",
   SR: "#ff7edb", SAR: "#b28dff", UR: "#ffc82e", ACE: "#8f7bff", TR: "#f6a5c0", N: "#6b7688",
+  FUR: "#ff5f9e", RGB: "#e0c3fc",
   "●": "#9aa5b1", "◆": "#58c470", "★": "#4aa8ff", "★★": "#ffd75e", "★★★": "#b28dff", "无标记": "#6b7688",
 };
 const RARITY_LABEL = {
   C: "普通 C", U: "非普通 U", R: "稀有 R", RR: "双稀有 RR", AR: "艺术稀有 AR",
   SR: "超级稀有 SR", SAR: "特艺术 SAR", UR: "究极稀有 UR", ACE: "ACE SPEC", TR: "双星 TR", N: "其他",
-  "●": "普通 ●", "◆": "非普通 ◆", "★": "稀有 ★", "★★": "双稀有 ★★", "★★★": "特艺术 ★★★", "无标记": "无标记",
+  FUR: "30周年特艺术 FUR", RGB: "彩虹 RGB",
+  "●": "普通 ●", "◆": "非普通 ◆", "★": "稀有 ★", "★★": "双稀有 ★★", "★★★": "特艺术 ★★★", "无标记": "特款（无标记）",
 };
 const ENERGY_ZH = { G: "草", R: "火", W: "水", L: "雷", P: "超", F: "斗", D: "恶", M: "钢", Y: "妖", N: "无", C: "无色" };
 const BOX_SIZE = 30;          // 官方补充包整盒包数
@@ -1188,17 +1190,31 @@ async function resolveDataSrc() {
 
 function appliedManifest() { return store.get("ptcg_data_applied", null); }
 
+/* 增量基线：内置数据的指纹（APK 由构建脚本注入 / exe 走 /api/data-manifest）
+ * 叠加已应用的热更新记录。据此只下载与本地真正不同的弹，而非全量。 */
+let _bundledManifest = null;
+async function bundledManifest() {
+  if (_bundledManifest) return _bundledManifest;
+  try {
+    if (ASSET) _bundledManifest = window.__DATA_MANIFEST__ || { sets: {} };
+    else _bundledManifest = await api("/api/data-manifest");
+  } catch { _bundledManifest = { sets: {} }; }
+  return _bundledManifest;
+}
+
 async function checkDataUpdate(manual) {
   const info = $("#dataUpdInfo");
   const btn = $("#btnCheckData");
   if (manual) { info.textContent = "正在检查卡表更新…"; if (btn) btn.disabled = true; }
   try {
     const { base, manifest } = await resolveDataSrc();
-    const applied = appliedManifest() || {};
-    const localSets = applied.sets || {};
+    const bundled = (await bundledManifest()).sets || {};
+    const applied = (appliedManifest() || {}).sets || {};
+    // 基线：内置指纹优先级最低，已应用的热更新记录覆盖之
+    const baseline = { ...bundled, ...applied };
     const changed = Object.entries(manifest.sets || {})
-      .filter(([id, m]) => !localSets[id] || localSets[id].md5 !== m.md5);
-    const appliedTime = applied.generated ? `（当前：${applied.generated.slice(0, 10)}）` : "";
+      .filter(([id, m]) => !baseline[id] || baseline[id].md5 !== m.md5);
+    const appliedTime = appliedManifest()?.generated ? `（当前：${appliedManifest().generated.slice(0, 10)}）` : "";
     if (!changed.length) {
       info.textContent = `卡表已是最新${appliedTime}`;
       if (manual) toast("卡表已是最新");
@@ -1209,25 +1225,35 @@ async function checkDataUpdate(manual) {
       if (!ok) { info.textContent = `有 ${changed.length} 弹可更新`; return; }
     }
     let done = 0, fail = 0;
+    // 下一份"已应用"记录：以内置+旧记录为底，仅合并下载成功的弹；
+    // 失败的弹保留原基线值 → 下次检查仍识别为可更新并重试
+    const nextApplied = { ...bundled, ...applied };
     for (const [id, m] of changed) {
       try {
         const cr = await fetch(`${base}/cards/${id}.json`);
         if (!cr.ok) throw new Error(`HTTP ${cr.status}`);
         const cards = await cr.json();
-        if (!Array.isArray(cards) || !cards.length || !cards[0].cardIndex) throw new Error("数据异常");
+        if (!Array.isArray(cards) || !cards.length || !cards[0].cardIndex) {
+          // 空表也是合法数据（如上游未收录的特典弹）：仅当远端确有内容才校验
+          if (!Array.isArray(cards)) throw new Error("数据异常");
+        }
         try {
           localStorage.setItem(`datacard_${id}`, JSON.stringify(cards));
         } catch {
           throw new Error("本地空间不足，请在设置页清理后重试");
         }
+        nextApplied[id] = m;
         done++;
       } catch {
         fail++;
       }
     }
-    store.set("ptcg_data_applied", { generated: manifest.generated, sets: manifest.sets });
+    store.set("ptcg_data_applied", { generated: manifest.generated, sets: nextApplied });
     state.cards.clear(); // 清缓存让下次进入按新数据重新加载
-    info.textContent = `已更新 ${done} 弹${fail ? `，失败 ${fail} 弹` : ""}（${manifest.generated.slice(0, 10)}）`;
+    const remain = changed.length - done;
+    info.textContent = done
+      ? `已更新 ${done} 弹${fail ? `，失败 ${fail} 弹（下次检查将重试）` : ""}（${manifest.generated.slice(0, 10)}）`
+      : `下载失败，稍后重试`;
     toast(done ? `卡表已更新 ${done} 弹` : "卡表更新失败");
   } catch (e) {
     info.textContent = e.message || "检查失败";
