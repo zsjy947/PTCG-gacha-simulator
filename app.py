@@ -53,9 +53,10 @@ def _ensure_writable_data():
     if DATA == BUNDLED_DATA:
         return
     DATA.mkdir(parents=True, exist_ok=True)
-    bundled_idx = BUNDLED_DATA / "sets_index.json"
-    if bundled_idx.exists():
-        shutil.copy2(bundled_idx, DATA / "sets_index.json")
+    for name in ("sets_index.json", "manifest.json"):  # manifest 供热更新基线比对
+        bundled_idx = BUNDLED_DATA / name
+        if bundled_idx.exists():
+            shutil.copy2(bundled_idx, DATA / name)
     src_cards, dst_cards = BUNDLED_DATA / "cards", DATA / "cards"
     if src_cards.exists():
         dst_cards.mkdir(parents=True, exist_ok=True)
@@ -443,6 +444,18 @@ def health():
 @app.get("/api/version")
 def app_version():
     return jsonify({"version": APP_VERSION})
+
+
+@app.get("/api/data-manifest")
+def data_manifest():
+    """内置数据清单：前端热更新以此 + 已应用记录为基线做增量比对（而非全量下载）。"""
+    src = BUNDLED_DATA if getattr(sys, "frozen", False) else DATA
+    path = src / "manifest.json"
+    if not path.exists():
+        path = DATA / "manifest.json"
+    if not path.exists():
+        return jsonify({"sets": {}})
+    return app.response_class(path.read_text(encoding="utf-8"), mimetype="application/json")
 
 
 # ---- 抽卡记录/收藏册持久化：前端把 localStorage 的 ptcg_* 键镜像到这里 ----

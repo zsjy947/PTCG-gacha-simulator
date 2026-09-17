@@ -76,6 +76,9 @@ def main():
             "count": s["count"],
             "specs": spec_brief_full(s["id"]) if drawable else [],
         }
+    # 数据清单（供热更新与内置数据做增量基线比对；缺失时为空）
+    manifest_path = data / "manifest.json"
+    data_manifest = json.loads(manifest_path.read_text(encoding="utf-8")) if manifest_path.exists() else {"sets": {}}
     # 数据以 JS 文件内嵌：file:// 下 script 标签不受 fetch/XHR 限制
     def js_assign(var: str, obj) -> str:
         return f"window[{var!r}] = " + json.dumps(obj, ensure_ascii=False) + ";"
@@ -84,7 +87,8 @@ def main():
         js_assign("__SETS_INDEX__", idx), encoding="utf-8")
     (WWW / "assets" / "meta.js").write_text(
         js_assign("__GACHA_META__", {"sets": sets_meta})
-        + "\n" + js_assign("__APP_VERSION__", APP_VERSION),
+        + "\n" + js_assign("__APP_VERSION__", APP_VERSION)
+        + "\n" + js_assign("__DATA_MANIFEST__", data_manifest),
         encoding="utf-8")
 
     # 每弹卡表（JS 文件，动态 script 标签按需加载）
