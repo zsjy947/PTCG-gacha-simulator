@@ -57,30 +57,39 @@ def _holo(n: int) -> list:
 
 
 # ---------------------------------------------------------------- 包规格
+# boxPacks = 整盒包数（真实盒规，供「整盒」按钮内部抽数；按钮不展示数字）。
+# 未标注 = 无可确认的整盒商品，不提供整盒入口。
+# 依据（2026-09 用户核对）：瘦包 30 包/盒、肥包 20张装 6 包/盒、25张装 6 包/盒、
+#       太晶盛聚 10 包/盒、30周年庆典 20 包/盒、宝石包 Vol.1 15 包/盒、Vol.2 起各弹 18 包/盒。
 SPECS = {
     "sm5": {
         "id": "5", "label": "5张装", "short": "5张",
         "note": "4张平卡 + 1张闪卡（必出闪卡）", "price": "10元/包", "priceCny": 10,
+        "boxPacks": 30,
         "slots": _normal(4) + _holo(1),
     },
     "sm25": {
         "id": "25", "label": "25张装", "short": "25张",
         "note": "20张平卡 + 5张闪卡", "price": "50元/包", "priceCny": 50,
+        "boxPacks": 6,
         "slots": _normal(20) + _holo(5),
     },
     "sv5": {
         "id": "5", "label": "5张装（瘦包）", "short": "5张",
         "note": "4张平卡 + 1张闪卡", "price": "10元/包", "priceCny": 10,
+        "boxPacks": 30,
         "slots": _normal(4) + _holo(1),
     },
     "sv20": {
         "id": "20", "label": "20张装（肥包）", "short": "20张",
         "note": "14张平卡 + 6张闪卡", "price": "50元/包", "priceCny": 50,
+        "boxPacks": 6,
         "slots": _normal(14) + _holo(6),
     },
     "tera10": {
         "id": "10", "label": "10张装", "short": "10张",
         "note": "7张平卡+3张闪卡 或 6张平卡+4张闪卡", "price": "30元/包", "priceCny": 30,
+        "boxPacks": 10,
         "variants": [
             {"note": "7平 + 3闪", "slots": _normal(7) + _holo(3)},
             {"note": "6平 + 4闪", "slots": _normal(6) + _holo(4)},
@@ -89,6 +98,7 @@ SPECS = {
     "gem4": {
         "id": "4", "label": "4张装（全闪）", "short": "4张",
         "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）", "price": "10元/包", "priceCny": 10,
+        "boxPacks": 18,
         "slots": (
             _slots("holo", 3, NORMAL_WEIGHTS, "闪卡（普通稀有度）")
             + _slots("holo", 1, HOLO_WEIGHTS, "闪卡（高稀有度）")
@@ -101,8 +111,9 @@ SPECS = {
     },
     "fest6": {
         "id": "6", "label": "6张装（全闪）", "short": "6张",
-        "note": "6张全闪：每包必出1张30周年特款皮卡丘（特款槽以无标记池近似），其余5张随机闪卡；官方未公布概率，划档为假设模型",
+        "note": "6张全闪，每包必出1张30周年特款皮卡丘",
         "price": "18元/包", "priceCny": 18,
+        "boxPacks": 20,
         "slots": _slots("holo", 1, FEST30_SPECIAL_WEIGHTS, "特款闪卡")
                + _slots("holo", 5, FEST30_WEIGHTS, "闪卡"),
     },
@@ -202,12 +213,25 @@ def family_of(set_code: str, set_name: str = ""):
     return None
 
 
+# 同一规格在不同弹的整盒包数不同时的按弹覆盖（弹 id -> {规格 key -> 包数}）
+SET_BOX_PACKS = {
+    "CBB1C": {"gem4": 15},   # 宝石包 Vol.1 为 15 包/盒，Vol.2 起为 18 包/盒
+}
+
+
 def set_specs(set_code: str, set_name: str = "") -> list:
     """某弹可用的包规格列表；无公开随机包规格的商品返回空列表。"""
     fam = family_of(set_code, set_name)
     if fam is None:
         return []
-    return [dict(SPECS[k], key=k) for k in FAMILY_SPECS[fam]]
+    box_overrides = SET_BOX_PACKS.get((set_code or "").upper(), {})
+    out = []
+    for k in FAMILY_SPECS[fam]:
+        sp = dict(SPECS[k], key=k)
+        if k in box_overrides:
+            sp["boxPacks"] = box_overrides[k]
+        out.append(sp)
+    return out
 
 
 # 宝石包等商品的符号稀有度 → 标准稀有度（仅用于卡池归类与概率计算）

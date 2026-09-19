@@ -16,7 +16,8 @@ Page({
     /* 当前弹 */
     current: null,
     heroSpecs: [],
-    specButtons: [],
+    specRows: [],
+    expandSpec: "",
     specKey: "",
     drawable: false,
     /* 统计 */
@@ -28,6 +29,7 @@ Page({
     /* 开包流程 */
     drawState: null, // {spec, stage, packs, packIdx, flipped: [[bool]], recorded: [bool], view, glow: [bool]}
     boxSummary: null,
+    packPages: [],
     /* 弹窗 */
     probShow: false,
     probSpecs: [],
@@ -112,25 +114,28 @@ Page({
     const s = data.allSets().find((x) => x.id === id);
     if (!s) return;
     store.set("ptcg_current_set", id);
-    const specButtons = [];
-    for (const sp of s.specs || []) {
-      specButtons.push({ key: sp.key, label: `开包 · ${sp.short}`, sub: sp.note || sp.label, kind: this.specKind(sp) });
-    }
     const dflt = (s.specs || []).find((x) => x.default) || (s.specs || [])[0];
-    if (dflt) {
-      specButtons.push({ key: "__ten", label: "十连", sub: `10 包 · ${dflt.short}`, kind: "ten" });
-      if (["sm5", "sm25", "sv5", "sv20"].includes(dflt.key)) {
-        specButtons.push({ key: "__box", label: "整盒", sub: `30 包 · ${dflt.short} · 汇总`, kind: "box" });
-      }
+    // 下拉手风琴：全宽规格行，展开后 单包/十连/整盒（整盒按真实盒规抽数，无盒规不提供）
+    const specRows = [];
+    for (const sp of s.specs || []) {
+      const l = sp.label || "";
+      const rowLabel = l.includes("瘦包") ? "瘦包" : l.includes("肥包") ? "肥包" : l;
+      specRows.push({
+        key: sp.key,
+        label: rowLabel,
+        note: sp.note || sp.label,
+        price: sp.price || "",
+        kind: this.specKind(sp),
+        boxPacks: sp.boxPacks || 0,
+      });
     }
-    specButtons.push({ key: "__calc", label: "目标卡计算", sub: "期望包数/花费", kind: "ghost" });
-    specButtons.push({ key: "__prob", label: "概率公示", sub: "划档概率透明", kind: "ghost" });
     this.setData({
       showPicker: false,
       current: s,
       specKey: dflt ? dflt.key : "",
-      heroSpecs: (s.specs || []).map((sp) => `${sp.label}${sp.price ? " · " + sp.price : ""}`),
-      specButtons,
+      expandSpec: "",
+      heroSpecs: (s.specs || []).map((sp) => `${sp.label}${sp.price ? " " + sp.price : ""}`),
+      specRows,
       drawable: !!(s.specs || []).length,
     });
     this.renderStats();
@@ -234,10 +239,39 @@ Page({
     if (!cur || !cur.specs || !cur.specs.length) return;
     if (key === "__prob") return this.openProbabilities();
     if (key === "__calc") return this.openExpectedCost();
-    if (key === "__ten") return this.startDraw(cur.specs.find((x) => x.default) || cur.specs[0], 10);
-    if (key === "__box") return this.startDraw(cur.specs.find((x) => x.default) || cur.specs[0], BOX_SIZE);
+    if (key.startsWith("__ten_")) {
+      const sp = cur.specs.find((x) => x.key === key.slice(6));
+      if (sp) this.startDraw(sp, 10);
+      return;
+    }
+    if (key.startsWith("__box_")) {
+      const sp = cur.specs.find((x) => x.key === key.slice(6));
+      if (sp) this.startDraw(sp, sp.boxPacks || BOX_SIZE);
+      return;
+    }
     const sp = cur.specs.find((x) => x.key === key);
     if (sp) this.startDraw(sp, 1);
+  },
+
+  toggleSpec(e) {
+    const key = e.currentTarget.dataset.key;
+    this.setData({ expandSpec: this.data.expandSpec === key ? "" : key });
+  },
+
+  /* 页码分页：严格单行。≤7 包全显；更多时 1 … P-1 P P+1 … N 窗口 */
+  buildPackPages(n, cur) {
+    let nums;
+    if (n <= 7) nums = Array.from({ length: n }, (_, i) => i + 1);
+    else if (cur <= 3) nums = [1, 2, 3, 4, 5, "…", n];
+    else if (cur >= n - 2) nums = [1, "…", n - 4, n - 3, n - 2, n - 1, n];
+    else nums = [1, "…", cur - 1, cur, cur + 1, "…", n];
+    return nums.map((p, i) => ({ t: p, k: (p === "…" ? "e" : "p") + i }));
+  },
+
+  updatePackPages() {
+    const ds = this.data.drawState;
+    if (!ds) return;
+    this.setData({ packPages: this.buildPackPages(ds.packs.length, ds.packIdx + 1) });
   },
 
   /* 高稀有度光效：RR+ 与特款（无标记）发光 */
@@ -261,7 +295,7 @@ Page({
     const packsOut = data.drawPacks(cur.id, spec, packs);
     this.clearFlipTimers();
     let boxSummary = null;
-    if (packsOut.length >= 10) {
+    if (packsOut.length > 1) {
       const cnt = {};
       for (const p of packsOut) for (const c of p) cnt[c.rarity || "N"] = (cnt[c.rarity || "N"] || 0) + 1;
       const rrUp = ui.RARITY_ORDER.slice(0, ui.RARITY_ORDER.indexOf("RR") + 1)
@@ -295,7 +329,7 @@ Page({
     if (!ds || ds.stage !== "pack") return;
     ds.stage = "cards";
     this.setData({ "drawState.stage": "cards" });
-    setTimeout(() => { this.renderPackRow(); this.maybeAutoFlip(); }, 200);
+    setTimeout(() => { this.renderPackRow(); this.updatePackPages(); this.maybeAutoFlip(); }, 200);
   },
 
   renderPackRow() {
@@ -390,13 +424,14 @@ Page({
     ds.packIdx = idx;
     this.setData({ "drawState.packIdx": idx });
     this.renderPackRow();
+    this.updatePackPages();
     this.maybeAutoFlip();
   },
 
   closeDraw() {
     this.clearFlipTimers();
     this.recordUnfinished();
-    this.setData({ drawState: null, boxSummary: null });
+    this.setData({ drawState: null, boxSummary: null, packPages: [] });
   },
 
   againDraw() {
@@ -405,7 +440,7 @@ Page({
     const n = ds ? ds.packs.length : 1;
     this.clearFlipTimers();
     this.recordUnfinished();
-    this.setData({ drawState: null, boxSummary: null });
+    this.setData({ drawState: null, boxSummary: null, packPages: [] });
     setTimeout(() => this.startDraw(spec, n), 200);
   },
 

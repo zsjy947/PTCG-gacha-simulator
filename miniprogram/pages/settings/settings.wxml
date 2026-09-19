@@ -14,7 +14,7 @@
     <view class="s-row">
       <view class="s-info">
         <text class="s-title">消费统计</text>
-        <text class="s-sub" decode="{{true}}">总花费 ¥{{spendTotal}} · 共 {{spendPacks}} 包 · 平均每包 {{spendAvg}}</text>
+        <text class="s-sub">总花费 ¥{{spendTotal}} · 共 {{spendPacks}} 包</text>
       </view>
       <switch checked="{{spendEnabled}}" bindchange="toggleSpend" color="#ffce4a" />
     </view>
@@ -25,7 +25,6 @@
     <view class="s-actions">
       <view class="mini-btn danger" bindtap="clearSpend">清零</view>
     </view>
-    <text class="s-note">{{priceNote}}</text>
   </view>
 
   <!-- 数据 -->
@@ -42,11 +41,10 @@
   <view class="s-card card-glass">
     <view class="s-info">
       <text class="s-title">致谢</text>
-      <text class="s-note">本应用建立在以下公开资源之上，感谢各方贡献：</text>
-      <text class="s-note">· 卡表 / 卡图 / 详情数据：Cryst's Cards Database（tcg.mik.moe），简中社区维护的宝可梦卡牌数据库</text>
-      <text class="s-note">· 发售规格与定价依据：宝可梦卡牌简中官网（pokemon.cn）各弹发售公告</text>
-      <text class="s-note">· 系列资料参考：神奇宝贝百科（wiki.52poke.com）</text>
-      <text class="s-note">· 版本托管 / 数据同步：GitHub</text>
+      <text class="s-note">数据与图源 tcg.mik.moe</text>
+      <text class="s-note">规格依据 pokemon.cn 发售公告</text>
+      <text class="s-note">资料参考 52poke</text>
+      <text class="s-note">托管与同步 GitHub</text>
     </view>
   </view>
 
@@ -54,8 +52,8 @@
   <view class="s-card card-glass">
     <view class="s-info">
       <text class="s-title">关于</text>
-      <text class="s-sub">卡牌拆卡模拟器 v{{version}}（小程序端）</text>
-      <text class="s-note">卡表数据与卡图来自公开网络（Cryst's Cards Database · tcg.mik.moe），仅供学习交流与个人娱乐。本应用为概率模拟工具，与任何实体卡牌商品无关，不涉及真实交易。宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。</text>
+      <text class="s-note">卡牌拆卡模拟器 v{{version}}（小程序端）</text>
+      <text class="s-note">数据来源公开网络，仅供学习交流</text>
     </view>
   </view>
   <view style="height: 40rpx"></view>

@@ -54,13 +54,34 @@
     <text class="empty-tip">先选择一个弹包，再点击开包按钮开始拆卡</text>
   </view>
 
-  <!-- 操作按钮 -->
-  <view class="spec-grid" wx:if="{{current && drawable}}">
-    <view wx:for="{{specButtons}}" wx:key="key"
-          class="btn kind-{{item.kind}} {{specKey === item.key && item.kind !== 'ghost' ? 'spec-active' : ''}}"
-          data-key="{{item.key}}" bindtap="onSpecTap">
-      <text class="btn-title">{{item.label}}</text>
-      <text class="btn-sub">{{item.sub}}</text>
+  <!-- 开包面板：全宽规格行，点击展开 单包/十连/整盒 -->
+  <view class="spec-acc" wx:if="{{current && drawable}}">
+    <view class="acc-item" wx:for="{{specRows}}" wx:key="key">
+      <view class="btn pack-toggle kind-{{item.kind}}"
+            data-key="{{item.key}}" bindtap="toggleSpec">
+        <view class="pt-left">
+          <text class="btn-title">{{item.label}}</text>
+          <text class="btn-sub" wx:if="{{item.note}}">{{item.note}}{{item.price ? " · " + item.price : ""}}</text>
+        </view>
+        <text class="pt-caret">{{expandSpec === item.key ? "▴" : "▾"}}</text>
+      </view>
+      <view class="spec-drop" wx:if="{{expandSpec === item.key}}">
+        <view class="btn kind-{{item.kind}}" data-key="{{item.key}}" bindtap="onSpecTap">
+          <text class="btn-title">单包</text>
+        </view>
+        <view class="btn kind-ten" data-key="__ten_{{item.key}}" bindtap="onSpecTap">
+          <text class="btn-title">十连</text>
+        </view>
+        <view class="btn kind-box" wx:if="{{item.boxPacks}}" data-key="__box_{{item.key}}" bindtap="onSpecTap">
+          <text class="btn-title">整盒</text>
+        </view>
+      </view>
+    </view>
+    <view class="btn btn-ghost" data-key="__calc" bindtap="onSpecTap">
+      <text class="btn-title">目标卡计算</text>
+    </view>
+    <view class="btn btn-ghost" data-key="__prob" bindtap="onSpecTap">
+      <text class="btn-title">概率公示</text>
     </view>
   </view>
   <view class="empty-tip" wx:if="{{current && !drawable}}">该商品无公开随机包规格，可切到「卡表」浏览全部卡牌。</view>
@@ -128,10 +149,10 @@
 
   <!-- 翻卡 -->
   <view class="cards-stage" wx:if="{{drawState.stage === 'cards'}}">
-    <!-- 整盒/十连汇总条 -->
-    <view class="box-summary" wx:if="{{boxSummary}}">
+    <!-- 汇总条：仅最后一个页码显示 -->
+    <view class="box-summary" wx:if="{{boxSummary && drawState.packIdx === drawState.packs.length - 1}}">
       <view class="box-head">
-        <text class="box-title">{{boxSummary.count}} 连汇总</text>
+        <text class="box-title">{{boxSummary.count}} 包汇总</text>
         <text class="box-meta">RR+ 共 {{boxSummary.rrUp}} 张 · 最高 <text style="color:{{boxSummary.bestColor}}">{{boxSummary.best}}</text> · 合计 ¥{{boxSummary.money}}</text>
       </view>
       <view class="box-chips">
@@ -139,16 +160,6 @@
       </view>
     </view>
 
-    <view class="pack-nav" wx:if="{{drawState.packs.length > 1}}">
-      <text class="nav-btn {{drawState.packIdx === 0 ? 'disabled' : ''}}" data-d="-1" bindtap="navPack">‹</text>
-      <text class="nav-info">第 {{drawState.packIdx + 1}} / {{drawState.packs.length}} 包</text>
-      <text class="nav-btn {{drawState.packIdx === drawState.packs.length - 1 ? 'disabled' : ''}}" data-d="1" bindtap="navPack">›</text>
-    </view>
-    <scroll-view scroll-x class="pack-tabs" wx:if="{{drawState.packs.length > 2}}" enhanced show-scrollbar="{{false}}">
-      <text wx:for="{{drawState.packs}}" wx:key="*this"
-            class="pack-tab {{drawState.packIdx === index ? 'active' : ''}}"
-            data-i="{{index}}" bindtap="jumpPack">{{index + 1}}</text>
-    </scroll-view>
 
     <view class="cards-row">
       <view class="gcard {{item.rarClass}} {{drawState.flipped[drawState.packIdx][index] ? 'flipped' : ''}}"
@@ -169,9 +180,22 @@
 
     <view class="stage-actions">
       <view class="btn btn-ghost" bindtap="flipAll"><text class="btn-title">全部翻开</text></view>
-      <view class="btn btn-ghost" bindtap="againDraw"><text class="btn-title">再来一次</text></view>
+      <view class="btn btn-ghost" wx:if="{{drawState.packIdx === drawState.packs.length - 1}}" bindtap="againDraw"><text class="btn-title">再来一次</text></view>
       <view class="btn btn-ghost" bindtap="closeDraw"><text class="btn-title">收起</text></view>
     </view>
+
+    <view class="pack-nav" wx:if="{{drawState.packs.length > 1}}">
+      <view class="pack-tabs">
+        <text wx:for="{{packPages}}" wx:key="k"
+              class="pack-tab {{item.t === '…' ? 'ell' : (drawState.packIdx === item.t - 1 ? 'active' : '')}}"
+              data-i="{{item.t === '…' ? -1 : item.t - 1}}" bindtap="jumpPack">{{item.t}}</text>
+      </view>
+      <view class="pack-switch">
+        <text class="nav-btn {{drawState.packIdx === 0 ? 'disabled' : ''}}" data-d="-1" bindtap="navPack">‹ 上一包</text>
+        <text class="nav-btn {{drawState.packIdx === drawState.packs.length - 1 ? 'disabled' : ''}}" data-d="1" bindtap="navPack">下一包 ›</text>
+      </view>
+    </view>
+
   </view>
 </view>
 

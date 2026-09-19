@@ -169,3 +169,59 @@
 
 /* 弹图标占位 */
 .set-icon-fallback { display: flex; align-items: center; justify-content: center; font-size: 30rpx; }
+
+/* ========== v1.2.3 ========== */
+/* 规格分行按钮：行标签 + 单包/十连/整盒 */
+.spec-rows { display: flex; flex-direction: column; gap: 14rpx; margin-top: 20rpx; }
+.spec-row { display: flex; gap: 12rpx; align-items: stretch; }
+.spec-row-label { width: 120rpx; display: flex; align-items: center; justify-content: flex-end;
+  padding-right: 6rpx; font-size: 24rpx; font-weight: 800; color: var(--txt2); flex-shrink: 0; }
+.spec-row .btn { flex: 1; padding: 18rpx 8rpx; min-width: 0; }
+.spec-row.ghost .btn { padding: 14rpx 8rpx; }
+.spec-active { outline: 3rpx solid #ffce4a; outline-offset: 3rpx; }
+
+/* 汇总条：不透明底 */
+.box-summary { background: #17203a; border: 1rpx solid rgba(255,255,255,.1); }
+.page.light .box-summary { background: #ffffff; }
+
+/* 页码严格单行 + 前后键等高 */
+.pack-nav, .box-summary, .stage-actions { align-self: stretch; margin-left: 20rpx; margin-right: 20rpx; }
+.pack-nav { justify-content: center; }
+.pack-tabs { display: flex; flex-wrap: nowrap; justify-content: center; align-items: center; max-width: none; margin: 0; }
+.pack-tab { display: inline-flex; align-items: center; justify-content: center; min-width: 56rpx; height: 56rpx;
+  padding: 0 8rpx; margin: 0 6rpx; font-size: 22rpx; }
+.pack-tab.ell { background: transparent; border: 0; color: #9aa7bd; font-weight: 400; min-width: 30rpx; padding: 0; }
+.nav-btn { display: inline-flex; align-items: center; justify-content: center; min-width: 56rpx; height: 56rpx;
+  padding: 0; font-size: 30rpx; }
+
+/* 光效增强：双层阴影 + 全高稀有度覆盖 */
+.gcard.flipped.rc-RR .gface.front { box-shadow: 0 0 26rpx 4rpx rgba(255,215,94,.9), 0 0 70rpx 14rpx rgba(255,215,94,.45); }
+.gcard.flipped.rc-AR .gface.front, .gcard.flipped.rc-SSR .gface.front, .gcard.flipped.rc-CHR .gface.front, .gcard.flipped.rc-CSR .gface.front { box-shadow: 0 0 26rpx 4rpx rgba(126,232,250,.9), 0 0 70rpx 14rpx rgba(126,232,250,.45); }
+.gcard.flipped.rc-SR .gface.front { box-shadow: 0 0 26rpx 4rpx rgba(255,126,219,.92), 0 0 70rpx 14rpx rgba(255,126,219,.45); }
+.gcard.flipped.rc-SAR .gface.front, .gcard.flipped.rc-HR .gface.front { box-shadow: 0 0 28rpx 5rpx rgba(178,141,255,.95), 0 0 74rpx 16rpx rgba(178,141,255,.5); }
+.gcard.flipped.rc-UR .gface.front { box-shadow: 0 0 30rpx 5rpx rgba(255,200,46,.95), 0 0 80rpx 18rpx rgba(255,200,46,.5); }
+.gcard.flipped.rc-ACE .gface.front { box-shadow: 0 0 26rpx 4rpx rgba(143,123,255,.9), 0 0 70rpx 14rpx rgba(143,123,255,.45); }
+.gcard.flipped.rc-RRR .gface.front { box-shadow: 0 0 26rpx 4rpx rgba(255,169,77,.9), 0 0 70rpx 14rpx rgba(255,169,77,.45); }
+.gcard.flipped.rc-FUR .gface.front { box-shadow: 0 0 30rpx 5rpx rgba(255,95,158,.95), 0 0 80rpx 18rpx rgba(255,95,158,.5); }
+.gcard.flipped.rc-RGB .gface.front { box-shadow: 0 0 30rpx 5rpx rgba(224,195,252,.95), 0 0 80rpx 18rpx rgba(224,195,252,.5); }
+.gcard.flipped.rc-sp .gface.front { box-shadow: 0 0 28rpx 4rpx rgba(255,95,158,.9), 0 0 70rpx 14rpx rgba(255,95,158,.45); }
+
+/* ========== v1.2.3(二轮)：下拉手风琴 ========== */
+.spec-acc { display: flex; flex-direction: column; gap: 14rpx; margin-top: 20rpx; }
+.acc-item { display: flex; flex-direction: column; }
+.pack-toggle { flex-direction: row; align-items: center; justify-content: space-between; gap: 16rpx;
+  text-align: left; padding: 20rpx 24rpx; }
+.pt-left { display: flex; flex-direction: column; align-items: flex-start; gap: 4rpx; min-width: 0; flex: 1; }
+.pt-left .btn-sub { letter-spacing: 0; }
+.pt-caret { font-size: 26rpx; opacity: .9; flex-shrink: 0; }
+.spec-drop { display: flex; flex-direction: column; gap: 12rpx; margin-top: 12rpx; }
+.spec-drop .btn { padding: 20rpx 8rpx; }
+.spec-acc > .btn-ghost { padding: 18rpx 8rpx; }
+
+/* 页码两行式：页码行 + 前后包行 */
+.pack-nav { flex-direction: column; gap: 14rpx; }
+.pack-tabs { width: 100%; justify-content: space-between; }
+.pack-switch { display: flex; gap: 14rpx; width: 100%; }
+.pack-switch .nav-btn { flex: 1; height: 68rpx; background: rgba(255,255,255,.08); border-radius: 14rpx;
+  font-size: 25rpx; }
+.page.light .pack-switch .nav-btn { background: rgba(16,24,48,.08); }

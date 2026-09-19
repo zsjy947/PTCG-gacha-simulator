@@ -151,7 +151,6 @@
         <div class="set-row">
           <div class="set-row-info">
             <b>外观</b>
-            <p id="themeInfo">当前：深色模式</p>
           </div>
           <label class="switch"><input type="checkbox" id="themeToggle"><i></i>浅色模式</label>
         </div>
@@ -168,13 +167,12 @@
           </div>
         </div>
         <div class="spend-list" id="spendList"></div>
-        <p class="settings-note">按官方建议零售价记账：5张装 10 元、20张/25张装 50 元、太晶盛聚 10张装 30 元、宝石包 10 元/包；奖赏包无官方单包定价，不计入。</p>
       </div>
       <div class="settings-card card-glass" id="dataUpdCard">
         <div class="set-row">
           <div class="set-row-info">
             <b>卡表数据更新</b>
-            <p id="dataUpdInfo">可从远程数据源增量更新已有弹的卡表（无需等待新版本）</p>
+            <p id="dataUpdInfo">可从远程数据源增量更新已有弹的卡表</p>
           </div>
           <div class="update-actions">
             <button class="mini-btn danger" id="btnResetData">恢复内置</button>
@@ -183,7 +181,6 @@
         </div>
         <input class="data-src-input" id="dataSrcInput" type="url"
                placeholder="自定义数据源 manifest 目录（留空：jsDelivr → GitHub raw 依次尝试）" autocomplete="off" spellcheck="false">
-        <p class="settings-note">新弹上线仍需随新版本内置；此处增量更新仅覆盖已有弹的卡表修订。</p>
       </div>
       <div class="settings-card card-glass" id="cacheCard">
         <div class="set-row">
@@ -198,20 +195,24 @@
       <div class="settings-card card-glass">
         <div class="set-row-info">
           <b>致谢</b>
-          <p class="settings-note">本应用建立在以下公开资源之上，感谢各方贡献：</p>
-          <p class="settings-note">· 卡表 / 卡图 / 详情数据：<b>Cryst's Cards Database</b>（tcg.mik.moe），简中社区维护的宝可梦卡牌数据库</p>
-          <p class="settings-note">· 发售规格与定价依据：宝可梦卡牌简中官网（pokemon.cn）各弹发售公告</p>
-          <p class="settings-note">· 系列资料参考：神奇宝贝百科（wiki.52poke.com）</p>
-          <p class="settings-note">· 版本托管 / 自动更新 / 数据同步：GitHub</p>
+          <p class="settings-note">数据与图源 tcg.mik.moe</p>
+          <p class="settings-note">规格依据 pokemon.cn 发售公告</p>
+          <p class="settings-note">资料参考 52poke</p>
+          <p class="settings-note">托管与同步 GitHub</p>
         </div>
       </div>
       <div class="settings-card card-glass">
         <div class="set-row-info">
           <b>关于</b>
-          <p><span id="aboutVersion">PTCG拆卡模拟器</span> · 卡表数据与卡图来自公开网络（Cryst's Cards Database · tcg.mik.moe），仅供学习交流。宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。</p>
+          <p class="settings-note"><span id="aboutVersion">PTCG拆卡模拟器</span></p>
+          <p class="settings-note">数据来源公开网络，仅供学习交流</p>
         </div>
       </div>
     </div>
+
+    <footer class="foot">
+      <p>数据来源公开网络，仅供学习交流</p>
+    </footer>
   </section>
 </main>
 
@@ -251,9 +252,11 @@
 
     <div class="cards-stage" id="cardsStage" hidden>
       <div class="pack-nav" id="packNav" hidden>
-        <button class="mini-btn" id="navPrev">‹ 上一包</button>
         <div class="pack-tabs" id="packTabs"></div>
-        <button class="mini-btn" id="navNext">下一包 ›</button>
+        <div class="pack-switch">
+          <button class="mini-btn" id="navPrev">‹ 上一包</button>
+          <button class="mini-btn" id="navNext">下一包 ›</button>
+        </div>
       </div>
       <div class="cards-row" id="cardsRow"></div>
       <div class="box-summary" id="boxSummary" hidden></div>
@@ -316,10 +319,6 @@
     </div>
   </div>
 </div>
-
-<footer class="foot">
-  <p>卡表数据与卡图来自公开网络（Cryst's Cards Database · tcg.mik.moe），仅供学习交流。宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。</p>
-</footer>
 
 <script src="/static/gacha.js"></script>
 <script src="/static/app.js"></script>

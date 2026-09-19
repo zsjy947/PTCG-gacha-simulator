@@ -33,7 +33,7 @@ def spec_brief(code: str) -> list:
             "id": s["id"], "key": s["key"], "label": s["label"],
             "short": s.get("short") or s["id"],
             "note": s.get("note", ""), "price": s.get("price"),
-            "priceCny": s.get("priceCny"),
+            "priceCny": s.get("priceCny"), "boxPacks": s.get("boxPacks"),
             "packSize": pack_size, "default": i == 0,
             "slots": s.get("slots") or variants[0]["slots"],
         }

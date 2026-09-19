@@ -23,3 +23,4 @@ data/*.json.tmp
 
 # 引擎对拍临时文件
 tests/_tmp_parity/
+.zcode/

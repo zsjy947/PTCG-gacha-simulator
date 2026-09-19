@@ -9,12 +9,9 @@ Page({
     spendEnabled: true,
     spendTotal: "0",
     spendPacks: 0,
-    spendAvg: "—",
     spendRows: [],
     storageLabel: "",
     storageWarn: false,
-    /* 消费说明与官方一致（与 exe / APK 端同源） */
-    priceNote: "按官方建议零售价记账：5张装 10 元、20张/25张装 50 元、太晶盛聚 10张装 30 元、宝石包 10 元/包；奖赏包无官方单包定价，不计入。",
   },
 
   onLoad() {
@@ -42,7 +39,6 @@ Page({
       spendEnabled: store.get("ptcg_spend_enabled", true),
       spendTotal: ui.fmtMoney(money),
       spendPacks: packs,
-      spendAvg: packs ? "¥" + ui.fmtMoney(Math.round((money / packs) * 100) / 100) : "—",
       spendRows: rows,
     });
   },
