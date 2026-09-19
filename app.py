@@ -86,8 +86,7 @@ _http = requests.Session()
 _http.headers["User-Agent"] = "Mozilla/5.0 ptcc-gacha"
 _OUT_TIMEOUT = (5, 15)   # 出站请求（连接, 读取）超时：上游卡住时快速失败
 _guard = threading.Lock()
-_locks: dict = {}   # 每个目标文件一把锁：不同图片并行下载，互不阻塞
-_inflight: set = set()
+_locks: dict = {}   # 每个目标文件一把锁：不同图片并行下载，互不阻塞；同文件并发等待复用
 
 # ---------------------------------------------------------------- 回源限流（只统计真正回源下载的请求）
 # 命中本地缓存的响应不占额度：一次整盒开包会请求几百张缩略图，缓存建立后必须不受限。
@@ -185,18 +184,16 @@ def _lock_for(key: str) -> threading.Lock:
 
 
 def _cached_fetch(url: str, dest: Path, timeout: tuple = _OUT_TIMEOUT) -> bool:
-    """下载到缓存目录；同一文件并发请求只下载一次，不同文件并行。
-    仅真正回源时占用限流额度；命中缓存的请求不受限。"""
+    """下载到缓存目录；同一文件并发请求只下载一次，其余等待后直接命中缓存，
+    不同文件并行。仅真正回源时占用限流额度；命中缓存的请求不受限。"""
     if dest.exists() and dest.stat().st_size > 0:
         return True
     if not _fetch_allow():
         return False  # 回源额度用尽：本次图片暂缺，窗口过后重试即得
-    key = str(dest)
-    with _lock_for(key):
-        if key in _inflight:
-            return False  # 有并发请求在下载
-        _inflight.add(key)
-    try:
+    lock = _lock_for(str(dest))
+    with lock:  # 并发同文件：等首个下载者完成后复查缓存，而非拒绝请求
+        if dest.exists() and dest.stat().st_size > 0:
+            return True
         for attempt in range(2):
             try:
                 r = _http.get(url, timeout=timeout)
@@ -214,9 +211,6 @@ def _cached_fetch(url: str, dest: Path, timeout: tuple = _OUT_TIMEOUT) -> bool:
                     raise
                 time.sleep(0.5)
         return False
-    finally:
-        with _lock_for(key):
-            _inflight.discard(key)
 
 
 try:

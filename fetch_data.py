@@ -10,6 +10,7 @@
 """
 import argparse
 import json
+import os
 import sys
 import time
 import urllib.error
@@ -89,15 +90,22 @@ def fetch_all_expansions():
     return exp
 
 
+def _atomic_write_json(path: Path, obj) -> None:
+    """原子写 JSON：进程中断不会留下截断文件。"""
+    tmp = path.with_suffix(path.suffix + ".tmp")
+    tmp.write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")
+    os.replace(tmp, path)
+
+
 def fetch_set_cards(code: str, series: str):
-    """按弹拉取完整卡表。
+    """按弹拉取完整卡表；分页不完整时抛错（调用方保留旧数据，不覆盖）。
 
     2026-09 起 mik.moe 前端改版：card-advance-search 要求新版参数结构
     （type/unique 等，从官方前端 bundle 提取对齐），旧请求体会被后端以
     「内部错误」拒绝。series 只接受合法系列名（"PROMO" 等会被 Bad request），
     而 set 已唯一确定弹，故恒传空数组不做系列过滤。
     """
-    cards, page = [], 1
+    cards, page, item_num = [], 1, 0
     while True:
         payload = {
             "type": "advance",
@@ -114,12 +122,15 @@ def fetch_set_cards(code: str, series: str):
             break
         page += 1
         time.sleep(0.2)
+    if item_num and len(cards) < item_num:
+        raise RuntimeError(f"分页不完整：取到 {len(cards)}/{item_num} 张")
     return cards
 
 
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--force", action="store_true", help="忽略本地缓存全量重新拉取")
+    ap.add_argument("--only", metavar="SET_ID", help="仅同步指定弹（按弹 id 或代码），其余沿用本地数据")
     args = ap.parse_args()
 
     CARDS_DIR.mkdir(parents=True, exist_ok=True)
@@ -140,7 +151,7 @@ def main():
         ("151C-JING", "收集啦151 惊", "惊"),
         ("151C-JU", "收集啦151 聚", "聚"),
     ]
-    if src_151.exists() and wave_file.exists():
+    if src_151.exists() and wave_file.exists() and not args.only:
         merged = json.loads(src_151.read_text(encoding="utf-8"))
         waves = json.loads(wave_file.read_text(encoding="utf-8"))["waves"]
         if merged:  # 源卡表为空（如上游接口故障）时绝不执行拆分，防止空数据覆盖
@@ -149,8 +160,7 @@ def main():
             for sid, sname, wkey in split_151:
                 nums = set(waves.get(wkey) or [])
                 subset = [c for c in merged if str(c["cardIndex"]).zfill(3) in nums]
-                (CARDS_DIR / f"{sid}.json").write_text(
-                    json.dumps(subset, ensure_ascii=False, indent=1), encoding="utf-8")
+                _atomic_write_json(CARDS_DIR / f"{sid}.json", subset)
                 print(f"   [151拆分] {sname}（{sid}）{len(subset)} 张")
 
     seen = {}
@@ -164,9 +174,10 @@ def main():
         name = e.get("setName") or code
         fid = set_file_id(code, series, seen)
         out = CARDS_DIR / f"{fid}.json"
+        fetch_this = (not args.only) or args.only in (fid, code)
 
-        if out.exists() and not args.force:
-            cards = json.loads(out.read_text(encoding="utf-8"))
+        if (out.exists() and not args.force) or not fetch_this:
+            cards = json.loads(out.read_text(encoding="utf-8")) if out.exists() else []
             print(f"[{i}/{len(expansions)}] {name}（{code}）本地已有 {len(cards)} 张，跳过")
         else:
             try:
@@ -174,11 +185,9 @@ def main():
             except Exception as exc:  # noqa: BLE001
                 print(f"[{i}/{len(expansions)}] {name}（{code}）拉取失败: {exc}")
                 failed.append(fid)
-                # 接口异常（上游故障/封禁等）时保留已有卡表，绝不覆盖为空数据
+                # 接口异常（上游故障/封禁/分页不完整）时保留已有卡表，绝不覆盖为空数据
                 cards = json.loads(out.read_text(encoding="utf-8")) if out.exists() else []
-            out.write_text(
-                json.dumps(cards, ensure_ascii=False, indent=1), encoding="utf-8"
-            )
+            _atomic_write_json(out, cards)
             print(f"[{i}/{len(expansions)}] {name}（{code}）同步 {len(cards)} 张"
                   + ("（保留原有数据）" if fid in failed and cards else ""))
             time.sleep(0.25)
@@ -208,9 +217,7 @@ def main():
                 })
         index[pos:pos] = entries_151
 
-    (DATA / "sets_index.json").write_text(
-        json.dumps(index, ensure_ascii=False, indent=1), encoding="utf-8"
-    )
+    _atomic_write_json(DATA / "sets_index.json", index)
     print(f">> 完成：{len(index)} 个弹，索引已写入 data/sets_index.json")
 
     # 数据清单：各端「数据热更新」按 md5 做增量比对，清单随仓库提交（raw 直链可拉）
@@ -226,9 +233,7 @@ def main():
             for e in index if (CARDS_DIR / f"{e['id']}.json").exists()
         },
     }
-    (DATA / "manifest.json").write_text(
-        json.dumps(manifest, ensure_ascii=False, indent=1), encoding="utf-8"
-    )
+    _atomic_write_json(DATA / "manifest.json", manifest)
     print(f">> 数据清单已写入 data/manifest.json（{len(manifest['sets'])} 弹）")
 
     if failed:
