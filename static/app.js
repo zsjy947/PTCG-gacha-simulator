@@ -4,17 +4,21 @@
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
-const RARITY_ORDER = ["FUR", "UR", "SAR", "SR", "ACE", "AR", "RGB", "RR", "R", "U", "C", "N", "★★★", "★★", "★", "◆", "●", "无标记"];
+const RARITY_ORDER = ["FUR", "UR", "SAR", "HR", "SR", "ACE", "AR", "SSR", "CHR", "CSR", "RRR", "RGB", "RR", "K", "PR", "A", "S", "R", "U", "C", "N", "★★★", "★★", "★", "◆", "●", "无标记"];
 const RARITY_COLOR = {
   C: "#9aa5b1", U: "#58c470", R: "#4aa8ff", RR: "#ffd75e", AR: "#7ee8fa",
   SR: "#ff7edb", SAR: "#b28dff", UR: "#ffc82e", ACE: "#8f7bff", TR: "#f6a5c0", N: "#6b7688",
   FUR: "#ff5f9e", RGB: "#e0c3fc",
+  HR: "#f3e19c", RRR: "#ffa94d", SSR: "#63e6be", S: "#c3cbda",
+  CHR: "#74c0fc", CSR: "#b197fc", PR: "#868e96", K: "#e599f7", A: "#96f2d7",
   "●": "#9aa5b1", "◆": "#58c470", "★": "#4aa8ff", "★★": "#ffd75e", "★★★": "#b28dff", "无标记": "#6b7688",
 };
 const RARITY_LABEL = {
   C: "普通 C", U: "非普通 U", R: "稀有 R", RR: "双稀有 RR", AR: "艺术稀有 AR",
   SR: "超级稀有 SR", SAR: "特艺术 SAR", UR: "究极稀有 UR", ACE: "ACE SPEC", TR: "双星 TR", N: "其他",
   FUR: "30周年特艺术 FUR", RGB: "彩虹 RGB",
+  HR: "全图稀有 HR", RRR: "三重稀有 RRR", SSR: "超稀有 SSR", S: "特别 S",
+  CHR: "角色稀有 CHR", CSR: "收藏稀有 CSR", PR: "宣传 PR", K: "异画 K", A: "特别 A",
   "●": "普通 ●", "◆": "非普通 ◆", "★": "稀有 ★", "★★": "双稀有 ★★", "★★★": "特艺术 ★★★", "无标记": "特款（无标记）",
 };
 const ENERGY_ZH = { G: "草", R: "火", W: "水", L: "雷", P: "超", F: "斗", D: "恶", M: "钢", Y: "妖", N: "无", C: "无色" };
@@ -88,6 +92,30 @@ function upgradeRemoteImages(root) {
     p.then((u) => { if (u) img.src = u; });
   });
 }
+
+/* 卡图加载失败统一处理：延迟重试 2 次（800ms/2000ms），仍失败换卡背占位。
+ * 资产模式清 blob 缓存重新走 XHR 升级；服务模式加 cache-buster 重发（服务端会再试回源）。 */
+window.__imgFail = function (img) {
+  const tries = Number(img.dataset.retry || 0);
+  if (tries >= 2) {
+    if (img.dataset.nofallback) return;
+    img.dataset.nofallback = "1";
+    img.src = ASSET ? "cardback.png" : "/static/cardback.png";
+    return;
+  }
+  img.dataset.retry = String(tries + 1);
+  setTimeout(() => {
+    if (img.dataset.nofallback) return;
+    const url = img.getAttribute("src");
+    if (ASSET && /^https?:/.test(url)) {
+      imgBlobCache.delete(url);
+      img.removeAttribute("data-blobbed");
+      upgradeRemoteImages(img.closest(".gcard, .record-cards, .coll-grid, .cl-grid, .detail-body") || img.parentElement || img);
+    } else {
+      img.src = url + (url.includes("?") ? "&" : "?") + "r=" + Date.now();
+    }
+  }, tries === 0 ? 800 : 2000);
+};
 
 /* ---- 本地抽卡引擎：统一使用 shared/gacha.js（window.PTCGGacha）----
  * 服务模式由 /static/gacha.js 提供，资产模式由构建脚本复制到 www/；
@@ -598,7 +626,7 @@ function renderPackRow() {
     el.innerHTML = `
       <div class="gcard-inner">
         <div class="gface back"></div>
-        <div class="gface front"><img decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}"></div>
+        <div class="gface front"><img decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)"></div>
       </div>`;
     el.addEventListener("click", () => flipCard(el, i));
     row.appendChild(el);
@@ -715,7 +743,7 @@ function renderHistory() {
       m.className = "mini-card";
       m.dataset.rarity = c.rarity || "N";
       m.innerHTML = `
-        <div class="frame"><img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}"></div>
+        <div class="frame"><img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)"></div>
         <div class="mc-name">${escapeHtml(c.cardName)}</div>
         <div class="mc-rar" style="color:${RARITY_COLOR[c.rarity] || RARITY_COLOR.N}">${RARITY_LABEL[c.rarity] || "其他"}</div>`;
       m.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
@@ -740,6 +768,23 @@ function renderStats() {
   el.style.color = best ? RARITY_COLOR[best] : "";
   const sp = getSpend(state.current.id);
   $("#stSpend").textContent = `¥${fmtMoney(sp.money)}`;
+  renderDist(s.rarities);
+}
+
+/* 稀有度出货分布（本弹）：纯 CSS 条形，复用稀有度配色 */
+function renderDist(rarities) {
+  const card = $("#distCard"), bars = $("#distBars");
+  if (!card) return;
+  const rows = RARITY_ORDER.filter((r) => rarities[r]);
+  if (!rows.length) { card.hidden = true; return; }
+  const max = Math.max(...rows.map((r) => rarities[r]));
+  bars.innerHTML = rows.map((r) => `
+    <div class="dist-row">
+      <span class="dist-r" style="color:${RARITY_COLOR[r] || RARITY_COLOR.N}">${r}</span>
+      <span class="dist-bar"><i style="width:${(rarities[r] / max) * 100}%;background:${RARITY_COLOR[r] || RARITY_COLOR.N}"></i></span>
+      <span class="dist-n">${rarities[r]}</span>
+    </div>`).join("");
+  card.hidden = false;
 }
 
 /* ---------------- 收藏册 ---------------- */
@@ -808,7 +853,7 @@ async function renderCollection() {
       const d = document.createElement("div");
       d.className = "coll-card missing";
       d.innerHTML = `
-        <img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}">
+        <img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)">
         <div class="cc-x">缺</div>
         <div class="cc-name">${rarBadge(c.rarity || "N")}${escapeHtml(c.cardName)} <span>${escapeHtml(c.cardIndex)}</span></div>`;
       d.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
@@ -827,7 +872,7 @@ async function renderCollection() {
     const d = document.createElement("div");
     d.className = "coll-card";
     d.innerHTML = `
-      <img loading="lazy" decoding="async" src="${thumbURL(e)}" alt="${escapeHtml(e.name)}">
+      <img loading="lazy" decoding="async" src="${thumbURL(e)}" alt="${escapeHtml(e.name)}" onerror="__imgFail(this)">
       <div class="cc-x">×${e.count}</div>
       <div class="cc-name">${rarBadge(e.rarity)}${escapeHtml(e.name)} <span>${escapeHtml(e.cardIndex)}</span></div>`;
     d.addEventListener("click", () => showDetail(e.setCode, e.cardIndex));
@@ -844,6 +889,51 @@ function exportCollection() {
   a.download = "ptcg_collection.json";
   a.click();
   URL.revokeObjectURL(a.href);
+}
+
+/* 导入收藏：结构校验后按"合并（同卡数量相加）"写入；如需覆盖先清空再导入 */
+function importCollectionFile(file) {
+  const reader = new FileReader();
+  reader.onload = async () => {
+    let parsed;
+    try {
+      parsed = JSON.parse(String(reader.result));
+    } catch { toast("导入失败：不是合法的 JSON 文件", 3000); return; }
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+      toast("导入失败：结构不符合收藏册导出格式", 3000); return;
+    }
+    let sets = 0, entries = 0, cards = 0;
+    const valid = {};
+    for (const [setId, box] of Object.entries(parsed)) {
+      if (!box || typeof box !== "object" || Array.isArray(box)) continue;
+      const clean = {};
+      for (const e of Object.values(box)) {
+        if (!e || !e.setCode || !e.cardIndex || !e.name) continue;
+        clean[`${e.setCode}__${e.cardIndex}`] = {
+          name: String(e.name), rarity: e.rarity || "N",
+          setCode: String(e.setCode), cardIndex: String(e.cardIndex),
+          count: Math.max(1, Math.floor(Number(e.count) || 1)),
+        };
+        entries++; cards += clean[`${e.setCode}__${e.cardIndex}`].count;
+      }
+      if (Object.keys(clean).length) { valid[setId] = clean; sets++; }
+    }
+    if (!sets) { toast("导入失败：文件中没有有效的收藏记录", 3000); return; }
+    if (!(await uiConfirm(`导入 ${sets} 弹共 ${entries} 种（${cards} 张）收藏记录，与现有收藏合并（同卡数量相加）。继续？`))) return;
+    const coll = getColl();
+    for (const [setId, box] of Object.entries(valid)) {
+      const target = coll[setId] || {};
+      for (const [k, e] of Object.entries(box)) {
+        if (target[k]) target[k].count += e.count;
+        else target[k] = e;
+      }
+      coll[setId] = target;
+    }
+    store.set(collKey(), coll);
+    renderCollection();
+    toast(`已导入 ${sets} 弹 ${entries} 种收藏`);
+  };
+  reader.readAsText(file, "utf-8");
 }
 
 /* ---------------- 卡表（增量渲染：大弹按分片追加，滚动到底部自动续载） ---------------- */
@@ -890,7 +980,7 @@ function appendCardChunk() {
     const d = document.createElement("div");
     d.className = "cl-card";
     d.innerHTML = `
-      <img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}">
+      <img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)">
       <div class="cl-name">${rarBadge(c.rarity || "N")}${escapeHtml(c.cardName)}</div>`;
     d.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
     frag.appendChild(d);
@@ -973,7 +1063,7 @@ async function showDetail(code, idx) {
         ${a.text ? `<div>${escapeHtml(a.text)}</div>` : ""}
       </div>`).join("");
     $("#detailBody").innerHTML = `
-      <div class="d-img"><img src="${imgURL(c.setCode, c.cardIndex)}" alt="${escapeHtml(c.name)}"></div>
+      <div class="d-img"><img src="${imgURL(c.setCode, c.cardIndex)}" alt="${escapeHtml(c.name)}" onerror="__imgFail(this)"></div>
       <div class="d-info">
         <h4>${escapeHtml(c.name)} <span style="font-size:12px;color:var(--txt2)">${escapeHtml(c.nameEn || "")}</span></h4>
         <div class="d-sub">${escapeHtml(c.setCode)}-${escapeHtml(c.cardIndex)} · ${RARITY_LABEL[c.rarity] || c.rarity || "—"} · ${escapeHtml(c.artist || "")}</div>
@@ -1473,6 +1563,12 @@ function init() {
     if (await uiConfirm("清空全部收藏记录？")) { store.set(collKey(), {}); renderCollection(); }
   });
   $("#btnExportColl").addEventListener("click", exportCollection);
+  $("#btnImportColl").addEventListener("click", () => $("#collImportFile").click());
+  $("#collImportFile").addEventListener("change", (e) => {
+    const f = e.target.files && e.target.files[0];
+    if (f) importCollectionFile(f);
+    e.target.value = "";
+  });
   $("#collSet").addEventListener("change", renderCollection);
   $("#collSort").addEventListener("change", renderCollection);
   $("#collMissing").addEventListener("change", renderCollection);
