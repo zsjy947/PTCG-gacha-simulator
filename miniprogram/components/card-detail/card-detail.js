@@ -1,5 +1,6 @@
 const data = require("../../utils/data.js");
 const ui = require("../../utils/ui.js");
+const img = require("../../utils/img.js");
 
 Component({
   properties: {
@@ -14,6 +15,7 @@ Component({
     loading: false,
     detail: null,
     img: "",
+    imgFail: false,
     degraded: false,
     rarLabel: "",
     rarColor: "",
@@ -27,9 +29,12 @@ Component({
   },
 
   methods: {
+    onImgError() { this.setData({ imgFail: true }); },
+    onImgRetry() { this.setData({ imgFail: false }); },
+
     loadData(setCode, cardIndex) {
       this.setData({
-        loading: true, detail: null, degraded: false,
+        loading: true, detail: null, degraded: false, imgFail: false,
         img: data.imgURL(setCode, cardIndex),
         rarLabel: ui.rarLabel(this.data.fallbackRarity),
         rarColor: ui.rarColor(this.data.fallbackRarity),

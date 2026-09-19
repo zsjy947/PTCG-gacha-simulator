@@ -19,12 +19,14 @@
       </view>
       <scroll-view scroll-y class="drawer-body">
         <block wx:for="{{groups}}" wx:key="group" wx:for-item="g">
-          <view wx:if="{{!g.allHidden}}">
+            <view wx:if="{{!g.allHidden}}">
             <view class="group-title">{{g.group}} · {{g.sets.length}} 弹</view>
             <view wx:for="{{g.sets}}" wx:key="id"
                   class="set-item {{current.id === item.id ? 'active' : ''}} {{item.hidden ? 'hide' : ''}}"
                   data-id="{{item.id}}" bindtap="selectSet">
-              <image class="set-icon" src="{{item.icon}}" mode="aspectFit" lazy-load />
+              <image wx:if="{{!failMap['icon_' + item.id]}}" class="set-icon" src="{{item.icon}}" mode="aspectFit" lazy-load
+                     data-ikey="icon_{{item.id}}" binderror="onImgError" />
+              <view wx:else class="set-icon set-icon-fallback" data-ikey="icon_{{item.id}}" data-url="{{item.icon}}" bindtap="onImgRetry">🎯</view>
               <view class="si-name">
                 <text class="si-title">{{item.name}}</text>
                 <text class="si-code">{{item.code}}</text>
@@ -55,7 +57,8 @@
   <!-- 操作按钮 -->
   <view class="spec-grid" wx:if="{{current && drawable}}">
     <view wx:for="{{specButtons}}" wx:key="key"
-          class="btn kind-{{item.kind}}" data-key="{{item.key}}" bindtap="onSpecTap">
+          class="btn kind-{{item.kind}} {{specKey === item.key && item.kind !== 'ghost' ? 'spec-active' : ''}}"
+          data-key="{{item.key}}" bindtap="onSpecTap">
       <text class="btn-title">{{item.label}}</text>
       <text class="btn-sub">{{item.sub}}</text>
     </view>
@@ -71,8 +74,24 @@
     <view class="stat"><text class="stat-b">¥{{stats.spend}}</text><text class="stat-s">本弹花费</text></view>
   </view>
 
+  <!-- 稀有度出货分布 -->
+  <view class="dist-card card-glass" wx:if="{{current && distRows.length}}">
+    <text class="dist-title">稀有度出货分布</text>
+    <view class="dist-row" wx:for="{{distRows}}" wx:key="rarity">
+      <text class="dist-r" style="color:{{item.color}}">{{item.rarity}}</text>
+      <view class="dist-bar"><view class="dist-fill" style="width:{{item.pct}}%;background:{{item.color}}"></view></view>
+      <text class="dist-n">{{item.count}}</text>
+    </view>
+  </view>
+
   <!-- 拆卡记录 -->
-  <view class="rec-head"><text class="page-head-title">拆卡记录</text></view>
+  <view class="rec-head">
+    <text class="page-head-title">拆卡记录</text>
+    <view class="autoflip">
+      <switch checked="{{autoflip}}" bindchange="toggleAutoflip" color="#e3350d" />
+      <text class="autoflip-label">自动翻开</text>
+    </view>
+  </view>
   <view class="empty-tip" wx:if="{{!history.length}}">还没有记录，去拆一发吧！</view>
   <view class="record card-glass" wx:for="{{history}}" wx:key="time">
     <view class="rec-line">
@@ -80,10 +99,13 @@
       <text class="rec-meta">{{item.money ? "¥" + item.money + " · " : ""}}{{item.timeText}}</text>
     </view>
     <scroll-view scroll-x class="rec-cards" enable-flex>
-      <view class="mini-card" wx:for="{{item.cards}}" wx:for-item="c" wx:key="cardIndex"
+      <view class="mini-card" wx:for="{{item.cards}}" wx:for-item="c" wx:for-index="ci" wx:key="ci"
             data-set="{{c.setCode}}" data-idx="{{c.cardIndex}}" data-name="{{c.cardName}}" data-rarity="{{c.rarity}}"
             bindtap="showDetail">
-        <image src="{{c.image}}" mode="aspectFill" lazy-load />
+        <image wx:if="{{!failMap['h' + index + '_' + ci]}}" src="{{bustMap['h' + index + '_' + ci] ? c.image + '?r=' + bustMap['h' + index + '_' + ci] : c.image}}" mode="aspectFill" lazy-load
+               data-ikey="h{{index}}_{{ci}}" binderror="onImgError" />
+        <image wx:else src="/images/cardback.webp" mode="aspectFill"
+               data-ikey="h{{index}}_{{ci}}" data-url="{{c.image}}" bindtap="onImgRetry" />
         <text class="mc-name">{{c.cardName}}</text>
         <text class="mc-rar" style="color:{{c.rarityColor || '#9aa5b1'}}">{{c.rarity}}</text>
       </view>
@@ -106,21 +128,40 @@
 
   <!-- 翻卡 -->
   <view class="cards-stage" wx:if="{{drawState.stage === 'cards'}}">
-    <view class="pack-nav" wx:if="{{drawState.packs.length > 1}}">
-      <text class="nav-btn {{drawState.packIdx === 0 ? 'disabled' : ''}}" data-d="-1" bindtap="navPack">‹ 上一包</text>
-      <text class="nav-info">第 {{drawState.packIdx + 1}} / {{drawState.packs.length}} 包</text>
-      <text class="nav-btn {{drawState.packIdx === drawState.packs.length - 1 ? 'disabled' : ''}}" data-d="1" bindtap="navPack">下一包 ›</text>
+    <!-- 整盒/十连汇总条 -->
+    <view class="box-summary" wx:if="{{boxSummary}}">
+      <view class="box-head">
+        <text class="box-title">{{boxSummary.count}} 连汇总</text>
+        <text class="box-meta">RR+ 共 {{boxSummary.rrUp}} 张 · 最高 <text style="color:{{boxSummary.bestColor}}">{{boxSummary.best}}</text> · 合计 ¥{{boxSummary.money}}</text>
+      </view>
+      <view class="box-chips">
+        <text wx:for="{{boxSummary.chips}}" wx:key="r" style="color:{{item.color}}">{{item.r}}×{{item.n}}</text>
+      </view>
     </view>
 
+    <view class="pack-nav" wx:if="{{drawState.packs.length > 1}}">
+      <text class="nav-btn {{drawState.packIdx === 0 ? 'disabled' : ''}}" data-d="-1" bindtap="navPack">‹</text>
+      <text class="nav-info">第 {{drawState.packIdx + 1}} / {{drawState.packs.length}} 包</text>
+      <text class="nav-btn {{drawState.packIdx === drawState.packs.length - 1 ? 'disabled' : ''}}" data-d="1" bindtap="navPack">›</text>
+    </view>
+    <scroll-view scroll-x class="pack-tabs" wx:if="{{drawState.packs.length > 2}}" enhanced show-scrollbar="{{false}}">
+      <text wx:for="{{drawState.packs}}" wx:key="*this"
+            class="pack-tab {{drawState.packIdx === index ? 'active' : ''}}"
+            data-i="{{index}}" bindtap="jumpPack">{{index + 1}}</text>
+    </scroll-view>
+
     <view class="cards-row">
-      <view class="gcard {{drawState.flipped[drawState.packIdx][i] ? 'flipped' : ''}}"
+      <view class="gcard {{item.rarClass}} {{drawState.flipped[drawState.packIdx][index] ? 'flipped' : ''}}"
             wx:for="{{drawState.view}}" wx:key="cardIndex"
             style="animation-delay: {{index * 60}}ms"
             data-pi="{{drawState.packIdx}}" data-i="{{index}}" bindtap="tapCard">
         <view class="gcard-inner">
           <view class="gface back"></view>
           <view class="gface front" data-rarity="{{item.rarity}}">
-            <image src="{{item.image}}" mode="aspectFill" />
+            <image wx:if="{{!failMap['p' + drawState.packIdx + '_' + index]}}" src="{{bustMap['p' + drawState.packIdx + '_' + index] ? item.image + '?r=' + bustMap['p' + drawState.packIdx + '_' + index] : item.image}}" mode="aspectFill"
+                   data-ikey="p{{drawState.packIdx}}_{{index}}" binderror="onImgError" />
+            <image wx:else src="/images/cardback.webp" mode="aspectFill"
+                   data-ikey="p{{drawState.packIdx}}_{{index}}" data-url="{{item.image}}" bindtap="onImgRetry" />
           </view>
         </view>
       </view>

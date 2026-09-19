@@ -34,6 +34,7 @@
       <view class="s-info"><text class="s-title">本地数据</text><text class="s-sub">收藏册 / 统计 / 记录占用：{{storageLabel}}</text></view>
       <view class="mini-btn danger" bindtap="clearStats">清空统计</view>
     </view>
+    <text class="s-note warn" wx:if="{{storageWarn}}">⚠ 本地空间已用超 80%，建议导出收藏后清理不需要的数据。</text>
     <text class="s-note">收藏册可在收藏册页「导出 JSON」备份到剪贴板；数据仅保存在本机，删除小程序前请先备份。</text>
   </view>
 

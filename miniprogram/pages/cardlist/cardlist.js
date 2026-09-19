@@ -1,6 +1,7 @@
 const store = require("../../utils/store.js");
 const ui = require("../../utils/ui.js");
 const data = require("../../utils/data.js");
+const img = require("../../utils/img.js");
 
 const CHUNK = 60; // 增量渲染分片
 
@@ -11,10 +12,13 @@ Page({
     rarityNames: ["全部稀有度"], rarityKeys: [""], rarityIdx: 0,
     searchText: "",
     view: [], shown: 0, total: 0,
+    failMap: {}, bustMap: {},
     /* 详情 */
     detailShow: false, detailSet: "", detailIdx: "", detailName: "", detailRarity: "",
   },
 
+  onImgError(e) { img.onError(this, e); },
+  onImgRetry(e) { img.retry(this, e); },
   onLoad() {
     const sets = data.allSets();
     const cur = store.get("ptcg_current_set", "");

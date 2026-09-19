@@ -12,6 +12,7 @@ Page({
     spendAvg: "—",
     spendRows: [],
     storageLabel: "",
+    storageWarn: false,
     /* 消费说明与官方一致（与 exe / APK 端同源） */
     priceNote: "按官方建议零售价记账：5张装 10 元、20张/25张装 50 元、太晶盛聚 10张装 30 元、宝石包 10 元/包；奖赏包无官方单包定价，不计入。",
   },
@@ -69,12 +70,11 @@ Page({
   },
 
   renderStorage() {
-    try {
-      const info = wx.getStorageInfoSync();
-      this.setData({ storageLabel: `${info.currentSize} KB / ${info.limitSize} KB` });
-    } catch (e) {
-      this.setData({ storageLabel: "—" });
-    }
+    const info = store.info();
+    this.setData({
+      storageLabel: `${info.currentSize} KB / ${info.limitSize} KB`,
+      storageWarn: info.currentSize > info.limitSize * 0.8,
+    });
   },
 
   clearStats() {

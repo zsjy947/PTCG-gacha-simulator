@@ -119,3 +119,53 @@
 .et-row text { flex: 1; }
 .et-row text:first-child { flex: 0.8; }
 .et-head { color: var(--txt2); font-size: 20rpx; }
+
+/* v1.2.2：规格选中态 */
+.spec-active { outline: 3rpx solid var(--accent); outline-offset: 3rpx; }
+
+/* 整盒/十连汇总条 */
+.box-summary { width: 100%; background: rgba(255,255,255,.06); border: 1rpx solid rgba(255,255,255,.09); border-radius: 16rpx; padding: 16rpx 22rpx; margin-bottom: 18rpx; }
+.box-head { display: flex; align-items: baseline; gap: 16rpx; flex-wrap: wrap; }
+.box-title { color: #ffce4a; font-size: 28rpx; font-weight: 800; }
+.box-meta { color: #9aa7bd; font-size: 22rpx; }
+.box-chips { margin-top: 8rpx; display: flex; flex-wrap: wrap; gap: 6rpx 18rpx; font-size: 23rpx; font-weight: 700; }
+
+/* 包号横滑页签 */
+.pack-tabs { display: flex; max-width: 92vw; margin: 0 0 18rpx; white-space: nowrap; }
+.pack-tab { display: inline-block; min-width: 56rpx; text-align: center; padding: 8rpx 14rpx; margin: 0 6rpx; border-radius: 12rpx; background: rgba(255,255,255,.07); color: #9aa7bd; font-size: 22rpx; }
+.pack-tab.active { background: #ffce4a; color: #10141f; font-weight: 800; }
+
+/* 高稀有度光效：翻开后按稀有度发光 + 高光扫过 */
+.gcard.flipped .gface.front { transition: box-shadow .4s ease; }
+.gcard.flipped.rc-RR .gface.front { box-shadow: 0 0 24rpx rgba(255, 215, 94, .8); }
+.gcard.flipped.rc-AR .gface.front, .gcard.flipped.rc-SSR .gface.front, .gcard.flipped.rc-CHR .gface.front, .gcard.flipped.rc-CSR .gface.front { box-shadow: 0 0 26rpx rgba(126, 232, 250, .85); }
+.gcard.flipped.rc-SR .gface.front { box-shadow: 0 0 28rpx rgba(255, 126, 219, .85); }
+.gcard.flipped.rc-SAR .gface.front, .gcard.flipped.rc-HR .gface.front { box-shadow: 0 0 30rpx rgba(178, 141, 255, .9); }
+.gcard.flipped.rc-UR .gface.front, .gcard.flipped.rc-FUR .gface.front, .gcard.flipped.rc-RGB .gface.front { box-shadow: 0 0 32rpx rgba(255, 200, 46, .95); }
+.gcard.flipped.rc-sp .gface.front { box-shadow: 0 0 26rpx rgba(255, 95, 158, .8); }
+.gcard.flipped.rc-RR .gface.front::after, .gcard.flipped.rc-AR .gface.front::after, .gcard.flipped.rc-SR .gface.front::after,
+.gcard.flipped.rc-SAR .gface.front::after, .gcard.flipped.rc-UR .gface.front::after, .gcard.flipped.rc-ACE .gface.front::after,
+.gcard.flipped.rc-HR .gface.front::after, .gcard.flipped.rc-RRR .gface.front::after, .gcard.flipped.rc-FUR .gface.front::after,
+.gcard.flipped.rc-sp .gface.front::after {
+  content: ""; position: absolute; inset: 0; border-radius: 14rpx; pointer-events: none;
+  background: linear-gradient(115deg, transparent 30%, rgba(255,255,255,.5) 48%, transparent 62%);
+  transform: translateX(-120%); animation: shine 1s ease .1s 1 forwards;
+}
+@keyframes shine { to { transform: translateX(120%); } }
+
+/* 自动翻卡开关 */
+.rec-head { display: flex; align-items: center; justify-content: space-between; margin: 28rpx 4rpx 16rpx; }
+.autoflip { display: flex; align-items: center; gap: 8rpx; transform: scale(.8); transform-origin: right center; }
+.autoflip-label { font-size: 22rpx; color: #9aa7bd; }
+
+/* 稀有度出货分布 */
+.dist-card { margin-top: 18rpx; padding: 22rpx 26rpx; display: flex; flex-direction: column; gap: 10rpx; }
+.dist-title { font-size: 23rpx; color: #9aa7bd; font-weight: 700; letter-spacing: 2rpx; }
+.dist-row { display: flex; align-items: center; gap: 14rpx; }
+.dist-r { width: 72rpx; font-size: 21rpx; font-weight: 800; text-align: right; }
+.dist-bar { flex: 1; height: 16rpx; border-radius: 12rpx; background: rgba(255,255,255,.08); overflow: hidden; }
+.dist-fill { height: 100%; border-radius: 12rpx; min-width: 4rpx; }
+.dist-n { width: 60rpx; font-size: 21rpx; color: #9aa7bd; }
+
+/* 弹图标占位 */
+.set-icon-fallback { display: flex; align-items: center; justify-content: center; font-size: 30rpx; }

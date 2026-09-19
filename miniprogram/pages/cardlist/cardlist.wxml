@@ -19,7 +19,12 @@
     <view class="cl-card" wx:for="{{view}}" wx:key="cardIndex"
           data-set="{{item.setCode}}" data-idx="{{item.cardIndex}}" data-name="{{item.cardName}}" data-rarity="{{item.rarity}}"
           bindtap="onCardTap">
-      <image src="{{item.image}}" mode="aspectFill" lazy-load />
+      <image wx:if="{{!failMap[item.setCode + '_' + item.cardIndex]}}"
+             src="{{bustMap[item.setCode + '_' + item.cardIndex] ? item.image + '?r=' + bustMap[item.setCode + '_' + item.cardIndex] : item.image}}"
+             mode="aspectFill" lazy-load
+             data-ikey="{{item.setCode}}_{{item.cardIndex}}" binderror="onImgError" />
+      <image wx:else src="/images/cardback.webp" mode="aspectFill"
+             data-ikey="{{item.setCode}}_{{item.cardIndex}}" data-url="{{item.image}}" bindtap="onImgRetry" />
       <view class="cl-name">
         <text class="rar-badge" style="background:{{item.color}}">{{item.rarity}}</text>
         <text class="cl-n">{{item.cardName}}</text>
