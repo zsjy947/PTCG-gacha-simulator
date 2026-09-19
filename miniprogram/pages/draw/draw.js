@@ -1,6 +1,7 @@
 const store = require("../../utils/store.js");
 const ui = require("../../utils/ui.js");
 const data = require("../../utils/data.js");
+const img = require("../../utils/img.js");
 
 const BOX_SIZE = 30;
 
@@ -16,17 +17,25 @@ Page({
     current: null,
     heroSpecs: [],
     specButtons: [],
+    specKey: "",
+    drawable: false,
     /* 统计 */
     stats: { packs: 0, cards: 0, rrUp: 0, best: "—", bestColor: "", spend: "0" },
+    distRows: [],
     /* 拆卡记录 */
     history: [],
+    autoflip: false,
     /* 开包流程 */
-    drawState: null, // {specLabel, packs, packIdx, flipped: [[bool]], stage, packSummary, boxSummary}
+    drawState: null, // {spec, stage, packs, packIdx, flipped: [[bool]], recorded: [bool], view, glow: [bool]}
+    boxSummary: null,
     /* 弹窗 */
     probShow: false,
     probSpecs: [],
     expectShow: false,
     expectSpecs: [],
+    /* 图片失败占位（utils/img） */
+    failMap: {},
+    bustMap: {},
     /* 详情组件 */
     detailShow: false,
     detailSet: "",
@@ -62,6 +71,7 @@ Page({
       version: app.globalData.version,
       groups,
       history,
+      autoflip: store.get("ptcg_autoflip", false) === true,
     });
     const lastId = store.get("ptcg_current_set", "");
     const last = sets.find((s) => s.id === lastId);
@@ -71,6 +81,17 @@ Page({
   onShow() {
     this.setData({ theme: getApp().globalData.theme });
   },
+
+  onUnload() { this.clearFlipTimers(); },
+
+  clearFlipTimers() {
+    (this._flipTimers || []).forEach(clearTimeout);
+    this._flipTimers = [];
+  },
+
+  /* ---------------- 图片失败占位 ---------------- */
+  onImgError(e) { img.onError(this, e); },
+  onImgRetry(e) { img.retry(this, e); },
 
   /* ---------------- 弹包选择 ---------------- */
   togglePicker() { this.setData({ showPicker: !this.data.showPicker }); },
@@ -107,6 +128,7 @@ Page({
     this.setData({
       showPicker: false,
       current: s,
+      specKey: dflt ? dflt.key : "",
       heroSpecs: (s.specs || []).map((sp) => `${sp.label}${sp.price ? " · " + sp.price : ""}`),
       specButtons,
       drawable: !!(s.specs || []).length,
@@ -123,7 +145,7 @@ Page({
     return "single";
   },
 
-  /* ---------------- 统计 / 消费 ---------------- */
+  /* ---------------- 统计 / 消费 / 分布 ---------------- */
   renderStats() {
     const cur = this.data.current;
     if (!cur) return;
@@ -133,12 +155,18 @@ Page({
       .reduce((a, r) => a + (s.rarities[r] || 0), 0);
     const best = ui.bestRarity(s.rarities);
     const spend = (store.get("ptcg_spend", {})[cur.id] || {}).money || 0;
+    const rows = ui.RARITY_ORDER.filter((r) => s.rarities[r]);
+    const max = Math.max(1, ...rows.map((r) => s.rarities[r]));
     this.setData({
       stats: {
         packs: s.packs, cards: s.cards, rrUp,
         best: best || "—", bestColor: best ? ui.rarColor(best) : "",
         spend: ui.fmtMoney(spend),
       },
+      distRows: rows.map((r) => ({
+        rarity: r, count: s.rarities[r],
+        color: ui.rarColor(r), pct: Math.round((s.rarities[r] / max) * 100),
+      })),
     });
   },
 
@@ -149,7 +177,7 @@ Page({
     s.cards += cards_.length;
     for (const c of cards_) s.rarities[c.rarity || "N"] = (s.rarities[c.rarity || "N"] || 0) + 1;
     all[setId] = s;
-    store.set("ptcg_stats", all);
+    if (!store.set("ptcg_stats", all)) this.warnStorage();
   },
 
   addSpend(setId, spec, packCount) {
@@ -160,20 +188,24 @@ Page({
     s.money += spec.priceCny * packCount;
     s.packs += packCount;
     all[setId] = s;
-    store.set("ptcg_spend", all);
+    if (!store.set("ptcg_spend", all)) this.warnStorage();
   },
 
+  /* 收藏按弹分键（ptcg_coll_<setId>）：微信单键 1MB 上限，全弹单键必然超限丢数据 */
   addColl(setId, cards_) {
-    const coll = store.get("ptcg_coll", {});
-    const box = coll[setId] || {};
+    const key = `ptcg_coll_${setId}`;
+    const box = store.get(key, {}) || {};
     for (const c of cards_) {
       const k = `${c.setCode}__${c.cardIndex}`;
       const e = box[k] || { name: c.cardName, rarity: c.rarity || "N", setCode: c.setCode, cardIndex: c.cardIndex, count: 0 };
       e.count += 1;
       box[k] = e;
     }
-    coll[setId] = box;
-    store.set("ptcg_coll", coll);
+    if (!store.set(key, box)) this.warnStorage();
+  },
+
+  warnStorage() {
+    wx.showToast({ title: "本地空间不足，数据可能未保存", icon: "none", duration: 3000 });
   },
 
   addHistory(spec, packs, flat) {
@@ -192,7 +224,7 @@ Page({
     });
     if (history.length > 30) history.pop();
     this.setData({ history });
-    store.set("ptcg_history", history.map((h) => ({ ...h, cards: undefined, flat: h.flat })));
+    if (!store.set("ptcg_history", history.map((h) => ({ ...h, cards: undefined, flat: h.flat })))) this.warnStorage();
   },
 
   /* ---------------- 开包 ---------------- */
@@ -208,16 +240,48 @@ Page({
     if (sp) this.startDraw(sp, 1);
   },
 
+  /* 高稀有度光效：RR+ 与特款（无标记）发光 */
+  rarClass(rarity) {
+    const r = rarity || "N";
+    const high = ui.RARITY_ORDER.indexOf(r) !== -1
+      && ui.RARITY_ORDER.indexOf(r) <= ui.RARITY_ORDER.indexOf("RR");
+    if (!high && r !== "无标记") return "";
+    const safe = { "无标记": "sp", "●": "d1", "◆": "d2", "★": "d3", "★★": "d4", "★★★": "d5" }[r] || String(r).replace(/[^A-Za-z0-9]/g, "");
+    return `rc-${safe}`;
+  },
+
+  decorate(pack) {
+    return pack.map((c) => ({ ...c, rarClass: this.rarClass(c.rarity) }));
+  },
+
   startDraw(spec, packs) {
     const cur = this.data.current;
     if (!cur || !spec) return;
     wx.vibrateShort({ type: "medium", fail: () => {} });
     const packsOut = data.drawPacks(cur.id, spec, packs);
+    this.clearFlipTimers();
+    let boxSummary = null;
+    if (packsOut.length >= 10) {
+      const cnt = {};
+      for (const p of packsOut) for (const c of p) cnt[c.rarity || "N"] = (cnt[c.rarity || "N"] || 0) + 1;
+      const rrUp = ui.RARITY_ORDER.slice(0, ui.RARITY_ORDER.indexOf("RR") + 1)
+        .reduce((a, r) => a + (cnt[r] || 0), 0);
+      boxSummary = {
+        count: packsOut.length,
+        rrUp,
+        best: ui.bestRarity(cnt) || "—",
+        bestColor: ui.rarColor(ui.bestRarity(cnt) || ""),
+        money: spec.priceCny ? ui.fmtMoney(spec.priceCny * packsOut.length) : "0",
+        chips: ui.RARITY_ORDER.filter((r) => cnt[r]).map((r) => ({ r, n: cnt[r], color: ui.rarColor(r) })),
+      };
+    }
     this.setData({
+      boxSummary,
+      specKey: spec.key,
       drawState: {
         spec,
         stage: "pack",
-        view: packsOut[0],
+        view: this.decorate(packsOut[0]),
         packs: packsOut,
         packIdx: 0,
         flipped: packsOut.map((p) => p.map(() => false)),
@@ -231,23 +295,42 @@ Page({
     if (!ds || ds.stage !== "pack") return;
     ds.stage = "cards";
     this.setData({ "drawState.stage": "cards" });
-    setTimeout(() => this.renderPackRow(), 200);
+    setTimeout(() => { this.renderPackRow(); this.maybeAutoFlip(); }, 200);
   },
 
   renderPackRow() {
     const ds = this.data.drawState;
     if (!ds) return;
-    this.setData({ "drawState.view": ds.packs[ds.packIdx] });
+    this.setData({ "drawState.view": this.decorate(ds.packs[ds.packIdx]) });
+  },
+
+  maybeAutoFlip() {
+    if (this.data.autoflip !== true) return;
+    const ds = this.data.drawState;
+    if (!ds) return;
+    const pi = ds.packIdx;
+    ds.packs[pi].forEach((_, i) => {
+      const t = setTimeout(() => this.flipIndex(pi, i), 420 + i * 90);
+      this._flipTimers.push(t);
+    });
+  },
+
+  toggleAutoflip(e) {
+    store.set("ptcg_autoflip", e.detail.value);
+    this.setData({ autoflip: e.detail.value });
   },
 
   tapCard(e) {
     const { pi, i } = e.currentTarget.dataset;
+    wx.vibrateShort({ type: "light", fail: () => {} });
+    this.flipIndex(Number(pi), Number(i));
+  },
+
+  flipIndex(pi, i) {
     const ds = this.data.drawState;
-    if (!ds || ds.flipped[pi][i]) return;
+    if (!ds || ds.packIdx !== pi || ds.flipped[pi][i]) return;
     ds.flipped[pi][i] = true;
     this.setData({ [`drawState.flipped[${pi}][${i}]`]: true });
-    wx.vibrateShort({ type: "light", fail: () => {} });
-    const pack = ds.packs[pi];
     if (ds.flipped[pi].every(Boolean)) this.recordPack(pi);
   },
 
@@ -268,10 +351,10 @@ Page({
     if (!ds || ds.recorded[pi]) return;
     ds.recorded[pi] = true;
     const cards_ = ds.packs[pi];
-    this.addHistory(ds.spec, 1, cards_.map(({ image, ...c }) => c));
+    this.addHistory(ds.spec, 1, cards_.map(({ image, rarClass, ...c }) => c));
     this.addStats(this.data.current.id, cards_, 1);
     this.addSpend(this.data.current.id, ds.spec, 1);
-    this.addColl(this.data.current.id, cards_.map(({ image, ...c }) => c));
+    this.addColl(this.data.current.id, cards_.map(({ image, rarClass, ...c }) => c));
     this.renderStats();
   },
 
@@ -282,36 +365,47 @@ Page({
       if (!done) {
         ds.recorded[pi] = true;
         const cards_ = ds.packs[pi];
-        this.addHistory(ds.spec, 1, cards_.map(({ image, ...c }) => c));
+        this.addHistory(ds.spec, 1, cards_.map(({ image, rarClass, ...c }) => c));
         this.addStats(this.data.current.id, cards_, 1);
         this.addSpend(this.data.current.id, ds.spec, 1);
-        this.addColl(this.data.current.id, cards_.map(({ image, ...c }) => c));
+        this.addColl(this.data.current.id, cards_.map(({ image, rarClass, ...c }) => c));
       }
     });
     this.renderStats();
   },
 
   navPack(e) {
-    const d = Number(e.currentTarget.dataset.d);
+    this.jumpTo(this.data.drawState.packIdx + Number(e.currentTarget.dataset.d));
+  },
+  jumpPack(e) {
+    this.jumpTo(Number(e.currentTarget.dataset.i));
+  },
+  jumpTo(idx) {
     const ds = this.data.drawState;
-    const next = ds.packIdx + d;
-    if (next < 0 || next >= ds.packs.length) return;
-    ds.packIdx = next;
-    this.setData({ "drawState.packIdx": next });
+    if (!ds) return;
+    this.clearFlipTimers();
+    if (idx < 0 || idx >= ds.packs.length || idx === ds.packIdx) return;
+    // 未翻完的包静默入账，保证统计不失真
+    if (!ds.recorded[ds.packIdx]) this.recordPack(ds.packIdx);
+    ds.packIdx = idx;
+    this.setData({ "drawState.packIdx": idx });
     this.renderPackRow();
+    this.maybeAutoFlip();
   },
 
   closeDraw() {
+    this.clearFlipTimers();
     this.recordUnfinished();
-    this.setData({ drawState: null });
+    this.setData({ drawState: null, boxSummary: null });
   },
 
   againDraw() {
     const ds = this.data.drawState;
     const spec = ds && ds.spec;
     const n = ds ? ds.packs.length : 1;
+    this.clearFlipTimers();
     this.recordUnfinished();
-    this.setData({ drawState: null });
+    this.setData({ drawState: null, boxSummary: null });
     setTimeout(() => this.startDraw(spec, n), 200);
   },
 

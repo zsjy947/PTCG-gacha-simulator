@@ -1,6 +1,7 @@
 const store = require("../../utils/store.js");
 const ui = require("../../utils/ui.js");
 const data = require("../../utils/data.js");
+const img = require("../../utils/img.js");
 
 Page({
   data: {
@@ -16,9 +17,13 @@ Page({
     summary: "",
     cards: [],       // 视图渲染条目（owned 或 missing）
     isMissing: false,
+    failMap: {}, bustMap: {},
     /* 详情 */
     detailShow: false, detailSet: "", detailIdx: "", detailName: "", detailRarity: "",
   },
+
+  onImgError(e) { img.onError(this, e); },
+  onImgRetry(e) { img.retry(this, e); },
 
   onLoad() {
     const sets = data.allSets();
@@ -35,6 +40,9 @@ Page({
 
   onShow() { this.setData({ theme: getApp().globalData.theme }); },
 
+  /* 收藏按弹分键存储（与拆卡页 addColl 一致） */
+  collOf(setId) { return store.get(`ptcg_coll_${setId}`, {}) || {}; },
+
   onPickSet(e) { this.setData({ setIdx: Number(e.detail.value) }); this.render(); },
   onPickSort(e) { this.setData({ sortIdx: Number(e.detail.value) }); this.render(); },
   toggleMissing(e) { this.setData({ missingOnly: e.detail.value }); this.render(); },
@@ -43,7 +51,7 @@ Page({
     const setId = this.data.setIds[this.data.setIdx];
     if (!setId) return;
     const all = data.cards(setId);
-    const box = (store.get("ptcg_coll", {})[setId]) || {};
+    const box = this.collOf(setId);
     const entries = Object.values(box);
     const sortKey = this.data.sortKeys[this.data.sortIdx];
     entries.sort((a, b) => {
@@ -111,21 +119,81 @@ Page({
   closeDetail() { this.setData({ detailShow: false }); },
 
   exportColl() {
-    const coll = store.get("ptcg_coll", {});
-    const json = JSON.stringify(coll, null, 1);
+    const all = {};
+    for (const setId of this.data.setIds) {
+      const box = this.collOf(setId);
+      if (Object.keys(box).length) all[setId] = box;
+    }
     wx.setClipboardData({
-      data: json,
+      data: JSON.stringify(all, null, 1),
       success: () => wx.showToast({ title: "JSON 已复制到剪贴板", icon: "none" }),
     });
+  },
+
+  /* 导入：从剪贴板读取导出格式 JSON，校验后合并（同卡数量相加） */
+  importColl() {
+    wx.getClipboardData({
+      success: async (res) => {
+        let parsed;
+        try { parsed = JSON.parse(res.data); } catch { return this.failImport("剪贴板内容不是合法 JSON"); }
+        if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) {
+          return this.failImport("结构不符合导出格式");
+        }
+        let sets = 0, entries = 0, total = 0;
+        const valid = {};
+        for (const [setId, box] of Object.entries(parsed)) {
+          if (!box || typeof box !== "object" || Array.isArray(box)) continue;
+          const clean = {};
+          for (const e of Object.values(box)) {
+            if (!e || !e.setCode || !e.cardIndex || !e.name) continue;
+            clean[`${e.setCode}__${e.cardIndex}`] = {
+              name: String(e.name), rarity: e.rarity || "N",
+              setCode: String(e.setCode), cardIndex: String(e.cardIndex),
+              count: Math.max(1, Math.floor(Number(e.count) || 1)),
+            };
+            entries++; total += clean[`${e.setCode}__${e.cardIndex}`].count;
+          }
+          if (Object.keys(clean).length) { valid[setId] = clean; sets++; }
+        }
+        if (!sets) return this.failImport("没有有效的收藏记录");
+        const conf = await new Promise((resolve) => {
+          wx.showModal({
+            title: "导入收藏",
+            content: `导入 ${sets} 弹共 ${entries} 种（${total} 张），与现有收藏合并（同卡数量相加）`,
+            success: (r) => resolve(r.confirm),
+          });
+        });
+        if (!conf) return;
+        for (const [setId, box] of Object.entries(valid)) {
+          const key = `ptcg_coll_${setId}`;
+          const target = store.get(key, {}) || {};
+          for (const [k, e] of Object.entries(box)) {
+            if (target[k]) target[k].count += e.count;
+            else target[k] = e;
+          }
+          if (!store.set(key, target)) return this.failImport("本地空间不足，写入失败");
+        }
+        this.render();
+        wx.showToast({ title: `已导入 ${sets} 弹`, icon: "success" });
+      },
+    });
+  },
+
+  failImport(msg) {
+    wx.showToast({ title: `导入失败：${msg}`, icon: "none", duration: 3000 });
   },
 
   clearColl() {
     wx.showModal({
       title: "清空收藏",
-      content: "清空全部收藏记录？该操作不可恢复。",
+      content: "清空全部弹的收藏记录？该操作不可恢复。",
       confirmColor: "#e3350d",
       success: (res) => {
-        if (res.confirm) { store.set("ptcg_coll", {}); this.render(); }
+        if (!res.confirm) return;
+        for (const k of store.keys()) {
+          if (k.startsWith("ptcg_coll_")) store.remove(k);
+        }
+        this.render();
       },
     });
   },

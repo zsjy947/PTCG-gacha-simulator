@@ -13,6 +13,9 @@
 
   <view class="tools-row">
     <view class="switch" bindtap="exportColl">📤 导出 JSON（复制）</view>
+    <view class="switch" bindtap="importColl">📥 导入（剪贴板）</view>
+  </view>
+  <view class="tools-row">
     <switch checked="{{missingOnly}}" bindchange="toggleMissing" color="#e3350d" />
     <text class="switch-label">只看缺卡</text>
     <view class="switch danger" bindtap="clearColl">🗑 清空收藏</view>
@@ -30,7 +33,12 @@
     <view class="coll-card {{item.missing ? 'missing' : ''}}" wx:for="{{cards}}" wx:key="key"
           data-set="{{item.setCode}}" data-idx="{{item.cardIndex}}" data-name="{{item.name}}" data-rarity="{{item.rarity}}"
           bindtap="onCardTap">
-      <image src="{{item.image}}" mode="aspectFill" lazy-load />
+      <image wx:if="{{!failMap[item.key]}}"
+             src="{{bustMap[item.key] ? item.image + '?r=' + bustMap[item.key] : item.image}}"
+             mode="aspectFill" lazy-load
+             data-ikey="{{item.key}}" binderror="onImgError" />
+      <image wx:else src="/images/cardback.webp" mode="aspectFill"
+             data-ikey="{{item.key}}" data-url="{{item.image}}" bindtap="onImgRetry" />
       <view class="cc-x">{{item.missing ? "缺" : "×" + item.count}}</view>
       <view class="cc-name">
         <text class="rar-badge" style="background:{{item.badgeBg}}">{{item.rarity}}</text>

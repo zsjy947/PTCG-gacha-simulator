@@ -10,7 +10,8 @@
       </block>
       <block wx:elif="{{detail}}">
         <view class="d-wrap">
-          <image class="d-img" src="{{img}}" mode="widthFix" />
+          <image wx:if="{{!imgFail}}" class="d-img" src="{{img}}" mode="widthFix" binderror="onImgError" data-ikey="detail" />
+          <image wx:else class="d-img" src="/images/cardback.webp" mode="widthFix" data-ikey="detail" data-url="{{img}}" bindtap="onImgRetry" />
           <view class="d-info">
             <view class="d-name">
               <text class="rar-badge" style="background:{{rarColor}}">{{detail.rarity || '—'}}</text>
