@@ -21,6 +21,9 @@ android/keystore.properties
 data/user_store.json
 data/*.json.tmp
 
+# pricetool 价格数据（运行时同步生成，python -m pricetool sync 可重建）
+data/prices/
+
 # 引擎对拍临时文件
 tests/_tmp_parity/
 .zcode/
