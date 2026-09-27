@@ -34,7 +34,7 @@
 | BE-003 | app.py 125-133/507-515 | _dir_bytes/_dir_size 重复 | 重复逻辑 | 合并（_dir_bytes 保留 LRU 内部用，cache_info 用 _dir_size，并存至 BE-003 修复提交合并） | 已闭环 | 阶段1 合并提交：仅保留 _dir_size，_lru_enforce/cache_info 共用；golden 全绿 |
 | BE-004 | app.py 530-544 | cache_clear 与在途下载竞态 | 并发 | 仅记录不改（修复需改锁时序） | 保留（时序契约） | |
 | BE-005 | app.py 101 | X-Forwarded-For 可伪造 | 安全 | 仅记录不改（仅绑定 127.0.0.1） | 保留（威胁模型不成立） | |
-| BE-006 | config.py 全文 | 配置与逻辑混杂、魔法数 | 可维护性 | 内部整理（不拆文件） | 待处理 | |
+| BE-006 | config.py 全文 | 配置与逻辑混杂、魔法数 | 可维护性 | 内部整理（四节归组+文档去重；签名/逻辑/值不动） | 已闭环 | 公共符号取值快照比对一致 + golden/对拍全绿 |
 | BE-007 | fetch_data.py 130-244 | main() 115 行 | 拆分 | 拆私有函数 | 待处理 | |
 | BE-008 | store.py 14-19 / fetch_data.py 93-97 | atomic_write_json/_md5 双实现 | 重复逻辑 | 不合并，加一致性测试 | 待处理 | |
 | BE-009 | app.py 280-294 等 | spec_brief 三平台三实现 | 重复逻辑 | 不合并，加等价测试 | 待处理 | |
