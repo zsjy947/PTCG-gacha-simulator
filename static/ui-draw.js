@@ -92,6 +92,31 @@ async function draw(spec, packs) {
 }
 
 /* ---------------- 开包遮罩 ---------------- */
+/* 稀有度计数与 RR+ 表达式、汇总条片段（renderBoxSummary/renderPackSummary/showReport 共用，FE-003） */
+function rarityCounts(cards) {
+  const cnt = {};
+  for (const c of cards) {
+    const r = c.rarity || "N";
+    cnt[r] = (cnt[r] || 0) + 1;
+  }
+  return cnt;
+}
+
+function rrUpTo(cnt) {
+  return RARITY_ORDER.slice(0, RARITY_ORDER.indexOf("RR") + 1)
+    .reduce((a, r) => a + (cnt[r] || 0), 0);
+}
+
+function renderChips(cnt, style, sep) {
+  return RARITY_ORDER.filter((r) => cnt[r])
+    .map((r) => `<span style="color:${RARITY_COLOR[r]}${style}">${r}×${cnt[r]}</span>`).join(sep);
+}
+
+/* 当前入账规格：本次开包未结束时用开包规格，否则用面板选中规格 */
+function activeSpec() {
+  return (state.pending && state.pending.spec) || state.spec;
+}
+
 function openOverlay(spec, packs) {
   const ov = $("#overlay");
   ov.hidden = false;
@@ -135,18 +160,12 @@ function renderBoxSummary() {
   const last = state.packIdx === state.packs.length - 1;
   $("#btnAgain").hidden = !last;
   if (state.packs.length <= 1 || !last) { el.hidden = true; return; }
-  const cnt = {};
-  for (const pack of state.packs) for (const c of pack) {
-    const r = c.rarity || "N";
-    cnt[r] = (cnt[r] || 0) + 1;
-  }
-  const rrUp = RARITY_ORDER.slice(0, RARITY_ORDER.indexOf("RR") + 1)
-    .reduce((a, r) => a + (cnt[r] || 0), 0);
+  const cnt = rarityCounts(state.packs.flat());
+  const rrUp = rrUpTo(cnt);
   const best = bestRarity(cnt);
-  const sp = (state.pending && state.pending.spec) || state.spec;
+  const sp = activeSpec();
   const money = sp && sp.priceCny ? sp.priceCny * state.packs.length : 0;
-  const chips = RARITY_ORDER.filter((r) => cnt[r])
-    .map((r) => `<span style="color:${RARITY_COLOR[r]}">${r}×${cnt[r]}</span>`).join(" · ");
+  const chips = renderChips(cnt, "", " · ");
   // 卡值/回本：该弹有价格数据时才显示（快照未覆盖的弹不占位）
   const valLine = setPriced(state.packs[0][0].setCode)
     ? ` · ${valueLineHtml(packValue(state.packs.flat()), money)}` : "";
@@ -227,11 +246,9 @@ function renderPackSummary() {
   const line1 = `第 ${state.packIdx + 1}/${state.packs.length} 包${state.spec ? ` · ${state.spec.label}` : ""}`;
   if (done < pack.length) { box.innerHTML = `<div class="ps-line1">${line1}</div>`; return; }
   maybeRecordPack(state.packIdx);
-  const cnt = {};
-  pack.forEach((c) => { const r = c.rarity || "N"; cnt[r] = (cnt[r] || 0) + 1; });
-  const chips = RARITY_ORDER.filter((r) => cnt[r])
-    .map((r) => `<span style="color:${RARITY_COLOR[r]};font-weight:800">${r}×${cnt[r]}</span>`).join("　");
-  const sp = (state.pending && state.pending.spec) || state.spec;
+  const cnt = rarityCounts(pack);
+  const chips = renderChips(cnt, ";font-weight:800", "　");
+  const sp = activeSpec();
   const money = sp && sp.priceCny ? sp.priceCny : 0;
   const valLine = setPriced(pack[0].setCode) ? `<div class="ps-value">${valueLineHtml(packValue(pack), money)}</div>` : "";
   box.innerHTML = `<div class="ps-line1">${line1}</div><div class="ps-line2">${chips}</div>${valLine}`;
@@ -257,17 +274,23 @@ function flipAll() {
   row.forEach((el, i) => setTimeout(() => flipCard(el, i), i * gap));
 }
 
+/* 单包入账四连写：抽卡记录/统计/消费/收藏（maybeRecordPack 与 recordUnfinished 共用，FE-002） */
+function recordPackResult(pi) {
+  const p = state.pending;
+  const cards = state.packs[pi];
+  addHistory(p.spec, 1, cards);
+  addStats(state.current.id, cards, 1);
+  addSpend(state.current.id, p.spec, 1);
+  addColl(state.current.id, cards);
+}
+
 /* 该包全部翻开后才写入抽卡记录、统计与收藏 */
 function maybeRecordPack(pi) {
   const p = state.pending;
   if (!p || p.recorded[pi]) return;
   if (state.flipped[pi].size < state.packs[pi].length) return;
   p.recorded[pi] = true;
-  const cards = state.packs[pi];
-  addHistory(p.spec, 1, cards);
-  addStats(state.current.id, cards, 1);
-  addSpend(state.current.id, p.spec, 1);
-  addColl(state.current.id, cards);
+  recordPackResult(pi);
 }
 
 /* 关闭遮罩时把未翻完的包静默入账，保证统计不失真 */
@@ -277,11 +300,7 @@ function recordUnfinished() {
   p.recorded.forEach((done, pi) => {
     if (done) return;
     p.recorded[pi] = true;
-    const cards = state.packs[pi];
-    addHistory(p.spec, 1, cards);
-    addStats(state.current.id, cards, 1);
-    addSpend(state.current.id, p.spec, 1);
-    addColl(state.current.id, cards);
+    recordPackResult(pi);
   });
   state.pending = null;
 }
@@ -341,7 +360,7 @@ function renderStats() {
   const s = getStats(state.current.id);
   $("#stPacks").textContent = s.packs;
   $("#stCards").textContent = s.cards;
-  const rrUp = RARITY_ORDER.slice(0, RARITY_ORDER.indexOf("RR") + 1).reduce((a, r) => a + (s.rarities[r] || 0), 0);
+  const rrUp = rrUpTo(s.rarities);
   $("#stRR").textContent = rrUp;
   const best = bestRarity(s.rarities);
   const el = $("#stBest");

@@ -8,9 +8,9 @@
 
 | ID | 位置（基线） | 问题 | 维度 | 处置 | 状态 | 验证 |
 |---|---|---|---|---|---|---|
-| FE-001 | app.js 876-1011 | renderCollection 三个近似重复渲染循环 | 重复逻辑 | 抽 collectionTile() | 待处理 | |
-| FE-002 | app.js 765-791 | maybeRecordPack/recordUnfinished 重复四连调用 | 重复逻辑 | 合并 recordPackResult() | 待处理 | |
-| FE-003 | app.js 637-663/722-742/848 | 盒装/单包汇总重复 + RR+ 表达式两处 | 重复逻辑 | 抽 helper（rarityCounts/renderChips/rrUpTo） | 待处理 | |
+| FE-001 | app.js 876-1011 | renderCollection 三个近似重复渲染循环 | 重复逻辑 | 抽 collectionTile()（DOM 结构/属性/文本逐字节一致，元素间空白归一） | 已闭环 | 浏览器实测 22 tile 渲染正常 + 公式对照 |
+| FE-002 | app.js 765-791 | maybeRecordPack/recordUnfinished 重复四连调用 | 重复逻辑 | 合并 recordPackResult() | 已闭环 | 开包/收起入账链路冒烟正常 |
+| FE-003 | app.js 637-663/722-742/848 | 盒装/单包汇总重复 + RR+ 表达式两处 | 重复逻辑 | 抽 rarityCounts()/renderChips()/rrUpTo()/activeSpec()（战报图计数一并复用） | 已闭环 | 页面内与原公式逐字节对照通过 + 十连汇总条实测 |
 | FE-004 | app.js 8-15、style.css 25-34/346-358 | 稀有度色板三副本（小程序第四份，范围外） | 可维护性 | 保留三处（契约），加一致性注释与测试 | 待处理 | |
 | FE-005 | app.js 25/60-62/1502 | 死代码 BOX_SIZE、cardImage()、#themeInfo | 工程规范 | 台账后删除 | 待处理 | |
 | FE-006 | app.js 695-697 等 | 时序魔法数散布 | 魔法数 | 命名化（值不变，R4 表） | 待处理 | |

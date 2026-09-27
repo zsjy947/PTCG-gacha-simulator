@@ -221,8 +221,7 @@ async function showReport() {
   }
   // 底部稀有度统计
   let y = gridTop + rows * (cellH + gap) + 46;
-  const cnt = {};
-  pack.forEach((c) => { const r = c.rarity || "N"; cnt[r] = (cnt[r] || 0) + 1; });
+  const cnt = rarityCounts(pack);
   ctx.font = "bold 26px 'PingFang SC','Microsoft YaHei',sans-serif";
   ctx.textAlign = "left";
   let x = 40;

@@ -2,6 +2,19 @@
 "use strict";
 
 /* ---------------- 收藏册 ---------------- */
+/* 收藏卡 tile 模板工厂：缺卡/按价格/普通三种列表共用（FE-001）。
+ * DOM 结构/属性/文本与三处原循环逐字节一致，仅元素间空白文本节点归一。 */
+function collectionTile(card, opts) {
+  const d = document.createElement("div");
+  d.className = "coll-card" + (opts.missing ? " missing" : "");
+  d.innerHTML = `
+      <img loading="lazy" decoding="async" src="${thumbURL(card)}" alt="${escapeHtml(opts.name)}" onerror="__imgFail(this)">
+      <div class="cc-x">${opts.countHtml}</div>${opts.priceHtml || ""}
+      <div class="cc-name">${opts.badge}${escapeHtml(opts.name)} <span>${escapeHtml(card.cardIndex)}</span></div>`;
+  d.addEventListener("click", () => showDetail(card.setCode, card.cardIndex));
+  return d;
+}
+
 async function renderCollection() {
   const sel = $("#collSet");
   if (!sel.options.length) {
@@ -79,14 +92,12 @@ async function renderCollection() {
       <span><b>${entries.length}/${totalDistinct}</b>种已收</span>${valueSpan(valueOf(missing))}`;
     grid.innerHTML = "";
     for (const c of missing) {
-      const d = document.createElement("div");
-      d.className = "coll-card missing";
-      d.innerHTML = `
-        <img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)">
-        <div class="cc-x">缺</div>
-        <div class="cc-name">${rarBadge(c.rarity || "N")}${escapeHtml(c.cardName)} <span>${escapeHtml(c.cardIndex)}</span></div>`;
-      d.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
-      grid.appendChild(d);
+      grid.appendChild(collectionTile(c, {
+        missing: true,
+        name: c.cardName,
+        badge: rarBadge(c.rarity || "N"),
+        countHtml: "缺",
+      }));
     }
     upgradeRemoteImages(grid);
     return;
@@ -111,15 +122,12 @@ async function renderCollection() {
     }
     grid.innerHTML = "";
     for (const e of priced) {
-      const d = document.createElement("div");
-      d.className = "coll-card";
-      d.innerHTML = `
-        <img loading="lazy" decoding="async" src="${thumbURL(e)}" alt="${escapeHtml(e.name)}" onerror="__imgFail(this)">
-        <div class="cc-x">×${e.count}</div>
-        <div class="cc-price">¥${fmtMoney(e.unit)}</div>
-        <div class="cc-name">${rarBadge(e.rarity)}${escapeHtml(e.name)} <span>${escapeHtml(e.cardIndex)}</span></div>`;
-      d.addEventListener("click", () => showDetail(e.setCode, e.cardIndex));
-      grid.appendChild(d);
+      grid.appendChild(collectionTile(e, {
+        name: e.name,
+        badge: rarBadge(e.rarity),
+        countHtml: `×${e.count}`,
+        priceHtml: `\n      <div class="cc-price">¥${fmtMoney(e.unit)}</div>`,
+      }));
     }
     upgradeRemoteImages(grid);
     return;
@@ -127,14 +135,11 @@ async function renderCollection() {
 
   grid.innerHTML = "";
   for (const e of entries) {
-    const d = document.createElement("div");
-    d.className = "coll-card";
-    d.innerHTML = `
-      <img loading="lazy" decoding="async" src="${thumbURL(e)}" alt="${escapeHtml(e.name)}" onerror="__imgFail(this)">
-      <div class="cc-x">×${e.count}</div>
-      <div class="cc-name">${rarBadge(e.rarity)}${escapeHtml(e.name)} <span>${escapeHtml(e.cardIndex)}</span></div>`;
-    d.addEventListener("click", () => showDetail(e.setCode, e.cardIndex));
-    grid.appendChild(d);
+    grid.appendChild(collectionTile(e, {
+      name: e.name,
+      badge: rarBadge(e.rarity),
+      countHtml: `×${e.count}`,
+    }));
   }
   upgradeRemoteImages(grid);
 }
