@@ -6,7 +6,7 @@
 
 ## 快速开始（exe，免安装）
 
-双击 `dist\宝可梦卡牌模拟拆卡.exe` 即可 —— 程序会自动启动本地服务并打开浏览器。
+双击 `dist\PTCG拆卡模拟器.exe` 即可 —— 程序会自动启动本地服务并打开浏览器。
 
 - 卡表数据已内置；卡牌牌面首次显示时联网下载并缓存到 `%LOCALAPPDATA%\PTCGGacha`。
 - 重新打包：修改代码后运行 `build_exe.bat`（需要 `pip install pyinstaller`）。
@@ -88,7 +88,7 @@ PTCG/
 │  ├─ manifest.json    # 数据清单（热更新增量比对用）
 │  ├─ cards/           # 每弹卡牌列表
 │  └─ *_cache/         # 运行时缓存（图片/图标/详情，图片缓存带 LRU 上限）
-└─ dist/宝可梦卡牌模拟拆卡.exe
+└─ dist/PTCG拆卡模拟器.exe
 ```
 
 ## API 一览
@@ -101,26 +101,6 @@ PTCG/
 | `POST /api/draw` | 开包 `{set, spec, packs}` |
 | `GET /api/card/<弹>/<编号>` | 卡牌详情（代理缓存） |
 | `GET /img/<弹>/<编号>` · `GET /icon/<弹>` | 图片代理（磁盘缓存） |
-
-## 微信小程序（wechat-miniapp 分支）
-
-在本分支上，同一套引擎与卡表被移植为微信小程序（`miniprogram/`，原生 WXML，无第三方框架）：
-
-- **零后端**：卡表裁剪为最小字段后全量内嵌（cards.js 约 1MB，主包 2MB 限制内，无需分包），
-  拆卡引擎 `shared/gacha.js` 以 CommonJS 引入，与 exe / APK 完全同源。
-- **图源直连**：卡图经 `<image>` 组件直连 mik.moe（image 组件不占域名白名单）；
-  卡牌详情文本走 `wx.request`（需在 mp 后台配置 request 合法域名，未配置时自动降级为基础信息）。
-- **功能**：弹包分类选择、官方规格拆卡/十连/整盒、翻卡与稀有度特效、概率公示、目标卡期望计算、
-  收藏册（完成度 + 缺卡模式）、卡表浏览（增量渲染）、消费统计、深浅色主题。
-- 本地存储键名与 exe / APK 一致，收藏册 JSON 导出互通。
-
-```bash
-python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡背 WebP
-# 微信开发者工具导入 miniprogram/ 目录即可预览
-```
-
-**上线前必读**：[docs/小程序上线清单.md](docs/小程序上线清单.md) ——
-类目选择（工具类，勿选游戏）、小程序 ICP 备案、商标词规避、域名白名单、隐私保护指引等完整清单。
 
 ## 更新记录
 
@@ -229,6 +209,26 @@ python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡�
 
 卡表数据与卡图来自公开网络，仅供学习交流与个人娱乐。
 宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。
+
+## 微信小程序（wechat-miniapp 分支）
+
+在本分支上，同一套引擎与卡表被移植为微信小程序（`miniprogram/`，原生 WXML，无第三方框架）：
+
+- **零后端**：卡表裁剪为最小字段后全量内嵌（cards.js 约 1MB，主包 2MB 限制内，无需分包），
+  拆卡引擎 `shared/gacha.js` 以 CommonJS 引入，与 exe / APK 完全同源。
+- **图源直连**：卡图经 `<image>` 组件直连 mik.moe（image 组件不占域名白名单）；
+  卡牌详情文本走 `wx.request`（需在 mp 后台配置 request 合法域名，未配置时自动降级为基础信息）。
+- **功能**：弹包分类选择、官方规格拆卡/十连/整盒、翻卡与稀有度特效、概率公示、目标卡期望计算、
+  收藏册（完成度 + 缺卡模式）、卡表浏览（增量渲染）、消费统计、深浅色主题。
+- 本地存储键名与 exe / APK 一致，收藏册 JSON 导出互通。
+
+```bash
+python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡背 WebP
+# 微信开发者工具导入 miniprogram/ 目录即可预览
+```
+
+**上线前必读**：[docs/小程序上线清单.md](docs/小程序上线清单.md) ——
+类目选择（工具类，勿选游戏）、小程序 ICP 备案、商标词规避、域名白名单、隐私保护指引等完整清单。
 
 ## 安卓 APK（android-apk 分支）
 
