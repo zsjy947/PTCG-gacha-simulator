@@ -43,7 +43,10 @@ def project(pack: list) -> list:
             for c in pack]
 
 
-def js_packs(cards: list, spec: dict, seed: int, packs: int) -> list:
+def js_packs(cards: list, spec: dict, seeds, packs: int) -> list:
+    """多种子批量对拍：返回 [[seed1 的包序列], [seed2 的包序列], ...]（与 seeds 同序）。"""
+    if isinstance(seeds, int):
+        seeds = [seeds]
     tmp = Path(__file__).parent / "_tmp_parity"
     tmp.mkdir(exist_ok=True)
     f_cards = tmp / "fixture.json"
@@ -52,12 +55,18 @@ def js_packs(cards: list, spec: dict, seed: int, packs: int) -> list:
     f_spec.write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
     out = subprocess.run(
         ["node", str(Path(__file__).parent / "parity_node.js"),
-         str(f_cards), str(f_spec), str(seed), str(packs)],
-        capture_output=True, text=True, timeout=60,
+         str(f_cards), str(f_spec), ",".join(str(s) for s in seeds), str(packs)],
+        capture_output=True, text=True, timeout=120,
     )
     if out.returncode != 0:
         raise RuntimeError(f"node 对拍脚本失败: {out.stderr}")
     return json.loads(out.stdout)
+
+
+# 对拍种子矩阵（≥20 种子 × 多规格，计划阶段 0 要求）：覆盖边界与常规值
+PARITY_SEEDS = [1, 2, 3, 7, 13, 42, 99, 777, 4096, 5150,
+                2024, 20260914, 31337, 65535, 42424242, 123456789,
+                987654321, 8675309, 2147483646, 2147483647]
 
 
 class TestGoldenParity(unittest.TestCase):
@@ -70,16 +79,18 @@ class TestGoldenParity(unittest.TestCase):
             "sm25(多平卡槽)": config.set_specs("CS1AC")[1],
             "gem4(符号稀有度)": config.set_specs("CBB1C")[0],
             "tera10(封入变体)": config.set_specs("CSV9.5C")[0],
+            "fest6(30周年特款)": config.set_specs("30THC")[0],
         }
         for name, spec in specs.items():
-            for seed in (42, 20260914):
-                with self.subTest(spec=name, seed=seed):
-                    # 两侧驱动方式完全同构：单个 rng 实例连续抽 25 包
+            with self.subTest(spec=name):
+                # 两侧驱动方式完全同构：每个种子一个独立 rng 实例连抽 25 包
+                py_all = []
+                for seed in PARITY_SEEDS:
                     rng = Mulberry32(seed)
-                    py_packs = [project(gacha.draw_pack_from_cards(cards, spec, rng))
-                                for _ in range(25)]
-                    js = js_packs(cards, spec, seed, 25)
-                    self.assertEqual(py_packs, js, f"{name} seed={seed} 对拍不一致")
+                    py_all.append([project(gacha.draw_pack_from_cards(cards, spec, rng))
+                                   for _ in range(25)])
+                js = js_packs(cards, spec, PARITY_SEEDS, 25)
+                self.assertEqual(py_all, js, f"{name} {len(PARITY_SEEDS)} 种子对拍不一致")
 
 
 class TestDistribution(unittest.TestCase):

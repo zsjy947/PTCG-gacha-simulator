@@ -1,0 +1,6 @@
+{
+ "status": 404,
+ "body": {
+  "error": "弹 CSV1C 不存在规格 nonexistent"
+ }
+}

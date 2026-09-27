@@ -1,0 +1,94 @@
+{
+ "status": 200,
+ "body": {
+  "specs": [
+   {
+    "id": "4",
+    "label": "4张装（全闪）",
+    "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）",
+    "packSize": 4,
+    "price": "10元/包",
+    "variants": [
+     {
+      "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）",
+      "slots": [
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡（普通稀有度） 1",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 32,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 23,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡（普通稀有度） 2",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 32,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 23,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡（普通稀有度） 3",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 32,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 23,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡（高稀有度） 1",
+        "probabilities": [
+         {
+          "p": 0.7865168539325843,
+          "pool": 23,
+          "rarity": "R"
+         },
+         {
+          "p": 0.16853932584269662,
+          "pool": 19,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.0449438202247191,
+          "pool": 18,
+          "rarity": "SAR"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

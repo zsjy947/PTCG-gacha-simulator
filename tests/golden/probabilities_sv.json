@@ -1,0 +1,600 @@
+{
+ "status": 200,
+ "body": {
+  "specs": [
+   {
+    "id": "5",
+    "label": "5张装（瘦包）",
+    "note": "4张平卡 + 1张闪卡",
+    "packSize": 5,
+    "price": "10元/包",
+    "variants": [
+     {
+      "note": "4张平卡 + 1张闪卡",
+      "slots": [
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 1",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 2",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 3",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 4",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 1",
+        "probabilities": [
+         {
+          "p": 0.7070707070707071,
+          "pool": 15,
+          "rarity": "R"
+         },
+         {
+          "p": 0.15151515151515152,
+          "pool": 14,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.050505050505050504,
+          "pool": 8,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.045454545454545456,
+          "pool": 17,
+          "rarity": "SR"
+         },
+         {
+          "p": 0.04040404040404041,
+          "pool": 11,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.005050505050505051,
+          "pool": 4,
+          "rarity": "UR"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "id": "20",
+    "label": "20张装（肥包）",
+    "note": "14张平卡 + 6张闪卡",
+    "packSize": 20,
+    "price": "50元/包",
+    "variants": [
+     {
+      "note": "14张平卡 + 6张闪卡",
+      "slots": [
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 1",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 2",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 3",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 4",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 5",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 6",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 7",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 8",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 9",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 10",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 11",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 12",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 13",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "normal",
+        "name": "平卡 14",
+        "probabilities": [
+         {
+          "p": 0.65,
+          "pool": 55,
+          "rarity": "C"
+         },
+         {
+          "p": 0.35,
+          "pool": 43,
+          "rarity": "U"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 1",
+        "probabilities": [
+         {
+          "p": 0.7070707070707071,
+          "pool": 15,
+          "rarity": "R"
+         },
+         {
+          "p": 0.15151515151515152,
+          "pool": 14,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.050505050505050504,
+          "pool": 8,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.045454545454545456,
+          "pool": 17,
+          "rarity": "SR"
+         },
+         {
+          "p": 0.04040404040404041,
+          "pool": 11,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.005050505050505051,
+          "pool": 4,
+          "rarity": "UR"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 2",
+        "probabilities": [
+         {
+          "p": 0.7070707070707071,
+          "pool": 15,
+          "rarity": "R"
+         },
+         {
+          "p": 0.15151515151515152,
+          "pool": 14,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.050505050505050504,
+          "pool": 8,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.045454545454545456,
+          "pool": 17,
+          "rarity": "SR"
+         },
+         {
+          "p": 0.04040404040404041,
+          "pool": 11,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.005050505050505051,
+          "pool": 4,
+          "rarity": "UR"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 3",
+        "probabilities": [
+         {
+          "p": 0.7070707070707071,
+          "pool": 15,
+          "rarity": "R"
+         },
+         {
+          "p": 0.15151515151515152,
+          "pool": 14,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.050505050505050504,
+          "pool": 8,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.045454545454545456,
+          "pool": 17,
+          "rarity": "SR"
+         },
+         {
+          "p": 0.04040404040404041,
+          "pool": 11,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.005050505050505051,
+          "pool": 4,
+          "rarity": "UR"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 4",
+        "probabilities": [
+         {
+          "p": 0.7070707070707071,
+          "pool": 15,
+          "rarity": "R"
+         },
+         {
+          "p": 0.15151515151515152,
+          "pool": 14,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.050505050505050504,
+          "pool": 8,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.045454545454545456,
+          "pool": 17,
+          "rarity": "SR"
+         },
+         {
+          "p": 0.04040404040404041,
+          "pool": 11,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.005050505050505051,
+          "pool": 4,
+          "rarity": "UR"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 5",
+        "probabilities": [
+         {
+          "p": 0.7070707070707071,
+          "pool": 15,
+          "rarity": "R"
+         },
+         {
+          "p": 0.15151515151515152,
+          "pool": 14,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.050505050505050504,
+          "pool": 8,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.045454545454545456,
+          "pool": 17,
+          "rarity": "SR"
+         },
+         {
+          "p": 0.04040404040404041,
+          "pool": 11,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.005050505050505051,
+          "pool": 4,
+          "rarity": "UR"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 6",
+        "probabilities": [
+         {
+          "p": 0.7070707070707071,
+          "pool": 15,
+          "rarity": "R"
+         },
+         {
+          "p": 0.15151515151515152,
+          "pool": 14,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.050505050505050504,
+          "pool": 8,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.045454545454545456,
+          "pool": 17,
+          "rarity": "SR"
+         },
+         {
+          "p": 0.04040404040404041,
+          "pool": 11,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.005050505050505051,
+          "pool": 4,
+          "rarity": "UR"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}

@@ -1,0 +1,268 @@
+{
+ "status": 200,
+ "body": {
+  "specs": [
+   {
+    "id": "6",
+    "label": "6张装（全闪）",
+    "note": "6张全闪，每包必出1张30周年特款皮卡丘",
+    "packSize": 6,
+    "price": "18元/包",
+    "variants": [
+     {
+      "note": "6张全闪，每包必出1张30周年特款皮卡丘",
+      "slots": [
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "特款闪卡 1",
+        "probabilities": [
+         {
+          "p": 1.0,
+          "pool": 68,
+          "rarity": "无标记"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 1",
+        "probabilities": [
+         {
+          "p": 0.26,
+          "pool": 68,
+          "rarity": "无标记"
+         },
+         {
+          "p": 0.22,
+          "pool": 45,
+          "rarity": "C"
+         },
+         {
+          "p": 0.2,
+          "pool": 18,
+          "rarity": "R"
+         },
+         {
+          "p": 0.14,
+          "pool": 10,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.1,
+          "pool": 20,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.05,
+          "pool": 10,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.022000000000000002,
+          "pool": 3,
+          "rarity": "RGB"
+         },
+         {
+          "p": 0.008,
+          "pool": 2,
+          "rarity": "FUR"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 2",
+        "probabilities": [
+         {
+          "p": 0.26,
+          "pool": 68,
+          "rarity": "无标记"
+         },
+         {
+          "p": 0.22,
+          "pool": 45,
+          "rarity": "C"
+         },
+         {
+          "p": 0.2,
+          "pool": 18,
+          "rarity": "R"
+         },
+         {
+          "p": 0.14,
+          "pool": 10,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.1,
+          "pool": 20,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.05,
+          "pool": 10,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.022000000000000002,
+          "pool": 3,
+          "rarity": "RGB"
+         },
+         {
+          "p": 0.008,
+          "pool": 2,
+          "rarity": "FUR"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 3",
+        "probabilities": [
+         {
+          "p": 0.26,
+          "pool": 68,
+          "rarity": "无标记"
+         },
+         {
+          "p": 0.22,
+          "pool": 45,
+          "rarity": "C"
+         },
+         {
+          "p": 0.2,
+          "pool": 18,
+          "rarity": "R"
+         },
+         {
+          "p": 0.14,
+          "pool": 10,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.1,
+          "pool": 20,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.05,
+          "pool": 10,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.022000000000000002,
+          "pool": 3,
+          "rarity": "RGB"
+         },
+         {
+          "p": 0.008,
+          "pool": 2,
+          "rarity": "FUR"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 4",
+        "probabilities": [
+         {
+          "p": 0.26,
+          "pool": 68,
+          "rarity": "无标记"
+         },
+         {
+          "p": 0.22,
+          "pool": 45,
+          "rarity": "C"
+         },
+         {
+          "p": 0.2,
+          "pool": 18,
+          "rarity": "R"
+         },
+         {
+          "p": 0.14,
+          "pool": 10,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.1,
+          "pool": 20,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.05,
+          "pool": 10,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.022000000000000002,
+          "pool": 3,
+          "rarity": "RGB"
+         },
+         {
+          "p": 0.008,
+          "pool": 2,
+          "rarity": "FUR"
+         }
+        ]
+       },
+       {
+        "fallback": false,
+        "kind": "holo",
+        "name": "闪卡 5",
+        "probabilities": [
+         {
+          "p": 0.26,
+          "pool": 68,
+          "rarity": "无标记"
+         },
+         {
+          "p": 0.22,
+          "pool": 45,
+          "rarity": "C"
+         },
+         {
+          "p": 0.2,
+          "pool": 18,
+          "rarity": "R"
+         },
+         {
+          "p": 0.14,
+          "pool": 10,
+          "rarity": "RR"
+         },
+         {
+          "p": 0.1,
+          "pool": 20,
+          "rarity": "AR"
+         },
+         {
+          "p": 0.05,
+          "pool": 10,
+          "rarity": "SAR"
+         },
+         {
+          "p": 0.022000000000000002,
+          "pool": 3,
+          "rarity": "RGB"
+         },
+         {
+          "p": 0.008,
+          "pool": 2,
+          "rarity": "FUR"
+         }
+        ]
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ }
+}
