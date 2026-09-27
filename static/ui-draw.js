@@ -1,0 +1,369 @@
+/* 开包：规格按钮/抽卡入口/遮罩时序链/历史与统计渲染 —— 自 static/app.js 拆分（语义等价，见 docs/refactor/） */
+"use strict";
+
+/* ---------------- 规格按钮 ---------------- */
+function specBtnClass(sp) {
+  if (sp.packSize >= 20) return "draw-fat";
+  if (sp.packSize >= 10) return "draw-pack";
+  if (sp.packSize <= 1) return "draw-reward";
+  if ((sp.note || "").includes("全闪") || (sp.label || "").includes("宝石")) return "draw-gem";
+  return "draw-single";
+}
+
+/* 行命名：仅规格本身含"瘦包/肥包"才用短名，其余用规格原名（10张装/4张装（全闪）等） */
+function specRowLabel(sp) {
+  const l = sp.label || "";
+  if (l.includes("瘦包")) return "瘦包";
+  if (l.includes("肥包")) return "肥包";
+  return l;
+}
+
+function drawBtn(cls, title, sub, onClick, active) {
+  const b = document.createElement("button");
+  b.className = `btn ${cls}` + (active ? " spec-active" : "");
+  b.innerHTML = `<span class="btn-title">${escapeHtml(title)}</span>` +
+    (sub ? `<span class="btn-sub">${escapeHtml(sub)}</span>` : "");
+  b.addEventListener("click", onClick);
+  return b;
+}
+
+function renderSpecButtons() {
+  const box = $("#drawActions");
+  box.innerHTML = "";
+  if (!state.current) return;
+  if (!state.current.specs.length) {
+    box.innerHTML = `<div class="empty-tip">该商品无公开随机包规格，未开放拆卡；可切换到「卡表」浏览全部卡牌。</div>`;
+    return;
+  }
+  // 下拉手风琴：全宽规格行，点击展开 单包/十连/整盒（整盒按真实盒规抽数，无盒规的规格不提供）
+  for (const sp of state.current.specs) {
+    const wrap = document.createElement("div");
+    wrap.className = "spec-acc" + (state.expandedSpec === sp.key ? " open" : "");
+    const toggle = document.createElement("button");
+    toggle.className = `btn pack-toggle ${specBtnClass(sp)}`;
+    toggle.innerHTML = `
+      <span class="pt-left">
+        <span class="btn-title">${escapeHtml(specRowLabel(sp))}</span>
+        <span class="btn-sub">${escapeHtml(sp.note || sp.label)}${sp.price ? ` · ${escapeHtml(sp.price)}` : ""}</span>
+      </span>
+      <span class="pt-caret">${state.expandedSpec === sp.key ? "▴" : "▾"}</span>`;
+    toggle.addEventListener("click", () => {
+      state.expandedSpec = state.expandedSpec === sp.key ? "" : sp.key;
+      renderSpecButtons();
+    });
+    wrap.appendChild(toggle);
+    const drop = document.createElement("div");
+    drop.className = "spec-drop";
+    if (state.expandedSpec !== sp.key) drop.hidden = true;
+    drop.appendChild(drawBtn(specBtnClass(sp), "单包", "",
+      () => { state.spec = sp; state.expandedSpec = sp.key; renderSpecButtons(); draw(sp, 1); },
+      state.spec && state.spec.key === sp.key));
+    drop.appendChild(drawBtn("draw-ten", "十连", "", () => draw(sp, 10)));
+    if (sp.boxPacks) drop.appendChild(drawBtn("draw-box", "整盒", "", () => draw(sp, sp.boxPacks)));
+    wrap.appendChild(drop);
+    box.appendChild(wrap);
+  }
+  const ghost = document.createElement("div");
+  ghost.className = "spec-ghost";
+  ghost.appendChild(drawBtn("btn-ghost", "目标卡计算", "", showExpectedCost));
+  ghost.appendChild(drawBtn("btn-ghost", "概率公示", "", showProbabilities));
+  box.appendChild(ghost);
+}
+
+/* ---------------- 抽卡 ---------------- */
+async function draw(spec, packs) {
+  if (!state.current || state.drawing) return;
+  state.drawing = true;
+  $$(".draw-actions .btn").forEach((b) => (b.disabled = true));
+  try {
+    const data = await DATA.draw(state.current.id, spec, packs);
+    state.packs = data.packs;
+    state.packIdx = 0;
+    state.flipped = data.packs.map(() => new Set());
+    // 抽卡记录/统计/收藏在卡牌全部翻开后才写入（见 maybeRecordPack）
+    state.pending = { spec, recorded: data.packs.map(() => false) };
+    openOverlay(spec, packs);
+  } catch (e) {
+    toast(`拆卡失败：${e.message}`, 3000);
+  } finally {
+    state.drawing = false;
+    $$(".draw-actions .btn").forEach((b) => (b.disabled = false));
+  }
+}
+
+/* ---------------- 开包遮罩 ---------------- */
+function openOverlay(spec, packs) {
+  const ov = $("#overlay");
+  ov.hidden = false;
+  $("#packStage").hidden = false;
+  $("#cardsStage").hidden = true;
+  $("#btnReport").hidden = true;
+  $("#btnAgain").hidden = true;
+  $("#boxSummary").hidden = true;
+  $("#boxSummary").innerHTML = "";
+  const pack = $("#pack");
+  pack.classList.remove("burst");
+  pack.style.display = "";
+  $("#packLabel").textContent = `${state.current.name} · ${spec.label}`;
+  pack.dataset.specKey = spec.key;
+  pack.dataset.packs = packs;
+  $("#packStage").querySelector(".pack-hint").textContent = "点击卡包 撕开！";
+}
+
+function burstPack() {
+  const pack = $("#pack");
+  if (pack.classList.contains("burst")) return;
+  pack.classList.add("burst");
+  setTimeout(showCards, 480);
+}
+
+function showCards() {
+  $("#packStage").hidden = true;
+  const stage = $("#cardsStage");
+  stage.hidden = false;
+  const multi = state.packs.length > 1;
+  $("#packNav").hidden = !multi;
+  if (multi) renderPackTabs();
+  renderBoxSummary();
+  $("#btnReport").hidden = false;
+  renderPackRow();
+}
+
+/* 汇总条：多包连开时统计（含花费），仅在最后一个页码显示 */
+function renderBoxSummary() {
+  const el = $("#boxSummary");
+  const last = state.packIdx === state.packs.length - 1;
+  $("#btnAgain").hidden = !last;
+  if (state.packs.length <= 1 || !last) { el.hidden = true; return; }
+  const cnt = {};
+  for (const pack of state.packs) for (const c of pack) {
+    const r = c.rarity || "N";
+    cnt[r] = (cnt[r] || 0) + 1;
+  }
+  const rrUp = RARITY_ORDER.slice(0, RARITY_ORDER.indexOf("RR") + 1)
+    .reduce((a, r) => a + (cnt[r] || 0), 0);
+  const best = bestRarity(cnt);
+  const sp = (state.pending && state.pending.spec) || state.spec;
+  const money = sp && sp.priceCny ? sp.priceCny * state.packs.length : 0;
+  const chips = RARITY_ORDER.filter((r) => cnt[r])
+    .map((r) => `<span style="color:${RARITY_COLOR[r]}">${r}×${cnt[r]}</span>`).join(" · ");
+  // 卡值/回本：该弹有价格数据时才显示（快照未覆盖的弹不占位）
+  const valLine = setPriced(state.packs[0][0].setCode)
+    ? ` · ${valueLineHtml(packValue(state.packs.flat()), money)}` : "";
+  el.innerHTML = `
+    <div class="box-head"><b>${state.packs.length} 包汇总</b>
+      <span>RR+ 共 <b>${rrUp}</b> 张 · 最高 <b style="color:${RARITY_COLOR[best] || ""}">${best || "—"}</b>
+      ${money ? ` · 合计 ¥${fmtMoney(money)}` : ""}${valLine}</span></div>
+    <div class="box-chips">${chips}</div>`;
+  el.hidden = false;
+}
+
+/* 页码分页：严格单行。≤7 包全显；更多时 1 … P-1 P P+1 … N 窗口（近边界补页） */
+function packPagesList(n, cur) {
+  if (n <= 7) return Array.from({ length: n }, (_, i) => i + 1);
+  if (cur <= 3) return [1, 2, 3, 4, 5, "…", n];                    // 首部：1 2 3 4 5 … n
+  if (cur >= n - 2) return [1, "…", n - 4, n - 3, n - 2, n - 1, n]; // 尾部：1 … n-4 … n
+  return [1, "…", cur - 1, cur, cur + 1, "…", n];                   // 中部：1 … p-1 p p+1 … n
+}
+
+function renderPackTabs() {
+  const tabs = $("#packTabs");
+  const n = state.packs.length;
+  const cur = state.packIdx + 1;
+  tabs.innerHTML = packPagesList(n, cur).map((p) =>
+    p === "…"
+      ? `<span class="pack-tab ellipsis">…</span>`
+      : `<button class="pack-tab${p === cur ? " active" : ""}" data-p="${p}">${p}</button>`
+  ).join("");
+  $$("#packTabs .pack-tab[data-p]").forEach((b) =>
+    b.addEventListener("click", () => {
+      state.packIdx = Number(b.dataset.p) - 1;
+      renderPackTabs();
+      renderPackRow();
+    }));
+}
+
+function renderPackRow() {
+  const row = $("#cardsRow");
+  row.innerHTML = "";
+  const pack = state.packs[state.packIdx];
+  const auto = $("#autoFlip").checked;
+  const stagger = auto
+    ? Math.min(36, Math.floor(600 / Math.max(pack.length, 1)))
+    : Math.min(90, Math.floor(1200 / Math.max(pack.length, 1)));
+  pack.forEach((c, i) => {
+    // 已翻过的卡回看时直接显示正面（无动画、无需重翻）
+    const already = state.flipped[state.packIdx].has(i);
+    const el = document.createElement("div");
+    el.className = "gcard dealt" + (already ? "" : " back") + (auto && !already ? " fast" : "");
+    el.dataset.rarity = c.rarity || "N";
+    el.style.animationDelay = already ? "0ms" : `${i * stagger}ms`;
+    el.innerHTML = `
+      <div class="gcard-inner">
+        <div class="gface back"></div>
+        <div class="gface front"><img decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)"></div>
+      </div>`;
+    el.addEventListener("click", () => flipCard(el, i));
+    row.appendChild(el);
+  });
+  $("#navPrev").disabled = state.packIdx === 0;
+  $("#navNext").disabled = state.packIdx === state.packs.length - 1;
+  renderPackSummary();
+  renderBoxSummary();
+  if (auto && pack.some((_, i) => !state.flipped[state.packIdx].has(i))) {
+    setTimeout(() => flipAll(), stagger * pack.length + 420);
+  }
+}
+
+function renderPackSummary() {
+  let box = $(".pack-summary");
+  if (!box) {
+    box = document.createElement("div");
+    box.className = "pack-summary";
+    $("#cardsRow").after(box);
+  }
+  const pack = state.packs[state.packIdx];
+  const done = state.flipped[state.packIdx].size;
+  const line1 = `第 ${state.packIdx + 1}/${state.packs.length} 包${state.spec ? ` · ${state.spec.label}` : ""}`;
+  if (done < pack.length) { box.innerHTML = `<div class="ps-line1">${line1}</div>`; return; }
+  maybeRecordPack(state.packIdx);
+  const cnt = {};
+  pack.forEach((c) => { const r = c.rarity || "N"; cnt[r] = (cnt[r] || 0) + 1; });
+  const chips = RARITY_ORDER.filter((r) => cnt[r])
+    .map((r) => `<span style="color:${RARITY_COLOR[r]};font-weight:800">${r}×${cnt[r]}</span>`).join("　");
+  const sp = (state.pending && state.pending.spec) || state.spec;
+  const money = sp && sp.priceCny ? sp.priceCny : 0;
+  const valLine = setPriced(pack[0].setCode) ? `<div class="ps-value">${valueLineHtml(packValue(pack), money)}</div>` : "";
+  box.innerHTML = `<div class="ps-line1">${line1}</div><div class="ps-line2">${chips}</div>${valLine}`;
+}
+
+function flipCard(el, i) {
+  if (!el.classList.contains("back")) return;
+  el.classList.remove("back");
+  state.flipped[state.packIdx].add(i);
+  const r = el.dataset.rarity;
+  if (RARITY_ORDER.indexOf(r) <= RARITY_ORDER.indexOf("RR")) {
+    const burst = document.createElement("div");
+    burst.className = "rarity-burst";
+    el.appendChild(burst);
+    setTimeout(() => burst.remove(), 1100);
+  }
+  renderPackSummary();
+}
+
+function flipAll() {
+  const row = $$("#cardsRow .gcard");
+  const gap = row[0] && row[0].classList.contains("fast") ? 22 : 60;
+  row.forEach((el, i) => setTimeout(() => flipCard(el, i), i * gap));
+}
+
+/* 该包全部翻开后才写入抽卡记录、统计与收藏 */
+function maybeRecordPack(pi) {
+  const p = state.pending;
+  if (!p || p.recorded[pi]) return;
+  if (state.flipped[pi].size < state.packs[pi].length) return;
+  p.recorded[pi] = true;
+  const cards = state.packs[pi];
+  addHistory(p.spec, 1, cards);
+  addStats(state.current.id, cards, 1);
+  addSpend(state.current.id, p.spec, 1);
+  addColl(state.current.id, cards);
+}
+
+/* 关闭遮罩时把未翻完的包静默入账，保证统计不失真 */
+function recordUnfinished() {
+  const p = state.pending;
+  if (!p) return;
+  p.recorded.forEach((done, pi) => {
+    if (done) return;
+    p.recorded[pi] = true;
+    const cards = state.packs[pi];
+    addHistory(p.spec, 1, cards);
+    addStats(state.current.id, cards, 1);
+    addSpend(state.current.id, p.spec, 1);
+    addColl(state.current.id, cards);
+  });
+  state.pending = null;
+}
+
+function closeOverlay() { recordUnfinished(); $("#overlay").hidden = true; }
+
+/* ---------------- 历史记录 ---------------- */
+function addHistory(spec, packs, result) {
+  const rec = { time: new Date(), packs, setName: state.current ? state.current.name : "", specLabel: spec.label, money: spec && spec.priceCny ? spec.priceCny * packs : 0, flat: result.flat() };
+  state.history.unshift(rec);
+  if (state.history.length > 30) state.history.pop();
+  store.set("ptcg_history", state.history);
+  renderHistory();
+}
+
+function loadHistory() {
+  state.history = (store.get("ptcg_history", []) || []).map((r) => ({ ...r, time: new Date(r.time) }));
+  if (state.history.length) renderHistory();
+}
+
+function renderHistory() {
+  const box = $("#history");
+  if (!state.history.length) {
+    box.innerHTML = `<div class="empty-tip">还没有记录，去拆一发吧！</div>`;
+    return;
+  }
+  box.innerHTML = "";
+  for (const rec of state.history) {
+    const div = document.createElement("div");
+    div.className = "draw-record card-glass";
+    div.innerHTML = `
+      <div class="record-head">
+        <b>${escapeHtml(rec.setName || (state.current ? state.current.name : ""))} · ${escapeHtml(rec.specLabel)} × ${rec.packs} 包</b>
+        <span>${rec.money ? `¥${fmtMoney(rec.money)} · ` : ""}${rec.time.toLocaleTimeString("zh-CN")}</span>
+      </div>
+      <div class="record-cards"></div>`;
+    const rc = div.querySelector(".record-cards");
+    for (const c of rec.flat) {
+      const m = document.createElement("div");
+      m.className = "mini-card";
+      m.dataset.rarity = c.rarity || "N";
+      m.innerHTML = `
+        <div class="frame"><img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)"></div>
+        <div class="mc-name">${escapeHtml(c.cardName)}</div>
+        <div class="mc-rar" style="color:${RARITY_COLOR[c.rarity] || RARITY_COLOR.N}">${RARITY_LABEL[c.rarity] || "其他"}</div>`;
+      m.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
+      rc.appendChild(m);
+    }
+    upgradeRemoteImages(rc);
+    box.appendChild(div);
+  }
+}
+
+/* ---------------- 统计 ---------------- */
+function renderStats() {
+  if (!state.current) return;
+  const s = getStats(state.current.id);
+  $("#stPacks").textContent = s.packs;
+  $("#stCards").textContent = s.cards;
+  const rrUp = RARITY_ORDER.slice(0, RARITY_ORDER.indexOf("RR") + 1).reduce((a, r) => a + (s.rarities[r] || 0), 0);
+  $("#stRR").textContent = rrUp;
+  const best = bestRarity(s.rarities);
+  const el = $("#stBest");
+  el.textContent = best || "—";
+  el.style.color = best ? RARITY_COLOR[best] : "";
+  const sp = getSpend(state.current.id);
+  $("#stSpend").textContent = `¥${fmtMoney(sp.money)}`;
+  renderDist(s.rarities);
+}
+
+/* 稀有度出货分布（本弹）：纯 CSS 条形，复用稀有度配色 */
+function renderDist(rarities) {
+  const card = $("#distCard"), bars = $("#distBars");
+  if (!card) return;
+  const rows = RARITY_ORDER.filter((r) => rarities[r]);
+  if (!rows.length) { card.hidden = true; return; }
+  const max = Math.max(...rows.map((r) => rarities[r]));
+  bars.innerHTML = rows.map((r) => `
+    <div class="dist-row">
+      <span class="dist-r" style="color:${RARITY_COLOR[r] || RARITY_COLOR.N}">${r}</span>
+      <span class="dist-bar"><i style="width:${(rarities[r] / max) * 100}%;background:${RARITY_COLOR[r] || RARITY_COLOR.N}"></i></span>
+      <span class="dist-n">${rarities[r]}</span>
+    </div>`).join("");
+  card.hidden = false;
+}
