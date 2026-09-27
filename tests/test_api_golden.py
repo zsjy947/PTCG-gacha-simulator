@@ -249,11 +249,17 @@ class TestGoldenErrors(unittest.TestCase):
         self.assertEqual(r.status_code, 400)
         self.assertEqual(r.get_json(), {"error": "非法参数"})
 
-    def test_draw_packs_non_numeric_baseline(self):
-        """BE-001 基线行为记录：packs 非数字当前 500（阶段 1 修复为 400）。
-        修复本条时同步更新本断言并在台账闭环。"""
-        r = self.client.post("/api/draw", json=_draw_body(SET_SV, spec="sv5", packs="abc"))
-        self.assertEqual(r.status_code, 500)  # 基线：未捕获 ValueError
+    def test_draw_packs_non_numeric(self):
+        """BE-001：packs 非数字（基线曾为未捕获 500）修复后按非法参数 400。"""
+        for bad in ("abc", [1, 2], {"a": 1}):
+            with self.subTest(packs=bad):
+                r = self.client.post("/api/draw", json=_draw_body(SET_SV, spec="sv5", packs=bad))
+                self.assertEqual(r.status_code, 400)
+                self.assertEqual(r.get_json(), {"error": "非法参数"})
+        # 浮点数沿用基线行为：int 截断为包数（1.5 → 1 包），不算非法
+        status, body = _post_draw(self.client, SET_SV, spec="sv5", packs=1.5, seed=99)
+        self.assertEqual(status, 200)
+        self.assertEqual(len(body["packs"]), 1)
 
 
 if __name__ == "__main__":

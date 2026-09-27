@@ -18,7 +18,10 @@ def load_index() -> list:
     path = DATA / "sets_index.json"
     if not path.exists():
         return []
-    return json.loads(path.read_text(encoding="utf-8"))
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):  # 读取失败/JSON 损坏：按无数据处理（BE-002）
+        return []
 
 
 def _card_urls(card: dict) -> dict:
@@ -90,7 +93,10 @@ def api_draw():
     body = request.get_json(silent=True) or {}
     set_id = str(body.get("set") or "")
     spec = body.get("spec") or None
-    packs = max(1, min(int(body.get("packs") or 1), 40))
+    try:  # packs 非数字（如 "abc"）按非法参数处理，而非 500（BE-001）
+        packs = max(1, min(int(body.get("packs") or 1), 40))
+    except (TypeError, ValueError, OverflowError):
+        return jsonify({"error": "非法参数"}), 400
     if not _SAFE.match(set_id):
         return jsonify({"error": "非法弹代码"}), 400
     if not config.set_specs(set_id):
@@ -131,7 +137,11 @@ def data_manifest():
         path = DATA / "manifest.json"
     if not path.exists():
         return jsonify({"sets": {}})
-    return current_app.response_class(path.read_text(encoding="utf-8"), mimetype="application/json")
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError:  # 文件存在但不可读：按无清单处理（BE-002）
+        return jsonify({"sets": {}})
+    return current_app.response_class(text, mimetype="application/json")
 
 
 def api_prices():
@@ -146,7 +156,11 @@ def api_prices():
         path = DATA / "prices" / "index.json"
     if not path.exists():
         return jsonify({"generated": None, "count": 0, "prices": {}})
-    return current_app.response_class(path.read_text(encoding="utf-8"), mimetype="application/json")
+    try:
+        text = path.read_text(encoding="utf-8")
+    except OSError:  # 快照存在但不可读：按无快照处理（BE-002）
+        return jsonify({"generated": None, "count": 0, "prices": {}})
+    return current_app.response_class(text, mimetype="application/json")
 
 
 def register(app):

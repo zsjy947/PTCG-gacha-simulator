@@ -29,8 +29,8 @@
 
 | ID | 位置（基线） | 问题 | 维度 | 处置 | 状态 | 验证 |
 |---|---|---|---|---|---|---|
-| BE-001 | app.py 359 | /api/draw packs 非数字 → 500 | 崩溃级 | 加守卫 → 400 | 待处理 | |
-| BE-002 | app.py 267-271/453/469 | 文件加载无异常保护 | 崩溃级 | 加 (OSError, ValueError) 防御 | 待处理 | |
+| BE-001 | app.py 359 | /api/draw packs 非数字 → 500 | 崩溃级 | 加守卫 → 400 {"error":"非法参数"}；浮点沿用 int 截断 | 已闭环 | golden 测试：abc/列表/字典 → 400；1.5 → 1 包 200 |
+| BE-002 | app.py 267-271/453/469 | 文件加载无异常保护 | 崩溃级 | load_index 防御→[]；data-manifest/prices 读取失败→各自缺文件形态 | 已闭环 | 全套 golden 回归全绿 |
 | BE-003 | app.py 125-133/507-515 | _dir_bytes/_dir_size 重复 | 重复逻辑 | 合并（_dir_bytes 保留 LRU 内部用，cache_info 用 _dir_size，并存至 BE-003 修复提交合并） | 已闭环 | 阶段1 合并提交：仅保留 _dir_size，_lru_enforce/cache_info 共用；golden 全绿 |
 | BE-004 | app.py 530-544 | cache_clear 与在途下载竞态 | 并发 | 仅记录不改（修复需改锁时序） | 保留（时序契约） | |
 | BE-005 | app.py 101 | X-Forwarded-For 可伪造 | 安全 | 仅记录不改（仅绑定 127.0.0.1） | 保留（威胁模型不成立） | |
@@ -38,10 +38,10 @@
 | BE-007 | fetch_data.py 130-244 | main() 115 行 | 拆分 | 拆 split_151/expand_sets/insert_151_entries/write_manifest；print 与退出码逐字保留 | 已闭环 | 本地干跑输出与基线逐行一致（索引/清单重写后与 git 版本字节一致） |
 | BE-008 | store.py 14-19 / fetch_data.py 93-97 | atomic_write_json/_md5 双实现 | 重复逻辑 | 不合并，加一致性测试 | 已闭环 | tests/test_consistency.py：双实现同输入字节一致 |
 | BE-009 | app.py 280-294 等 | spec_brief 三平台三实现 | 重复逻辑 | 不合并，加等价测试 | 已闭环 | tests/test_consistency.py：全可拆弹公共字段逐一等价 |
-| BE-010 | kyo.py 10/78 | docstring 0.4s 与实现 0.6s 不符 | 文档 | 修正注释（无感） | 待处理 | |
+| BE-010 | kyo.py 10/78 | docstring 0.4s 与实现 0.6s 不符 | 文档 | 修正注释（无感） | 已闭环 | kyo.py 文档改为 0.6s，与 KyoClient 默认一致 |
 | BE-011 | sync.py 23 / cli.py 230 | DEFAULT_BUDGET 120 vs CLI 600 | 文档 | 只在文档/注释说明，不改默认值 | 已闭环 | DEFAULT_BUDGET 注释说明两处默认值刻意不同、均未改动 |
-| BE-012 | cli.py 148 | 文件句柄未关闭 | 崩溃级 | 改 with-open | 待处理 | |
-| BE-013 | app.py _cached_fetch | .part 残留文件 | 资源 | 补清理（try/finally） | 待处理 | |
+| BE-012 | cli.py 148 | 文件句柄未关闭 | 崩溃级 | 改 with-open | 已闭环 | pricetool 单测全绿 + value 命令冒烟 |
+| BE-013 | app.py _cached_fetch | .part 残留文件 | 资源 | 补清理（finally：成功替换后 no-op，异常/中断即删） | 已闭环 | 代码审查 + golden/单测全绿（网络路径不进自动化） |
 | BE-014 | .github/workflows/ci.yml | pricetool 测试未接入 CI | 测试闭环 | 接入 | 待处理 | |
 | BE-015 | 仓库根 | 无 requirements.txt | 工程规范 | 新增 | 待处理 | |
 | BE-016 | README API 清单 | 缺 6 个路由文档 | 文档 | 补全 | 待处理 | |

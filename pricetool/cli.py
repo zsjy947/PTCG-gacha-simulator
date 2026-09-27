@@ -145,7 +145,8 @@ def cmd_table(args) -> int:
 
 def cmd_value(args) -> int:
     try:
-        data = json.loads(open(args.file, encoding="utf-8").read())
+        with open(args.file, encoding="utf-8") as f:  # with-open 确保句柄释放（BE-012）
+            data = json.loads(f.read())
     except (OSError, ValueError) as exc:
         print(f"!! 读取收藏文件失败: {exc}")
         return 2

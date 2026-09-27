@@ -134,11 +134,11 @@ def _cached_fetch(url: str, dest: Path, timeout: tuple = _OUT_TIMEOUT) -> bool:
         if dest.exists() and dest.stat().st_size > 0:
             return True
         for attempt in range(2):
+            tmp = dest.with_suffix(dest.suffix + ".part")
             try:
                 r = _http.get(url, timeout=timeout)
                 if r.status_code == 200 and r.content:
                     dest.parent.mkdir(parents=True, exist_ok=True)
-                    tmp = dest.with_suffix(dest.suffix + ".part")
                     tmp.write_bytes(r.content)
                     tmp.replace(dest)
                     _lru_after_download(len(r.content))
@@ -149,6 +149,13 @@ def _cached_fetch(url: str, dest: Path, timeout: tuple = _OUT_TIMEOUT) -> bool:
                 if attempt == 1:
                     raise
                 time.sleep(0.5)
+            finally:
+                # 中断/异常不残留 .part 文件（否则计入缓存扫描体积，且同地址重下无法原子替换）（BE-013）
+                if tmp.exists():
+                    try:
+                        tmp.unlink()
+                    except OSError:
+                        pass
         return False
 
 

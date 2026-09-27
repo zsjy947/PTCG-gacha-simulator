@@ -7,7 +7,7 @@
                                               搜卡（search 同时匹配卡名与弹名，含 set 子串）
     GET /cards/{id}/price/single               单卡详情价（与列表价口径有差异，见 sync.py 校准说明）
 
-礼貌抓取：默认 0.4s 最小间隔 + 3 次重试退避。已知接口怪癖：
+礼貌抓取：默认 0.6s 最小间隔 + 3 次重试退避。已知接口怪癖：
 - /card-queries 不支持按弹过滤参数（set/setCode 均被忽略），只有 search 生效；
   且按弹名搜索的索引不完整（30TH A 漏 137 喷火龙），完整枚举需按卡名补搜（见 sync.py）。
 - 价格口径（2026-09 抽样 14 张卡实测）：detail 的 jihuansheMarketPrice 恒等于
