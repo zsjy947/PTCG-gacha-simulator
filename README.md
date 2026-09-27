@@ -99,8 +99,15 @@ PTCG/
 | `GET /api/sets/<id>/cards` | 某弹完整卡表 |
 | `GET /api/sets/<id>/probabilities` | 某弹全部规格的概率表 |
 | `POST /api/draw` | 开包 `{set, spec, packs}` |
-| `GET /api/card/<弹>/<编号>` | 卡牌详情（代理缓存） |
-| `GET /img/<弹>/<编号>` · `GET /icon/<弹>` | 图片代理（磁盘缓存） |
+| `GET /api/card/<弹>/<编号>` | 卡牌详情（代理缓存 mik 详情接口） |
+| `GET /img/<弹>/<编号>` · `GET /thumb/<弹>/<编号>` · `GET /icon/<弹>` | 图片/缩略图/弹图标代理（磁盘缓存，webp 缩略图缺 Pillow 时回退原图） |
+| `GET /api/health` | 健康检查 `{"ok":true,"time":…}` |
+| `GET /api/version` | 应用版本 `{"version":…}` |
+| `GET /api/data-manifest` | 内置数据清单（各弹 md5，供前端「卡表数据更新」做增量比对） |
+| `GET /api/prices` | 内置卡价静态快照（pricetool sync 生成，无快照时返回空表） |
+| `GET /api/store/get` · `POST /api/store/set` | 抽卡记录/收藏册磁盘镜像（整包 `{"data":{…}}`，只补缺失键） |
+| `GET /api/cache/info` · `POST /api/cache/clear` | 图片缓存占用查询 / 清空 |
+| `GET /static/gacha.js` | shared/gacha.js 同源分发（与 Python 引擎同种子对拍的 JS 拆卡引擎） |
 
 ## 更新记录
 

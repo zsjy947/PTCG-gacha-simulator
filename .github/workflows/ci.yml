@@ -14,9 +14,12 @@ jobs:
         with:
           python-version: "3.11"
       - name: 安装依赖
-        run: pip install flask requests pillow
+        run: |
+          pip install -r requirements.txt
       - uses: actions/setup-node@v4
         with:
           node-version: "20"
-      - name: 引擎一致性测试（Python ↔ JS 同种子对拍 + 统计落位）
+      - name: 引擎一致性测试（Python ↔ JS 同种子对拍 + 统计落位 + API golden 快照 + 边界矩阵 + 跨实现一致性）
         run: python -m unittest discover -s tests -v
+      - name: pricetool 单元测试（价格口径/匹配/过滤/估值）
+        run: python -m unittest discover -s pricetool/tests -v

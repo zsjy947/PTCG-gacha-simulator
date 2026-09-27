@@ -42,9 +42,9 @@
 | BE-011 | sync.py 23 / cli.py 230 | DEFAULT_BUDGET 120 vs CLI 600 | 文档 | 只在文档/注释说明，不改默认值 | 已闭环 | DEFAULT_BUDGET 注释说明两处默认值刻意不同、均未改动 |
 | BE-012 | cli.py 148 | 文件句柄未关闭 | 崩溃级 | 改 with-open | 已闭环 | pricetool 单测全绿 + value 命令冒烟 |
 | BE-013 | app.py _cached_fetch | .part 残留文件 | 资源 | 补清理（finally：成功替换后 no-op，异常/中断即删） | 已闭环 | 代码审查 + golden/单测全绿（网络路径不进自动化） |
-| BE-014 | .github/workflows/ci.yml | pricetool 测试未接入 CI | 测试闭环 | 接入 | 待处理 | |
-| BE-015 | 仓库根 | 无 requirements.txt | 工程规范 | 新增 | 待处理 | |
-| BE-016 | README API 清单 | 缺 6 个路由文档 | 文档 | 补全 | 待处理 | |
+| BE-014 | .github/workflows/ci.yml | pricetool 测试未接入 CI | 测试闭环 | CI 增 discover -s pricetool/tests | 已闭环 | 本地两套 discover 全绿，CI 同命令 |
+| BE-015 | 仓库根 | 无 requirements.txt | 工程规范 | 新增（flask/requests/pillow，CI 同步改用） | 已闭环 | CI 安装步骤引用 |
+| BE-016 | README API 清单 | 缺 6 个路由文档 | 文档 | 补全至 17 路由全量（含 /thumb、health、version、data-manifest、prices、store、cache、gacha.js） | 已闭环 | 与 CONTRACT.md R1 一致 |
 | BE-017 | kyo.py 79 / app.py 85 | Session 不关闭 | 资源 | 仅记录（进程生命周期） | 保留（进程级单例） | |
 | BE-018 | 三处 normIdx 镜像 | 键规范三实现 | 兼容 | 加一致性测试 | 已闭环 | tests/test_consistency.py：前端 normIdx（node 执行真实源码）↔ norm_index ↔ zfill 全值一致 |
 
