@@ -60,7 +60,8 @@ _lru_size = -1            # 缓存目录字节数（-1 未初始化；下载/淘
 _dl_since_enforce = 0     # 距上次 LRU 全量扫描的回源次数（扫描有成本，节流执行）
 
 
-def _dir_bytes(path: Path) -> int:
+def _dir_size(path: Path) -> int:
+    """递归统计目录字节数（LRU 初始化与 /api/cache/info 共用）。"""
     total = 0
     for p in path.rglob("*"):
         try:
@@ -99,7 +100,7 @@ def _lru_enforce():
     global _lru_size
     with _lru_lock:
         if _lru_size < 0:
-            _lru_size = _dir_bytes(IMG_CACHE)
+            _lru_size = _dir_size(IMG_CACHE)
         if _lru_size <= IMG_CACHE_MB * 1048576:
             return
         files = [(p.stat().st_mtime, p) for p in IMG_CACHE.rglob("*") if p.is_file()]
@@ -203,15 +204,6 @@ def _fetch_detail(code: str, idx: str) -> bool:
 
 
 # ---------------------------------------------------------------- 缓存路由
-def _dir_size(path: Path) -> int:
-    total = 0
-    for p in path.rglob("*"):
-        try:
-            if p.is_file():
-                total += p.stat().st_size
-        except OSError:
-            pass
-    return total
 
 
 def cache_info():
