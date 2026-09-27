@@ -453,6 +453,22 @@ def data_manifest():
     return app.response_class(path.read_text(encoding="utf-8"), mimetype="application/json")
 
 
+@app.get("/api/prices")
+def api_prices():
+    """内置卡价静态快照（pricetool sync 生成 data/prices/index.json，随包发布）。
+
+    非实时行情：更新需重新运行 python -m pricetool sync 并重打包。
+    无快照（旧版本数据）时返回空表，前端隐藏卡值/回本栏。
+    """
+    src = BUNDLED_DATA if getattr(sys, "frozen", False) else DATA
+    path = src / "prices" / "index.json"
+    if not path.exists():
+        path = DATA / "prices" / "index.json"
+    if not path.exists():
+        return jsonify({"generated": None, "count": 0, "prices": {}})
+    return app.response_class(path.read_text(encoding="utf-8"), mimetype="application/json")
+
+
 # ---- 抽卡记录/收藏册持久化：前端把 localStorage 的 ptcg_* 键镜像到这里 ----
 USER_STORE = DATA / "user_store.json"
 _store_lock = threading.Lock()

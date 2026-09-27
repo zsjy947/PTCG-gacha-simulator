@@ -197,7 +197,15 @@ def cmd_sync(args) -> int:
         ttl_hours=args.ttl,
         refine_threshold=threshold,
         budget=args.budget,
+        min_cny=args.min_cny,
     )
+
+
+def cmd_reindex(args) -> int:
+    from .sync import write_cny_index
+    n = write_cny_index(args.min_cny)
+    print(f">> 快照已重建：{n} 张卡" + (f"（仅保留人民币价 > ¥{args.min_cny:g}）" if args.min_cny else ""))
+    return 0
 
 
 def main(argv=None) -> int:
@@ -217,8 +225,14 @@ def main(argv=None) -> int:
     p.add_argument("--refine-threshold", type=float, default=50.0, help="高于该价的卡调详情接口拿人民币价与集换社链接（默认 50）")
     p.add_argument("--refine-all", action="store_true", help="每张卡都调详情接口（慢，约 0.6s/张，但全部拿到人民币价）")
     p.add_argument("--no-refine", action="store_true", help="跳过详情精修")
+    p.add_argument("--min-cny", type=float, default=None,
+                   help="只保留人民币价高于该值的卡（如 5：低于 5 元的忽略不计），快照与落盘同步生效")
     p.add_argument("--budget", type=int, default=600, help="单次运行请求上限（防触发源站限流，默认 600）")
     p.set_defaults(func=cmd_sync)
+
+    p = sub.add_parser("reindex", help="从已有价格文件重建 data/prices/index.json 快照")
+    p.add_argument("--min-cny", type=float, default=None, help="只保留人民币价高于该值的卡")
+    p.set_defaults(func=cmd_reindex)
 
     p = sub.add_parser("query", help="单卡查价（中文名/英文名/setCode__卡号）")
     p.add_argument("term")

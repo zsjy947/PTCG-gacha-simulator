@@ -314,6 +314,10 @@ function clearSpendAll() {
 }
 function fmtMoney(n) { return Number.isInteger(n) ? String(n) : n.toFixed(2); }
 
+/* ---------------- 卡价（pricetool 离线快照，随包内置；无数据时相关栏自动隐藏） ---------------- */
+let PRICE_MAP = null;      // {setCode__cardIndex: 人民币价}
+const PRICE_SETS = new Set();
+
 function renderSpend() {
   const info = $("#spendInfo"), list = $("#spendList"), toggle = $("#spendToggle");
   if (!info) return;
@@ -337,6 +341,42 @@ function renderSpend() {
 }
 
 function getColl() { return store.get(collKey(), {}); }
+
+/* 卡号归一（与服务端 store.norm_index 一致：纯数字补零到三位） */
+function normIdx(v) {
+  const s = String(v ?? "").trim();
+  return /^\d+$/.test(s) ? s.padStart(3, "0") : s;
+}
+async function loadPrices() {
+  if (ASSET) return;
+  try {
+    const d = await api("/api/prices");
+    PRICE_MAP = d.prices || {};
+    for (const k of Object.keys(PRICE_MAP)) PRICE_SETS.add(k.split("__", 1)[0]);
+    // 快照晚于首屏渲染到达时，刷新正在显示的收藏册（卡牌总价/价格排序）
+    if (document.querySelector(".tab.active")?.dataset.tab === "collection") renderCollection();
+  } catch { PRICE_MAP = null; }
+}
+function priceOf(setCode, cardIndex) {
+  if (!PRICE_MAP) return null;
+  return PRICE_MAP[`${setCode}__${normIdx(cardIndex)}`] ?? null;
+}
+function packValue(cards) {
+  let v = 0;
+  for (const c of cards) v += priceOf(c.setCode, c.cardIndex) || 0;
+  return Math.round(v * 100) / 100;
+}
+function setPriced(setCode) { return PRICE_SETS.has(setCode); }
+
+/* 卡值 + 回本率片段（money 为该次开包花费，未计价规格不显示回本） */
+function valueLineHtml(value, money) {
+  let s = `卡值 <b class="bv">¥${fmtMoney(value)}</b>`;
+  if (money > 0) {
+    const rate = Math.round((value / money) * 100);
+    s += ` · 回本 <b class="bv ${rate >= 100 ? "val-up" : "val-down"}">${rate}%</b>`;
+  }
+  return s;
+}
 function addColl(setId, cards) {
   const coll = getColl();
   const box = coll[setId] || {};
@@ -611,10 +651,13 @@ function renderBoxSummary() {
   const money = sp && sp.priceCny ? sp.priceCny * state.packs.length : 0;
   const chips = RARITY_ORDER.filter((r) => cnt[r])
     .map((r) => `<span style="color:${RARITY_COLOR[r]}">${r}×${cnt[r]}</span>`).join(" · ");
+  // 卡值/回本：该弹有价格数据时才显示（快照未覆盖的弹不占位）
+  const valLine = setPriced(state.packs[0][0].setCode)
+    ? ` · ${valueLineHtml(packValue(state.packs.flat()), money)}` : "";
   el.innerHTML = `
     <div class="box-head"><b>${state.packs.length} 包汇总</b>
       <span>RR+ 共 <b>${rrUp}</b> 张 · 最高 <b style="color:${RARITY_COLOR[best] || ""}">${best || "—"}</b>
-      ${money ? ` · 合计 ¥${fmtMoney(money)}` : ""}</span></div>
+      ${money ? ` · 合计 ¥${fmtMoney(money)}` : ""}${valLine}</span></div>
     <div class="box-chips">${chips}</div>`;
   el.hidden = false;
 }
@@ -692,7 +735,10 @@ function renderPackSummary() {
   pack.forEach((c) => { const r = c.rarity || "N"; cnt[r] = (cnt[r] || 0) + 1; });
   const chips = RARITY_ORDER.filter((r) => cnt[r])
     .map((r) => `<span style="color:${RARITY_COLOR[r]};font-weight:800">${r}×${cnt[r]}</span>`).join("　");
-  box.innerHTML = `<div class="ps-line1">${line1}</div><div class="ps-line2">${chips}</div>`;
+  const sp = (state.pending && state.pending.spec) || state.spec;
+  const money = sp && sp.priceCny ? sp.priceCny : 0;
+  const valLine = setPriced(pack[0].setCode) ? `<div class="ps-value">${valueLineHtml(packValue(pack), money)}</div>` : "";
+  box.innerHTML = `<div class="ps-line1">${line1}</div><div class="ps-line2">${chips}</div>${valLine}`;
 }
 
 function flipCard(el, i) {
@@ -849,9 +895,19 @@ async function renderCollection() {
     return RARITY_ORDER.indexOf(a.rarity) - RARITY_ORDER.indexOf(b.rarity) || a.cardIndex.localeCompare(b.cardIndex);
   });
   const total = entries.reduce((a, e) => a + e.count, 0);
+  const valueOf = (list) => {
+    let v = 0, any = false;
+    for (const e of list) {
+      const p = priceOf(e.setCode, e.cardIndex);
+      if (p != null) { any = true; v += p * (e.count || 1); }
+    }
+    return any ? Math.round(v * 100) / 100 : null;
+  };
+  const totalValue = valueOf(entries);
+  const valueSpan = (v) => v == null ? "" : `<span class="cc-total">卡牌总价 <b>¥${fmtMoney(v)}</b></span>`;
   $("#collSummary").innerHTML = entries.length
     ? `<span><b>${entries.length}</b>种卡牌</span><span><b>${total}</b>张总计</span>
-       <span><b>${bestRarity(Object.fromEntries(entries.map((e) => [e.rarity, 1]))) || "—"}</b>最高稀有度</span>`
+       <span><b>${bestRarity(Object.fromEntries(entries.map((e) => [e.rarity, 1]))) || "—"}</b>最高稀有度</span>${valueSpan(totalValue)}`
     : `<span>该弹还没有收藏记录</span>`;
 
   // 完成度与缺卡：以完整卡表为基准（数据缺失时静默跳过）
@@ -870,7 +926,12 @@ async function renderCollection() {
   }
 
   const grid = $("#collGrid");
-  const missingOnly = $("#collMissing").checked;
+  // 按价格模式：只看已收的有价卡，与「只看缺卡」互斥（该开关在此模式下禁用）
+  const priceMode = sortMode === "price";
+  const missingToggle = $("#collMissing");
+  missingToggle.disabled = priceMode;
+  missingToggle.closest(".switch").style.opacity = priceMode ? .45 : "";
+  const missingOnly = missingToggle.checked && !priceMode;
   const missCards = () => {
     const have = new Set(Object.keys(box));
     return all.filter((c) => !have.has(`${c.setCode}__${c.cardIndex}`));
@@ -886,7 +947,7 @@ async function renderCollection() {
       return;
     }
     $("#collSummary").innerHTML = `<span><b>${missing.length}</b>张缺卡</span>
-      <span><b>${entries.length}/${totalDistinct}</b>种已收</span>`;
+      <span><b>${entries.length}/${totalDistinct}</b>种已收</span>${valueSpan(valueOf(missing))}`;
     grid.innerHTML = "";
     for (const c of missing) {
       const d = document.createElement("div");
@@ -906,6 +967,35 @@ async function renderCollection() {
     grid.innerHTML = `<div class="empty-tip">抽到的卡会自动收藏在这里</div>`;
     return;
   }
+
+  // 按价格：仅列出当前收藏中有价格的卡（按单价降序），卡片标明单价与数量；
+  // 其余排序不显示价格，避免污染版式
+  if (priceMode) {
+    const priced = entries
+      .map((e) => ({ ...e, unit: priceOf(e.setCode, e.cardIndex) }))
+      .filter((e) => e.unit != null)
+      .sort((a, b) => b.unit - a.unit ||
+        a.cardIndex.localeCompare(b.cardIndex, undefined, { numeric: true }));
+    if (!priced.length) {
+      grid.innerHTML = `<div class="empty-tip">当前收藏的卡暂无价格数据</div>`;
+      return;
+    }
+    grid.innerHTML = "";
+    for (const e of priced) {
+      const d = document.createElement("div");
+      d.className = "coll-card";
+      d.innerHTML = `
+        <img loading="lazy" decoding="async" src="${thumbURL(e)}" alt="${escapeHtml(e.name)}" onerror="__imgFail(this)">
+        <div class="cc-x">×${e.count}</div>
+        <div class="cc-price">¥${fmtMoney(e.unit)}</div>
+        <div class="cc-name">${rarBadge(e.rarity)}${escapeHtml(e.name)} <span>${escapeHtml(e.cardIndex)}</span></div>`;
+      d.addEventListener("click", () => showDetail(e.setCode, e.cardIndex));
+      grid.appendChild(d);
+    }
+    upgradeRemoteImages(grid);
+    return;
+  }
+
   grid.innerHTML = "";
   for (const e of entries) {
     const d = document.createElement("div");
@@ -1652,6 +1742,7 @@ function init() {
   $("#confirmOverlay").addEventListener("click", (e) => { if (e.target === e.currentTarget) settleConfirm(false); });
 
   loadSets().then(renderSpend);
+  loadPrices();
   renderSpend();
 }
 

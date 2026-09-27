@@ -9,7 +9,9 @@ app.py / static / miniprogram / android / config.py。
 ```bash
 python -m pricetool sync                    # 同步价格（TTL 6h，增量）
 python -m pricetool sync --set CSV5C        # 只同步一个弹
+python -m pricetool sync --min-cny 5        # 只保留人民币价 > 5 元的卡（低价卡忽略不计）
 python -m pricetool sync --refine-all       # 每张卡都拉详情价（慢，全人民币价+集换社链接）
+python -m pricetool reindex [--min-cny 5]   # 从已有价格文件重建 index.json 快照
 python -m pricetool query 喷火龙             # 中文名/英文名/setCode__卡号 查价
 python -m pricetool table CSV5C --csv a.csv # 整弹价格表（降序，可导出 CSV）
 python -m pricetool value collection.json   # 收藏册估值（模拟器收藏导出格式）
@@ -57,8 +59,23 @@ python -m unittest discover -s pricetool/tests -t .   # 单元测试
 
 - `data/prices/<setCode>.json`：每弹一个价格文件（listPrice/marketPrice/
   detailPrice/refined/jihuansheProductId/kyoCardId…）；
+- `data/prices/index.json`：合并全部弹的人民币价快照（`{setCode__cardIndex: 价}`），
+  每次同步/reindex 重建，经模拟器 `/api/prices` 整包下发（拆卡回本栏与收藏册
+  卡牌总价的数据源；该文件例外入 git，随仓库与 exe 发布）；
 - `data/prices/manifest.json`：fetchedAt/md5 清单（增量与新鲜度判断）；
 - `data/prices/name_cache.json`：英文名补搜缓存。
+
+## 接入模拟器（v1.3.0 起）
+
+模拟器拆卡结果的「卡值 / 回本」与收藏册「卡牌总价」读取 `data/prices/index.json`
+（静态快照，随包内置，非实时行情）。更新价格的完整流程：
+
+```bash
+python -m pricetool sync --min-cny 5   # 拉取新行情（快照自动重建）
+build_exe.bat                          # 重新打包 exe
+```
+
+无快照时（旧版本数据/未同步）相关栏自动隐藏，不影响其他功能。
 
 ## 下一阶段集成（模拟器统计拆卡总价值）
 

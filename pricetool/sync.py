@@ -4,7 +4,9 @@
 策略（仿 fetch_data.py：原子写、失败保留旧数据、manifest 供增量）：
 - 弹级批量走 card-queries（search=Kyo弹码），过滤 set id 防串弹；
 - 价格 ≥ 阈值的卡再调 price/single 精修（两端口径有差异，两个价都落盘）；
+- 可选 --min-cny：只保留人民币价高于阈值的卡（低价卡忽略不计，缩小落盘）；
 - 缓存 TTL 默认 6 小时；失败保留旧文件并在汇总里点名。
+- 每次同步结束重建 data/prices/index.json（模拟器 /api/prices 的静态快照）。
 """
 import hashlib
 import json
@@ -12,11 +14,12 @@ import time
 from datetime import datetime
 
 from . import store
-from .kyo import KyoClient, to_price
+from .kyo import KyoClient, cny_price, to_price
 from .matcher import build_set_map, entry_price, match_cards
 
 DEFAULT_TTL_HOURS = 6.0
 DEFAULT_REFINE_THRESHOLD = 50.0
+INDEX_NAME = "index.json"
 DEFAULT_BUDGET = 120        # 单次运行发出的 HTTP 请求上限（实测约 80~110 次会触发源站限流）
 TOPUP_RATIO_GATE = 0.3      # 弹级搜索命中低于该比例时跳过按卡名补搜
 TOPUP_NAME_CAP = 60         # 单弹最多补搜的卡名数
@@ -41,6 +44,54 @@ def _md5(path) -> str:
     return hashlib.md5(path.read_bytes()).hexdigest()
 
 
+def apply_min_cny(cards: dict, min_cny: float) -> dict:
+    """按人民币价过滤价格条目：只保留 cny_price > min_cny 的卡（无价卡一并剔除）；
+    min_cny 为 None 时原样返回。"""
+    if min_cny is None:
+        return dict(cards)
+    out = {}
+    for num, info in cards.items():
+        p = cny_price(info)
+        if p is not None and p > min_cny:
+            out[num] = info
+    return out
+
+
+def build_cny_index(min_cny: float = None, prices_dir=None) -> dict:
+    """合并 data/prices/ 全部弹文件 → {setCode__cardIndex: 人民币价} 静态快照。
+
+    供模拟器 /api/prices 直接整包下发；min_cny 给定时同样只保留高于阈值的卡
+    （旧弹文件若未过滤也不会污染快照）。manifest/补搜缓存/快照自身不参与。
+    """
+    prices = {}
+    root = prices_dir or store.PRICES_DIR
+    for p in sorted(root.glob("*.json")):
+        if p.name in ("manifest.json", "name_cache.json", INDEX_NAME):
+            continue
+        try:
+            data = json.loads(p.read_text(encoding="utf-8"))
+        except (OSError, ValueError):
+            continue
+        set_code = data.get("setCode") or p.stem
+        for num, info in (data.get("cards") or {}).items():
+            v = cny_price(info)
+            if v is not None and (min_cny is None or v > min_cny):
+                prices[f"{set_code}__{num}"] = round(v, 2)
+    return dict(sorted(prices.items()))
+
+
+def write_cny_index(min_cny: float = None) -> int:
+    """重建 index.json 并返回条目数。"""
+    prices = build_cny_index(min_cny)
+    store.atomic_write_json(store.PRICES_DIR / INDEX_NAME, {
+        "generated": time.strftime("%Y-%m-%dT%H:%M:%S+08:00"),
+        "minCny": min_cny,
+        "count": len(prices),
+        "prices": prices,
+    })
+    return len(prices)
+
+
 def _is_fresh(entry: dict, ttl_hours: float) -> bool:
     ts = entry.get("fetchedAt")
     if not ts:
@@ -54,9 +105,11 @@ def _is_fresh(entry: dict, ttl_hours: float) -> bool:
 
 
 def sync(only=None, force=False, ttl_hours=DEFAULT_TTL_HOURS,
-         refine_threshold=DEFAULT_REFINE_THRESHOLD, budget=DEFAULT_BUDGET, client=None) -> int:
+         refine_threshold=DEFAULT_REFINE_THRESHOLD, budget=DEFAULT_BUDGET,
+         min_cny=None, client=None) -> int:
     """同步价格。only 为弹 id/代码列表时只同步这些弹；refine_threshold=None 跳过精修、
-    0 表示全部精修；budget 为单次运行的请求上限。返回 0 成功、2 有失败。"""
+    0 表示全部精修；budget 为单次运行的请求上限；min_cny 给定时只落盘人民币价
+    高于该值的卡（如 5：低价卡忽略不计）。返回 0 成功、2 有失败。"""
     client = client or KyoClient()
     local_sets = store.load_sets_index()
     # 本地卡表为空的弹（PROMO）没有可挂价格的卡，直接跳过
@@ -102,7 +155,7 @@ def sync(only=None, force=False, ttl_hours=DEFAULT_TTL_HOURS,
         except (OSError, ValueError):
             name_cache = {}
     failed, total_cards, total_priced, total_refined = [], 0, 0, 0
-    waf_hit = False
+    attempted, waf_hit = 0, False
 
     for i, e in enumerate(todo, 1):
         sid, code, name = e["id"], e["code"], e["name"]
@@ -110,6 +163,7 @@ def sync(only=None, force=False, ttl_hours=DEFAULT_TTL_HOURS,
         if not force and _is_fresh(old, ttl_hours) and (store.PRICES_DIR / f"{sid}.json").exists():
             print(f"[{i}/{len(todo)}] {name}（{sid}）缓存新鲜，跳过")
             continue
+        attempted += 1
         kset = mapping[sid]
         try:
             if kset["id"] not in entries_cache:
@@ -199,6 +253,12 @@ def sync(only=None, force=False, ttl_hours=DEFAULT_TTL_HOURS,
                 if pid:
                     info["jihuansheProductId"] = pid
 
+        dropped = 0
+        if min_cny is not None:
+            before = len(cards)
+            cards = apply_min_cny(cards, min_cny)
+            dropped = before - len(cards)
+
         fetched_at = time.strftime("%Y-%m-%dT%H:%M:%S+08:00")
         n_priced = sum(1 for c in cards.values() if c["price"] is not None)
         store.atomic_write_json(store.PRICES_DIR / f"{sid}.json", {
@@ -220,16 +280,24 @@ def sync(only=None, force=False, ttl_hours=DEFAULT_TTL_HOURS,
         total_refined += refined
         extra = f"，缺价 {len(missing_remote)}" if missing_remote else ""
         warn = f"，名称不一致 {len(mismatch)}" if mismatch else ""
-        print(f"[{i}/{len(todo)}] {name}（{sid}）匹配 {len(cards)}/{e['count']}、有价 {n_priced}"
-              f"（精修 {refined}{extra}{warn}）")
+        low = f"，过滤低价 {dropped}" if dropped else ""
+        print(f"[{i}/{len(todo)}] {name}（{sid}）匹配 {len(cards) + dropped}/{e['count']}、"
+              f"保留 {len(cards)}（精修 {refined}{extra}{warn}{low}）")
         time.sleep(0.3)
+
+    try:
+        n_index = write_cny_index(min_cny)
+        print(f">> 快照 data/prices/{INDEX_NAME} 已重建：{n_index} 张卡"
+              + (f"（仅保留人民币价 > ¥{min_cny:g}）" if min_cny is not None else ""))
+    except OSError as exc:
+        print(f">> 快照写入失败: {exc}")
 
     manifest["generated"] = time.strftime("%Y-%m-%dT%H:%M:%S+08:00")
     store.atomic_write_json(store.MANIFEST_PATH, manifest)
     if name_cache:
         store.atomic_write_json(name_cache_path, name_cache)
 
-    print(f">> 完成：同步 {len(todo) - len(failed)}/{len(todo)} 弹，"
+    print(f">> 完成：同步 {attempted - len(failed)}/{attempted} 弹（待同步 {len(todo)}，缓存跳过 {len(todo) - attempted}），"
           f"有价 {total_priced}/{total_cards} 张（精修 {total_refined} 张），"
           f"共 {client.request_count} 次请求，清单写入 data/prices/manifest.json")
     if waf_hit:

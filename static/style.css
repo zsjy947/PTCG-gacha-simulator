@@ -740,3 +740,22 @@ select option { background: var(--pop); color: var(--txt); }
 .modal::-webkit-scrollbar { width: 6px; }
 .modal::-webkit-scrollbar-track { background: transparent; }
 .modal::-webkit-scrollbar-thumb { background: var(--soft2); border-radius: 6px; }
+
+/* ============ v1.3.0：卡价快照接入（开包卡值/回本栏 · 收藏册卡牌总价） ============ */
+:root { --val-up: #3ddc97; --val-down: #ff8a7a; }
+:root[data-theme="light"] { --val-up: #178a5c; --val-down: #d6492f; }
+.bv { font-variant-numeric: tabular-nums; }
+.ps-value { font-size: 12.5px; }
+.ps-value .bv { color: var(--accent); }
+.ps-value .bv.val-up, .box-summary .box-head b.val-up { color: var(--val-up); }
+.ps-value .bv.val-down, .box-summary .box-head b.val-down { color: var(--val-down); }
+.coll-summary .cc-total { margin-left: auto; }
+.coll-summary .cc-total b { margin-right: 0; }
+
+/* v1.3.0(二)：收藏册「按价格」排序 —— 卡片左上角单价标签（其余排序不渲染此元素） */
+.cc-price {
+  position: absolute; top: 8px; left: 8px;
+  background: rgba(0, 0, 0, .65); color: var(--accent);
+  font-size: 11.5px; font-weight: 700; padding: 2px 8px; border-radius: 14px;
+  font-variant-numeric: tabular-nums;
+}
