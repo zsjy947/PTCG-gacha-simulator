@@ -3,9 +3,9 @@
 
 /* ---------------- 规格按钮 ---------------- */
 function specBtnClass(sp) {
-  if (sp.packSize >= 20) return "draw-fat";
-  if (sp.packSize >= 10) return "draw-pack";
-  if (sp.packSize <= 1) return "draw-reward";
+  if (sp.packSize >= SPEC_FAT_MIN) return "draw-fat";
+  if (sp.packSize >= SPEC_TEN_MIN) return "draw-pack";
+  if (sp.packSize <= SPEC_REWARD_MAX) return "draw-reward";
   if ((sp.note || "").includes("全闪") || (sp.label || "").includes("宝石")) return "draw-gem";
   return "draw-single";
 }
@@ -139,7 +139,7 @@ function burstPack() {
   const pack = $("#pack");
   if (pack.classList.contains("burst")) return;
   pack.classList.add("burst");
-  setTimeout(showCards, 480);
+  setTimeout(showCards, BURST_TO_CARDS_MS);
 }
 
 function showCards() {
@@ -166,8 +166,9 @@ function renderBoxSummary() {
   const sp = activeSpec();
   const money = sp && sp.priceCny ? sp.priceCny * state.packs.length : 0;
   const chips = renderChips(cnt, "", " · ");
-  // 卡值/回本：该弹有价格数据时才显示（快照未覆盖的弹不占位）
-  const valLine = setPriced(state.packs[0][0].setCode)
+  // 卡值/回本：该弹有价格数据时才显示（快照未覆盖的弹不占位）；空包守卫（FE-008）
+  const firstCard = state.packs[0] && state.packs[0][0];
+  const valLine = firstCard && setPriced(firstCard.setCode)
     ? ` · ${valueLineHtml(packValue(state.packs.flat()), money)}` : "";
   el.innerHTML = `
     <div class="box-head"><b>${state.packs.length} 包汇总</b>
@@ -177,9 +178,9 @@ function renderBoxSummary() {
   el.hidden = false;
 }
 
-/* 页码分页：严格单行。≤7 包全显；更多时 1 … P-1 P P+1 … N 窗口（近边界补页） */
+/* 页码分页：严格单行。≤PAGE_WINDOW 包全显；更多时 1 … P-1 P P+1 … N 窗口（近边界补页） */
 function packPagesList(n, cur) {
-  if (n <= 7) return Array.from({ length: n }, (_, i) => i + 1);
+  if (n <= PAGE_WINDOW) return Array.from({ length: n }, (_, i) => i + 1);
   if (cur <= 3) return [1, 2, 3, 4, 5, "…", n];                    // 首部：1 2 3 4 5 … n
   if (cur >= n - 2) return [1, "…", n - 4, n - 3, n - 2, n - 1, n]; // 尾部：1 … n-4 … n
   return [1, "…", cur - 1, cur, cur + 1, "…", n];                   // 中部：1 … p-1 p p+1 … n
@@ -208,8 +209,8 @@ function renderPackRow() {
   const pack = state.packs[state.packIdx];
   const auto = $("#autoFlip").checked;
   const stagger = auto
-    ? Math.min(36, Math.floor(600 / Math.max(pack.length, 1)))
-    : Math.min(90, Math.floor(1200 / Math.max(pack.length, 1)));
+    ? Math.min(STAGGER_FAST_CAP_MS, Math.floor(STAGGER_FAST_SPAN_MS / Math.max(pack.length, 1)))
+    : Math.min(STAGGER_SLOW_CAP_MS, Math.floor(STAGGER_SLOW_SPAN_MS / Math.max(pack.length, 1)));
   pack.forEach((c, i) => {
     // 已翻过的卡回看时直接显示正面（无动画、无需重翻）
     const already = state.flipped[state.packIdx].has(i);
@@ -230,7 +231,7 @@ function renderPackRow() {
   renderPackSummary();
   renderBoxSummary();
   if (auto && pack.some((_, i) => !state.flipped[state.packIdx].has(i))) {
-    setTimeout(() => flipAll(), stagger * pack.length + 420);
+    setTimeout(() => flipAll(), stagger * pack.length + AUTOFLIP_EXTRA_MS);
   }
 }
 
@@ -250,7 +251,7 @@ function renderPackSummary() {
   const chips = renderChips(cnt, ";font-weight:800", "　");
   const sp = activeSpec();
   const money = sp && sp.priceCny ? sp.priceCny : 0;
-  const valLine = setPriced(pack[0].setCode) ? `<div class="ps-value">${valueLineHtml(packValue(pack), money)}</div>` : "";
+  const valLine = pack.length && setPriced(pack[0].setCode) ? `<div class="ps-value">${valueLineHtml(packValue(pack), money)}</div>` : "";
   box.innerHTML = `<div class="ps-line1">${line1}</div><div class="ps-line2">${chips}</div>${valLine}`;
 }
 
@@ -263,14 +264,14 @@ function flipCard(el, i) {
     const burst = document.createElement("div");
     burst.className = "rarity-burst";
     el.appendChild(burst);
-    setTimeout(() => burst.remove(), 1100);
+    setTimeout(() => burst.remove(), RARITY_BURST_MS);
   }
   renderPackSummary();
 }
 
 function flipAll() {
   const row = $$("#cardsRow .gcard");
-  const gap = row[0] && row[0].classList.contains("fast") ? 22 : 60;
+  const gap = row[0] && row[0].classList.contains("fast") ? FLIP_GAP_FAST_MS : FLIP_GAP_SLOW_MS;
   row.forEach((el, i) => setTimeout(() => flipCard(el, i), i * gap));
 }
 
@@ -311,7 +312,7 @@ function closeOverlay() { recordUnfinished(); $("#overlay").hidden = true; }
 function addHistory(spec, packs, result) {
   const rec = { time: new Date(), packs, setName: state.current ? state.current.name : "", specLabel: spec.label, money: spec && spec.priceCny ? spec.priceCny * packs : 0, flat: result.flat() };
   state.history.unshift(rec);
-  if (state.history.length > 30) state.history.pop();
+  if (state.history.length > HISTORY_LIMIT) state.history.pop();
   store.set("ptcg_history", state.history);
   renderHistory();
 }

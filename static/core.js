@@ -22,8 +22,28 @@ const RARITY_LABEL = {
   "●": "普通 ●", "◆": "非普通 ◆", "★": "稀有 ★", "★★": "双稀有 ★★", "★★★": "特艺术 ★★★", "无标记": "特款（无标记）",
 };
 const ENERGY_ZH = { G: "草", R: "火", W: "水", L: "雷", P: "超", F: "斗", D: "恶", M: "钢", Y: "妖", N: "无", C: "无色" };
-const BOX_SIZE = 30;          // 官方补充包整盒包数
 const RENDER_CHUNK = 120;     // 卡表增量渲染分片大小
+
+/* ---- 时序链常量（契约 R4：值不变，仅命名化；docs/refactor/CONTRACT.md） ---- */
+const BURST_TO_CARDS_MS = 480;          // 撕包动画 → 展示卡牌
+const STAGGER_FAST_CAP_MS = 36;         // 自动翻卡发牌间隔上限（600/len）
+const STAGGER_FAST_SPAN_MS = 600;
+const STAGGER_SLOW_CAP_MS = 90;         // 手动发牌间隔上限（1200/len）
+const STAGGER_SLOW_SPAN_MS = 1200;
+const AUTOFLIP_EXTRA_MS = 420;          // 自动翻开前的补偿延迟
+const FLIP_GAP_FAST_MS = 22;            // 逐张翻开间隔（快速/慢速）
+const FLIP_GAP_SLOW_MS = 60;
+const RARITY_BURST_MS = 1100;           // 高稀有度爆闪时长
+const IMG_RETRY_MS_1 = 800;             // 图片加载失败两档重试
+const IMG_RETRY_MS_2 = 2000;
+const HISTORY_LIMIT = 30;               // 拆卡记录上限（超出静默截断，FE-015 记录保留）
+const PAGE_WINDOW = 7;                  // 页码栏直显窗口（超出走 1…p…n 折叠）
+const DATASRC_TIMEOUT_MS = 8000;        // 数据源超时
+const UPDATE_TIMEOUT_MS = 5000;         // 版本更新检查超时
+/* 规格按钮分级阈值（specBtnClass） */
+const SPEC_FAT_MIN = 20;                // ≥20 张：肥包样式
+const SPEC_TEN_MIN = 10;                // ≥10 张：中规格样式
+const SPEC_REWARD_MAX = 1;              // ≤1 张：奖赏包样式
 
 const state = {
   sets: [],           // 全部弹（扁平）
@@ -36,6 +56,7 @@ const state = {
   packIdx: 0,
   flipped: [],        // 每包已翻开的卡索引
   history: [],
+  pending: null,      // 本次开包的入账状态 {spec, recorded[]}（全部翻开后逐包写入）
 };
 
 /* ---------------- 工具 ---------------- */
@@ -56,9 +77,6 @@ function imgURL(code, idx) {
 }
 function thumbURL(c) {
   return ASSET ? imgURL(c.setCode, c.cardIndex) : `/thumb/${c.setCode}/${c.cardIndex}`;
-}
-function cardImage(c) {
-  return c.image || imgURL(c.setCode, c.cardIndex);
 }
 function iconURL(code) {
   return ASSET ? `${MIK_STATIC}/setCode/${code}.png` : `/icon/${code}`;
@@ -115,7 +133,7 @@ window.__imgFail = function (img) {
     } else {
       img.src = url + (url.includes("?") ? "&" : "?") + "r=" + Date.now();
     }
-  }, tries === 0 ? 800 : 2000);
+  }, tries === 0 ? IMG_RETRY_MS_1 : IMG_RETRY_MS_2);
 };
 
 /* ---- 本地抽卡引擎：统一使用 shared/gacha.js（window.PTCGGacha）----

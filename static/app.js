@@ -4,8 +4,6 @@
 /* ---------------- 设置：外观主题 ---------------- */
 function applyTheme(t) {
   document.documentElement.dataset.theme = t;
-  const info = $("#themeInfo");
-  if (info) info.textContent = `当前：${t === "light" ? "浅色" : "深色"}模式`;
   const toggle = $("#themeToggle");
   if (toggle) toggle.checked = t === "light";
   // APK：状态栏/导航栏颜色跟随主题，保证全屏色彩统一
@@ -66,7 +64,7 @@ async function checkUpdate(manual) {
     if (btn) btn.disabled = true;
   }
   const ctl = new AbortController();
-  const timer = setTimeout(() => ctl.abort(), 5000); // 国内网络超时静默失败，不影响使用
+  const timer = setTimeout(() => ctl.abort(), UPDATE_TIMEOUT_MS); // 国内网络超时静默失败，不影响使用
   try {
     const r = await fetch(RELEASE_API, { signal: ctl.signal, headers: { Accept: "application/vnd.github+json" } });
     clearTimeout(timer);
@@ -175,7 +173,7 @@ function init() {
     const pack = $("#pack");
     const spec = state.current.specs.find((x) => x.key === pack.dataset.specKey) || state.spec;
     const packs = parseInt(pack.dataset.packs || "1", 10);
-    setTimeout(() => draw(spec, packs), 250);
+    setTimeout(() => draw(spec, packs), AGAIN_DELAY_MS);
   });
   $("#navPrev").addEventListener("click", () => { if (state.packIdx > 0) { state.packIdx--; renderPackTabs(); renderPackRow(); } });
   $("#navNext").addEventListener("click", () => { if (state.packIdx < state.packs.length - 1) { state.packIdx++; renderPackTabs(); renderPackRow(); } });

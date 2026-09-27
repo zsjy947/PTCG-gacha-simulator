@@ -102,7 +102,7 @@ async function resolveDataSrc() {
   let saw404 = false, netFail = false;
   for (const base of dataSrcList()) {
     const ctl = new AbortController();
-    const timer = setTimeout(() => ctl.abort(), 8000);
+    const timer = setTimeout(() => ctl.abort(), DATASRC_TIMEOUT_MS);
     try {
       const r = await fetch(`${base}/manifest.json`, { signal: ctl.signal });
       clearTimeout(timer);

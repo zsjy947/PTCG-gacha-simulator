@@ -12,10 +12,10 @@
 | FE-002 | app.js 765-791 | maybeRecordPack/recordUnfinished 重复四连调用 | 重复逻辑 | 合并 recordPackResult() | 已闭环 | 开包/收起入账链路冒烟正常 |
 | FE-003 | app.js 637-663/722-742/848 | 盒装/单包汇总重复 + RR+ 表达式两处 | 重复逻辑 | 抽 rarityCounts()/renderChips()/rrUpTo()/activeSpec()（战报图计数一并复用） | 已闭环 | 页面内与原公式逐字节对照通过 + 十连汇总条实测 |
 | FE-004 | app.js 8-15、style.css 25-34/346-358 | 稀有度色板三副本（小程序第四份，范围外） | 可维护性 | 保留三处（契约），加一致性注释与测试 | 待处理 | |
-| FE-005 | app.js 25/60-62/1502 | 死代码 BOX_SIZE、cardImage()、#themeInfo | 工程规范 | 台账后删除 | 待处理 | |
-| FE-006 | app.js 695-697 等 | 时序魔法数散布 | 魔法数 | 命名化（值不变，R4 表） | 待处理 | |
-| FE-007 | app.js 28-39/588 | state.pending 未声明 | 规范 | 显式声明（无感） | 待处理 | |
-| FE-008 | app.js 655 | state.packs[0][0] 空包假设 | 崩溃级 | 加守卫（无感） | 待处理 | |
+| FE-005 | app.js 25/60-62/1502 | 死代码 BOX_SIZE、cardImage()、#themeInfo | 工程规范 | 台账后删除 | 已闭环 | 全仓 grep 无残留引用；typeof 校验已不存在 |
+| FE-006 | app.js 695-697 等 | 时序魔法数散布 | 魔法数 | 命名化（R4 常量块 + specBtnClass 阈值）；值逐一核对不变 | 已闭环 | 浏览器读取 16 项常量值全等 + 时序链路回归 |
+| FE-007 | app.js 28-39/588 | state.pending 未声明 | 规范 | 显式声明 | 已闭环 | state 含 pending: null，开包链路正常 |
+| FE-008 | app.js 655 | state.packs[0][0] 空包假设 | 崩溃级 | 加守卫（renderBoxSummary firstCard 守卫 + renderPackSummary pack.length 守卫，同类同修） | 已闭环 | 当前数据输出不变；开包/汇总冒烟正常 |
 | FE-009 | app.js 1188/1198/1200-1203 | showDetail 字段未转义 | 安全 | 无感加固（转义） | 待处理 | |
 | FE-010 | app.js 1127 | fillRarityFilter value 未转义 | 安全 | 无感加固 | 待处理 | |
 | FE-011 | app.js 653 等 8 处 | RARITY_COLOR 注入 style 属性 | 安全 | 无感加固（色值白名单来源） | 待处理 | |
