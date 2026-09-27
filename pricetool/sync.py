@@ -20,7 +20,10 @@ from .matcher import build_set_map, entry_price, match_cards
 DEFAULT_TTL_HOURS = 6.0
 DEFAULT_REFINE_THRESHOLD = 50.0
 INDEX_NAME = "index.json"
-DEFAULT_BUDGET = 120        # 单次运行发出的 HTTP 请求上限（实测约 80~110 次会触发源站限流）
+# 单次运行发出的 HTTP 请求上限（实测约 80~110 次会触发源站限流）。
+# 注意：sync() 的形参默认值取本常量（保守值，供库调用），CLI --budget 的 argparse
+# 默认为 600（cli.py）——命令行路径以 CLI 为准，两处默认值刻意不同、均不改动。
+DEFAULT_BUDGET = 120
 TOPUP_RATIO_GATE = 0.3      # 弹级搜索命中低于该比例时跳过按卡名补搜
 TOPUP_NAME_CAP = 60         # 单弹最多补搜的卡名数
 
@@ -104,6 +107,155 @@ def _is_fresh(entry: dict, ttl_hours: float) -> bool:
     return 0 <= age_h < ttl_hours
 
 
+def _load_name_cache(path) -> dict:
+    """补搜条目缓存（英文名 -> 条目列表），跨运行复用防重复请求触发限流。"""
+    if not path.exists():
+        return {}
+    try:
+        return json.loads(path.read_text(encoding="utf-8"))
+    except (OSError, ValueError):
+        return {}
+
+
+def _set_entries(client, kset: dict, entries_cache: dict) -> list:
+    """取弹级搜索条目（同 Kyo 弹复用缓存，151 四弹共享同一次搜索）。
+
+    源站限流时会返回 200 空数据（软拦截）：等几秒重试一次仍为空才认。
+    """
+    if kset["id"] not in entries_cache:
+        entries_cache[kset["id"]] = client.search_cards(kset["code"])
+        if not entries_cache[kset["id"]]:
+            time.sleep(5)
+            entries_cache[kset["id"]] = client.search_cards(kset["code"])
+    return list(entries_cache[kset["id"]])
+
+
+def _topup_by_name(client, sid: str, entries: list, local_cards: list,
+                   priced: dict, missing_remote: list, name_cache: dict,
+                   budget: int, kyo_set_id: str):
+    """弹级搜索索引不完整时（如 30TH A 漏 137 喷火龙），对缺价卡用本地英文名补搜，
+    再靠 set id + 卡号过滤兜底。命中率过低的弹（如宝石包仅有整盒产品）没有散卡可补，
+    低于 TOPUP_RATIO_GATE 时打印跳过原因、不补搜。
+
+    返回 (是否补搜扩展, priced, missing_remote, mismatch)：仅 extended=True 时后三项
+    为重匹配结果，extended=False 时 mismatch 恒为 None（调用方须保留原值）。"""
+    if len(priced) / max(1, len(local_cards)) < TOPUP_RATIO_GATE:
+        print(f"   [{sid}] 弹级搜索命中 {len(priced)}/{len(local_cards)}"
+              f"（< {TOPUP_RATIO_GATE:.0%}），跳过按卡名补搜")
+        return False, priced, missing_remote, None
+    local_by_num = {store.norm_index(c["cardIndex"]): c for c in local_cards}
+    extended, searched = False, 0
+    for num in missing_remote:
+        if searched >= TOPUP_NAME_CAP or client.request_count >= budget:
+            break
+        en = (local_by_num[num].get("nameEn") or "").strip()
+        if not en:
+            continue
+        if en not in name_cache:
+            try:
+                name_cache[en] = _trim(client.search_cards(en))
+            except Exception:  # noqa: BLE001 - 补搜失败不影响已有结果
+                name_cache[en] = []
+            searched += 1
+        entries.extend(name_cache[en])
+        extended = True
+    if extended:
+        priced, missing_remote, mismatch = match_cards(
+            local_cards, entries, kyo_set_id=kyo_set_id)
+        return True, priced, missing_remote, mismatch
+    return False, priced, missing_remote, None
+
+
+def _build_price_cards(priced: dict) -> dict:
+    """匹配结果 → 落盘价格条目（detailPrice/refined 为精修占位）。"""
+    cards = {}
+    for num, kc in sorted(priced.items()):
+        cards[num] = {
+            "price": entry_price(kc),
+            "listPrice": to_price(kc.get("jihuansheMarketPrice")),
+            "marketPrice": to_price(kc.get("marketPrice")),
+            "detailPrice": None,
+            "refined": False,
+            "jihuansheProductId": kc.get("jihuansheProductId"),
+            "kyoCardId": kc.get("id"),
+            "rarity": kc.get("rarity"),
+            "name": kc.get("name"),
+            "updatedAt": kc.get("updatedAt"),
+        }
+    return cards
+
+
+def _refine_expensive(client, sid: str, cards: dict, refine_threshold, budget: int) -> int:
+    """高于阈值的卡调 price/single 精修人民币详情价；请求预算耗尽时打印并沿用列表价。
+    返回精修成功的卡数（就地更新 cards 内条目）。"""
+    refined = 0
+    for num, info in cards.items():
+        if refine_threshold is None or not info["kyoCardId"]:
+            continue
+        base = info["listPrice"] or info["marketPrice"]
+        if (base or 0) < refine_threshold:
+            continue
+        if client.request_count >= budget:
+            print(f"   [{sid}] 请求预算耗尽（{budget}），剩余卡沿用列表价")
+            break
+        try:
+            detail = client.price_single(info["kyoCardId"])
+            dp = to_price(detail.get("jihuansheMarketPrice"))
+        except Exception:  # noqa: BLE001 - 精修失败不影响列表价
+            continue
+        if dp is not None:
+            info["detailPrice"] = dp
+            info["price"] = dp
+            info["refined"] = True
+            refined += 1
+            pid = detail.get("jihuansheProductId")
+            if pid:
+                info["jihuansheProductId"] = pid
+    return refined
+
+
+def _sync_one_set(client, kset: dict, sid: str, name: str, i: int, n: int,
+                  entries_cache: dict, name_cache: dict,
+                  budget: int, refine_threshold, min_cny) -> dict:
+    """同步单弹：取条目 → 匹配 → 按名补搜 → 建价 → 精修 → 低价过滤。
+
+    失败返回 {"ok": False, "waf": bool}（已打印失败原因，旧数据保留）；
+    成功返回 {"ok": True, "cards", "refined", "dropped", "missing", "mismatch",
+    "n_local"} 供调用方落盘、记账与打印汇总。
+    """
+    try:
+        entries = _set_entries(client, kset, entries_cache)
+        local_cards = store.load_cards(sid)
+        priced, missing_remote, mismatch = match_cards(local_cards, entries, kyo_set_id=kset["id"])
+        if not entries:
+            raise RuntimeError("搜索结果为空（疑被源站软限流），不落盘等下次重试")
+        if entries and not priced:
+            print(f"   [{sid}] 警告：搜索有 {len(entries)} 条但无一张匹配本地卡号")
+        if missing_remote:
+            extended, priced, missing_remote, mm = _topup_by_name(
+                client, sid, entries, local_cards, priced, missing_remote,
+                name_cache, budget, kset["id"])
+            if extended:
+                mismatch = mm
+    except Exception as exc:  # noqa: BLE001 - 单弹失败保留旧数据
+        print(f"[{i}/{n}] {name}（{sid}）拉取失败: {exc}")
+        waf = "403" in str(exc)
+        if waf:
+            print("!! 疑似触发源站限流（403），提前结束本次同步；已同步数据保留，稍后重试")
+        return {"ok": False, "waf": waf}
+
+    cards = _build_price_cards(priced)
+    refined = _refine_expensive(client, sid, cards, refine_threshold, budget)
+    dropped = 0
+    if min_cny is not None:
+        before = len(cards)
+        cards = apply_min_cny(cards, min_cny)
+        dropped = before - len(cards)
+    return {"ok": True, "cards": cards, "refined": refined, "dropped": dropped,
+            "missing": len(missing_remote), "mismatch": len(mismatch),
+            "n_local": len(store.load_cards(sid))}
+
+
 def sync(only=None, force=False, ttl_hours=DEFAULT_TTL_HOURS,
          refine_threshold=DEFAULT_REFINE_THRESHOLD, budget=DEFAULT_BUDGET,
          min_cny=None, client=None) -> int:
@@ -147,13 +299,8 @@ def sync(only=None, force=False, ttl_hours=DEFAULT_TTL_HOURS,
     manifest = store.load_manifest()
     manifest.setdefault("sets", {})
     entries_cache = {}   # kyo set id -> 弹级搜索条目（151 四弹共享同一次搜索）
-    name_cache = {}      # 英文名 -> 补搜条目（跨运行复用，防重复请求触发限流）
     name_cache_path = store.PRICES_DIR / "name_cache.json"
-    if name_cache_path.exists():
-        try:
-            name_cache = json.loads(name_cache_path.read_text(encoding="utf-8"))
-        except (OSError, ValueError):
-            name_cache = {}
+    name_cache = _load_name_cache(name_cache_path)   # 英文名 -> 补搜条目（跨运行复用，防重复请求触发限流）
     failed, total_cards, total_priced, total_refined = [], 0, 0, 0
     attempted, waf_hit = 0, False
 
@@ -164,122 +311,40 @@ def sync(only=None, force=False, ttl_hours=DEFAULT_TTL_HOURS,
             print(f"[{i}/{len(todo)}] {name}（{sid}）缓存新鲜，跳过")
             continue
         attempted += 1
-        kset = mapping[sid]
-        try:
-            if kset["id"] not in entries_cache:
-                entries_cache[kset["id"]] = client.search_cards(kset["code"])
-                # 源站限流时会返回 200 空数据（软拦截）：等几秒重试一次仍为空才认
-                if not entries_cache[kset["id"]]:
-                    time.sleep(5)
-                    entries_cache[kset["id"]] = client.search_cards(kset["code"])
-            entries = list(entries_cache[kset["id"]])
-            local_cards = store.load_cards(sid)
-            priced, missing_remote, mismatch = match_cards(local_cards, entries, kyo_set_id=kset["id"])
-            if not entries:
-                raise RuntimeError("搜索结果为空（疑被源站软限流），不落盘等下次重试")
-            if entries and not priced:
-                print(f"   [{sid}] 警告：搜索有 {len(entries)} 条但无一张匹配本地卡号")
-            # 按弹名搜索的索引不完整（如 30TH A 漏 137 喷火龙）：
-            # 对缺价卡用本地英文名补搜，再靠 set id + 卡号过滤兜底。
-            # 命中率过低的弹（如宝石包仅有整盒产品）没有散卡可补，直接跳过。
-            if missing_remote and len(priced) / max(1, len(local_cards)) >= TOPUP_RATIO_GATE:
-                local_by_num = {store.norm_index(c["cardIndex"]): c for c in local_cards}
-                extended, searched = False, 0
-                for num in missing_remote:
-                    if searched >= TOPUP_NAME_CAP or client.request_count >= budget:
-                        break
-                    en = (local_by_num[num].get("nameEn") or "").strip()
-                    if not en:
-                        continue
-                    if en not in name_cache:
-                        try:
-                            name_cache[en] = _trim(client.search_cards(en))
-                        except Exception:  # noqa: BLE001 - 补搜失败不影响已有结果
-                            name_cache[en] = []
-                        searched += 1
-                    entries.extend(name_cache[en])
-                    extended = True
-                if extended:
-                    priced, missing_remote, mismatch = match_cards(
-                        local_cards, entries, kyo_set_id=kset["id"])
-            elif missing_remote:
-                print(f"   [{sid}] 弹级搜索命中 {len(priced)}/{len(local_cards)}"
-                      f"（< {TOPUP_RATIO_GATE:.0%}），跳过按卡名补搜")
-        except Exception as exc:  # noqa: BLE001 - 单弹失败保留旧数据
-            print(f"[{i}/{len(todo)}] {name}（{sid}）拉取失败: {exc}")
+        res = _sync_one_set(client, mapping[sid], sid, name, i, len(todo),
+                            entries_cache, name_cache, budget, refine_threshold, min_cny)
+        if not res["ok"]:
             failed.append(sid)
-            if "403" in str(exc):
-                print("!! 疑似触发源站限流（403），提前结束本次同步；已同步数据保留，稍后重试")
+            if res["waf"]:
                 waf_hit = True
                 break
             continue
 
-        cards = {}
-        for num, kc in sorted(priced.items()):
-            cards[num] = {
-                "price": entry_price(kc),
-                "listPrice": to_price(kc.get("jihuansheMarketPrice")),
-                "marketPrice": to_price(kc.get("marketPrice")),
-                "detailPrice": None,
-                "refined": False,
-                "jihuansheProductId": kc.get("jihuansheProductId"),
-                "kyoCardId": kc.get("id"),
-                "rarity": kc.get("rarity"),
-                "name": kc.get("name"),
-                "updatedAt": kc.get("updatedAt"),
-            }
-
-        refined = 0
-        for num, info in cards.items():
-            if refine_threshold is None or not info["kyoCardId"]:
-                continue
-            base = info["listPrice"] or info["marketPrice"]
-            if (base or 0) < refine_threshold:
-                continue
-            if client.request_count >= budget:
-                print(f"   [{sid}] 请求预算耗尽（{budget}），剩余卡沿用列表价")
-                break
-            try:
-                detail = client.price_single(info["kyoCardId"])
-                dp = to_price(detail.get("jihuansheMarketPrice"))
-            except Exception:  # noqa: BLE001 - 精修失败不影响列表价
-                continue
-            if dp is not None:
-                info["detailPrice"] = dp
-                info["price"] = dp
-                info["refined"] = True
-                refined += 1
-                pid = detail.get("jihuansheProductId")
-                if pid:
-                    info["jihuansheProductId"] = pid
-
-        dropped = 0
-        if min_cny is not None:
-            before = len(cards)
-            cards = apply_min_cny(cards, min_cny)
-            dropped = before - len(cards)
-
+        cards = res["cards"]
+        refined = res["refined"]
+        dropped = res["dropped"]
         fetched_at = time.strftime("%Y-%m-%dT%H:%M:%S+08:00")
         n_priced = sum(1 for c in cards.values() if c["price"] is not None)
         store.atomic_write_json(store.PRICES_DIR / f"{sid}.json", {
             "setCode": code,
             "setName": name,
-            "kyoSet": {"id": kset["id"], "code": kset["code"], "name": kset.get("name")},
+            "kyoSet": {"id": mapping[sid]["id"], "code": mapping[sid]["code"],
+                       "name": mapping[sid].get("name")},
             "fetchedAt": fetched_at,
             "cards": cards,
         })
         manifest["sets"][sid] = {
             "fetchedAt": fetched_at,
-            "total": len(store.load_cards(sid)),
+            "total": res["n_local"],
             "priced": n_priced,
             "refined": refined,
             "md5": _md5(store.PRICES_DIR / f"{sid}.json"),
         }
-        total_cards += len(store.load_cards(sid))
+        total_cards += res["n_local"]
         total_priced += n_priced
         total_refined += refined
-        extra = f"，缺价 {len(missing_remote)}" if missing_remote else ""
-        warn = f"，名称不一致 {len(mismatch)}" if mismatch else ""
+        extra = f"，缺价 {res['missing']}" if res["missing"] else ""
+        warn = f"，名称不一致 {res['mismatch']}" if res["mismatch"] else ""
         low = f"，过滤低价 {dropped}" if dropped else ""
         print(f"[{i}/{len(todo)}] {name}（{sid}）匹配 {len(cards) + dropped}/{e['count']}、"
               f"保留 {len(cards)}（精修 {refined}{extra}{warn}{low}）")

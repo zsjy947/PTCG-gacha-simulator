@@ -39,7 +39,7 @@
 | BE-008 | store.py 14-19 / fetch_data.py 93-97 | atomic_write_json/_md5 双实现 | 重复逻辑 | 不合并，加一致性测试 | 待处理 | |
 | BE-009 | app.py 280-294 等 | spec_brief 三平台三实现 | 重复逻辑 | 不合并，加等价测试 | 待处理 | |
 | BE-010 | kyo.py 10/78 | docstring 0.4s 与实现 0.6s 不符 | 文档 | 修正注释（无感） | 待处理 | |
-| BE-011 | sync.py 23 / cli.py 230 | DEFAULT_BUDGET 120 vs CLI 600 | 文档 | 只在文档/注释说明，不改默认值 | 待处理 | |
+| BE-011 | sync.py 23 / cli.py 230 | DEFAULT_BUDGET 120 vs CLI 600 | 文档 | 只在文档/注释说明，不改默认值 | 已闭环 | DEFAULT_BUDGET 注释说明两处默认值刻意不同、均未改动 |
 | BE-012 | cli.py 148 | 文件句柄未关闭 | 崩溃级 | 改 with-open | 待处理 | |
 | BE-013 | app.py _cached_fetch | .part 残留文件 | 资源 | 补清理（try/finally） | 待处理 | |
 | BE-014 | .github/workflows/ci.yml | pricetool 测试未接入 CI | 测试闭环 | 接入 | 待处理 | |
@@ -52,7 +52,7 @@
 
 | ID | 位置（基线） | 问题 | 维度 | 处置 | 状态 | 验证 |
 |---|---|---|---|---|---|---|
-| PR-001 | sync.py 107-311 | sync() 205 行 | 拆分 | 拆私有函数（_sync_one_set/_topup_by_name/_refine_expensive） | 待处理 | |
+| PR-001 | sync.py 107-311 | sync() 205 行 | 拆分 | 拆 _load_name_cache/_set_entries/_topup_by_name/_build_price_cards/_refine_expensive/_sync_one_set；日志逐字保留 | 已闭环 | pricetool 31 测全绿 + 离线 CLI 冒烟（query/value）输出一致 |
 | PR-002 | sync.py/cli.py | print 日志无 logging 模块 | 日志 | 仅记录不改（输出格式契约 R7） | 保留（格式契约） | |
 
 ## 执行期新增（动态登记）
