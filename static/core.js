@@ -146,7 +146,7 @@ function escapeHtml(s) {
 }
 function rarBadge(r) {
   const color = RARITY_COLOR[r] || RARITY_COLOR.N;
-  return `<span class="rar-badge" style="background:${color}">${escapeHtml(r || "—")}</span>`;
+  return `<span class="rar-badge" style="background:${escapeHtml(color)}">${escapeHtml(r || "—")}</span>`;
 }
 function bestRarity(rs) {
   return RARITY_ORDER.find((r) => rs[r]) || null;

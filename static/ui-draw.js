@@ -109,7 +109,7 @@ function rrUpTo(cnt) {
 
 function renderChips(cnt, style, sep) {
   return RARITY_ORDER.filter((r) => cnt[r])
-    .map((r) => `<span style="color:${RARITY_COLOR[r]}${style}">${r}×${cnt[r]}</span>`).join(sep);
+    .map((r) => `<span style="color:${escapeHtml(RARITY_COLOR[r])}${style}">${r}×${cnt[r]}</span>`).join(sep);
 }
 
 /* 当前入账规格：本次开包未结束时用开包规格，否则用面板选中规格 */
@@ -172,7 +172,7 @@ function renderBoxSummary() {
     ? ` · ${valueLineHtml(packValue(state.packs.flat()), money)}` : "";
   el.innerHTML = `
     <div class="box-head"><b>${state.packs.length} 包汇总</b>
-      <span>RR+ 共 <b>${rrUp}</b> 张 · 最高 <b style="color:${RARITY_COLOR[best] || ""}">${best || "—"}</b>
+      <span>RR+ 共 <b>${rrUp}</b> 张 · 最高 <b style="color:${escapeHtml(RARITY_COLOR[best] || "")}">${best || "—"}</b>
       ${money ? ` · 合计 ¥${fmtMoney(money)}` : ""}${valLine}</span></div>
     <div class="box-chips">${chips}</div>`;
   el.hidden = false;
@@ -346,7 +346,7 @@ function renderHistory() {
       m.innerHTML = `
         <div class="frame"><img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)"></div>
         <div class="mc-name">${escapeHtml(c.cardName)}</div>
-        <div class="mc-rar" style="color:${RARITY_COLOR[c.rarity] || RARITY_COLOR.N}">${RARITY_LABEL[c.rarity] || "其他"}</div>`;
+        <div class="mc-rar" style="color:${escapeHtml(RARITY_COLOR[c.rarity] || RARITY_COLOR.N)}">${RARITY_LABEL[c.rarity] || "其他"}</div>`;
       m.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
       rc.appendChild(m);
     }
@@ -381,8 +381,8 @@ function renderDist(rarities) {
   const max = Math.max(...rows.map((r) => rarities[r]));
   bars.innerHTML = rows.map((r) => `
     <div class="dist-row">
-      <span class="dist-r" style="color:${RARITY_COLOR[r] || RARITY_COLOR.N}">${r}</span>
-      <span class="dist-bar"><i style="width:${(rarities[r] / max) * 100}%;background:${RARITY_COLOR[r] || RARITY_COLOR.N}"></i></span>
+      <span class="dist-r" style="color:${escapeHtml(RARITY_COLOR[r] || RARITY_COLOR.N)}">${r}</span>
+      <span class="dist-bar"><i style="width:${(rarities[r] / max) * 100}%;background:${escapeHtml(RARITY_COLOR[r] || RARITY_COLOR.N)}"></i></span>
       <span class="dist-n">${rarities[r]}</span>
     </div>`).join("");
   card.hidden = false;

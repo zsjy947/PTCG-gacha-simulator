@@ -68,6 +68,6 @@ function fillRarityFilter(cards) {
   const rs = [...new Set(cards.map((c) => c.rarity || "N"))]
     .sort((a, b) => RARITY_ORDER.indexOf(a) - RARITY_ORDER.indexOf(b));
   sel.innerHTML = `<option value="">全部稀有度</option>` +
-    rs.map((r) => `<option value="${r}">${RARITY_LABEL[r] || r}</option>`).join("");
+    rs.map((r) => `<option value="${escapeHtml(r)}">${escapeHtml(RARITY_LABEL[r] || r)}</option>`).join("");
   sel.value = current && rs.includes(current) ? current : "";
 }

@@ -16,9 +16,9 @@
 | FE-006 | app.js 695-697 等 | 时序魔法数散布 | 魔法数 | 命名化（R4 常量块 + specBtnClass 阈值）；值逐一核对不变 | 已闭环 | 浏览器读取 16 项常量值全等 + 时序链路回归 |
 | FE-007 | app.js 28-39/588 | state.pending 未声明 | 规范 | 显式声明 | 已闭环 | state 含 pending: null，开包链路正常 |
 | FE-008 | app.js 655 | state.packs[0][0] 空包假设 | 崩溃级 | 加守卫（renderBoxSummary firstCard 守卫 + renderPackSummary pack.length 守卫，同类同修） | 已闭环 | 当前数据输出不变；开包/汇总冒烟正常 |
-| FE-009 | app.js 1188/1198/1200-1203 | showDetail 字段未转义 | 安全 | 无感加固（转义） | 待处理 | |
-| FE-010 | app.js 1127 | fillRarityFilter value 未转义 | 安全 | 无感加固 | 待处理 | |
-| FE-011 | app.js 653 等 8 处 | RARITY_COLOR 注入 style 属性 | 安全 | 无感加固（色值白名单来源） | 待处理 | |
+| FE-009 | app.js 1188/1198/1200-1203 | showDetail 字段未转义 | 安全 | 无感加固（弱点值/HP/属性/撤退 4 处 escapeHtml） | 已闭环 | 当前数据渲染逐字节不变（浏览器回归） |
+| FE-010 | app.js 1127 | fillRarityFilter value 未转义 | 安全 | 无感加固（option value 与文本均转义） | 已闭环 | 卡表筛选冒烟正常 |
+| FE-011 | app.js 653 等 8 处 | RARITY_COLOR 注入 style 属性 | 安全 | 无感加固（9 处色值 escapeHtml；hex 无可转义字符→逐字节不变） | 已闭环 | chips/dist/badge 渲染回归逐字节一致 |
 | FE-012 | app.js 749 | 未知稀有度 indexOf=-1 触发爆闪 | 逻辑 | 仅记录不改（行为） | 保留（用户可见行为） | |
 | FE-013 | app.js 454-456 | filterSets 用 style.display 与 hidden 模式不一致 | 规范 | 仅记录不改 | 保留（行为等价、改动无收益） | |
 | FE-014 | style.css 686-693/726-737 | 重复 .pack-tab 规则 | 工程规范 | 合并（计算结果不变） | 待处理 | |

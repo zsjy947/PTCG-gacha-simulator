@@ -27,8 +27,8 @@ function probSlotHtml(slot) {
   }
   const lines = slot.probabilities.map((p) => `
     <div class="prob-line">
-      <span class="pl-r" style="color:${RARITY_COLOR[p.rarity] || ""}">${p.rarity}</span>
-      <span class="pl-bar"><i style="width:${(p.p * 100).toFixed(2)}%;background:${RARITY_COLOR[p.rarity] || "#888"}"></i></span>
+      <span class="pl-r" style="color:${escapeHtml(RARITY_COLOR[p.rarity] || "")}">${p.rarity}</span>
+      <span class="pl-bar"><i style="width:${(p.p * 100).toFixed(2)}%;background:${escapeHtml(RARITY_COLOR[p.rarity] || "#888")}"></i></span>
       <span class="pl-p">${probPct(p.p)}（池 ${p.pool} 张）</span>
     </div>`).join("");
   const kindTag = slot.kind === "holo" ? "闪卡位" : "平卡位";
@@ -76,7 +76,7 @@ async function showDetail(code, idx) {
     if (!c) throw new Error("无数据");
     $("#detailTitle").textContent = c.name || "卡牌详情";
     const attr = c.pokemonAttr || {};
-    const weak = attr.weakness ? `${ENERGY_ZH[attr.weakness.energy] || attr.weakness.energy} ${attr.weakness.value || ""}` : "—";
+    const weak = attr.weakness ? `${ENERGY_ZH[attr.weakness.energy] || escapeHtml(attr.weakness.energy)} ${escapeHtml(attr.weakness.value || "")}` : "—";
     const attacks = (attr.attack || []).map((a) => `
       <div class="d-attack">
         <b>${escapeHtml(a.name || "")}</b>　${escapeHtml(a.damage || "")}
@@ -88,10 +88,10 @@ async function showDetail(code, idx) {
         <h4>${escapeHtml(c.name)} <span style="font-size:12px;color:var(--txt2)">${escapeHtml(c.nameEn || "")}</span></h4>
         <div class="d-sub">${escapeHtml(c.setCode)}-${escapeHtml(c.cardIndex)} · ${RARITY_LABEL[c.rarity] || c.rarity || "—"} · ${escapeHtml(c.artist || "")}</div>
         <div class="d-stats">
-          <div><b>HP</b> ${attr.hp ?? "—"}</div>
-          <div><b>属性</b> ${ENERGY_ZH[attr.energyType] || attr.energyType || "—"}</div>
+          <div><b>HP</b> ${escapeHtml(attr.hp ?? "—")}</div>
+          <div><b>属性</b> ${ENERGY_ZH[attr.energyType] || escapeHtml(attr.energyType) || "—"}</div>
           <div><b>阶段</b> ${escapeHtml(attr.stage || "—")}</div>
-          <div><b>撤退</b> ${attr.retreatCost ?? "—"}</div>
+          <div><b>撤退</b> ${escapeHtml(attr.retreatCost ?? "—")}</div>
           <div><b>弱点</b> ${weak}</div>
           <div><b>系列标记</b> ${escapeHtml(c.regulationMark || "—")}</div>
         </div>
@@ -121,7 +121,7 @@ async function showExpectedCost() {
         ? `¥${fmtMoney(Math.round(r.cardPacks * sp.priceCny))}` : "—";
       const body = rows.map((r) => `
         <tr>
-          <td><span class="pl-r" style="color:${RARITY_COLOR[r.rarity] || ""}">${r.rarity}</span></td>
+          <td><span class="pl-r" style="color:${escapeHtml(RARITY_COLOR[r.rarity] || "")}">${r.rarity}</span></td>
           <td>${r.pool} 张</td>
           <td>${probPct(r.pPack)}</td>
           <td>${Number.isFinite(r.anyPacks) ? Math.ceil(r.anyPacks) : "—"} 包</td>
