@@ -4,6 +4,8 @@
 const $ = (s, el = document) => el.querySelector(s);
 const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 
+/* 稀有度色板三副本镜像（FE-004，契约保留）：本文件 RARITY_COLOR ↔ static/style.css 的 --r-* 变量
+   ↔ miniprogram（范围外）；tests/test_consistency.py 校验 css 变量与本表一致 */
 const RARITY_ORDER = ["FUR", "UR", "SAR", "HR", "SR", "ACE", "AR", "SSR", "CHR", "CSR", "RRR", "RGB", "RR", "K", "PR", "A", "S", "R", "U", "C", "N", "★★★", "★★", "★", "◆", "●", "无标记"];
 const RARITY_COLOR = {
   C: "#9aa5b1", U: "#58c470", R: "#4aa8ff", RR: "#ffd75e", AR: "#7ee8fa",

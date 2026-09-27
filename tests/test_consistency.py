@@ -118,5 +118,35 @@ class TestNormIndexMirrors(unittest.TestCase):
                 self.assertEqual(pt_store.norm_index(v), s.zfill(3))
 
 
+class TestRarityPaletteMirror(unittest.TestCase):
+    """FE-004：style.css 的 --r-* 稀有度变量必须与前端 RARITY_COLOR 色板一致。"""
+
+    def test_css_vars_match_js_palette(self):
+        js = _js_rarity_palette()
+        css = (ROOT / "static" / "style.css").read_text(encoding="utf-8")
+        css_vars = dict(re.findall(r"--r-([A-Za-z]+):\s*(#[0-9a-fA-F]{3,8})\s*;", css))
+        self.assertTrue(css_vars, "style.css 中未找到 --r-* 变量")
+        for name, color in css_vars.items():
+            with self.subTest(rarity=name):
+                self.assertEqual(js.get(name), color, f"--r-{name} 与 RARITY_COLOR 不一致")
+
+
+def _js_rarity_palette() -> dict:
+    """在 node 中以最小 DOM 桩加载 static/core.js，取 RARITY_COLOR。"""
+    script = (
+        'const fs = require("fs");'
+        'globalThis.window = {};'
+        'const src = fs.readFileSync(process.argv[1], "utf8");'
+        'const exports_ = (new Function("window", "document", src + "\\n;return { RARITY_COLOR, RARITY_ORDER };"))'
+        '(globalThis.window, { querySelector: () => null, querySelectorAll: () => [] });'
+        'console.log(JSON.stringify(exports_.RARITY_COLOR));'
+    )
+    out = subprocess.run(["node", "-e", script, str(ROOT / "static" / "core.js")],
+                         capture_output=True, text=True, timeout=30)
+    if out.returncode != 0:
+        raise RuntimeError(f"node 加载 core.js 失败: {out.stderr}")
+    return json.loads(out.stdout)
+
+
 if __name__ == "__main__":
     unittest.main()

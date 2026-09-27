@@ -22,6 +22,7 @@
   --txt2: #9aa7bd;
   --red: #e3350d;
   --accent: #ffce4a;
+  /* 稀有度色板镜像（FE-004）：与 static/core.js RARITY_COLOR 保持一致（tests/test_consistency.py 守卫） */
   --r-C: #9aa5b1;
   --r-U: #58c470;
   --r-R: #4aa8ff;
@@ -682,16 +683,6 @@ select option { background: var(--pop); color: var(--txt); }
 .spec-row-ghost { grid-template-columns: 92px 1fr 1fr; }
 .spec-row-ghost .btn { flex: none; }
 
-/* 手机端：页码严格单行（缩格 + 分行按钮两列） */
-@media (max-width: 720px) {
-  .pack-tab { width: 28px; height: 28px; font-size: 11.5px; border-radius: 7px; }
-  .pack-tab.ellipsis { min-width: 14px; }
-  .pack-nav .mini-btn { height: 28px; padding: 0 12px; }
-  .spec-row { grid-template-columns: 64px 1fr 1fr 1fr; gap: 8px; }
-  .spec-row-label { font-size: 12px; justify-content: flex-start; padding-right: 0; }
-  .spec-row-ghost { grid-template-columns: 64px 1fr 1fr; }
-}
-
 /* ---------- v1.2.3：下拉手风琴开包面板 ---------- */
 .spec-acc { display: flex; flex-direction: column; }
 .pack-toggle { width: 100%; box-sizing: border-box; flex-direction: row; align-items: center; justify-content: space-between;
@@ -724,6 +715,11 @@ select option { background: var(--pop); color: var(--txt); }
 }
 
 @media (max-width: 720px) {
+  /* 手机端：页码严格单行（缩格 + 分行按钮两列）——原前后两处 720px 规则块合并（FE-014），
+     .pack-tab/.ellipsis/.mini-btn 取级联后生效值，计算结果不变 */
+  .spec-row { grid-template-columns: 64px 1fr 1fr 1fr; gap: 8px; }
+  .spec-row-label { font-size: 12px; justify-content: flex-start; padding-right: 0; }
+  .spec-row-ghost { grid-template-columns: 64px 1fr 1fr; }
   /* 手机端：下拉项各占一行 */
   .spec-drop { grid-template-columns: 1fr; gap: 8px; border: 0; border-radius: 0; overflow: visible; }
   .spec-drop .btn { border-radius: 12px; border: 0; padding: 13px 14px; box-shadow: none; }
