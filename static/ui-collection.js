@@ -8,7 +8,7 @@ function collectionTile(card, opts) {
   const d = document.createElement("div");
   d.className = "coll-card" + (opts.missing ? " missing" : "");
   d.innerHTML = `
-      <img loading="lazy" decoding="async" src="${thumbURL(card)}" alt="${escapeHtml(opts.name)}" onerror="__imgFail(this)">
+      <img loading="lazy" decoding="async" src="${escapeHtml(thumbURL(card))}" alt="${escapeHtml(opts.name)}" onerror="__imgFail(this)">
       <div class="cc-x">${opts.countHtml}</div>${opts.priceHtml || ""}
       <div class="cc-name">${opts.badge}${escapeHtml(opts.name)} <span>${escapeHtml(card.cardIndex)}</span></div>`;
   d.addEventListener("click", () => showDetail(card.setCode, card.cardIndex));

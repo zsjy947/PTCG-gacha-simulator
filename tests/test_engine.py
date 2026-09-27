@@ -6,9 +6,11 @@
 2. 统计：大数模拟校验划档概率落位（宽松界，防 flake）。
 """
 import json
+import math
 import random
 import subprocess
 import sys
+import tempfile
 import unittest
 from pathlib import Path
 
@@ -47,17 +49,16 @@ def js_packs(cards: list, spec: dict, seeds, packs: int) -> list:
     """多种子批量对拍：返回 [[seed1 的包序列], [seed2 的包序列], ...]（与 seeds 同序）。"""
     if isinstance(seeds, int):
         seeds = [seeds]
-    tmp = Path(__file__).parent / "_tmp_parity"
-    tmp.mkdir(exist_ok=True)
-    f_cards = tmp / "fixture.json"
-    f_spec = tmp / "spec.json"
-    f_cards.write_text(json.dumps(cards, ensure_ascii=False), encoding="utf-8")
-    f_spec.write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
-    out = subprocess.run(
-        ["node", str(Path(__file__).parent / "parity_node.js"),
-         str(f_cards), str(f_spec), ",".join(str(s) for s in seeds), str(packs)],
-        capture_output=True, text=True, timeout=120,
-    )
+    with tempfile.TemporaryDirectory() as tmp:
+        f_cards = Path(tmp) / "fixture.json"
+        f_spec = Path(tmp) / "spec.json"
+        f_cards.write_text(json.dumps(cards, ensure_ascii=False), encoding="utf-8")
+        f_spec.write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+        out = subprocess.run(
+            ["node", str(Path(__file__).parent / "parity_node.js"),
+             str(f_cards), str(f_spec), ",".join(str(s) for s in seeds), str(packs)],
+            capture_output=True, text=True, timeout=120,
+        )
     if out.returncode != 0:
         raise RuntimeError(f"node 对拍脚本失败: {out.stderr}")
     return json.loads(out.stdout)
@@ -110,7 +111,6 @@ class TestDistribution(unittest.TestCase):
                 rr_plus += 1
         # HOLO_WEIGHTS 在池 {R,RR,SR} 归一化后 RR+ ≈ (15+4.5)/89.5
         p = (15 + 4.5) / (70 + 15 + 4.5)
-        import math
         sigma = math.sqrt(n * p * (1 - p))
         self.assertLess(abs(rr_plus - n * p), 6 * sigma,
                         f"RR+ 频率 {rr_plus / n:.4f} 偏离期望 {p:.4f} 超过 6σ")

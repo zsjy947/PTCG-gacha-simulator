@@ -20,20 +20,19 @@ import webbrowser
 from flask import Flask, send_file, send_from_directory
 
 from server import api as server_api
+from server import httpcache as server_httpcache
 from server import media as server_media
 from server import store as server_store
-from server.httpcache import cache_clear, cache_info
-from server.paths import (BUNDLED_DATA, DATA, DETAIL_CACHE, ICON_CACHE, IMG_CACHE,  # noqa: F401 (重导出兼容旧导入方)
-                          SHARED_DIR, STATIC_DIR)
+from server.paths import (BUNDLED_DATA, DATA, DETAIL_CACHE, ICON_CACHE, IMG_CACHE,  # noqa: F401
+                          SHARED_DIR, STATIC_DIR)  # 数据目录常量自 app 重导出：兼容旧导入方（tools/baseline_perf.py 等）
 
 app = Flask(__name__, static_folder=str(STATIC_DIR), static_url_path="/static")
 
 # 路由注册（endpoint 名与函数名一致，规则与拆分前逐条相同）
-app.get("/api/cache/info")(cache_info)
-app.post("/api/cache/clear")(cache_clear)
 server_api.register(app)
 server_media.register(app)
 server_store.register(app)
+server_httpcache.register(app)
 
 
 # ---------------------------------------------------------------- 页面

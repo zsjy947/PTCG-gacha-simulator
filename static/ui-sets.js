@@ -56,7 +56,7 @@ function selectSet(id) {
   state.spec = s.specs.find((x) => x.default) || s.specs[0];
   $$(".set-item").forEach((el) => el.classList.toggle("active", el.dataset.id === id));
   $("#hero").innerHTML = `
-    <div class="hero-icon"><img src="${iconURL(s.code)}" alt="" style="max-width:64px;max-height:48px;object-fit:contain" onerror="this.outerHTML='🎯'"></div>
+    <div class="hero-icon"><img src="${escapeHtml(iconURL(s.code))}" alt="" style="max-width:64px;max-height:48px;object-fit:contain" onerror="this.outerHTML='🎯'"></div>
     <div class="hero-info">
       <h2>${escapeHtml(s.name)}</h2>
       <p>${escapeHtml(s.group)} · ${s.count} 张卡牌</p>

@@ -53,7 +53,7 @@ function appendCardChunk() {
     const d = document.createElement("div");
     d.className = "cl-card";
     d.innerHTML = `
-      <img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)">
+      <img loading="lazy" decoding="async" src="${escapeHtml(thumbURL(c))}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)">
       <div class="cl-name">${rarBadge(c.rarity || "N")}${escapeHtml(c.cardName)}</div>`;
     d.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));
     frag.appendChild(d);

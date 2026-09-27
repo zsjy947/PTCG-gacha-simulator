@@ -45,7 +45,7 @@ def main():
 
     # 前端三件套（index.html 注入资产模式；链接带版本号防 WebView 缓存）
     # 前端脚本自 v1.3.1 起拆分为多文件：加载顺序以 index.html 内 /static/*.js 出现顺序为准，
-    # 整目录复制自动带入新文件（拆分见 docs/refactor/，契约 docs/refactor/CONTRACT.md R8）
+    # 按 index.html 引用清单逐文件复制，新前端文件随引用自动带入（拆分见 docs/refactor/，契约 R8）
     import time as _time
     ver = str(int(_time.time()))
     html = (ROOT / "static" / "index.html").read_text(encoding="utf-8")

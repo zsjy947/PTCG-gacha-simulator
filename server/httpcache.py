@@ -56,8 +56,11 @@ def _fetch_allow() -> bool:
 # ---------------------------------------------------------------- 图片缓存 LRU 上限
 IMG_CACHE_MB = int(os.environ.get("PTCG_IMG_CACHE_MB") or 600)
 _lru_lock = threading.Lock()
-_lru_size = -1            # 缓存目录字节数（-1 未初始化；下载/淘汰时增量维护）
+_lru_size = -1            # 缓存目录字节数；-1=未初始化（首次淘汰扫描时才全量统计，
+                          # 此前增量记账被跳过——继承的初始化协议，见台账 BE-021）
 _dl_since_enforce = 0     # 距上次 LRU 全量扫描的回源次数（扫描有成本，节流执行）
+LRU_ENFORCE_EVERY = 20     # 每多少次回源做一轮淘汰扫描
+LRU_TARGET_RATIO = 0.9     # 淘汰到上限的该比例即停
 
 
 def _dir_size(path: Path) -> int:
@@ -88,7 +91,7 @@ def _lru_after_download(nbytes: int):
             _lru_size += nbytes
         _dl_since_enforce += 1
         over = _lru_size > IMG_CACHE_MB * 1048576
-        due = _dl_since_enforce >= 20
+        due = _dl_since_enforce >= LRU_ENFORCE_EVERY
         if due:
             _dl_since_enforce = 0
     if over and due:
@@ -103,9 +106,15 @@ def _lru_enforce():
             _lru_size = _dir_size(IMG_CACHE)
         if _lru_size <= IMG_CACHE_MB * 1048576:
             return
-        files = [(p.stat().st_mtime, p) for p in IMG_CACHE.rglob("*") if p.is_file()]
+        files = []
+        for p in IMG_CACHE.rglob("*"):
+            try:
+                if p.is_file():
+                    files.append((p.stat().st_mtime, p))
+            except OSError:  # 扫描中被清理/占用时跳过该文件（BE-019）
+                continue
         files.sort()
-        target = IMG_CACHE_MB * 1048576 * 0.9
+        target = IMG_CACHE_MB * 1048576 * LRU_TARGET_RATIO
         for _, p in files:
             if _lru_size <= target:
                 break
@@ -203,7 +212,10 @@ def _fetch_detail(code: str, idx: str) -> bool:
         )
         data = r.json()
         if data.get("code") == 200 and data.get("data"):
-            dest.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+            # 原子写：中断不残留截断 JSON 被当作有效缓存（BE-020）
+            tmp = dest.with_suffix(dest.suffix + ".tmp")
+            tmp.write_text(json.dumps(data, ensure_ascii=False), encoding="utf-8")
+            tmp.replace(dest)
             return True
     except (requests.RequestException, ValueError):
         return False
@@ -238,3 +250,9 @@ def cache_clear():
     with _lru_lock:
         _lru_size = 0
     return jsonify({"ok": True})
+
+
+def register(app):
+    """把缓存路由挂到 Flask 应用（与其余 server 模块同一装配模式）。"""
+    app.get("/api/cache/info")(cache_info)
+    app.post("/api/cache/clear")(cache_clear)

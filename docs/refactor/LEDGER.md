@@ -13,7 +13,7 @@
 | FE-003 | app.js 637-663/722-742/848 | 盒装/单包汇总重复 + RR+ 表达式两处 | 重复逻辑 | 抽 rarityCounts()/renderChips()/rrUpTo()/activeSpec()（战报图计数一并复用） | 已闭环 | 页面内与原公式逐字节对照通过 + 十连汇总条实测 |
 | FE-004 | app.js 8-15、style.css 25-34/346-358 | 稀有度色板三副本（小程序第四份，范围外） | 可维护性 | 保留三处（契约），加一致性注释与测试 | 已闭环 | tests/test_consistency.py：style.css --r-* 与 core.js RARITY_COLOR 全等 |
 | FE-005 | app.js 25/60-62/1502 | 死代码 BOX_SIZE、cardImage()、#themeInfo | 工程规范 | 台账后删除 | 已闭环 | 全仓 grep 无残留引用；typeof 校验已不存在 |
-| FE-006 | app.js 695-697 等 | 时序魔法数散布 | 魔法数 | 命名化（R4 常量块 + specBtnClass 阈值）；值逐一核对不变 | 已闭环 | 浏览器读取 16 项常量值全等 + 时序链路回归 |
+| FE-006 | app.js 695-697 等 | 时序魔法数散布 | 魔法数 | 命名化（R4 常量块 + specBtnClass 阈值）；值逐一核对不变。回修：AGAIN_DELAY_MS 漏定义（维度1/2/6 抓获）已补 core.js 并复测「再来一次」链路 | 已闭环 | 复测 stats 13→14 + 三维度交叉确认 |
 | FE-007 | app.js 28-39/588 | state.pending 未声明 | 规范 | 显式声明 | 已闭环 | state 含 pending: null，开包链路正常 |
 | FE-008 | app.js 655 | state.packs[0][0] 空包假设 | 崩溃级 | 加守卫（renderBoxSummary firstCard 守卫 + renderPackSummary pack.length 守卫，同类同修） | 已闭环 | 当前数据输出不变；开包/汇总冒烟正常 |
 | FE-009 | app.js 1188/1198/1200-1203 | showDetail 字段未转义 | 安全 | 无感加固（弱点值/HP/属性/撤退 4 处 escapeHtml） | 已闭环 | 当前数据渲染逐字节不变（浏览器回归） |
@@ -54,6 +54,21 @@
 |---|---|---|---|---|---|---|
 | PR-001 | sync.py 107-311 | sync() 205 行 | 拆分 | 拆 _load_name_cache/_set_entries/_topup_by_name/_build_price_cards/_refine_expensive/_sync_one_set；日志逐字保留 | 已闭环 | pricetool 31 测全绿 + 离线 CLI 冒烟（query/value）输出一致 |
 | PR-002 | sync.py/cli.py | print 日志无 logging 模块 | 日志 | 仅记录不改（输出格式契约 R7） | 保留（格式契约） | |
+
+| BE-019 | server/httpcache.py _lru_enforce | 扫描推导式 p.stat() 无防御，与 cache_clear 并发可抛 OSError→500（维度3 S5） | 崩溃级（同类） | 逐文件 try/except OSError 跳过 | 已闭环 | py_compile+37 测全绿 |
+| BE-020 | server/httpcache.py _fetch_detail | 直写缓存非原子，中断残留截断 JSON 永久当有效缓存（维度3 S7） | 资源 | tmp+replace 原子写（按文件锁建议保留不加，避免改并发时序） | 已闭环 | 代码审查+回归全绿；锁部分保留 |
+| BE-021 | server/httpcache.py _lru_size=-1 哨兵 | 初始 -1 期间增量记账跳过、淘汰不可达，直至首次全量扫描/清缓存（维度5 M-03，基线继承） | 性能陷阱 | 仅记录+注释说明初始化协议，不改行为 | 保留（基线行为，修复属行为变更） | 维度5 报告 M-03 |
+| BE-022 | server/store.py store_set | 写失败残留 .json.tmp（与 BE-013 不对称，维度5 M-05） | 资源 | 补 finally 等价清理 | 已闭环 | 回归全绿 |
+| BE-023 | app.py/httpcache.py | 缓存路由在 app.py 手工挂载，与其余模块 register() 模式不一致（维度5 M-02） | 可维护性 | httpcache.register(app) 统一装配 | 已闭环 | golden 路由表回归全绿 |
+| BE-024 | android/build_assets.py | 前端拆分伴随改动未及时登记（维度2 F-2） | 台账 | 本条补录：按 index.html 脚本序逐文件复制+注入，产物清单干跑核对等价 | 已闭环 | 干跑清单 + 维度6 R8 核对 |
+| BE-025 | fetch_data.py split_151 | 删除基线死代码 appear=Counter(...)（维度2 F-3） | 台账 | 本条补录：零行为影响 | 已闭环 | 维度2 对照确认 |
+| BE-026 | static/data.js order 数组 | GROUP_ORDER 前端硬编码副本无守卫（维度5 M-04） | 兼容 | tests/test_consistency.py 增 TestGroupOrderMirror | 已闭环 | 37 测全绿 |
+| BE-027 | fetch_data.py/server/__init__.py/app.py/tests | 工程卫生：未用 import urllib.error、__init__ 描述措辞、重导出注释过宽、import math 位置（维度1 #2-#5） | 工程规范 | 逐一修正 | 已闭环 | py_compile+测试全绿 |
+| BE-028 | media 路由 | _cached_fetch 二次重试网络异常 raise→500 HTML（维度3 S6，基线行为） | 错误契约 | 仅记录不改（改 404 属错误契约变更） | 保留（基线行为） | 维度3 报告 S6 |
+| BE-029 | _locks 只增不删；_fetch_detail 无按文件锁；收藏导入无字符白名单；无 CSP（维度3 S7锁部分/S8/S2建议/S9） | 安全加固建议 | 安全 | 仅记录（CSP 与内联 onerror 契约冲突同 FE-016；白名单会改导入行为） | 保留（记录） | 维度3 报告 |
+| FE-017 | ui-modals/ui-draw/ui-sets | showDetail 稀有度回退、概率/期望 rarity、小结 label、hero 图 URL 未转义（维度3 S1/S3/S4 + S2 部分） | 安全 | 无感加固 escapeHtml | 已闭环 | 渲染回归逐字节不变 |
+| FE-018 | collectionTile/cl-card/gcard/mini-card/detail 等 6 处 | thumbURL/imgURL/iconURL 拼接进 innerHTML 未转义，恶意收藏导入可注入（维度3 S2） | 安全 | 模板内 escapeHtml(URL)（当前数据字符集下逐字节不变）；导入白名单建议见 BE-029 | 已闭环 | 回归全绿 |
+| FE-019 | ui-modals.js showExpectedCost | web 服务模式 _spec_brief 不含 slots/variants，G().expectedCost 报 "v.slots is not iterable"——基线即如此（APK 全量规格下正常） | 逻辑 | 仅记录不改（修复需改接口形状，超本轮范围） | 保留（基线行为，E2E 实证） | E2E 记录 + dev 对照 |
 
 ## 执行期新增（动态登记）
 

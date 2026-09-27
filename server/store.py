@@ -35,6 +35,10 @@ def store_set():
             tmp.write_text(json.dumps({"data": data}, ensure_ascii=False), encoding="utf-8")
             tmp.replace(USER_STORE)
         except OSError as e:
+            try:  # 写失败不残留 .json.tmp（BE-022）
+                tmp.unlink()
+            except OSError:
+                pass
             return jsonify({"error": f"写入失败：{e}"}), 500
     return jsonify({"ok": True})
 

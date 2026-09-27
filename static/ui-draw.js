@@ -221,7 +221,7 @@ function renderPackRow() {
     el.innerHTML = `
       <div class="gcard-inner">
         <div class="gface back"></div>
-        <div class="gface front"><img decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)"></div>
+        <div class="gface front"><img decoding="async" src="${escapeHtml(thumbURL(c))}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)"></div>
       </div>`;
     el.addEventListener("click", () => flipCard(el, i));
     row.appendChild(el);
@@ -244,7 +244,7 @@ function renderPackSummary() {
   }
   const pack = state.packs[state.packIdx];
   const done = state.flipped[state.packIdx].size;
-  const line1 = `第 ${state.packIdx + 1}/${state.packs.length} 包${state.spec ? ` · ${state.spec.label}` : ""}`;
+  const line1 = `第 ${state.packIdx + 1}/${state.packs.length} 包${state.spec ? ` · ${escapeHtml(state.spec.label)}` : ""}`;
   if (done < pack.length) { box.innerHTML = `<div class="ps-line1">${line1}</div>`; return; }
   maybeRecordPack(state.packIdx);
   const cnt = rarityCounts(pack);
@@ -344,7 +344,7 @@ function renderHistory() {
       m.className = "mini-card";
       m.dataset.rarity = c.rarity || "N";
       m.innerHTML = `
-        <div class="frame"><img loading="lazy" decoding="async" src="${thumbURL(c)}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)"></div>
+        <div class="frame"><img loading="lazy" decoding="async" src="${escapeHtml(thumbURL(c))}" alt="${escapeHtml(c.cardName)}" onerror="__imgFail(this)"></div>
         <div class="mc-name">${escapeHtml(c.cardName)}</div>
         <div class="mc-rar" style="color:${escapeHtml(RARITY_COLOR[c.rarity] || RARITY_COLOR.N)}">${RARITY_LABEL[c.rarity] || "其他"}</div>`;
       m.addEventListener("click", () => showDetail(c.setCode, c.cardIndex));

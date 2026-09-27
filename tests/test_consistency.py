@@ -57,6 +57,17 @@ def _brief_miniprogram(code: str) -> list:
     return bm.spec_brief(code)
 
 
+class TestGroupOrderMirror(unittest.TestCase):
+    """M-04：前端资产模式（data.js）的分组顺序硬编码副本须与 config.GROUP_ORDER 一致。"""
+
+    def test_datajs_order_matches_config(self):
+        text = (ROOT / "static" / "data.js").read_text(encoding="utf-8")
+        m = re.search(r"const order = \[([^\]]+)\];", text)
+        self.assertTrue(m, "data.js 未找到 order 数组")
+        js_order = re.findall(r'"([^"]+)"', m.group(1))
+        self.assertEqual(js_order, config.GROUP_ORDER)
+
+
 class TestSpecBriefThreePlatforms(unittest.TestCase):
     """BE-009：spec_brief 三平台实现的公共字段必须等价（形状差异是刻意的）。"""
 

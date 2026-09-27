@@ -38,6 +38,7 @@ const FLIP_GAP_SLOW_MS = 60;
 const RARITY_BURST_MS = 1100;           // 高稀有度爆闪时长
 const IMG_RETRY_MS_1 = 800;             // 图片加载失败两档重试
 const IMG_RETRY_MS_2 = 2000;
+const AGAIN_DELAY_MS = 250;         // 「再来一次」关包后重开的延迟
 const HISTORY_LIMIT = 30;               // 拆卡记录上限（超出静默截断，FE-015 记录保留）
 const PAGE_WINDOW = 7;                  // 页码栏直显窗口（超出走 1…p…n 折叠）
 const DATASRC_TIMEOUT_MS = 8000;        // 数据源超时

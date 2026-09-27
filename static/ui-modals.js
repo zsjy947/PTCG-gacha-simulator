@@ -27,7 +27,7 @@ function probSlotHtml(slot) {
   }
   const lines = slot.probabilities.map((p) => `
     <div class="prob-line">
-      <span class="pl-r" style="color:${escapeHtml(RARITY_COLOR[p.rarity] || "")}">${p.rarity}</span>
+      <span class="pl-r" style="color:${escapeHtml(RARITY_COLOR[p.rarity] || "")}">${escapeHtml(p.rarity)}</span>
       <span class="pl-bar"><i style="width:${(p.p * 100).toFixed(2)}%;background:${escapeHtml(RARITY_COLOR[p.rarity] || "#888")}"></i></span>
       <span class="pl-p">${probPct(p.p)}（池 ${p.pool} 张）</span>
     </div>`).join("");
@@ -83,10 +83,10 @@ async function showDetail(code, idx) {
         ${a.text ? `<div>${escapeHtml(a.text)}</div>` : ""}
       </div>`).join("");
     $("#detailBody").innerHTML = `
-      <div class="d-img"><img src="${imgURL(c.setCode, c.cardIndex)}" alt="${escapeHtml(c.name)}" onerror="__imgFail(this)"></div>
+      <div class="d-img"><img src="${escapeHtml(imgURL(c.setCode, c.cardIndex))}" alt="${escapeHtml(c.name)}" onerror="__imgFail(this)"></div>
       <div class="d-info">
         <h4>${escapeHtml(c.name)} <span style="font-size:12px;color:var(--txt2)">${escapeHtml(c.nameEn || "")}</span></h4>
-        <div class="d-sub">${escapeHtml(c.setCode)}-${escapeHtml(c.cardIndex)} · ${RARITY_LABEL[c.rarity] || c.rarity || "—"} · ${escapeHtml(c.artist || "")}</div>
+        <div class="d-sub">${escapeHtml(c.setCode)}-${escapeHtml(c.cardIndex)} · ${escapeHtml(RARITY_LABEL[c.rarity] || c.rarity || "—")} · ${escapeHtml(c.artist || "")}</div>
         <div class="d-stats">
           <div><b>HP</b> ${escapeHtml(attr.hp ?? "—")}</div>
           <div><b>属性</b> ${ENERGY_ZH[attr.energyType] || escapeHtml(attr.energyType) || "—"}</div>
@@ -121,7 +121,7 @@ async function showExpectedCost() {
         ? `¥${fmtMoney(Math.round(r.cardPacks * sp.priceCny))}` : "—";
       const body = rows.map((r) => `
         <tr>
-          <td><span class="pl-r" style="color:${escapeHtml(RARITY_COLOR[r.rarity] || "")}">${r.rarity}</span></td>
+          <td><span class="pl-r" style="color:${escapeHtml(RARITY_COLOR[r.rarity] || "")}">${escapeHtml(r.rarity)}</span></td>
           <td>${r.pool} 张</td>
           <td>${probPct(r.pPack)}</td>
           <td>${Number.isFinite(r.anyPacks) ? Math.ceil(r.anyPacks) : "—"} 包</td>
