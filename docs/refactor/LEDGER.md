@@ -36,8 +36,8 @@
 | BE-005 | app.py 101 | X-Forwarded-For 可伪造 | 安全 | 仅记录不改（仅绑定 127.0.0.1） | 保留（威胁模型不成立） | |
 | BE-006 | config.py 全文 | 配置与逻辑混杂、魔法数 | 可维护性 | 内部整理（四节归组+文档去重；签名/逻辑/值不动） | 已闭环 | 公共符号取值快照比对一致 + golden/对拍全绿 |
 | BE-007 | fetch_data.py 130-244 | main() 115 行 | 拆分 | 拆 split_151/expand_sets/insert_151_entries/write_manifest；print 与退出码逐字保留 | 已闭环 | 本地干跑输出与基线逐行一致（索引/清单重写后与 git 版本字节一致） |
-| BE-008 | store.py 14-19 / fetch_data.py 93-97 | atomic_write_json/_md5 双实现 | 重复逻辑 | 不合并，加一致性测试 | 待处理 | |
-| BE-009 | app.py 280-294 等 | spec_brief 三平台三实现 | 重复逻辑 | 不合并，加等价测试 | 待处理 | |
+| BE-008 | store.py 14-19 / fetch_data.py 93-97 | atomic_write_json/_md5 双实现 | 重复逻辑 | 不合并，加一致性测试 | 已闭环 | tests/test_consistency.py：双实现同输入字节一致 |
+| BE-009 | app.py 280-294 等 | spec_brief 三平台三实现 | 重复逻辑 | 不合并，加等价测试 | 已闭环 | tests/test_consistency.py：全可拆弹公共字段逐一等价 |
 | BE-010 | kyo.py 10/78 | docstring 0.4s 与实现 0.6s 不符 | 文档 | 修正注释（无感） | 待处理 | |
 | BE-011 | sync.py 23 / cli.py 230 | DEFAULT_BUDGET 120 vs CLI 600 | 文档 | 只在文档/注释说明，不改默认值 | 已闭环 | DEFAULT_BUDGET 注释说明两处默认值刻意不同、均未改动 |
 | BE-012 | cli.py 148 | 文件句柄未关闭 | 崩溃级 | 改 with-open | 待处理 | |
@@ -46,7 +46,7 @@
 | BE-015 | 仓库根 | 无 requirements.txt | 工程规范 | 新增 | 待处理 | |
 | BE-016 | README API 清单 | 缺 6 个路由文档 | 文档 | 补全 | 待处理 | |
 | BE-017 | kyo.py 79 / app.py 85 | Session 不关闭 | 资源 | 仅记录（进程生命周期） | 保留（进程级单例） | |
-| BE-018 | 三处 normIdx 镜像 | 键规范三实现 | 兼容 | 加一致性测试 | 待处理 | |
+| BE-018 | 三处 normIdx 镜像 | 键规范三实现 | 兼容 | 加一致性测试 | 已闭环 | tests/test_consistency.py：前端 normIdx（node 执行真实源码）↔ norm_index ↔ zfill 全值一致 |
 
 ## pricetool（PR）
 
