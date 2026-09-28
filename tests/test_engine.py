@@ -80,7 +80,7 @@ class TestGoldenParity(unittest.TestCase):
             "sm25(多平卡槽)": config.set_specs("CS1AC")[1],
             "gem4(符号稀有度)": config.set_specs("CBB1C")[0],
             "tera10(封入变体)": config.set_specs("CSV9.5C")[0],
-            "fest6(30周年特款)": config.set_specs("30THC")[0],
+            "fest6(30周年特款)": config.set_specs("30thC")[0],
         }
         for name, spec in specs.items():
             with self.subTest(spec=name):

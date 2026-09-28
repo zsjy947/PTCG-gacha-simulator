@@ -102,7 +102,7 @@ class TestGoldenEndpoints(unittest.TestCase):
         _assert_golden(self, "set_cards_sv", r.status_code, r.get_json())
 
     def test_04_set_probabilities(self):
-        for set_id, name in ((SET_SV, "sv"), (SET_GEM, "gem"), ("30THC", "fest")):
+        for set_id, name in ((SET_SV, "sv"), (SET_GEM, "gem"), ("30thC", "fest")):
             r = self.client.get(f"/api/sets/{set_id}/probabilities")
             self.assertEqual(r.status_code, 200, set_id)
             _assert_golden(self, f"probabilities_{name}", r.status_code, r.get_json())
