@@ -265,9 +265,8 @@ function renderPackSummary() {
   }
   const pack = state.packs[state.packIdx];
   const done = state.flipped[state.packIdx].size;
-  const line1 = `第 ${state.packIdx + 1}/${state.packs.length} 包${state.spec ? ` · ${escapeHtml(state.spec.label)}` : ""}`;
   if (done < pack.length) {
-    box.innerHTML = `<div class="ps-chips"></div><div class="ps-line1">${line1}</div><div class="ps-value"></div>`;
+    box.innerHTML = `<div class="ps-chips"></div><div class="ps-value"></div>`;
     return;
   }
   maybeRecordPack(state.packIdx);
@@ -278,7 +277,6 @@ function renderPackSummary() {
   const money = sp && sp.priceCny ? sp.priceCny : 0;
   const valLine = pack.length && setPriced(pack[0].setCode) ? valueLineHtml(packValue(pack), money) : "";
   box.innerHTML = `<div class="ps-chips" title="${escapeHtml(chipsText)}">${chips}</div>`
-    + `<div class="ps-line1">${line1}</div>`
     + `<div class="ps-value">${valLine}</div>`;
 }
 

@@ -299,6 +299,9 @@ select option { background: var(--pop); color: var(--txt); }
   margin: 6px auto 0; width: min(980px, calc(100% - 24px)); }
 .pack-nav .pack-tabs { flex: 1; justify-content: center; }
 .pack-nav .mini-btn { height: 32px; padding: 0 18px; display: inline-flex; align-items: center; justify-content: center; }
+/* 深色模式：拆包展示内按钮统一 90% 不透明实底（半透明底会透出下层页面显得深浅不一） */
+.cards-stage .btn-ghost, .cards-stage .mini-btn { background: rgba(20, 28, 47, .9); }
+.cards-stage .mini-btn:hover { background: var(--soft2); }
 .pack-tabs { display: flex; gap: 6px; flex-wrap: nowrap; justify-content: center; align-items: center; }
 .pack-tab {
   width: 34px; height: 34px; border-radius: 9px; font-size: 12.5px; font-weight: 700;
@@ -373,10 +376,9 @@ select option { background: var(--pop); color: var(--txt); }
 .stage-actions .btn { flex: 1 1 0; }
 .pack-summary { color: var(--txt2); font-size: 13px; margin: 4px auto 12px; width: min(980px, calc(100% - 24px));
   box-sizing: border-box; padding: 8px 16px; border-radius: 14px; background: var(--solid); border: 1px solid var(--line);
-  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; align-items: center; min-height: 38px; }
-.pack-summary .ps-line1 { text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pack-summary .ps-chips { font-weight: 700; text-align: left; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.pack-summary .ps-value { font-size: 12.5px; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; align-items: center; min-height: 38px; }
+.pack-summary .ps-chips { font-weight: 700; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.pack-summary .ps-value { font-size: 12.5px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---------- 通用页面件 ---------- */
 .page-head { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; }
@@ -718,10 +720,7 @@ select option { background: var(--pop); color: var(--txt); }
   /* 手机端：卡面 -> 小结 -> 汇总 -> 操作 -> 页码/前后包（DOM 顺序即展示顺序） */
   .cards-stage { display: flex; flex-direction: column; align-items: center; width: 100%; }
   .cards-row { order: 1; width: 100%; }
-  .pack-summary { order: 2; grid-template-columns: 1fr auto; gap: 2px 12px; min-height: 58px; }
-  .pack-summary .ps-line1 { grid-column: 1; grid-row: 1; text-align: left; }
-  .pack-summary .ps-value { grid-column: 2; grid-row: 1; text-align: right; }
-  .pack-summary .ps-chips { grid-column: 1 / -1; grid-row: 2; }
+  .pack-summary { order: 2; }
   .box-summary { order: 3; min-height: 118px; }
   .bs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 12px; }
   .bs-title { grid-column: 1 / -1; }
