@@ -643,7 +643,10 @@ select option { background: var(--pop); color: var(--txt); }
   min-height: 76px; }
 :root[data-theme="light"] .box-summary { background: #ffffff; }
 .box-summary[hidden] { display: none; }
-.box-summary.pending { visibility: hidden; }
+.box-summary.progress { display: flex; flex-direction: column; justify-content: center; }
+.bs-progress { margin-top: 10px; height: 8px; border-radius: 6px; background: var(--soft); overflow: hidden; }
+.bs-progress i { display: block; height: 100%; min-width: 8px; border-radius: 6px;
+  background: linear-gradient(90deg, #e3350d, #ff8a3c); transition: width .3s ease; }
 .bs-row { display: flex; align-items: baseline; justify-content: space-between; gap: 4px 18px; flex-wrap: wrap; }
 .bs-title { color: var(--accent); font-size: 15px; font-weight: 700; white-space: nowrap; }
 .bs-stat { font-size: 13px; color: var(--txt2); white-space: nowrap; }

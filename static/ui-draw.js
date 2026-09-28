@@ -154,16 +154,28 @@ function showCards() {
   renderPackRow();
 }
 
-/* 汇总条：多包连开时统计（含花费）。仅末页显示内容；非末页以 pending 状态
- * 预留同高空间，翻到末页时内容静默填充，不再突兀。 */
+/* 汇总条：多包连开时统计（含花费）。
+ * 未翻完全部包时显示拆卡进度（不剧透内容）；全部翻开后（无论在哪一页）
+ * 静默变为完整汇总。块高恒定，无跳变、无空白占位。 */
 function renderBoxSummary() {
   const el = $("#boxSummary");
   const last = state.packIdx === state.packs.length - 1;
   $("#btnAgain").hidden = !last;
   if (state.packs.length <= 1) { el.hidden = true; return; }
   el.hidden = false;
-  if (!last) { el.classList.add("pending"); el.innerHTML = ""; return; }
-  el.classList.remove("pending");
+  const total = state.packs.length;
+  const flippedCount = state.flipped.reduce((n, s, i) => n + (s.size >= state.packs[i].length ? 1 : 0), 0);
+  if (flippedCount < total) {
+    el.classList.add("progress");
+    el.innerHTML = `
+      <div class="bs-row">
+        <span class="bs-title">${total} 包汇总</span>
+        <span class="bs-stat">已翻开 ${flippedCount}/${total} 包</span>
+      </div>
+      <div class="bs-progress"><i style="width:${Math.max(6, Math.round((flippedCount / total) * 100))}%"></i></div>`;
+    return;
+  }
+  el.classList.remove("progress");
   const cnt = rarityCounts(state.packs.flat());
   const rrUp = rrUpTo(cnt);
   const best = bestRarity(cnt);
@@ -282,6 +294,7 @@ function flipCard(el, i) {
     setTimeout(() => burst.remove(), RARITY_BURST_MS);
   }
   renderPackSummary();
+  renderBoxSummary();
 }
 
 function flipAll() {
