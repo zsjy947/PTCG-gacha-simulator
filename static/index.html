@@ -183,6 +183,19 @@
         <input class="data-src-input" id="dataSrcInput" type="url"
                placeholder="自定义数据源 manifest 目录（留空：jsDelivr → GitHub raw 依次尝试）" autocomplete="off" spellcheck="false">
       </div>
+      <div class="settings-card card-glass" id="priceCard">
+        <div class="set-row">
+          <div class="set-row-info">
+            <b>卡价数据</b>
+            <p id="priceDataInfo">正在读取…</p>
+          </div>
+          <div class="update-actions">
+            <button class="mini-btn" id="btnCheckPrice">检查更新</button>
+          </div>
+        </div>
+        <p class="settings-note" id="priceStats"></p>
+        <p class="settings-note">价格为离线快照，随每周自动同步更新；启动时也会自动检查，无需重新安装。</p>
+      </div>
       <div class="settings-card card-glass" id="cacheCard">
         <div class="set-row">
           <div class="set-row-info">

@@ -112,6 +112,16 @@ PTCG/
 ## 更新记录
 
 <details open>
+<summary><b>v1.3.1</b></summary>
+
+- 设置页新增「卡价数据」栏：显示快照统计（共 X 张卡有价 · 覆盖 N 弹）并注明「X年X月X日静态数据，仅供参考」
+- 卡价快照支持热更新：启动时自动静默检查数据源上的最新快照，比内置新则自动应用（也可随时点「检查更新」）；快照本地持久化并随记录镜像磁盘，**无需重新安装或打包**
+- GitHub Actions 每周自动同步卡价：新增 `.github/workflows/update-prices.yml`，每周一 03:00（北京时间）运行 `python -m pricetool sync --min-cny 5` 拉取行情并提交最新快照到仓库（单弹失败自动保留旧数据，支持手动触发）
+- 更新生效链路：源站（Kyo Cards/集换社）→ GitHub Actions 同步 → 仓库 master → jsDelivr/raw → 客户端启动自检/手动检查（workflow 需合并到 master 后生效；首次发布 master 暂无快照时客户端静默跳过）
+
+</details>
+
+<details>
 <summary><b>v1.3.0</b></summary>
 
 - 拆卡结果新增「卡值 / 回本」：单包翻完后的小结显示本包卡值与回本率，十连/整盒在汇总条显示总卡值与回本率（≥100% 绿色、不足红色）；未计价规格（奖赏包）只显示卡值

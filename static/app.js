@@ -216,6 +216,7 @@ function init() {
   });
   $("#btnCheckData").addEventListener("click", () => checkDataUpdate(true));
   $("#btnResetData").addEventListener("click", resetDataOverride);
+  $("#btnCheckPrice").addEventListener("click", () => checkPriceUpdate(true));
 
   $("#btnClearCache").addEventListener("click", clearImageCache);
   $("#btnCheckUpdate").addEventListener("click", () => checkUpdate(true));
