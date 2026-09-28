@@ -1,0 +1,44 @@
+name: 每周卡价同步
+
+# 每周一 03:00（北京时间）自动运行 pricetool sync 拉取 Kyo Cards/集换社行情，
+# 快照落盘 data/prices/index.json 并提交到本仓库；前端「卡价数据」栏据此热更新，
+# 无需重新打包 exe/APK。想提高时效可把 cron 改为每日（如 "0 19 * * *"）。
+on:
+  schedule:
+    - cron: "0 19 * * 0"   # UTC 周日 19:00 = 北京时间周一 03:00
+  workflow_dispatch: {}     # 支持在 Actions 页手动触发
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-prices
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: 安装依赖
+        run: pip install requests
+      # sync 单弹失败会保留该弹旧数据并继续（退出码 2 = 有失败但不影响已成功部分），
+      # 因此不因部分失败中断：只要 index.json 有变化就提交，供客户端热更新。
+      - name: 拉取最新卡价
+        run: |
+          python -m pricetool sync --force --min-cny 5 \
+            || echo "::warning::sync 部分失败：已成功的弹仍会提交，失败弹保留旧数据"
+      - name: 提交更新（无变化则跳过）
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/prices/index.json
+          if git diff --cached --quiet; then
+            echo "卡价快照无变化，跳过提交"
+          else
+            git commit -m "chore(prices): 每周卡价同步 $(date +%F)"
+            git push
+          fi
