@@ -169,6 +169,19 @@
         </div>
         <div class="spend-list" id="spendList"></div>
       </div>
+      <div class="settings-card card-glass" id="priceCard">
+        <div class="set-row">
+          <div class="set-row-info">
+            <b>卡价统计</b>
+            <p id="priceDataInfo">总卡值 ¥0</p>
+          </div>
+          <div class="update-actions">
+            <button class="mini-btn" id="btnCheckPrice">检查更新</button>
+          </div>
+        </div>
+        <div class="spend-list" id="priceList"></div>
+        <p class="settings-note" id="priceNote"></p>
+      </div>
       <div class="settings-card card-glass" id="dataUpdCard">
         <div class="set-row">
           <div class="set-row-info">
@@ -182,19 +195,6 @@
         </div>
         <input class="data-src-input" id="dataSrcInput" type="url"
                placeholder="自定义数据源 manifest 目录（留空：jsDelivr → GitHub raw 依次尝试）" autocomplete="off" spellcheck="false">
-      </div>
-      <div class="settings-card card-glass" id="priceCard">
-        <div class="set-row">
-          <div class="set-row-info">
-            <b>卡价数据</b>
-            <p id="priceDataInfo">正在读取…</p>
-          </div>
-          <div class="update-actions">
-            <button class="mini-btn" id="btnCheckPrice">检查更新</button>
-          </div>
-        </div>
-        <p class="settings-note" id="priceStats"></p>
-        <p class="settings-note">价格为离线快照，随每周自动同步更新；启动时也会自动检查，无需重新安装。</p>
       </div>
       <div class="settings-card card-glass" id="cacheCard">
         <div class="set-row">
@@ -265,13 +265,6 @@
     </div>
 
     <div class="cards-stage" id="cardsStage" hidden>
-      <div class="pack-nav" id="packNav" hidden>
-        <div class="pack-tabs" id="packTabs"></div>
-        <div class="pack-switch">
-          <button class="mini-btn" id="navPrev">‹ 上一包</button>
-          <button class="mini-btn" id="navNext">下一包 ›</button>
-        </div>
-      </div>
       <div class="cards-row" id="cardsRow"></div>
       <div class="box-summary" id="boxSummary" hidden></div>
       <div class="stage-actions">
@@ -279,6 +272,11 @@
         <button class="btn btn-ghost" id="btnReport" hidden>生成战报</button>
         <button class="btn btn-ghost" id="btnAgain">再来一次</button>
         <button class="btn btn-ghost" id="btnCloseOverlay">收起</button>
+      </div>
+      <div class="pack-nav" id="packNav" hidden>
+        <button class="mini-btn" id="navPrev">‹ 上一包</button>
+        <div class="pack-tabs" id="packTabs"></div>
+        <button class="mini-btn" id="navNext">下一包 ›</button>
       </div>
     </div>
   </div>

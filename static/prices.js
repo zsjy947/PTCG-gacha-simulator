@@ -20,7 +20,7 @@ async function loadPrices() {
   const best = (!bundled || (stored && stored.generated > bundled.generated)) ? stored : bundled;
   if (best && best.generated && best.prices) applyPriceSnapshot(best);
   else PRICE_MAP = null;
-  renderPriceCard();
+  renderPriceStats();
   checkPriceUpdate(false); // 启动静默检查数据源上的每周快照（有更新则应用，失败不打扰）
 }
 
@@ -31,15 +31,15 @@ function applyPriceSnapshot(snap) {
   for (const k of Object.keys(PRICE_MAP)) PRICE_SETS.add(k.split("__", 1)[0]);
   // 快照晚于首屏渲染到达时，刷新正在显示的收藏册（卡牌总价/价格排序）
   if (document.querySelector(".tab.active")?.dataset.tab === "collection") renderCollection();
-  renderPriceCard();
+  renderPriceStats();
 }
 
 /* 数据源上的每周快照（.github/workflows/update-prices.yml 同步）：逐源取 prices/index.json，
  * 比 generated 新则应用。manual=true 由按钮触发（有提示文案），false 为启动静默自检。 */
 async function checkPriceUpdate(manual) {
-  const info = $("#priceDataInfo"), btn = manual ? $("#btnCheckPrice") : null;
+  const btn = manual ? $("#btnCheckPrice") : null;
   if (manual) {
-    info.textContent = "正在检查卡价更新…";
+    toast("正在检查卡价更新…");
     if (btn) btn.disabled = true;
   }
   try {
@@ -58,15 +58,14 @@ async function checkPriceUpdate(manual) {
     }
     if (!snap) {
       if (manual) {
-        info.textContent = saw404
-          ? "数据源暂无卡价快照（需合并到 master 并推送；CDN 缓存有数小时延迟）"
-          : "暂时连不上数据源（可在下方填写镜像数据源后重试）";
-        toast("卡价更新检查失败");
+        toast(saw404
+          ? "数据源暂无卡价快照（更新尚未发布，稍后再试）"
+          : "暂时连不上数据源，请稍后重试", 3600);
       }
       return;
     }
     if (priceGenerated && snap.generated <= priceGenerated) {
-      if (manual) { info.textContent = priceInfoText(); toast("卡价已是最新"); }
+      if (manual) toast("卡价已是最新");
       return;
     }
     store.set(PRICE_SNAPSHOT_KEY, snap);
@@ -74,30 +73,43 @@ async function checkPriceUpdate(manual) {
     if (manual) toast(`卡价已更新：${priceDateZh(snap.generated)}（${Object.keys(snap.prices).length} 张）`);
   } finally {
     if (manual && btn) btn.disabled = false;
-    if (manual) renderPriceCard();
   }
 }
 
-/* 设置页「卡价数据」栏：注明为静态数据 + 统计 */
+/* 设置页「卡价统计」栏：像消费统计一样汇总已拆出（收藏册内）全部卡牌的价值 */
 function priceDateZh(generated) {
   const [y, m, d] = String(generated || "").slice(0, 10).split("-");
   return y ? `${y}年${parseInt(m, 10)}月${parseInt(d, 10)}日` : "未知日期";
 }
-function priceInfoText() {
-  if (!PRICE_MAP) return "暂无卡价数据";
-  return `${priceDateZh(priceGenerated)}静态数据，仅供参考`;
-}
-function renderPriceCard() {
-  const info = $("#priceDataInfo"), stats = $("#priceStats");
+function renderPriceStats() {
+  const info = $("#priceDataInfo"), list = $("#priceList"), note = $("#priceNote");
   if (!info) return;
-  info.textContent = priceInfoText();
-  if (!PRICE_MAP) {
-    stats.textContent = "可点击「检查更新」从数据源拉取最新快照";
-    return;
+  if (note) note.textContent = priceGenerated ? `${priceDateZh(priceGenerated)}静态数据，仅供参考` : "";
+  let total = 0;
+  const rows = [];
+  if (PRICE_MAP) {
+    for (const [setId, box] of Object.entries(getColl())) {
+      let value = 0, cards = 0;
+      for (const e of Object.values(box)) {
+        cards += e.count || 1;
+        const p = priceOf(e.setCode, e.cardIndex);
+        if (p != null) value += p * (e.count || 1);
+      }
+      if (cards) {
+        total += value;
+        if (value > 0) rows.push({ setId, value: Math.round(value * 100) / 100, cards });
+      }
+    }
   }
-  const minCny = store.get(PRICE_SNAPSHOT_KEY, null)?.minCny ?? null;
-  stats.textContent = `共 ${Object.keys(PRICE_MAP).length} 张卡有价 · 覆盖 ${PRICE_SETS.size} 弹`
-    + (minCny != null ? `（仅收录单价 > ¥${parseInt(minCny, 10)} 的卡）` : "");
+  info.textContent = `总卡值 ¥${fmtMoney(Math.round(total * 100) / 100)}`;
+  rows.sort((a, b) => b.value - a.value);
+  if (list) {
+    list.innerHTML = rows.map((r) => {
+      const s = state.sets ? state.sets.find((x) => x.id === r.setId) : null;
+      return `<div class="spend-row"><span class="sr-name">${escapeHtml(s ? s.name : r.setId)}</span>`
+        + `<b>¥${fmtMoney(r.value)}<i>（${r.cards} 张）</i></b></div>`;
+    }).join("");
+  }
 }
 
 function priceOf(setCode, cardIndex) {

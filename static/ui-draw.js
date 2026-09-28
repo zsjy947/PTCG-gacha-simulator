@@ -154,12 +154,16 @@ function showCards() {
   renderPackRow();
 }
 
-/* 汇总条：多包连开时统计（含花费），仅在最后一个页码显示 */
+/* 汇总条：多包连开时统计（含花费）。仅末页显示内容；非末页以 pending 状态
+ * 预留同高空间，翻到末页时内容静默填充，不再突兀。 */
 function renderBoxSummary() {
   const el = $("#boxSummary");
   const last = state.packIdx === state.packs.length - 1;
   $("#btnAgain").hidden = !last;
-  if (state.packs.length <= 1 || !last) { el.hidden = true; return; }
+  if (state.packs.length <= 1) { el.hidden = true; return; }
+  el.hidden = false;
+  if (!last) { el.classList.add("pending"); el.innerHTML = ""; return; }
+  el.classList.remove("pending");
   const cnt = rarityCounts(state.packs.flat());
   const rrUp = rrUpTo(cnt);
   const best = bestRarity(cnt);
@@ -168,14 +172,17 @@ function renderBoxSummary() {
   const chips = renderChips(cnt, "", " · ");
   // 卡值/回本：该弹有价格数据时才显示（快照未覆盖的弹不占位）；空包守卫（FE-008）
   const firstCard = state.packs[0] && state.packs[0][0];
-  const valLine = firstCard && setPriced(firstCard.setCode)
-    ? ` · ${valueLineHtml(packValue(state.packs.flat()), money)}` : "";
+  const valStat = firstCard && setPriced(firstCard.setCode)
+    ? `<span class="bs-stat">${valueLineHtml(packValue(state.packs.flat()), money)}</span>` : "";
   el.innerHTML = `
-    <div class="box-head"><b>${state.packs.length} 包汇总</b>
-      <span>RR+ 共 <b>${rrUp}</b> 张 · 最高 <b style="color:${escapeHtml(RARITY_COLOR[best] || "")}">${best || "—"}</b>
-      ${money ? ` · 合计 ¥${fmtMoney(money)}` : ""}${valLine}</span></div>
+    <div class="bs-row">
+      <span class="bs-title">${state.packs.length} 包汇总</span>
+      <span class="bs-stat">RR+ 共 <b>${rrUp}</b> 张</span>
+      <span class="bs-stat">最高 <b style="color:${escapeHtml(RARITY_COLOR[best] || "")}">${best || "—"}</b></span>
+      ${money ? `<span class="bs-stat">合计 <b>¥${fmtMoney(money)}</b></span>` : ""}
+      ${valStat}
+    </div>
     <div class="box-chips">${chips}</div>`;
-  el.hidden = false;
 }
 
 /* 页码分页：严格单行。≤PAGE_WINDOW 包全显；更多时 1 … P-1 P P+1 … N 窗口（近边界补页） */
@@ -235,6 +242,8 @@ function renderPackRow() {
   }
 }
 
+/* 单包小结条：定高三区（PC：稀有度｜包序｜卡价 三等宽单行方块），翻卡前后高度不变。
+ * 未翻完时左右两区留空，翻满后静默填充；肥包稀有度过长时省略号截断（悬停看全量）。 */
 function renderPackSummary() {
   let box = $(".pack-summary");
   if (!box) {
@@ -245,14 +254,20 @@ function renderPackSummary() {
   const pack = state.packs[state.packIdx];
   const done = state.flipped[state.packIdx].size;
   const line1 = `第 ${state.packIdx + 1}/${state.packs.length} 包${state.spec ? ` · ${escapeHtml(state.spec.label)}` : ""}`;
-  if (done < pack.length) { box.innerHTML = `<div class="ps-line1">${line1}</div>`; return; }
+  if (done < pack.length) {
+    box.innerHTML = `<div class="ps-chips"></div><div class="ps-line1">${line1}</div><div class="ps-value"></div>`;
+    return;
+  }
   maybeRecordPack(state.packIdx);
   const cnt = rarityCounts(pack);
   const chips = renderChips(cnt, ";font-weight:800", "　");
+  const chipsText = RARITY_ORDER.filter((r) => cnt[r]).map((r) => `${r}×${cnt[r]}`).join("　");
   const sp = activeSpec();
   const money = sp && sp.priceCny ? sp.priceCny : 0;
-  const valLine = pack.length && setPriced(pack[0].setCode) ? `<div class="ps-value">${valueLineHtml(packValue(pack), money)}</div>` : "";
-  box.innerHTML = `<div class="ps-line1">${line1}</div><div class="ps-line2">${chips}</div>${valLine}`;
+  const valLine = pack.length && setPriced(pack[0].setCode) ? valueLineHtml(packValue(pack), money) : "";
+  box.innerHTML = `<div class="ps-chips" title="${escapeHtml(chipsText)}">${chips}</div>`
+    + `<div class="ps-line1">${line1}</div>`
+    + `<div class="ps-value">${valLine}</div>`;
 }
 
 function flipCard(el, i) {

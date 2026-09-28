@@ -133,4 +133,5 @@ function addColl(setId, cards) {
   }
   coll[setId] = box;
   store.set(collKey(), coll);
+  renderPriceStats();
 }

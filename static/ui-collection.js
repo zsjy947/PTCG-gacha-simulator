@@ -194,6 +194,7 @@ function importCollectionFile(file) {
     }
     store.set(collKey(), coll);
     renderCollection();
+    renderPriceStats();
     toast(`已导入 ${sets} 弹 ${entries} 种收藏`);
   };
   reader.readAsText(file, "utf-8");

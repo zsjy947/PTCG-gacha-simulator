@@ -192,7 +192,7 @@ function init() {
     renderSpend();
   });
   $("#btnClearColl").addEventListener("click", async () => {
-    if (await uiConfirm("清空全部收藏记录？")) { store.set(collKey(), {}); renderCollection(); }
+    if (await uiConfirm("清空全部收藏记录？")) { store.set(collKey(), {}); renderCollection(); renderPriceStats(); }
   });
   $("#btnExportColl").addEventListener("click", exportCollection);
   $("#btnImportColl").addEventListener("click", () => $("#collImportFile").click());
