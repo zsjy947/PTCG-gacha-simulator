@@ -1,2 +1,0 @@
-{"label": "dev-b4b080b-pre-refactor", "ts": "2026-09-28T01:47:16+08:00", "draw": {"n": 500, "wall_s": 2.052, "req_per_s": 243.7, "avg_ms": 4.1, "tracemalloc_peak_mb": 0.51}, "img": {"n": 200, "wall_s": 0.729, "req_per_s": 274.2, "avg_ms": 3.65, "tracemalloc_peak_mb": 0.2}}
-{"label": "post-refactor-stage4", "ts": "2026-09-28T03:04:39+08:00", "draw": {"n": 500, "wall_s": 2.36, "req_per_s": 211.9, "avg_ms": 4.72, "tracemalloc_peak_mb": 0.52}, "img": {"n": 200, "wall_s": 0.826, "req_per_s": 242.1, "avg_ms": 4.13, "tracemalloc_peak_mb": 0.2}}
