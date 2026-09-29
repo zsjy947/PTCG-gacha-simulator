@@ -265,21 +265,53 @@
     <view class="modal-head"><text class="modal-title">{{current.name}} · 目标卡期望计算</text>
       <text class="close-x" bindtap="closeExpect">✕</text></view>
     <scroll-view scroll-y class="modal-body">
-      <view class="prob-spec" wx:for="{{expectSpecs}}" wx:key="label">
-        <view class="prob-spec-title">{{item.label}}{{item.price ? " · " + item.price : ""}}</view>
-        <view class="expect-table">
-          <view class="et-row et-head">
-            <text>稀有度</text><text>单包出现率</text><text>指定一张卡</text><text>期望花费</text>
-          </view>
-          <view class="et-row" wx:for="{{item.rows}}" wx:for-item="r" wx:key="rarity">
-            <text style="color:{{r.color}};font-weight:800">{{r.rarity}}</text>
-            <text>{{r.pPackText}}</text>
-            <text>{{r.cardText}}</text>
-            <text>{{r.moneyText}}</text>
+      <view class="exp-tabs">
+        <view class="exp-tab {{expectTab === 'single' ? 'active' : ''}}" data-t="single" bindtap="onExpectTab">单卡</view>
+        <view class="exp-tab {{expectTab === 'collect' ? 'active' : ''}}" data-t="collect" bindtap="onExpectTab">集齐</view>
+      </view>
+
+      <block wx:if="{{expectTab === 'single'}}">
+        <view class="prob-spec" wx:for="{{expectSpecs}}" wx:key="label">
+          <view class="prob-spec-title">{{item.label}}{{item.price ? " · " + item.price : ""}}</view>
+          <view class="expect-table">
+            <view class="et-row et-head">
+              <text>稀有度</text><text>单包出现率</text><text>指定一张卡</text><text>期望花费</text>
+            </view>
+            <view class="et-row" wx:for="{{item.rows}}" wx:for-item="r" wx:key="rarity">
+              <text style="color:{{r.color}};font-weight:800">{{r.rarity}}</text>
+              <text>{{r.pPackText}}</text>
+              <text>{{r.cardText}}</text>
+              <text>{{r.moneyText}}</text>
+            </view>
           </view>
         </view>
-      </view>
-      <view class="prob-note">基于划档概率模型的数学期望（几何分布），仅估算"平均而言"，非保底承诺。</view>
+        <view class="prob-note">基于划档概率模型的数学期望（几何分布），仅估算"平均而言"，非保底承诺。</view>
+      </block>
+
+      <block wx:else>
+        <view class="collect-target">
+          <radio-group bindchange="onCollectKind">
+            <label class="ct-item"><radio value="rarity" checked="{{collect.kind === 'rarity'}}" color="#e3350d" />某稀有度全部</label>
+            <label class="ct-item"><radio value="rrup" checked="{{collect.kind === 'rrup'}}" color="#e3350d" />RR+ 及以上</label>
+            <label class="ct-item"><radio value="missing" checked="{{collect.kind === 'missing'}}" color="#e3350d" />收藏册缺卡</label>
+          </radio-group>
+          <picker mode="selector" range="{{collectRarityNames}}" value="{{collect.rarityIdx}}"
+                  bindchange="onCollectRarity" disabled="{{collect.kind !== 'rarity'}}">
+            <view class="picker-box {{collect.kind !== 'rarity' ? 'disabled' : ''}}">{{collectRarityNames[collect.rarityIdx] || "选择稀有度"}} ▾</view>
+          </picker>
+        </view>
+        <view class="prob-note" wx:if="{{collectLabel}}">{{collectLabel}}</view>
+        <view class="expect-table" wx:if="{{collectSpecs.length}}">
+          <view class="et-row et-head"><text wx:for="{{collectHead}}" wx:key="*this">{{item}}</text></view>
+          <view class="et-row" wx:for="{{collectSpecs}}" wx:for-item="r" wx:key="label">
+            <text>{{r.label}}</text>
+            <text>{{r.packs}}</text>
+            <text>{{r.money}}</text>
+            <text wx:if="{{r.extra !== undefined && r.extra !== ''}}">{{r.extra}}</text>
+          </view>
+        </view>
+        <view class="prob-note" wx:if="{{collectNote}}">{{collectNote}}</view>
+      </block>
     </scroll-view>
   </view>
 </view>

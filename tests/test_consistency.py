@@ -147,6 +147,63 @@ class TestSpecBriefThreePlatforms(unittest.TestCase):
         self.assertGreater(checked, 40, f"可拆弹数量异常（仅 {checked}）")
 
 
+class TestCollectParity(unittest.TestCase):
+    """T3：collectExpectation 双实现——closed 模式完全相等；sim 模式同种子数值逐位相等。
+
+    sim 逐位相等依赖：卡列表按 pools key 序展开、每试验逐包复用 drawPack、
+    统计累加顺序两端逐行一致（见 shared/gacha.js collectExpectation 注释）。
+    """
+
+    def _js_collect(self, cards_path: Path, spec_path: Path, targets: dict, opts: dict | None) -> dict:
+        out = subprocess.run(
+            ["node", str(Path(__file__).parent / "parity_collect.js"),
+             str(cards_path), str(spec_path), json.dumps(targets),
+             json.dumps(opts) if opts is not None else ""],
+            capture_output=True, text=True, timeout=300,
+        )
+        if out.returncode != 0:
+            raise RuntimeError(f"node 集齐期望对拍脚本失败: {out.stderr}")
+        return json.loads(out.stdout)
+
+    @staticmethod
+    def _canon(obj):
+        if isinstance(obj, dict):
+            return {k: TestCollectParity._canon(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [TestCollectParity._canon(v) for v in obj]
+        if isinstance(obj, (int, float)) and not isinstance(obj, bool):
+            return float(obj)
+        return obj
+
+    def test_closed_and_sim_parity(self):
+        sid = "CSV1C"
+        spec = config.set_specs(sid)[0]
+        cards = gacha.load_cards(sid)
+        pools = gacha.build_pools(cards)
+        with tempfile.TemporaryDirectory() as tmp:
+            cf = Path(tmp) / "cards.json"
+            sf = Path(tmp) / "spec.json"
+            cf.write_text(json.dumps(cards, ensure_ascii=False), encoding="utf-8")
+            sf.write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+            # closed：RR+ 及以上（前端口径解析后传入）
+            targets_r = {"kind": "rarity", "rarities": ["RR", "AR", "SR", "SAR", "ACE", "UR"]}
+            js_r = self._js_collect(cf, sf, targets_r, None)
+            py_r = gacha.collect_expectation(spec, pools, targets_r)
+            self.assertEqual(
+                json.dumps(self._canon(js_r), sort_keys=True),
+                json.dumps(self._canon(py_r), sort_keys=True), "closed 模式两端不一致")
+            # sim：固定种子指定 3 张卡
+            targets_c = {"kind": "cards",
+                         "keys": [f"{c['setCode']}__{c['cardIndex']}" for c in cards[:3]]}
+            opts_s = {"trials": 40, "seed": 1234, "packCap": 800}
+            js_s = self._js_collect(cf, sf, targets_c, opts_s)
+            py_s = gacha.collect_expectation(spec, pools, targets_c, opts_s)
+            self.assertEqual(
+                json.dumps(self._canon(js_s), sort_keys=True),
+                json.dumps(self._canon(py_s), sort_keys=True),
+                f"sim 模式同种子不一致：\n{js_s}\n{py_s}")
+
+
 def _extract_normidx_source() -> str:
     """从静态脚本中提取前端 normIdx 函数源码（R6 冻结实现；拆分后跟随文件路径更新）。"""
     for rel in ("static/app.js", "static/core.js"):

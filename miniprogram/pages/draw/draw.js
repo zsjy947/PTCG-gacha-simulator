@@ -35,6 +35,13 @@ Page({
     probSpecs: [],
     expectShow: false,
     expectSpecs: [],
+    expectTab: "single",
+    collect: { inited: false, kind: "rarity", rarityIdx: 0, rarityOpts: [] },
+    collectRarityNames: [],
+    collectLabel: "",
+    collectHead: [],
+    collectSpecs: [],
+    collectNote: "",
     /* 图片失败占位（utils/img） */
     failMap: {},
     bustMap: {},
@@ -537,7 +544,17 @@ Page({
   openExpectedCost() {
     const cur = this.data.current;
     if (!cur) return;
-    const expectSpecs = (cur.specs || []).map((sp) => ({
+    this.setData({
+      expectShow: true, expectTab: "single",
+      expectSpecs: this.buildExpectSingleRows(cur),
+      collect: { inited: false, kind: "rarity", rarityIdx: 0, rarityOpts: [] },
+      collectRarityNames: [], collectLabel: "", collectHead: [], collectSpecs: [], collectNote: "",
+    });
+  },
+
+  /* 「单卡」页签：现有期望成本表 */
+  buildExpectSingleRows(cur) {
+    return (cur.specs || []).map((sp) => ({
       label: sp.label, price: sp.price, priceCny: sp.priceCny,
       rows: data.expectedCost(cur.id, sp).map((r) => ({
         ...r,
@@ -549,7 +566,96 @@ Page({
           ? "¥" + ui.fmtMoney(Math.round(r.cardPacks * sp.priceCny)) : "—",
       })),
     }));
-    this.setData({ expectShow: true, expectSpecs });
+  },
+
+  /* 「集齐」页签：目标三选一 → 逐规格期望包数/花费（与 exe 端文案一致） */
+  onExpectTab(e) {
+    const t = e.currentTarget.dataset.t;
+    this.setData({ expectTab: t });
+    if (t === "collect") this.initCollectPane();
+  },
+
+  initCollectPane() {
+    const cur = this.data.current;
+    if (!cur || this.data.collect.inited) return;
+    const rarityOpts = data.poolRarities(cur.id)
+      .sort((a, b) => ui.RARITY_ORDER.indexOf(a) - ui.RARITY_ORDER.indexOf(b));
+    const collect = { inited: true, kind: this.data.collect.kind, rarityIdx: 0, rarityOpts };
+    this.setData({
+      collect,
+      collectRarityNames: rarityOpts.map((x) => `${ui.rarLabel(x.rarity)}（${x.size} 张）`),
+    });
+    this.runCollect();
+  },
+
+  onCollectKind(e) {
+    const collect = { ...this.data.collect, kind: e.detail.value };
+    this.setData({ collect });
+    this.runCollect();
+  },
+
+  onCollectRarity(e) {
+    const collect = { ...this.data.collect, rarityIdx: Number(e.detail.value) };
+    this.setData({ collect });
+    if (collect.kind === "rarity") this.runCollect();
+  },
+
+  runCollect() {
+    const cur = this.data.current;
+    if (!cur || !this.data.collect.inited) return;
+    const c = this.data.collect;
+    let targets, label, empty = "";
+    if (c.kind === "rrup") {
+      const rs = ui.RARITY_ORDER.slice(0, ui.RARITY_ORDER.indexOf("RR") + 1)
+        .filter((r) => c.rarityOpts.some((x) => x.rarity === r));
+      targets = { kind: "rarity", rarities: rs };
+      label = `集齐 RR+ 及以上（${rs.length} 档全部卡）`;
+    } else if (c.kind === "missing") {
+      const box = store.get(`ptcg_coll_${cur.id}`, {}) || {};
+      const keys = data.cards(cur.id)
+        .filter((x) => !box[`${x.setCode}__${x.cardIndex}`])
+        .map((x) => `${x.setCode}__${x.cardIndex}`);
+      if (!keys.length) {
+        empty = "收藏册该弹暂无缺卡（可能还没收藏记录，先去拆卡吧）";
+      } else {
+        targets = { kind: "cards", keys };
+        label = `集齐收藏册缺卡（${keys.length} 张）`;
+      }
+    } else {
+      const opt = c.rarityOpts[c.rarityIdx];
+      if (!opt) { empty = "请选择目标稀有度"; } else {
+        targets = { kind: "rarity", rarities: [opt.rarity] };
+        label = `集齐 ${opt.rarity} 全部（${opt.size} 张）`;
+      }
+    }
+    if (empty) {
+      this.setData({ collectLabel: empty, collectHead: [], collectSpecs: [], collectNote: "" });
+      return;
+    }
+    wx.showLoading({ title: "计算中…", mask: true });
+    setTimeout(() => {
+      const simMode = targets.kind === "cards";
+      const results = (cur.specs || []).map((sp) => {
+        const res = data.collectExpectation(cur.id, sp, targets, { trials: 300, packCap: 3000 });
+        return {
+          label: sp.label,
+          packs: res.expectedPacks != null ? res.expectedPacks.toFixed(1) + " 包" : "—",
+          money: res.expectedSpend != null ? "¥" + ui.fmtMoney(Math.round(res.expectedSpend)) : "—",
+          extra: simMode && res.expectedPacks != null ? `中位 ${res.medianPacks} · P90 ${res.p90Packs} 包` : "",
+          note: res.note, filtered: res.filtered,
+        };
+      });
+      const note = results.length
+        ? results[0].note + (results[0].filtered ? `（目标中 ${results[0].filtered} 张不在本弹卡表，已忽略）` : "")
+        : "";
+      wx.hideLoading();
+      this.setData({
+        collectLabel: label,
+        collectHead: simMode ? ["规格", "期望包数", "期望花费", "中位 / P90"] : ["规格", "期望包数", "期望花费"],
+        collectSpecs: results,
+        collectNote: note,
+      });
+    }, 50);
   },
 
   closeProb() { this.setData({ probShow: false }); },

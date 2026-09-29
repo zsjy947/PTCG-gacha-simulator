@@ -163,6 +163,65 @@ class TestBoxProfile(unittest.TestCase):
         self.assertEqual(len(gacha.rarity_profile("CSVE1PC", reward)), 1)
 
 
+class TestCollectExpectation(unittest.TestCase):
+    """集齐期望（T3）：闭式公式 vs 模拟互验 + 边界。"""
+
+    @staticmethod
+    def _five_sr_pool():
+        """小池：单槽 100% SR 的 5 张池（奖赏包形态）——闭式与模拟可解析互验。"""
+        cards = [{"setCode": "SRSET", "cardIndex": f"{i:03d}", "cardName": f"SR卡{i}",
+                  "rarity": "SR"} for i in range(1, 6)]
+        spec = {"id": "t1", "label": "单槽", "priceCny": 10,
+                "slots": [{"name": "闪卡 1", "kind": "holo", "weights": {"SR": 100}}]}
+        return cards, spec
+
+    def test_closed_formula_and_simulation_agree(self):
+        cards, spec = self._five_sr_pool()
+        pools = gacha.build_pools(cards)
+        closed = gacha.collect_expectation(spec, pools, {"kind": "rarity", "rarities": ["SR"]})
+        self.assertEqual(closed["mode"], "closed")
+        self.assertEqual(closed["formula"], "nHn/lambda")
+        # n·H_n/λ：n=5、λ=1 → 5·H5
+        self.assertAlmostEqual(closed["expectedPacks"],
+                               5 * (1 + 1 / 2 + 1 / 3 + 1 / 4 + 1 / 5), places=12)
+        self.assertAlmostEqual(closed["expectedSpend"],
+                               closed["expectedPacks"] * spec["priceCny"], places=12)
+        # 同分布模拟（集齐同样 5 张卡）：10 万次均值与闭式期望相对误差 < 5%（种子写死可复现）
+        keys = [f"{c['setCode']}__{c['cardIndex']}" for c in cards]
+        sim = gacha.collect_expectation(spec, pools, {"kind": "cards", "keys": keys},
+                                        {"trials": 100000, "seed": 42})
+        self.assertEqual(sim["mode"], "sim")
+        self.assertEqual(sim["filtered"], 0)
+        self.assertEqual(sim["completedRatio"], 1.0)
+        rel = abs(sim["expectedPacks"] - closed["expectedPacks"]) / closed["expectedPacks"]
+        self.assertLess(rel, 0.05, f"模拟均值 {sim['expectedPacks']:.3f} 偏离闭式 "
+                                   f"{closed['expectedPacks']:.3f} 超 5%")
+
+    def test_edges(self):
+        cards, spec = self._five_sr_pool()
+        pools = gacha.build_pools(cards)
+        # 空 rarities / 目标稀有度弹内不存在 → 期望 null
+        for rarities in ([], ["HR"]):
+            r = gacha.collect_expectation(spec, pools, {"kind": "rarity", "rarities": rarities})
+            self.assertIsNone(r["expectedPacks"])
+            self.assertIsNone(r["expectedSpend"])
+        # keys 含弹外卡 → 自动过滤并计数
+        keys = [f"{c['setCode']}__{c['cardIndex']}" for c in cards] + ["FIXSET__999"]
+        r = gacha.collect_expectation(spec, pools, {"kind": "cards", "keys": keys},
+                                      {"trials": 5, "seed": 1})
+        self.assertEqual(r["filtered"], 1)
+        # 空 keys → 完成率 0、期望 null（只报 completedRatio 口径的 note）
+        r = gacha.collect_expectation(spec, pools, {"kind": "cards", "keys": []},
+                                      {"trials": 5, "seed": 1})
+        self.assertIsNone(r["expectedPacks"])
+        self.assertEqual(r["completedRatio"], 0)
+        self.assertIn("完成率 0.0%", r["note"])
+        # 未计价规格（priceCny 缺省）→ expectedSpend null
+        spec2 = dict(spec, priceCny=None)
+        r = gacha.collect_expectation(spec2, pools, {"kind": "rarity", "rarities": ["SR"]})
+        self.assertIsNone(r["expectedSpend"])
+
+
 class TestRarityProfileStatistics(unittest.TestCase):
     """统计性断言（T2 依赖）：固定种子模拟的实测占比应接近 rarityProfile 期望占比。
 

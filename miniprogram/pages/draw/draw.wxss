@@ -114,6 +114,17 @@
 .pl-bar { flex: 1; height: 10rpx; border-radius: 10rpx; background: rgba(127, 127, 127, .18); overflow: hidden; }
 .pl-fill { height: 100%; border-radius: 10rpx; }
 .pl-p { font-size: 19rpx; color: var(--txt2); flex-shrink: 0; }
+/* 期望弹窗页签（单卡 / 集齐）与集齐目标选择 */
+.exp-tabs { display: flex; gap: 12rpx; margin-bottom: 16rpx; }
+.exp-tab { flex: 1; text-align: center; border: 1rpx solid var(--line); background: rgba(255,255,255,.06);
+  color: var(--txt2); border-radius: 14rpx; padding: 14rpx 0; font-size: 24rpx; font-weight: 700; }
+.exp-tab.active { background: var(--accent); border-color: var(--accent); color: #20242c; }
+.collect-target { border: 1rpx solid var(--line); border-radius: 14rpx; padding: 14rpx 18rpx; margin-bottom: 12rpx; }
+.ct-item { display: inline-flex; align-items: center; margin: 6rpx 22rpx 6rpx 0; font-size: 24rpx; }
+.picker-box { display: inline-block; margin-top: 6rpx; padding: 8rpx 18rpx; border-radius: 12rpx;
+  border: 1rpx solid var(--line); background: rgba(255,255,255,.06); font-size: 22rpx; }
+.picker-box.disabled { opacity: .45; }
+
 .expect-table { margin: 10rpx 0 6rpx; }
 .et-row { display: flex; padding: 12rpx 6rpx; border-bottom: 1rpx solid var(--line); font-size: 23rpx; }
 .et-row text { flex: 1; }

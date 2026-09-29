@@ -63,6 +63,17 @@ function boxProfile(setId, spec) {
   return gacha.boxProfile(spec, pools);
 }
 
+/* 弹内稀有度池（集齐期望的「某稀有度全部」下拉用）：[{rarity, size}] */
+function poolRarities(setId) {
+  const pools = gacha.buildPools(cards(setId));
+  return Object.keys(pools).map((r) => ({ rarity: r, size: pools[r].length }));
+}
+
+function collectExpectation(setId, spec, targets, opts) {
+  const pools = gacha.buildPools(cards(setId));
+  return gacha.collectExpectation(spec, pools, targets, opts);
+}
+
 /* 卡牌详情（mik 详情接口为 POST；域名需在小程序后台配置 request 合法域名，
  * 未配置/网络失败时降级为卡表基础信息） */
 function fetchDetail(setCode, cardIndex) {
@@ -86,5 +97,5 @@ module.exports = {
   appVersion: index.appVersion, MIK_STATIC, MIK_API,
   allSets, drawableSets, cards, imgURL, iconURL,
   drawPack, drawPacks, specProbabilities, expectedCost,
-  rarityProfile, boxProfile, fetchDetail,
+  rarityProfile, boxProfile, poolRarities, collectExpectation, fetchDetail,
 };

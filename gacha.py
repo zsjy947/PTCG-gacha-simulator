@@ -195,6 +195,98 @@ def box_profile(set_id: str, spec: dict) -> list:
     return out
 
 
+class _Mulberry32:
+    """mulberry32 引擎内自含实现——与 shared/gacha.js 逐位一致（引擎勿 import tests）。"""
+
+    def __init__(self, seed: int):
+        self.a = seed & 0xFFFFFFFF
+
+    def random(self) -> float:
+        self.a = (self.a + 0x6D2B79F5) & 0xFFFFFFFF
+        t = self.a
+        t = ((t ^ (t >> 15)) * (t | 1)) & 0xFFFFFFFF
+        t = (t ^ ((t + (((t ^ (t >> 7)) * (t | 61)) & 0xFFFFFFFF)) & 0xFFFFFFFF)) & 0xFFFFFFFF
+        return ((t ^ (t >> 14)) & 0xFFFFFFFF) / 4294967296
+
+
+def collect_expectation(spec: dict, pools: dict, targets: dict, opts: dict | None = None) -> dict:
+    """多目标「集齐期望」——shared/gacha.js collectExpectation 的镜像。
+
+    targets 只认显式集合（"RR+"等口径由前端解析后传入）：
+    - {"kind": "rarity", "rarities": [...]}：闭式公式 n·H_n/λ（λ 对变体取平均，包内去重忽略）
+    - {"kind": "cards", "keys": [...]}：固定种子蒙特卡洛，卡列表由 pools 按 key 序展开
+      （与 JS 逐行一致，保证同种子逐位对拍），每试验复用 _draw_by_slots 逐包开、集齐即止。
+    """
+    o = {"trials": 300, "packCap": 3000, "seed": 0xC011EC7}
+    if opts:
+        o.update(opts)
+    variants = spec.get("variants") or [{"note": spec.get("note", ""), "slots": spec["slots"]}]
+
+    if targets and targets.get("kind") == "rarity":
+        wanted = [r for r in (targets.get("rarities") or []) if pools.get(r)]
+        n = sum(len(pools[r]) for r in wanted)
+        available = list(pools)
+        total = sum(len(v) for v in pools.values())
+        lam = 0.0
+        for v in variants:
+            for slot in v["slots"]:
+                probs = _normalize(slot["weights"], set(available)) or None
+                for r in wanted:
+                    lam += probs.get(r, 0.0) if probs else (len(pools[r]) / total if total else 0.0)
+        if len(variants) > 1:
+            lam /= len(variants)
+        h = 0.0
+        for k in range(1, n + 1):
+            h += 1.0 / k
+        expected = (n * h) / lam if (n and lam > 0) else None
+        return {
+            "mode": "closed",
+            "expectedPacks": expected,
+            "expectedSpend": expected * spec["priceCny"]
+                if (expected is not None and spec.get("priceCny")) else None,
+            "formula": "nHn/lambda",
+        }
+
+    card_list = [c for r in pools for c in pools[r]]
+    key_set = {_card_key(c) for c in card_list}
+    raw_keys = list((targets or {}).get("keys") or [])
+    wanted_keys = [k for k in raw_keys if k in key_set]
+    out = {
+        "mode": "sim",
+        "expectedPacks": None, "medianPacks": None, "p90Packs": None,
+        "completedRatio": 0,
+        "packCap": o["packCap"],
+        "expectedSpend": None,
+        "note": f"仅统计 {o['packCap']} 包内集齐的试验，完成率 0.0%",
+        "filtered": len(raw_keys) - len(wanted_keys),
+    }
+    if not wanted_keys:
+        return out
+
+    rng = _Mulberry32(o["seed"])
+    done: list = []
+    for _ in range(o["trials"]):
+        remaining = set(wanted_keys)
+        for p in range(1, o["packCap"] + 1):
+            v = variants[int(rng.random() * len(variants))]
+            pack = _draw_by_slots(v["slots"], "FIXTURE", spec.get("id", ""), pools, card_list, rng)
+            for c in pack:
+                remaining.discard(_card_key(c))
+            if not remaining:
+                done.append(p)
+                break
+    completed = len(done)
+    out["completedRatio"] = completed / o["trials"]
+    if completed:
+        done.sort()
+        out["expectedPacks"] = sum(done) / completed
+        out["medianPacks"] = done[(completed - 1) // 2]
+        out["p90Packs"] = done[int((completed - 1) * 0.9)]
+        out["expectedSpend"] = out["expectedPacks"] * spec["priceCny"] if spec.get("priceCny") else None
+        out["note"] = f"仅统计 {o['packCap']} 包内集齐的试验，完成率 {out['completedRatio'] * 100:.1f}%"
+    return out
+
+
 def spec_probabilities(set_id: str, spec: dict) -> dict:
     """某弹某规格的概率表，含封入变体（供「概率公示」展示）。"""
     cards = load_cards(set_id)

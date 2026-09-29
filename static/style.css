@@ -677,6 +677,18 @@ select option { background: var(--pop); color: var(--txt); }
 .expect-table td { padding: 7px 8px; border-bottom: 1px solid var(--line); white-space: nowrap; }
 .expect-table tr:last-child td { border-bottom: 0; }
 
+/* 期望弹窗页签（单卡 / 集齐）与集齐目标选择 */
+.exp-tabs { display: flex; gap: 8px; margin-bottom: 14px; }
+.exp-tab { flex: 1; border: 1px solid var(--line); background: var(--soft); color: var(--txt2);
+  border-radius: 10px; padding: 9px 0; font-size: 13px; font-weight: 700; cursor: pointer; }
+.exp-tab.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+.collect-target { display: flex; align-items: center; gap: 4px 14px; flex-wrap: wrap;
+  border: 1px solid var(--line); border-radius: 12px; padding: 10px 14px; margin-bottom: 10px; }
+.collect-target .ct-item { display: inline-flex; align-items: center; gap: 5px; font-size: 13px; white-space: nowrap; cursor: pointer; }
+.collect-target .ct-select { max-width: 240px; padding: 5px 8px; border-radius: 8px;
+  border: 1px solid var(--line); background: var(--field); color: var(--txt); font-size: 13px; }
+.ct-label { margin-bottom: 12px; }
+
 /* 战报图弹窗 */
 .report-modal { max-width: min(560px, 92vw); }
 .report-body { display: flex; flex-direction: column; gap: 12px; }

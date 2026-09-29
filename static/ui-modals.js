@@ -131,16 +131,29 @@ async function showDetail(code, idx) {
   }
 }
 
-/* ---------------- 目标卡期望成本计算 ---------------- */
+/* ---------------- 目标卡期望成本计算（单卡 / 集齐 两页签） ----------------
+ * 规格一律用 DATA.calcData 的全量视图（web 简表无 slots 会崩，FE-019） */
 async function showExpectedCost() {
   if (!state.current) return;
+  _collectBuilt = false; // 弹窗每次打开重建目标选择区
   $("#expectTitle").textContent = `${state.current.name} · 目标卡期望计算`;
-  $("#expectBody").innerHTML = `<p class="prob-note">计算中…</p>`;
+  $("#expectBody").innerHTML = `
+    <div class="exp-tabs">
+      <button class="exp-tab active" data-tab="single">单卡</button>
+      <button class="exp-tab" data-tab="collect">集齐</button>
+    </div>
+    <div id="expSingle"><p class="prob-note">计算中…</p></div>
+    <div id="expCollect" hidden></div>`;
   $("#expectOverlay").hidden = false;
+  $$("#expectBody .exp-tab").forEach((b) => b.addEventListener("click", () => {
+    $$("#expectBody .exp-tab").forEach((x) => x.classList.toggle("active", x === b));
+    $("#expSingle").hidden = b.dataset.tab !== "single";
+    $("#expCollect").hidden = b.dataset.tab === "single";
+    if (b.dataset.tab === "collect") renderCollectPane();
+  }));
   try {
-    const cards = await loadSetCards(state.current.id);
-    const pools = G().buildPools(cards);
-    $("#expectBody").innerHTML = (state.current.specs || []).map((sp) => {
+    const { views, pools } = await DATA.calcData(state.current.id);
+    $("#expSingle").innerHTML = views.map((sp) => {
       const rows = G().expectedCost(sp, pools);
       const money = (r) => sp.priceCny && Number.isFinite(r.cardPacks)
         ? `¥${fmtMoney(Math.round(r.cardPacks * sp.priceCny))}` : "—";
@@ -163,8 +176,91 @@ async function showExpectedCost() {
         </div>`;
     }).join("") + `<p class="prob-note">基于划档概率模型的数学期望（几何分布），仅估算"平均而言"，非保底承诺；实际所需包数波动可能很大。</p>`;
   } catch (e) {
-    $("#expectBody").innerHTML = `<p class="prob-note">计算失败：${escapeHtml(e.message)}</p>`;
+    $("#expSingle").innerHTML = `<p class="prob-note">计算失败：${escapeHtml(e.message)}</p>`;
   }
+}
+
+/* 「集齐」页签：目标三选一 → 逐规格期望包数/花费（稀有度闭式公式，卡集合蒙特卡洛） */
+let _collectBuilt = false;
+
+function collectTargets(views, pools) {
+  const sel = $("#ctRarity");
+  const kind = document.querySelector('#expectBody input[name="ct"]:checked')?.value || "rarity";
+  if (kind === "rrup") {
+    const rs = RRUP_RARITIES.filter((r) => pools[r]);
+    return { targets: { kind: "rarity", rarities: rs }, label: `集齐 RR+ 及以上（${rs.length} 档全部卡）` };
+  }
+  if (kind === "missing") {
+    const have = new Set(Object.keys(getColl()[state.current.id] || {}));
+    const cards = state.cards.get(state.current.id) || [];
+    const keys = cards.filter((c) => !have.has(`${c.setCode}__${c.cardIndex}`)).map((c) => `${c.setCode}__${c.cardIndex}`);
+    if (!keys.length) return { empty: "收藏册该弹暂无缺卡（可能还没收藏记录，先去拆卡吧）" };
+    return { targets: { kind: "cards", keys }, label: `集齐收藏册缺卡（${keys.length} 张）` };
+  }
+  const r = sel && sel.value;
+  if (!r || !pools[r]) return { empty: "请选择目标稀有度" };
+  return { targets: { kind: "rarity", rarities: [r] }, label: `集齐 ${r} 全部（${(pools[r] || []).length} 张）` };
+}
+
+async function renderCollectPane() {
+  const pane = $("#expCollect");
+  try {
+    const { views, pools } = await DATA.calcData(state.current.id);
+    if (!_collectBuilt) {
+      const rarities = Object.keys(pools).sort((a, b) => RARITY_ORDER.indexOf(a) - RARITY_ORDER.indexOf(b));
+      pane.innerHTML = `
+        <div class="collect-target">
+          <label class="ct-item"><input type="radio" name="ct" value="rarity" checked>某稀有度全部</label>
+          <select id="ctRarity" class="ct-select">
+            ${rarities.map((r) => `<option value="${escapeHtml(r)}">${escapeHtml(RARITY_LABEL[r] || r)}（${(pools[r] || []).length} 张）</option>`).join("")}
+          </select>
+          <label class="ct-item"><input type="radio" name="ct" value="rrup">RR+ 及以上</label>
+          <label class="ct-item"><input type="radio" name="ct" value="missing">收藏册缺卡</label>
+        </div>
+        <div class="ct-label prob-note">在上方选择集齐目标，按规格给出期望包数与花费。</div>
+        <div id="ctResults"></div>`;
+      $$('#expectBody input[name="ct"]').forEach((r) => r.addEventListener("change", runCollect));
+      $("#ctRarity").addEventListener("change", runCollect);
+      _collectBuilt = true;
+      runCollect();
+    }
+  } catch (e) {
+    pane.innerHTML = `<p class="prob-note">计算失败：${escapeHtml(e.message)}</p>`;
+  }
+}
+
+async function runCollect() {
+  const box = $("#ctResults");
+  if (!box) return;
+  const { views, pools } = await DATA.calcData(state.current.id);
+  const { targets, label, empty } = collectTargets(views, pools);
+  $("#ctResults").previousElementSibling.textContent = empty || label;
+  if (empty) { box.innerHTML = ""; return; }
+  box.innerHTML = `<p class="prob-note">计算中…（卡集合目标为固定种子蒙特卡洛，可能需要数秒）</p>`;
+  // 让「计算中…」先上屏再进入同步计算
+  await new Promise((r) => setTimeout(r, 30));
+  const simMode = targets.kind === "cards";
+  const rows = views.map((sp) => {
+    const res = G().collectExpectation(sp, pools, targets, { trials: 300, packCap: 3000 });
+    const packs = res.expectedPacks != null ? `${res.expectedPacks.toFixed(1)} 包` : "—";
+    const spend = res.expectedSpend != null ? `¥${fmtMoney(Math.round(res.expectedSpend))}` : "—";
+    const extra = simMode && res.expectedPacks != null
+      ? `中位 ${res.medianPacks} · P90 ${res.p90Packs} 包` : "";
+    return { sp, res, packs, spend, extra };
+  });
+  const note = rows[0] ? (rows[0].res.note || "") + (rows[0].res.filtered ? `（目标中 ${rows[0].res.filtered} 张不在本弹卡表，已忽略）` : "") : "";
+  box.innerHTML = `
+    <table class="expect-table">
+      <thead><tr><th>规格</th><th>期望包数</th><th>期望花费</th>${simMode ? "<th>中位 / P90</th>" : ""}</tr></thead>
+      <tbody>
+        ${rows.map(({ sp, packs, spend, extra }) => `
+          <tr>
+            <td>${escapeHtml(sp.label)}</td><td>${packs}</td><td>${spend}</td>
+            ${simMode ? `<td>${extra || "—"}</td>` : ""}
+          </tr>`).join("")}
+      </tbody>
+    </table>
+    ${note ? `<p class="prob-note">${escapeHtml(note)}</p>` : ""}`;
 }
 
 /* ---------------- 拆卡战报图（canvas 生成，可保存/下载） ---------------- */
