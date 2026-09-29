@@ -67,6 +67,12 @@ function renderSpecButtons() {
   ghost.className = "spec-ghost";
   ghost.appendChild(drawBtn("btn-ghost", "目标卡计算", "", showExpectedCost));
   ghost.appendChild(drawBtn("btn-ghost", "概率公示", "", showProbabilities));
+  if (!ASSET || window.PTCGNative) {
+    // exe / APK：卡图按弹预缓存入口（T5；小程序组件缓存不可控，不放该入口）
+    const mark = readImgCacheMark(state.current.id);
+    ghost.appendChild(drawBtn("btn-ghost", "离线缓存本弹卡图",
+      mark ? `已于 ${cacheMarkDateZh(mark)}缓存 ${mark.count} 张` : "", openPrecache));
+  }
   box.appendChild(ghost);
 }
 

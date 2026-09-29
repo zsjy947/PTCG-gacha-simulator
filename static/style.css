@@ -689,6 +689,9 @@ select option { background: var(--pop); color: var(--txt); }
   border: 1px solid var(--line); background: var(--field); color: var(--txt); font-size: 13px; }
 .ct-label { margin-bottom: 12px; }
 
+/* 卡图按弹预缓存弹窗 */
+.precache-switch { display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px; font-size: 13px; cursor: pointer; }
+
 /* 战报图弹窗 */
 .report-modal { max-width: min(560px, 92vw); }
 .report-body { display: flex; flex-direction: column; gap: 12px; }

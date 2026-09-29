@@ -222,6 +222,10 @@ function init() {
 
   $("#btnClearCache").addEventListener("click", clearImageCache);
   $("#btnCheckUpdate").addEventListener("click", () => checkUpdate(true));
+  $("#precacheClose").addEventListener("click", () => { abortPrecache(); $("#precacheOverlay").hidden = true; });
+  $("#precacheCancel").addEventListener("click", () => $("#precacheOverlay").hidden = true);
+  $("#precacheStart").addEventListener("click", startPrecache);
+  $("#precacheAbort").addEventListener("click", abortPrecache);
   $("#btnGoDownload").addEventListener("click", () => {
     if (!latestDownload) return;
     if (ASSET) location.href = latestDownload; // WebView 导航触发 DownloadListener → 系统浏览器
@@ -238,6 +242,7 @@ function init() {
       closeOverlay(); closeSidebar();
       $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true;
       $("#expectOverlay").hidden = true; $("#reportOverlay").hidden = true;
+      if (!$("#precacheOverlay").hidden) { abortPrecache(); $("#precacheOverlay").hidden = true; }
       if (!$("#confirmOverlay").hidden) settleConfirm(false);
     }
     if (!$("#overlay").hidden && e.key === " ") { e.preventDefault(); burstPack(); }

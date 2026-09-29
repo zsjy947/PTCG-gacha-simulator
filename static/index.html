@@ -216,7 +216,7 @@
           </div>
           <button class="mini-btn danger" id="btnClearCache">清除缓存</button>
         </div>
-        <p class="settings-note">已浏览过的卡牌图会保存在本机，清除后再次浏览需重新联网下载。</p>
+        <p class="settings-note">已浏览过的卡牌图会保存在本机，清除后再次浏览需重新联网下载。预缓存的卡图随图片缓存统一管理，可一键清除。</p>
       </div>
       <div class="settings-card card-glass">
         <div class="set-row-info">
@@ -339,6 +339,29 @@
       <div class="report-actions">
         <button class="btn btn-ghost" id="btnSaveReport">保存图片</button>
         <span class="report-hint">APK 端保存到相册目录；电脑端直接下载</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- 卡图按弹预缓存 -->
+<div class="overlay" id="precacheOverlay" hidden>
+  <div class="modal card-glass" style="width:min(440px,92vw)">
+    <div class="modal-head">
+      <h3>离线缓存本弹卡图</h3>
+      <button class="mini-btn" id="precacheClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="prob-note" id="precacheHint"></p>
+      <label class="switch precache-switch"><input type="checkbox" id="precacheWithFull"><i></i>含原图（默认仅缩略图）</label>
+      <div id="precacheProgress" hidden>
+        <div class="bs-progress"><i id="precacheBarFill" style="width:0%"></i></div>
+        <p class="prob-note" id="precacheText" style="margin:8px 0 0"></p>
+      </div>
+      <div class="confirm-actions">
+        <button class="btn btn-ghost" id="precacheCancel">取消</button>
+        <button class="btn btn-ghost" id="precacheAbort" hidden>中止</button>
+        <button class="btn confirm-danger" id="precacheStart">开始缓存</button>
       </div>
     </div>
   </div>

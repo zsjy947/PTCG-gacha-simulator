@@ -89,3 +89,121 @@ function closeSidebar() {
   $("#sidebar").classList.remove("open");
   $("#sidebarBackdrop").hidden = true;
 }
+
+/* ---------------- 卡图按弹预缓存（T5，exe / APK；小程序无此入口） ----------------
+ * APK 通道核实（android-apk 分支 MainActivity）：卡图由原生 shouldInterceptRequest 拦截
+ * tcg.mik.moe/static/img|setCode 落盘缓存（imgCacheDir，500MB LRU），该拦截对 <img> 与 XHR
+ * 一视同仁 → 预热用 XHR 打同 URL 即填暖同一份缓存，无需原生改造。exe 端同源 /thumb 路由
+ * 预热服务端磁盘缓存与 WebView 缓存。标记键 imgcache_<set> 不带 ptcg_ 前缀（不镜像磁盘）。 */
+const PRECACHE_CONCURRENCY = 4;
+let _precacheActive = false;
+let _precacheCtl = null;
+
+function imgCacheMarkKey(setId) { return `imgcache_${setId}`; }
+function readImgCacheMark(setId) {
+  try { return JSON.parse(localStorage.getItem(imgCacheMarkKey(setId))) || null; } catch { return null; }
+}
+function cacheMarkDateZh(mark) {
+  const [, m, d] = String(mark.date || "").split("-");
+  return m ? `${parseInt(m, 10)}月${parseInt(d, 10)}日` : "";
+}
+
+async function openPrecache() {
+  if (_precacheActive) return;
+  let cards = state.cards.get(state.current.id);
+  if (!cards) {
+    try { cards = await loadSetCards(state.current.id); } catch { cards = []; }
+  }
+  if (!cards || !cards.length) { toast("卡表尚未载入，稍后再试"); return; }
+  const mark = readImgCacheMark(state.current.id);
+  $("#precacheHint").textContent =
+    `将为当前弹 ${cards.length} 张卡预取卡图（默认仅缩略图，可选含原图），完成后离线也可完整浏览。`
+    + (mark ? `上次：已于 ${cacheMarkDateZh(mark)}缓存 ${mark.count} 张${mark.withFull ? "（含原图）" : ""}。` : "");
+  $("#precacheWithFull").checked = false;
+  $("#precacheProgress").hidden = true;
+  $("#precacheText").textContent = "";
+  $("#precacheStart").disabled = false;
+  $("#precacheCancel").hidden = false;
+  $("#precacheAbort").hidden = true;
+  $("#precacheOverlay").hidden = false;
+}
+
+/* 预热单图：XHR 与 <img> 资源同通道（APK shouldInterceptRequest 两端一致） */
+function warmImage(url, ctl) {
+  return new Promise((resolve) => {
+    if (ctl.signal.aborted) return resolve(false);
+    const x = new XMLHttpRequest();
+    ctl.signal.addEventListener("abort", () => x.abort(), { once: true });
+    x.open("GET", url, true);
+    x.responseType = "arraybuffer";
+    x.onload = () => resolve(x.status === 200 && !!x.response);
+    x.onerror = () => resolve(false);
+    x.onabort = () => resolve(false);
+    x.send();
+  });
+}
+
+async function startPrecache() {
+  const cards = state.cards.get(state.current.id) || [];
+  if (!cards.length || _precacheActive) return;
+  // exe 端：缓存占用接近 LRU 上限（默认 600MB）时建议先清理
+  if (!ASSET && !nativeBridge) {
+    try {
+      const info = await api("/api/cache/info");
+      const cap = 600 * 1048576;
+      if (info.total_bytes > cap * 0.8
+        && !(await uiConfirm(`图片缓存已占用 ${info.label}，超过上限（600MB）的 80%，预缓存可能触发旧图淘汰。建议先清理缓存或调大 PTCG_IMG_CACHE_MB。是否继续？`))) return;
+    } catch { /* 缓存信息不可用（旧版本服务）则跳过检查 */ }
+  }
+  const withFull = $("#precacheWithFull").checked;
+  _precacheActive = true;
+  $("#precacheStart").disabled = true;
+  $("#precacheCancel").hidden = true;
+  $("#precacheAbort").hidden = false;
+  $("#precacheProgress").hidden = false;
+  const urls = [...new Set(cards.flatMap((c) => {
+    const list = [thumbURL(c)];
+    if (withFull && !ASSET) list.push(imgURL(c.setCode, c.cardIndex));
+    return list;
+  }))];
+  const total = urls.length;
+  let done = 0, fail = 0, aborted = false;
+  const ctl = new AbortController();
+  _precacheCtl = ctl;
+  ctl.signal.addEventListener("abort", () => { aborted = true; });
+  const progText = $("#precacheText"), progFill = $("#precacheBarFill");
+  const worker = async () => {
+    while (!aborted && urls.length) {
+      const url = urls.shift();
+      let ok = await warmImage(url, ctl);
+      if (!ok && !aborted) ok = await warmImage(url, ctl); // 失败重试 1 次后跳过并计数
+      if (!ok) fail++;
+      done++;
+      progText.textContent = `已缓存 ${done}/${total}（失败 ${fail}）`;
+      progFill.style.width = `${Math.round((done / total) * 100)}%`;
+    }
+  };
+  await Promise.all(Array.from({ length: Math.min(PRECACHE_CONCURRENCY, total) }, worker));
+  _precacheActive = false;
+  _precacheCtl = null;
+  $("#precacheOverlay").hidden = true;
+  if (aborted) {
+    toast(`已取消（本次成功 ${done - fail}/${total}）`);
+    return;
+  }
+  try {
+    const d = new Date();
+    const date = `${d.getFullYear()}-${String(d.getMonth() + 1).padStart(2, "0")}-${String(d.getDate()).padStart(2, "0")}`;
+    localStorage.setItem(imgCacheMarkKey(state.current.id), JSON.stringify({
+      date,
+      count: cards.length,
+      withFull,
+    }));
+  } catch { /* 空间不足时标记写入失败不影响预热成果 */ }
+  toast(fail ? `预缓存完成，${fail} 张失败（可重试）` : `预缓存完成（${cards.length} 张）`);
+  renderSpecButtons(); // 刷新入口按钮「已于 M月D日缓存 N 张」标记
+}
+
+function abortPrecache() {
+  if (_precacheCtl) _precacheCtl.abort();
+}
