@@ -1,4 +1,4 @@
-/* 核心：常量/全局状态/工具与 API/URL 与图片工具/__imgFail/本地引擎入口 —— 自 static/app.js 拆分（语义等价，见 docs/refactor/） */
+/* 核心：常量/全局状态/工具与 API/URL 与图片工具/__imgFail/本地引擎入口 —— 自 static/app.js 拆分（语义等价，见 docs/ARCHITECTURE.md） */
 "use strict";
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -26,7 +26,7 @@ const RARITY_LABEL = {
 const ENERGY_ZH = { G: "草", R: "火", W: "水", L: "雷", P: "超", F: "斗", D: "恶", M: "钢", Y: "妖", N: "无", C: "无色" };
 const RENDER_CHUNK = 120;     // 卡表增量渲染分片大小
 
-/* ---- 时序链常量（契约 R4：值不变，仅命名化；docs/refactor/CONTRACT.md） ---- */
+/* ---- 时序链常量（契约 R4：值不变，仅命名化；docs/ARCHITECTURE.md「冻结契约」） ---- */
 const BURST_TO_CARDS_MS = 480;          // 撕包动画 → 展示卡牌
 const STAGGER_FAST_CAP_MS = 36;         // 自动翻卡发牌间隔上限（600/len）
 const STAGGER_FAST_SPAN_MS = 600;

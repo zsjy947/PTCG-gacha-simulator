@@ -1,4 +1,4 @@
-/* 数据访问层（服务/资产双模式）与卡表数据热更新 —— 自 static/app.js 拆分（语义等价，见 docs/refactor/） */
+/* 数据访问层（服务/资产双模式）与卡表数据热更新 —— 自 static/app.js 拆分（语义等价，见 docs/ARCHITECTURE.md） */
 "use strict";
 
 /* ---- 数据访问层：服务模式 / 资产模式 ---- */

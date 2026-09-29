@@ -2,8 +2,8 @@
 """稳定性/性能基线测量（计划阶段 0 第 4 步；重构前后对照，不做 CI 断言）。
 
 用法：python tools/baseline_perf.py [--draws 500] [--imgs 200] [--label dev基线]
-输出：耗时/内存摘要打印 + 追加写入 docs/refactor/TEST_REPORT.md 的数据段
-（以 JSON 行存 docs/refactor/baseline_perf.jsonl，报告由人工引用其数字）。
+输出：耗时/内存摘要打印 + 以 JSON 行追加写入 build/baseline_perf.jsonl
+（build/ 不入库，报告由人工引用其数字）。
 
 口径：
 - 500 次连续 POST /api/draw（CSV1C sv5，固定种子序列）经 Flask test_client；
@@ -98,7 +98,7 @@ def main() -> int:
               "draw": draw_res, "img": img_res}
     print(json.dumps(result, ensure_ascii=False, indent=1))
 
-    out = ROOT / "docs" / "refactor" / "baseline_perf.jsonl"
+    out = ROOT / "build" / "baseline_perf.jsonl"
     out.parent.mkdir(parents=True, exist_ok=True)
     with out.open("a", encoding="utf-8") as f:
         f.write(json.dumps(result, ensure_ascii=False) + "\n")

@@ -1,4 +1,4 @@
-/* 收藏册：渲染/导入导出 —— 自 static/app.js 拆分（语义等价，见 docs/refactor/） */
+/* 收藏册：渲染/导入导出 —— 自 static/app.js 拆分（语义等价，见 docs/ARCHITECTURE.md） */
 "use strict";
 
 /* ---------------- 收藏册 ---------------- */

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""API golden 快照测试 —— 重构安全网（docs/重构与全量审查计划.md 阶段 0）。
+"""API golden 快照测试 —— 重构安全网（背景沉淀于 docs/ARCHITECTURE.md「历史重构记录」）。
 
 对确定性端点做完整 JSON 快照断言（契约 R1：JSON 形状、错误码、{"error":...} 文案逐字不变）；
 /api/draw 用固定随机种子做确定性输出断言 + packs 钳制边界（0/1/40/41）。

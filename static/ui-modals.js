@@ -1,4 +1,4 @@
-/* 弹窗：应用内确认/概率公示/卡牌详情/期望成本/拆卡战报 —— 自 static/app.js 拆分（语义等价，见 docs/refactor/） */
+/* 弹窗：应用内确认/概率公示/卡牌详情/期望成本/拆卡战报 —— 自 static/app.js 拆分（语义等价，见 docs/ARCHITECTURE.md） */
 "use strict";
 
 /* ---------------- 应用内确认弹窗（替代原生 confirm：pywebview/WebView 原生弹窗会带源地址前缀） ---------------- */

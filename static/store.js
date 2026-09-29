@@ -1,4 +1,4 @@
-/* 持久化：localStorage 镜像磁盘、统计/消费/收藏册 —— 自 static/app.js 拆分（语义等价，见 docs/refactor/） */
+/* 持久化：localStorage 镜像磁盘、统计/消费/收藏册 —— 自 static/app.js 拆分（语义等价，见 docs/ARCHITECTURE.md） */
 "use strict";
 
 /* 本地存储 */

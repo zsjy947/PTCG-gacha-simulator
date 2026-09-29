@@ -1,4 +1,4 @@
-/* 拆卡页：弹列表/搜索/选中与手机端弹包抽屉 —— 自 static/app.js 拆分（语义等价，见 docs/refactor/） */
+/* 拆卡页：弹列表/搜索/选中与手机端弹包抽屉 —— 自 static/app.js 拆分（语义等价，见 docs/ARCHITECTURE.md） */
 "use strict";
 
 /* ---------------- 弹列表 ---------------- */
