@@ -120,6 +120,10 @@
 .et-row text:first-child { flex: 0.8; }
 .et-head { color: var(--txt2); font-size: 20rpx; }
 
+/* 整盒理论（概率公示弹窗内，逐规格） */
+.prob-box { margin: 6rpx 0 14rpx; border: 1rpx solid var(--line); border-radius: 14rpx; padding: 6rpx 18rpx 10rpx; }
+.prob-box-title { padding: 10rpx 0 4rpx; font-size: 24rpx; font-weight: 700; color: var(--accent); letter-spacing: 2rpx; }
+
 /* v1.2.2：规格选中态 */
 .spec-active { outline: 3rpx solid var(--accent); outline-offset: 3rpx; }
 
@@ -129,6 +133,7 @@
 .box-title { color: #ffce4a; font-size: 28rpx; font-weight: 800; }
 .box-meta { color: #9aa7bd; font-size: 22rpx; }
 .box-chips { margin-top: 8rpx; display: flex; flex-wrap: wrap; gap: 6rpx 18rpx; font-size: 23rpx; font-weight: 700; }
+.box-theory { margin-top: 8rpx; font-size: 20rpx; color: var(--txt2); text-align: center; }
 
 /* 包号横滑页签 */
 .pack-tabs { display: flex; max-width: 92vw; margin: 0 0 18rpx; white-space: nowrap; }

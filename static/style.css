@@ -418,6 +418,13 @@ select option { background: var(--pop); color: var(--txt); }
 .prob-line .pl-bar i { display: block; height: 100%; border-radius: 8px; }
 .prob-line .pl-p { width: 64px; text-align: right; color: var(--txt2); font-variant-numeric: tabular-nums; }
 
+/* 整盒理论折叠块（概率公示弹窗内，逐规格） */
+.prob-box { margin: 2px 0 14px; border: 1px solid var(--line); border-radius: 12px; padding: 0 14px; }
+.prob-box summary { cursor: pointer; padding: 10px 0; font-size: 13px; font-weight: 700; color: var(--accent); letter-spacing: 1px; }
+.prob-box[open] summary { border-bottom: 1px solid var(--line); margin-bottom: 10px; }
+.prob-box .pb-variant { margin: 8px 0 2px; }
+.prob-box .prob-box-table { margin-bottom: 10px; }
+
 .detail-body { display: flex; gap: 20px; }
 .detail-body .d-img { flex: 0 0 260px; }
 .detail-body .d-img img { width: 100%; border-radius: 12px; box-shadow: var(--shadow); }
@@ -655,6 +662,7 @@ select option { background: var(--pop); color: var(--txt); }
 .bs-stat b { color: var(--txt); font-size: 14px; }
 .bs-stat .bv { color: var(--accent); }
 .box-chips { margin-top: 8px; font-size: 13px; font-weight: 700; line-height: 1.7; text-align: center; }
+.bs-theory { margin-top: 7px; font-size: 12px; color: var(--txt2); text-align: center; }
 
 /* 整盒按钮（沿用规格按钮视觉） */
 .btn.draw-box { background: linear-gradient(135deg, #2c6f4a, #1d5a63); }

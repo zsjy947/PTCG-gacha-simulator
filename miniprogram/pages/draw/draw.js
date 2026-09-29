@@ -307,6 +307,7 @@ Page({
         bestColor: ui.rarColor(ui.bestRarity(cnt) || ""),
         money: spec.priceCny ? ui.fmtMoney(spec.priceCny * packsOut.length) : "0",
         chips: ui.RARITY_ORDER.filter((r) => cnt[r]).map((r) => ({ r, n: cnt[r], color: ui.rarColor(r) })),
+        theory: packsOut.length === (spec.boxPacks || 0) ? this.boxTheoryText(spec) : "",
       };
     }
     this.setData({
@@ -322,6 +323,26 @@ Page({
         recorded: packsOut.map(() => false),
       },
     });
+  },
+
+  /* 整盒理论参照行（与 exe 端逐字一致；小程序端无卡价快照，不含回本段） */
+  boxTheoryText(spec) {
+    const profiles = data.boxProfile(this.data.current.id, spec);
+    if (!profiles.length) return "";
+    const eAvg = {}, pAvg = {};
+    for (const p of profiles) {
+      for (const [r, e] of Object.entries(p.expectedCount)) eAvg[r] = (eAvg[r] || 0) + e / profiles.length;
+      for (const [r, q] of Object.entries(p.pAtLeastOne)) pAvg[r] = (pAvg[r] || 0) + q / profiles.length;
+    }
+    const keys = Object.keys(eAvg);
+    const rrUpSet = ui.RARITY_ORDER.slice(0, ui.RARITY_ORDER.indexOf("RR") + 1);
+    const rr = keys.reduce((a, r) => a + (rrUpSet.includes(r) ? eAvg[r] : 0), 0);
+    let line = `理论：RR+ 期望 ${rr.toFixed(1)} 张`;
+    /* 「最高期望稀有度」候选排除低展示档（与 exe 端 BOX_THEORY_LOW 一致） */
+    const low = { C: 1, U: 1, N: 1, "●": 1, "◆": 1, "★": 1, "★★": 1, "★★★": 1, "无标记": 1 };
+    const top = ui.RARITY_ORDER.find((r) => r in eAvg && eAvg[r] >= 0.05 && !low[r]);
+    if (top) line += ` · ${top} 出现率 ${(pAvg[top] * 100).toFixed(1)}%`;
+    return line;
   },
 
   burstPack() {
@@ -450,8 +471,19 @@ Page({
     if (!cur) return;
     const probSpecs = (cur.specs || []).map((sp) => {
       const full = data.specProbabilities(cur.id, sp);
+      const box = data.boxProfile(cur.id, sp).map((p) => ({
+        note: p.note,
+        rows: Object.keys(p.expectedCount)
+          .sort((a, b) => ui.RARITY_ORDER.indexOf(a) - ui.RARITY_ORDER.indexOf(b))
+          .map((r) => ({
+            rarity: r, color: ui.rarColor(r),
+            exp: p.expectedCount[r].toFixed(1),
+            appear: (p.pAtLeastOne[r] * 100).toFixed(1) + "%",
+          })),
+      }));
       return {
         label: sp.label, price: sp.price, note: sp.note,
+        box,
         variants: full.variants.map((v) => ({
           note: v.note,
           slots: v.slots.map((slot) => ({

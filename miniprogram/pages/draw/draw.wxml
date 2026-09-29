@@ -158,6 +158,7 @@
       <view class="box-chips">
         <text wx:for="{{boxSummary.chips}}" wx:key="r" style="color:{{item.color}}">{{item.r}}×{{item.n}}</text>
       </view>
+      <view class="box-theory" wx:if="{{boxSummary.theory}}">{{boxSummary.theory}}</view>
     </view>
 
 
@@ -219,6 +220,20 @@
               <text class="pl-p">{{line.pct}}（池 {{line.pool}} 张）</text>
             </view>
           </view>
+        </view>
+        <view class="prob-box" wx:if="{{item.box.length}}">
+          <view class="prob-box-title">整盒理论</view>
+          <block wx:for="{{item.box}}" wx:for-item="b" wx:key="note">
+            <view class="prob-note" wx:if="{{item.box.length > 1}}">封入变体：{{b.note}}（每包随机）</view>
+            <view class="expect-table">
+              <view class="et-row et-head"><text>稀有度</text><text>期望张数/盒</text><text>出现率</text></view>
+              <view class="et-row" wx:for="{{b.rows}}" wx:for-item="row" wx:key="rarity">
+                <text style="color:{{row.color}};font-weight:800">{{row.rarity}}</text>
+                <text>{{row.exp}}</text>
+                <text>{{row.appear}}</text>
+              </view>
+            </view>
+          </block>
         </view>
       </view>
     </scroll-view>

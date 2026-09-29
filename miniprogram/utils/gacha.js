@@ -119,6 +119,46 @@
     };
   }
 
+  /* 每包稀有度画像（确定性，无随机数）。变体规格（如太晶盛聚 7+3/6+4）逐变体返回。
+   * p(slot=r) 复用 normalizeWeights；权重稀有度全部缺失的兜底槽位退化为整弹均匀抽
+   * （与 specProbabilities 的 fallback 口径一致；Python 侧经 _slot_probs 套用按弹覆盖，
+   *   SET_SPEC_OVERRIDES 目前为空，两端同源）。浮点累加顺序两端逐行一致（对拍逐位断言）。 */
+  function rarityProfile(spec, pools) {
+    const available = Object.keys(pools);
+    const total = Object.values(pools).reduce((a, l) => a + l.length, 0);
+    const variants = spec.variants || [{ note: spec.note || "", slots: spec.slots }];
+    return variants.map((v) => {
+      const expectedCount = {}, pAppear = {};
+      for (const r of available) { expectedCount[r] = 0; pAppear[r] = 0; }
+      for (const slot of v.slots) {
+        const probs = normalizeWeights(slot.weights, available);
+        for (const r of available) {
+          const p = probs ? (probs[r] || 0) : (total ? pools[r].length / total : 0);
+          expectedCount[r] = expectedCount[r] + p;
+          pAppear[r] = 1 - (1 - pAppear[r]) * (1 - p);
+        }
+      }
+      return { note: v.note || "", expectedCount, pAppear };
+    });
+  }
+
+  /* 整盒理论画像：boxPacks 缺省视为无整盒商品 → 返回 []（概率公示/汇总条据此不渲染）。
+   * pAtLeastOne 用连乘而非 pow，保证与 Python 镜像逐位一致。 */
+  function boxProfile(spec, pools) {
+    if (!spec.boxPacks) return [];
+    const n = spec.boxPacks;
+    return rarityProfile(spec, pools).map((v) => {
+      const expectedCount = {}, pAtLeastOne = {};
+      for (const r of Object.keys(v.expectedCount)) {
+        let miss = 1;
+        for (let i = 0; i < n; i++) miss = miss * (1 - v.pAppear[r]);
+        expectedCount[r] = v.expectedCount[r] * n;
+        pAtLeastOne[r] = 1 - miss;
+      }
+      return { note: v.note, boxPacks: n, expectedCount, pAtLeastOne };
+    });
+  }
+
   /* 某规格每个稀有度的期望成本（目标卡计算器）：
    * pPack  = 单包至少出 1 张该稀有度的概率（变体按等概率平均）
    * anyPacks = 抽到任意一张该稀有度的期望包数 = 1 / pPack
@@ -156,5 +196,6 @@
     RARITY_ALIAS, mulberry32,
     buildPools, normalizeWeights, pickRarity, pickCard,
     drawPack, drawPacks, specProbabilities, expectedCost,
+    rarityProfile, boxProfile,
   };
 });

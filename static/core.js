@@ -7,6 +7,8 @@ const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 /* 稀有度色板三副本镜像（FE-004，契约保留）：本文件 RARITY_COLOR ↔ static/style.css 的 --r-* 变量
    ↔ miniprogram（范围外）；tests/test_consistency.py 校验 css 变量与本表一致 */
 const RARITY_ORDER = ["FUR", "UR", "SAR", "HR", "SR", "ACE", "AR", "SSR", "CHR", "CSR", "RRR", "RGB", "RR", "K", "PR", "A", "S", "R", "U", "C", "N", "★★★", "★★", "★", "◆", "●", "无标记"];
+/* RR+ 口径（汇总条/统计/集齐期望共用）：RARITY_ORDER 中 RR 及以上的高档稀有度集合 */
+const RRUP_RARITIES = RARITY_ORDER.slice(0, RARITY_ORDER.indexOf("RR") + 1);
 const RARITY_COLOR = {
   C: "#9aa5b1", U: "#58c470", R: "#4aa8ff", RR: "#ffd75e", AR: "#7ee8fa",
   SR: "#ff7edb", SAR: "#b28dff", UR: "#ffc82e", ACE: "#8f7bff", TR: "#f6a5c0", N: "#6b7688",

@@ -20,6 +20,29 @@ function settleConfirm(v) {
 }
 
 /* ---------------- 概率公示 ---------------- */
+/* 整盒理论折叠块（引擎 boxProfile，规格用 DATA.calcData 的全量视图；无盒规 → 不渲染） */
+function probBoxHtml(view, pools) {
+  const profiles = G().boxProfile(view, pools);
+  if (!profiles.length) return "";
+  const multi = profiles.length > 1;
+  const tables = profiles.map((p) => {
+    const rows = Object.keys(p.expectedCount)
+      .sort((a, b) => RARITY_ORDER.indexOf(a) - RARITY_ORDER.indexOf(b))
+      .map((r) => `
+        <tr>
+          <td><span class="pl-r" style="color:${escapeHtml(RARITY_COLOR[r] || "")}">${escapeHtml(r)}</span></td>
+          <td>${p.expectedCount[r].toFixed(1)}</td>
+          <td>${(p.pAtLeastOne[r] * 100).toFixed(1)}%</td>
+        </tr>`).join("");
+    return `${multi ? `<p class="prob-note pb-variant">封入变体：${escapeHtml(p.note)}（每包随机）</p>` : ""}
+      <table class="expect-table prob-box-table">
+        <thead><tr><th>稀有度</th><th>期望张数/盒</th><th>出现率</th></tr></thead>
+        <tbody>${rows}</tbody>
+      </table>`;
+  }).join("");
+  return `<details class="prob-box"><summary>整盒理论</summary>${tables}</details>`;
+}
+
 function probSlotHtml(slot) {
   if (slot.fallback) {
     return `<div class="prob-slot"><h4>${escapeHtml(slot.name)}</h4>
@@ -44,18 +67,20 @@ async function showProbabilities() {
   $("#probBody").innerHTML = `<p class="prob-note">载入中…</p>`;
   $("#probOverlay").hidden = false;
   try {
-    const data = await DATA.probabilities(state.current.id);
-    const specHtml = data.specs.map((sp) => {
+    const { probData, views, pools } = await DATA.calcData(state.current.id);
+    const specHtml = probData.specs.map((sp) => {
       const variants = sp.variants.map((v) => `
         <div class="prob-variant">
           ${sp.variants.length > 1 ? `<h5>封入变体：${escapeHtml(v.note)}（每包随机）</h5>` : ""}
           ${v.slots.map(probSlotHtml).join("")}
         </div>`).join("");
+      const view = views.find((v) => v.id === sp.id) || {};
       return `
         <div class="prob-spec">
           <h4 class="prob-spec-title">${escapeHtml(sp.label)}${sp.price ? ` · ${escapeHtml(sp.price)}` : ""}</h4>
           <p class="prob-note">${escapeHtml(sp.note)}</p>
           ${variants}
+          ${probBoxHtml(view, pools)}
         </div>`;
     }).join("");
     $("#probBody").innerHTML = `

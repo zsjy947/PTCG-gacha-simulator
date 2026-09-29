@@ -82,6 +82,26 @@ const DATA = {
       x.send(JSON.stringify({ setCode: code, cardIndex: idx }));
     });
   },
+
+  /* 概率公示/期望计算/整盒理论共用的计算素材：概率表（展示用）+ 全量规格视图 + 卡池（引擎计算用）。
+   * 按弹缓存；卡表热更新清除时一并清（clearCalcCache）。
+   * 规格全量视图（FE-019）：web 模式 /api/sets 的 _spec_brief 不含 slots，直接喂引擎会崩
+   * （v.slots is not iterable）。视图由概率路由（现有路由）的逐槽概率表重构槽位权重：
+   * 表内为归一化数值，引擎 normalizeWeights 再归一化结果不变；兜底槽 probabilities 为空表
+   * → weights 空 → 引擎同样判定 fallback。价格/盒规等元数据取自规格简表；资产模式同样适用。 */
+  async calcData(setId) {
+    if (_calcCache.has(setId)) return _calcCache.get(setId);
+    const probData = await this.probabilities(setId);
+    const cards = await loadSetCards(setId);
+    const set = state.sets.find((s) => s.id === setId) || state.current || {};
+    const data = {
+      probData,
+      views: buildSpecViews(probData.specs || [], set.specs || []),
+      pools: G().buildPools(cards),
+    };
+    _calcCache.set(setId, data);
+    return data;
+  },
 };
 
 /* ---------------- 卡表数据热更新 ---------------- */
@@ -91,6 +111,28 @@ const DATA_SOURCES = [
   "https://cdn.jsdelivr.net/gh/zsjy947/PTCG-gacha-simulator@master/data",
   "https://raw.githubusercontent.com/zsjy947/PTCG-gacha-simulator/master/data",
 ];
+
+/* 规格全量视图构建（DATA.calcData 用；概率表 → 引擎可计算的 slots 权重视图） */
+function buildSpecViews(probSpecs, briefs) {
+  return probSpecs.map((psp) => {
+    const brief = briefs.find((b) => b.id === psp.id) || {};
+    return {
+      ...brief,
+      id: psp.id, label: psp.label, note: psp.note, price: psp.price,
+      variants: (psp.variants || []).map((v) => ({
+        note: v.note,
+        slots: (v.slots || []).map((slot) => ({
+          name: slot.name, kind: slot.kind,
+          weights: Object.fromEntries((slot.probabilities || []).map((p) => [p.rarity, p.p])),
+        })),
+      })),
+    };
+  });
+}
+
+/* DATA.calcData 的按弹缓存（卡表热更新时与 state.cards 一并清除） */
+const _calcCache = new Map();
+function clearCalcCache() { _calcCache.clear(); }
 
 function dataSrcList() {
   const custom = (store.get("ptcg_datasrc", "") || "").replace(/\/+$/, "");
@@ -181,6 +223,7 @@ async function checkDataUpdate(manual) {
     }
     store.set("ptcg_data_applied", { generated: manifest.generated, sets: nextApplied });
     state.cards.clear(); // 清缓存让下次进入按新数据重新加载
+    clearCalcCache();
     const remain = changed.length - done;
     info.textContent = done
       ? `已更新 ${done} 弹${fail ? `，失败 ${fail} 弹（下次检查将重试）` : ""}（${manifest.generated.slice(0, 10)}）`
@@ -204,6 +247,7 @@ async function resetDataOverride() {
   keys.forEach((k) => localStorage.removeItem(k));
   store.set("ptcg_data_applied", null);
   state.cards.clear();
+  clearCalcCache();
   $("#dataUpdInfo").textContent = "已恢复内置数据";
   toast("已恢复内置卡表数据");
 }

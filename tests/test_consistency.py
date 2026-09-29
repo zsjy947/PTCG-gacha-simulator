@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT))
 
 import config  # noqa: E402
 import fetch_data  # noqa: E402
+import gacha  # noqa: E402
 from pricetool import store as pt_store  # noqa: E402
 from pricetool.sync import _md5 as sync_md5  # noqa: E402
 from server.api import _spec_brief as brief_server  # noqa: E402
@@ -66,6 +67,61 @@ class TestGroupOrderMirror(unittest.TestCase):
         self.assertTrue(m, "data.js 未找到 order 数组")
         js_order = re.findall(r'"([^"]+)"', m.group(1))
         self.assertEqual(js_order, config.GROUP_ORDER)
+
+
+class TestProfileParity(unittest.TestCase):
+    """T1：确定性画像 rarityProfile / boxProfile 的 JS/Python 双实现必须完全相等。
+
+    任取 3 个可拆弹 × 全规格：确定性函数无随机数，输出 JSON 逐字节断言
+    （两侧规范化为排序键 JSON 后比较，浮点逐位一致才可能相等）。
+    """
+
+    def _js_profile(self, cards_path: Path, spec_path: Path) -> dict:
+        out = subprocess.run(
+            ["node", str(Path(__file__).parent / "parity_profile.js"),
+             str(cards_path), str(spec_path)],
+            capture_output=True, text=True, timeout=120,
+        )
+        if out.returncode != 0:
+            raise RuntimeError(f"node 画像对拍脚本失败: {out.stderr}")
+        return json.loads(out.stdout)
+
+    @staticmethod
+    def _canon(obj):
+        """JSON 数字规范化为 float：JS 的整值浮点（78）经 json.loads 变 int，
+        与 Python 的 78.0 仅序列化表示不同；数值统一 float 后再逐字节比较。"""
+        if isinstance(obj, dict):
+            return {k: TestProfileParity._canon(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [TestProfileParity._canon(v) for v in obj]
+        if isinstance(obj, (int, float)) and not isinstance(obj, bool):
+            return float(obj)
+        return obj
+
+    def test_rarity_and_box_profile_parity(self):
+        idx = json.loads((ROOT / "data" / "sets_index.json").read_text(encoding="utf-8"))
+        sids = [e["id"] for e in idx if config.set_specs(e["id"])][:3]
+        self.assertEqual(len(sids), 3, f"可拆弹不足 3 个（{sids}）")
+        with tempfile.TemporaryDirectory() as tmp:
+            for sid in sids:
+                cards_path = Path(tmp) / f"{sid}_cards.json"
+                cards_path.write_text(
+                    json.dumps(gacha.load_cards(sid), ensure_ascii=False), encoding="utf-8")
+                for spec in config.set_specs(sid):
+                    with self.subTest(set=sid, spec=spec["key"]):
+                        spec_path = Path(tmp) / f"{sid}_{spec['key']}.json"
+                        spec_path.write_text(
+                            json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+                        js = self._js_profile(cards_path, spec_path)
+                        py = {
+                            "rarityProfile": gacha.rarity_profile(sid, spec),
+                            "boxProfile": gacha.box_profile(sid, spec),
+                        }
+                        # 逐字节：数字规范化后两端 JSON 文本必须一致（浮点逐位一致才可能相等）
+                        self.assertEqual(
+                            json.dumps(self._canon(js), sort_keys=True),
+                            json.dumps(self._canon(py), sort_keys=True),
+                            f"{sid} {spec['key']} 画像不一致")
 
 
 class TestSpecBriefThreePlatforms(unittest.TestCase):

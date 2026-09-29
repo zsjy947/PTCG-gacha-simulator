@@ -142,6 +142,59 @@ def draw_pack(set_id: str, spec_id: str | None = None, packs: int = 1, rng=None)
     return result
 
 
+def rarity_profile(set_id: str, spec: dict) -> list:
+    """每包稀有度画像（确定性，无随机数）——shared/gacha.js rarityProfile 的镜像。
+
+    变体规格逐变体返回。p(slot=r) 经 _slot_probs（含 SET_SPEC_OVERRIDES 按弹覆盖，
+    目前为空）计算；兜底槽位退化为整弹均匀抽。浮点累加顺序与 JS 逐行一致（对拍逐位断言）。
+    """
+    cards = load_cards(set_id)
+    pools = build_pools(cards)
+    set_code = set_id.split("__")[0]
+    spec_id = spec["id"]
+    available = list(pools)
+    total = sum(len(v) for v in pools.values())
+    variants = spec.get("variants") or [{"note": spec.get("note", ""), "slots": spec["slots"]}]
+    out = []
+    for v in variants:
+        expected = {r: 0.0 for r in available}
+        appear = {r: 0.0 for r in available}
+        for slot in v["slots"]:
+            probs = _slot_probs(slot, set_code, spec_id, pools)
+            for r in available:
+                if probs:
+                    p = probs.get(r, 0.0)
+                else:
+                    p = len(pools[r]) / total if total else 0.0
+                expected[r] = expected[r] + p
+                appear[r] = 1.0 - (1.0 - appear[r]) * (1.0 - p)
+        out.append({"note": v.get("note", ""), "expectedCount": expected, "pAppear": appear})
+    return out
+
+
+def box_profile(set_id: str, spec: dict) -> list:
+    """整盒理论画像——shared/gacha.js boxProfile 的镜像。
+
+    boxPacks 缺省视为无整盒商品，返回 []。pAtLeastOne 用连乘而非 pow，保证逐位一致。
+    """
+    n = spec.get("boxPacks")
+    if not n:
+        return []
+    out = []
+    for v in rarity_profile(set_id, spec):
+        expected = {}
+        at_least = {}
+        for r, e in v["expectedCount"].items():
+            miss = 1.0
+            for _ in range(n):
+                miss = miss * (1.0 - v["pAppear"][r])
+            expected[r] = e * n
+            at_least[r] = 1.0 - miss
+        out.append({"note": v["note"], "boxPacks": n,
+                    "expectedCount": expected, "pAtLeastOne": at_least})
+    return out
+
+
 def spec_probabilities(set_id: str, spec: dict) -> dict:
     """某弹某规格的概率表，含封入变体（供「概率公示」展示）。"""
     cards = load_cards(set_id)
