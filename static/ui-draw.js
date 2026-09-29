@@ -443,7 +443,62 @@ function renderStats() {
   el.style.color = best ? RARITY_COLOR[best] : "";
   const sp = getSpend(state.current.id);
   $("#stSpend").textContent = `¥${fmtMoney(sp.money)}`;
+  renderCompare(s);
   renderDist(s.rarities);
+}
+
+/* ---------------- 实测对照（T2）：各稀有度实测占比 vs 划档模型期望占比 ----------------
+ * 样本 ≥30 包才自动展开；规格用面板当前选中规格的首变体口径（全量视图经 DATA.calcData 取得） */
+const CMP_MIN_PACKS = 30;
+let _cmpProfile = { key: "", profile: null, variants: 1 };
+
+function cmpTableHtml(s, profile) {
+  const expectTotal = Object.values(profile.expectedCount).reduce((a, b) => a + b, 0);
+  const rows = Object.keys(profile.expectedCount)
+    .sort((a, b) => RARITY_ORDER.indexOf(a) - RARITY_ORDER.indexOf(b))
+    .map((r) => {
+      const act = s.rarities[r] || 0;
+      const actShare = s.cards ? act / s.cards : 0;
+      const expShare = profile.expectedCount[r] / expectTotal;
+      const dev = actShare - expShare;
+      const devText = `${dev >= 0 ? "+" : "−"}${(Math.abs(dev) * 100).toFixed(2)}%`;
+      return `
+        <tr>
+          <td><span class="pl-r" style="color:${escapeHtml(RARITY_COLOR[r] || "")}">${escapeHtml(r)}</span></td>
+          <td>${act}</td>
+          <td>${(actShare * 100).toFixed(2)}%</td>
+          <td>${(expShare * 100).toFixed(2)}%</td>
+          <td><b class="bv ${dev >= 0 ? "val-up" : "val-down"}">${devText}</b></td>
+        </tr>`;
+    }).join("");
+  return `<thead><tr><th>稀有度</th><th>实测张数</th><th>实测占比</th><th>理论期望占比</th><th>偏差</th></tr></thead><tbody>${rows}</tbody>`;
+}
+
+function renderCompare(s) {
+  const card = $("#compareCard");
+  if (!card) return;
+  const sp = state.spec || (state.current.specs || [])[0] || null;
+  if (!sp || !s.packs) { card.hidden = true; return; }
+  card.hidden = false;
+  const key = `${state.current.id}|${sp.key}`;
+  const apply = () => {
+    const { profile, variants } = _cmpProfile;
+    $("#cmpTable").innerHTML = cmpTableHtml(s, profile);
+    // 尾注：变体规格注明按首变体口径
+    $("#cmpNote").textContent = "偏差来自随机波动与划档模型近似，不构成概率修正依据。"
+      + (variants > 1 ? "多变体规格按首变体口径。" : "");
+    const enough = s.packs >= CMP_MIN_PACKS;
+    $("#cmpSummary").textContent = `已开 ${s.packs} 包`
+      + (enough ? "" : " · 样本不足（<30 包），仅供参考");
+    $("#cmpBox").open = enough;
+  };
+  if (_cmpProfile.key === key) { apply(); return; }
+  DATA.calcData(state.current.id).then(({ views, pools }) => {
+    const view = views.find((v) => v.key === sp.key) || sp;
+    const profiles = G().rarityProfile(view, pools);
+    _cmpProfile = { key, profile: profiles[0], variants: profiles.length };
+    apply();
+  }).catch(() => { card.hidden = true; });
 }
 
 /* 稀有度出货分布（本弹）：纯 CSS 条形，复用稀有度配色 */

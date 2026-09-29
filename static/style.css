@@ -690,6 +690,13 @@ select option { background: var(--pop); color: var(--txt); }
 /* v1.2.2：稀有度出货分布 */
 .dist-card { margin-top: 14px; padding: 16px 20px; }
 .dist-card h3 { font-size: 13px; color: var(--txt2); font-weight: 600; letter-spacing: 1px; margin-bottom: 10px; }
+
+/* 实测对照卡（统计区下方，T2）：样本 ≥30 包自动展开 */
+.compare-card { margin-top: 14px; padding: 6px 20px 12px; }
+.compare-card summary { cursor: pointer; font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 1px; padding: 10px 0; }
+.compare-card .cmp-table-wrap { overflow-x: auto; margin-top: 8px; }
+.compare-card .val-up { color: var(--val-up); }
+.compare-card .val-down { color: var(--val-down); }
 .dist-row { display: flex; align-items: center; gap: 12px; padding: 4px 0; }
 .dist-r { width: 56px; font-size: 12px; font-weight: 800; text-align: right; }
 .dist-bar { flex: 1; height: 14px; border-radius: 10px; background: var(--soft); overflow: hidden; }

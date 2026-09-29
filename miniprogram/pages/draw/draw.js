@@ -162,16 +162,49 @@ Page({
     const spend = (store.get("ptcg_spend", {})[cur.id] || {}).money || 0;
     const rows = ui.RARITY_ORDER.filter((r) => s.rarities[r]);
     const max = Math.max(1, ...rows.map((r) => s.rarities[r]));
+
+    /* 实测对照（T2）：出货分布叠加理论值灰色基准条 + 对照表（与 exe 端文案一致） */
+    const cmp = { show: s.packs > 0, enough: s.packs >= 30, rows: [], note: "" };
+    const sp = (cur.specs || []).find((x) => x.key === this.data.specKey) || (cur.specs || [])[0];
+    let markOf = () => 0;
+    if (cmp.show && sp) {
+      const profiles = data.rarityProfile(cur.id, sp);
+      const p0 = profiles[0];
+      const eTotal = Object.values(p0.expectedCount).reduce((a, b) => a + b, 0);
+      markOf = (r) => Math.round((p0.expectedCount[r] / eTotal * s.cards) / max * 100);
+      if (cmp.enough) {
+        cmp.rows = Object.keys(p0.expectedCount)
+          .sort((a, b) => ui.RARITY_ORDER.indexOf(a) - ui.RARITY_ORDER.indexOf(b))
+          .map((r) => {
+            const act = s.rarities[r] || 0;
+            const actShare = s.cards ? act / s.cards : 0;
+            const expShare = p0.expectedCount[r] / eTotal;
+            const dev = actShare - expShare;
+            return {
+              rarity: r, color: ui.rarColor(r), count: act,
+              actPct: (actShare * 100).toFixed(2) + "%",
+              expPct: (expShare * 100).toFixed(2) + "%",
+              devText: (dev >= 0 ? "+" : "−") + (Math.abs(dev) * 100).toFixed(2) + "%",
+              up: dev >= 0,
+            };
+          });
+        cmp.note = "偏差来自随机波动与划档模型近似，不构成概率修正依据。";
+        if (profiles.length > 1) cmp.note += "多变体规格按首变体口径。";
+      }
+    }
+    const distRows = rows.map((r) => ({
+      rarity: r, count: s.rarities[r],
+      color: ui.rarColor(r), pct: Math.round((s.rarities[r] / max) * 100),
+      mark: markOf(r),
+    }));
     this.setData({
       stats: {
         packs: s.packs, cards: s.cards, rrUp,
         best: best || "—", bestColor: best ? ui.rarColor(best) : "",
         spend: ui.fmtMoney(spend),
       },
-      distRows: rows.map((r) => ({
-        rarity: r, count: s.rarities[r],
-        color: ui.rarColor(r), pct: Math.round((s.rarities[r] / max) * 100),
-      })),
+      distRows,
+      cmp,
     });
   },
 

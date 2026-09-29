@@ -95,13 +95,32 @@
     <view class="stat"><text class="stat-b">¥{{stats.spend}}</text><text class="stat-s">本弹花费</text></view>
   </view>
 
-  <!-- 稀有度出货分布 -->
+  <!-- 稀有度出货分布（含理论值灰色基准条与实测对照） -->
   <view class="dist-card card-glass" wx:if="{{current && distRows.length}}">
     <text class="dist-title">稀有度出货分布</text>
     <view class="dist-row" wx:for="{{distRows}}" wx:key="rarity">
       <text class="dist-r" style="color:{{item.color}}">{{item.rarity}}</text>
-      <view class="dist-bar"><view class="dist-fill" style="width:{{item.pct}}%;background:{{item.color}}"></view></view>
+      <view class="dist-bar">
+        <view class="dist-mark" style="width:{{item.mark}}%"></view>
+        <view class="dist-fill" style="width:{{item.pct}}%;background:{{item.color}}"></view>
+      </view>
       <text class="dist-n">{{item.count}}</text>
+    </view>
+    <view class="cmp-block" wx:if="{{cmp.show}}">
+      <view class="cmp-title">实测对照<text wx:if="{{!cmp.enough}}" class="cmp-lack"> · 样本不足（&lt;30 包），仅供参考</text></view>
+      <block wx:if="{{cmp.enough}}">
+        <view class="expect-table">
+          <view class="et-row et-head"><text>稀有度</text><text>实测张数</text><text>实测占比</text><text>理论期望占比</text><text>偏差</text></view>
+          <view class="et-row" wx:for="{{cmp.rows}}" wx:for-item="row" wx:key="rarity">
+            <text style="color:{{row.color}};font-weight:800">{{row.rarity}}</text>
+            <text>{{row.count}}</text>
+            <text>{{row.actPct}}</text>
+            <text>{{row.expPct}}</text>
+            <text style="color:{{row.up ? '#3ddc97' : '#ff8a7a'}};font-weight:800">{{row.devText}}</text>
+          </view>
+        </view>
+        <view class="prob-note">{{cmp.note}}</view>
+      </block>
     </view>
   </view>
 
