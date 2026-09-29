@@ -25,4 +25,12 @@ function bestRarity(rs) { return RARITY_ORDER.find((r) => rs[r]) || null; }
 function fmtMoney(n) { return Number.isInteger(n) ? String(n) : Number(n).toFixed(2); }
 function probPct(p) { return (p * 100).toFixed(p * 100 >= 1 ? 1 : 2) + "%"; }
 
-module.exports = { RARITY_ORDER, RARITY_COLOR, RARITY_LABEL, rarColor, rarLabel, bestRarity, fmtMoney, probPct };
+/* 缺卡文本清单（纯逻辑；与 static/ui-collection.js 逐字一致，tests/test_missing_list.py 对拍）：
+ * 【PTCG拆卡模拟器】<弹名> 缺卡 Z/Y：
+ * <cardIndex> <cardName>（<rarity>） */
+function missingListText(setName, missingCards, totalDistinct) {
+  const lines = missingCards.map((c) => `${c.cardIndex} ${c.cardName}（${c.rarity || "N"}）`);
+  return `【PTCG拆卡模拟器】${setName} 缺卡 ${missingCards.length}/${totalDistinct}：\n${lines.join("\n")}`;
+}
+
+module.exports = { RARITY_ORDER, RARITY_COLOR, RARITY_LABEL, rarColor, rarLabel, bestRarity, fmtMoney, probPct, missingListText };

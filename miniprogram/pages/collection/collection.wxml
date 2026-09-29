@@ -20,6 +20,10 @@
     <text class="switch-label">只看缺卡</text>
     <view class="switch danger" bindtap="clearColl">🗑 清空收藏</view>
   </view>
+  <view class="tools-row" wx:if="{{missingOnly}}">
+    <view class="switch {{missingCount ? '' : 'off'}}" bindtap="exportMissingImage">🖼 导出缺卡图</view>
+    <view class="switch {{missingCount ? '' : 'off'}}" bindtap="copyMissingList">📋 复制清单</view>
+  </view>
 
   <view class="summary card-glass"><text>{{summary}}</text></view>
 
@@ -47,6 +51,11 @@
     </view>
   </view>
   <view style="height: 40rpx"></view>
+</view>
+
+<!-- 缺卡图离屏画布（type=2d，导出用） -->
+<view style="position: fixed; left: -9999px; top: 0; width: 900px; height: 2600px;">
+  <canvas type="2d" id="missingCanvas" style="width: 900px; height: 2600px;"></canvas>
 </view>
 
 <card-detail show="{{detailShow}}" set-code="{{detailSet}}" card-index="{{detailIdx}}"

@@ -4,6 +4,7 @@
 .tools-row { display: flex; align-items: center; gap: 20rpx; margin: 4rpx 0 18rpx; }
 .switch { font-size: 24rpx; color: var(--txt2); }
 .switch.danger { color: #f6a5c0; }
+.switch.off { opacity: .45; }
 .switch-label { font-size: 24rpx; color: var(--txt2); }
 .summary { padding: 20rpx 24rpx; font-size: 24rpx; color: var(--txt); }
 .progress { display: flex; align-items: center; gap: 16rpx; margin: 18rpx 0; }

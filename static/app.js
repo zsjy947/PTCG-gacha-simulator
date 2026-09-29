@@ -204,6 +204,8 @@ function init() {
   $("#collSet").addEventListener("change", renderCollection);
   $("#collSort").addEventListener("change", renderCollection);
   $("#collMissing").addEventListener("change", renderCollection);
+  $("#btnMissingImg").addEventListener("click", exportMissingImage);
+  $("#btnMissingText").addEventListener("click", copyMissingList);
   $("#clRarity").addEventListener("change", resetCardList);
   $("#clSearch").addEventListener("input", resetCardList);
 

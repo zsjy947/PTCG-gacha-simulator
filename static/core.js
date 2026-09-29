@@ -117,6 +117,28 @@ function upgradeRemoteImages(root) {
   });
 }
 
+/* 卡图 URL → XHR → Blob URL（资产模式 canvas 防跨域污染；失败 resolve null）。
+ * 结果按 URL 记忆复用（imgBlobCache），战报图与缺卡清单图共用（T4 抽取自 ui-modals.reportImage） */
+function fetchCardImageBlob(url) {
+  let p = imgBlobCache.get(url);
+  if (!p) {
+    p = new Promise((resolve) => {
+      try {
+        const x = new XMLHttpRequest();
+        x.open("GET", url, true);
+        x.responseType = "arraybuffer";
+        x.onload = () => x.status === 200 && x.response
+          ? resolve(URL.createObjectURL(new Blob([x.response], { type: "image/png" })))
+          : resolve(null);
+        x.onerror = () => resolve(null);
+        x.send();
+      } catch { resolve(null); }
+    });
+    imgBlobCache.set(url, p);
+  }
+  return p;
+}
+
 /* 卡图加载失败统一处理：延迟重试 2 次（800ms/2000ms），仍失败换卡背占位。
  * 资产模式清 blob 缓存重新走 XHR 升级；服务模式加 cache-buster 重发（服务端会再试回源）。 */
 window.__imgFail = function (img) {

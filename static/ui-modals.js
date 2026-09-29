@@ -274,26 +274,9 @@ function reportImgEl(url) {
   });
 }
 async function reportImage(card) {
-  // 资产模式走 XHR→Blob（缓存复用），保证 canvas 不被跨域污染
+  // 资产模式走 XHR→Blob（缓存复用，fetchCardImageBlob 见 core.js），保证 canvas 不被跨域污染
   if (ASSET) {
-    const url = thumbURL(card);
-    let p = imgBlobCache.get(url);
-    if (!p) {
-      p = new Promise((resolve) => {
-        try {
-          const x = new XMLHttpRequest();
-          x.open("GET", url, true);
-          x.responseType = "arraybuffer";
-          x.onload = () => x.status === 200 && x.response
-            ? resolve(URL.createObjectURL(new Blob([x.response], { type: "image/png" })))
-            : resolve(null);
-          x.onerror = () => resolve(null);
-          x.send();
-        } catch { resolve(null); }
-      });
-      imgBlobCache.set(url, p);
-    }
-    const u = await p;
+    const u = await fetchCardImageBlob(thumbURL(card));
     return u ? reportImgEl(u) : null;
   }
   return reportImgEl(thumbURL(card));

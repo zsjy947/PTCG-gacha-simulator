@@ -15,6 +15,132 @@ function collectionTile(card, opts) {
   return d;
 }
 
+/* ---------------- 缺卡清单导出（图 / 文本，T4） ---------------- */
+const MISSING_PAGE_SIZE = 60;   // 缺卡图每页上限
+let _missingCtx = null;         // 缺卡模式上下文 {name, total, cards}（renderCollection 缺卡分支写入）
+
+/* 缺卡文本清单（纯逻辑，无 DOM；tests/test_missing_list.py 与小程序 ui.js 镜像对拍）：
+ * 【PTCG拆卡模拟器】<弹名> 缺卡 Z/Y：
+ * <cardIndex> <cardName>（<rarity>） */
+function missingListText(setName, missingCards, totalDistinct) {
+  const lines = missingCards.map((c) => `${c.cardIndex} ${c.cardName}（${c.rarity || "N"}）`);
+  return `【PTCG拆卡模拟器】${setName} 缺卡 ${missingCards.length}/${totalDistinct}：\n${lines.join("\n")}`;
+}
+
+/* canvas 文本超宽截断 */
+function _clipText(ctx, text, maxW) {
+  if (ctx.measureText(text).width <= maxW) return text;
+  let s = text;
+  while (s.length > 1 && ctx.measureText(s + "…").width > maxW) s = s.slice(0, -1);
+  return s + "…";
+}
+
+/* 缺卡清单图（canvas 2D，布局对齐战报图）：头部弹名+缺卡计数+页码，缩略图网格
+ * （thumbURL，每页上限 60 张），每格标注编号/卡名/稀有度；页脚日期+版本+数据来源声明。
+ * 返回 dataURL；图片加载失败画占位底色不中断。 */
+async function buildMissingImage(setMeta, missingCards, pageNo, pageTotal) {
+  const page = missingCards.slice(MISSING_PAGE_SIZE * (pageNo - 1), MISSING_PAGE_SIZE * pageNo);
+  const imgs = await Promise.all(page.map((c) => reportImage(c)));
+  const cols = page.length <= 4 ? 2 : page.length <= 9 ? 3 : page.length <= 16 ? 4 : page.length <= 30 ? 5 : 6;
+  const rows = Math.ceil(Math.max(page.length, 1) / cols);
+  const W = 900, gap = 12, headH = 170, footH = 84;
+  const cellW = Math.floor((W - gap * (cols + 1)) / cols);
+  const thumbH = Math.floor(cellW * 1.32);
+  const capH = 44;
+  const H = headH + rows * (thumbH + capH + gap) + footH;
+  const canvas = document.createElement("canvas");
+  canvas.width = W; canvas.height = H;
+  const ctx = canvas.getContext("2d");
+  const bg = ctx.createLinearGradient(0, 0, 0, H);
+  bg.addColorStop(0, "#101528"); bg.addColorStop(1, "#0a0e18");
+  ctx.fillStyle = bg; ctx.fillRect(0, 0, W, H);
+  ctx.fillStyle = "#e3350d"; ctx.fillRect(0, 0, W, 8);
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#f5f6f8";
+  ctx.font = "bold 40px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.fillText("缺卡清单", W / 2, 86);
+  ctx.font = "24px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.fillStyle = "#9aa5b1";
+  ctx.fillText(`${String(setMeta.name).slice(0, 24)} · 缺 ${missingCards.length}/${setMeta.total} 张 · 第 ${pageNo}/${pageTotal} 页`, W / 2, 128);
+  let k = 0;
+  for (let i = 0; i < page.length; i++) {
+    const im = imgs[i];
+    const col = k % cols, row = Math.floor(k / cols);
+    const x = gap + col * (cellW + gap), y = headH + row * (thumbH + capH + gap);
+    ctx.fillStyle = "#1a2032";
+    ctx.fillRect(x, y, cellW, thumbH);
+    if (im) { try { ctx.drawImage(im, x, y, cellW, thumbH); } catch { /* 占位底色兜底 */ } }
+    const c = page[i];
+    ctx.textAlign = "left";
+    ctx.fillStyle = RARITY_COLOR[c.rarity] || "#9aa5b1";
+    ctx.font = "bold 17px 'PingFang SC','Microsoft YaHei',sans-serif";
+    ctx.fillText(_clipText(ctx, `${c.cardIndex} ${c.cardName}`, cellW - 10), x + 5, y + thumbH + 20);
+    ctx.fillStyle = "#9aa5b1";
+    ctx.font = "15px 'PingFang SC','Microsoft YaHei',sans-serif";
+    ctx.fillText(String(c.rarity || "N"), x + 5, y + thumbH + 39);
+    k++;
+  }
+  ctx.textAlign = "center";
+  ctx.fillStyle = "#6b7688";
+  ctx.font = "20px 'PingFang SC','Microsoft YaHei',sans-serif";
+  ctx.fillText(`${new Date().toLocaleDateString("zh-CN")} · PTCG拆卡模拟器${appVersion ? " v" + appVersion : ""} · 数据来源公开网络，仅供学习交流`, W / 2, H - 30);
+  return canvas.toDataURL("image/png");
+}
+
+/* 导出缺卡图：逐页生成并复用战报保存链路（APK PTCGNative 桥存相册 / PC toDataURL 下载） */
+async function exportMissingImage() {
+  if (!_missingCtx || !_missingCtx.cards.length) return;
+  toast("正在生成缺卡图…");
+  const pages = Math.ceil(_missingCtx.cards.length / MISSING_PAGE_SIZE);
+  try {
+    for (let p = 1; p <= pages; p++) {
+      const url = await buildMissingImage(_missingCtx, _missingCtx.cards, p, pages);
+      if (nativeBridge && nativeBridge.saveImage) {
+        const path = nativeBridge.saveImage(url.split(",")[1] || "");
+        if (p === pages) toast(`已保存到：${path || "相册目录"}${pages > 1 ? `（共 ${pages} 页）` : ""}`, 3600);
+      } else {
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = `ptcg缺卡清单${pages > 1 ? `_第${p}页共${pages}页` : ""}_${Date.now()}.png`;
+        a.click();
+        if (p === pages) toast(pages > 1 ? `缺卡图已开始下载（共 ${pages} 页）` : "缺卡图已开始下载");
+      }
+    }
+  } catch {
+    toast("缺卡图生成失败（图片跨域受限）", 3000);
+  }
+}
+
+/* 复制缺卡文本清单：navigator.clipboard 优先，execCommand 兜底 */
+async function copyMissingList() {
+  if (!_missingCtx || !_missingCtx.cards.length) return;
+  const text = missingListText(_missingCtx.name, _missingCtx.cards, _missingCtx.total);
+  try {
+    if (navigator.clipboard && navigator.clipboard.writeText) await navigator.clipboard.writeText(text);
+    else {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      ta.remove();
+    }
+    toast("缺卡清单已复制");
+  } catch {
+    toast("复制失败", 3000);
+  }
+}
+
+/* 缺卡导出按钮显隐/置灰（缺卡模式头部，T4） */
+function _setMissingButtons(show, hasMissing) {
+  const bi = $("#btnMissingImg"), bt = $("#btnMissingText");
+  if (!bi || !bt) return;
+  bi.hidden = bt.hidden = !show;
+  bi.disabled = bt.disabled = !hasMissing;
+}
+
 async function renderCollection() {
   const sel = $("#collSet");
   if (!sel.options.length) {
@@ -74,6 +200,9 @@ async function renderCollection() {
   missingToggle.disabled = priceMode;
   missingToggle.closest(".switch").style.opacity = priceMode ? .45 : "";
   const missingOnly = missingToggle.checked && !priceMode;
+  /* 缺卡导出按钮：仅缺卡模式显示，无缺卡置灰（T4） */
+  _missingCtx = null;
+  _setMissingButtons(missingOnly, false);
   const missCards = () => {
     const have = new Set(Object.keys(box));
     return all.filter((c) => !have.has(`${c.setCode}__${c.cardIndex}`));
@@ -88,6 +217,12 @@ async function renderCollection() {
       grid.innerHTML = `<div class="empty-tip">🎉 该弹已收集完成！</div>`;
       return;
     }
+    _missingCtx = {
+      name: (state.sets.find((x) => x.id === setId) || {}).name || setId,
+      total: totalDistinct,
+      cards: missing,
+    };
+    _setMissingButtons(true, true);
     $("#collSummary").innerHTML = `<span><b>${missing.length}</b>张缺卡</span>
       <span><b>${entries.length}/${totalDistinct}</b>种已收</span>${valueSpan(valueOf(missing))}`;
     grid.innerHTML = "";
