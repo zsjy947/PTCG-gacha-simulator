@@ -256,8 +256,9 @@ python android/build_apk.py       # 产出 dist/PTCG拆卡模拟器.apk
 ```
 
 - 构建链：aapt2 → javac → d8 → zipalign → apksigner（不依赖 Gradle/AGP）。
-- JDK 17 / build-tools 34 / platform-34 需预先解压到 `android/sdk/`
-  （下载脚本见 sdk-dl/ 中三个 zip 的来源 URL，详见构建脚本头部说明）。
+- 工具链用系统级安装：脚本读取 `JAVA_HOME`（JDK 17，缺省 `D:\Tools\jdk-17`）
+  与 `ANDROID_HOME`（Android SDK，缺省 `D:\Tools\android-sdk`），取其中的
+  build-tools 34 / platform-34；环境变量未设置时自动回退到缺省路径。
 - 签名密钥 `android/gacha.keystore` 首次构建时自动生成在本地（连同口令文件
   `keystore.properties`），两者均被 .gitignore 排除、永不入库；也可用环境变量
   `PTCG_KEYSTORE_PASS` 指定口令。注意：更换密钥后已安装的旧 APK 需卸载重装。
