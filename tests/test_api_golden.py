@@ -180,10 +180,11 @@ class TestGoldenEndpoints(unittest.TestCase):
                     mod.USER_STORE = target
             try:
                 r = self.client.get("/api/store/get")
-                self.assertEqual(r.get_json(), {"data": {}})
+                self.assertEqual(r.get_json(), {"rev": 0, "data": {}})
                 r = self.client.post("/api/store/set",
-                                     json={"data": {"ptcg_stats": "{\"CSV1C\":{}}"}})
-                self.assertEqual(r.get_json(), {"ok": True})
+                                     json={"data": {"ptcg_stats": "{\"CSV1C\":{}}"},
+                                           "rev": 1})  # 携带版本号（F24；不带 rev 的旧体兼容见边界矩阵）
+                self.assertEqual(r.get_json(), {"success": True, "skipped": False, "rev": 1})
                 r = self.client.get("/api/store/get")
                 _assert_golden(self, "store_roundtrip", r.status_code, r.get_json())
                 self.assertTrue(target.exists())

@@ -9,6 +9,8 @@ const store = {
 
 /* ---- 抽卡记录/收藏册持久化：镜像 ptcg_* 键到磁盘（exe→/api/store/*，APK→JS 桥），
         WebView 的 localStorage 重启后不保证保留 ---- */
+let storeRev = 0; // 服务端存储版本号（F24）：每次上传递增，旧快照乱序后到会被服务端跳过
+
 function snapshotStore() {
   const out = {};
   for (let i = 0; i < localStorage.length; i++) {
@@ -21,11 +23,15 @@ function persistStore() {
   try {
     const data = snapshotStore();
     if (nativeBridge && nativeBridge.saveStore) nativeBridge.saveStore(JSON.stringify(data));
-    else if (!ASSET) api("/api/store/set", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ data }),
-    }).catch(() => {});
+    else if (!ASSET) {
+      storeRev += 1;
+      api("/api/store/set", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ data, rev: storeRev }),
+      }).then((r) => { if (r && Number.isInteger(r.rev) && r.rev > storeRev) storeRev = r.rev; })
+        .catch(() => {});
+    }
   } catch {}
 }
 async function restoreStore() {
@@ -35,6 +41,7 @@ async function restoreStore() {
     else if (!ASSET) {
       const r = await api("/api/store/get");
       raw = JSON.stringify(r.data || {});
+      if (Number.isInteger(r.rev)) storeRev = r.rev; // 旧格式响应无 rev → 维持 0
     }
     if (!raw) return;
     const data = JSON.parse(raw);

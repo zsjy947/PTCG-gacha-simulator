@@ -14,6 +14,7 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -217,9 +218,12 @@ public class MainActivity extends Activity {
 
     private String readStoreRaw() {
         try (FileInputStream in = new FileInputStream(storeFile)) {
-            byte[] buf = new byte[(int) storeFile.length()];
-            int n = in.read(buf);
-            return n > 0 ? new String(buf, "UTF-8") : "";
+            // 单次 read 不保证读全（PTCG-R2-03）：循环读到 EOF 再整体解码
+            ByteArrayOutputStream buf = new ByteArrayOutputStream();
+            byte[] chunk = new byte[8192];
+            int n;
+            while ((n = in.read(chunk)) != -1) buf.write(chunk, 0, n);
+            return buf.toString("UTF-8");
         } catch (IOException e) {
             return "";
         }
@@ -273,11 +277,21 @@ public class MainActivity extends Activity {
         /** 抽卡记录/收藏册持久化（localStorage 在 WebView 重启后不保证保留） */
         @JavascriptInterface
         public void saveStore(String json) {
+            // 先写同目录临时文件，校验可读后原子改名，避免写一半崩溃留下损坏的存档（PTCG-R2-03）
+            File tmp = new File(storeFile.getParentFile(), storeFile.getName() + ".tmp");
             try {
-                FileOutputStream out = new FileOutputStream(storeFile);
+                FileOutputStream out = new FileOutputStream(tmp);
                 out.write(json.getBytes("UTF-8"));
                 out.close();
-            } catch (IOException ignored) {}
+                try (FileInputStream check = new FileInputStream(tmp)) {}  // 校验落盘可读
+                if (!tmp.renameTo(storeFile)) {
+                    //noinspection ResultOfMethodCallIgnored
+                    tmp.delete();
+                }
+            } catch (IOException ignored) {
+                //noinspection ResultOfMethodCallIgnored
+                tmp.delete();  // 写失败不残留 .tmp
+            }
         }
 
         @JavascriptInterface

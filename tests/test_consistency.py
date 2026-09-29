@@ -142,6 +142,34 @@ class TestRarityPaletteMirror(unittest.TestCase):
                 self.assertEqual(js.get(name), color, f"--r-{name} 与 RARITY_COLOR 不一致")
 
 
+def _rarity_tables(path: Path) -> dict:
+    """从 JS 源码解析稀有度三表：order 列表 + color/label 两个有序键值表。"""
+    text = path.read_text(encoding="utf-8")
+    m = re.search(r"const RARITY_ORDER = \[([^\]]+)\];", text)
+    if not m:
+        raise AssertionError(f"{path.name} 未找到 RARITY_ORDER")
+    tables = {"order": re.findall(r'"([^"]*)"', m.group(1))}
+    for name in ("RARITY_COLOR", "RARITY_LABEL"):
+        m = re.search(rf"const {name} = \{{(.*?)\}};", text, re.S)
+        if not m:
+            raise AssertionError(f"{path.name} 未找到 {name}")
+        pairs = re.findall(r'(?:"([^"]+)"|([A-Za-z]+))\s*:\s*"([^"]*)"', m.group(1))
+        tables[name] = [(a or b, v) for a, b, v in pairs]  # 保留键序，dict 相等不比顺序
+    return tables
+
+
+class TestMiniprogramRarityMirror(unittest.TestCase):
+    """F10/PTCG-R5-01：小程序稀有度三表由构建期从 core.js 单源生成，须与源表一致（顺序与键值）。"""
+
+    def test_uijs_tables_match_core(self):
+        core = _rarity_tables(ROOT / "static" / "core.js")
+        ui = _rarity_tables(ROOT / "miniprogram" / "utils" / "ui.js")
+        self.assertEqual(ui["order"], core["order"])
+        self.assertEqual(ui["RARITY_COLOR"], core["RARITY_COLOR"])
+        self.assertEqual(ui["RARITY_LABEL"], core["RARITY_LABEL"])
+        self.assertEqual(len(core["order"]), 27, "core.js RARITY_ORDER 应为 27 项（新增稀有度须同步三处）")
+
+
 def _js_rarity_palette() -> dict:
     """在 node 中以最小 DOM 桩加载 static/core.js，取 RARITY_COLOR。"""
     script = (

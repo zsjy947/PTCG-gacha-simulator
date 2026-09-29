@@ -23,17 +23,18 @@
 | 12 | `/api/version` | GET | `{"version":APP_VERSION}` | — |
 | 13 | `/api/data-manifest` | GET | manifest.json 原文 | 缺文件时 `{"sets": {}}` |
 | 14 | `/api/prices` | GET | prices/index.json 原文 | 缺快照时 `{"generated": null, "count": 0, "prices": {}}` |
-| 15 | `/api/store/get` | GET | user_store.json 原文 / `{"data": {}}` | — |
-| 16 | `/api/store/set` | POST | `{"ok": true}` | 400 `非法参数`（data 非 dict）；500 `写入失败：{e}` |
+| 15 | `/api/store/get` | GET | `{"rev":<int>,"data":{…}}`（信封含版本号，缺文件时 `{"rev":0,"data":{}}`） | — |
+| 16 | `/api/store/set` | POST | `{"success":true,"skipped":<bool>,"rev":<int>}`（rev ≤ 已存 rev 时跳过） | 400 `非法参数`（data 非 dict）；500 `写入失败：{e}` |
 | 17 | `/api/cache/info` · `/api/cache/clear` | GET · POST | `{"total_bytes","label"}` · `{"ok":true}` | — |
 
-路径校验正则 `_SAFE = ^[A-Za-z0-9._\-]{1,40}$` 不变；`/img` `/thumb` `/icon` 先 `_strip_ext`。
+路径校验正则 `_SAFE = ^(?!\.\.?$)[A-Za-z0-9._\-]{1,40}$`（整体拒绝 "." / ".."，PTCG-R3-01）；`/img` `/thumb` `/icon` 先 `_strip_ext`。
 
 ## R2 · localStorage 键
 
 `ptcg_theme` / `ptcg_stats` / `ptcg_coll` / `ptcg_history` / `ptcg_spend` / `ptcg_spend_enabled` /
 `ptcg_autoflip` / `ptcg_datasrc` / `ptcg_data_applied` + `datacard_*`（热更新卡表，键不带 ptcg_ 前缀、不镜像磁盘）。
-磁盘镜像协议：仅 `ptcg_` 前缀键、只补缺失键不覆盖、`/api/store/set` 整包 `{"data": {...}}`。
+磁盘镜像协议：仅 `ptcg_` 前缀键、只补缺失键不覆盖、`/api/store/set` 整包 `{"data": {...}, "rev": n}`
+（rev 为客户端递增版本号，旧快照乱序后到被服务端跳过，F24/PTCG-R2-02）。
 
 ## R3 · window 契约
 

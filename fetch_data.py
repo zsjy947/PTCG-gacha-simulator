@@ -181,6 +181,14 @@ def expand_sets(expansions: list, force: bool, only: str | None):
                 failed.append(fid)
                 # 接口异常（上游故障/封禁/分页不完整）时保留已有卡表，绝不覆盖为空数据
                 cards = json.loads(out.read_text(encoding="utf-8")) if out.exists() else []
+            if not cards and out.exists():
+                # 成功返回但为空（上游分页异常等）：同样保留旧卡表，不覆盖（PTCG-R2-01）
+                try:
+                    cards = json.loads(out.read_text(encoding="utf-8"))
+                except ValueError:
+                    cards = []
+                if cards:
+                    print(f"[{i}/{len(expansions)}] {name}（{code}）上游返回空，保留原有 {len(cards)} 张")
             _atomic_write_json(out, cards)
             print(f"[{i}/{len(expansions)}] {name}（{code}）同步 {len(cards)} 张"
                   + ("（保留原有数据）" if fid in failed and cards else ""))

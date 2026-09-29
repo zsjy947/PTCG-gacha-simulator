@@ -56,8 +56,11 @@ def _print_card_row(key, card, info, set_entry=None):
     num = key.split("__", 1)[1]
     price = cny_price(info)
     print(f"  {name}（{set_name}） [{sid}#{num}] {rarity}  {_fmt_price(price)}")
-    if info and info.get("refined"):
+    if info and info.get("refined") and info.get("listPrice") is not None:
         print(f"    列表价 {info['listPrice']:.2f}（Kyo 展示币种） → 详情价 ¥{info['detailPrice']:.2f}（集换社人民币）")
+    elif info and info.get("refined"):
+        # listPrice 可能为 None（上游精炼成功但列表缺失，PTCG-R1-02）：只展示详情价，避免 None:.2f 崩溃
+        print(f"    详情价 ¥{info['detailPrice']:.2f}（集换社人民币，无列表价）")
     elif info and info.get("listPrice"):
         print(f"    列表价 {info['listPrice']:.2f}（Kyo 展示币种，按 5.249 折算为人民币）")
     pid = (info or {}).get("jihuansheProductId")
