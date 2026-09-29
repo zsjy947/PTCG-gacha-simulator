@@ -118,7 +118,7 @@ python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡�
 # 微信开发者工具导入 miniprogram/ 目录即可预览
 ```
 
-**上线前必读**：[docs/小程序上线清单.md](docs/小程序上线清单.md) ——
+**上线前必读**：[docs/MINIPROGRAM-LAUNCH.md](docs/MINIPROGRAM-LAUNCH.md) ——
 类目选择（工具类，勿选游戏）、小程序 ICP 备案、商标词规避、域名白名单、隐私保护指引等完整清单。
 
 ## 更新记录
