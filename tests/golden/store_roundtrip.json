@@ -1,0 +1,9 @@
+{
+ "status": 200,
+ "body": {
+  "data": {
+   "ptcg_stats": "{\"CSV1C\":{}}"
+  },
+  "rev": 1
+ }
+}

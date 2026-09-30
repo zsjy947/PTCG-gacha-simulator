@@ -1,0 +1,6 @@
+{
+ "status": 404,
+ "body": {
+  "error": "弹 NOSUCH 的卡牌数据不存在，请先运行 python fetch_data.py"
+ }
+}

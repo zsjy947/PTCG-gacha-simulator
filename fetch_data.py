@@ -9,11 +9,11 @@
     python fetch_data.py --force    # 全量重新同步
 """
 import argparse
+import hashlib
 import json
 import os
 import sys
 import time
-import urllib.error
 import urllib.request
 from pathlib import Path
 
@@ -127,56 +127,50 @@ def fetch_set_cards(code: str, series: str):
     return cards
 
 
-def main():
-    ap = argparse.ArgumentParser()
-    ap.add_argument("--force", action="store_true", help="忽略本地缓存全量重新拉取")
-    ap.add_argument("--only", metavar="SET_ID", help="仅同步指定弹（按弹 id 或代码），其余沿用本地数据")
-    args = ap.parse_args()
+# ---- 收集啦151：按官方四弹（旅→望→惊→聚）拆分为四个可拆弹 ----
+# 同一卡表再版：185 张各弹共享，每弹另有 1-3 张独占插画卡。
+# 卡图编号相同，均沿用 151C 的图源；仅数据文件与条目拆分。
+SPLIT_151 = [
+    ("151C-LV", "收集啦151 旅", "旅"),
+    ("151C-WANG", "收集啦151 望", "望"),
+    ("151C-JING", "收集啦151 惊", "惊"),
+    ("151C-JU", "收集啦151 聚", "聚"),
+]
 
-    CARDS_DIR.mkdir(parents=True, exist_ok=True)
-    DATA.mkdir(exist_ok=True)
 
-    print(">> 拉取弹列表 ...")
-    expansions = fetch_all_expansions()
-    print(f"   共 {len(expansions)} 个弹")
-
-    # ---- 收集啦151：按官方四弹（旅→望→惊→聚）拆分为四个可拆弹 ----
-    # 同一卡表再版：185 张各弹共享，每弹另有 1-3 张独占插画卡。
-    # 卡图编号相同，均沿用 151C 的图源；仅数据文件与条目拆分。
+def split_151() -> None:
+    """把 151C.json 按 waves_151.json 的官方四弹名单拆为四个卡表文件。"""
     src_151 = CARDS_DIR / "151C.json"
     wave_file = DATA / "waves_151.json"
-    split_151 = [
-        ("151C-LV", "收集啦151 旅", "旅"),
-        ("151C-WANG", "收集啦151 望", "望"),
-        ("151C-JING", "收集啦151 惊", "惊"),
-        ("151C-JU", "收集啦151 聚", "聚"),
-    ]
-    if src_151.exists() and wave_file.exists() and not args.only:
-        merged = json.loads(src_151.read_text(encoding="utf-8"))
-        waves = json.loads(wave_file.read_text(encoding="utf-8"))["waves"]
-        if merged:  # 源卡表为空（如上游接口故障）时绝不执行拆分，防止空数据覆盖
-            from collections import Counter
-            appear = Counter(n for nums in waves.values() for n in nums)
-            for sid, sname, wkey in split_151:
-                nums = set(waves.get(wkey) or [])
-                subset = [c for c in merged if str(c["cardIndex"]).zfill(3) in nums]
-                _atomic_write_json(CARDS_DIR / f"{sid}.json", subset)
-                print(f"   [151拆分] {sname}（{sid}）{len(subset)} 张")
+    if not (src_151.exists() and wave_file.exists()):
+        return
+    merged = json.loads(src_151.read_text(encoding="utf-8"))
+    waves = json.loads(wave_file.read_text(encoding="utf-8"))["waves"]
+    if not merged:  # 源卡表为空（如上游接口故障）时绝不执行拆分，防止空数据覆盖
+        return
+    for sid, sname, wkey in SPLIT_151:
+        nums = set(waves.get(wkey) or [])
+        subset = [c for c in merged if str(c["cardIndex"]).zfill(3) in nums]
+        _atomic_write_json(CARDS_DIR / f"{sid}.json", subset)
+        print(f"   [151拆分] {sname}（{sid}）{len(subset)} 张")
 
+
+def expand_sets(expansions: list, force: bool, only: str | None):
+    """逐弹同步卡表（增量/全量/指定弹），返回 (索引条目, 失败弹 id 列表)。"""
     seen = {}
     index = []
     failed = []
     for i, e in enumerate(expansions, 1):
         code = e["setCode"]
-        if code == "151C" and wave_file.exists():
+        if code == "151C" and (DATA / "waves_151.json").exists():
             continue  # 已拆分为旅/望/惊/聚四弹
         series = derive_series(code)
         name = e.get("setName") or code
         fid = set_file_id(code, series, seen)
         out = CARDS_DIR / f"{fid}.json"
-        fetch_this = (not args.only) or args.only in (fid, code)
+        fetch_this = (not only) or only in (fid, code)
 
-        if (out.exists() and not args.force) or not fetch_this:
+        if (out.exists() and not force) or not fetch_this:
             cards = json.loads(out.read_text(encoding="utf-8")) if out.exists() else []
             print(f"[{i}/{len(expansions)}] {name}（{code}）本地已有 {len(cards)} 张，跳过")
         else:
@@ -187,6 +181,14 @@ def main():
                 failed.append(fid)
                 # 接口异常（上游故障/封禁/分页不完整）时保留已有卡表，绝不覆盖为空数据
                 cards = json.loads(out.read_text(encoding="utf-8")) if out.exists() else []
+            if not cards and out.exists():
+                # 成功返回但为空（上游分页异常等）：同样保留旧卡表，不覆盖（PTCG-R2-01）
+                try:
+                    cards = json.loads(out.read_text(encoding="utf-8"))
+                except ValueError:
+                    cards = []
+                if cards:
+                    print(f"[{i}/{len(expansions)}] {name}（{code}）上游返回空，保留原有 {len(cards)} 张")
             _atomic_write_json(out, cards)
             print(f"[{i}/{len(expansions)}] {name}（{code}）同步 {len(cards)} 张"
                   + ("（保留原有数据）" if fid in failed and cards else ""))
@@ -200,32 +202,35 @@ def main():
             "seriesZh": SERIES_ZH.get(series, "特典卡" if series == "PROMO" else "其他"),
             "count": len(cards),
         })
+    return index, failed
 
-    # 拆分弹插入索引（替换 151C 的位置）
-    if (CARDS_DIR / "151C-LV.json").exists():
-        pos = next((i for i, e in enumerate(index) if e["id"] == "151C"), len(index))
-        index = [e for e in index if e["id"] != "151C"]
-        entries_151 = []
-        for sid, sname, wkey in split_151:
-            f = CARDS_DIR / f"{sid}.json"
-            if f.exists():
-                n = len(json.loads(f.read_text(encoding="utf-8")))
-                entries_151.append({
-                    "id": sid, "code": "151C", "name": sname,
-                    "series": "Scarlet & Violet", "seriesZh": "朱&紫 系列",
-                    "count": n,
-                })
-        index[pos:pos] = entries_151
 
-    _atomic_write_json(DATA / "sets_index.json", index)
-    print(f">> 完成：{len(index)} 个弹，索引已写入 data/sets_index.json")
+def insert_151_entries(index: list) -> list:
+    """拆分弹插入索引（替换 151C 的位置）。"""
+    if not (CARDS_DIR / "151C-LV.json").exists():
+        return index
+    pos = next((i for i, e in enumerate(index) if e["id"] == "151C"), len(index))
+    index = [e for e in index if e["id"] != "151C"]
+    entries_151 = []
+    for sid, sname, wkey in SPLIT_151:
+        f = CARDS_DIR / f"{sid}.json"
+        if f.exists():
+            n = len(json.loads(f.read_text(encoding="utf-8")))
+            entries_151.append({
+                "id": sid, "code": "151C", "name": sname,
+                "series": "Scarlet & Violet", "seriesZh": "朱&紫 系列",
+                "count": n,
+            })
+    index[pos:pos] = entries_151
+    return index
 
-    # 数据清单：各端「数据热更新」按 md5 做增量比对，清单随仓库提交（raw 直链可拉）
-    import hashlib
 
-    def _md5(p: Path) -> str:
-        return hashlib.md5(p.read_bytes()).hexdigest()
+def _md5(p: Path) -> str:
+    return hashlib.md5(p.read_bytes()).hexdigest()
 
+
+def write_manifest(index: list) -> None:
+    """数据清单：各端「数据热更新」按 md5 做增量比对，清单随仓库提交（raw 直链可拉）。"""
     manifest = {
         "generated": time.strftime("%Y-%m-%dT%H:%M:%S+08:00"),
         "sets": {
@@ -235,6 +240,31 @@ def main():
     }
     _atomic_write_json(DATA / "manifest.json", manifest)
     print(f">> 数据清单已写入 data/manifest.json（{len(manifest['sets'])} 弹）")
+
+
+def main():
+    ap = argparse.ArgumentParser()
+    ap.add_argument("--force", action="store_true", help="忽略本地缓存全量重新拉取")
+    ap.add_argument("--only", metavar="SET_ID", help="仅同步指定弹（按弹 id 或代码），其余沿用本地数据")
+    args = ap.parse_args()
+
+    CARDS_DIR.mkdir(parents=True, exist_ok=True)
+    DATA.mkdir(exist_ok=True)
+
+    print(">> 拉取弹列表 ...")
+    expansions = fetch_all_expansions()
+    print(f"   共 {len(expansions)} 个弹")
+
+    if not args.only:
+        split_151()
+
+    index, failed = expand_sets(expansions, args.force, args.only)
+    index = insert_151_entries(index)
+
+    _atomic_write_json(DATA / "sets_index.json", index)
+    print(f">> 完成：{len(index)} 个弹，索引已写入 data/sets_index.json")
+
+    write_manifest(index)
 
     if failed:
         print(f">> 注意：{len(failed)} 弹拉取失败（已保留原有数据）：{'、'.join(failed[:10])}"

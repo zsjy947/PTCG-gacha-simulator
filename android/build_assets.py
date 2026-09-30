@@ -44,21 +44,27 @@ def main():
     (WWW / "assets" / "cards").mkdir(parents=True, exist_ok=True)
 
     # 前端三件套（index.html 注入资产模式；链接带版本号防 WebView 缓存）
+    # 前端脚本自 v1.3.1 起拆分为多文件：加载顺序以 index.html 内 /static/*.js 出现顺序为准，
+    # 按 index.html 引用清单逐文件复制，新前端文件随引用自动带入（拆分见 docs/ARCHITECTURE.md，契约 R8）
     import time as _time
     ver = str(int(_time.time()))
     html = (ROOT / "static" / "index.html").read_text(encoding="utf-8")
     html = re.sub(r'href="/static/style\.css[^"]*"', f'href="style.css?v={ver}"', html)
+    js_files = re.findall(r'src="/static/([\w.\-]+\.js)"', html)  # 含 app.js，按序
+    html = re.sub(r'<script src="/static/[\w.\-]+\.js"></script>\s*', "", html)
+    scripts = "".join(f'<script src="{name}?v={ver}"></script>\n' for name in js_files)
     inject = (f'<script>window.__ASSET_MODE__=true;'
               f'window.__ASSET_BASE__="https://tcg.mik.moe/static";</script>\n'
               f'<script src="assets/sets_index.js?v={ver}"></script>\n'
               f'<script src="assets/meta.js?v={ver}"></script>\n'
-              f'<script src="gacha.js?v={ver}"></script>\n'
-              f'<script src="app.js?v={ver}"></script>')
-    html = re.sub(r'<script src="/static/app\.js[^"]*"></script>', inject, html)
-    html = re.sub(r'<script src="/static/gacha\.js[^"]*"></script>\s*', '', html)
+              f'{scripts}')
+    html = html.replace("</body>", inject + "</body>")
     (WWW / "index.html").write_text(html, encoding="utf-8")
     shutil.copy2(ROOT / "static" / "style.css", WWW / "style.css")
-    shutil.copy2(ROOT / "static" / "app.js", WWW / "app.js")
+    for name in js_files:  # 拆分后的全部前端脚本逐个复制（gacha.js 来自 shared/）
+        if name == "gacha.js":
+            continue
+        shutil.copy2(ROOT / "static" / name, WWW / name)
     shutil.copy2(ROOT / "shared" / "gacha.js", WWW / "gacha.js")
     shutil.copy2(ROOT / "static" / "cardback.png", WWW / "cardback.png")
 

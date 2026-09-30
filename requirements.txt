@@ -1,0 +1,6 @@
+# 运行时依赖（python app.py / 打包 exe）
+flask>=3.0
+requests>=2.31
+pillow>=10.0        # 缩略图生成；缺失时 /thumb 自动回退原图
+
+# 打包 exe 另需（非运行时）：pyinstaller、pywebview（原生窗口，缺失时回退浏览器）

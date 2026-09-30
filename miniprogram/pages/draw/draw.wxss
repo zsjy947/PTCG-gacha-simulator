@@ -114,11 +114,27 @@
 .pl-bar { flex: 1; height: 10rpx; border-radius: 10rpx; background: rgba(127, 127, 127, .18); overflow: hidden; }
 .pl-fill { height: 100%; border-radius: 10rpx; }
 .pl-p { font-size: 19rpx; color: var(--txt2); flex-shrink: 0; }
+/* 期望弹窗页签（单卡 / 集齐）与集齐目标选择 */
+.exp-tabs { display: flex; gap: 12rpx; margin-bottom: 16rpx; }
+.exp-tab { flex: 1; text-align: center; border: 1rpx solid var(--line); background: rgba(255,255,255,.06);
+  color: var(--txt2); border-radius: 14rpx; padding: 14rpx 0; font-size: 24rpx; font-weight: 700; }
+.exp-tab.active { background: var(--accent); border-color: var(--accent); color: #20242c; }
+.collect-target { border: 1rpx solid var(--line); border-radius: 14rpx; padding: 14rpx 18rpx; margin-bottom: 12rpx; }
+.ct-item { display: inline-flex; align-items: center; margin: 6rpx 22rpx 6rpx 0; font-size: 24rpx; }
+.picker-box { display: inline-block; margin-top: 6rpx; padding: 8rpx 18rpx; border-radius: 12rpx;
+  border: 1rpx solid var(--line); background: rgba(255,255,255,.06); font-size: 22rpx; }
+.picker-box.disabled { opacity: .45; }
+.ct-cancel { color: var(--accent); }
+
 .expect-table { margin: 10rpx 0 6rpx; }
 .et-row { display: flex; padding: 12rpx 6rpx; border-bottom: 1rpx solid var(--line); font-size: 23rpx; }
 .et-row text { flex: 1; }
 .et-row text:first-child { flex: 0.8; }
 .et-head { color: var(--txt2); font-size: 20rpx; }
+
+/* 整盒理论（概率公示弹窗内，逐规格） */
+.prob-box { margin: 6rpx 0 14rpx; border: 1rpx solid var(--line); border-radius: 14rpx; padding: 6rpx 18rpx 10rpx; }
+.prob-box-title { padding: 10rpx 0 4rpx; font-size: 24rpx; font-weight: 700; color: var(--accent); letter-spacing: 2rpx; }
 
 /* v1.2.2：规格选中态 */
 .spec-active { outline: 3rpx solid var(--accent); outline-offset: 3rpx; }
@@ -163,8 +179,14 @@
 .dist-title { font-size: 23rpx; color: #9aa7bd; font-weight: 700; letter-spacing: 2rpx; }
 .dist-row { display: flex; align-items: center; gap: 14rpx; }
 .dist-r { width: 72rpx; font-size: 21rpx; font-weight: 800; text-align: right; }
-.dist-bar { flex: 1; height: 16rpx; border-radius: 12rpx; background: rgba(255,255,255,.08); overflow: hidden; }
+.dist-bar { flex: 1; height: 16rpx; border-radius: 12rpx; background: rgba(255,255,255,.08); overflow: hidden; position: relative; }
+.dist-mark { position: absolute; left: 0; top: 0; bottom: 0; border-right: 4rpx solid rgba(200,210,225,.75); }
 .dist-fill { height: 100%; border-radius: 12rpx; min-width: 4rpx; }
+
+/* 实测对照（T2） */
+.cmp-block { margin-top: 14rpx; border-top: 1rpx solid var(--line); padding-top: 10rpx; }
+.cmp-title { font-size: 24rpx; font-weight: 700; color: var(--accent); letter-spacing: 2rpx; }
+.cmp-lack { color: var(--txt2); font-weight: 400; font-size: 20rpx; }
 .dist-n { width: 60rpx; font-size: 21rpx; color: #9aa7bd; }
 
 /* 弹图标占位 */

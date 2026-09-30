@@ -1,0 +1,2639 @@
+{
+ "status": 200,
+ "body": {
+  "groups": [
+   {
+    "group": "补充包",
+    "sets": [
+     {
+      "code": "CSV10C",
+      "count": 287,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV10C",
+      "name": "共逐荣光",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CSV9.5C",
+      "count": 259,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV9.5C",
+      "name": "太晶盛聚",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 10,
+        "default": true,
+        "id": "10",
+        "key": "tera10",
+        "label": "10张装",
+        "note": "7张平卡+3张闪卡 或 6张平卡+4张闪卡",
+        "packSize": 10,
+        "price": "30元/包",
+        "priceCny": 30,
+        "short": "10张"
+       }
+      ]
+     },
+     {
+      "code": "CSV9C",
+      "count": 266,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV9C",
+      "name": "星彩晶璃",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CSV8C",
+      "count": 264,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV8C",
+      "name": "璀璨诡幻",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CSV7C",
+      "count": 259,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV7C",
+      "name": "利刃猛醒",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CSV6C",
+      "count": 163,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV6C",
+      "name": "真实玄虚",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CSV5C",
+      "count": 164,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV5C",
+      "name": "黑晶炽诚",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CSV4C",
+      "count": 165,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV4C",
+      "name": "嘉奖回合",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CSV3C",
+      "count": 165,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV3C",
+      "name": "无畏太晶",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CSV2C",
+      "count": 163,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV2C",
+      "name": "奇迹启程",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CSV1C",
+      "count": 167,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV1C",
+      "name": "亘古开来",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CS6.5C",
+      "count": 96,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS6.5C",
+      "name": "胜象星引",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS6bC",
+      "count": 172,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS6bC",
+      "name": "碧海暗影 逐",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS6aC",
+      "count": 169,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS6aC",
+      "name": "碧海暗影 啸",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS5.5C",
+      "count": 89,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS5.5C",
+      "name": "暗影夺辉",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS5bC",
+      "count": 178,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS5bC",
+      "name": "勇魅群星 勇",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS5aC",
+      "count": 176,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS5aC",
+      "name": "勇魅群星 魅",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS4.5C",
+      "count": 83,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS4.5C",
+      "name": "终末炎舞",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS4bC",
+      "count": 177,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS4bC",
+      "name": "九彩汇聚 源",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS4aC",
+      "count": 184,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS4aC",
+      "name": "九彩汇聚 朋",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS3.5C",
+      "count": 90,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS3.5C",
+      "name": "怒炎灼天",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS3bC",
+      "count": 179,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS3bC",
+      "name": "洪荒演武 激",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS3aC",
+      "count": 184,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS3aC",
+      "name": "洪荒演武 茂",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS2.5C",
+      "count": 79,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS2.5C",
+      "name": "璀璨反击",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS2bC",
+      "count": 143,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS2bC",
+      "name": "浓墨重彩 靛",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS2aC",
+      "count": 143,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS2aC",
+      "name": "浓墨重彩 黎",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS1.5C",
+      "count": 96,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS1.5C",
+      "name": "极巨攻防",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS1bC",
+      "count": 199,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS1bC",
+      "name": "极巨争锋 焰",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CS1aC",
+      "count": 217,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CS1aC",
+      "name": "极巨争锋 雷",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CSM2.5C",
+      "count": 99,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSM2.5C",
+      "name": "炫奇争胜",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CSM2aC",
+      "count": 194,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSM2aC",
+      "name": "交相辉映 沐",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CSM2bC",
+      "count": 193,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSM2bC",
+      "name": "交相辉映 魁",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CSM2cC",
+      "count": 192,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSM2cC",
+      "name": "交相辉映 唤",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CSM1.5C",
+      "count": 88,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSM1.5C",
+      "name": "对战精英",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CSM1aC",
+      "count": 211,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSM1aC",
+      "name": "横空出世 赫",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CSM1bC",
+      "count": 204,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSM1bC",
+      "name": "横空出世 苍",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "CSM1cC",
+      "count": 212,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSM1cC",
+      "name": "横空出世 泽",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sm5",
+        "label": "5张装",
+        "note": "4张平卡 + 1张闪卡（必出闪卡）",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "25",
+        "key": "sm25",
+        "label": "25张装",
+        "note": "20张平卡 + 5张闪卡",
+        "packSize": 25,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "25张"
+       }
+      ]
+     },
+     {
+      "code": "30thC",
+      "count": 176,
+      "drawable": true,
+      "group": "补充包",
+      "id": "30thC",
+      "name": "30周年庆典",
+      "series": "Other",
+      "seriesZh": "其他",
+      "specs": [
+       {
+        "boxPacks": 20,
+        "default": true,
+        "id": "6",
+        "key": "fest6",
+        "label": "6张装（全闪）",
+        "note": "6张全闪，每包必出1张30周年特款皮卡丘",
+        "packSize": 6,
+        "price": "18元/包",
+        "priceCny": 18,
+        "short": "6张"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "group": "收集啦151",
+    "sets": [
+     {
+      "code": "151C",
+      "count": 186,
+      "drawable": true,
+      "group": "收集啦151",
+      "id": "151C-LV",
+      "name": "收集啦151 旅",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "151C",
+      "count": 186,
+      "drawable": true,
+      "group": "收集啦151",
+      "id": "151C-WANG",
+      "name": "收集啦151 望",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "151C",
+      "count": 188,
+      "drawable": true,
+      "group": "收集啦151",
+      "id": "151C-JING",
+      "name": "收集啦151 惊",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "151C",
+      "count": 187,
+      "drawable": true,
+      "group": "收集啦151",
+      "id": "151C-JU",
+      "name": "收集啦151 聚",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 30,
+        "default": true,
+        "id": "5",
+        "key": "sv5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "sv20",
+        "label": "20张装（肥包）",
+        "note": "14张平卡 + 6张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "group": "宝石包",
+    "sets": [
+     {
+      "code": "CBB6C",
+      "count": 196,
+      "drawable": true,
+      "group": "宝石包",
+      "id": "CBB6C",
+      "name": "宝石包 VOL.6",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 18,
+        "default": true,
+        "id": "4",
+        "key": "gem4",
+        "label": "4张装（全闪）",
+        "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）",
+        "packSize": 4,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "4张"
+       }
+      ]
+     },
+     {
+      "code": "CBB5C",
+      "count": 196,
+      "drawable": true,
+      "group": "宝石包",
+      "id": "CBB5C",
+      "name": "宝石包 VOL.5",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 18,
+        "default": true,
+        "id": "4",
+        "key": "gem4",
+        "label": "4张装（全闪）",
+        "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）",
+        "packSize": 4,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "4张"
+       }
+      ]
+     },
+     {
+      "code": "CBB4C",
+      "count": 196,
+      "drawable": true,
+      "group": "宝石包",
+      "id": "CBB4C",
+      "name": "宝石包 VOL.4",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 18,
+        "default": true,
+        "id": "4",
+        "key": "gem4",
+        "label": "4张装（全闪）",
+        "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）",
+        "packSize": 4,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "4张"
+       }
+      ]
+     },
+     {
+      "code": "CBB3C",
+      "count": 136,
+      "drawable": true,
+      "group": "宝石包",
+      "id": "CBB3C",
+      "name": "宝石包 VOL.3",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 18,
+        "default": true,
+        "id": "4",
+        "key": "gem4",
+        "label": "4张装（全闪）",
+        "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）",
+        "packSize": 4,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "4张"
+       }
+      ]
+     },
+     {
+      "code": "CBB2C",
+      "count": 140,
+      "drawable": true,
+      "group": "宝石包",
+      "id": "CBB2C",
+      "name": "宝石包 VOL.2",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 18,
+        "default": true,
+        "id": "4",
+        "key": "gem4",
+        "label": "4张装（全闪）",
+        "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）",
+        "packSize": 4,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "4张"
+       }
+      ]
+     },
+     {
+      "code": "CBB1C",
+      "count": 115,
+      "drawable": true,
+      "group": "宝石包",
+      "id": "CBB1C",
+      "name": "宝石包 VOL.1",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 15,
+        "default": true,
+        "id": "4",
+        "key": "gem4",
+        "label": "4张装（全闪）",
+        "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）",
+        "packSize": 4,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "4张"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "group": "嗨皮系列",
+    "sets": [
+     {
+      "code": "CSVH5C",
+      "count": 63,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH5C",
+      "name": "嗨皮组合 快龙&超梦&喷火驼&来悲粗茶",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH5aC",
+      "count": 23,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH5aC",
+      "name": "嗨皮组合 快龙&超梦&喷火驼&来悲粗茶 改造包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH5pC",
+      "count": 6,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH5pC",
+      "name": "嗨皮组合 快龙&超梦&喷火驼&来悲粗茶 奖赏包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH5eC",
+      "count": 49,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH5eC",
+      "name": "嗨皮组合 快龙&超梦&喷火驼&来悲粗茶 嗨皮包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH4pC",
+      "count": 14,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH4pC",
+      "name": "嗨皮组合 狙射树枭&美录梅塔&故勒顿&密勒顿 奖赏包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH4eC",
+      "count": 49,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH4eC",
+      "name": "嗨皮组合 狙射树枭&美录梅塔&故勒顿&密勒顿 嗨皮包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH4aC",
+      "count": 23,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH4aC",
+      "name": "嗨皮组合 狙射树枭&美录梅塔&故勒顿&密勒顿 改造包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH4C",
+      "count": 65,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH4C",
+      "name": "嗨皮卡组 狙射树枭&美录梅塔&故勒顿&密勒顿",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH3pC",
+      "count": 6,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH3pC",
+      "name": "嗨皮组合 七夕青鸟&拉帝欧斯&烈焰猴&一家鼠 奖赏包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH3aC",
+      "count": 23,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH3aC",
+      "name": "嗨皮组合 七夕青鸟&拉帝欧斯&烈焰猴&一家鼠 改造包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH3C",
+      "count": 68,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH3C",
+      "name": "嗨皮卡组 七夕青鸟&拉帝欧斯&烈焰猴&一家鼠",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH2pC",
+      "count": 14,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH2pC",
+      "name": "嗨皮组合 路卡利欧&甲贺忍蛙&藏玛然特&獒教父 奖赏包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH2aC",
+      "count": 23,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH2aC",
+      "name": "嗨皮组合 路卡利欧&甲贺忍蛙&藏玛然特&獒教父 改造包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH2C",
+      "count": 66,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH2C",
+      "name": "嗨皮组合 路卡利欧&甲贺忍蛙&藏玛然特&獒教父",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH1pC",
+      "count": 14,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH1pC",
+      "name": "嗨皮组合 皮卡丘&皮皮&草苗龟&索财灵 奖赏包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH1aC",
+      "count": 23,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH1aC",
+      "name": "嗨皮组合 皮卡丘&皮皮&草苗龟&索财灵 改造包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH1C",
+      "count": 63,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH1C",
+      "name": "嗨皮组合 皮卡丘&皮皮&草苗龟&索财灵",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     }
+    ]
+   },
+   {
+    "group": "对战派对",
+    "sets": [
+     {
+      "code": "CSVE2pC",
+      "count": 24,
+      "drawable": true,
+      "group": "对战派对",
+      "id": "CSVE2pC",
+      "name": "对战派对 耀梦 奖赏包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": null,
+        "default": true,
+        "id": "1",
+        "key": "reward1",
+        "label": "奖赏包（1张）",
+        "note": "每包1张高稀有度闪卡",
+        "packSize": 1,
+        "price": "未计价",
+        "priceCny": null,
+        "short": "1张"
+       }
+      ]
+     },
+     {
+      "code": "CSVE2C",
+      "count": 208,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSVE2C",
+      "name": "对战派对 耀梦",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVE1pC",
+      "count": 24,
+      "drawable": true,
+      "group": "对战派对",
+      "id": "CSVE1pC",
+      "name": "对战派对 共梦 奖赏包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": null,
+        "default": true,
+        "id": "1",
+        "key": "reward1",
+        "label": "奖赏包（1张）",
+        "note": "每包1张高稀有度闪卡",
+        "packSize": 1,
+        "price": "未计价",
+        "priceCny": null,
+        "short": "1张"
+       }
+      ]
+     },
+     {
+      "code": "CSVE1C",
+      "count": 186,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSVE1C",
+      "name": "对战派对 共梦",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPiC",
+      "count": 48,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSMPiC",
+      "name": "对战派对组合 奖赏包",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPhC",
+      "count": 25,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSMPhC",
+      "name": "对战派对组合 钢",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPgC",
+      "count": 25,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSMPgC",
+      "name": "对战派对组合 恶",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPfC",
+      "count": 25,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSMPfC",
+      "name": "对战派对组合 斗",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPeC",
+      "count": 22,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSMPeC",
+      "name": "对战派对组合 超",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPdC",
+      "count": 22,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSMPdC",
+      "name": "对战派对组合 雷",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPcC",
+      "count": 26,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSMPcC",
+      "name": "对战派对组合 水",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPbC",
+      "count": 26,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSMPbC",
+      "name": "对战派对组合 火",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPaC",
+      "count": 24,
+      "drawable": false,
+      "group": "对战派对",
+      "id": "CSMPaC",
+      "name": "对战派对组合 草",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     }
+    ]
+   },
+   {
+    "group": "大师战略卡组",
+    "sets": [
+     {
+      "code": "CSVM2aC",
+      "count": 31,
+      "drawable": false,
+      "group": "大师战略卡组",
+      "id": "CSVM2aC",
+      "name": "大师战略卡组构筑套装 猛雷鼓ex",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVM2bC",
+      "count": 34,
+      "drawable": false,
+      "group": "大师战略卡组",
+      "id": "CSVM2bC",
+      "name": "大师战略卡组构筑套装 多龙巴鲁托ex",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVM2cC",
+      "count": 32,
+      "drawable": false,
+      "group": "大师战略卡组",
+      "id": "CSVM2cC",
+      "name": "大师战略卡组构筑套装 赛富豪ex",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVM1cC",
+      "count": 28,
+      "drawable": false,
+      "group": "大师战略卡组",
+      "id": "CSVM1cC",
+      "name": "大师战略卡组构筑套装 密勒顿ex",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVM1bC",
+      "count": 33,
+      "drawable": false,
+      "group": "大师战略卡组",
+      "id": "CSVM1bC",
+      "name": "大师战略卡组构筑套装 沙奈朵ex",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVM1aC",
+      "count": 33,
+      "drawable": false,
+      "group": "大师战略卡组",
+      "id": "CSVM1aC",
+      "name": "大师战略卡组构筑套装 喷火龙ex",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     }
+    ]
+   },
+   {
+    "group": "起始卡组",
+    "sets": [
+     {
+      "code": "CS5DC",
+      "count": 171,
+      "drawable": false,
+      "group": "起始卡组",
+      "id": "CS5DC",
+      "name": "起始卡组 勇魅群星V",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CS4DaC",
+      "count": 441,
+      "drawable": false,
+      "group": "起始卡组",
+      "id": "CS4DaC",
+      "name": "起始卡组100",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSDC",
+      "count": 25,
+      "drawable": false,
+      "group": "起始卡组",
+      "id": "CSDC",
+      "name": "精灵球/超级球礼盒 皮卡丘传奇庆典",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CS3DC",
+      "count": 191,
+      "drawable": false,
+      "group": "起始卡组",
+      "id": "CS3DC",
+      "name": "起始卡组 洪荒演武V",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CS1DC",
+      "count": 230,
+      "drawable": false,
+      "group": "起始卡组",
+      "id": "CS1DC",
+      "name": "起始卡组 极巨争锋V",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSM2DC",
+      "count": 366,
+      "drawable": false,
+      "group": "起始卡组",
+      "id": "CSM2DC",
+      "name": "起始卡组 交相辉映GX",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSM1DC",
+      "count": 345,
+      "drawable": false,
+      "group": "起始卡组",
+      "id": "CSM1DC",
+      "name": "起始卡组 横空出世GX",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "30thDC",
+      "count": 45,
+      "drawable": false,
+      "group": "起始卡组",
+      "id": "30thDC",
+      "name": "30 周年庆典 豪华卡组套装",
+      "series": "Other",
+      "seriesZh": "其他",
+      "specs": []
+     }
+    ]
+   },
+   {
+    "group": "专题包",
+    "sets": [
+     {
+      "code": "CSVNC",
+      "count": 44,
+      "drawable": false,
+      "group": "专题包",
+      "id": "CSVNC",
+      "name": "北上乡专题包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVL2C",
+      "count": 139,
+      "drawable": false,
+      "group": "专题包",
+      "id": "CSVL2C",
+      "name": "游历专题包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVL1C",
+      "count": 141,
+      "drawable": false,
+      "group": "专题包",
+      "id": "CSVL1C",
+      "name": "启程专题包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CS2.1C",
+      "count": 10,
+      "drawable": false,
+      "group": "专题包",
+      "id": "CS2.1C",
+      "name": "专题包 喵喵小妙招",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     }
+    ]
+   },
+   {
+    "group": "礼盒·套装",
+    "sets": [
+     {
+      "code": "CSVSC",
+      "count": 74,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSVSC",
+      "name": "对战学院",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSXC",
+      "count": 20,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSXC",
+      "name": "卡组构筑进阶礼盒 骑拉帝纳VSTAR",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSYC",
+      "count": 16,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSYC",
+      "name": "精灵球/等级球礼盒 宝可梦艺术插画庆典 聚",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CS0LC",
+      "count": 4,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CS0LC",
+      "name": "皮在伊起 流沙卡牌展示挂件礼盒",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSZC",
+      "count": 68,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSZC",
+      "name": "收藏周边礼盒 百变宝盒",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSUC",
+      "count": 13,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSUC",
+      "name": "宝可梦卡牌展示套礼盒",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CS6.1C",
+      "count": 24,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CS6.1C",
+      "name": "辉耀能量系列礼盒 第三弹",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSOC",
+      "count": 19,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSOC",
+      "name": "卡组构筑进阶礼盒 汇流",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CS5.1C",
+      "count": 23,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CS5.1C",
+      "name": "辉耀能量系列礼盒 第二弹",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSJC",
+      "count": 16,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSJC",
+      "name": "精灵球/高级球礼盒 宝可梦艺术插画庆典 景",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSNC",
+      "count": 24,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSNC",
+      "name": "卡组构筑礼盒 勇魅群星",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMC",
+      "count": 13,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMC",
+      "name": "宝可梦卡牌展示套礼盒",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSIC",
+      "count": 8,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSIC",
+      "name": "训练家收藏礼盒",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSHC",
+      "count": 9,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSHC",
+      "name": "伊布进阶礼盒",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CS4.1C",
+      "count": 23,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CS4.1C",
+      "name": "辉耀能量系列礼盒",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSFC",
+      "count": 26,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSFC",
+      "name": "龙之再临系列礼盒",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSGC",
+      "count": 8,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSGC",
+      "name": "宝可梦卡牌展示套礼盒",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSEC",
+      "count": 20,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSEC",
+      "name": "四方联结系列礼盒",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSCC",
+      "count": 19,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSCC",
+      "name": "卡组构筑礼盒 洪荒演武 激",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSBC",
+      "count": 19,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSBC",
+      "name": "卡组构筑礼盒 洪荒演武 茂",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CS2DaC",
+      "count": 59,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CS2DaC",
+      "name": "宝可梦卡牌 家庭组合",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSAC",
+      "count": 32,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSAC",
+      "name": "卡组构筑礼盒 极巨争锋",
+      "series": "Sword & Shield",
+      "seriesZh": "剑&盾 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPqC",
+      "count": 10,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMPqC",
+      "name": "对战派对组合改造包 钢",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPpC",
+      "count": 10,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMPpC",
+      "name": "对战派对组合改造包 恶",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPoC",
+      "count": 10,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMPoC",
+      "name": "对战派对组合改造包 斗",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPnC",
+      "count": 10,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMPnC",
+      "name": "对战派对组合改造包 超",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPmC",
+      "count": 10,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMPmC",
+      "name": "对战派对组合改造包 雷",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPlC",
+      "count": 10,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMPlC",
+      "name": "对战派对组合改造包 水",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPkC",
+      "count": 10,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMPkC",
+      "name": "对战派对组合改造包 火",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMPjC",
+      "count": 10,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMPjC",
+      "name": "对战派对组合改造包 草",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSM2.1C",
+      "count": 54,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSM2.1C",
+      "name": "辉金能量系列礼盒",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMJC",
+      "count": 15,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMJC",
+      "name": "精灵球礼盒 闪耀宝可梦",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMAC",
+      "count": 28,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMAC",
+      "name": "卡组构筑进阶礼盒 阿尔宙斯&帝牙卢卡&帕路奇亚GX",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMYC",
+      "count": 8,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMYC",
+      "name": "伊布GX套装礼盒",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     },
+     {
+      "code": "CSMLC",
+      "count": 5,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSMLC",
+      "name": "莉莉艾的声援专属礼盒",
+      "series": "Sun & Moon",
+      "seriesZh": "太阳&月亮 系列",
+      "specs": []
+     }
+    ]
+   },
+   {
+    "group": "特典卡",
+    "sets": [
+     {
+      "code": "MP",
+      "count": 1,
+      "drawable": false,
+      "group": "特典卡",
+      "id": "MP",
+      "name": "超级进化 特典卡",
+      "series": "Mega",
+      "seriesZh": "超级进化系列",
+      "specs": []
+     }
+    ]
+   }
+  ]
+ }
+}

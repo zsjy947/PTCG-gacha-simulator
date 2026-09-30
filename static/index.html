@@ -6,7 +6,12 @@
 <title>PTCG拆卡模拟器</title>
 <link rel="stylesheet" href="/static/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23fff' stroke='%23222' stroke-width='6'/%3E%3Cpath d='M4 50a46 46 0 0 1 92 0z' fill='%23e3350d'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23fff' stroke='%23222' stroke-width='6'/%3E%3C/svg%3E">
-<script>try { if (JSON.parse(localStorage.getItem("ptcg_theme")) === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
+<script>try {
+  // exe 端启动时服务端会把上次保存的主题经 ?theme= 带来（首帧 localStorage 未必有值）；
+  // 优先 URL 参数，回落本地存储，最后默认深色
+  var t = new URLSearchParams(location.search).get("theme") || JSON.parse(localStorage.getItem("ptcg_theme") || "null");
+  if (t === "light") document.documentElement.dataset.theme = "light";
+} catch (e) {}</script>
 </head>
 <body>
 <div class="bg-decor" aria-hidden="true"></div>
@@ -75,6 +80,16 @@
         <div class="stat"><b id="stSpend">¥0</b><span>本弹花费</span></div>
       </div>
 
+      <div class="compare-card card-glass" id="compareCard" hidden>
+        <details id="cmpBox">
+          <summary id="cmpSummary">实测对照</summary>
+          <div class="cmp-table-wrap">
+            <table class="expect-table" id="cmpTable"></table>
+          </div>
+          <p class="prob-note" id="cmpNote"></p>
+        </details>
+      </div>
+
       <div class="dist-card card-glass" id="distCard" hidden>
         <h3>稀有度出货分布</h3>
         <div class="dist-bars" id="distBars"></div>
@@ -92,20 +107,23 @@
 
     <!-- 收藏册 -->
     <div id="tab-collection" class="tab-page">
-      <div class="page-head">
+      <div class="page-head coll-page-head">
         <h2>收藏册</h2>
-        <div class="page-head-tools">
+        <div class="page-head-tools coll-tools">
           <select id="collSort">
             <option value="rarity">按稀有度</option>
             <option value="index">按卡牌编号</option>
             <option value="name">按卡牌名称</option>
             <option value="count">按获得张数</option>
+            <option value="price">按价格</option>
           </select>
-          <select id="collSet"></select>
-          <label class="switch"><input type="checkbox" id="collMissing"><i></i>只看缺卡</label>
+          <select id="collSet" class="coll-set-select"></select>
+          <button class="mini-btn" id="btnMissingImg" hidden title="开启「只看缺卡」后可用">导出缺卡图</button>
+          <button class="mini-btn" id="btnMissingText" hidden title="开启「只看缺卡」后可用">复制清单</button>
           <button class="mini-btn" id="btnImportColl">导入 JSON</button>
           <button class="mini-btn" id="btnExportColl">导出 JSON</button>
           <button class="mini-btn danger" id="btnClearColl">清空收藏</button>
+          <label class="switch"><input type="checkbox" id="collMissing"><i></i>只看缺卡</label>
         </div>
       </div>
       <div class="coll-summary card-glass" id="collSummary"></div>
@@ -168,6 +186,19 @@
         </div>
         <div class="spend-list" id="spendList"></div>
       </div>
+      <div class="settings-card card-glass" id="priceCard">
+        <div class="set-row">
+          <div class="set-row-info">
+            <b>卡价统计</b>
+            <p id="priceDataInfo">总卡值 ¥0</p>
+          </div>
+          <div class="update-actions">
+            <button class="mini-btn" id="btnCheckPrice">检查更新</button>
+          </div>
+        </div>
+        <div class="spend-list" id="priceList"></div>
+        <p class="settings-note" id="priceNote"></p>
+      </div>
       <div class="settings-card card-glass" id="dataUpdCard">
         <div class="set-row">
           <div class="set-row-info">
@@ -190,7 +221,7 @@
           </div>
           <button class="mini-btn danger" id="btnClearCache">清除缓存</button>
         </div>
-        <p class="settings-note">已浏览过的卡牌图会保存在本机，清除后再次浏览需重新联网下载。</p>
+        <p class="settings-note">已浏览过的卡牌图会保存在本机，清除后再次浏览需重新联网下载。预缓存的卡图随图片缓存统一管理，可一键清除。</p>
       </div>
       <div class="settings-card card-glass">
         <div class="set-row-info">
@@ -251,13 +282,6 @@
     </div>
 
     <div class="cards-stage" id="cardsStage" hidden>
-      <div class="pack-nav" id="packNav" hidden>
-        <div class="pack-tabs" id="packTabs"></div>
-        <div class="pack-switch">
-          <button class="mini-btn" id="navPrev">‹ 上一包</button>
-          <button class="mini-btn" id="navNext">下一包 ›</button>
-        </div>
-      </div>
       <div class="cards-row" id="cardsRow"></div>
       <div class="box-summary" id="boxSummary" hidden></div>
       <div class="stage-actions">
@@ -265,6 +289,11 @@
         <button class="btn btn-ghost" id="btnReport" hidden>生成战报</button>
         <button class="btn btn-ghost" id="btnAgain">再来一次</button>
         <button class="btn btn-ghost" id="btnCloseOverlay">收起</button>
+      </div>
+      <div class="pack-nav" id="packNav" hidden>
+        <button class="mini-btn" id="navPrev">‹ 上一包</button>
+        <div class="pack-tabs" id="packTabs"></div>
+        <button class="mini-btn" id="navNext">下一包 ›</button>
       </div>
     </div>
   </div>
@@ -320,7 +349,39 @@
   </div>
 </div>
 
+<!-- 卡图按弹预缓存 -->
+<div class="overlay" id="precacheOverlay" hidden>
+  <div class="modal card-glass" style="width:min(440px,92vw)">
+    <div class="modal-head">
+      <h3>离线缓存本弹卡图</h3>
+      <button class="mini-btn" id="precacheClose">✕</button>
+    </div>
+    <div class="modal-body">
+      <p class="prob-note" id="precacheHint"></p>
+      <label class="switch precache-switch"><input type="checkbox" id="precacheWithFull"><i></i>含原图（默认仅缩略图）</label>
+      <div id="precacheProgress" hidden>
+        <div class="bs-progress"><i id="precacheBarFill" style="width:0%"></i></div>
+        <p class="prob-note" id="precacheText" style="margin:8px 0 0"></p>
+      </div>
+      <div class="confirm-actions">
+        <button class="btn btn-ghost" id="precacheCancel">取消</button>
+        <button class="btn btn-ghost" id="precacheAbort" hidden>中止</button>
+        <button class="btn confirm-danger" id="precacheStart">开始缓存</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <script src="/static/gacha.js"></script>
+<script src="/static/core.js"></script>
+<script src="/static/data.js"></script>
+<script src="/static/store.js"></script>
+<script src="/static/prices.js"></script>
+<script src="/static/ui-sets.js"></script>
+<script src="/static/ui-draw.js"></script>
+<script src="/static/ui-collection.js"></script>
+<script src="/static/ui-cardlist.js"></script>
+<script src="/static/ui-modals.js"></script>
 <script src="/static/app.js"></script>
 </body>
 </html>

@@ -6,7 +6,7 @@
 
 ## 快速开始（exe，免安装）
 
-双击 `dist\宝可梦卡牌模拟拆卡.exe` 即可 —— 程序会自动启动本地服务并打开浏览器。
+双击 `dist\PTCG拆卡模拟器.exe` 即可 —— 程序会自动启动本地服务并打开浏览器。
 
 - 卡表数据已内置；卡牌牌面首次显示时联网下载并缓存到 `%LOCALAPPDATA%\PTCGGacha`。
 - 重新打包：修改代码后运行 `build_exe.bat`（需要 `pip install pyinstaller`）。
@@ -61,6 +61,7 @@ python app.py
 - **概率公示**：每弹每个规格、每个槽位（平卡位/闪卡位）的概率与池大小，含封入变体（太晶盛聚）。
 - **卡牌详情**：点击任意卡查看简中效果文本、HP/属性/招式/画师等。
 - **收藏册与统计**：拆卡记录、每弹统计（包数/张数/RR+ 计数/最高稀有度）、收藏册可导出 JSON（浏览器本地保存）。
+- **卡值与回本**：开包结果显示卡值与回本率，收藏册显示卡牌总价（集换社行情快照，见 `pricetool/README.md`）。
 - **卡表浏览**：完整卡表 + 稀有度筛选 + 卡名搜索。
 
 ## 数据来源
@@ -87,7 +88,7 @@ PTCG/
 │  ├─ manifest.json    # 数据清单（热更新增量比对用）
 │  ├─ cards/           # 每弹卡牌列表
 │  └─ *_cache/         # 运行时缓存（图片/图标/详情，图片缓存带 LRU 上限）
-└─ dist/宝可梦卡牌模拟拆卡.exe
+└─ dist/PTCG拆卡模拟器.exe
 ```
 
 ## API 一览
@@ -98,8 +99,15 @@ PTCG/
 | `GET /api/sets/<id>/cards` | 某弹完整卡表 |
 | `GET /api/sets/<id>/probabilities` | 某弹全部规格的概率表 |
 | `POST /api/draw` | 开包 `{set, spec, packs}` |
-| `GET /api/card/<弹>/<编号>` | 卡牌详情（代理缓存） |
-| `GET /img/<弹>/<编号>` · `GET /icon/<弹>` | 图片代理（磁盘缓存） |
+| `GET /api/card/<弹>/<编号>` | 卡牌详情（代理缓存 mik 详情接口） |
+| `GET /img/<弹>/<编号>` · `GET /thumb/<弹>/<编号>` · `GET /icon/<弹>` | 图片/缩略图/弹图标代理（磁盘缓存，webp 缩略图缺 Pillow 时回退原图） |
+| `GET /api/health` | 健康检查 `{"ok":true,"time":…}` |
+| `GET /api/version` | 应用版本 `{"version":…}` |
+| `GET /api/data-manifest` | 内置数据清单（各弹 md5，供前端「卡表数据更新」做增量比对） |
+| `GET /api/prices` | 内置卡价静态快照（pricetool sync 生成，无快照时返回空表） |
+| `GET /api/store/get` · `POST /api/store/set` | 抽卡记录/收藏册磁盘镜像（整包 `{"data":{…}}`，只补缺失键） |
+| `GET /api/cache/info` · `POST /api/cache/clear` | 图片缓存占用查询 / 清空 |
+| `GET /static/gacha.js` | shared/gacha.js 同源分发（与 Python 引擎同种子对拍的 JS 拆卡引擎） |
 
 ## 微信小程序（wechat-miniapp 分支）
 
@@ -124,6 +132,37 @@ python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡�
 ## 更新记录
 
 <details open>
+<summary><b>v1.3.1</b></summary>
+
+**概率透明度与收藏工具（整盒理论 · 实测对照 · 集齐期望 · 缺卡导出 · 卡图预缓存）**
+- 概率公示每规格新增「整盒理论」折叠块：一盒平均该出什么（各稀有度期望张数/盒与出现率），奖赏包等无盒规规格不显示
+- 拆卡统计新增「实测对照」：各稀有度实测占比 vs 划档模型期望占比的偏差（正绿负红），开满 30 包自动展开、不足折叠仅供参考；小程序出货分布叠加理论值灰色基准条与同款对照表
+- 目标卡期望计算升级为「单卡 / 集齐」两页签：集齐支持按稀有度全部、RR+ 及以上（闭式公式 n·H_n/λ）与收藏册缺卡（固定种子蒙特卡洛，分批计算不阻塞页面、可随时取消，给出期望/中位/P90 包数与完成率，重复计算逐位可复现）；修复 web 模式期望弹窗报错（FE-019）
+- 收藏册「只看缺卡」新增一键导出：缺卡图（对齐战报布局，每页 60 张自动分页、逐格标注编号/卡名/稀有度）与文本清单（复制到剪贴板）；修复 exe 端「导出 JSON」无效（放开 pywebview 下载）
+- 拆卡页新增「离线缓存本弹卡图」：一键预取当前弹全部卡图（默认缩略图，可选含原图），断网也能完整浏览该弹；进度弹窗可随时中止；exe/APK 交付（APK 经原生拦截缓存同通道预热），小程序不放该入口
+- 收藏册工具行重排：标题独立成行，「只看缺卡」移至行尾，缺卡导出按钮在开启后原位出现、切换无跳动
+- 修复 exe 浅色模式启动时闪过深色的问题
+
+</details>
+
+<details>
+<summary><b>v1.3.0</b></summary>
+
+**卡价快照与每周自动更新**
+- 拆卡结果新增「卡值 / 回本」：单包小结与十连/整盒汇总条显示卡值与回本率（≥100% 绿色、不足红色），未计价规格（奖赏包）只显示卡值
+- 收藏册新增「卡牌总价」与「按价格」排序（仅列出有价格的卡、单价降序，其余排序不显示价格）
+- 设置页新增「卡价数据」栏：显示快照统计（共 X 张卡有价 · 覆盖 N 弹），注明「X年X月X日静态数据，仅供参考」
+- 每周自动更新，**已安装的客户端无需重新打包**：GitHub Actions 每周一 03:00（北京时间）运行 `python -m pricetool sync --min-cny 5` 把最新行情提交到仓库；客户端启动时静默检查、设置页可手动「检查更新」，发现更新的快照自动应用（本地持久化，随记录镜像磁盘）。生效链路：源站（Kyo Cards/集换社行情，人民币口径）→ 仓库 master → jsDelivr/raw → 客户端（workflow 合并到 master 后生效）
+- pricetool：sync 新增 `--min-cny`（只保留人民币价高于阈值的卡，如 `--min-cny 5`）与 `reindex` 子命令；快照落盘 `data/prices/index.json`，经 `/api/prices` 提供前端
+
+**工程重构（界面与拆卡行为不变）**
+- 后端 app.py 按职责拆分 server/ 包（api/media/store/httpcache/paths），前端 app.js 按关注点拆分为 10 个模块文件
+- 边界修复：/api/draw packs 非数字由 500 改为 400、文件加载异常防御、缓存 .part 临时文件清理、pricetool 文件句柄等
+- 测试与工程：新增 API golden 快照测试、跨实现一致性守卫、边界异常矩阵，引擎对拍扩至 20 种子×5 规格；新增 requirements.txt、CI 接入 pricetool 测试；README API 清单补全至 17 路由
+
+</details>
+
+<details>
 <summary><b>v1.2.3</b></summary>
 
 - 开包面板重做：全宽规格行点击展开 单包/十连/整盒（手机端各占一行，PC 为分段式按钮组）；十连与整盒对所有规格开放，整盒按真实盒规抽数（瘦包 30 包/盒、肥包与 25张装 6 包/盒）；太晶盛聚/30周年/宝石包暂无可确认盒规，不提供整盒
@@ -218,6 +257,26 @@ python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡�
 卡表数据与卡图来自公开网络，仅供学习交流与个人娱乐。
 宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。
 
+## 微信小程序（wechat-miniapp 分支）
+
+在本分支上，同一套引擎与卡表被移植为微信小程序（`miniprogram/`，原生 WXML，无第三方框架）：
+
+- **零后端**：卡表裁剪为最小字段后全量内嵌（cards.js 约 1MB，主包 2MB 限制内，无需分包），
+  拆卡引擎 `shared/gacha.js` 以 CommonJS 引入，与 exe / APK 完全同源。
+- **图源直连**：卡图经 `<image>` 组件直连 mik.moe（image 组件不占域名白名单）；
+  卡牌详情文本走 `wx.request`（需在 mp 后台配置 request 合法域名，未配置时自动降级为基础信息）。
+- **功能**：弹包分类选择、官方规格拆卡/十连/整盒、翻卡与稀有度特效、概率公示、目标卡期望计算、
+  收藏册（完成度 + 缺卡模式）、卡表浏览（增量渲染）、消费统计、深浅色主题。
+- 本地存储键名与 exe / APK 一致，收藏册 JSON 导出互通。
+
+```bash
+python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡背 WebP
+# 微信开发者工具导入 miniprogram/ 目录即可预览
+```
+
+**上线前必读**：[docs/MINIPROGRAM-LAUNCH.md](https://github.com/zsjy947/PTCG-gacha-simulator/blob/wechat-miniapp/docs/MINIPROGRAM-LAUNCH.md)（wechat-miniapp 分支）——
+类目选择（工具类，勿选游戏）、小程序 ICP 备案、商标词规避、域名白名单、隐私保护指引等完整清单。
+
 ## 安卓 APK（android-apk 分支）
 
 在 `android-apk` 分支上，同一套前端被改造成纯资产模式（无 Python 后端）：
@@ -231,8 +290,9 @@ python android/build_apk.py       # 产出 dist/PTCG拆卡模拟器.apk
 ```
 
 - 构建链：aapt2 → javac → d8 → zipalign → apksigner（不依赖 Gradle/AGP）。
-- JDK 17 / build-tools 34 / platform-34 需预先解压到 `android/sdk/`
-  （下载脚本见 sdk-dl/ 中三个 zip 的来源 URL，详见构建脚本头部说明）。
+- 工具链用系统级安装：脚本读取 `JAVA_HOME`（JDK 17，缺省 `D:\Tools\jdk-17`）
+  与 `ANDROID_HOME`（Android SDK，缺省 `D:\Tools\android-sdk`），取其中的
+  build-tools 34 / platform-34；环境变量未设置时自动回退到缺省路径。
 - 签名密钥 `android/gacha.keystore` 首次构建时自动生成在本地（连同口令文件
   `keystore.properties`），两者均被 .gitignore 排除、永不入库；也可用环境变量
   `PTCG_KEYSTORE_PASS` 指定口令。注意：更换密钥后已安装的旧 APK 需卸载重装。

@@ -95,13 +95,32 @@
     <view class="stat"><text class="stat-b">¥{{stats.spend}}</text><text class="stat-s">本弹花费</text></view>
   </view>
 
-  <!-- 稀有度出货分布 -->
+  <!-- 稀有度出货分布（含理论值灰色基准条与实测对照） -->
   <view class="dist-card card-glass" wx:if="{{current && distRows.length}}">
     <text class="dist-title">稀有度出货分布</text>
     <view class="dist-row" wx:for="{{distRows}}" wx:key="rarity">
       <text class="dist-r" style="color:{{item.color}}">{{item.rarity}}</text>
-      <view class="dist-bar"><view class="dist-fill" style="width:{{item.pct}}%;background:{{item.color}}"></view></view>
+      <view class="dist-bar">
+        <view class="dist-mark" style="width:{{item.mark}}%"></view>
+        <view class="dist-fill" style="width:{{item.pct}}%;background:{{item.color}}"></view>
+      </view>
       <text class="dist-n">{{item.count}}</text>
+    </view>
+    <view class="cmp-block" wx:if="{{cmp.show}}">
+      <view class="cmp-title">实测对照<text wx:if="{{!cmp.enough}}" class="cmp-lack"> · 样本不足（&lt;30 包），仅供参考</text></view>
+      <block wx:if="{{cmp.enough}}">
+        <view class="expect-table">
+          <view class="et-row et-head"><text>稀有度</text><text>实测张数</text><text>实测占比</text><text>理论期望占比</text><text>偏差</text></view>
+          <view class="et-row" wx:for="{{cmp.rows}}" wx:for-item="row" wx:key="rarity">
+            <text style="color:{{row.color}};font-weight:800">{{row.rarity}}</text>
+            <text>{{row.count}}</text>
+            <text>{{row.actPct}}</text>
+            <text>{{row.expPct}}</text>
+            <text style="color:{{row.up ? '#3ddc97' : '#ff8a7a'}};font-weight:800">{{row.devText}}</text>
+          </view>
+        </view>
+        <view class="prob-note">{{cmp.note}}</view>
+      </block>
     </view>
   </view>
 
@@ -220,6 +239,20 @@
             </view>
           </view>
         </view>
+        <view class="prob-box" wx:if="{{item.box.length}}">
+          <view class="prob-box-title">整盒理论</view>
+          <block wx:for="{{item.box}}" wx:for-item="b" wx:key="note">
+            <view class="prob-note" wx:if="{{item.box.length > 1}}">封入变体：{{b.note}}（每包随机）</view>
+            <view class="expect-table">
+              <view class="et-row et-head"><text>稀有度</text><text>期望张数/盒</text><text>出现率</text></view>
+              <view class="et-row" wx:for="{{b.rows}}" wx:for-item="row" wx:key="rarity">
+                <text style="color:{{row.color}};font-weight:800">{{row.rarity}}</text>
+                <text>{{row.exp}}</text>
+                <text>{{row.appear}}</text>
+              </view>
+            </view>
+          </block>
+        </view>
       </view>
     </scroll-view>
   </view>
@@ -231,21 +264,54 @@
     <view class="modal-head"><text class="modal-title">{{current.name}} · 目标卡期望计算</text>
       <text class="close-x" bindtap="closeExpect">✕</text></view>
     <scroll-view scroll-y class="modal-body">
-      <view class="prob-spec" wx:for="{{expectSpecs}}" wx:key="label">
-        <view class="prob-spec-title">{{item.label}}{{item.price ? " · " + item.price : ""}}</view>
-        <view class="expect-table">
-          <view class="et-row et-head">
-            <text>稀有度</text><text>单包出现率</text><text>指定一张卡</text><text>期望花费</text>
-          </view>
-          <view class="et-row" wx:for="{{item.rows}}" wx:for-item="r" wx:key="rarity">
-            <text style="color:{{r.color}};font-weight:800">{{r.rarity}}</text>
-            <text>{{r.pPackText}}</text>
-            <text>{{r.cardText}}</text>
-            <text>{{r.moneyText}}</text>
+      <view class="exp-tabs">
+        <view class="exp-tab {{expectTab === 'single' ? 'active' : ''}}" data-t="single" bindtap="onExpectTab">单卡</view>
+        <view class="exp-tab {{expectTab === 'collect' ? 'active' : ''}}" data-t="collect" bindtap="onExpectTab">集齐</view>
+      </view>
+
+      <block wx:if="{{expectTab === 'single'}}">
+        <view class="prob-spec" wx:for="{{expectSpecs}}" wx:key="label">
+          <view class="prob-spec-title">{{item.label}}{{item.price ? " · " + item.price : ""}}</view>
+          <view class="expect-table">
+            <view class="et-row et-head">
+              <text>稀有度</text><text>单包出现率</text><text>指定一张卡</text><text>期望花费</text>
+            </view>
+            <view class="et-row" wx:for="{{item.rows}}" wx:for-item="r" wx:key="rarity">
+              <text style="color:{{r.color}};font-weight:800">{{r.rarity}}</text>
+              <text>{{r.pPackText}}</text>
+              <text>{{r.cardText}}</text>
+              <text>{{r.moneyText}}</text>
+            </view>
           </view>
         </view>
-      </view>
-      <view class="prob-note">基于划档概率模型的数学期望（几何分布），仅估算"平均而言"，非保底承诺。</view>
+        <view class="prob-note">基于划档概率模型的数学期望（几何分布），仅估算"平均而言"，非保底承诺。</view>
+      </block>
+
+      <block wx:else>
+        <view class="collect-target">
+          <radio-group bindchange="onCollectKind">
+            <label class="ct-item"><radio value="rarity" checked="{{collect.kind === 'rarity'}}" color="#e3350d" />某稀有度全部</label>
+            <label class="ct-item"><radio value="rrup" checked="{{collect.kind === 'rrup'}}" color="#e3350d" />RR+ 及以上</label>
+            <label class="ct-item"><radio value="missing" checked="{{collect.kind === 'missing'}}" color="#e3350d" />收藏册缺卡</label>
+          </radio-group>
+          <picker mode="selector" range="{{collectRarityNames}}" value="{{collect.rarityIdx}}"
+                  bindchange="onCollectRarity" disabled="{{collect.kind !== 'rarity'}}">
+            <view class="picker-box {{collect.kind !== 'rarity' ? 'disabled' : ''}}">{{collectRarityNames[collect.rarityIdx] || "选择稀有度"}} ▾</view>
+          </picker>
+        </view>
+        <view class="prob-note" wx:if="{{collectLabel && !collectRunning}}">{{collectLabel}}</view>
+        <view class="prob-note ct-cancel" wx:if="{{collectRunning}}" bindtap="cancelCollect">{{collectLabel}}</view>
+        <view class="expect-table" wx:if="{{collectSpecs.length}}">
+          <view class="et-row et-head"><text wx:for="{{collectHead}}" wx:key="*this">{{item}}</text></view>
+          <view class="et-row" wx:for="{{collectSpecs}}" wx:for-item="r" wx:key="label">
+            <text>{{r.label}}</text>
+            <text>{{r.packs}}</text>
+            <text>{{r.money}}</text>
+            <text wx:if="{{r.extra !== undefined && r.extra !== ''}}">{{r.extra}}</text>
+          </view>
+        </view>
+        <view class="prob-note" wx:if="{{collectNote}}">{{collectNote}}</view>
+      </block>
     </scroll-view>
   </view>
 </view>
