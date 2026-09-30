@@ -59,16 +59,40 @@ def _free_port(preferred: int = 5000) -> int:
     return preferred
 
 
+def _startup_theme() -> str | None:
+    """读上次保存的主题（可写 store：开发=仓库 data/，exe=%LOCALAPPDATA%/PTCGGacha）。
+
+    供启动首帧直出主题：窗口背景色与页面内联脚本都以它为准，避免浅色用户
+    启动时闪过深色（首帧时 localStorage 未必有值——首次启动/端口变化换 origin 后为空，
+    要等 restoreStore 把镜像写回才切浅色）。
+    """
+    try:
+        import json
+        raw = json.loads((DATA / "user_store.json").read_text(encoding="utf-8"))
+        v = raw.get("data", {}).get("ptcg_theme")
+        return json.loads(v) if isinstance(v, str) else None
+    except (OSError, ValueError):
+        return None
+
+
 if __name__ == "__main__":
     port = _free_port()
     url = f"http://127.0.0.1:{port}"
     window_mode = not os.environ.get("PTCG_NO_WINDOW")
+    startup_theme = _startup_theme() if window_mode else None
+    if window_mode and startup_theme == "light":
+        url += "?theme=light"
     try:
         import webview  # pywebview：原生窗口（Edge WebView2）
     except ImportError:
         webview = None
 
     if webview is not None:
+        # pywebview 默认禁用下载：收藏册「导出 JSON」等 blob 下载会被静默丢弃，显式放开
+        try:
+            webview.settings["ALLOW_DOWNLOADS"] = True
+        except (AttributeError, KeyError, TypeError):
+            pass
         threading.Thread(
             target=lambda: app.run(host="127.0.0.1", port=port, debug=False, threaded=True),
             daemon=True,
@@ -78,7 +102,7 @@ if __name__ == "__main__":
             "PTCG拆卡模拟器",
             url,
             width=1360, height=900, min_size=(960, 640),
-            background_color="#0b0f1a",
+            background_color=("#fafbfe" if startup_theme == "light" else "#0b0f1a"),
         )
         webview.start()  # 阻塞直到窗口关闭
     else:

@@ -1,4 +1,4 @@
-/* 应用装配：主题/版本更新/缓存/事件绑定与启动 —— 自 static/app.js 拆分（语义等价，见 docs/refactor/） */
+/* 应用装配：主题/版本更新/缓存/事件绑定与启动 —— 自 static/app.js 拆分（语义等价，见 docs/ARCHITECTURE.md） */
 "use strict";
 
 /* ---------------- 设置：外观主题 ---------------- */
@@ -204,6 +204,8 @@ function init() {
   $("#collSet").addEventListener("change", renderCollection);
   $("#collSort").addEventListener("change", renderCollection);
   $("#collMissing").addEventListener("change", renderCollection);
+  $("#btnMissingImg").addEventListener("click", exportMissingImage);
+  $("#btnMissingText").addEventListener("click", copyMissingList);
   $("#clRarity").addEventListener("change", resetCardList);
   $("#clSearch").addEventListener("input", resetCardList);
 
@@ -220,6 +222,10 @@ function init() {
 
   $("#btnClearCache").addEventListener("click", clearImageCache);
   $("#btnCheckUpdate").addEventListener("click", () => checkUpdate(true));
+  $("#precacheClose").addEventListener("click", () => { abortPrecache(); $("#precacheOverlay").hidden = true; });
+  $("#precacheCancel").addEventListener("click", () => $("#precacheOverlay").hidden = true);
+  $("#precacheStart").addEventListener("click", startPrecache);
+  $("#precacheAbort").addEventListener("click", abortPrecache);
   $("#btnGoDownload").addEventListener("click", () => {
     if (!latestDownload) return;
     if (ASSET) location.href = latestDownload; // WebView 导航触发 DownloadListener → 系统浏览器
@@ -236,6 +242,7 @@ function init() {
       closeOverlay(); closeSidebar();
       $("#probOverlay").hidden = true; $("#detailOverlay").hidden = true;
       $("#expectOverlay").hidden = true; $("#reportOverlay").hidden = true;
+      if (!$("#precacheOverlay").hidden) { abortPrecache(); $("#precacheOverlay").hidden = true; }
       if (!$("#confirmOverlay").hidden) settleConfirm(false);
     }
     if (!$("#overlay").hidden && e.key === " ") { e.preventDefault(); burstPack(); }

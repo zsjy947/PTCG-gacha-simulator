@@ -4,6 +4,7 @@
 与 golden 快照互补：golden 锁定正常路径与常见错误；本文件覆盖全部矩阵组合，
 含通过 monkeypatch 模拟的"缺失数据文件 / 详情未命中"场景（只动 server.api 命名空间，不落盘）。
 """
+import json
 import sys
 import tempfile
 import unittest
@@ -73,6 +74,53 @@ class EdgeMatrix(unittest.TestCase):
                 self.assertEqual(r.status_code, 400)
                 self.assertEqual(r.get_json(), {"error": "非法参数"})
 
+    # ---- store 版本号（F24/PTCG-R2-02）：乱序旧快照不得回退覆盖 ----
+    def test_store_rev_out_of_order(self):
+        import server.store
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / "user_store.json"
+            saved = getattr(server.store, "USER_STORE", None)
+            server.store.USER_STORE = target
+            try:
+                # rev=5 落盘
+                r = self.c.post("/api/store/set", json={"data": {"k": "v5"}, "rev": 5})
+                self.assertEqual(r.get_json(), {"success": True, "skipped": False, "rev": 5})
+                # 乱序后到的 rev=4 → 跳过，文件仍是 rev=5
+                r = self.c.post("/api/store/set", json={"data": {"k": "v4"}, "rev": 4})
+                self.assertEqual(r.status_code, 200)
+                self.assertEqual(r.get_json(), {"success": True, "skipped": True, "rev": 5})
+                self.assertEqual(json.loads(target.read_text(encoding="utf-8")),
+                                 {"rev": 5, "data": {"k": "v5"}})
+                # 等于当前 rev 的重发同样跳过
+                r = self.c.post("/api/store/set", json={"data": {"k": "v5b"}, "rev": 5})
+                self.assertEqual(r.get_json().get("skipped"), True)
+            finally:
+                server.store.USER_STORE = saved
+
+    def test_store_rev_legacy_compat(self):
+        """旧格式信封（无 rev）可读，rev=0；不带 rev 的旧客户端首次写入仍落盘。"""
+        import server.store
+        with tempfile.TemporaryDirectory() as tmp:
+            target = Path(tmp) / "user_store.json"
+            saved = getattr(server.store, "USER_STORE", None)
+            server.store.USER_STORE = target
+            try:
+                target.write_text(json.dumps({"data": {"old": "1"}}, ensure_ascii=False),
+                                  encoding="utf-8")
+                r = self.c.get("/api/store/get")
+                self.assertEqual(r.get_json(), {"rev": 0, "data": {"old": "1"}})
+                # 旧客户端不带 rev（按 0）→ 0 > 0 不成立 → 跳过，不覆盖旧镜像
+                r = self.c.post("/api/store/set", json={"data": {"old": "2"}})
+                self.assertEqual(r.get_json(), {"success": True, "skipped": True, "rev": 0})
+                # 空存储（无文件）时旧客户端首次写入可落盘（内部当前 rev=-1）
+                target.unlink()
+                r = self.c.post("/api/store/set", json={"data": {"fresh": "1"}})
+                self.assertEqual(r.get_json(), {"success": True, "skipped": False, "rev": 0})
+                r = self.c.get("/api/store/get")
+                self.assertEqual(r.get_json(), {"rev": 0, "data": {"fresh": "1"}})
+            finally:
+                server.store.USER_STORE = saved
+
     # ---- 缺失数据文件：index/manifest/prices 全部不可用时 ----
     def test_missing_data_files(self):
         with tempfile.TemporaryDirectory() as tmp:
@@ -123,6 +171,22 @@ class EdgeMatrix(unittest.TestCase):
         # 扩展名剥离后合法路径（不回源，仅断言守卫通过后的行为：404 图片获取失败——离线无缓存）
         r = self.c.get("/icon/nosuchiconcode.png")
         self.assertIn(r.status_code, (404, 200))  # 有缓存则 200，离线 404
+
+    # ---- 纯点路径段（PTCG-R3-01）："." / ".." 拒绝 ----
+    def test_dot_segment_rejected(self):
+        # %2E 编码可绕过 werkzeug 的路径归一化直达路由参数（裸 ../ 会被归一化成 404，见上）
+        for path in ("/img/%2E/001", "/thumb/%2E%2E/001", "/icon/%2E", "/icon/%2E%2E",
+                     "/api/card/%2E/%2E%2E", "/api/sets/%2E%2E/cards"):
+            with self.subTest(path=path):
+                r = self.c.get(path)
+                self.assertEqual(r.status_code, 400, path)
+                self.assertIn(r.get_json().get("error"), ("非法参数", "非法弹代码"))
+        # 白名单本身：仅拒绝整体为 "." / ".." 的段，其余含点串（如 "..."）仍放行
+        from server.paths import _SAFE
+        for seg in (".", ".."):
+            self.assertIsNone(_SAFE.match(seg), seg)
+        for seg in ("CSV1C", "001", "30thC", "...", "a.b-c_d"):
+            self.assertIsNotNone(_SAFE.match(seg), seg)
 
 
 if __name__ == "__main__":

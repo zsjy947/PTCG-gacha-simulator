@@ -119,6 +119,46 @@
     };
   }
 
+  /* 每包稀有度画像（确定性，无随机数）。变体规格（如太晶盛聚 7+3/6+4）逐变体返回。
+   * p(slot=r) 复用 normalizeWeights；权重稀有度全部缺失的兜底槽位退化为整弹均匀抽
+   * （与 specProbabilities 的 fallback 口径一致；Python 侧经 _slot_probs 套用按弹覆盖，
+   *   SET_SPEC_OVERRIDES 目前为空，两端同源）。浮点累加顺序两端逐行一致（对拍逐位断言）。 */
+  function rarityProfile(spec, pools) {
+    const available = Object.keys(pools);
+    const total = Object.values(pools).reduce((a, l) => a + l.length, 0);
+    const variants = spec.variants || [{ note: spec.note || "", slots: spec.slots }];
+    return variants.map((v) => {
+      const expectedCount = {}, pAppear = {};
+      for (const r of available) { expectedCount[r] = 0; pAppear[r] = 0; }
+      for (const slot of v.slots) {
+        const probs = normalizeWeights(slot.weights, available);
+        for (const r of available) {
+          const p = probs ? (probs[r] || 0) : (total ? pools[r].length / total : 0);
+          expectedCount[r] = expectedCount[r] + p;
+          pAppear[r] = 1 - (1 - pAppear[r]) * (1 - p);
+        }
+      }
+      return { note: v.note || "", expectedCount, pAppear };
+    });
+  }
+
+  /* 整盒理论画像：boxPacks 缺省视为无整盒商品 → 返回 []（概率公示/汇总条据此不渲染）。
+   * pAtLeastOne 用连乘而非 pow，保证与 Python 镜像逐位一致。 */
+  function boxProfile(spec, pools) {
+    if (!spec.boxPacks) return [];
+    const n = spec.boxPacks;
+    return rarityProfile(spec, pools).map((v) => {
+      const expectedCount = {}, pAtLeastOne = {};
+      for (const r of Object.keys(v.expectedCount)) {
+        let miss = 1;
+        for (let i = 0; i < n; i++) miss = miss * (1 - v.pAppear[r]);
+        expectedCount[r] = v.expectedCount[r] * n;
+        pAtLeastOne[r] = 1 - miss;
+      }
+      return { note: v.note, boxPacks: n, expectedCount, pAtLeastOne };
+    });
+  }
+
   /* 某规格每个稀有度的期望成本（目标卡计算器）：
    * pPack  = 单包至少出 1 张该稀有度的概率（变体按等概率平均）
    * anyPacks = 抽到任意一张该稀有度的期望包数 = 1 / pPack
@@ -152,9 +192,149 @@
     }).sort((a, b) => b.pPack - a.pPack);
   }
 
+  /* 调和数 H_n（闭式集齐期望用；累加顺序与 Python 镜像逐行一致） */
+  function harmonicNumber(n) {
+    let h = 0;
+    for (let k = 1; k <= n; k++) h += 1 / k;
+    return h;
+  }
+
+  /* 多目标「集齐期望」：目标只认显式集合（"RR+"等口径由前端解析后传入）。
+   * - { kind:"rarity", rarities:[...] } 集齐这些稀有度池的全部卡 → 闭式公式 n·H_n/λ
+   *   （λ = 单包期望目标张数；变体规格每包等概率落位 → 对变体取平均，包内去重影响忽略，
+   *    与 expectedCost 同一口径）
+   * - { kind:"cards", keys:[...] } 集齐指定卡（cardKey 格式）→ 固定种子蒙特卡洛：
+   *   mulberry32(seed) 逐试验顺序模拟，每试验复用 drawPack 逐包开、集齐即止并记录包数，
+   *   超 packCap 记未完成；期望/中位/P90 仅统计已完成试验（note 注明口径）。
+   *   卡列表由 pools 按 key 序展开（两端实现逐行一致，保证同种子逐位对拍）。
+   * opts: { trials=300, packCap=3000, seed=0xC011EC7 } */
+  function collectExpectation(spec, pools, targets, opts) {
+    const o = Object.assign({ trials: 300, packCap: 3000, seed: 0xC011EC7 }, opts || {});
+    const variants = spec.variants || [{ note: spec.note || "", slots: spec.slots }];
+
+    if (targets && targets.kind === "rarity") {
+      const wanted = (targets.rarities || []).filter((r) => pools[r] && pools[r].length);
+      const n = wanted.reduce((a, r) => a + pools[r].length, 0);
+      const available = Object.keys(pools);
+      const total = Object.values(pools).reduce((a, l) => a + l.length, 0);
+      let lambda = 0;
+      for (const v of variants) {
+        for (const slot of v.slots) {
+          const probs = normalizeWeights(slot.weights, available);
+          for (const r of wanted) {
+            lambda += probs ? (probs[r] || 0) : (total ? pools[r].length / total : 0);
+          }
+        }
+      }
+      if (variants.length > 1) lambda /= variants.length;
+      const h = harmonicNumber(n);
+      const expectedPacks = n && lambda > 0 ? (n * h) / lambda : null;
+      return {
+        mode: "closed",
+        expectedPacks,
+        expectedSpend: expectedPacks != null && spec.priceCny ? expectedPacks * spec.priceCny : null,
+        formula: "nHn/lambda",
+      };
+    }
+
+    const cardList = [];
+    for (const r of Object.keys(pools)) for (const c of pools[r]) cardList.push(c);
+    const keySet = new Set(cardList.map(cardKey));
+    const rawKeys = (targets && targets.keys) || [];
+    const wantedKeys = rawKeys.filter((k) => keySet.has(k));
+    const out = {
+      mode: "sim",
+      expectedPacks: null, medianPacks: null, p90Packs: null,
+      completedRatio: 0,
+      packCap: o.packCap,
+      expectedSpend: null,
+      note: `仅统计 ${o.packCap} 包内集齐的试验，完成率 0.0%`,
+      filtered: rawKeys.length - wantedKeys.length,
+    };
+    if (!wantedKeys.length) return out;
+
+    const rng = mulberry32(o.seed);
+    const done = [];
+    for (let t = 0; t < o.trials; t++) {
+      const remaining = new Set(wantedKeys);
+      for (let p = 1; p <= o.packCap; p++) {
+        const pack = drawPack(cardList, pools, spec, rng);
+        for (const c of pack) remaining.delete(cardKey(c));
+        if (!remaining.size) { done.push(p); break; }
+      }
+    }
+    const completed = done.length;
+    out.completedRatio = completed / o.trials;
+    if (completed) {
+      done.sort((a, b) => a - b);
+      out.expectedPacks = done.reduce((a, b) => a + b, 0) / completed;
+      out.medianPacks = done[Math.floor((completed - 1) / 2)];
+      out.p90Packs = done[Math.floor((completed - 1) * 0.9)];
+      out.expectedSpend = spec.priceCny ? out.expectedPacks * spec.priceCny : null;
+      out.note = `仅统计 ${o.packCap} 包内集齐的试验，完成率 ${(out.completedRatio * 100).toFixed(1)}%`;
+    }
+    return out;
+  }
+
+  /* 分步集齐模拟（cards 模式）：collectExpectation 的等价分批形态（同种子同协议）。
+   * next() 每次只跑 batch 个试验并立即返回，UI 层在批间让出主线程（进度显示/取消）；
+   * 跑完后的 result 与 collectExpectation 同参结果完全相等（tests/test_consistency.py 锁定）。
+   * 空/全部被过滤的目标直接 finished，result 为完成率 0 口径。 */
+  function collectSimBatched(spec, pools, targets, opts) {
+    const o = Object.assign({ trials: 300, packCap: 3000, seed: 0xC011EC7, batch: 3 }, opts || {});
+    const cardList = [];
+    for (const r of Object.keys(pools)) for (const c of pools[r]) cardList.push(c);
+    const keySet = new Set(cardList.map(cardKey));
+    const rawKeys = (targets && targets.keys) || [];
+    const wantedKeys = rawKeys.filter((k) => keySet.has(k));
+    const rng = mulberry32(o.seed);
+    const done = [];
+    const aggregate = () => {
+      const completed = done.length;
+      const out = {
+        mode: "sim",
+        expectedPacks: null, medianPacks: null, p90Packs: null,
+        completedRatio: completed / o.trials,
+        packCap: o.packCap,
+        expectedSpend: null,
+        note: `仅统计 ${o.packCap} 包内集齐的试验，完成率 0.0%`,
+        filtered: rawKeys.length - wantedKeys.length,
+      };
+      if (completed) {
+        done.sort((a, b) => a - b);
+        out.expectedPacks = done.reduce((a, b) => a + b, 0) / completed;
+        out.medianPacks = done[Math.floor((completed - 1) / 2)];
+        out.p90Packs = done[Math.floor((completed - 1) * 0.9)];
+        out.expectedSpend = spec.priceCny ? out.expectedPacks * spec.priceCny : null;
+        out.note = `仅统计 ${o.packCap} 包内集齐的试验，完成率 ${(out.completedRatio * 100).toFixed(1)}%`;
+      }
+      return out;
+    };
+    return {
+      filtered: rawKeys.length - wantedKeys.length,
+      trials: o.trials,
+      next() {
+        if (wantedKeys.length) {
+          const upto = Math.min(o.trials, done.length + Math.max(1, o.batch | 0));
+          for (; done.length < upto;) {
+            const remaining = new Set(wantedKeys);
+            for (let p = 1; p <= o.packCap; p++) {
+              const pack = drawPack(cardList, pools, spec, rng);
+              for (const c of pack) remaining.delete(cardKey(c));
+              if (!remaining.size) { done.push(p); break; }
+            }
+          }
+        }
+        const finished = !wantedKeys.length || done.length >= o.trials;
+        return { finished, done: done.length, trials: o.trials, result: finished ? aggregate() : null };
+      },
+    };
+  }
+
   return {
     RARITY_ALIAS, mulberry32,
     buildPools, normalizeWeights, pickRarity, pickCard,
     drawPack, drawPacks, specProbabilities, expectedCost,
+    rarityProfile, boxProfile, collectExpectation, collectSimBatched,
   };
 });

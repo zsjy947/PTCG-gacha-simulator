@@ -21,6 +21,7 @@ sys.path.insert(0, str(ROOT))
 
 import config  # noqa: E402
 import fetch_data  # noqa: E402
+import gacha  # noqa: E402
 from pricetool import store as pt_store  # noqa: E402
 from pricetool.sync import _md5 as sync_md5  # noqa: E402
 from server.api import _spec_brief as brief_server  # noqa: E402
@@ -68,6 +69,61 @@ class TestGroupOrderMirror(unittest.TestCase):
         self.assertEqual(js_order, config.GROUP_ORDER)
 
 
+class TestProfileParity(unittest.TestCase):
+    """T1：确定性画像 rarityProfile / boxProfile 的 JS/Python 双实现必须完全相等。
+
+    任取 3 个可拆弹 × 全规格：确定性函数无随机数，输出 JSON 逐字节断言
+    （两侧规范化为排序键 JSON 后比较，浮点逐位一致才可能相等）。
+    """
+
+    def _js_profile(self, cards_path: Path, spec_path: Path) -> dict:
+        out = subprocess.run(
+            ["node", str(Path(__file__).parent / "parity_profile.js"),
+             str(cards_path), str(spec_path)],
+            capture_output=True, text=True, timeout=120,
+        )
+        if out.returncode != 0:
+            raise RuntimeError(f"node 画像对拍脚本失败: {out.stderr}")
+        return json.loads(out.stdout)
+
+    @staticmethod
+    def _canon(obj):
+        """JSON 数字规范化为 float：JS 的整值浮点（78）经 json.loads 变 int，
+        与 Python 的 78.0 仅序列化表示不同；数值统一 float 后再逐字节比较。"""
+        if isinstance(obj, dict):
+            return {k: TestProfileParity._canon(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [TestProfileParity._canon(v) for v in obj]
+        if isinstance(obj, (int, float)) and not isinstance(obj, bool):
+            return float(obj)
+        return obj
+
+    def test_rarity_and_box_profile_parity(self):
+        idx = json.loads((ROOT / "data" / "sets_index.json").read_text(encoding="utf-8"))
+        sids = [e["id"] for e in idx if config.set_specs(e["id"])][:3]
+        self.assertEqual(len(sids), 3, f"可拆弹不足 3 个（{sids}）")
+        with tempfile.TemporaryDirectory() as tmp:
+            for sid in sids:
+                cards_path = Path(tmp) / f"{sid}_cards.json"
+                cards_path.write_text(
+                    json.dumps(gacha.load_cards(sid), ensure_ascii=False), encoding="utf-8")
+                for spec in config.set_specs(sid):
+                    with self.subTest(set=sid, spec=spec["key"]):
+                        spec_path = Path(tmp) / f"{sid}_{spec['key']}.json"
+                        spec_path.write_text(
+                            json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+                        js = self._js_profile(cards_path, spec_path)
+                        py = {
+                            "rarityProfile": gacha.rarity_profile(sid, spec),
+                            "boxProfile": gacha.box_profile(sid, spec),
+                        }
+                        # 逐字节：数字规范化后两端 JSON 文本必须一致（浮点逐位一致才可能相等）
+                        self.assertEqual(
+                            json.dumps(self._canon(js), sort_keys=True),
+                            json.dumps(self._canon(py), sort_keys=True),
+                            f"{sid} {spec['key']} 画像不一致")
+
+
 class TestSpecBriefThreePlatforms(unittest.TestCase):
     """BE-009：spec_brief 三平台实现的公共字段必须等价（形状差异是刻意的）。"""
 
@@ -89,6 +145,103 @@ class TestSpecBriefThreePlatforms(unittest.TestCase):
                     self.assertEqual({k: sa[k] for k in common}, {k: sc[k] for k in common})
             checked += 1
         self.assertGreater(checked, 40, f"可拆弹数量异常（仅 {checked}）")
+
+
+class TestCollectParity(unittest.TestCase):
+    """T3：collectExpectation 双实现——closed 模式完全相等；sim 模式同种子数值逐位相等。
+
+    sim 逐位相等依赖：卡列表按 pools key 序展开、每试验逐包复用 drawPack、
+    统计累加顺序两端逐行一致（见 shared/gacha.js collectExpectation 注释）。
+    """
+
+    def _js_collect(self, cards_path: Path, spec_path: Path, targets: dict, opts: dict | None) -> dict:
+        out = subprocess.run(
+            ["node", str(Path(__file__).parent / "parity_collect.js"),
+             str(cards_path), str(spec_path), json.dumps(targets),
+             json.dumps(opts) if opts is not None else ""],
+            capture_output=True, text=True, timeout=300,
+        )
+        if out.returncode != 0:
+            raise RuntimeError(f"node 集齐期望对拍脚本失败: {out.stderr}")
+        return json.loads(out.stdout)
+
+    @staticmethod
+    def _canon(obj):
+        if isinstance(obj, dict):
+            return {k: TestCollectParity._canon(v) for k, v in obj.items()}
+        if isinstance(obj, list):
+            return [TestCollectParity._canon(v) for v in obj]
+        if isinstance(obj, (int, float)) and not isinstance(obj, bool):
+            return float(obj)
+        return obj
+
+    def test_closed_and_sim_parity(self):
+        sid = "CSV1C"
+        spec = config.set_specs(sid)[0]
+        cards = gacha.load_cards(sid)
+        pools = gacha.build_pools(cards)
+        with tempfile.TemporaryDirectory() as tmp:
+            cf = Path(tmp) / "cards.json"
+            sf = Path(tmp) / "spec.json"
+            cf.write_text(json.dumps(cards, ensure_ascii=False), encoding="utf-8")
+            sf.write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+            # closed：RR+ 及以上（前端口径解析后传入）
+            targets_r = {"kind": "rarity", "rarities": ["RR", "AR", "SR", "SAR", "ACE", "UR"]}
+            js_r = self._js_collect(cf, sf, targets_r, None)
+            py_r = gacha.collect_expectation(spec, pools, targets_r)
+            self.assertEqual(
+                json.dumps(self._canon(js_r), sort_keys=True),
+                json.dumps(self._canon(py_r), sort_keys=True), "closed 模式两端不一致")
+            # sim：固定种子指定 3 张卡
+            targets_c = {"kind": "cards",
+                         "keys": [f"{c['setCode']}__{c['cardIndex']}" for c in cards[:3]]}
+            opts_s = {"trials": 40, "seed": 1234, "packCap": 800}
+            js_s = self._js_collect(cf, sf, targets_c, opts_s)
+            py_s = gacha.collect_expectation(spec, pools, targets_c, opts_s)
+            self.assertEqual(
+                json.dumps(self._canon(js_s), sort_keys=True),
+                json.dumps(self._canon(py_s), sort_keys=True),
+                f"sim 模式同种子不一致：\n{js_s}\n{py_s}")
+
+    def test_sim_batched_runner_equivalence(self):
+        """分步运行器（UI 分批调度用）跑完与一次性 collectExpectation 完全相等（JS/Python 两端）。"""
+        sid = "CSV1C"
+        spec = config.set_specs(sid)[0]
+        cards = gacha.load_cards(sid)
+        pools = gacha.build_pools(cards)
+        with tempfile.TemporaryDirectory() as tmp:
+            cf = Path(tmp) / "cards.json"
+            sf = Path(tmp) / "spec.json"
+            cf.write_text(json.dumps(cards, ensure_ascii=False), encoding="utf-8")
+            sf.write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+            targets = {"kind": "cards",
+                       "keys": [f"{c['setCode']}__{c['cardIndex']}" for c in cards[:2]]}
+            opts = {"trials": 12, "seed": 99, "packCap": 500, "batch": 3}
+            out = subprocess.run(
+                ["node", str(Path(__file__).parent / "parity_collect_batched.js"),
+                 str(cf), str(sf), json.dumps(targets), json.dumps(opts)],
+                capture_output=True, text=True, timeout=300)
+            if out.returncode != 0:
+                raise RuntimeError(f"node 分批对拍脚本失败: {out.stderr}")
+            js = json.loads(out.stdout)
+            # JS：分批跑完 == 一次性
+            self.assertEqual(json.dumps(self._canon(js["batched"]), sort_keys=True),
+                             json.dumps(self._canon(js["oneshot"]), sort_keys=True))
+            # Python：分批跑完 == 一次性
+            runner = gacha.collect_sim_batched(spec, pools, targets, opts)
+            py_batched = None
+            for _ in range(100000):
+                st = runner.next()
+                if st["finished"]:
+                    py_batched = st["result"]
+                    break
+            self.assertIsNotNone(py_batched, "Python 分步运行器未在预期步数内完成")
+            py_oneshot = gacha.collect_expectation(spec, pools, targets, opts)
+            self.assertEqual(json.dumps(self._canon(py_batched), sort_keys=True),
+                             json.dumps(self._canon(py_oneshot), sort_keys=True))
+            # 两端分步结果相等
+            self.assertEqual(json.dumps(self._canon(js["batched"]), sort_keys=True),
+                             json.dumps(self._canon(py_batched), sort_keys=True))
 
 
 def _extract_normidx_source() -> str:
@@ -140,6 +293,34 @@ class TestRarityPaletteMirror(unittest.TestCase):
         for name, color in css_vars.items():
             with self.subTest(rarity=name):
                 self.assertEqual(js.get(name), color, f"--r-{name} 与 RARITY_COLOR 不一致")
+
+
+def _rarity_tables(path: Path) -> dict:
+    """从 JS 源码解析稀有度三表：order 列表 + color/label 两个有序键值表。"""
+    text = path.read_text(encoding="utf-8")
+    m = re.search(r"const RARITY_ORDER = \[([^\]]+)\];", text)
+    if not m:
+        raise AssertionError(f"{path.name} 未找到 RARITY_ORDER")
+    tables = {"order": re.findall(r'"([^"]*)"', m.group(1))}
+    for name in ("RARITY_COLOR", "RARITY_LABEL"):
+        m = re.search(rf"const {name} = \{{(.*?)\}};", text, re.S)
+        if not m:
+            raise AssertionError(f"{path.name} 未找到 {name}")
+        pairs = re.findall(r'(?:"([^"]+)"|([A-Za-z]+))\s*:\s*"([^"]*)"', m.group(1))
+        tables[name] = [(a or b, v) for a, b, v in pairs]  # 保留键序，dict 相等不比顺序
+    return tables
+
+
+class TestMiniprogramRarityMirror(unittest.TestCase):
+    """F10/PTCG-R5-01：小程序稀有度三表由构建期从 core.js 单源生成，须与源表一致（顺序与键值）。"""
+
+    def test_uijs_tables_match_core(self):
+        core = _rarity_tables(ROOT / "static" / "core.js")
+        ui = _rarity_tables(ROOT / "miniprogram" / "utils" / "ui.js")
+        self.assertEqual(ui["order"], core["order"])
+        self.assertEqual(ui["RARITY_COLOR"], core["RARITY_COLOR"])
+        self.assertEqual(ui["RARITY_LABEL"], core["RARITY_LABEL"])
+        self.assertEqual(len(core["order"]), 27, "core.js RARITY_ORDER 应为 27 项（新增稀有度须同步三处）")
 
 
 def _js_rarity_palette() -> dict:

@@ -5,8 +5,10 @@
     python android/build_assets.py   # 先生成 WebView 资产
     python android/build_apk.py      # 构建 dist/宝可梦卡牌抽卡.apk
 
-依赖：android/sdk/ 下已解压 JDK 17、build-tools 34、platform-34（见 README）。
+依赖：系统级工具链 —— JDK 17（JAVA_HOME，缺省 D:\Tools\jdk-17）与 Android SDK
+（ANDROID_HOME，缺省 D:\Tools\android-sdk）中的 build-tools 34、platform-34。
 """
+import os
 import re
 import subprocess
 import sys
@@ -14,10 +16,11 @@ from pathlib import Path
 
 ANDROID = Path(__file__).resolve().parent
 ROOT = ANDROID.parent
-SDK = ANDROID / "sdk"
-BUILD_TOOLS = SDK / "android-14"          # build-tools r34 zip 内的目录名
-PLATFORM_JAR = SDK / "android-34" / "android.jar"
-JDK = SDK / "jdk-17.0.20.1+1"
+# 工具链取系统级安装（JAVA_HOME / ANDROID_HOME），未设置时回退 D:\Tools 默认位置
+JDK = Path(os.environ.get("JAVA_HOME", r"D:\Tools\jdk-17"))
+ANDROID_SDK = Path(os.environ.get("ANDROID_HOME", r"D:\Tools\android-sdk"))
+BUILD_TOOLS = ANDROID_SDK / "build-tools" / "34.0.0"
+PLATFORM_JAR = ANDROID_SDK / "platforms" / "android-34" / "android.jar"
 
 APP_MAIN = ANDROID / "app" / "src" / "main"
 OUT = ANDROID / "build"
@@ -39,14 +42,34 @@ MANIFEST.write_text(_m, encoding="utf-8")
 print(f"Manifest 版本同步: versionName={_VER} versionCode={VERSION_CODE}")
 
 ENV = {
-    **__import__("os").environ,
+    **os.environ,
     "JAVA_HOME": str(JDK),
-    "PATH": f"{JDK / 'bin'};" + __import__("os").environ.get("PATH", ""),
+    "PATH": f"{JDK / 'bin'};" + os.environ.get("PATH", ""),
 }
 
 
+# 回显打码：口令参数的值不得出现在控制台（keytool 用 -storepass/-keypass，
+# apksigner 用 --ks-pass/--key-pass pass:xxx，后者由 pass: 正则兜底）
+_SECRET_FLAGS = ("-storepass", "-keypass", "--ks-pass", "--key-pass")
+
+
+def _mask(cmd):
+    out, hide_next = [], False
+    for c in cmd:
+        c = str(c)
+        if hide_next:
+            out.append("***")
+            hide_next = False
+        elif c in _SECRET_FLAGS:
+            out.append(c)
+            hide_next = True
+        else:
+            out.append(re.sub(r"(?<=pass:)\S+", "***", c))
+    return " ".join(out)
+
+
 def run(cmd, **kw):
-    print(">>", " ".join(str(c) for c in cmd))
+    print(">>", _mask(cmd))
     r = subprocess.run([str(c) for c in cmd], env=ENV, **kw)
     if r.returncode != 0:
         raise SystemExit(f"命令失败: {cmd[0]} (exit {r.returncode})")
@@ -56,7 +79,7 @@ def run(cmd, **kw):
 def main():
     for tool in (BUILD_TOOLS / "aapt2.exe", PLATFORM_JAR, JDK / "bin" / "javac.exe"):
         if not tool.exists():
-            raise SystemExit(f"缺少 {tool}，请先解压 SDK 组件到 android/sdk/")
+            raise SystemExit(f"缺少 {tool}，请检查系统级工具链（JAVA_HOME / ANDROID_HOME）是否完整")
     if not (APP_MAIN / "assets" / "www" / "index.html").exists():
         raise SystemExit("缺少 WebView 资产，请先运行 android/build_assets.py")
 

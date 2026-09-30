@@ -4,12 +4,15 @@
 - 卡表裁剪为拆卡/收藏/浏览所需的最小字段（setCode/cardIndex/cardName/rarity），
   全量约 0.9MB，可整体放进小程序主包（主包上限 2MB），无需分包。
 - 抽卡规格元数据由 config.py 导出，与 exe / APK 完全同源。
+- 稀有度三表（RARITY_ORDER/RARITY_COLOR/RARITY_LABEL）从 static/core.js 单源同步到
+  miniprogram/utils/ui.js（F10/PTCG-R5-01：曾手工维护两份，改表后小程序端漂移）。
 - 引擎复制 shared/gacha.js（小程序 CommonJS require）。
 - 卡背图压缩为 WebP。
 
 用法：python tools/build_miniprogram.py
 """
 import json
+import re
 import shutil
 import sys
 from pathlib import Path
@@ -22,6 +25,26 @@ from version import APP_VERSION  # noqa: E402
 
 MINI = ROOT / "miniprogram"
 KEEP_FIELDS = ("setCode", "cardIndex", "cardName", "rarity")
+RARITY_CONSTS = ("RARITY_ORDER", "RARITY_COLOR", "RARITY_LABEL")
+
+
+def sync_rarity_tables():
+    """稀有度三表以 static/core.js 为单一来源，整段替换 miniprogram/utils/ui.js 中同名 const。
+
+    只动三个 const 声明，ui.js 的其余内容（工具函数、module.exports）保持不变。
+    """
+    core = (ROOT / "static" / "core.js").read_text(encoding="utf-8")
+    ui_path = MINI / "utils" / "ui.js"
+    ui = ui_path.read_text(encoding="utf-8")
+    for name in RARITY_CONSTS:
+        m = re.search(rf"const {name} = (\[.*?\]|\{{.*?\}});", core, re.S)
+        if not m:
+            raise SystemExit(f"static/core.js 未找到 {name}，单源同步失败（F10）")
+        ui, n = re.subn(rf"const {name} = (\[.*?\]|\{{.*?\}});",
+                        f"const {name} = {m.group(1)};", ui, count=1, flags=re.S)
+        if n != 1:
+            raise SystemExit(f"miniprogram/utils/ui.js 未找到 {name} 占位，单源同步失败（F10）")
+    ui_path.write_text(ui, encoding="utf-8")
 
 
 def spec_brief(code: str) -> list:
@@ -47,6 +70,9 @@ def main() -> int:
     data = ROOT / "data"
     cards_out = MINI / "data"
     cards_out.mkdir(parents=True, exist_ok=True)
+
+    # ---- 稀有度三表单源同步（F10）----
+    sync_rarity_tables()
 
     # ---- 弹索引 + 抽卡规格元数据 ----
     idx = json.loads((data / "sets_index.json").read_text(encoding="utf-8"))

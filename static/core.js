@@ -1,4 +1,4 @@
-/* 核心：常量/全局状态/工具与 API/URL 与图片工具/__imgFail/本地引擎入口 —— 自 static/app.js 拆分（语义等价，见 docs/refactor/） */
+/* 核心：常量/全局状态/工具与 API/URL 与图片工具/__imgFail/本地引擎入口 —— 自 static/app.js 拆分（语义等价，见 docs/ARCHITECTURE.md） */
 "use strict";
 
 const $ = (s, el = document) => el.querySelector(s);
@@ -7,6 +7,8 @@ const $$ = (s, el = document) => [...el.querySelectorAll(s)];
 /* 稀有度色板三副本镜像（FE-004，契约保留）：本文件 RARITY_COLOR ↔ static/style.css 的 --r-* 变量
    ↔ miniprogram（范围外）；tests/test_consistency.py 校验 css 变量与本表一致 */
 const RARITY_ORDER = ["FUR", "UR", "SAR", "HR", "SR", "ACE", "AR", "SSR", "CHR", "CSR", "RRR", "RGB", "RR", "K", "PR", "A", "S", "R", "U", "C", "N", "★★★", "★★", "★", "◆", "●", "无标记"];
+/* RR+ 口径（汇总条/统计/集齐期望共用）：RARITY_ORDER 中 RR 及以上的高档稀有度集合 */
+const RRUP_RARITIES = RARITY_ORDER.slice(0, RARITY_ORDER.indexOf("RR") + 1);
 const RARITY_COLOR = {
   C: "#9aa5b1", U: "#58c470", R: "#4aa8ff", RR: "#ffd75e", AR: "#7ee8fa",
   SR: "#ff7edb", SAR: "#b28dff", UR: "#ffc82e", ACE: "#8f7bff", TR: "#f6a5c0", N: "#6b7688",
@@ -26,7 +28,7 @@ const RARITY_LABEL = {
 const ENERGY_ZH = { G: "草", R: "火", W: "水", L: "雷", P: "超", F: "斗", D: "恶", M: "钢", Y: "妖", N: "无", C: "无色" };
 const RENDER_CHUNK = 120;     // 卡表增量渲染分片大小
 
-/* ---- 时序链常量（契约 R4：值不变，仅命名化；docs/refactor/CONTRACT.md） ---- */
+/* ---- 时序链常量（契约 R4：值不变，仅命名化；docs/ARCHITECTURE.md「冻结契约」） ---- */
 const BURST_TO_CARDS_MS = 480;          // 撕包动画 → 展示卡牌
 const STAGGER_FAST_CAP_MS = 36;         // 自动翻卡发牌间隔上限（600/len）
 const STAGGER_FAST_SPAN_MS = 600;
@@ -113,6 +115,28 @@ function upgradeRemoteImages(root) {
     }
     p.then((u) => { if (u) img.src = u; });
   });
+}
+
+/* 卡图 URL → XHR → Blob URL（资产模式 canvas 防跨域污染；失败 resolve null）。
+ * 结果按 URL 记忆复用（imgBlobCache），战报图与缺卡清单图共用（T4 抽取自 ui-modals.reportImage） */
+function fetchCardImageBlob(url) {
+  let p = imgBlobCache.get(url);
+  if (!p) {
+    p = new Promise((resolve) => {
+      try {
+        const x = new XMLHttpRequest();
+        x.open("GET", url, true);
+        x.responseType = "arraybuffer";
+        x.onload = () => x.status === 200 && x.response
+          ? resolve(URL.createObjectURL(new Blob([x.response], { type: "image/png" })))
+          : resolve(null);
+        x.onerror = () => resolve(null);
+        x.send();
+      } catch { resolve(null); }
+    });
+    imgBlobCache.set(url, p);
+  }
+  return p;
 }
 
 /* 卡图加载失败统一处理：延迟重试 2 次（800ms/2000ms），仍失败换卡背占位。

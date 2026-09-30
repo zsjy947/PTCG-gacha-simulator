@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""API golden 快照测试 —— 重构安全网（docs/重构与全量审查计划.md 阶段 0）。
+"""API golden 快照测试 —— 重构安全网（背景沉淀于 docs/ARCHITECTURE.md「历史重构记录」）。
 
 对确定性端点做完整 JSON 快照断言（契约 R1：JSON 形状、错误码、{"error":...} 文案逐字不变）；
 /api/draw 用固定随机种子做确定性输出断言 + packs 钳制边界（0/1/40/41）。
@@ -180,10 +180,11 @@ class TestGoldenEndpoints(unittest.TestCase):
                     mod.USER_STORE = target
             try:
                 r = self.client.get("/api/store/get")
-                self.assertEqual(r.get_json(), {"data": {}})
+                self.assertEqual(r.get_json(), {"rev": 0, "data": {}})
                 r = self.client.post("/api/store/set",
-                                     json={"data": {"ptcg_stats": "{\"CSV1C\":{}}"}})
-                self.assertEqual(r.get_json(), {"ok": True})
+                                     json={"data": {"ptcg_stats": "{\"CSV1C\":{}}"},
+                                           "rev": 1})  # 携带版本号（F24；不带 rev 的旧体兼容见边界矩阵）
+                self.assertEqual(r.get_json(), {"success": True, "skipped": False, "rev": 1})
                 r = self.client.get("/api/store/get")
                 _assert_golden(self, "store_roundtrip", r.status_code, r.get_json())
                 self.assertTrue(target.exists())

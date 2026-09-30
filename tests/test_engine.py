@@ -77,7 +77,7 @@ class TestGoldenParity(unittest.TestCase):
         cards = fixture_cards()
         specs = {
             "sv5(平+闪)": config.set_specs("CSV1C")[0],
-            "sm25(多平卡槽)": config.set_specs("CS1AC")[1],
+            "sm25(多平卡槽)": config.set_specs("CS1aC")[1],
             "gem4(符号稀有度)": config.set_specs("CBB1C")[0],
             "tera10(封入变体)": config.set_specs("CSV9.5C")[0],
             "fest6(30周年特款)": config.set_specs("30thC")[0],
@@ -123,6 +123,143 @@ class TestDistribution(unittest.TestCase):
             pack = gacha.draw_pack_from_cards(cards, spec, rng)
             keys = {f"{c['setCode']}__{c['cardIndex']}" for c in pack}
             self.assertEqual(len(keys), len(pack), "包内卡牌不应重复")
+
+
+class TestBoxProfile(unittest.TestCase):
+    """整盒理论画像（T1）：期望张数守恒、出现率值域、变体逐一返回、无盒规返回空。"""
+
+    def test_rarity_profile_conserves_pack_size(self):
+        # 弹 id 用数据文件的真实大小写（CS1aC/CSVE1pC——文件名大小写敏感，Windows 不区分
+        # 会掩盖错误，CI Linux 上曾因此 404）
+        for sid, key in (("CSV1C", "sv5"), ("CS1aC", "sm25"), ("CSV9.5C", "tera10")):
+            spec = next(s for s in config.set_specs(sid) if s["key"] == key)
+            pack_size = len((spec.get("variants") or [{"slots": spec["slots"]}])[0]["slots"])
+            for v in gacha.rarity_profile(sid, spec):
+                # Σ_r E[张数_r] = 包内张数（归一化概率守恒；浮点和留 1e-9 容差）
+                self.assertAlmostEqual(sum(v["expectedCount"].values()), pack_size,
+                                       delta=1e-9, msg=sid)
+
+    def test_box_profile_sums_to_box(self):
+        spec = config.set_specs("CSV1C")[0]  # sv5: 5张/包 × 30包/盒
+        profiles = gacha.box_profile("CSV1C", spec)
+        self.assertEqual(len(profiles), 1)
+        p = profiles[0]
+        self.assertEqual(p["boxPacks"], spec["boxPacks"])
+        self.assertAlmostEqual(sum(p["expectedCount"].values()),
+                               spec["boxPacks"] * 5, delta=1e-9)
+        for q in p["pAtLeastOne"].values():
+            self.assertGreater(q, 0.0)
+            self.assertLessEqual(q, 1.0)
+
+    def test_box_profile_variants_and_empty(self):
+        # 变体规格：返回元素数 == variants 数（太晶盛聚 7+3/6+4）
+        tera = config.set_specs("CSV9.5C")[0]
+        self.assertEqual(len(gacha.box_profile("CSV9.5C", tera)), len(tera["variants"]))
+        self.assertEqual({p["note"] for p in gacha.box_profile("CSV9.5C", tera)},
+                         {v["note"] for v in tera["variants"]})
+        # 无 boxPacks 的规格（奖赏包）→ 无整盒 → 返回 []
+        reward = config.set_specs("CSVE1pC")[0]
+        self.assertIsNone(reward.get("boxPacks"))
+        self.assertEqual(gacha.box_profile("CSVE1pC", reward), [])
+        # rarityProfile 不受盒规影响：奖赏包仍返回单变体画像
+        self.assertEqual(len(gacha.rarity_profile("CSVE1pC", reward)), 1)
+
+
+class TestCollectExpectation(unittest.TestCase):
+    """集齐期望（T3）：闭式公式 vs 模拟互验 + 边界。"""
+
+    @staticmethod
+    def _five_sr_pool():
+        """小池：单槽 100% SR 的 5 张池（奖赏包形态）——闭式与模拟可解析互验。"""
+        cards = [{"setCode": "SRSET", "cardIndex": f"{i:03d}", "cardName": f"SR卡{i}",
+                  "rarity": "SR"} for i in range(1, 6)]
+        spec = {"id": "t1", "label": "单槽", "priceCny": 10,
+                "slots": [{"name": "闪卡 1", "kind": "holo", "weights": {"SR": 100}}]}
+        return cards, spec
+
+    def test_closed_formula_and_simulation_agree(self):
+        cards, spec = self._five_sr_pool()
+        pools = gacha.build_pools(cards)
+        closed = gacha.collect_expectation(spec, pools, {"kind": "rarity", "rarities": ["SR"]})
+        self.assertEqual(closed["mode"], "closed")
+        self.assertEqual(closed["formula"], "nHn/lambda")
+        # n·H_n/λ：n=5、λ=1 → 5·H5
+        self.assertAlmostEqual(closed["expectedPacks"],
+                               5 * (1 + 1 / 2 + 1 / 3 + 1 / 4 + 1 / 5), places=12)
+        self.assertAlmostEqual(closed["expectedSpend"],
+                               closed["expectedPacks"] * spec["priceCny"], places=12)
+        # 同分布模拟（集齐同样 5 张卡）：10 万次均值与闭式期望相对误差 < 5%（种子写死可复现）
+        keys = [f"{c['setCode']}__{c['cardIndex']}" for c in cards]
+        sim = gacha.collect_expectation(spec, pools, {"kind": "cards", "keys": keys},
+                                        {"trials": 100000, "seed": 42})
+        self.assertEqual(sim["mode"], "sim")
+        self.assertEqual(sim["filtered"], 0)
+        self.assertEqual(sim["completedRatio"], 1.0)
+        rel = abs(sim["expectedPacks"] - closed["expectedPacks"]) / closed["expectedPacks"]
+        self.assertLess(rel, 0.05, f"模拟均值 {sim['expectedPacks']:.3f} 偏离闭式 "
+                                   f"{closed['expectedPacks']:.3f} 超 5%")
+
+    def test_edges(self):
+        cards, spec = self._five_sr_pool()
+        pools = gacha.build_pools(cards)
+        # 空 rarities / 目标稀有度弹内不存在 → 期望 null
+        for rarities in ([], ["HR"]):
+            r = gacha.collect_expectation(spec, pools, {"kind": "rarity", "rarities": rarities})
+            self.assertIsNone(r["expectedPacks"])
+            self.assertIsNone(r["expectedSpend"])
+        # keys 含弹外卡 → 自动过滤并计数
+        keys = [f"{c['setCode']}__{c['cardIndex']}" for c in cards] + ["FIXSET__999"]
+        r = gacha.collect_expectation(spec, pools, {"kind": "cards", "keys": keys},
+                                      {"trials": 5, "seed": 1})
+        self.assertEqual(r["filtered"], 1)
+        # 空 keys → 完成率 0、期望 null（只报 completedRatio 口径的 note）
+        r = gacha.collect_expectation(spec, pools, {"kind": "cards", "keys": []},
+                                      {"trials": 5, "seed": 1})
+        self.assertIsNone(r["expectedPacks"])
+        self.assertEqual(r["completedRatio"], 0)
+        self.assertIn("完成率 0.0%", r["note"])
+        # 未计价规格（priceCny 缺省）→ expectedSpend null
+        spec2 = dict(spec, priceCny=None)
+        r = gacha.collect_expectation(spec2, pools, {"kind": "rarity", "rarities": ["SR"]})
+        self.assertIsNone(r["expectedSpend"])
+
+
+class TestRarityProfileStatistics(unittest.TestCase):
+    """统计性断言（T2 依赖）：固定种子模拟的实测占比应接近 rarityProfile 期望占比。
+
+    种子写死保证可复现（统计性断言不再有随机 flake 空间）。容差取
+    max(15% 相对误差, 4σ 泊松噪声下限)——5000 张样本下 UR 等稀有档期望仅约 5 张，
+    纯相对误差在统计上必然超界，稀有档按噪声下限放宽；高占比档位仍由 15% 相对界约束。
+    """
+
+    SEEDS = [11, 23, 37, 51, 73]
+    PACKS = 1000
+    REL_TOL = 0.15
+
+    def test_empirical_share_matches_profile(self):
+        cards = gacha.load_cards("CSV1C")
+        spec = config.set_specs("CSV1C")[0]  # sv5: 4平 + 1闪
+        profile = gacha.rarity_profile("CSV1C", spec)[0]
+        expect_total = sum(profile["expectedCount"].values())
+        expect_share = {r: e / expect_total for r, e in profile["expectedCount"].items()}
+        counts = {}
+        total_cards = 0
+        for seed in self.SEEDS:
+            rng = Mulberry32(seed)
+            for _ in range(self.PACKS):
+                pack = gacha.draw_pack_from_cards(cards, spec, rng)
+                total_cards += len(pack)
+                for c in pack:
+                    r = c["rarity"] or "N"
+                    counts[r] = counts.get(r, 0) + 1
+        self.assertEqual(total_cards, self.PACKS * len(self.SEEDS) * 5)
+        for r, expect in expect_share.items():
+            actual = counts.get(r, 0) / total_cards
+            sigma = math.sqrt(expect * (1 - expect) / total_cards)
+            tol = max(self.REL_TOL * expect, 4 * sigma)
+            self.assertLess(abs(actual - expect), tol,
+                            f"稀有度 {r} 实测占比 {actual:.4f} 偏离期望 {expect:.4f} "
+                            f"超容差 {tol:.4f}（15% 相对或 4σ 取大）")
 
 
 if __name__ == "__main__":

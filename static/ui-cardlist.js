@@ -1,4 +1,4 @@
-/* 卡表：增量渲染/筛选与无限滚动/稀有度筛选 —— 自 static/app.js 拆分（语义等价，见 docs/refactor/） */
+/* 卡表：增量渲染/筛选与无限滚动/稀有度筛选 —— 自 static/app.js 拆分（语义等价，见 docs/ARCHITECTURE.md） */
 "use strict";
 
 async function loadSetCards(id) {

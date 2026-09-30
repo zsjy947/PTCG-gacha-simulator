@@ -23,15 +23,18 @@ IMG_CACHE = DATA / "img_cache"
 ICON_CACHE = DATA / "icon_cache"
 DETAIL_CACHE = DATA / "detail_cache"
 
-# 路由参数（弹代码/卡号）白名单：客户端传入的路径片段必须整体匹配，防目录穿越
-_SAFE = re.compile(r"^[A-Za-z0-9._\-]{1,40}$")
+# 路由参数（弹代码/卡号）白名单：客户端传入的路径片段必须整体匹配，防目录穿越；
+# 前瞻排除纯 "." / ".."（曾可拼出指向目录本身的路径，PTCG-R3-01）
+_SAFE = re.compile(r"^(?!\.\.?$)[A-Za-z0-9._\-]{1,40}$")
 
 
 def _ensure_writable_data():
-    """exe 每次启动都用打包内置的最新卡表数据刷新可写目录（%LOCALAPPDATA%）。
+    """exe 每次启动用打包内置的最新 sets_index.json / manifest.json 刷新可写目录（%LOCALAPPDATA%）。
 
-    旧版本遗留的本地数据可能过期（弹索引拆分/新增/分类调整等），必须整体覆盖，
-    否则 exe 会一直沿用旧卡表。
+    只拷贝这两个文件：弹索引供 /api/sets 等读取，manifest 供热更新基线比对。
+    cards/*.json 不再拷贝——冻结态卡表由引擎直接读 _MEIPASS 内置数据（gacha.CARDS_DIR
+    指向打包目录），用户目录下的卡表副本无任何读者，整体复制只拖慢启动（PTCG-R2-04）。
+    旧版本遗留的 cards 目录原地保留，不影响运行。
     """
     if DATA == BUNDLED_DATA:
         return
@@ -40,20 +43,12 @@ def _ensure_writable_data():
         bundled_idx = BUNDLED_DATA / name
         if bundled_idx.exists():
             shutil.copy2(bundled_idx, DATA / name)
-    src_cards, dst_cards = BUNDLED_DATA / "cards", DATA / "cards"
-    if src_cards.exists():
-        dst_cards.mkdir(parents=True, exist_ok=True)
-        bundled_names = {f.name for f in src_cards.glob("*.json")}
-        for f in dst_cards.glob("*.json"):  # 清理内置包已不存在的旧卡表
-            if f.name not in bundled_names:
-                try:
-                    f.unlink()
-                except OSError:
-                    pass
-        for f in src_cards.glob("*.json"):
-            shutil.copy2(f, dst_cards / f.name)
 
 
-_ensure_writable_data()
-for d in (IMG_CACHE, ICON_CACHE, DETAIL_CACHE):
-    d.mkdir(parents=True, exist_ok=True)
+try:  # 可写目录/缓存目录初始化失败（磁盘占满、权限等）不阻断 import（PTCG-R2-04）：
+    # exe --noconsole 下 import 期静默死亡无任何日志，告警到 stderr 后降级继续更易排查
+    _ensure_writable_data()
+    for d in (IMG_CACHE, ICON_CACHE, DETAIL_CACHE):
+        d.mkdir(parents=True, exist_ok=True)
+except OSError as e:
+    print(f"数据目录初始化失败（继续运行，图片缓存等可能不可用）：{e}", file=sys.stderr)
