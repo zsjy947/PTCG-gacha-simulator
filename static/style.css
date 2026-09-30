@@ -122,7 +122,7 @@ select option { background: var(--pop); color: var(--txt); }
 .set-item .si-count { font-size: 11px; color: var(--txt2); background: var(--soft); padding: 3px 8px; border-radius: 20px; }
 .set-item.disabled { opacity: .45; }
 
-.content { flex: 1; padding: 24px 28px 60px; min-width: 0; }
+.content { flex: 1; padding: 24px 28px 60px; min-width: 0; scrollbar-gutter: stable; }  /* gutter：长列表滚动条不挤工具行（收藏册缺卡切换零位移） */
 .tab-page { display: none; }
 .tab-page.active { display: block; animation: fadein .25s ease; }
 @keyframes fadein { from { opacity: 0; transform: translateY(6px); } }
@@ -381,13 +381,19 @@ select option { background: var(--pop); color: var(--txt); }
 .pack-summary .ps-value { font-size: 12.5px; text-align: center; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
 /* ---------- 通用页面件 ---------- */
+html { scrollbar-gutter: stable; }  /* 长列表滚动条出现/消失不挤横向布局（收藏册缺卡切换等） */
 .page-head { display: flex; align-items: center; justify-content: space-between; gap: 14px; margin-bottom: 16px; flex-wrap: wrap; }
 .page-head h2 { font-size: 18px; letter-spacing: 1px; }
 .page-head-tools { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
 
-/* 收藏册：只看缺卡开关在工具行行尾；缺卡导出按钮常驻下一行（置灰代替显隐，切换零回流） */
-.coll-set-select { max-width: 210px; text-overflow: ellipsis; }
-.coll-missing-tools { display: flex; gap: 8px; align-items: center; margin: -6px 0 10px; min-height: 30px; }
+/* 收藏册：标题独立一行，工具行占满整行；开启「只看缺卡」时弹选择右侧收窄、
+ * 缺卡两按钮原地出现（弹性宽度补偿，其余元素与行位置零移动） */
+.coll-page-head { flex-direction: column; align-items: stretch; flex-wrap: nowrap; }  /* nowrap：纵向多行容器每行横向尺寸由内容决定，stretch 失效 */
+.coll-tools { flex-wrap: nowrap; min-width: 0; }  /* min-width:0——本行是 .page-head 的 flex 子项，
+  自动最小宽度会取整行内容宽而撑破容器（945>900），置 0 后内层才按弹性精确分配 */
+/* basis 0：选择栏宽度 = 行宽减其余元素（开关切换时精确让位，其余元素零移动） */
+.coll-tools .coll-set-select { flex: 1 1 0; min-width: 110px; }
+.coll-tools .mini-btn, .coll-tools .switch { flex-shrink: 0; }
 .mini-btn:disabled { opacity: .45; cursor: default; }
 
 .coll-summary { display: flex; gap: 22px; flex-wrap: wrap; padding: 14px 20px; margin-bottom: 16px; font-size: 13px; color: var(--txt2); }

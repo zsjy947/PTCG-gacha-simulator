@@ -6,7 +6,12 @@
 <title>PTCG拆卡模拟器</title>
 <link rel="stylesheet" href="/static/style.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='46' fill='%23fff' stroke='%23222' stroke-width='6'/%3E%3Cpath d='M4 50a46 46 0 0 1 92 0z' fill='%23e3350d'/%3E%3Ccircle cx='50' cy='50' r='16' fill='%23fff' stroke='%23222' stroke-width='6'/%3E%3C/svg%3E">
-<script>try { if (JSON.parse(localStorage.getItem("ptcg_theme")) === "light") document.documentElement.dataset.theme = "light"; } catch (e) {}</script>
+<script>try {
+  // exe 端启动时服务端会把上次保存的主题经 ?theme= 带来（首帧 localStorage 未必有值）；
+  // 优先 URL 参数，回落本地存储，最后默认深色
+  var t = new URLSearchParams(location.search).get("theme") || JSON.parse(localStorage.getItem("ptcg_theme") || "null");
+  if (t === "light") document.documentElement.dataset.theme = "light";
+} catch (e) {}</script>
 </head>
 <body>
 <div class="bg-decor" aria-hidden="true"></div>
@@ -102,9 +107,9 @@
 
     <!-- 收藏册 -->
     <div id="tab-collection" class="tab-page">
-      <div class="page-head">
+      <div class="page-head coll-page-head">
         <h2>收藏册</h2>
-        <div class="page-head-tools">
+        <div class="page-head-tools coll-tools">
           <select id="collSort">
             <option value="rarity">按稀有度</option>
             <option value="index">按卡牌编号</option>
@@ -113,15 +118,13 @@
             <option value="price">按价格</option>
           </select>
           <select id="collSet" class="coll-set-select"></select>
+          <button class="mini-btn" id="btnMissingImg" hidden title="开启「只看缺卡」后可用">导出缺卡图</button>
+          <button class="mini-btn" id="btnMissingText" hidden title="开启「只看缺卡」后可用">复制清单</button>
           <button class="mini-btn" id="btnImportColl">导入 JSON</button>
           <button class="mini-btn" id="btnExportColl">导出 JSON</button>
           <button class="mini-btn danger" id="btnClearColl">清空收藏</button>
           <label class="switch"><input type="checkbox" id="collMissing"><i></i>只看缺卡</label>
         </div>
-      </div>
-      <div class="coll-missing-tools">
-        <button class="mini-btn" id="btnMissingImg" disabled title="开启「只看缺卡」后可用">导出缺卡图</button>
-        <button class="mini-btn" id="btnMissingText" disabled title="开启「只看缺卡」后可用">复制清单</button>
       </div>
       <div class="coll-summary card-glass" id="collSummary"></div>
       <div class="coll-progress" id="collProgress" hidden>

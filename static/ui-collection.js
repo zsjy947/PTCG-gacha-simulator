@@ -133,10 +133,11 @@ async function copyMissingList() {
   }
 }
 
-/* 缺卡导出按钮（常驻下一行，置灰代替显隐——只看缺卡切换零回流） */
-function _setMissingButtons(enabled) {
+/* 缺卡导出按钮：隐藏 ↔ 弹选择右侧收窄原位出现（开启缺卡模式）；无缺卡时可见但置灰 */
+function _setMissingButtons(visible, enabled) {
   const bi = $("#btnMissingImg"), bt = $("#btnMissingText");
   if (!bi || !bt) return;
+  bi.hidden = bt.hidden = !visible;
   bi.disabled = bt.disabled = !enabled;
 }
 
@@ -199,8 +200,8 @@ async function renderCollection() {
   missingToggle.disabled = priceMode;
   missingToggle.closest(".switch").style.opacity = priceMode ? .45 : "";
   const missingOnly = missingToggle.checked && !priceMode;
-  /* 缺卡导出按钮：常驻显示，仅缺卡模式且有缺卡时可用（切换零回流） */
-  _setMissingButtons(false);
+  /* 缺卡导出按钮：缺卡模式下显示（弹选择收窄腾位），无缺卡置灰 */
+  _setMissingButtons(missingOnly, false);
   const missCards = () => {
     const have = new Set(Object.keys(box));
     return all.filter((c) => !have.has(`${c.setCode}__${c.cardIndex}`));
@@ -220,7 +221,7 @@ async function renderCollection() {
       total: totalDistinct,
       cards: missing,
     };
-    _setMissingButtons(true);
+    _setMissingButtons(true, true);
     $("#collSummary").innerHTML = `<span><b>${missing.length}</b>张缺卡</span>
       <span><b>${entries.length}/${totalDistinct}</b>种已收</span>${valueSpan(valueOf(missing))}`;
     grid.innerHTML = "";
