@@ -69,6 +69,11 @@ if __name__ == "__main__":
         webview = None
 
     if webview is not None:
+        # pywebview 默认禁用下载：收藏册「导出 JSON」等 blob 下载会被静默丢弃，显式放开
+        try:
+            webview.settings["ALLOW_DOWNLOADS"] = True
+        except (AttributeError, KeyError, TypeError):
+            pass
         threading.Thread(
             target=lambda: app.run(host="127.0.0.1", port=port, debug=False, threaded=True),
             daemon=True,

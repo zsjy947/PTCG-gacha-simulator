@@ -15,6 +15,7 @@
     <view class="switch" bindtap="exportColl">📤 导出 JSON（复制）</view>
     <view class="switch" bindtap="importColl">📥 导入（剪贴板）</view>
   </view>
+  <view class="coll-hint">导入 / 导出 JSON 是收藏记录的备份通道：导出全部弹的收藏记录，导入后与现有收藏合并（同卡数量相加）。「只看缺卡」不影响这两项——它们始终作用于全部收藏；缺卡清单请用缺卡模式下的「导出缺卡图 / 复制清单」。</view>
   <view class="tools-row">
     <switch checked="{{missingOnly}}" bindchange="toggleMissing" color="#e3350d" />
     <text class="switch-label">只看缺卡</text>

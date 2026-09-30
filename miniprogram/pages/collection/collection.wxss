@@ -5,6 +5,7 @@
 .switch { font-size: 24rpx; color: var(--txt2); }
 .switch.danger { color: #f6a5c0; }
 .switch.off { opacity: .45; }
+.coll-hint { font-size: 20rpx; color: var(--txt2); line-height: 1.6; margin: 0 0 14rpx; }
 .switch-label { font-size: 24rpx; color: var(--txt2); }
 .summary { padding: 20rpx 24rpx; font-size: 24rpx; color: var(--txt); }
 .progress { display: flex; align-items: center; gap: 16rpx; margin: 18rpx 0; }

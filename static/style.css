@@ -706,6 +706,9 @@ select option { background: var(--pop); color: var(--txt); }
 .dist-card { margin-top: 14px; padding: 16px 20px; }
 .dist-card h3 { font-size: 13px; color: var(--txt2); font-weight: 600; letter-spacing: 1px; margin-bottom: 10px; }
 
+/* 收藏册：导入/导出 JSON 说明 */
+.coll-hint { color: var(--txt2); font-size: 12px; line-height: 1.7; margin: -4px 0 10px; }
+
 /* 实测对照卡（统计区下方，T2）：样本 ≥30 包自动展开 */
 .compare-card { margin-top: 14px; padding: 6px 20px 12px; }
 .compare-card summary { cursor: pointer; font-size: 14px; font-weight: 700; color: var(--accent); letter-spacing: 1px; padding: 10px 0; }
