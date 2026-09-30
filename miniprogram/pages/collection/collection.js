@@ -112,7 +112,9 @@ Page({
   /* 缺卡文本清单：utils/ui.missingListText 与 exe 端逐字一致 */
   copyMissingList() {
     const missing = this._missing || [];
-    if (!missing.length) return;
+    if (!this.data.missingOnly || !missing.length) {
+      return wx.showToast({ title: "开启「只看缺卡」后可用", icon: "none" });
+    }
     const total = data.cards(this.data.setIds[this.data.setIdx]).length;
     wx.setClipboardData({
       data: ui.missingListText(this.currentSetName(), missing, total),
@@ -124,7 +126,10 @@ Page({
   /* 导出缺卡图：canvas 2d 逐页绘制（复用战报图布局）→ 相册（wx.saveImageToPhotosAlbum） */
   async exportMissingImage() {
     const missing = this._missing || [];
-    if (!missing.length || this._exporting) return;
+    if (!this.data.missingOnly || !missing.length) {
+      return wx.showToast({ title: "开启「只看缺卡」后可用", icon: "none" });
+    }
+    if (this._exporting) return;
     this._exporting = true;
     wx.showLoading({ title: "生成缺卡图…", mask: true });
     const setName = this.currentSetName();

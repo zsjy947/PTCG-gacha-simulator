@@ -77,7 +77,7 @@ class TestGoldenParity(unittest.TestCase):
         cards = fixture_cards()
         specs = {
             "sv5(平+闪)": config.set_specs("CSV1C")[0],
-            "sm25(多平卡槽)": config.set_specs("CS1AC")[1],
+            "sm25(多平卡槽)": config.set_specs("CS1aC")[1],
             "gem4(符号稀有度)": config.set_specs("CBB1C")[0],
             "tera10(封入变体)": config.set_specs("CSV9.5C")[0],
             "fest6(30周年特款)": config.set_specs("30thC")[0],
@@ -129,7 +129,9 @@ class TestBoxProfile(unittest.TestCase):
     """整盒理论画像（T1）：期望张数守恒、出现率值域、变体逐一返回、无盒规返回空。"""
 
     def test_rarity_profile_conserves_pack_size(self):
-        for sid, key in (("CSV1C", "sv5"), ("CS1AC", "sm25"), ("CSV9.5C", "tera10")):
+        # 弹 id 用数据文件的真实大小写（CS1aC/CSVE1pC——文件名大小写敏感，Windows 不区分
+        # 会掩盖错误，CI Linux 上曾因此 404）
+        for sid, key in (("CSV1C", "sv5"), ("CS1aC", "sm25"), ("CSV9.5C", "tera10")):
             spec = next(s for s in config.set_specs(sid) if s["key"] == key)
             pack_size = len((spec.get("variants") or [{"slots": spec["slots"]}])[0]["slots"])
             for v in gacha.rarity_profile(sid, spec):
@@ -156,11 +158,11 @@ class TestBoxProfile(unittest.TestCase):
         self.assertEqual({p["note"] for p in gacha.box_profile("CSV9.5C", tera)},
                          {v["note"] for v in tera["variants"]})
         # 无 boxPacks 的规格（奖赏包）→ 无整盒 → 返回 []
-        reward = config.set_specs("CSVE1PC")[0]
+        reward = config.set_specs("CSVE1pC")[0]
         self.assertIsNone(reward.get("boxPacks"))
-        self.assertEqual(gacha.box_profile("CSVE1PC", reward), [])
+        self.assertEqual(gacha.box_profile("CSVE1pC", reward), [])
         # rarityProfile 不受盒规影响：奖赏包仍返回单变体画像
-        self.assertEqual(len(gacha.rarity_profile("CSVE1PC", reward)), 1)
+        self.assertEqual(len(gacha.rarity_profile("CSVE1pC", reward)), 1)
 
 
 class TestCollectExpectation(unittest.TestCase):

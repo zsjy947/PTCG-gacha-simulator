@@ -177,7 +177,6 @@
       <view class="box-chips">
         <text wx:for="{{boxSummary.chips}}" wx:key="r" style="color:{{item.color}}">{{item.r}}×{{item.n}}</text>
       </view>
-      <view class="box-theory" wx:if="{{boxSummary.theory}}">{{boxSummary.theory}}</view>
     </view>
 
 

@@ -117,54 +117,6 @@ function renderChips(cnt, style, sep) {
     .map((r) => `<span style="color:${escapeHtml(RARITY_COLOR[r])}${style}">${r}×${cnt[r]}</span>`).join(sep);
 }
 
-/* ---------------- 整盒理论参照行（汇总条，数据来自引擎 boxProfile） ---------------- */
-/* 「最高期望稀有度」候选排除低展示档：平卡/符号/特款等非划档档位不参与，按 RARITY_ORDER 取最高档 */
-const BOX_THEORY_LOW = new Set(["C", "U", "N", "●", "◆", "★", "★★", "★★★", "无标记"]);
-let _boxTheory = { key: "", line: "" };
-
-function buildBoxTheoryLine(sp, pools) {
-  const profiles = G().boxProfile(sp, pools);
-  if (!profiles.length) return "";
-  // 变体每包等概率随机落位 → 期望/出现率对变体取平均即整盒边缘值
-  const eAvg = {}, pAvg = {};
-  for (const p of profiles) {
-    for (const [r, e] of Object.entries(p.expectedCount)) eAvg[r] = (eAvg[r] || 0) + e / profiles.length;
-    for (const [r, q] of Object.entries(p.pAtLeastOne)) pAvg[r] = (pAvg[r] || 0) + q / profiles.length;
-  }
-  const keys = Object.keys(eAvg);
-  const rr = keys.reduce((a, r) => a + (RRUP_RARITIES.includes(r) ? eAvg[r] : 0), 0);
-  let line = `理论：RR+ 期望 ${rr.toFixed(1)} 张`;
-  const top = RARITY_ORDER.find((r) => r in eAvg && eAvg[r] >= 0.05 && !BOX_THEORY_LOW.has(r));
-  if (top) line += ` · ${top} 出现率 ${(pAvg[top] * 100).toFixed(1)}%`;
-  // 理论回本：每稀有度池内有价卡单价均值（无价卡剔除、池内无一有价该档不计）→ E[卡值]/盒花费
-  if (sp.priceCny && PRICE_MAP && setPriced(state.packs[0][0].setCode)) {
-    let ev = 0;
-    for (const r of keys) {
-      const prices = (pools[r] || []).map((c) => priceOf(c.setCode, c.cardIndex)).filter((p) => p != null);
-      if (prices.length) ev += eAvg[r] * (prices.reduce((a, p) => a + p, 0) / prices.length);
-    }
-    const money = sp.boxPacks * sp.priceCny;
-    if (money > 0) line += ` · 理论回本 ${Math.round((ev * sp.boxPacks / money) * 100)}%`;
-  }
-  return line;
-}
-
-/* 汇总条理论行：整盒（包数=盒规）才显示；全量规格视图（web 简表无 slots）经 DATA.calcData
- * 异步取得后构建并重渲染（键含 弹/规格/包数，翻卡期间不重复计算） */
-function boxTheoryLine() {
-  const sp = activeSpec();
-  const firstCard = state.packs[0] && state.packs[0][0];
-  if (!sp || !sp.boxPacks || !firstCard || state.packs.length !== sp.boxPacks) return "";
-  const key = `${state.current.id}|${sp.key}|${state.packs.length}`;
-  if (_boxTheory.key === key) return _boxTheory.line;
-  DATA.calcData(state.current.id).then(({ views, pools }) => {
-    const view = views.find((v) => v.key === sp.key) || sp;
-    _boxTheory = { key, line: buildBoxTheoryLine(view, pools) };
-    renderBoxSummary();
-  }).catch(() => {});
-  return "";
-}
-
 /* 当前入账规格：本次开包未结束时用开包规格，否则用面板选中规格 */
 function activeSpec() {
   return (state.pending && state.pending.spec) || state.spec;
@@ -247,8 +199,7 @@ function renderBoxSummary() {
       ${money ? `<span class="bs-stat">合计 <b>¥${fmtMoney(money)}</b></span>` : ""}
       ${valStat}
     </div>
-    <div class="box-chips">${chips}</div>
-    ${(() => { const t = boxTheoryLine(); return t ? `<div class="bs-theory">${escapeHtml(t)}</div>` : ""; })()}`;
+    <div class="box-chips">${chips}</div>`;
 }
 
 /* 页码分页：严格单行。≤PAGE_WINDOW 包全显；更多时 1 … P-1 P P+1 … N 窗口（近边界补页） */

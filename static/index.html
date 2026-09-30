@@ -112,16 +112,17 @@
             <option value="count">按获得张数</option>
             <option value="price">按价格</option>
           </select>
-          <select id="collSet"></select>
-          <label class="switch"><input type="checkbox" id="collMissing"><i></i>只看缺卡</label>
-          <button class="mini-btn" id="btnMissingImg" hidden>导出缺卡图</button>
-          <button class="mini-btn" id="btnMissingText" hidden>复制清单</button>
+          <select id="collSet" class="coll-set-select"></select>
           <button class="mini-btn" id="btnImportColl">导入 JSON</button>
           <button class="mini-btn" id="btnExportColl">导出 JSON</button>
           <button class="mini-btn danger" id="btnClearColl">清空收藏</button>
+          <label class="switch"><input type="checkbox" id="collMissing"><i></i>只看缺卡</label>
         </div>
       </div>
-      <p class="coll-hint">导入 / 导出 JSON 是收藏记录的备份通道：导出全部弹的收藏记录，导入后与现有收藏合并（同卡数量相加）。「只看缺卡」不影响这两项——它们始终作用于全部收藏；缺卡清单请用缺卡模式下的「导出缺卡图 / 复制清单」。</p>
+      <div class="coll-missing-tools">
+        <button class="mini-btn" id="btnMissingImg" disabled title="开启「只看缺卡」后可用">导出缺卡图</button>
+        <button class="mini-btn" id="btnMissingText" disabled title="开启「只看缺卡」后可用">复制清单</button>
+      </div>
       <div class="coll-summary card-glass" id="collSummary"></div>
       <div class="coll-progress" id="collProgress" hidden>
         <div class="coll-bar"><i id="collBar"></i></div>
