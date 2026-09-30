@@ -276,10 +276,65 @@
     return out;
   }
 
+  /* 分步集齐模拟（cards 模式）：collectExpectation 的等价分批形态（同种子同协议）。
+   * next() 每次只跑 batch 个试验并立即返回，UI 层在批间让出主线程（进度显示/取消）；
+   * 跑完后的 result 与 collectExpectation 同参结果完全相等（tests/test_consistency.py 锁定）。
+   * 空/全部被过滤的目标直接 finished，result 为完成率 0 口径。 */
+  function collectSimBatched(spec, pools, targets, opts) {
+    const o = Object.assign({ trials: 300, packCap: 3000, seed: 0xC011EC7, batch: 3 }, opts || {});
+    const cardList = [];
+    for (const r of Object.keys(pools)) for (const c of pools[r]) cardList.push(c);
+    const keySet = new Set(cardList.map(cardKey));
+    const rawKeys = (targets && targets.keys) || [];
+    const wantedKeys = rawKeys.filter((k) => keySet.has(k));
+    const rng = mulberry32(o.seed);
+    const done = [];
+    const aggregate = () => {
+      const completed = done.length;
+      const out = {
+        mode: "sim",
+        expectedPacks: null, medianPacks: null, p90Packs: null,
+        completedRatio: completed / o.trials,
+        packCap: o.packCap,
+        expectedSpend: null,
+        note: `仅统计 ${o.packCap} 包内集齐的试验，完成率 0.0%`,
+        filtered: rawKeys.length - wantedKeys.length,
+      };
+      if (completed) {
+        done.sort((a, b) => a - b);
+        out.expectedPacks = done.reduce((a, b) => a + b, 0) / completed;
+        out.medianPacks = done[Math.floor((completed - 1) / 2)];
+        out.p90Packs = done[Math.floor((completed - 1) * 0.9)];
+        out.expectedSpend = spec.priceCny ? out.expectedPacks * spec.priceCny : null;
+        out.note = `仅统计 ${o.packCap} 包内集齐的试验，完成率 ${(out.completedRatio * 100).toFixed(1)}%`;
+      }
+      return out;
+    };
+    return {
+      filtered: rawKeys.length - wantedKeys.length,
+      trials: o.trials,
+      next() {
+        if (wantedKeys.length) {
+          const upto = Math.min(o.trials, done.length + Math.max(1, o.batch | 0));
+          for (; done.length < upto;) {
+            const remaining = new Set(wantedKeys);
+            for (let p = 1; p <= o.packCap; p++) {
+              const pack = drawPack(cardList, pools, spec, rng);
+              for (const c of pack) remaining.delete(cardKey(c));
+              if (!remaining.size) { done.push(p); break; }
+            }
+          }
+        }
+        const finished = !wantedKeys.length || done.length >= o.trials;
+        return { finished, done: done.length, trials: o.trials, result: finished ? aggregate() : null };
+      },
+    };
+  }
+
   return {
     RARITY_ALIAS, mulberry32,
     buildPools, normalizeWeights, pickRarity, pickCard,
     drawPack, drawPacks, specProbabilities, expectedCost,
-    rarityProfile, boxProfile, collectExpectation,
+    rarityProfile, boxProfile, collectExpectation, collectSimBatched,
   };
 });

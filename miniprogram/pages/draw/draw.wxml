@@ -300,7 +300,8 @@
             <view class="picker-box {{collect.kind !== 'rarity' ? 'disabled' : ''}}">{{collectRarityNames[collect.rarityIdx] || "选择稀有度"}} ▾</view>
           </picker>
         </view>
-        <view class="prob-note" wx:if="{{collectLabel}}">{{collectLabel}}</view>
+        <view class="prob-note" wx:if="{{collectLabel && !collectRunning}}">{{collectLabel}}</view>
+        <view class="prob-note ct-cancel" wx:if="{{collectRunning}}" bindtap="cancelCollect">{{collectLabel}}</view>
         <view class="expect-table" wx:if="{{collectSpecs.length}}">
           <view class="et-row et-head"><text wx:for="{{collectHead}}" wx:key="*this">{{item}}</text></view>
           <view class="et-row" wx:for="{{collectSpecs}}" wx:for-item="r" wx:key="label">

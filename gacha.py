@@ -3,6 +3,7 @@
 import json
 import random
 from pathlib import Path
+from types import SimpleNamespace
 
 import config
 
@@ -285,6 +286,65 @@ def collect_expectation(spec: dict, pools: dict, targets: dict, opts: dict | Non
         out["expectedSpend"] = out["expectedPacks"] * spec["priceCny"] if spec.get("priceCny") else None
         out["note"] = f"仅统计 {o['packCap']} 包内集齐的试验，完成率 {out['completedRatio'] * 100:.1f}%"
     return out
+
+
+def collect_sim_batched(spec: dict, pools: dict, targets: dict, opts: dict | None = None):
+    """分步集齐模拟（cards 模式）——shared/gacha.js collectSimBatched 的镜像。
+
+    collect_expectation 的等价分批形态：next() 每次跑 batch 个试验，跑完后的 result
+    与 collect_expectation 同参结果完全相等（tests/test_consistency.py 锁定）。
+    供 UI 分批调度让出主线程（Python 服务端无 UI，按引擎双实现守则镜像）。
+    """
+    o = {"trials": 300, "packCap": 3000, "seed": 0xC011EC7, "batch": 3}
+    if opts:
+        o.update(opts)
+    variants = spec.get("variants") or [{"note": spec.get("note", ""), "slots": spec["slots"]}]
+    card_list = [c for r in pools for c in pools[r]]
+    key_set = {_card_key(c) for c in card_list}
+    raw_keys = list((targets or {}).get("keys") or [])
+    wanted_keys = [k for k in raw_keys if k in key_set]
+    rng = _Mulberry32(o["seed"])
+    done: list = []
+
+    def aggregate() -> dict:
+        completed = len(done)
+        out = {
+            "mode": "sim",
+            "expectedPacks": None, "medianPacks": None, "p90Packs": None,
+            "completedRatio": completed / o["trials"],
+            "packCap": o["packCap"],
+            "expectedSpend": None,
+            "note": f"仅统计 {o['packCap']} 包内集齐的试验，完成率 0.0%",
+            "filtered": len(raw_keys) - len(wanted_keys),
+        }
+        if completed:
+            done.sort()
+            out["expectedPacks"] = sum(done) / completed
+            out["medianPacks"] = done[(completed - 1) // 2]
+            out["p90Packs"] = done[int((completed - 1) * 0.9)]
+            out["expectedSpend"] = out["expectedPacks"] * spec["priceCny"] if spec.get("priceCny") else None
+            out["note"] = f"仅统计 {o['packCap']} 包内集齐的试验，完成率 {out['completedRatio'] * 100:.1f}%"
+        return out
+
+    def next_batch() -> dict:
+        if wanted_keys:
+            upto = min(o["trials"], len(done) + max(1, int(o["batch"])))
+            while len(done) < upto:
+                remaining = set(wanted_keys)
+                for p in range(1, o["packCap"] + 1):
+                    v = variants[int(rng.random() * len(variants))]
+                    pack = _draw_by_slots(v["slots"], "FIXTURE", spec.get("id", ""), pools, card_list, rng)
+                    for c in pack:
+                        remaining.discard(_card_key(c))
+                    if not remaining:
+                        done.append(p)
+                        break
+        finished = not wanted_keys or len(done) >= o["trials"]
+        return {"finished": finished, "done": len(done), "trials": o["trials"],
+                "result": aggregate() if finished else None}
+
+    return SimpleNamespace(filtered=len(raw_keys) - len(wanted_keys),
+                           trials=o["trials"], next=next_batch)
 
 
 def spec_probabilities(set_id: str, spec: dict) -> dict:

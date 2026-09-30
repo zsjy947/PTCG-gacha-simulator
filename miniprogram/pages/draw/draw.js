@@ -1,6 +1,7 @@
 const store = require("../../utils/store.js");
 const ui = require("../../utils/ui.js");
 const data = require("../../utils/data.js");
+const gacha = require("../../utils/gacha.js");
 const img = require("../../utils/img.js");
 
 const BOX_SIZE = 30;
@@ -37,6 +38,7 @@ Page({
     expectSpecs: [],
     expectTab: "single",
     collect: { inited: false, kind: "rarity", rarityIdx: 0, rarityOpts: [] },
+    collectRunning: false,
     collectRarityNames: [],
     collectLabel: "",
     collectHead: [],
@@ -548,6 +550,7 @@ Page({
       expectShow: true, expectTab: "single",
       expectSpecs: this.buildExpectSingleRows(cur),
       collect: { inited: false, kind: "rarity", rarityIdx: 0, rarityOpts: [] },
+      collectRunning: false,
       collectRarityNames: [], collectLabel: "", collectHead: [], collectSpecs: [], collectNote: "",
     });
   },
@@ -600,6 +603,62 @@ Page({
     if (collect.kind === "rarity") this.runCollect();
   },
 
+  applyCollectResult(label, results, simMode, extra = "") {
+    const specs = this.data.current.specs || [];
+    this.setData({
+      collectRunning: false,
+      collectLabel: label,
+      collectHead: simMode ? ["规格", "期望包数", "期望花费", "中位 / P90"] : ["规格", "期望包数", "期望花费"],
+      collectSpecs: results.map((res, i) => ({
+        label: specs[i] ? specs[i].label : "",
+        packs: res.expectedPacks != null ? res.expectedPacks.toFixed(1) + " 包" : "—",
+        money: res.expectedSpend != null ? "¥" + ui.fmtMoney(Math.round(res.expectedSpend)) : "—",
+        extra: simMode ? (res.expectedPacks != null ? `中位 ${res.medianPacks} · P90 ${res.p90Packs} 包` : "—") : "",
+      })),
+      collectNote: results[0] && results[0].note ? results[0].note + extra : "",
+    });
+  },
+
+  cancelCollect() {
+    this._ctRun = (this._ctRun || 0) + 1;
+    this.setData({
+      collectRunning: false,
+      collectLabel: "已取消计算，可重新选择目标再算。",
+      collectSpecs: [], collectNote: "",
+    });
+  },
+
+  /* 缺卡目标可能极大：按闭式估计（各目标稀有度 Tier 集齐期望包数取最大）把试验数压进
+   * 固定包数预算（只依赖目标构成、不看墙钟，同种子重复计算仍逐位一致；与 exe 端
+   * collectSimPlan 同参数）。下限 12 次保证中位/P90 可读，上限 300 保持小目标精度。 */
+  collectSimPlan(spec, targets) {
+    const BUDGET_PACKS = 8000, MIN_TRIALS = 12, MAX_TRIALS = 300;
+    let est = 0;
+    try {
+      const perRarity = {};
+      const byKey = new Map();
+      for (const c of data.cards(this.data.current.id)) byKey.set(`${c.setCode}__${c.cardIndex}`, c);
+      for (const k of (targets.keys || [])) {
+        const cd = byKey.get(k);
+        if (cd) perRarity[cd.rarity || "N"] = (perRarity[cd.rarity || "N"] || 0) + 1;
+      }
+      const sizes = Object.fromEntries(data.poolRarities(this.data.current.id).map((x) => [x.rarity, x.size]));
+      const profile = data.rarityProfile(this.data.current.id, spec)[0] || { expectedCount: {} };
+      for (const [r, n] of Object.entries(perRarity)) {
+        const poolSize = sizes[r] || 0;
+        const lambda = profile.expectedCount[r] || 0;
+        if (lambda <= 0 || !poolSize) return { trials: MIN_TRIALS, batch: 1 };
+        let h = 0;
+        for (let k = 1; k <= n; k++) h += 1 / k;
+        est = Math.max(est, (poolSize * h) / lambda);
+      }
+    } catch (e) { est = 0; }
+    const trials = est > 0
+      ? Math.max(MIN_TRIALS, Math.min(MAX_TRIALS, Math.round(BUDGET_PACKS / est)))
+      : MAX_TRIALS;
+    return { trials, batch: est > 300 ? 1 : 3 };
+  },
+
   runCollect() {
     const cur = this.data.current;
     if (!cur || !this.data.collect.inited) return;
@@ -629,33 +688,54 @@ Page({
       }
     }
     if (empty) {
-      this.setData({ collectLabel: empty, collectHead: [], collectSpecs: [], collectNote: "" });
+      this.setData({ collectRunning: false, collectLabel: empty, collectHead: [], collectSpecs: [], collectNote: "" });
       return;
     }
-    wx.showLoading({ title: "计算中…", mask: true });
-    setTimeout(() => {
-      const simMode = targets.kind === "cards";
-      const results = (cur.specs || []).map((sp) => {
-        const res = data.collectExpectation(cur.id, sp, targets, { trials: 300, packCap: 3000 });
-        return {
-          label: sp.label,
-          packs: res.expectedPacks != null ? res.expectedPacks.toFixed(1) + " 包" : "—",
-          money: res.expectedSpend != null ? "¥" + ui.fmtMoney(Math.round(res.expectedSpend)) : "—",
-          extra: simMode && res.expectedPacks != null ? `中位 ${res.medianPacks} · P90 ${res.p90Packs} 包` : "",
-          note: res.note, filtered: res.filtered,
-        };
-      });
-      const note = results.length
-        ? results[0].note + (results[0].filtered ? `（目标中 ${results[0].filtered} 张不在本弹卡表，已忽略）` : "")
-        : "";
-      wx.hideLoading();
-      this.setData({
-        collectLabel: label,
-        collectHead: simMode ? ["规格", "期望包数", "期望花费", "中位 / P90"] : ["规格", "期望包数", "期望花费"],
-        collectSpecs: results,
-        collectNote: note,
-      });
-    }, 50);
+    const simMode = targets.kind === "cards";
+    if (!simMode) {
+      // 闭式公式：毫秒级，同步算完
+      wx.showLoading({ title: "计算中…", mask: true });
+      setTimeout(() => {
+        const results = (cur.specs || []).map((sp) =>
+          data.collectExpectation(cur.id, sp, targets, { trials: 300, packCap: 3000 }));
+        wx.hideLoading();
+        this.applyCollectResult(label, results, false);
+      }, 50);
+      return;
+    }
+    /* 卡集合目标（蒙特卡洛）：引擎分批执行（collectSimBatched，与 exe 端同款），
+     * 批间让出主线程——页面不卡死；点提示文字或关闭弹窗即取消；试验数逐规格自适应 */
+    this._ctRun = (this._ctRun || 0) + 1;
+    const runId = this._ctRun;
+    const plans = (cur.specs || []).map((sp) => this.collectSimPlan(sp, targets));
+    const pools = gacha.buildPools(data.cards(cur.id));
+    const runners = (cur.specs || []).map((sp, i) =>
+      gacha.collectSimBatched(sp, pools, targets, { trials: plans[i].trials, packCap: 3000, batch: plans[i].batch }));
+    const total = runners.reduce((a, r) => a + r.trials, 0);
+    const results = [];
+    this.setData({
+      collectRunning: true,
+      collectLabel: `计算中：已算 0/${total} 次试验（点此取消）`,
+      collectHead: [], collectSpecs: [], collectNote: "",
+    });
+    const step = () => {
+      if (runId !== this._ctRun || !this.data.expectShow) return; // 已取消或弹窗已关
+      const i = results.length;
+      const r = runners[i];
+      const st = r.next();
+      if (!st.finished) {
+        const doneBase = plans.slice(0, i).reduce((a, p) => a + p.trials, 0);
+        this.setData({ collectLabel: `计算中：已算 ${doneBase + st.done}/${total} 次试验（点此取消）` });
+        setTimeout(step, 0);
+        return;
+      }
+      results.push(st.result);
+      if (results.length < runners.length) { setTimeout(step, 0); return; }
+      const parts = [`各规格模拟 ${plans.map((p) => p.trials).join("/")} 次试验`];
+      if (runners[0].filtered) parts.push(`${runners[0].filtered} 张不在本弹卡表已忽略`);
+      this.applyCollectResult(label, results, true, `（${parts.join("；")}）`);
+    };
+    setTimeout(step, 0);
   },
 
   closeProb() { this.setData({ probShow: false }); },

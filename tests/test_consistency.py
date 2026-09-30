@@ -203,6 +203,46 @@ class TestCollectParity(unittest.TestCase):
                 json.dumps(self._canon(py_s), sort_keys=True),
                 f"sim 模式同种子不一致：\n{js_s}\n{py_s}")
 
+    def test_sim_batched_runner_equivalence(self):
+        """分步运行器（UI 分批调度用）跑完与一次性 collectExpectation 完全相等（JS/Python 两端）。"""
+        sid = "CSV1C"
+        spec = config.set_specs(sid)[0]
+        cards = gacha.load_cards(sid)
+        pools = gacha.build_pools(cards)
+        with tempfile.TemporaryDirectory() as tmp:
+            cf = Path(tmp) / "cards.json"
+            sf = Path(tmp) / "spec.json"
+            cf.write_text(json.dumps(cards, ensure_ascii=False), encoding="utf-8")
+            sf.write_text(json.dumps(spec, ensure_ascii=False), encoding="utf-8")
+            targets = {"kind": "cards",
+                       "keys": [f"{c['setCode']}__{c['cardIndex']}" for c in cards[:2]]}
+            opts = {"trials": 12, "seed": 99, "packCap": 500, "batch": 3}
+            out = subprocess.run(
+                ["node", str(Path(__file__).parent / "parity_collect_batched.js"),
+                 str(cf), str(sf), json.dumps(targets), json.dumps(opts)],
+                capture_output=True, text=True, timeout=300)
+            if out.returncode != 0:
+                raise RuntimeError(f"node 分批对拍脚本失败: {out.stderr}")
+            js = json.loads(out.stdout)
+            # JS：分批跑完 == 一次性
+            self.assertEqual(json.dumps(self._canon(js["batched"]), sort_keys=True),
+                             json.dumps(self._canon(js["oneshot"]), sort_keys=True))
+            # Python：分批跑完 == 一次性
+            runner = gacha.collect_sim_batched(spec, pools, targets, opts)
+            py_batched = None
+            for _ in range(100000):
+                st = runner.next()
+                if st["finished"]:
+                    py_batched = st["result"]
+                    break
+            self.assertIsNotNone(py_batched, "Python 分步运行器未在预期步数内完成")
+            py_oneshot = gacha.collect_expectation(spec, pools, targets, opts)
+            self.assertEqual(json.dumps(self._canon(py_batched), sort_keys=True),
+                             json.dumps(self._canon(py_oneshot), sort_keys=True))
+            # 两端分步结果相等
+            self.assertEqual(json.dumps(self._canon(js["batched"]), sort_keys=True),
+                             json.dumps(self._canon(py_batched), sort_keys=True))
+
 
 def _extract_normidx_source() -> str:
     """从静态脚本中提取前端 normIdx 函数源码（R6 冻结实现；拆分后跟随文件路径更新）。"""

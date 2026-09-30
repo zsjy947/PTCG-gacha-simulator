@@ -229,38 +229,113 @@ async function renderCollectPane() {
   }
 }
 
-async function runCollect() {
-  const box = $("#ctResults");
-  if (!box) return;
-  const { views, pools } = await DATA.calcData(state.current.id);
-  const { targets, label, empty } = collectTargets(views, pools);
-  $("#ctResults").previousElementSibling.textContent = empty || label;
-  if (empty) { box.innerHTML = ""; return; }
-  box.innerHTML = `<p class="prob-note">计算中…（卡集合目标为固定种子蒙特卡洛，可能需要数秒）</p>`;
-  // 让「计算中…」先上屏再进入同步计算
-  await new Promise((r) => setTimeout(r, 30));
-  const simMode = targets.kind === "cards";
-  const rows = views.map((sp) => {
-    const res = G().collectExpectation(sp, pools, targets, { trials: 300, packCap: 3000 });
-    const packs = res.expectedPacks != null ? `${res.expectedPacks.toFixed(1)} 包` : "—";
-    const spend = res.expectedSpend != null ? `¥${fmtMoney(Math.round(res.expectedSpend))}` : "—";
-    const extra = simMode && res.expectedPacks != null
-      ? `中位 ${res.medianPacks} · P90 ${res.p90Packs} 包` : "";
-    return { sp, res, packs, spend, extra };
-  });
-  const note = rows[0] ? (rows[0].res.note || "") + (rows[0].res.filtered ? `（目标中 ${rows[0].res.filtered} 张不在本弹卡表，已忽略）` : "") : "";
-  box.innerHTML = `
+/* 缺卡目标可能极大（接近全图鉴时单试验要数千包）：按「集齐期望」闭式估计（各目标稀有度
+ * Tier 的集齐期望包数取最大）把试验数压进固定包数预算。预算只依赖目标构成（不看墙钟）
+ * ——同种子重复计算仍逐位一致；重型目标每批只跑 1 次试验，保证计算期间界面流畅可取消。
+ * 下限 12 次保证中位/P90 可读（结果注记实际次数），上限 300 保持小目标统计精度。 */
+function collectSimPlan(view, pools, targets) {
+  const BUDGET_PACKS = 8000, MIN_TRIALS = 12, MAX_TRIALS = 300;
+  let est = 0;
+  try {
+    const perRarity = {};
+    const byKey = new Map();
+    for (const r of Object.keys(pools)) for (const c of pools[r]) byKey.set(`${c.setCode}__${c.cardIndex}`, c);
+    for (const k of (targets.keys || [])) {
+      const c = byKey.get(k);
+      if (c) perRarity[c.rarity || "N"] = (perRarity[c.rarity || "N"] || 0) + 1;
+    }
+    const profile = G().rarityProfile(view, pools)[0] || { expectedCount: {} };
+    for (const [r, n] of Object.entries(perRarity)) {
+      const poolSize = (pools[r] || []).length;
+      const lambda = profile.expectedCount[r] || 0;
+      if (lambda <= 0 || !poolSize) return { trials: MIN_TRIALS, batch: 1 };
+      let h = 0;
+      for (let k = 1; k <= n; k++) h += 1 / k;
+      est = Math.max(est, (poolSize * h) / lambda);
+    }
+  } catch { est = 0; }
+  const trials = est > 0
+    ? Math.max(MIN_TRIALS, Math.min(MAX_TRIALS, Math.round(BUDGET_PACKS / est)))
+    : MAX_TRIALS;
+  return { trials, batch: est > 300 ? 1 : 3 };
+}
+
+let _ctRun = 0; // 运行号：重选目标 / 取消 / 关闭弹窗都会使在途计算失效
+
+function ctDead(runId) { return runId !== _ctRun || $("#expectOverlay").hidden; }
+
+function collectRowsHtml(views, rows, simMode, noteExtra = "") {
+  return `
     <table class="expect-table">
       <thead><tr><th>规格</th><th>期望包数</th><th>期望花费</th>${simMode ? "<th>中位 / P90</th>" : ""}</tr></thead>
       <tbody>
-        ${rows.map(({ sp, packs, spend, extra }) => `
+        ${views.map((sp, i) => {
+          const res = rows[i] || {};
+          return `
           <tr>
-            <td>${escapeHtml(sp.label)}</td><td>${packs}</td><td>${spend}</td>
-            ${simMode ? `<td>${extra || "—"}</td>` : ""}
-          </tr>`).join("")}
+            <td>${escapeHtml(sp.label)}</td>
+            <td>${res.expectedPacks != null ? `${res.expectedPacks.toFixed(1)} 包` : "—"}</td>
+            <td>${res.expectedSpend != null ? `¥${fmtMoney(Math.round(res.expectedSpend))}` : "—"}</td>
+            ${simMode ? `<td>${res.expectedPacks != null ? `中位 ${res.medianPacks} · P90 ${res.p90Packs} 包` : "—"}</td>` : ""}
+          </tr>`;
+        }).join("")}
       </tbody>
     </table>
-    ${note ? `<p class="prob-note">${escapeHtml(note)}</p>` : ""}`;
+    ${rows[0] && rows[0].note ? `<p class="prob-note">${escapeHtml(rows[0].note + noteExtra)}</p>` : ""}`;
+}
+
+async function runCollect() {
+  const box = $("#ctResults");
+  if (!box) return;
+  const runId = ++_ctRun;
+  const { views, pools } = await DATA.calcData(state.current.id);
+  if (ctDead(runId)) return;
+  const { targets, label, empty } = collectTargets(views, pools);
+  $("#ctResults").previousElementSibling.textContent = empty || label;
+  if (empty) { box.innerHTML = ""; return; }
+  const simMode = targets.kind === "cards";
+  if (!simMode) {
+    // 闭式公式：毫秒级，同步算完
+    box.innerHTML = `<p class="prob-note">计算中…</p>`;
+    await new Promise((r) => setTimeout(r, 30));
+    if (ctDead(runId)) return;
+    const rows = views.map((sp) => G().collectExpectation(sp, pools, targets, { trials: 300, packCap: 3000 }));
+    box.innerHTML = collectRowsHtml(views, rows, false);
+    return;
+  }
+  // 卡集合目标（蒙特卡洛）：引擎分批执行，批间让出主线程——页面不卡死、可取消；
+  // 试验数逐规格自适应（瘦包/肥包单试验成本差可达数倍）
+  const plans = views.map((sp) => collectSimPlan(sp, pools, targets));
+  const runners = views.map((sp, i) => G().collectSimBatched(sp, pools, targets,
+    { trials: plans[i].trials, packCap: 3000, batch: plans[i].batch }));
+  const total = runners.reduce((a, r) => a + r.trials, 0);
+  box.innerHTML = `
+    <p class="prob-note">蒙特卡洛计算中：已算 <b id="ctDone">0</b>/${total} 次试验，可随时取消。</p>
+    <div class="bs-progress" style="margin-bottom:10px"><i id="ctBar" style="width:0%"></i></div>
+    <button class="mini-btn" id="ctCancel">取消计算</button>`;
+  $("#ctCancel").addEventListener("click", () => {
+    _ctRun++;
+    box.innerHTML = `<p class="prob-note">已取消计算，可重新选择目标再算。</p>`;
+  });
+  const results = [];
+  let doneTotal = 0;
+  for (let i = 0; i < runners.length; i++) {
+    const r = runners[i];
+    for (;;) {
+      if (ctDead(runId)) return;
+      const st = r.next();
+      const dn = doneTotal + st.done;
+      const bar = $("#ctBar"), tx = $("#ctDone");
+      if (bar) bar.style.width = `${Math.round((dn / total) * 100)}%`;
+      if (tx) tx.textContent = String(dn);
+      if (st.finished) { doneTotal += r.trials; results.push(st.result); break; }
+      await new Promise((res) => setTimeout(res, 0));
+    }
+  }
+  if (ctDead(runId)) return;
+  const parts = [`各规格模拟 ${plans.map((p) => p.trials).join("/")} 次试验`];
+  if (runners[0].filtered) parts.push(`${runners[0].filtered} 张不在本弹卡表已忽略`);
+  box.innerHTML = collectRowsHtml(views, results, true, `（${parts.join("；")}）`);
 }
 
 /* ---------------- 拆卡战报图（canvas 生成，可保存/下载） ---------------- */
