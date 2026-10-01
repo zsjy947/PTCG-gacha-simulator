@@ -62,11 +62,7 @@ public class MainActivity extends Activity {
 
         webView.addJavascriptInterface(new NativeBridge(), "PTCGNative");
         // 更新包下载交给系统浏览器（WebView 自身没有下载管理）
-        webView.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) -> {
-            try {
-                startActivity(new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url)));
-            } catch (Exception ignored) {}
-        });
+        webView.setDownloadListener((url, userAgent, contentDisposition, mimeType, contentLength) -> openExternal(url));
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public WebResourceResponse shouldInterceptRequest(WebView view, WebResourceRequest request) {
@@ -101,6 +97,20 @@ public class MainActivity extends Activity {
         });
         webView.setVisibility(View.VISIBLE);
         webView.loadUrl("file:///android_asset/www/index.html");
+    }
+
+    /** 调起系统浏览器打开外链（更新包下载）：只放行 https；失败时明确提示，不再静默吞掉 */
+    private void openExternal(String url) {
+        if (url == null || !url.startsWith("https://")) return;
+        runOnUiThread(() -> {
+            try {
+                startActivity(new android.content.Intent(android.content.Intent.ACTION_VIEW, android.net.Uri.parse(url)));
+            } catch (Exception e) {
+                android.widget.Toast.makeText(this,
+                        "无法打开浏览器，请到项目主页手动下载新版本",
+                        android.widget.Toast.LENGTH_LONG).show();
+            }
+        });
     }
 
     /** 卡图请求经原生磁盘缓存：命中直接回本地文件，未命中下载后落盘再回源内容 */
@@ -250,6 +260,12 @@ public class MainActivity extends Activity {
 
     /** 设置页桥：同步调用（运行在 JavaBridge 线程，允许文件 IO） */
     private class NativeBridge {
+        /** 前端直接调起系统浏览器打开外链（更新下载等），绕开 WebView 先导航再判下载的链路 */
+        @JavascriptInterface
+        public void openUrl(String url) {
+            openExternal(url);
+        }
+
         @JavascriptInterface
         public String cacheSize() {
             return humanSize(dirSize(imgCacheDir));

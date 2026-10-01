@@ -228,8 +228,13 @@ function init() {
   $("#precacheAbort").addEventListener("click", abortPrecache);
   $("#btnGoDownload").addEventListener("click", () => {
     if (!latestDownload) return;
-    if (ASSET) location.href = latestDownload; // WebView 导航触发 DownloadListener → 系统浏览器
-    else window.open(latestDownload, "_blank");
+    if (ASSET) {
+      // 优先经原生桥直接调起系统浏览器：跳过「WebView 先导航再判下载」，GitHub 连不上时浏览器有可见错误页而非静默
+      if (nativeBridge && nativeBridge.openUrl) {
+        toast("正在打开浏览器…");
+        nativeBridge.openUrl(latestDownload);
+      } else location.href = latestDownload; // 兜底：WebView 导航触发 DownloadListener → 系统浏览器
+    } else window.open(latestDownload, "_blank");
   });
   $("#themeToggle").addEventListener("change", (e) => {
     const t = e.target.checked ? "light" : "dark";
