@@ -1,9 +1,12 @@
 name: 卡表数据同步
 
-# 每周全量同步 mik.moe 简中卡表；有变化时自动提交，供各端「数据热更新」拉取。
+# 卡表生产管线已独立至数据仓库 PTCG-card-data（其每周五 UTC 21:00 从 mik.moe 全量同步，
+# 有变化才提交并打结构 tag）。本 workflow 从数据仓库拉取最新卡表同步回本仓库 master：
+# 随仓库提交的 data/ 快照（exe 内嵌与 golden 测试依赖）由此保鲜；
+# 客户端热更新直连数据仓库镜像，不依赖本 workflow。
 on:
   schedule:
-    - cron: "0 21 * * 5"   # 每周五 UTC 21:00（北京时间周六 05:00）
+    - cron: "30 21 * * 5"   # 每周五 UTC 21:30（数据仓库同步半小时后，减少拉空）
   workflow_dispatch:
 
 permissions:
@@ -14,22 +17,26 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
-      - run: pip install requests
-      - name: 全量同步卡表
-        run: python fetch_data.py --force
-      - name: 数据完整性校验（不通过则不提交）
-        run: python tools/verify_data.py
-      - name: 有变化才提交
+      - name: 从数据仓库拉取最新卡表快照
+        run: |
+          git clone --depth 1 https://github.com/zsjy947/PTCG-card-data.git /tmp/card-data
+          rm -rf data/cards
+          cp -r /tmp/card-data/data/cards data/cards
+          cp /tmp/card-data/data/sets_index.json /tmp/card-data/data/manifest.json /tmp/card-data/data/waves_151.json data/
+      - name: 有变化才提交（golden 快照随数据重生成）
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/
+          if ! git diff --cached --quiet; then
+            # data/manifest.json 是 /api/data-manifest golden 快照的数据源，随数据一并重生成
+            pip install flask pillow requests
+            PTCG_UPDATE_GOLDEN=1 python -m unittest tests.test_api_golden
+            git add tests/golden/
+          fi
           if git diff --cached --quiet; then
-            echo "卡表无变化"
+            echo "卡表快照已同步"
           else
-            git commit -m "卡表数据自动同步（fetch_data --force）"
+            git commit -m "chore: card-table snapshot sync from data repo"
             git push
           fi
