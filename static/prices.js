@@ -30,8 +30,7 @@ function applyPriceSnapshot(snap) {
   PRICE_SETS.clear();
   for (const k of Object.keys(PRICE_MAP)) PRICE_SETS.add(k.split("__", 1)[0]);
   // 快照晚于首屏渲染到达时，刷新正在显示的收藏册（卡牌总价/价格排序）
-  if (document.querySelector(".tab.active")?.dataset.tab === "collection") renderCollection();
-  renderPriceStats();
+  if (/** @type {HTMLElement} */ (document.querySelector(".tab.active"))?.dataset.tab === "collection") renderCollection();  renderPriceStats();
 }
 
 /* 数据源上的每周快照（.github/workflows/update-prices.yml 同步）：逐源取 prices/index.json，

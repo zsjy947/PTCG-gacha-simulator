@@ -43,7 +43,7 @@ function setUpdateUI(text, downloadUrl) {
 
 /* 轻提示：自动消失，用于更新检查等操作的明确反馈 */
 function toast(msg, ms = 2400) {
-  let t = document.querySelector("#toast");
+  let t = /** @type {HTMLElement} */ (document.querySelector("#toast"));
   if (!t) {
     t = document.createElement("div");
     t.id = "toast";
@@ -53,8 +53,8 @@ function toast(msg, ms = 2400) {
   // 触发重绘以重播过渡动画
   void t.offsetWidth;
   t.classList.add("show");
-  clearTimeout(toast._h);
-  toast._h = setTimeout(() => t.classList.remove("show"), ms);
+  clearTimeout(/** @type {any} */ (toast)._h);
+  /** @type {any} */ (toast)._h = setTimeout(() => t.classList.remove("show"), ms);
 }
 
 async function checkUpdate(manual) {

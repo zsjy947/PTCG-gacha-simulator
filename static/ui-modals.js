@@ -183,9 +183,11 @@ async function showExpectedCost() {
 /* 「集齐」页签：目标三选一 → 逐规格期望包数/花费（稀有度闭式公式，卡集合蒙特卡洛） */
 let _collectBuilt = false;
 
+/* targets 形状声明见 shared/gacha.d.ts（Targets） */
+/** @returns {{ targets?: import("../shared/gacha").Targets, label?: string, empty?: string }} */
 function collectTargets(views, pools) {
   const sel = $("#ctRarity");
-  const kind = document.querySelector('#expectBody input[name="ct"]:checked')?.value || "rarity";
+  const kind = /** @type {HTMLInputElement} */ (document.querySelector('#expectBody input[name="ct"]:checked'))?.value || "rarity";
   if (kind === "rrup") {
     const rs = RRUP_RARITIES.filter((r) => pools[r]);
     return { targets: { kind: "rarity", rarities: rs }, label: `集齐 RR+ 及以上（${rs.length} 档全部卡）` };
