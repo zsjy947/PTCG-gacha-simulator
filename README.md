@@ -244,12 +244,20 @@ PTCG/
 - 首个公开版本：131 弹简中卡表、商品线分类、官方规格拆卡与划档概率公示、收藏册/卡表、Windows exe 与安卓 APK 双端
 
 </details>
-## 声明
+## 声明（许可与数据边界）
 
-- 代码以 MIT 发布；卡表源数据独立开源至 [PTCG-card-data](https://github.com/zsjy947/PTCG-card-data)
-  （CC0 1.0）。卡价行情不在开源范围（pricetool 与 `data/prices/` 留在本仓库）。
-- 卡表数据与卡图来自公开网络（mik.moe），仅供学习交流与个人娱乐。
-- 宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。
+- **代码**：本仓库代码以 [MIT License](LICENSE) 发布。
+- **卡表数据**：卡表源数据（弹索引、卡牌元数据、数据清单）独立开源至
+  [PTCG-card-data](https://github.com/zsjy947/PTCG-card-data)，以 CC0 1.0 发布；
+  该仓库的许可仅覆盖其自身的整理与格式工作，不含上游内容的权利。
+- **卡价行情**：不在开源范围——pricetool 与 `data/prices/` 快照留在本仓库，仅随程序分发。
+- **图源与详情文本**：卡牌图片与效果文本不在任何仓库内分发，运行时从 mik.moe
+  实时获取并本地缓存。
+- **商标**：宝可梦（Pokémon）及相关名称为 Nintendo / Creatures / GAME FREAK /
+  The Pokémon Company 的商标；本项目与官方无任何关联。
+- **概率模型**：官方未公布逐卡出货率，划档概率为推测模型、非官方公示数据；
+  「概率公示」页面展示的即为该模型的完整口径。
+- 本项目仅供学习交流与个人娱乐。
 
 ## 微信小程序（archived/miniapp 分支，暂停开发）
 
