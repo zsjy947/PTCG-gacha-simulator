@@ -66,8 +66,10 @@ python app.py
 
 ## 数据来源
 
-- 卡表 / 卡牌详情 / 卡图：[Cryst's Cards Database（tcg.mik.moe）](https://tcg.mik.moe/)公开数据
-  （由 `fetch_data.py` 同步卡表到本地；卡图经 `/img` 代理按需下载缓存）。
+- 卡表 / 卡牌详情 / 卡图：[Cryst's Cards Database（tcg.mik.moe）](https://tcg.mik.moe/)公开数据。
+  卡表源数据已独立开源：[PTCG-card-data](https://github.com/zsjy947/PTCG-card-data)（CC0 1.0，
+  由其每周 workflow 自动抓取 mik.moe 并同步回本仓库 `data/` 快照；主仓库的 `fetch_data.py`
+  保留为本地开发用途）。卡图经 `/img` 代理按需下载缓存。
 - 选择原因：简中官方卡表仅在微信小程序内（接口加密）；TCGdex 简中只有弹级元数据、
   无卡级数据与卡图；mik.moe 为简中社区维护的公开数据库（含简中卡图）。
 
@@ -79,7 +81,7 @@ PTCG/
 ├─ gacha.py            # Python 拆卡引擎（服务端用；与 shared/gacha.js 同种子对拍）
 ├─ shared/gacha.js     # JS 拆卡引擎（唯一权威实现：exe / APK / 小程序三端共用）
 ├─ config.py           # 各弹规格映射与划档概率配置
-├─ fetch_data.py       # 从 mik.moe 同步各弹卡表 + 生成数据清单 manifest.json
+├─ fetch_data.py       # 从 mik.moe 同步各弹卡表（本地开发用；生产管线已独立至 PTCG-card-data 数据仓库）
 ├─ build_exe.bat       # 一键打包 exe
 ├─ tests/              # 引擎一致性测试（Python↔JS 同种子对拍 + 统计落位）
 ├─ static/             # 前端（index.html / style.css / app.js）
@@ -112,6 +114,16 @@ PTCG/
 ## 更新记录
 
 <details open>
+<summary><b>v1.3.2</b></summary>
+
+**卡表数据独立开源**
+- 卡表源数据独立开源至数据仓库 [PTCG-card-data](https://github.com/zsjy947/PTCG-card-data)（CC0 1.0：弹索引 + 各弹卡牌元数据 + 数据清单，不含卡牌效果文本与卡图，每周自动同步）
+- 客户端「卡表数据更新」优先走数据仓库双镜像（jsDelivr / raw），原仓库镜像保留为回退（兼容期一个版本后评估移除）
+- 卡价行情不在开源范围（仍在本仓库，每周快照热更新不变）
+
+</details>
+
+<details>
 <summary><b>v1.3.1</b></summary>
 
 **概率透明度与收藏工具（整盒理论 · 实测对照 · 集齐期望 · 缺卡导出 · 卡图预缓存）**
@@ -234,8 +246,10 @@ PTCG/
 </details>
 ## 声明
 
-卡表数据与卡图来自公开网络，仅供学习交流与个人娱乐。
-宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。
+- 代码以 MIT 发布；卡表源数据独立开源至 [PTCG-card-data](https://github.com/zsjy947/PTCG-card-data)
+  （CC0 1.0）。卡价行情不在开源范围（pricetool 与 `data/prices/` 留在本仓库）。
+- 卡表数据与卡图来自公开网络（mik.moe），仅供学习交流与个人娱乐。
+- 宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。
 
 ## 微信小程序（archived/miniapp 分支，暂停开发）
 
