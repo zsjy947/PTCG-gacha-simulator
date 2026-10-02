@@ -237,7 +237,9 @@ PTCG/
 卡表数据与卡图来自公开网络，仅供学习交流与个人娱乐。
 宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。
 
-## 微信小程序（wechat-miniapp 分支）
+## 微信小程序（archived/miniapp 分支，暂停开发）
+
+**状态：暂停开发**——合规上线路径（类目/ICP/商标词）未走通，分支归档保留、代码不再投入。
 
 在本分支上，同一套引擎与卡表被移植为微信小程序（`miniprogram/`，原生 WXML，无第三方框架）：
 
@@ -254,17 +256,17 @@ python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡�
 # 微信开发者工具导入 miniprogram/ 目录即可预览
 ```
 
-**上线前必读**：[docs/MINIPROGRAM-LAUNCH.md](https://github.com/zsjy947/PTCG-gacha-simulator/blob/wechat-miniapp/docs/MINIPROGRAM-LAUNCH.md)（wechat-miniapp 分支）——
+**上线前必读**：[docs/MINIPROGRAM-LAUNCH.md](https://github.com/zsjy947/PTCG-gacha-simulator/blob/archived/miniapp/docs/MINIPROGRAM-LAUNCH.md)（archived/miniapp 分支）——
 类目选择（工具类，勿选游戏）、小程序 ICP 备案、商标词规避、域名白名单、隐私保护指引等完整清单。
 
-## 安卓 APK（android-apk 分支）
+## 安卓 APK（feat/android 分支）
 
-在 `android-apk` 分支上，同一套前端被改造成纯资产模式（无 Python 后端）：
+在 `feat/android` 分支上，同一套前端被改造成纯资产模式（无 Python 后端）：
 卡表/弹索引内嵌进 APK，拆卡引擎（规格/变体/划档概率）移植为 JS 本地运行，
 卡牌牌面由 WebView 直连 mik.moe 图源在线加载。
 
 ```bash
-git checkout android-apk
+git checkout feat/android
 python android/build_assets.py    # 生成 android/app/src/main/assets/www/
 python android/build_apk.py       # 产出 dist/PTCG拆卡模拟器.apk
 ```
@@ -277,3 +279,7 @@ python android/build_apk.py       # 产出 dist/PTCG拆卡模拟器.apk
   `keystore.properties`），两者均被 .gitignore 排除、永不入库；也可用环境变量
   `PTCG_KEYSTORE_PASS` 指定口令。注意：更换密钥后已安装的旧 APK 需卸载重装。
 - 系统要求：Android 7.0+（WebView 内核，建议系统 WebView 保持更新）。
+
+## 许可
+
+代码以 [MIT License](LICENSE) 发布；卡表与卡价数据的来源及使用边界见上方「声明」。

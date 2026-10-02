@@ -13,7 +13,7 @@
                       ▲            ▲             ▲
         ┌─────────────┘            │             └──────────────┐
         │                          │                            │
-  Windows exe                 安卓 APK（android-apk 分支）   微信小程序
+  Windows exe                 安卓 APK（feat/android 分支）  微信小程序
   Flask 本地服务 + 浏览器       WebView 纯资产模式（无后端）    原生 WXML（无后端）
   static/ 前端 + server/ 包    www/ 资产 + JS 桥              miniprogram/
         │                          │                            │
@@ -52,7 +52,11 @@ PTCG/
 导出面：`mulberry32(seed)`（种子随机数）、`buildPools(cards)`（按稀有度分池）、
 `drawPack / drawPacks`（按规格抽包，规格含封入变体时每包随机落位、包内去重）、
 `specProbabilities(spec, pools)`（概率公示数据）、`expectedCost(spec, pools)`
-（单卡期望：`anyPacks = 1/pPack`，`cardPacks ≈ anyPacks × 池大小`）。
+（单卡期望：`anyPacks = 1/pPack`，`cardPacks ≈ anyPacks × 池大小`）、
+`rarityProfile / boxProfile`（单包/整盒稀有度画像：期望张数与出现率，确定性无随机数，
+v1.3.x）、`collectExpectation`（集齐期望：稀有度级闭式 `n·H_n/λ` 或卡集合固定种子
+蒙特卡洛，v1.3.x）、`collectSimBatched`（上者的分批等价形态，前端分批执行防阻塞，
+`test_consistency.py` 锁定分批跑完与全量同参结果完全相等）。
 引入方式：exe 经 `/static/gacha.js` 同源分发；APK 内嵌资产；小程序 CommonJS 引入。
 
 ### 概率模型（config.py，划档免责）
@@ -100,7 +104,8 @@ PTCG/
   420ms；稀有度爆闪 1100ms；图片重试 800/2000ms；再来一次 250ms；历史上限 30；
   翻页窗口 7；卡表增量渲染 120 张/批。CSS 动画参数（flip `.6s cubic-bezier(.3,1.3,.4,1)` 等）冻结。
 - **存储键（R2）**：`ptcg_theme / stats / coll / history / spend / spend_enabled /
-  autoflip / datasrc / data_applied`；`datacard_*`（热更新卡表）不带前缀、不镜像磁盘。
+  autoflip / datasrc / data_applied`；`datacard_*`（热更新卡表）与 `imgcache_<set>`
+  （按弹预缓存标记：日期/张数/是否含原图）不带前缀、不镜像磁盘。
   新增持久化键必须 `ptcg_` 前缀并经 `store.js` 封装。
 
 ## 六、数据管线
@@ -118,7 +123,7 @@ PTCG/
 
 - **exe**：`build_exe.bat` → PyInstaller（入口 app.py，自动分析 server/ 本地导入）。
   运行时数据缓存在 `%LOCALAPPDATA%\PTCGGacha`。
-- **APK**（android-apk 分支）：`android/build_assets.py` 按 index.html 引用清单把前端 +
+- **APK**（feat/android 分支）：`android/build_assets.py` 按 index.html 引用清单把前端 +
   内嵌数据打包为 WebView 资产（注入 `__ASSET_MODE__`、版本号）；`android/build_apk.py`
   无 Gradle 构建（aapt2 → javac → d8 → zipalign → apksigner）。工具链用系统级安装：
   `JAVA_HOME`（JDK 17，缺省 `D:\Tools\jdk-17`）+ `ANDROID_HOME`（缺省
@@ -127,17 +132,18 @@ PTCG/
   `PTCG_KEYSTORE_PASS`；更换密钥后旧 APK 需卸载重装。
 - **小程序**：`tools/build_miniprogram.py` 把 `data/` 裁剪为最小字段内嵌 `cards.js`
   （~1MB，主包 2MB 限制内）；拆卡引擎 CommonJS 引入；图源 `<image>` 直连不占域名白名单。
-  上线清单见 wechat-miniapp 分支 `docs/MINIPROGRAM-LAUNCH.md`（仅该分支追踪）。
+  上线清单见 archived/miniapp 分支 `docs/MINIPROGRAM-LAUNCH.md`（仅该分支追踪，暂停开发）。
 
 ## 八、测试与 CI
 
 | 文件 | 职责 |
 | --- | --- |
-| `tests/test_engine.py` | 引擎单测：同种子对拍（Python↔Node 经 `parity_node.js`）、统计落位、包内去重 |
+| `tests/test_engine.py` | 引擎单测：同种子对拍（Python↔Node：`parity_node.js` / `parity_profile.js` / `parity_collect.js` / `parity_collect_batched.js`）、统计落位、包内去重、集齐期望闭式↔模拟互验、rarityProfile 统计性收敛断言（固定种子，15% 相对界 + 噪声下限） |
 | `tests/test_consistency.py` | 跨实现一致性：稀有度色板、normIdx 三镜像、atomic_write/_md5 双实现、GROUP_ORDER 前端副本、spec_brief 三平台等价 |
 | `tests/test_api_golden.py` | Flask test_client 对确定性端点做 JSON 快照断言（`tests/golden/`） |
 | `tests/test_edge_matrix.py` | 边界异常矩阵：非法 set id、packs 边界、非法 store 体、缺文件、详情未命中——错误码与文案逐字断言 |
 | `tests/test_rarity_reach.py` | 稀有度可达性守卫：全弹全稀有度理论可达（收藏 100% 红线） |
+| `tests/test_missing_list.py` | 缺卡清单文本纯函数对拍（Python 镜像实现）：空缺卡 / 全缺 / >60 张分页标注 |
 | `pricetool/tests/` | pricetool 单测（31 项） |
 
 CI（`.github/workflows/ci.yml`）：全分支 push/PR → `python -m unittest discover -s tests`
@@ -216,6 +222,8 @@ CI（`.github/workflows/ci.yml`）：全分支 push/PR → `python -m unittest d
   spec_brief 三平台（BE-009）、normIdx 三镜像（BE-018）、稀有度色板三副本（FE-004）。
 - **工程增强**：requirements.txt（BE-015）、CI 接入 pricetool 测试（BE-014）、
   README API 清单补全至 17 路由（BE-016）、config.py 四节归组（BE-006）。
+- **v1.3.x 闭环**：FE-019（web 模式期望弹窗 `_spec_brief` 缺 slots 报错）随集齐期望
+  上线修复——期望计算改经 `/api/sets/<id>/probabilities` 取全量规格视图，两模式结果一致。
 
 ### 留档保留项（有意不做，勿当缺陷重复上报）
 | 项 | 理由 |
@@ -228,7 +236,6 @@ CI（`.github/workflows/ci.yml`）：全分支 push/PR → `python -m unittest d
 | BE-029 锁膨胀/导入无白名单/无 CSP | CSP 与内联 onerror 契约冲突（FE-016 同源） |
 | PR-002 print 而非 logging | 输出格式契约（R7） |
 | FE-012 未知稀有度触发爆闪 / FE-013 style.display 混用 / FE-015 历史 30 条静默截断 | 用户可见行为，保持不变 |
-| FE-019 web 模式期望成本弹窗报错（_spec_brief 不含 slots） | 基线即如此；修复需改接口形状。**F1 任务（见 PLAN）实现时应顺带解决** |
 
 ### 性能基线（Flask test_client，Windows / Python 3.10）
 500 次连续 `/api/draw`：~4.1–4.7ms/次；200 次 `/img` 缓存命中：~3.7–4.1ms/次；
@@ -242,7 +249,8 @@ CI（`.github/workflows/ci.yml`）：全分支 push/PR → `python -m unittest d
 - **工作文档不入库**：执行计划、临时方案等一律本地留存（如 `docs/PLAN.md`），
   不提交、不写 .gitignore（避免掩盖同类本地文档），文档头部自行注明"不入库"。
 - **分支特例**：`docs/MINIPROGRAM-LAUNCH.md`（小程序上线清单，原中文名文档已改标准名）
-  仅在 `wechat-miniapp` 分支追踪；`dev`/`master`/`android-apk` 分支不保留。
+  仅在 `archived/miniapp` 分支追踪（2026-10-02 由 `wechat-miniapp` 更名，暂停开发）；
+  `dev`/`master`/`feat/android` 分支不保留。
 - 历史文档处置记录：`docs/重构与全量审查计划.md` 与 `docs/refactor/`（CONTRACT/
   LEDGER/REVIEW_REPORT/TEST_REPORT 及基线数据）已检查并将修改记录沉淀进本文「十」，
   从 git 移除（2026-09）。
