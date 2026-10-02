@@ -106,8 +106,13 @@ const DATA = {
 
 /* ---------------- 卡表数据热更新 ---------------- */
 /* 默认源依次尝试：jsDelivr CDN（国内一般可达）→ GitHub raw（常需代理）。
+ * 卡表数据已独立开源至数据仓库 PTCG-card-data（CC0，见 README「声明」）：其两路镜像
+ * 排在最前；本仓库两路保留为兼容期回退（一个版本后评估移除）。卡价快照不在数据
+ * 仓库范围（checkPriceUpdate 逐源尝试 /prices/index.json，数据仓库 404 后自然落到本仓库）。
  * 数据随仓库发布：卡表提交合并到 master 并推送后即可拉到（CDN 对分支引用有数小时缓存）。 */
 const DATA_SOURCES = [
+  "https://cdn.jsdelivr.net/gh/zsjy947/PTCG-card-data@master/data",
+  "https://raw.githubusercontent.com/zsjy947/PTCG-card-data/master/data",
   "https://cdn.jsdelivr.net/gh/zsjy947/PTCG-gacha-simulator@master/data",
   "https://raw.githubusercontent.com/zsjy947/PTCG-gacha-simulator/master/data",
 ];
