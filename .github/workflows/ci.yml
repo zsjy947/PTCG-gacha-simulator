@@ -23,3 +23,5 @@ jobs:
         run: python -m unittest discover -s tests -v
       - name: pricetool 单元测试（价格口径/匹配/过滤/估值）
         run: python -m unittest discover -s pricetool/tests -v
+      - name: 前端类型检查（shared/gacha.d.ts 外挂 + static/*.js checkJs）
+        run: npm ci && npm run typecheck

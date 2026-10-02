@@ -29,3 +29,6 @@ data/prices/*
 # 引擎对拍临时文件
 tests/_tmp_parity/
 .zcode/
+
+# 前端类型检查工具链（T1 C 档：gacha.d.ts 外挂 + checkJs）
+node_modules/

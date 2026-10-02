@@ -66,8 +66,10 @@ python app.py
 
 ## 数据来源
 
-- 卡表 / 卡牌详情 / 卡图：[Cryst's Cards Database（tcg.mik.moe）](https://tcg.mik.moe/)公开数据
-  （由 `fetch_data.py` 同步卡表到本地；卡图经 `/img` 代理按需下载缓存）。
+- 卡表 / 卡牌详情 / 卡图：[Cryst's Cards Database（tcg.mik.moe）](https://tcg.mik.moe/)公开数据。
+  卡表源数据已独立开源：[PTCG-card-data](https://github.com/zsjy947/PTCG-card-data)（CC0 1.0，
+  由其每周 workflow 自动抓取 mik.moe 并同步回本仓库 `data/` 快照；主仓库的 `fetch_data.py`
+  保留为本地开发用途）。卡图经 `/img` 代理按需下载缓存。
 - 选择原因：简中官方卡表仅在微信小程序内（接口加密）；TCGdex 简中只有弹级元数据、
   无卡级数据与卡图；mik.moe 为简中社区维护的公开数据库（含简中卡图）。
 
@@ -79,7 +81,7 @@ PTCG/
 ├─ gacha.py            # Python 拆卡引擎（服务端用；与 shared/gacha.js 同种子对拍）
 ├─ shared/gacha.js     # JS 拆卡引擎（唯一权威实现：exe / APK / 小程序三端共用）
 ├─ config.py           # 各弹规格映射与划档概率配置
-├─ fetch_data.py       # 从 mik.moe 同步各弹卡表 + 生成数据清单 manifest.json
+├─ fetch_data.py       # 从 mik.moe 同步各弹卡表（本地开发用；生产管线已独立至 PTCG-card-data 数据仓库）
 ├─ build_exe.bat       # 一键打包 exe
 ├─ tests/              # 引擎一致性测试（Python↔JS 同种子对拍 + 统计落位）
 ├─ static/             # 前端（index.html / style.css / app.js）
@@ -112,6 +114,16 @@ PTCG/
 ## 更新记录
 
 <details open>
+<summary><b>v1.3.2</b></summary>
+
+**卡表数据独立开源**
+- 卡表源数据独立开源至数据仓库 [PTCG-card-data](https://github.com/zsjy947/PTCG-card-data)（CC0 1.0：弹索引 + 各弹卡牌元数据 + 数据清单，不含卡牌效果文本与卡图，每周自动同步）
+- 客户端「卡表数据更新」优先走数据仓库双镜像（jsDelivr / raw），原仓库镜像保留为回退（兼容期一个版本后评估移除）
+- 卡价行情不在开源范围（仍在本仓库，每周快照热更新不变）
+
+</details>
+
+<details>
 <summary><b>v1.3.1</b></summary>
 
 **概率透明度与收藏工具（整盒理论 · 实测对照 · 集齐期望 · 缺卡导出 · 卡图预缓存）**
@@ -232,12 +244,24 @@ PTCG/
 - 首个公开版本：131 弹简中卡表、商品线分类、官方规格拆卡与划档概率公示、收藏册/卡表、Windows exe 与安卓 APK 双端
 
 </details>
-## 声明
+## 声明（许可与数据边界）
 
-卡表数据与卡图来自公开网络，仅供学习交流与个人娱乐。
-宝可梦及相关名称为 Nintendo / Creatures / GAME FREAK / The Pokémon Company 的商标。
+- **代码**：本仓库代码以 [MIT License](LICENSE) 发布。
+- **卡表数据**：卡表源数据（弹索引、卡牌元数据、数据清单）独立开源至
+  [PTCG-card-data](https://github.com/zsjy947/PTCG-card-data)，以 CC0 1.0 发布；
+  该仓库的许可仅覆盖其自身的整理与格式工作，不含上游内容的权利。
+- **卡价行情**：不在开源范围——pricetool 与 `data/prices/` 快照留在本仓库，仅随程序分发。
+- **图源与详情文本**：卡牌图片与效果文本不在任何仓库内分发，运行时从 mik.moe
+  实时获取并本地缓存。
+- **商标**：宝可梦（Pokémon）及相关名称为 Nintendo / Creatures / GAME FREAK /
+  The Pokémon Company 的商标；本项目与官方无任何关联。
+- **概率模型**：官方未公布逐卡出货率，划档概率为推测模型、非官方公示数据；
+  「概率公示」页面展示的即为该模型的完整口径。
+- 本项目仅供学习交流与个人娱乐。
 
-## 微信小程序（wechat-miniapp 分支）
+## 微信小程序（archived/miniapp 分支，暂停开发）
+
+**状态：暂停开发**——合规上线路径（类目/ICP/商标词）未走通，分支归档保留、代码不再投入。
 
 在本分支上，同一套引擎与卡表被移植为微信小程序（`miniprogram/`，原生 WXML，无第三方框架）：
 
@@ -254,17 +278,17 @@ python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡�
 # 微信开发者工具导入 miniprogram/ 目录即可预览
 ```
 
-**上线前必读**：[docs/MINIPROGRAM-LAUNCH.md](https://github.com/zsjy947/PTCG-gacha-simulator/blob/wechat-miniapp/docs/MINIPROGRAM-LAUNCH.md)（wechat-miniapp 分支）——
+**上线前必读**：[docs/MINIPROGRAM-LAUNCH.md](https://github.com/zsjy947/PTCG-gacha-simulator/blob/archived/miniapp/docs/MINIPROGRAM-LAUNCH.md)（archived/miniapp 分支）——
 类目选择（工具类，勿选游戏）、小程序 ICP 备案、商标词规避、域名白名单、隐私保护指引等完整清单。
 
-## 安卓 APK（android-apk 分支）
+## 安卓 APK（feat/android 分支）
 
-在 `android-apk` 分支上，同一套前端被改造成纯资产模式（无 Python 后端）：
+在 `feat/android` 分支上，同一套前端被改造成纯资产模式（无 Python 后端）：
 卡表/弹索引内嵌进 APK，拆卡引擎（规格/变体/划档概率）移植为 JS 本地运行，
 卡牌牌面由 WebView 直连 mik.moe 图源在线加载。
 
 ```bash
-git checkout android-apk
+git checkout feat/android
 python android/build_assets.py    # 生成 android/app/src/main/assets/www/
 python android/build_apk.py       # 产出 dist/PTCG拆卡模拟器.apk
 ```
@@ -277,3 +301,7 @@ python android/build_apk.py       # 产出 dist/PTCG拆卡模拟器.apk
   `keystore.properties`），两者均被 .gitignore 排除、永不入库；也可用环境变量
   `PTCG_KEYSTORE_PASS` 指定口令。注意：更换密钥后已安装的旧 APK 需卸载重装。
 - 系统要求：Android 7.0+（WebView 内核，建议系统 WebView 保持更新）。
+
+## 许可
+
+代码以 [MIT License](LICENSE) 发布；卡表与卡价数据的来源及使用边界见上方「声明」。

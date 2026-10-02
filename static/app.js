@@ -43,7 +43,7 @@ function setUpdateUI(text, downloadUrl) {
 
 /* 轻提示：自动消失，用于更新检查等操作的明确反馈 */
 function toast(msg, ms = 2400) {
-  let t = document.querySelector("#toast");
+  let t = /** @type {HTMLElement} */ (document.querySelector("#toast"));
   if (!t) {
     t = document.createElement("div");
     t.id = "toast";
@@ -53,8 +53,8 @@ function toast(msg, ms = 2400) {
   // 触发重绘以重播过渡动画
   void t.offsetWidth;
   t.classList.add("show");
-  clearTimeout(toast._h);
-  toast._h = setTimeout(() => t.classList.remove("show"), ms);
+  clearTimeout(/** @type {any} */ (toast)._h);
+  /** @type {any} */ (toast)._h = setTimeout(() => t.classList.remove("show"), ms);
 }
 
 async function checkUpdate(manual) {
@@ -228,8 +228,13 @@ function init() {
   $("#precacheAbort").addEventListener("click", abortPrecache);
   $("#btnGoDownload").addEventListener("click", () => {
     if (!latestDownload) return;
-    if (ASSET) location.href = latestDownload; // WebView 导航触发 DownloadListener → 系统浏览器
-    else window.open(latestDownload, "_blank");
+    if (ASSET) {
+      // 优先经原生桥直接调起系统浏览器：跳过「WebView 先导航再判下载」，GitHub 连不上时浏览器有可见错误页而非静默
+      if (nativeBridge && nativeBridge.openUrl) {
+        toast("正在打开浏览器…");
+        nativeBridge.openUrl(latestDownload);
+      } else location.href = latestDownload; // 兜底：WebView 导航触发 DownloadListener → 系统浏览器
+    } else window.open(latestDownload, "_blank");
   });
   $("#themeToggle").addEventListener("change", (e) => {
     const t = e.target.checked ? "light" : "dark";
