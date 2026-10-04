@@ -280,6 +280,12 @@ async function renderCollection() {
 
 function exportCollection() {
   const data = JSON.stringify(getColl(), null, 1);
+  /* APK 端 WebView 无 blob 下载能力：经 PTCGNative 桥落盘（与战报/缺卡图同链路） */
+  if (nativeBridge && nativeBridge.saveText) {
+    const path = nativeBridge.saveText(`PTCG收藏册_${Date.now()}.json`, data);
+    toast(path ? `已保存到：${path}` : "导出失败（写入被拒绝）", 3600);
+    return;
+  }
   const blob = new Blob([data], { type: "application/json" });
   const a = document.createElement("a");
   a.href = URL.createObjectURL(blob);

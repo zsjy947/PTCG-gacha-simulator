@@ -333,6 +333,25 @@ public class MainActivity extends Activity {
                 return "";
             }
         }
+
+        /** 收藏册 JSON 导出：文本落盘到应用外部文档目录（WebView 内无 blob 下载能力），返回绝对路径 */
+        @JavascriptInterface
+        public String saveText(String filename, String text) {
+            try {
+                File dir = getExternalFilesDir(android.os.Environment.DIRECTORY_DOCUMENTS);
+                if (dir == null) dir = getFilesDir();
+                //noinspection ResultOfMethodCallIgnored
+                dir.mkdirs();
+                String safe = filename.replaceAll("[\\\\/:*?\"<>|]", "_");
+                File out = new File(dir, safe);
+                FileOutputStream fo = new FileOutputStream(out);
+                fo.write(text.getBytes("UTF-8"));
+                fo.close();
+                return out.getAbsolutePath();
+            } catch (Exception e) {
+                return "";
+            }
+        }
     }
 
     @Override
