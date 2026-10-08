@@ -36,6 +36,13 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add data/prices/index.json
+          if ! git diff --cached --quiet; then
+            # prices_meta golden 快照随快照重生成（与 update-data.yml 同口径），
+            # 否则快照一变 CI 的 golden 断言即过期（bot 推送不触发 CI，漂移难以察觉）
+            pip install flask pillow requests
+            PTCG_UPDATE_GOLDEN=1 python -m unittest tests.test_api_golden
+            git add tests/golden/
+          fi
           if git diff --cached --quiet; then
             echo "卡价快照无变化，跳过提交"
           else
