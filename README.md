@@ -285,9 +285,12 @@ python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡�
 
 ```bash
 git checkout feat/android
-python android/build_assets.py    # 生成 android/app/src/main/assets/www/
-python android/build_apk.py       # 产出 dist/PTCG拆卡模拟器.apk
+python android/build_apk.py       # 自动重建资产并打包 dist/PTCG拆卡模拟器_v{版本}.apk
 ```
+
+- build_apk.py 每次构建前强制重跑 build_assets.py（WebView 资产与代码同源），
+  并校验 APK badging 与内嵌 `__APP_VERSION__` 都等于 version.py——保证安装包
+  文件名、包内 Manifest 与应用内显示的版本三者一致。
 
 - 构建链：aapt2 → javac → d8 → zipalign → apksigner（不依赖 Gradle/AGP）。
 - 工具链用系统级安装：脚本读取 `JAVA_HOME`（JDK 17，缺省 `D:\Tools\jdk-17`）

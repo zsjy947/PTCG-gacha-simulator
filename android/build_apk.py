@@ -2,8 +2,8 @@
 """不依赖 Gradle 的安卓 APK 构建脚本（aapt2 + javac + d8 + zipalign + apksigner）。
 
 用法：
-    python android/build_assets.py   # 先生成 WebView 资产
-    python android/build_apk.py      # 构建 dist/宝可梦卡牌抽卡.apk
+    python android/build_apk.py      # 构建 dist/PTCG拆卡模拟器_v{版本}.apk
+                                     # （WebView 资产由本脚本自动重建，无需先跑 build_assets.py）
 
 依赖：系统级工具链 —— JDK 17（JAVA_HOME，缺省 D:\Tools\jdk-17）与 Android SDK
 （ANDROID_HOME，缺省 D:\Tools\android-sdk）中的 build-tools 34、platform-34。
@@ -22,13 +22,14 @@ ANDROID_SDK = Path(os.environ.get("ANDROID_HOME", r"D:\Tools\android-sdk"))
 BUILD_TOOLS = ANDROID_SDK / "build-tools" / "34.0.0"
 PLATFORM_JAR = ANDROID_SDK / "platforms" / "android-34" / "android.jar"
 
-APP_MAIN = ANDROID / "app" / "src" / "main"
-OUT = ANDROID / "build"
-APK_NAME = "PTCG拆卡模拟器.apk"
-
 # 版本号同步自 version.py（versionCode = 主*10000 + 次*100 + 修订，保证单调递增）
 sys.path.insert(0, str(ROOT))
 from version import APP_VERSION as _VER
+
+APP_MAIN = ANDROID / "app" / "src" / "main"
+OUT = ANDROID / "build"
+# APK 文件名带版本号：发布/下载环节版本一目了然，拿错包（新名字旧内容）一眼可辨
+APK_NAME = f"PTCG拆卡模拟器_v{_VER}.apk"
 
 _v = [int(x) for x in _VER.split(".")]
 while len(_v) < 3:
@@ -80,8 +81,18 @@ def main():
     for tool in (BUILD_TOOLS / "aapt2.exe", PLATFORM_JAR, JDK / "bin" / "javac.exe"):
         if not tool.exists():
             raise SystemExit(f"缺少 {tool}，请检查系统级工具链（JAVA_HOME / ANDROID_HOME）是否完整")
+
+    # WebView 资产与本次构建必须同源：每次都强制重建（build_assets.py 按 version.py
+    # 当前值注入 __APP_VERSION__），并在打包前后校验版本一致性——保证安装包文件名、
+    # 包内 Manifest 与应用内「关于/检查更新」显示的版本三者恒等于 version.py。
+    print(">> 重建 WebView 资产（android/build_assets.py）...")
+    run([sys.executable, str(ANDROID / "build_assets.py")])
+    meta_js = (APP_MAIN / "assets" / "www" / "assets" / "meta.js").read_text(encoding="utf-8")
+    if f"window['__APP_VERSION__'] = \"{_VER}\"" not in meta_js:
+        raise SystemExit(f"资产版本校验失败：meta.js 内 __APP_VERSION__ != {_VER}（资产与代码版本不一致，禁止出包）")
+
     if not (APP_MAIN / "assets" / "www" / "index.html").exists():
-        raise SystemExit("缺少 WebView 资产，请先运行 android/build_assets.py")
+        raise SystemExit("缺少 WebView 资产，请检查 android/build_assets.py 输出")
 
     OUT.mkdir(exist_ok=True)
     gen = OUT / "gen"
@@ -101,6 +112,14 @@ def main():
          "--java", gen,
          "--auto-add-overlay",
          OUT / "res.zip"])
+
+    # 2.5) 版本守卫：badging 必须等于 version.py（Manifest 注入失败的包绝不外流）
+    p = subprocess.run([str(BUILD_TOOLS / "aapt2.exe"), "dump", "badging", str(OUT / "base.apk")],
+                       env=ENV, capture_output=True, text=True)
+    badging = p.stdout.splitlines()[0] if p.stdout else ""
+    if f"versionName='{_VER}'" not in badging or f"versionCode='{VERSION_CODE}'" not in badging:
+        raise SystemExit(f"APK 版本校验失败：期望 {_VER}/{VERSION_CODE}，实际 badging：{badging}")
+    print(f">> APK 版本校验通过: versionName={_VER} versionCode={VERSION_CODE}")
 
     # 3) javac 编译
     java_files = list((APP_MAIN / "java").rglob("*.java")) + list(gen.rglob("*.java"))

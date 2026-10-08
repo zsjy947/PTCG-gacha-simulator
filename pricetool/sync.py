@@ -65,8 +65,13 @@ def build_cny_index(min_cny: float = None, prices_dir=None) -> dict:
 
     供模拟器 /api/prices 直接整包下发；min_cny 给定时同样只保留高于阈值的卡
     （旧弹文件若未过滤也不会污染快照）。manifest/补搜缓存/快照自身不参与。
+    每弹价格文件不入库（仅 index.json 例外入库）：CI 干净 checkout 里某弹本次
+    同步失败（限流/WAF）时没有对应文件，直接重建会把该弹价格从快照里整体抹掉
+    （30周年庆典 2026-10-04 周同步即如此丢失）。此处沿用上一份快照中该弹的
+    条目——宁旧勿缺，待该弹下次同步成功后自然刷新。
     """
     prices = {}
+    covered = set()
     root = prices_dir or store.PRICES_DIR
     for p in sorted(root.glob("*.json")):
         if p.name in ("manifest.json", "name_cache.json", INDEX_NAME):
@@ -76,10 +81,26 @@ def build_cny_index(min_cny: float = None, prices_dir=None) -> dict:
         except (OSError, ValueError):
             continue
         set_code = data.get("setCode") or p.stem
+        covered.add(set_code)
         for num, info in (data.get("cards") or {}).items():
             v = cny_price(info)
             if v is not None and (min_cny is None or v > min_cny):
                 prices[f"{set_code}__{num}"] = round(v, 2)
+    try:
+        prev = (json.loads((root / INDEX_NAME).read_text(encoding="utf-8")) or {}).get("prices") or {}
+    except (OSError, ValueError):
+        prev = {}
+    carried = set()
+    for key, v in prev.items():
+        if not isinstance(v, (int, float)):
+            continue
+        set_code = key.split("__", 1)[0]
+        if set_code in covered or (min_cny is not None and v <= min_cny):
+            continue
+        prices[key] = v
+        carried.add(set_code)
+    if carried:
+        print(f">> 上一份快照回填 {len(carried)} 弹（本次无价格文件，沿用旧值）：{'、'.join(sorted(carried))}")
     return dict(sorted(prices.items()))
 
 

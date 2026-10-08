@@ -122,10 +122,11 @@ function packValue(cards) {
 }
 function setPriced(setCode) { return PRICE_SETS.has(setCode); }
 
-/* 卡值 + 回本率片段（money 为该次开包花费，未计价规格不显示回本） */
+/* 卡值 + 回本率片段（money 为该次开包花费，未计价规格不显示回本）。
+ * 安卓 APK 屏幕窄，汇总条放不下「卡值 · 回本」两段会被截断：APK 端只显示卡值 */
 function valueLineHtml(value, money) {
   let s = `卡值 <b class="bv">¥${fmtMoney(value)}</b>`;
-  if (money > 0) {
+  if (money > 0 && !ASSET) {
     const rate = Math.round((value / money) * 100);
     s += ` · 回本 <b class="bv ${rate >= 100 ? "val-up" : "val-down"}">${rate}%</b>`;
   }

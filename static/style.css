@@ -337,18 +337,26 @@ select option { background: var(--pop); color: var(--txt); }
 .gcard.dealt { animation: deal .5s cubic-bezier(.2, 1.3, .4, 1) forwards; }
 @keyframes deal { to { opacity: 1; transform: none; } }
 
-.gcard[data-rarity="RR"] .gface.front, .gcard[data-rarity="SR"] .gface.front,
-.gcard[data-rarity="SAR"] .gface.front, .gcard[data-rarity="UR"] .gface.front,
-.gcard[data-rarity="ACE"] .gface.front, .gcard[data-rarity="AR"] .gface.front,
-.gcard[data-rarity="HR"] .gface.front, .gcard[data-rarity="RRR"] .gface.front,
-.gcard[data-rarity="SSR"] .gface.front, .gcard[data-rarity="CHR"] .gface.front,
-.gcard[data-rarity="CSR"] .gface.front, .gcard[data-rarity="FUR"] .gface.front,
-.gcard[data-rarity="RGB"] .gface.front {
-  animation: holyGlow 1.4s ease infinite alternate;
+/* 高稀有度辉光：静态阴影挂在 .gcard-inner::after（translateZ 抬出 3D 共面、
+ * 背面时随平面转到背后被 backface-visibility 隐藏，效果等同挂在正面），
+ * 只动画 opacity。旧实现逐帧插值 box-shadow，每帧触发整层重绘，
+ * Android WebView 上多张全闪同屏（30周年 6 张全闪）会渲染闪烁。 */
+.gcard[data-rarity="RR"] .gcard-inner::after, .gcard[data-rarity="SR"] .gcard-inner::after,
+.gcard[data-rarity="SAR"] .gcard-inner::after, .gcard[data-rarity="UR"] .gcard-inner::after,
+.gcard[data-rarity="ACE"] .gcard-inner::after, .gcard[data-rarity="AR"] .gcard-inner::after,
+.gcard[data-rarity="HR"] .gcard-inner::after, .gcard[data-rarity="RRR"] .gcard-inner::after,
+.gcard[data-rarity="SSR"] .gcard-inner::after, .gcard[data-rarity="CHR"] .gcard-inner::after,
+.gcard[data-rarity="CSR"] .gcard-inner::after, .gcard[data-rarity="FUR"] .gcard-inner::after,
+.gcard[data-rarity="RGB"] .gcard-inner::after {
+  content: ""; position: absolute; inset: 0; border-radius: 12px; pointer-events: none;
+  box-shadow: 0 0 30px 8px var(--glow), 0 0 70px 26px var(--glow);
+  transform: translateZ(.4px);
+  -webkit-backface-visibility: hidden; backface-visibility: hidden;
+  opacity: 0; animation: holyGlow 1.4s ease infinite alternate;
 }
 @keyframes holyGlow {
-  from { box-shadow: 0 14px 34px rgba(0,0,0,.5); }
-  to { box-shadow: 0 0 30px 8px var(--glow), 0 0 70px 26px var(--glow); }
+  from { opacity: 0; }
+  to { opacity: 1; }
 }
 .gcard[data-rarity="RR"] { --glow: rgba(255,215,94,.85); }
 .gcard[data-rarity="AR"] { --glow: rgba(126,232,250,.85); }
@@ -370,7 +378,8 @@ select option { background: var(--pop); color: var(--txt); }
   transform: translate(-50%, -50%); pointer-events: none; z-index: 5;
   animation: rb 1s ease forwards;
 }
-@keyframes rb { to { width: 560px; height: 560px; opacity: 0; } }
+/* 只动 transform/opacity（合成器通道）：width/height 逐帧动画同样引发重绘闪屏 */
+@keyframes rb { to { transform: translate(-50%, -50%) scale(56); opacity: 0; } }
 
 .stage-actions { display: flex; gap: 12px; justify-content: center; margin: 6px auto 0; width: min(980px, calc(100% - 24px)); }
 .stage-actions .btn { flex: 1 1 0; }
@@ -760,15 +769,23 @@ html { scrollbar-gutter: stable; }  /* 长列表滚动条出现/消失不挤横�
   /* 手机端：卡面 -> 小结 -> 汇总 -> 操作 -> 页码/前后包（DOM 顺序即展示顺序） */
   .cards-stage { display: flex; flex-direction: column; align-items: center; width: 100%; }
   .cards-row { order: 1; width: 100%; }
-  .pack-summary { order: 2; }
+  /* 单包小结改单列两行：稀有度统计允许折行完整展示（窄屏下 nowrap+ellipsis 会截断），
+     卡值行保持单行省略 */
+  .pack-summary { order: 2; grid-template-columns: 1fr; gap: 6px; min-height: 56px; }
+  .pack-summary .ps-chips { white-space: normal; overflow: hidden; text-align: center; line-height: 1.9; }
   .box-summary { order: 3; min-height: 118px; }
   .bs-row { display: grid; grid-template-columns: 1fr 1fr; gap: 2px 12px; }
   .bs-title { grid-column: 1 / -1; }
   .bs-stat { overflow: hidden; text-overflow: ellipsis; }
-  .box-chips { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; text-align: left; }
+  /* 整盒稀有度图例放宽到两行，放不下再省略（一行 nowrap 会把十连/整盒截没） */
+  .box-chips { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;
+    white-space: normal; overflow: hidden; text-align: center; }
   .stage-actions { order: 4; }
+  /* 页码一行、上一包/下一包按钮一行：页码须 flex-basis 占满一行强制换行——
+     基态 .pack-nav .pack-tabs { flex: 1 } 是 basis 0%，width:100% 不生效，
+     三个元素会挤进同一行把「上一包」压变形 */
   .pack-nav { order: 5; margin: 4px auto 0; flex-wrap: wrap; row-gap: 8px; }
-  .pack-nav .pack-tabs { order: 1; width: 100%; justify-content: space-between; }
+  .pack-nav .pack-tabs { order: 1; flex: 0 0 100%; width: 100%; justify-content: space-between; }
   .pack-nav .mini-btn { order: 2; flex: 1; height: 40px; }
 }
 

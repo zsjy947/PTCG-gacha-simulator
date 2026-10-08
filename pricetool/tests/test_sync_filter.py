@@ -58,6 +58,47 @@ class TestBuildCnyIndex(unittest.TestCase):
             all_idx = build_cny_index(None, prices_dir=root)
             self.assertIn("CSV1C__001", all_idx)
 
+    def test_missing_set_carried_over_from_prev_index(self):
+        # 每弹价格文件不入库：CI 干净 checkout 里某弹同步失败（无 <setCode>.json）时，
+        # 该弹条目从上一份快照回填，不得整弹消失（30thC 在 2026-10-04 周同步即如此丢失）
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            self._write(root, "CSV5C.json", {
+                "setCode": "CSV5C",
+                "cards": {"137": dict(CARDS["137"])},
+            })
+            self._write(root, "index.json", {"prices": {
+                "CSV5C__137": 291.41,       # 有新鲜文件的弹：以文件为准，不取旧值
+                "CSV5C__999": 123.45,       # 文件里已不存在的旧卡：不得复活
+                "30thC__137": 436.4,        # 无文件的弹：整弹回填
+                "30thC__102": 6.19,
+            }})
+            idx = build_cny_index(5.0, prices_dir=root)
+            self.assertEqual(idx, {
+                "CSV5C__137": 291.41,
+                "30thC__137": 436.4,
+                "30thC__102": 6.19,
+            })
+
+    def test_carried_over_respects_min_cny(self):
+        # 回填同样过 min_cny 阈值：阈值提高时旧快照低价条目不进入新快照
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            self._write(root, "index.json", {"prices": {"30thC__111": 5.74, "30thC__106": 5.62}})
+            self.assertEqual(build_cny_index(5.7, prices_dir=root), {"30thC__111": 5.74})
+
+    def test_corrupt_prev_index_ignored(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            (root / "index.json").write_text("not json", encoding="utf-8")
+            self.assertEqual(build_cny_index(None, prices_dir=root), {})
+
+    def test_price_entries_must_be_numeric(self):
+        with tempfile.TemporaryDirectory() as td:
+            root = Path(td)
+            self._write(root, "index.json", {"prices": {"30thC__137": "436.4"}})
+            self.assertEqual(build_cny_index(None, prices_dir=root), {})
+
 
 if __name__ == "__main__":
     unittest.main()
