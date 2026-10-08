@@ -277,25 +277,25 @@ python tools/build_miniprogram.py   # 从 data/ 生成 miniprogram/data/ 与卡�
 **上线前必读**：[docs/MINIPROGRAM-LAUNCH.md](https://github.com/zsjy947/PTCG-gacha-simulator/blob/archived/miniapp/docs/MINIPROGRAM-LAUNCH.md)（archived/miniapp 分支）——
 类目选择（工具类，勿选游戏）、小程序 ICP 备案、商标词规避、域名白名单、隐私保护指引等完整清单。
 
-## 安卓 APK（feat/android 分支）
+## 安卓 APK
 
-在 `feat/android` 分支上，同一套前端被改造成纯资产模式（无 Python 后端）：
-卡表/弹索引内嵌进 APK，拆卡引擎（规格/变体/划档概率）移植为 JS 本地运行，
-卡牌牌面由 WebView 直连 mik.moe 图源在线加载。
+同一套前端被改造成纯资产模式（无 Python 后端）：卡表/弹索引内嵌进 APK，
+拆卡引擎（规格/变体/划档概率）移植为 JS 本地运行，卡牌牌面由 WebView 直连
+mik.moe 图源在线加载。
 
 ```bash
-git checkout feat/android
 python android/build_apk.py       # 自动重建资产并打包 dist/PTCG拆卡模拟器_v{版本}.apk
 ```
 
-- build_apk.py 每次构建前强制重跑 build_assets.py（WebView 资产与代码同源），
-  并校验 APK badging 与内嵌 `__APP_VERSION__` 都等于 version.py——保证安装包
-  文件名、包内 Manifest 与应用内显示的版本三者一致。
-
-- 构建链：aapt2 → javac → d8 → zipalign → apksigner（不依赖 Gradle/AGP）。
-- 工具链用系统级安装：脚本读取 `JAVA_HOME`（JDK 17，缺省 `D:\Tools\jdk-17`）
-  与 `ANDROID_HOME`（Android SDK，缺省 `D:\Tools\android-sdk`），取其中的
-  build-tools 34 / platform-34；环境变量未设置时自动回退到缺省路径。
+- 构建流水线由共享工具链 **android-pack（apx）** 执行（`<工作区>/archived/android-pack`），
+  本项目以 `android/pack.toml` 配置、`android/build_apk.py` 为薄入口——PTCG 与
+  game-ledger 共用同一条 aapt2 → javac → d8 → zipalign → apksigner 链（不依赖
+  Gradle/AGP），工具链准备与 SDK 升级规程见 android-pack README（推荐 `JAVA_HOME` /
+  `ANDROID_HOME` 系统级安装，缺省回退 `D:\Tools`）。
+- 版本守卫不变：每次构建前强制重跑 build_assets.py（WebView 资产与代码同源），
+  校验 APK badging 与内嵌 `__APP_VERSION__` 都等于 version.py——保证安装包文件名、
+  包内版本与应用内显示的版本三者一致（版本经 aapt2 link 传参注入，不再改写
+  AndroidManifest.xml 源文件）。
 - 签名密钥 `android/gacha.keystore` 首次构建时自动生成在本地（连同口令文件
   `keystore.properties`），两者均被 .gitignore 排除、永不入库；也可用环境变量
   `PTCG_KEYSTORE_PASS` 指定口令。注意：更换密钥后已安装的旧 APK 需卸载重装。

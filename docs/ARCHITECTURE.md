@@ -37,7 +37,7 @@ PTCG/
 ├─ server/             # 后端包：api.py / media.py / store.py / httpcache.py / paths.py
 ├─ static/             # 前端 10 模块（core / data / store / prices / ui-* / app / style）
 ├─ miniprogram/        # 微信小程序源码（tools/build_miniprogram.py 生成 data/ 与卡背）
-├─ android/            # APK 构建脚本（build_assets.py 资产打包 / build_apk.py 无 Gradle 构建）
+├─ android/            # APK 打包（build_assets.py 资产打包 / build_apk.py 薄入口 + pack.toml，流水线在共享工具链 android-pack）
 ├─ pricetool/          # 卡价同步 CLI（sync/reindex/query/table/value）
 ├─ fetch_data.py       # mik.moe 卡表同步 → data/cards/*.json + manifest.json
 ├─ tools/              # dev_server / build_miniprogram / baseline_perf / verify_data
@@ -123,11 +123,13 @@ v1.3.x）、`collectExpectation`（集齐期望：稀有度级闭式 `n·H_n/λ`
 
 - **exe**：`build_exe.bat` → PyInstaller（入口 app.py，自动分析 server/ 本地导入）。
   运行时数据缓存在 `%LOCALAPPDATA%\PTCGGacha`。
-- **APK**（feat/android 分支）：`android/build_assets.py` 按 index.html 引用清单把前端 +
-  内嵌数据打包为 WebView 资产（注入 `__ASSET_MODE__`、版本号）；`android/build_apk.py`
-  无 Gradle 构建（aapt2 → javac → d8 → zipalign → apksigner）。工具链用系统级安装：
-  `JAVA_HOME`（JDK 17，缺省 `D:\Tools\jdk-17`）+ `ANDROID_HOME`（缺省
-  `D:\Tools\android-sdk`，build-tools 34 / platform-34）。签名密钥 `android/gacha.keystore`
+- **APK**：`android/build_assets.py` 按 index.html 引用清单把前端 + 内嵌数据打包为
+  WebView 资产（注入 `__ASSET_MODE__`、版本号）；构建流水线（aapt2 → javac → d8 →
+  zipalign → apksigner）由共享工具链 **android-pack（apx）** 执行——`android/pack.toml`
+  配置、`android/build_apk.py` 薄入口，与 game-ledger 共用同一条链（工具链发现：
+  `JAVA_HOME`/`ANDROID_HOME` 系统级优先，回退项目 `.android-build/` 与 `D:\Tools`
+  惯例位置；SDK 升级规程见 android-pack README）。版本经 aapt2 link 传参注入并经
+  badging 守卫校验（不改写 Manifest 源文件）；签名密钥 `android/gacha.keystore`
   本地生成、永不入库（`.gitignore` 排除），口令在 `android/keystore.properties` 或
   `PTCG_KEYSTORE_PASS`；更换密钥后旧 APK 需卸载重装。
 - **小程序**：`tools/build_miniprogram.py` 把 `data/` 裁剪为最小字段内嵌 `cards.js`
@@ -187,7 +189,11 @@ CI（`.github/workflows/ci.yml`）：全分支 push/PR → `python -m unittest d
 
 ### R8 · 构建脚本
 `build_exe.bat`、`android/build_assets.py`、`tools/build_miniprogram.py` 输入输出不变
-（产物功能等价）。
+（产物功能等价）。`android/build_apk.py` 自 v1.3.1 后为薄入口，流水线委托共享工具链
+android-pack（`<工作区>/archived/android-pack`）执行：命令、产物路径与版本守卫
+（资产内嵌版本 / badging）行为不变；版本注入方式由「改写 Manifest 源文件」改为
+「aapt2 link 传参 + badging 校验」，属等价实现变更（2026-10 迁移记录见 android-pack
+README）。
 
 ### R9 · 平台边界
 `miniprogram/` 框架代码与 `android/*.java` 谨慎对待（改动须过三端验证）；`data/` 卡表

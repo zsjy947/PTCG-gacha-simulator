@@ -1,0 +1,27 @@
+# PTCG 安卓构建配置 — 由共享工具链 android-pack (apx) 消费
+# 用法：python android/build_apk.py（自动重建资产并打包）
+
+[app]
+app_dir = "android/app/src/main"
+min_sdk = 24
+target_sdk = 34
+
+[project]
+version_ref = "version:APP_VERSION"
+
+[build]
+assets_hook = "android/build_assets.py"
+output = "dist/PTCG拆卡模拟器_v{version}.apk"
+build_dir = "android/build"
+# 资产版本守卫：meta.js 内嵌版本必须等于 version.py（防新旧资产混包）
+version_marker_file = "android/app/src/main/assets/www/assets/meta.js"
+version_marker = "window['__APP_VERSION__'] = \"{version}\""
+
+[sign]
+style = "env"                          # 单口令风格：环境变量优先，缺密钥自动生成
+keystore = "android/gacha.keystore"
+props = "android/keystore.properties"
+env_var = "PTCG_KEYSTORE_PASS"
+props_key = "PTCG_KEYSTORE_PASS"
+alias = "gacha"
+dname = "CN=PTCC Gacha, OU=Personal, O=ptcc, C=CN"
