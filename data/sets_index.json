@@ -8,6 +8,38 @@
   "count": 1
  },
  {
+  "id": "CSVH6aC",
+  "code": "CSVH6aC",
+  "name": "嗨皮卡组 训练家的宝可梦 改造包",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 23
+ },
+ {
+  "id": "CSVH6pC",
+  "code": "CSVH6pC",
+  "name": "嗨皮卡组 训练家的宝可梦 奖赏包",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 14
+ },
+ {
+  "id": "CSVH6eC",
+  "code": "CSVH6eC",
+  "name": "嗨皮卡组 训练家的宝可梦 嗨皮包",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 49
+ },
+ {
+  "id": "CSVH6C",
+  "code": "CSVH6C",
+  "name": "嗨皮卡组 训练家的宝可梦",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 59
+ },
+ {
   "id": "CBB6C",
   "code": "CBB6C",
   "name": "宝石包 VOL.6",

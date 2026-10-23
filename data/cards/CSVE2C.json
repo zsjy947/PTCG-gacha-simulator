@@ -1,83 +1,6 @@
 [
  {
   "setCode": "CSVE2C",
-  "cardIndex": "001",
-  "cardName": "妙蛙种子",
-  "rarity": "无标记",
-  "effectId": "ddf30d0562b048ea6df0061bc26aad0a",
-  "cardType": "Pokemon",
-  "yorenCode": "P001",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "PGO",
-  "cardIndexEn": "1",
-  "nameEn": "Bulbasaur"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "004",
-  "cardName": "毒蔷薇",
-  "rarity": "无标记",
-  "effectId": "9be1d01240137f95a3db33015bfdfeb9",
-  "cardType": "Pokemon",
-  "yorenCode": "P315",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "LOR",
-  "cardIndexEn": "14",
-  "nameEn": "Roselia"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "006",
-  "cardName": "热带龙",
-  "rarity": "无标记",
-  "effectId": "68cbeddd71a7a119cbe4f037699098e4",
-  "cardType": "Pokemon",
-  "yorenCode": "P357",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "EVS",
-  "cardIndexEn": "6",
-  "nameEn": "Tropius"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "007",
-  "cardName": "洗翠 裙儿小姐V",
-  "rarity": "无标记",
-  "effectId": "f9e3383b672afd184add3cbb412dac4a",
-  "cardType": "Pokemon",
-  "yorenCode": "Y1114",
-  "is": [
-   "V",
-   "Basic"
-  ],
-  "setCodeEn": "ASR",
-  "cardIndexEn": "17",
-  "nameEn": "Hisuian Lilligant V"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "008",
-  "cardName": "洗翠 裙儿小姐VSTAR",
-  "rarity": "无标记",
-  "effectId": "3cb553cf778ba1bb6fb95d7ad0382cc8",
-  "cardType": "Pokemon",
-  "yorenCode": "Y1115",
-  "is": [
-   "V",
-   "VSTAR"
-  ],
-  "setCodeEn": "ASR",
-  "cardIndexEn": "18",
-  "nameEn": "Hisuian Lilligant VSTAR"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "013",
   "cardName": "帕底亚 肯泰罗",
   "rarity": "无标记",
@@ -157,36 +80,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "022",
-  "cardName": "波尔凯尼恩",
-  "rarity": "无标记",
-  "effectId": "d4aa6c50ffc0ef51b6faa0231694140b",
-  "cardType": "Pokemon",
-  "yorenCode": "Y415",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "22",
-  "nameEn": "Volcanion"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "024",
-  "cardName": "卡咪龟",
-  "rarity": "无标记",
-  "effectId": "53e6b16de216120ddd9e10117b0df917",
-  "cardType": "Pokemon",
-  "yorenCode": "P008",
-  "is": [
-   "Stage 1"
-  ],
-  "setCodeEn": "PGO",
-  "cardIndexEn": "16",
-  "nameEn": "Wartortle"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "029",
   "cardName": "宝石海星V",
   "rarity": "无标记",
@@ -229,21 +122,6 @@
   ],
   "setCodeEn": "CRE",
   "cardIndexEn": "29",
-  "nameEn": "Lapras"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "032",
-  "cardName": "拉普拉斯",
-  "rarity": "无标记",
-  "effectId": "e599cc5c426dfe3aa041267cd870ecf2",
-  "cardType": "Pokemon",
-  "yorenCode": "P131",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "31",
   "nameEn": "Lapras"
  },
  {
@@ -310,6 +188,21 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "041",
+  "cardName": "凯路迪欧",
+  "rarity": "无标记",
+  "effectId": "4e329282cac56274a6e1e2de60960234",
+  "cardType": "Pokemon",
+  "yorenCode": "P647",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "46",
+  "nameEn": "Keldeo"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "042",
   "cardName": "冰砌鹅",
   "rarity": "无标记",
@@ -337,36 +230,6 @@
   "setCodeEn": "LOR",
   "cardIndexEn": "51",
   "nameEn": "Glastrier"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "045",
-  "cardName": "冻脊龙",
-  "rarity": "无标记",
-  "effectId": "c053ce98d0ac66db8309a3e45338b20d",
-  "cardType": "Pokemon",
-  "yorenCode": "P0997",
-  "is": [
-   "Stage 1"
-  ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "59",
-  "nameEn": "Arctibax"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "046",
-  "cardName": "戟脊龙",
-  "rarity": "无标记",
-  "effectId": "eed03ece4ff26ddc67213000278b20a6",
-  "cardType": "Pokemon",
-  "yorenCode": "P0998",
-  "is": [
-   "Stage 2"
-  ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "60",
-  "nameEn": "Baxcalibur"
  },
  {
   "setCode": "CSVE2C",
@@ -552,66 +415,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "059",
-  "cardName": "凯西",
-  "rarity": "无标记",
-  "effectId": "5b39897578b2ec2125cdc3d1bb5c74d6",
-  "cardType": "Pokemon",
-  "yorenCode": "P0063",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "MEW",
-  "cardIndexEn": "63",
-  "nameEn": "Abra"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "060",
-  "cardName": "勇基拉",
-  "rarity": "无标记",
-  "effectId": "33b40f0da6b2deaa93ceb56319c24765",
-  "cardType": "Pokemon",
-  "yorenCode": "P0064",
-  "is": [
-   "Stage 1"
-  ],
-  "setCodeEn": "MEW",
-  "cardIndexEn": "64",
-  "nameEn": "Kadabra"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "062",
-  "cardName": "皮宝宝",
-  "rarity": "无标记",
-  "effectId": "5bb7158b704f6d30d43c8f68cc52f39c",
-  "cardType": "Pokemon",
-  "yorenCode": "P173",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "202",
-  "nameEn": "Cleffa"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "063",
-  "cardName": "梦妖",
-  "rarity": "无标记",
-  "effectId": "3f030fa3a40adf25a56fba9b8fd6f5b4",
-  "cardType": "Pokemon",
-  "yorenCode": "P200",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "ASR",
-  "cardIndexEn": "58",
-  "nameEn": "Misdreavus"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "065",
   "cardName": "拉鲁拉丝",
   "rarity": "无标记",
@@ -684,36 +487,6 @@
   "setCodeEn": "BRS",
   "cardIndexEn": "71",
   "nameEn": "Alcremie"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "071",
-  "cardName": "灵幽马",
-  "rarity": "无标记",
-  "effectId": "300e3708fc3ba75fb8255dc73e91aeac",
-  "cardType": "Pokemon",
-  "yorenCode": "P897",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "LOR",
-  "cardIndexEn": "81",
-  "nameEn": "Spectrier"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "073",
-  "cardName": "火暴猴",
-  "rarity": "无标记",
-  "effectId": "a512436aeae2984be8f09beea632129c",
-  "cardType": "Pokemon",
-  "yorenCode": "P057",
-  "is": [
-   "Stage 1"
-  ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "108",
-  "nameEn": "Primeape"
  },
  {
   "setCode": "CSVE2C",
@@ -837,21 +610,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "088",
-  "cardName": "伽勒尔 火焰鸟",
-  "rarity": "无标记",
-  "effectId": "0fe958ef8de5dea7e0bc296f64cba9c9",
-  "cardType": "Pokemon",
-  "yorenCode": "Y820",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "EVS",
-  "cardIndexEn": "93",
-  "nameEn": "Galarian Moltres"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "089",
   "cardName": "黑暗鸦",
   "rarity": "无标记",
@@ -879,22 +637,6 @@
   "setCodeEn": "PAL",
   "cardIndexEn": "137",
   "nameEn": "Seviper"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "091",
-  "cardName": "阿勃梭鲁ex",
-  "rarity": "无标记",
-  "effectId": "91d7344a8c2c7ebb238010c11a29e7b4",
-  "cardType": "Pokemon",
-  "yorenCode": "Y1202",
-  "is": [
-   "ex",
-   "Basic"
-  ],
-  "setCodeEn": "UPR",
-  "cardIndexEn": "100",
-  "nameEn": "Dialga-GX"
  },
  {
   "setCode": "CSVE2C",
@@ -945,51 +687,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "095",
-  "cardName": "黑眼鳄",
-  "rarity": "无标记",
-  "effectId": "ccba0e9fe1170a13d7c75539dd27fb12",
-  "cardType": "Pokemon",
-  "yorenCode": "P551",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "SIT",
-  "cardIndexEn": "111",
-  "nameEn": "Sandile"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "096",
-  "cardName": "混混鳄",
-  "rarity": "无标记",
-  "effectId": "e90ae34c5d48b59aa4b74058f5c1aab4",
-  "cardType": "Pokemon",
-  "yorenCode": "P552",
-  "is": [
-   "Stage 1"
-  ],
-  "setCodeEn": "SIT",
-  "cardIndexEn": "112",
-  "nameEn": "Krokorok"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "097",
-  "cardName": "流氓鳄",
-  "rarity": "无标记",
-  "effectId": "38e7d2d5c970c5290dc478665f6ad6b8",
-  "cardType": "Pokemon",
-  "yorenCode": "P553",
-  "is": [
-   "Stage 2"
-  ],
-  "setCodeEn": "SIT",
-  "cardIndexEn": "113",
-  "nameEn": "Krookodile"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "104",
   "cardName": "种子铁球",
   "rarity": "无标记",
@@ -1032,21 +729,6 @@
   "setCodeEn": "LOR",
   "cardIndexEn": "127",
   "nameEn": "Galarian Stunfisk"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "108",
-  "cardName": "勾帕路翁",
-  "rarity": "无标记",
-  "effectId": "c87e28f4d502840e3ec98bfc04adc721",
-  "cardType": "Pokemon",
-  "yorenCode": "P638",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "SIT",
-  "cardIndexEn": "126",
-  "nameEn": "Cobalion"
  },
  {
   "setCode": "CSVE2C",
@@ -1139,21 +821,6 @@
   "setCodeEn": "MEW",
   "cardIndexEn": "40",
   "nameEn": "Wigglytuff ex"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "118",
-  "cardName": "大葱鸭",
-  "rarity": "无标记",
-  "effectId": "f6236c201fffa5bf3a203e78146cce76",
-  "cardType": "Pokemon",
-  "yorenCode": "P083",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "115",
-  "nameEn": "Farfetch'd"
  },
  {
   "setCode": "CSVE2C",
@@ -1263,21 +930,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "126",
-  "cardName": "飘浮泡泡",
-  "rarity": "无标记",
-  "effectId": "eb19bb4f2a5d11be693e0d654b936762",
-  "cardType": "Pokemon",
-  "yorenCode": "P351",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "116",
-  "nameEn": "Castform"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "127",
   "cardName": "聒噪鸟",
   "rarity": "无标记",
@@ -1290,21 +942,6 @@
   "setCodeEn": "CRZ",
   "cardIndexEn": "112",
   "nameEn": "Chatot"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "128",
-  "cardName": "谢米",
-  "rarity": "无标记",
-  "effectId": "77512b090b7593730aace3815652868b",
-  "cardType": "Pokemon",
-  "yorenCode": "P492",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "CRE",
-  "cardIndexEn": "123",
-  "nameEn": "Shaymin"
  },
  {
   "setCode": "CSVE2C",
@@ -1381,19 +1018,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "137",
-  "cardName": "能量回收",
-  "rarity": "无标记",
-  "effectId": "8538726d6cdfad2fa3ca5f4b462c12c5",
-  "cardType": "Item",
-  "yorenCode": "Y27",
-  "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
-  "nameEn": "Energy Retrieval"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "139",
   "cardName": "能量输送",
   "rarity": "无标记",
@@ -1420,19 +1044,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "143",
-  "cardName": "雾之水晶",
-  "rarity": "无标记",
-  "effectId": "ca5d2cfbc890764d3d5a435692685f44",
-  "cardType": "Item",
-  "yorenCode": "Y690",
-  "is": [],
-  "setCodeEn": "CRE",
-  "cardIndexEn": "140",
-  "nameEn": "Fog Crystal"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "144",
   "cardName": "粉碎之锤",
   "rarity": "无标记",
@@ -1446,45 +1057,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "145",
-  "cardName": "超级能量回收",
-  "rarity": "无标记",
-  "effectId": "ff7e5670880217816bcf5d34388624cd",
-  "cardType": "Item",
-  "yorenCode": "Y1287",
-  "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "189",
-  "nameEn": "Superior Energy Retrieval"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "146",
-  "cardName": "厉害钓竿",
-  "rarity": "无标记",
-  "effectId": "c9c948169525fbb3dce70c477ec7a90a",
-  "cardType": "Item",
-  "yorenCode": "Y1207",
-  "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "188",
-  "nameEn": "Super Rod"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "147",
-  "cardName": "强夺机械臂",
-  "rarity": "无标记",
-  "effectId": "203a0c4b978c8638a081a5cf05125230",
-  "cardType": "Item",
-  "yorenCode": "Y1208",
-  "is": [],
-  "setCodeEn": "MEW",
-  "cardIndexEn": "162",
-  "nameEn": "Grabber"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "148",
   "cardName": "掉包杯",
   "rarity": "无标记",
@@ -1495,19 +1067,6 @@
   "setCodeEn": "EVS",
   "cardIndexEn": "162",
   "nameEn": "Switching Cups"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "149",
-  "cardName": "暗黑补丁",
-  "rarity": "无标记",
-  "effectId": "11ca8ef52edb2599280e7d5827e9dfb1",
-  "cardType": "Item",
-  "yorenCode": "Y954",
-  "is": [],
-  "setCodeEn": "ASR",
-  "cardIndexEn": "139",
-  "nameEn": "Dark Patch"
  },
  {
   "setCode": "CSVE2C",
@@ -1654,32 +1213,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "169",
-  "cardName": "不服输头带",
-  "rarity": "无标记",
-  "effectId": "e242d711feffd98f3fbb5c511d00d667",
-  "cardType": "Tool",
-  "yorenCode": "Y1210",
-  "is": [],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "169",
-  "nameEn": "Defiance Band"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "171",
-  "cardName": "复仇拳箱",
-  "rarity": "无标记",
-  "effectId": "09e67f9448cf4a062206fc6266c94b5f",
-  "cardType": "Tool",
-  "yorenCode": "Y1291",
-  "is": [],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "197",
-  "nameEn": "Vengeful Punch"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "172",
   "cardName": "也慈",
   "rarity": "无标记",
@@ -1690,19 +1223,6 @@
   "setCodeEn": "OBF",
   "cardIndexEn": "188",
   "nameEn": "Geeta"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "173",
-  "cardName": "珠贝",
-  "rarity": "无标记",
-  "effectId": "4f53ab6bf158fd1a8869ae037f4a0d6d",
-  "cardType": "Supporter",
-  "yorenCode": "Y956",
-  "is": [],
-  "setCodeEn": "ASR",
-  "cardIndexEn": "147",
-  "nameEn": "Irida"
  },
  {
   "setCode": "CSVE2C",
@@ -1732,45 +1252,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "178",
-  "cardName": "查克洛",
-  "rarity": "无标记",
-  "effectId": "b2967988619a121740570970fa4247a4",
-  "cardType": "Supporter",
-  "yorenCode": "Y1081",
-  "is": [],
-  "setCodeEn": "ASR",
-  "cardIndexEn": "144",
-  "nameEn": "Grant"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "179",
-  "cardName": "裁判",
-  "rarity": "无标记",
-  "effectId": "0a9bdf265647461dd5c6c827ffc19e61",
-  "cardType": "Supporter",
-  "yorenCode": "Y219",
-  "is": [],
-  "setCodeEn": "FLI",
-  "cardIndexEn": "108",
-  "nameEn": "Judge"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "180",
-  "cardName": "竹兰的霸气",
-  "rarity": "无标记",
-  "effectId": "2e5819cd4e1c354b8a9945525c54ec71",
-  "cardType": "Supporter",
-  "yorenCode": "Y934",
-  "is": [],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "138",
-  "nameEn": "Cynthia's Ambition"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "181",
   "cardName": "天星队手下",
   "rarity": "无标记",
@@ -1781,19 +1262,6 @@
   "setCodeEn": "OBF",
   "cardIndexEn": "195",
   "nameEn": "Team Star Grunt"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "183",
-  "cardName": "短裤小子",
-  "rarity": "无标记",
-  "effectId": "2577a3de8118cc5c48db5a7e98d349f5",
-  "cardType": "Supporter",
-  "yorenCode": "Y1243",
-  "is": [],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "198",
-  "nameEn": "Youngster"
  },
  {
   "setCode": "CSVE2C",
@@ -1820,32 +1288,6 @@
   "setCodeEn": "ASR",
   "cardIndexEn": "149",
   "nameEn": "Kamado"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "187",
-  "cardName": "菜种的活力",
-  "rarity": "无标记",
-  "effectId": "20644bce385069fcc3d66d70409d1ff3",
-  "cardType": "Supporter",
-  "yorenCode": "Y1173",
-  "is": [],
-  "setCodeEn": "ASR",
-  "cardIndexEn": "143",
-  "nameEn": "Gardenia's Vigor"
- },
- {
-  "setCode": "CSVE2C",
-  "cardIndex": "188",
-  "cardName": "奇树",
-  "rarity": "无标记",
-  "effectId": "af514f82d182aeae5327b2c360df703d",
-  "cardType": "Supporter",
-  "yorenCode": "Y1294",
-  "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "185",
-  "nameEn": "Iono"
  },
  {
   "setCode": "CSVE2C",
@@ -1966,6 +1408,21 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "001",
+  "cardName": "妙蛙种子",
+  "rarity": "无标记",
+  "effectId": "ddf30d0562b048ea6df0061bc26aad0a",
+  "cardType": "Pokemon",
+  "yorenCode": "P001",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PGO",
+  "cardIndexEn": "1",
+  "nameEn": "Bulbasaur"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "002",
   "cardName": "妙蛙草",
   "rarity": "无标记",
@@ -1996,6 +1453,21 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "004",
+  "cardName": "毒蔷薇",
+  "rarity": "无标记",
+  "effectId": "9be1d01240137f95a3db33015bfdfeb9",
+  "cardType": "Pokemon",
+  "yorenCode": "P315",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "14",
+  "nameEn": "Roselia"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "005",
   "cardName": "罗丝雷朵",
   "rarity": "无标记",
@@ -2008,6 +1480,53 @@
   "setCodeEn": "LOR",
   "cardIndexEn": "15",
   "nameEn": "Roserade"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "006",
+  "cardName": "热带龙",
+  "rarity": "无标记",
+  "effectId": "68cbeddd71a7a119cbe4f037699098e4",
+  "cardType": "Pokemon",
+  "yorenCode": "P357",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "6",
+  "nameEn": "Tropius"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "007",
+  "cardName": "洗翠 裙儿小姐V",
+  "rarity": "无标记",
+  "effectId": "f9e3383b672afd184add3cbb412dac4a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1114",
+  "is": [
+   "V",
+   "Basic"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "17",
+  "nameEn": "Hisuian Lilligant V"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "008",
+  "cardName": "洗翠 裙儿小姐VSTAR",
+  "rarity": "无标记",
+  "effectId": "3cb553cf778ba1bb6fb95d7ad0382cc8",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1115",
+  "is": [
+   "V",
+   "VSTAR"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "18",
+  "nameEn": "Hisuian Lilligant VSTAR"
  },
  {
   "setCode": "CSVE2C",
@@ -2132,6 +1651,21 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "022",
+  "cardName": "波尔凯尼恩",
+  "rarity": "无标记",
+  "effectId": "d4aa6c50ffc0ef51b6faa0231694140b",
+  "cardType": "Pokemon",
+  "yorenCode": "Y415",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "PAR",
+  "cardIndexEn": "22",
+  "nameEn": "Volcanion"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "023",
   "cardName": "杰尼龟",
   "rarity": "无标记",
@@ -2144,6 +1678,21 @@
   "setCodeEn": "PGO",
   "cardIndexEn": "15",
   "nameEn": "Squirtle"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "024",
+  "cardName": "卡咪龟",
+  "rarity": "无标记",
+  "effectId": "53e6b16de216120ddd9e10117b0df917",
+  "cardType": "Pokemon",
+  "yorenCode": "P008",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PGO",
+  "cardIndexEn": "16",
+  "nameEn": "Wartortle"
  },
  {
   "setCode": "CSVE2C",
@@ -2207,6 +1756,21 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "032",
+  "cardName": "拉普拉斯",
+  "rarity": "无标记",
+  "effectId": "e599cc5c426dfe3aa041267cd870ecf2",
+  "cardType": "Pokemon",
+  "yorenCode": "P131",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "31",
+  "nameEn": "Lapras"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "033",
   "cardName": "急冻鸟",
   "rarity": "无标记",
@@ -2267,21 +1831,6 @@
  },
  {
   "setCode": "CSVE2C",
-  "cardIndex": "041",
-  "cardName": "凯路迪欧",
-  "rarity": "无标记",
-  "effectId": "4e329282cac56274a6e1e2de60960234",
-  "cardType": "Pokemon",
-  "yorenCode": "P647",
-  "is": [
-   "Basic"
-  ],
-  "setCodeEn": "SIT",
-  "cardIndexEn": "46",
-  "nameEn": "Keldeo"
- },
- {
-  "setCode": "CSVE2C",
   "cardIndex": "044",
   "cardName": "凉脊龙",
   "rarity": "无标记",
@@ -2294,6 +1843,66 @@
   "setCodeEn": "PAL",
   "cardIndexEn": "57",
   "nameEn": "Frigibax"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "045",
+  "cardName": "冻脊龙",
+  "rarity": "无标记",
+  "effectId": "c053ce98d0ac66db8309a3e45338b20d",
+  "cardType": "Pokemon",
+  "yorenCode": "P0997",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "59",
+  "nameEn": "Arctibax"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "046",
+  "cardName": "戟脊龙",
+  "rarity": "无标记",
+  "effectId": "eed03ece4ff26ddc67213000278b20a6",
+  "cardType": "Pokemon",
+  "yorenCode": "P0998",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "60",
+  "nameEn": "Baxcalibur"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "059",
+  "cardName": "凯西",
+  "rarity": "无标记",
+  "effectId": "5b39897578b2ec2125cdc3d1bb5c74d6",
+  "cardType": "Pokemon",
+  "yorenCode": "P0063",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "63",
+  "nameEn": "Abra"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "060",
+  "cardName": "勇基拉",
+  "rarity": "无标记",
+  "effectId": "33b40f0da6b2deaa93ceb56319c24765",
+  "cardType": "Pokemon",
+  "yorenCode": "P0064",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "64",
+  "nameEn": "Kadabra"
  },
  {
   "setCode": "CSVE2C",
@@ -2310,6 +1919,36 @@
   "setCodeEn": "MEW",
   "cardIndexEn": "65",
   "nameEn": "Alakazam ex"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "062",
+  "cardName": "皮宝宝",
+  "rarity": "无标记",
+  "effectId": "5bb7158b704f6d30d43c8f68cc52f39c",
+  "cardType": "Pokemon",
+  "yorenCode": "P173",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "202",
+  "nameEn": "Cleffa"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "063",
+  "cardName": "梦妖",
+  "rarity": "无标记",
+  "effectId": "3f030fa3a40adf25a56fba9b8fd6f5b4",
+  "cardType": "Pokemon",
+  "yorenCode": "P200",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "58",
+  "nameEn": "Misdreavus"
  },
  {
   "setCode": "CSVE2C",
@@ -2343,6 +1982,21 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "071",
+  "cardName": "灵幽马",
+  "rarity": "无标记",
+  "effectId": "300e3708fc3ba75fb8255dc73e91aeac",
+  "cardType": "Pokemon",
+  "yorenCode": "P897",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "LOR",
+  "cardIndexEn": "81",
+  "nameEn": "Spectrier"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "072",
   "cardName": "猴怪",
   "rarity": "无标记",
@@ -2355,6 +2009,21 @@
   "setCodeEn": "PAF",
   "cardIndexEn": "45",
   "nameEn": "Mankey"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "073",
+  "cardName": "火暴猴",
+  "rarity": "无标记",
+  "effectId": "a512436aeae2984be8f09beea632129c",
+  "cardType": "Pokemon",
+  "yorenCode": "P057",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "108",
+  "nameEn": "Primeape"
  },
  {
   "setCode": "CSVE2C",
@@ -2446,6 +2115,82 @@
   "setCodeEn": "PAL",
   "cardIndexEn": "118",
   "nameEn": "Passimian"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "088",
+  "cardName": "伽勒尔 火焰鸟",
+  "rarity": "无标记",
+  "effectId": "0fe958ef8de5dea7e0bc296f64cba9c9",
+  "cardType": "Pokemon",
+  "yorenCode": "Y820",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "EVS",
+  "cardIndexEn": "93",
+  "nameEn": "Galarian Moltres"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "091",
+  "cardName": "阿勃梭鲁ex",
+  "rarity": "无标记",
+  "effectId": "91d7344a8c2c7ebb238010c11a29e7b4",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1202",
+  "is": [
+   "ex",
+   "Basic"
+  ],
+  "setCodeEn": "UPR",
+  "cardIndexEn": "100",
+  "nameEn": "Dialga-GX"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "095",
+  "cardName": "黑眼鳄",
+  "rarity": "无标记",
+  "effectId": "ccba0e9fe1170a13d7c75539dd27fb12",
+  "cardType": "Pokemon",
+  "yorenCode": "P551",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "111",
+  "nameEn": "Sandile"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "096",
+  "cardName": "混混鳄",
+  "rarity": "无标记",
+  "effectId": "e90ae34c5d48b59aa4b74058f5c1aab4",
+  "cardType": "Pokemon",
+  "yorenCode": "P552",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "112",
+  "nameEn": "Krokorok"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "097",
+  "cardName": "流氓鳄",
+  "rarity": "无标记",
+  "effectId": "38e7d2d5c970c5290dc478665f6ad6b8",
+  "cardType": "Pokemon",
+  "yorenCode": "P553",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "113",
+  "nameEn": "Krookodile"
  },
  {
   "setCode": "CSVE2C",
@@ -2556,6 +2301,21 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "108",
+  "cardName": "勾帕路翁",
+  "rarity": "无标记",
+  "effectId": "c87e28f4d502840e3ec98bfc04adc721",
+  "cardType": "Pokemon",
+  "yorenCode": "P638",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "SIT",
+  "cardIndexEn": "126",
+  "nameEn": "Cobalion"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "112",
   "cardName": "苍响",
   "rarity": "无标记",
@@ -2602,6 +2362,51 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "118",
+  "cardName": "大葱鸭",
+  "rarity": "无标记",
+  "effectId": "f6236c201fffa5bf3a203e78146cce76",
+  "cardType": "Pokemon",
+  "yorenCode": "P083",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "115",
+  "nameEn": "Farfetch'd"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "126",
+  "cardName": "飘浮泡泡",
+  "rarity": "无标记",
+  "effectId": "eb19bb4f2a5d11be693e0d654b936762",
+  "cardType": "Pokemon",
+  "yorenCode": "P351",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "116",
+  "nameEn": "Castform"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "128",
+  "cardName": "谢米",
+  "rarity": "无标记",
+  "effectId": "77512b090b7593730aace3815652868b",
+  "cardType": "Pokemon",
+  "yorenCode": "P492",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "CRE",
+  "cardIndexEn": "123",
+  "nameEn": "Shaymin"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "131",
   "cardName": "怒鹦哥",
   "rarity": "无标记",
@@ -2645,6 +2450,19 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "137",
+  "cardName": "能量回收",
+  "rarity": "无标记",
+  "effectId": "8538726d6cdfad2fa3ca5f4b462c12c5",
+  "cardType": "Item",
+  "yorenCode": "Y27",
+  "is": [],
+  "setCodeEn": "SUM",
+  "cardIndexEn": "116",
+  "nameEn": "Energy Retrieval"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "138",
   "cardName": "能量转移",
   "rarity": "无标记",
@@ -2681,6 +2499,71 @@
   "setCodeEn": "ASR",
   "cardIndexEn": "145",
   "nameEn": "Gutsy Pickaxe"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "143",
+  "cardName": "雾之水晶",
+  "rarity": "无标记",
+  "effectId": "ca5d2cfbc890764d3d5a435692685f44",
+  "cardType": "Item",
+  "yorenCode": "Y690",
+  "is": [],
+  "setCodeEn": "CRE",
+  "cardIndexEn": "140",
+  "nameEn": "Fog Crystal"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "145",
+  "cardName": "超级能量回收",
+  "rarity": "无标记",
+  "effectId": "ff7e5670880217816bcf5d34388624cd",
+  "cardType": "Item",
+  "yorenCode": "Y1287",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "189",
+  "nameEn": "Superior Energy Retrieval"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "146",
+  "cardName": "厉害钓竿",
+  "rarity": "无标记",
+  "effectId": "c9c948169525fbb3dce70c477ec7a90a",
+  "cardType": "Item",
+  "yorenCode": "Y1207",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "188",
+  "nameEn": "Super Rod"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "147",
+  "cardName": "强夺机械臂",
+  "rarity": "无标记",
+  "effectId": "203a0c4b978c8638a081a5cf05125230",
+  "cardType": "Item",
+  "yorenCode": "Y1208",
+  "is": [],
+  "setCodeEn": "MEW",
+  "cardIndexEn": "162",
+  "nameEn": "Grabber"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "149",
+  "cardName": "暗黑补丁",
+  "rarity": "无标记",
+  "effectId": "11ca8ef52edb2599280e7d5827e9dfb1",
+  "cardType": "Item",
+  "yorenCode": "Y954",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "139",
+  "nameEn": "Dark Patch"
  },
  {
   "setCode": "CSVE2C",
@@ -2788,6 +2671,19 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "169",
+  "cardName": "不服输头带",
+  "rarity": "无标记",
+  "effectId": "e242d711feffd98f3fbb5c511d00d667",
+  "cardType": "Tool",
+  "yorenCode": "Y1210",
+  "is": [],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "169",
+  "nameEn": "Defiance Band"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "170",
   "cardName": "勇气护符",
   "rarity": "无标记",
@@ -2798,6 +2694,32 @@
   "setCodeEn": "PAL",
   "cardIndexEn": "173",
   "nameEn": "Bravery Charm"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "171",
+  "cardName": "复仇拳箱",
+  "rarity": "无标记",
+  "effectId": "09e67f9448cf4a062206fc6266c94b5f",
+  "cardType": "Tool",
+  "yorenCode": "Y1291",
+  "is": [],
+  "setCodeEn": "OBF",
+  "cardIndexEn": "197",
+  "nameEn": "Vengeful Punch"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "173",
+  "cardName": "珠贝",
+  "rarity": "无标记",
+  "effectId": "4f53ab6bf158fd1a8869ae037f4a0d6d",
+  "cardType": "Supporter",
+  "yorenCode": "Y956",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "147",
+  "nameEn": "Irida"
  },
  {
   "setCode": "CSVE2C",
@@ -2827,6 +2749,45 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "178",
+  "cardName": "查克洛",
+  "rarity": "无标记",
+  "effectId": "b2967988619a121740570970fa4247a4",
+  "cardType": "Supporter",
+  "yorenCode": "Y1081",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "144",
+  "nameEn": "Grant"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "179",
+  "cardName": "裁判",
+  "rarity": "无标记",
+  "effectId": "0a9bdf265647461dd5c6c827ffc19e61",
+  "cardType": "Supporter",
+  "yorenCode": "Y219",
+  "is": [],
+  "setCodeEn": "FLI",
+  "cardIndexEn": "108",
+  "nameEn": "Judge"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "180",
+  "cardName": "竹兰的霸气",
+  "rarity": "无标记",
+  "effectId": "2e5819cd4e1c354b8a9945525c54ec71",
+  "cardType": "Supporter",
+  "yorenCode": "Y934",
+  "is": [],
+  "setCodeEn": "BRS",
+  "cardIndexEn": "138",
+  "nameEn": "Cynthia's Ambition"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "182",
   "cardName": "刚石",
   "rarity": "无标记",
@@ -2840,6 +2801,19 @@
  },
  {
   "setCode": "CSVE2C",
+  "cardIndex": "183",
+  "cardName": "短裤小子",
+  "rarity": "无标记",
+  "effectId": "2577a3de8118cc5c48db5a7e98d349f5",
+  "cardType": "Supporter",
+  "yorenCode": "Y1243",
+  "is": [],
+  "setCodeEn": "SVI",
+  "cardIndexEn": "198",
+  "nameEn": "Youngster"
+ },
+ {
+  "setCode": "CSVE2C",
   "cardIndex": "185",
   "cardName": "杜娟",
   "rarity": "无标记",
@@ -2850,6 +2824,32 @@
   "setCodeEn": "ASR",
   "cardIndexEn": "150",
   "nameEn": "Roxanne"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "187",
+  "cardName": "菜种的活力",
+  "rarity": "无标记",
+  "effectId": "20644bce385069fcc3d66d70409d1ff3",
+  "cardType": "Supporter",
+  "yorenCode": "Y1173",
+  "is": [],
+  "setCodeEn": "ASR",
+  "cardIndexEn": "143",
+  "nameEn": "Gardenia's Vigor"
+ },
+ {
+  "setCode": "CSVE2C",
+  "cardIndex": "188",
+  "cardName": "奇树",
+  "rarity": "无标记",
+  "effectId": "af514f82d182aeae5327b2c360df703d",
+  "cardType": "Supporter",
+  "yorenCode": "Y1294",
+  "is": [],
+  "setCodeEn": "PAL",
+  "cardIndexEn": "185",
+  "nameEn": "Iono"
  },
  {
   "setCode": "CSVE2C",

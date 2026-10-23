@@ -1,0 +1,725 @@
+[
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "001",
+  "cardName": "榛果球",
+  "rarity": "无标记",
+  "effectId": "4a5f7c0d728b1040b5958257ad9dc20f",
+  "cardType": "Pokemon",
+  "yorenCode": "P204",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "002",
+  "cardName": "蘑蘑菇",
+  "rarity": "无标记",
+  "effectId": "5d029f65d574df62c28d9aa76a0690ba",
+  "cardType": "Pokemon",
+  "yorenCode": "P285",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "003",
+  "cardName": "斗笠菇",
+  "rarity": "无标记",
+  "effectId": "bdac8da442bcaf6535469133edd339a7",
+  "cardType": "Pokemon",
+  "yorenCode": "P286",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "004",
+  "cardName": "毕力吉翁",
+  "rarity": "无标记",
+  "effectId": "d9b2041978c16c5662a28378d9df53b1",
+  "cardType": "Pokemon",
+  "yorenCode": "P640",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "005",
+  "cardName": "伪螳草",
+  "rarity": "无标记",
+  "effectId": "6073b63e33771a1aaa306225c8c909ca",
+  "cardType": "Pokemon",
+  "yorenCode": "P753",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "006",
+  "cardName": "兰螳花",
+  "rarity": "无标记",
+  "effectId": "34e0b99e284023bbfc1bb85af6fc0788",
+  "cardType": "Pokemon",
+  "yorenCode": "P754",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "007",
+  "cardName": "豆蟋蟀",
+  "rarity": "无标记",
+  "effectId": "dbfd27c1c04e2f68e555858fbab06ee4",
+  "cardType": "Pokemon",
+  "yorenCode": "P0919",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "008",
+  "cardName": "爆香猴",
+  "rarity": "无标记",
+  "effectId": "23653a55bfe4bc41c9cd712ca6c11dde",
+  "cardType": "Pokemon",
+  "yorenCode": "P513",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "009",
+  "cardName": "爆香猿",
+  "rarity": "无标记",
+  "effectId": "a50b8d2625ea3a40ad9ce54b1772f0f8",
+  "cardType": "Pokemon",
+  "yorenCode": "P514",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "010",
+  "cardName": "火红不倒翁",
+  "rarity": "无标记",
+  "effectId": "67201927b555aadab6f6eef1f5a807b6",
+  "cardType": "Pokemon",
+  "yorenCode": "P554",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "011",
+  "cardName": "达摩狒狒",
+  "rarity": "无标记",
+  "effectId": "29b0bdc56376e6e2dcbf3383facb8086",
+  "cardType": "Pokemon",
+  "yorenCode": "P555",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "012",
+  "cardName": "爆焰龟兽",
+  "rarity": "无标记",
+  "effectId": "ee316111bb5eeac96b8162c0ffddafe3",
+  "cardType": "Pokemon",
+  "yorenCode": "P776",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "013",
+  "cardName": "迷唇姐",
+  "rarity": "无标记",
+  "effectId": "6eb8825d2375d5d549396977383cb754",
+  "cardType": "Pokemon",
+  "yorenCode": "P124",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "014",
+  "cardName": "泳圈鼬",
+  "rarity": "无标记",
+  "effectId": "ab75eb6591c2787e25bdf7c2098c52b3",
+  "cardType": "Pokemon",
+  "yorenCode": "P418",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "015",
+  "cardName": "浮潜鼬",
+  "rarity": "无标记",
+  "effectId": "86a6a296d5cd1536e4165a57ae830646",
+  "cardType": "Pokemon",
+  "yorenCode": "P419",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "016",
+  "cardName": "刺梭鱼",
+  "rarity": "无标记",
+  "effectId": "2c764759cca7d1c587090cdf1d32a2d1",
+  "cardType": "Pokemon",
+  "yorenCode": "P846",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "017",
+  "cardName": "戽斗尖梭",
+  "rarity": "无标记",
+  "effectId": "5f394a7e314ae8a5e089e6d74c257bfd",
+  "cardType": "Pokemon",
+  "yorenCode": "P847",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "018",
+  "cardName": "电飞鼠",
+  "rarity": "无标记",
+  "effectId": "002921c2f0048f32b9b5e490ad653363",
+  "cardType": "Pokemon",
+  "yorenCode": "P587",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "019",
+  "cardName": "托戈德玛尔",
+  "rarity": "无标记",
+  "effectId": "9cf2fe297b3b3f6e4ffcc2b7bbcfc267",
+  "cardType": "Pokemon",
+  "yorenCode": "P777",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "020",
+  "cardName": "皮皮",
+  "rarity": "无标记",
+  "effectId": "5485cc09f115f83bcbd929c14f4598d6",
+  "cardType": "Pokemon",
+  "yorenCode": "P035",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "021",
+  "cardName": "皮可西",
+  "rarity": "无标记",
+  "effectId": "81cc50a278ff8ecf2792deb0231dcf6b",
+  "cardType": "Pokemon",
+  "yorenCode": "P036",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "022",
+  "cardName": "阿罗拉 嘎啦嘎啦",
+  "rarity": "无标记",
+  "effectId": "64ead33b22cee0b5b5a2424c7af59b34",
+  "cardType": "Pokemon",
+  "yorenCode": "P105",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "023",
+  "cardName": "象征鸟",
+  "rarity": "无标记",
+  "effectId": "5e69ab3486d66265733306fd92033a57",
+  "cardType": "Pokemon",
+  "yorenCode": "P561",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "024",
+  "cardName": "小灰怪",
+  "rarity": "无标记",
+  "effectId": "3a5ec5322748f4cf3ebf39bf016633a8",
+  "cardType": "Pokemon",
+  "yorenCode": "P605",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "025",
+  "cardName": "大宇怪",
+  "rarity": "无标记",
+  "effectId": "96bd0464a8bf44f7d0f1a279eac87e88",
+  "cardType": "Pokemon",
+  "yorenCode": "P606",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "026",
+  "cardName": "仙子伊布",
+  "rarity": "无标记",
+  "effectId": "cc6fad55184688ccefb96028bf17bb74",
+  "cardType": "Pokemon",
+  "yorenCode": "P700",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "027",
+  "cardName": "小仙奶",
+  "rarity": "无标记",
+  "effectId": "9fd7482975ed48f10077fa1ab9b431ee",
+  "cardType": "Pokemon",
+  "yorenCode": "P868",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "028",
+  "cardName": "穿山鼠",
+  "rarity": "无标记",
+  "effectId": "e5970424a62e79ddc3e848ea0ff144b4",
+  "cardType": "Pokemon",
+  "yorenCode": "Y890",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "029",
+  "cardName": "穿山王",
+  "rarity": "无标记",
+  "effectId": "b63c6fdb6934b058cc924adc52c2ef2f",
+  "cardType": "Pokemon",
+  "yorenCode": "Y891",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "030",
+  "cardName": "卡拉卡拉",
+  "rarity": "无标记",
+  "effectId": "5ae89865b4b857226484eb019986a6c3",
+  "cardType": "Pokemon",
+  "yorenCode": "P104",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "031",
+  "cardName": "玛沙那",
+  "rarity": "无标记",
+  "effectId": "3f834e2766363e6ee2260d313c01210f",
+  "cardType": "Pokemon",
+  "yorenCode": "P307",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "032",
+  "cardName": "恰雷姆",
+  "rarity": "无标记",
+  "effectId": "ac0aca75615a1266903b085c5c230757",
+  "cardType": "Pokemon",
+  "yorenCode": "P308",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "033",
+  "cardName": "雷吉洛克",
+  "rarity": "无标记",
+  "effectId": "31b43a40ba1086a56a8cef08f0aff2f9",
+  "cardType": "Pokemon",
+  "yorenCode": "P377",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "034",
+  "cardName": "帕底亚 乌波",
+  "rarity": "无标记",
+  "effectId": "ffa371eb22d9dfd66abab6a42085d22a",
+  "cardType": "Pokemon",
+  "yorenCode": "P0194",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "93",
+  "nameEn": "Paldean Wooper"
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "035",
+  "cardName": "烈腿蝗",
+  "rarity": "无标记",
+  "effectId": "adce21cc404804215266dc5e5864ac8c",
+  "cardType": "Pokemon",
+  "yorenCode": "P0920",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "036",
+  "cardName": "佛烈托斯",
+  "rarity": "无标记",
+  "effectId": "ef3de0c312d0fa0b1cd0c8b995127b88",
+  "cardType": "Pokemon",
+  "yorenCode": "P205",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "037",
+  "cardName": "盔甲鸟",
+  "rarity": "无标记",
+  "effectId": "78b0a3af95d51b1d211c0fa3605643d3",
+  "cardType": "Pokemon",
+  "yorenCode": "P227",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "038",
+  "cardName": "傲骨燕",
+  "rarity": "无标记",
+  "effectId": "647dfaa2f937eb0bac36cc5521a4bd59",
+  "cardType": "Pokemon",
+  "yorenCode": "P276",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "039",
+  "cardName": "大王燕",
+  "rarity": "无标记",
+  "effectId": "d051e95c0f642575ab3a04bb7a7de9b1",
+  "cardType": "Pokemon",
+  "yorenCode": "P277",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "040",
+  "cardName": "泡沫栗鼠",
+  "rarity": "无标记",
+  "effectId": "8c37ba63ff41fae70c01fa09f16207b9",
+  "cardType": "Pokemon",
+  "yorenCode": "P572",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "041",
+  "cardName": "奇诺栗鼠",
+  "rarity": "无标记",
+  "effectId": "35e1bd263d8a24349f4bfb93675def2e",
+  "cardType": "Pokemon",
+  "yorenCode": "P573",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "042",
+  "cardName": "树枕尾熊",
+  "rarity": "无标记",
+  "effectId": "b73c5405b1d798efef2b32a18128578b",
+  "cardType": "Pokemon",
+  "yorenCode": "P775",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "043",
+  "cardName": "怒鹦哥",
+  "rarity": "无标记",
+  "effectId": "1ad902900acf599499651e22234f04af",
+  "cardType": "Pokemon",
+  "yorenCode": "P0931",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "044",
+  "cardName": "空手道王的修炼",
+  "rarity": "无标记",
+  "effectId": "a444b83881df9e2a0225aee95bbc853a",
+  "cardType": "Supporter",
+  "yorenCode": "Y1496",
+  "is": [],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "96",
+  "nameEn": "Black Belt's Training"
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "045",
+  "cardName": "空手道王的修炼",
+  "rarity": "无标记",
+  "effectId": "a444b83881df9e2a0225aee95bbc853a",
+  "cardType": "Supporter",
+  "yorenCode": "Y1496",
+  "is": [],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "96",
+  "nameEn": "Black Belt's Training"
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "046",
+  "cardName": "空手道王的修炼",
+  "rarity": "无标记",
+  "effectId": "a444b83881df9e2a0225aee95bbc853a",
+  "cardType": "Supporter",
+  "yorenCode": "Y1496",
+  "is": [],
+  "setCodeEn": "PRE",
+  "cardIndexEn": "96",
+  "nameEn": "Black Belt's Training"
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "047",
+  "cardName": "博士的研究",
+  "rarity": "无标记",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "048",
+  "cardName": "博士的研究",
+  "rarity": "无标记",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ },
+ {
+  "setCode": "CSVH6eC",
+  "cardIndex": "049",
+  "cardName": "博士的研究",
+  "rarity": "无标记",
+  "effectId": "aecd80ca2722885c3d062a2255346f3e",
+  "cardType": "Supporter",
+  "yorenCode": "Y485",
+  "is": [],
+  "setCodeEn": "SSH",
+  "cardIndexEn": "178",
+  "nameEn": "Professor's Research"
+ }
+]

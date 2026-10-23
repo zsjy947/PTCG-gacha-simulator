@@ -1653,6 +1653,50 @@
     "group": "嗨皮系列",
     "sets": [
      {
+      "code": "CSVH6aC",
+      "count": 23,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH6aC",
+      "name": "嗨皮卡组 训练家的宝可梦 改造包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH6pC",
+      "count": 14,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH6pC",
+      "name": "嗨皮卡组 训练家的宝可梦 奖赏包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH6eC",
+      "count": 49,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH6eC",
+      "name": "嗨皮卡组 训练家的宝可梦 嗨皮包",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSVH6C",
+      "count": 59,
+      "drawable": false,
+      "group": "嗨皮系列",
+      "id": "CSVH6C",
+      "name": "嗨皮卡组 训练家的宝可梦",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
       "code": "CSVH5C",
       "count": 63,
       "drawable": false,
