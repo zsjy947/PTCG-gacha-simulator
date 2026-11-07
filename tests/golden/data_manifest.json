@@ -2,11 +2,23 @@
  "status": 200,
  "body": {
   "schemaVersion": 1,
-  "generated": "2026-10-23T23:44:03+08:00",
+  "generated": "2026-11-07T00:34:32+08:00",
   "sets": {
    "MP": {
     "count": 1,
     "md5": "b52998429f57a4ae175a0a3a2a95b53e"
+   },
+   "CSV10.6C": {
+    "count": 174,
+    "md5": "53dc77ec0c51a04cc690e69368144231"
+   },
+   "CSV10.5C": {
+    "count": 174,
+    "md5": "4daff73f1e1fb0de4dc99e0ed2c0c787"
+   },
+   "CBB7C": {
+    "count": 196,
+    "md5": "76310b5cd5da18e3fbac4e9aff1bb71a"
    },
    "CSVH6aC": {
     "count": 23,

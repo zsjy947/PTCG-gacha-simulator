@@ -8,9 +8,33 @@
   "count": 1
  },
  {
+  "id": "CSV10.6C",
+  "code": "CSV10.6C",
+  "name": "白焰迸涌",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 174
+ },
+ {
+  "id": "CSV10.5C",
+  "code": "CSV10.5C",
+  "name": "黑雷奔流",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 174
+ },
+ {
+  "id": "CBB7C",
+  "code": "CBB7C",
+  "name": "宝石包 VOL.7",
+  "series": "Scarlet & Violet",
+  "seriesZh": "朱&紫 系列",
+  "count": 196
+ },
+ {
   "id": "CSVH6aC",
   "code": "CSVH6aC",
-  "name": "嗨皮卡组 训练家的宝可梦 改造包",
+  "name": "嗨皮组合 训练家的宝可梦 改造包",
   "series": "Scarlet & Violet",
   "seriesZh": "朱&紫 系列",
   "count": 23
@@ -18,7 +42,7 @@
  {
   "id": "CSVH6pC",
   "code": "CSVH6pC",
-  "name": "嗨皮卡组 训练家的宝可梦 奖赏包",
+  "name": "嗨皮组合 训练家的宝可梦 奖赏包",
   "series": "Scarlet & Violet",
   "seriesZh": "朱&紫 系列",
   "count": 14
@@ -26,7 +50,7 @@
  {
   "id": "CSVH6eC",
   "code": "CSVH6eC",
-  "name": "嗨皮卡组 训练家的宝可梦 嗨皮包",
+  "name": "嗨皮组合 训练家的宝可梦 嗨皮包",
   "series": "Scarlet & Violet",
   "seriesZh": "朱&紫 系列",
   "count": 49
@@ -34,7 +58,7 @@
  {
   "id": "CSVH6C",
   "code": "CSVH6C",
-  "name": "嗨皮卡组 训练家的宝可梦",
+  "name": "嗨皮组合 训练家的宝可梦",
   "series": "Scarlet & Violet",
   "seriesZh": "朱&紫 系列",
   "count": 59
@@ -170,7 +194,7 @@
  {
   "id": "CSVH4C",
   "code": "CSVH4C",
-  "name": "嗨皮卡组 狙射树枭&美录梅塔&故勒顿&密勒顿",
+  "name": "嗨皮组合 狙射树枭&美录梅塔&故勒顿&密勒顿",
   "series": "Scarlet & Violet",
   "seriesZh": "朱&紫 系列",
   "count": 65
@@ -274,7 +298,7 @@
  {
   "id": "CSVH3C",
   "code": "CSVH3C",
-  "name": "嗨皮卡组 七夕青鸟&拉帝欧斯&烈焰猴&一家鼠",
+  "name": "嗨皮组合 七夕青鸟&拉帝欧斯&烈焰猴&一家鼠",
   "series": "Scarlet & Violet",
   "seriesZh": "朱&紫 系列",
   "count": 68

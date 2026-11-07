@@ -1,0 +1,2942 @@
+[
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0101",
+  "cardName": "火箭队的拉达",
+  "rarity": "●",
+  "effectId": "1094d9ed366ef996bb18448b465cf8ca",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1601",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "148",
+  "nameEn": "Team Rocket's Raticate"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0102",
+  "cardName": "火箭队的拉达",
+  "rarity": "●",
+  "effectId": "1094d9ed366ef996bb18448b465cf8ca",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1601",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "148",
+  "nameEn": "Team Rocket's Raticate"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0103",
+  "cardName": "火箭队的拉达",
+  "rarity": "◆",
+  "effectId": "1094d9ed366ef996bb18448b465cf8ca",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1601",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "148",
+  "nameEn": "Team Rocket's Raticate"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0104",
+  "cardName": "火箭队的拉达",
+  "rarity": "◆",
+  "effectId": "1094d9ed366ef996bb18448b465cf8ca",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1601",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "148",
+  "nameEn": "Team Rocket's Raticate"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0105",
+  "cardName": "火箭队的拉达",
+  "rarity": "★",
+  "effectId": "1094d9ed366ef996bb18448b465cf8ca",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1601",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "148",
+  "nameEn": "Team Rocket's Raticate"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0106",
+  "cardName": "火箭队的拉达",
+  "rarity": "★★",
+  "effectId": "1094d9ed366ef996bb18448b465cf8ca",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1601",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "148",
+  "nameEn": "Team Rocket's Raticate"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0107",
+  "cardName": "火箭队的拉达",
+  "rarity": "★★★",
+  "effectId": "1094d9ed366ef996bb18448b465cf8ca",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1601",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "148",
+  "nameEn": "Team Rocket's Raticate"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0201",
+  "cardName": "火箭队的喵喵",
+  "rarity": "●",
+  "effectId": "ce73887b24bb5292b4f72887d2687c93",
+  "cardType": "Pokemon",
+  "yorenCode": "P0052",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "149",
+  "nameEn": "Team Rocket's Meowth"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0202",
+  "cardName": "火箭队的喵喵",
+  "rarity": "●",
+  "effectId": "ce73887b24bb5292b4f72887d2687c93",
+  "cardType": "Pokemon",
+  "yorenCode": "P0052",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "149",
+  "nameEn": "Team Rocket's Meowth"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0203",
+  "cardName": "火箭队的喵喵",
+  "rarity": "◆",
+  "effectId": "ce73887b24bb5292b4f72887d2687c93",
+  "cardType": "Pokemon",
+  "yorenCode": "P0052",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "149",
+  "nameEn": "Team Rocket's Meowth"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0204",
+  "cardName": "火箭队的喵喵",
+  "rarity": "◆",
+  "effectId": "ce73887b24bb5292b4f72887d2687c93",
+  "cardType": "Pokemon",
+  "yorenCode": "P0052",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "149",
+  "nameEn": "Team Rocket's Meowth"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0205",
+  "cardName": "火箭队的喵喵",
+  "rarity": "★",
+  "effectId": "ce73887b24bb5292b4f72887d2687c93",
+  "cardType": "Pokemon",
+  "yorenCode": "P0052",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "149",
+  "nameEn": "Team Rocket's Meowth"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0206",
+  "cardName": "火箭队的喵喵",
+  "rarity": "★★",
+  "effectId": "ce73887b24bb5292b4f72887d2687c93",
+  "cardType": "Pokemon",
+  "yorenCode": "P0052",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "149",
+  "nameEn": "Team Rocket's Meowth"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0207",
+  "cardName": "火箭队的喵喵",
+  "rarity": "★★★",
+  "effectId": "ce73887b24bb5292b4f72887d2687c93",
+  "cardType": "Pokemon",
+  "yorenCode": "P0052",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "149",
+  "nameEn": "Team Rocket's Meowth"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0301",
+  "cardName": "可达鸭",
+  "rarity": "●",
+  "effectId": "e441a28267f0304f38448bc267a3e61d",
+  "cardType": "Pokemon",
+  "yorenCode": "P054",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "39",
+  "nameEn": "Psyduck"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0302",
+  "cardName": "可达鸭",
+  "rarity": "●",
+  "effectId": "e441a28267f0304f38448bc267a3e61d",
+  "cardType": "Pokemon",
+  "yorenCode": "P054",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "39",
+  "nameEn": "Psyduck"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0303",
+  "cardName": "可达鸭",
+  "rarity": "◆",
+  "effectId": "e441a28267f0304f38448bc267a3e61d",
+  "cardType": "Pokemon",
+  "yorenCode": "P054",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "39",
+  "nameEn": "Psyduck"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0304",
+  "cardName": "可达鸭",
+  "rarity": "◆",
+  "effectId": "e441a28267f0304f38448bc267a3e61d",
+  "cardType": "Pokemon",
+  "yorenCode": "P054",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "39",
+  "nameEn": "Psyduck"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0305",
+  "cardName": "可达鸭",
+  "rarity": "★",
+  "effectId": "e441a28267f0304f38448bc267a3e61d",
+  "cardType": "Pokemon",
+  "yorenCode": "P054",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "39",
+  "nameEn": "Psyduck"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0306",
+  "cardName": "可达鸭",
+  "rarity": "★★",
+  "effectId": "e441a28267f0304f38448bc267a3e61d",
+  "cardType": "Pokemon",
+  "yorenCode": "P054",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "39",
+  "nameEn": "Psyduck"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0307",
+  "cardName": "可达鸭",
+  "rarity": "★★★",
+  "effectId": "e441a28267f0304f38448bc267a3e61d",
+  "cardType": "Pokemon",
+  "yorenCode": "P054",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "39",
+  "nameEn": "Psyduck"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0401",
+  "cardName": "烈焰马",
+  "rarity": "●",
+  "effectId": "4993380edb7f82c1011f2878ac217c62",
+  "cardType": "Pokemon",
+  "yorenCode": "P078",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "30",
+  "nameEn": "Rapidash"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0402",
+  "cardName": "烈焰马",
+  "rarity": "●",
+  "effectId": "4993380edb7f82c1011f2878ac217c62",
+  "cardType": "Pokemon",
+  "yorenCode": "P078",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "30",
+  "nameEn": "Rapidash"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0403",
+  "cardName": "烈焰马",
+  "rarity": "◆",
+  "effectId": "4993380edb7f82c1011f2878ac217c62",
+  "cardType": "Pokemon",
+  "yorenCode": "P078",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "30",
+  "nameEn": "Rapidash"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0404",
+  "cardName": "烈焰马",
+  "rarity": "◆",
+  "effectId": "4993380edb7f82c1011f2878ac217c62",
+  "cardType": "Pokemon",
+  "yorenCode": "P078",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "30",
+  "nameEn": "Rapidash"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0405",
+  "cardName": "烈焰马",
+  "rarity": "★",
+  "effectId": "4993380edb7f82c1011f2878ac217c62",
+  "cardType": "Pokemon",
+  "yorenCode": "P078",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "30",
+  "nameEn": "Rapidash"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0406",
+  "cardName": "烈焰马",
+  "rarity": "★★",
+  "effectId": "4993380edb7f82c1011f2878ac217c62",
+  "cardType": "Pokemon",
+  "yorenCode": "P078",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "30",
+  "nameEn": "Rapidash"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0407",
+  "cardName": "烈焰马",
+  "rarity": "★★★",
+  "effectId": "4993380edb7f82c1011f2878ac217c62",
+  "cardType": "Pokemon",
+  "yorenCode": "P078",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "30",
+  "nameEn": "Rapidash"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0501",
+  "cardName": "火箭队的双弹瓦斯",
+  "rarity": "●",
+  "effectId": "890fa0b0b7e2ed3fb41dd9b8e4eb2a51",
+  "cardType": "Pokemon",
+  "yorenCode": "P0110",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "126",
+  "nameEn": "Team Rocket's Weezing"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0502",
+  "cardName": "火箭队的双弹瓦斯",
+  "rarity": "●",
+  "effectId": "890fa0b0b7e2ed3fb41dd9b8e4eb2a51",
+  "cardType": "Pokemon",
+  "yorenCode": "P0110",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "126",
+  "nameEn": "Team Rocket's Weezing"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0503",
+  "cardName": "火箭队的双弹瓦斯",
+  "rarity": "◆",
+  "effectId": "890fa0b0b7e2ed3fb41dd9b8e4eb2a51",
+  "cardType": "Pokemon",
+  "yorenCode": "P0110",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "126",
+  "nameEn": "Team Rocket's Weezing"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0504",
+  "cardName": "火箭队的双弹瓦斯",
+  "rarity": "◆",
+  "effectId": "890fa0b0b7e2ed3fb41dd9b8e4eb2a51",
+  "cardType": "Pokemon",
+  "yorenCode": "P0110",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "126",
+  "nameEn": "Team Rocket's Weezing"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0505",
+  "cardName": "火箭队的双弹瓦斯",
+  "rarity": "★",
+  "effectId": "890fa0b0b7e2ed3fb41dd9b8e4eb2a51",
+  "cardType": "Pokemon",
+  "yorenCode": "P0110",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "126",
+  "nameEn": "Team Rocket's Weezing"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0506",
+  "cardName": "火箭队的双弹瓦斯",
+  "rarity": "★★",
+  "effectId": "890fa0b0b7e2ed3fb41dd9b8e4eb2a51",
+  "cardType": "Pokemon",
+  "yorenCode": "P0110",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "126",
+  "nameEn": "Team Rocket's Weezing"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0507",
+  "cardName": "火箭队的双弹瓦斯",
+  "rarity": "★★★",
+  "effectId": "890fa0b0b7e2ed3fb41dd9b8e4eb2a51",
+  "cardType": "Pokemon",
+  "yorenCode": "P0110",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "126",
+  "nameEn": "Team Rocket's Weezing"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0601",
+  "cardName": "小霞的拉普拉斯",
+  "rarity": "●",
+  "effectId": "5a6e590eac6f7b2b7ab99bfc3423566f",
+  "cardType": "Pokemon",
+  "yorenCode": "P0131",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "50",
+  "nameEn": "Misty's Lapras"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0602",
+  "cardName": "小霞的拉普拉斯",
+  "rarity": "●",
+  "effectId": "5a6e590eac6f7b2b7ab99bfc3423566f",
+  "cardType": "Pokemon",
+  "yorenCode": "P0131",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "50",
+  "nameEn": "Misty's Lapras"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0603",
+  "cardName": "小霞的拉普拉斯",
+  "rarity": "◆",
+  "effectId": "5a6e590eac6f7b2b7ab99bfc3423566f",
+  "cardType": "Pokemon",
+  "yorenCode": "P0131",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "50",
+  "nameEn": "Misty's Lapras"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0604",
+  "cardName": "小霞的拉普拉斯",
+  "rarity": "◆",
+  "effectId": "5a6e590eac6f7b2b7ab99bfc3423566f",
+  "cardType": "Pokemon",
+  "yorenCode": "P0131",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "50",
+  "nameEn": "Misty's Lapras"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0605",
+  "cardName": "小霞的拉普拉斯",
+  "rarity": "★",
+  "effectId": "5a6e590eac6f7b2b7ab99bfc3423566f",
+  "cardType": "Pokemon",
+  "yorenCode": "P0131",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "50",
+  "nameEn": "Misty's Lapras"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0606",
+  "cardName": "小霞的拉普拉斯",
+  "rarity": "★★",
+  "effectId": "5a6e590eac6f7b2b7ab99bfc3423566f",
+  "cardType": "Pokemon",
+  "yorenCode": "P0131",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "50",
+  "nameEn": "Misty's Lapras"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0607",
+  "cardName": "小霞的拉普拉斯",
+  "rarity": "★★★",
+  "effectId": "5a6e590eac6f7b2b7ab99bfc3423566f",
+  "cardType": "Pokemon",
+  "yorenCode": "P0131",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "50",
+  "nameEn": "Misty's Lapras"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0701",
+  "cardName": "阿响的火暴兽",
+  "rarity": "●",
+  "effectId": "58b6393e8518ece9660234700f511a22",
+  "cardType": "Pokemon",
+  "yorenCode": "P0157",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "34",
+  "nameEn": "Ethan's Typhlosion"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0702",
+  "cardName": "阿响的火暴兽",
+  "rarity": "●",
+  "effectId": "58b6393e8518ece9660234700f511a22",
+  "cardType": "Pokemon",
+  "yorenCode": "P0157",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "34",
+  "nameEn": "Ethan's Typhlosion"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0703",
+  "cardName": "阿响的火暴兽",
+  "rarity": "◆",
+  "effectId": "58b6393e8518ece9660234700f511a22",
+  "cardType": "Pokemon",
+  "yorenCode": "P0157",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "34",
+  "nameEn": "Ethan's Typhlosion"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0704",
+  "cardName": "阿响的火暴兽",
+  "rarity": "◆",
+  "effectId": "58b6393e8518ece9660234700f511a22",
+  "cardType": "Pokemon",
+  "yorenCode": "P0157",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "34",
+  "nameEn": "Ethan's Typhlosion"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0705",
+  "cardName": "阿响的火暴兽",
+  "rarity": "★",
+  "effectId": "58b6393e8518ece9660234700f511a22",
+  "cardType": "Pokemon",
+  "yorenCode": "P0157",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "34",
+  "nameEn": "Ethan's Typhlosion"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0706",
+  "cardName": "阿响的火暴兽",
+  "rarity": "★★",
+  "effectId": "58b6393e8518ece9660234700f511a22",
+  "cardType": "Pokemon",
+  "yorenCode": "P0157",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "34",
+  "nameEn": "Ethan's Typhlosion"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0707",
+  "cardName": "阿响的火暴兽",
+  "rarity": "★★★",
+  "effectId": "58b6393e8518ece9660234700f511a22",
+  "cardType": "Pokemon",
+  "yorenCode": "P0157",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "34",
+  "nameEn": "Ethan's Typhlosion"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0801",
+  "cardName": "大尾立",
+  "rarity": "●",
+  "effectId": "1b12f05742ac419e9a8d8cbb6df99f16",
+  "cardType": "Pokemon",
+  "yorenCode": "P162",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "119",
+  "nameEn": "Furret"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0802",
+  "cardName": "大尾立",
+  "rarity": "●",
+  "effectId": "1b12f05742ac419e9a8d8cbb6df99f16",
+  "cardType": "Pokemon",
+  "yorenCode": "P162",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "119",
+  "nameEn": "Furret"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0803",
+  "cardName": "大尾立",
+  "rarity": "◆",
+  "effectId": "1b12f05742ac419e9a8d8cbb6df99f16",
+  "cardType": "Pokemon",
+  "yorenCode": "P162",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "119",
+  "nameEn": "Furret"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0804",
+  "cardName": "大尾立",
+  "rarity": "◆",
+  "effectId": "1b12f05742ac419e9a8d8cbb6df99f16",
+  "cardType": "Pokemon",
+  "yorenCode": "P162",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "119",
+  "nameEn": "Furret"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0805",
+  "cardName": "大尾立",
+  "rarity": "★",
+  "effectId": "1b12f05742ac419e9a8d8cbb6df99f16",
+  "cardType": "Pokemon",
+  "yorenCode": "P162",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "119",
+  "nameEn": "Furret"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0806",
+  "cardName": "大尾立",
+  "rarity": "★★",
+  "effectId": "1b12f05742ac419e9a8d8cbb6df99f16",
+  "cardType": "Pokemon",
+  "yorenCode": "P162",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "119",
+  "nameEn": "Furret"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0807",
+  "cardName": "大尾立",
+  "rarity": "★★★",
+  "effectId": "1b12f05742ac419e9a8d8cbb6df99f16",
+  "cardType": "Pokemon",
+  "yorenCode": "P162",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "119",
+  "nameEn": "Furret"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0901",
+  "cardName": "火箭队的黑暗鸦",
+  "rarity": "●",
+  "effectId": "8ef7f03a3fb643c476b844417ba8f30a",
+  "cardType": "Pokemon",
+  "yorenCode": "P0198",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "127",
+  "nameEn": "Team Rocket's Murkrow"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0902",
+  "cardName": "火箭队的黑暗鸦",
+  "rarity": "●",
+  "effectId": "8ef7f03a3fb643c476b844417ba8f30a",
+  "cardType": "Pokemon",
+  "yorenCode": "P0198",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "127",
+  "nameEn": "Team Rocket's Murkrow"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0903",
+  "cardName": "火箭队的黑暗鸦",
+  "rarity": "◆",
+  "effectId": "8ef7f03a3fb643c476b844417ba8f30a",
+  "cardType": "Pokemon",
+  "yorenCode": "P0198",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "127",
+  "nameEn": "Team Rocket's Murkrow"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0904",
+  "cardName": "火箭队的黑暗鸦",
+  "rarity": "◆",
+  "effectId": "8ef7f03a3fb643c476b844417ba8f30a",
+  "cardType": "Pokemon",
+  "yorenCode": "P0198",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "127",
+  "nameEn": "Team Rocket's Murkrow"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0905",
+  "cardName": "火箭队的黑暗鸦",
+  "rarity": "★",
+  "effectId": "8ef7f03a3fb643c476b844417ba8f30a",
+  "cardType": "Pokemon",
+  "yorenCode": "P0198",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "127",
+  "nameEn": "Team Rocket's Murkrow"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0906",
+  "cardName": "火箭队的黑暗鸦",
+  "rarity": "★★",
+  "effectId": "8ef7f03a3fb643c476b844417ba8f30a",
+  "cardType": "Pokemon",
+  "yorenCode": "P0198",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "127",
+  "nameEn": "Team Rocket's Murkrow"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "0907",
+  "cardName": "火箭队的黑暗鸦",
+  "rarity": "★★★",
+  "effectId": "8ef7f03a3fb643c476b844417ba8f30a",
+  "cardType": "Pokemon",
+  "yorenCode": "P0198",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "127",
+  "nameEn": "Team Rocket's Murkrow"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1001",
+  "cardName": "火箭队的果然翁",
+  "rarity": "●",
+  "effectId": "1a637859049070376045eb781fe6640e",
+  "cardType": "Pokemon",
+  "yorenCode": "P0202",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "82",
+  "nameEn": "Team Rocket's Wobbuffet"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1002",
+  "cardName": "火箭队的果然翁",
+  "rarity": "●",
+  "effectId": "1a637859049070376045eb781fe6640e",
+  "cardType": "Pokemon",
+  "yorenCode": "P0202",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "82",
+  "nameEn": "Team Rocket's Wobbuffet"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1003",
+  "cardName": "火箭队的果然翁",
+  "rarity": "◆",
+  "effectId": "1a637859049070376045eb781fe6640e",
+  "cardType": "Pokemon",
+  "yorenCode": "P0202",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "82",
+  "nameEn": "Team Rocket's Wobbuffet"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1004",
+  "cardName": "火箭队的果然翁",
+  "rarity": "◆",
+  "effectId": "1a637859049070376045eb781fe6640e",
+  "cardType": "Pokemon",
+  "yorenCode": "P0202",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "82",
+  "nameEn": "Team Rocket's Wobbuffet"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1005",
+  "cardName": "火箭队的果然翁",
+  "rarity": "★",
+  "effectId": "1a637859049070376045eb781fe6640e",
+  "cardType": "Pokemon",
+  "yorenCode": "P0202",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "82",
+  "nameEn": "Team Rocket's Wobbuffet"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1006",
+  "cardName": "火箭队的果然翁",
+  "rarity": "★★",
+  "effectId": "1a637859049070376045eb781fe6640e",
+  "cardType": "Pokemon",
+  "yorenCode": "P0202",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "82",
+  "nameEn": "Team Rocket's Wobbuffet"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1007",
+  "cardName": "火箭队的果然翁",
+  "rarity": "★★★",
+  "effectId": "1a637859049070376045eb781fe6640e",
+  "cardType": "Pokemon",
+  "yorenCode": "P0202",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "82",
+  "nameEn": "Team Rocket's Wobbuffet"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1101",
+  "cardName": "小山猪",
+  "rarity": "●",
+  "effectId": "8f1d33e95b8106e2c562ae8916188fd4",
+  "cardType": "Pokemon",
+  "yorenCode": "P220",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "77",
+  "nameEn": "Swinub"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1102",
+  "cardName": "小山猪",
+  "rarity": "●",
+  "effectId": "8f1d33e95b8106e2c562ae8916188fd4",
+  "cardType": "Pokemon",
+  "yorenCode": "P220",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "77",
+  "nameEn": "Swinub"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1103",
+  "cardName": "小山猪",
+  "rarity": "◆",
+  "effectId": "8f1d33e95b8106e2c562ae8916188fd4",
+  "cardType": "Pokemon",
+  "yorenCode": "P220",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "77",
+  "nameEn": "Swinub"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1104",
+  "cardName": "小山猪",
+  "rarity": "◆",
+  "effectId": "8f1d33e95b8106e2c562ae8916188fd4",
+  "cardType": "Pokemon",
+  "yorenCode": "P220",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "77",
+  "nameEn": "Swinub"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1105",
+  "cardName": "小山猪",
+  "rarity": "★",
+  "effectId": "8f1d33e95b8106e2c562ae8916188fd4",
+  "cardType": "Pokemon",
+  "yorenCode": "P220",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "77",
+  "nameEn": "Swinub"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1106",
+  "cardName": "小山猪",
+  "rarity": "★★",
+  "effectId": "8f1d33e95b8106e2c562ae8916188fd4",
+  "cardType": "Pokemon",
+  "yorenCode": "P220",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "77",
+  "nameEn": "Swinub"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1107",
+  "cardName": "小山猪",
+  "rarity": "★★★",
+  "effectId": "8f1d33e95b8106e2c562ae8916188fd4",
+  "cardType": "Pokemon",
+  "yorenCode": "P220",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "77",
+  "nameEn": "Swinub"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1201",
+  "cardName": "火箭队的黑鲁加",
+  "rarity": "●",
+  "effectId": "18e2f69b20cb18e73f86a78ba7a15e6b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "38",
+  "nameEn": "Team Rocket's Houndoom"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1202",
+  "cardName": "火箭队的黑鲁加",
+  "rarity": "●",
+  "effectId": "18e2f69b20cb18e73f86a78ba7a15e6b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "38",
+  "nameEn": "Team Rocket's Houndoom"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1203",
+  "cardName": "火箭队的黑鲁加",
+  "rarity": "◆",
+  "effectId": "18e2f69b20cb18e73f86a78ba7a15e6b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "38",
+  "nameEn": "Team Rocket's Houndoom"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1204",
+  "cardName": "火箭队的黑鲁加",
+  "rarity": "◆",
+  "effectId": "18e2f69b20cb18e73f86a78ba7a15e6b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "38",
+  "nameEn": "Team Rocket's Houndoom"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1205",
+  "cardName": "火箭队的黑鲁加",
+  "rarity": "★",
+  "effectId": "18e2f69b20cb18e73f86a78ba7a15e6b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "38",
+  "nameEn": "Team Rocket's Houndoom"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1206",
+  "cardName": "火箭队的黑鲁加",
+  "rarity": "★★",
+  "effectId": "18e2f69b20cb18e73f86a78ba7a15e6b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "38",
+  "nameEn": "Team Rocket's Houndoom"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1207",
+  "cardName": "火箭队的黑鲁加",
+  "rarity": "★★★",
+  "effectId": "18e2f69b20cb18e73f86a78ba7a15e6b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0229",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "38",
+  "nameEn": "Team Rocket's Houndoom"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1301",
+  "cardName": "火焰鸡",
+  "rarity": "●",
+  "effectId": "d66a01f98e15b770b2c4bd1372382d4c",
+  "cardType": "Pokemon",
+  "yorenCode": "P257",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "42",
+  "nameEn": "Blaziken"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1302",
+  "cardName": "火焰鸡",
+  "rarity": "●",
+  "effectId": "d66a01f98e15b770b2c4bd1372382d4c",
+  "cardType": "Pokemon",
+  "yorenCode": "P257",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "42",
+  "nameEn": "Blaziken"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1303",
+  "cardName": "火焰鸡",
+  "rarity": "◆",
+  "effectId": "d66a01f98e15b770b2c4bd1372382d4c",
+  "cardType": "Pokemon",
+  "yorenCode": "P257",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "42",
+  "nameEn": "Blaziken"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1304",
+  "cardName": "火焰鸡",
+  "rarity": "◆",
+  "effectId": "d66a01f98e15b770b2c4bd1372382d4c",
+  "cardType": "Pokemon",
+  "yorenCode": "P257",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "42",
+  "nameEn": "Blaziken"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1305",
+  "cardName": "火焰鸡",
+  "rarity": "★",
+  "effectId": "d66a01f98e15b770b2c4bd1372382d4c",
+  "cardType": "Pokemon",
+  "yorenCode": "P257",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "42",
+  "nameEn": "Blaziken"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1306",
+  "cardName": "火焰鸡",
+  "rarity": "★★",
+  "effectId": "d66a01f98e15b770b2c4bd1372382d4c",
+  "cardType": "Pokemon",
+  "yorenCode": "P257",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "42",
+  "nameEn": "Blaziken"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1307",
+  "cardName": "火焰鸡",
+  "rarity": "★★★",
+  "effectId": "d66a01f98e15b770b2c4bd1372382d4c",
+  "cardType": "Pokemon",
+  "yorenCode": "P257",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "42",
+  "nameEn": "Blaziken"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1401",
+  "cardName": "珍珠贝",
+  "rarity": "●",
+  "effectId": "40fc3dee60f8f43bc3ba0e28ada7ccbf",
+  "cardType": "Pokemon",
+  "yorenCode": "P366",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "54",
+  "nameEn": "Clamperl"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1402",
+  "cardName": "珍珠贝",
+  "rarity": "●",
+  "effectId": "40fc3dee60f8f43bc3ba0e28ada7ccbf",
+  "cardType": "Pokemon",
+  "yorenCode": "P366",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "54",
+  "nameEn": "Clamperl"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1403",
+  "cardName": "珍珠贝",
+  "rarity": "◆",
+  "effectId": "40fc3dee60f8f43bc3ba0e28ada7ccbf",
+  "cardType": "Pokemon",
+  "yorenCode": "P366",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "54",
+  "nameEn": "Clamperl"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1404",
+  "cardName": "珍珠贝",
+  "rarity": "◆",
+  "effectId": "40fc3dee60f8f43bc3ba0e28ada7ccbf",
+  "cardType": "Pokemon",
+  "yorenCode": "P366",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "54",
+  "nameEn": "Clamperl"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1405",
+  "cardName": "珍珠贝",
+  "rarity": "★",
+  "effectId": "40fc3dee60f8f43bc3ba0e28ada7ccbf",
+  "cardType": "Pokemon",
+  "yorenCode": "P366",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "54",
+  "nameEn": "Clamperl"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1406",
+  "cardName": "珍珠贝",
+  "rarity": "★★",
+  "effectId": "40fc3dee60f8f43bc3ba0e28ada7ccbf",
+  "cardType": "Pokemon",
+  "yorenCode": "P366",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "54",
+  "nameEn": "Clamperl"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1407",
+  "cardName": "珍珠贝",
+  "rarity": "★★★",
+  "effectId": "40fc3dee60f8f43bc3ba0e28ada7ccbf",
+  "cardType": "Pokemon",
+  "yorenCode": "P366",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "54",
+  "nameEn": "Clamperl"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1501",
+  "cardName": "大吾的铁哑铃",
+  "rarity": "●",
+  "effectId": "3cb54e0edf54794353a790ae243fe771",
+  "cardType": "Pokemon",
+  "yorenCode": "P0374",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "143",
+  "nameEn": "Steven's Beldum"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1502",
+  "cardName": "大吾的铁哑铃",
+  "rarity": "●",
+  "effectId": "3cb54e0edf54794353a790ae243fe771",
+  "cardType": "Pokemon",
+  "yorenCode": "P0374",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "143",
+  "nameEn": "Steven's Beldum"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1503",
+  "cardName": "大吾的铁哑铃",
+  "rarity": "◆",
+  "effectId": "3cb54e0edf54794353a790ae243fe771",
+  "cardType": "Pokemon",
+  "yorenCode": "P0374",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "143",
+  "nameEn": "Steven's Beldum"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1504",
+  "cardName": "大吾的铁哑铃",
+  "rarity": "◆",
+  "effectId": "3cb54e0edf54794353a790ae243fe771",
+  "cardType": "Pokemon",
+  "yorenCode": "P0374",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "143",
+  "nameEn": "Steven's Beldum"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1505",
+  "cardName": "大吾的铁哑铃",
+  "rarity": "★",
+  "effectId": "3cb54e0edf54794353a790ae243fe771",
+  "cardType": "Pokemon",
+  "yorenCode": "P0374",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "143",
+  "nameEn": "Steven's Beldum"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1506",
+  "cardName": "大吾的铁哑铃",
+  "rarity": "★★",
+  "effectId": "3cb54e0edf54794353a790ae243fe771",
+  "cardType": "Pokemon",
+  "yorenCode": "P0374",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "143",
+  "nameEn": "Steven's Beldum"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1507",
+  "cardName": "大吾的铁哑铃",
+  "rarity": "★★★",
+  "effectId": "3cb54e0edf54794353a790ae243fe771",
+  "cardType": "Pokemon",
+  "yorenCode": "P0374",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "143",
+  "nameEn": "Steven's Beldum"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1601",
+  "cardName": "竹兰的罗丝雷朵",
+  "rarity": "●",
+  "effectId": "3040f040cd7a982b18f5e8359ab1ed21",
+  "cardType": "Pokemon",
+  "yorenCode": "P0407",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "8",
+  "nameEn": "Cynthia's Roserade"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1602",
+  "cardName": "竹兰的罗丝雷朵",
+  "rarity": "●",
+  "effectId": "3040f040cd7a982b18f5e8359ab1ed21",
+  "cardType": "Pokemon",
+  "yorenCode": "P0407",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "8",
+  "nameEn": "Cynthia's Roserade"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1603",
+  "cardName": "竹兰的罗丝雷朵",
+  "rarity": "◆",
+  "effectId": "3040f040cd7a982b18f5e8359ab1ed21",
+  "cardType": "Pokemon",
+  "yorenCode": "P0407",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "8",
+  "nameEn": "Cynthia's Roserade"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1604",
+  "cardName": "竹兰的罗丝雷朵",
+  "rarity": "◆",
+  "effectId": "3040f040cd7a982b18f5e8359ab1ed21",
+  "cardType": "Pokemon",
+  "yorenCode": "P0407",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "8",
+  "nameEn": "Cynthia's Roserade"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1605",
+  "cardName": "竹兰的罗丝雷朵",
+  "rarity": "★",
+  "effectId": "3040f040cd7a982b18f5e8359ab1ed21",
+  "cardType": "Pokemon",
+  "yorenCode": "P0407",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "8",
+  "nameEn": "Cynthia's Roserade"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1606",
+  "cardName": "竹兰的罗丝雷朵",
+  "rarity": "★★",
+  "effectId": "3040f040cd7a982b18f5e8359ab1ed21",
+  "cardType": "Pokemon",
+  "yorenCode": "P0407",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "8",
+  "nameEn": "Cynthia's Roserade"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1607",
+  "cardName": "竹兰的罗丝雷朵",
+  "rarity": "★★★",
+  "effectId": "3040f040cd7a982b18f5e8359ab1ed21",
+  "cardType": "Pokemon",
+  "yorenCode": "P0407",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "8",
+  "nameEn": "Cynthia's Roserade"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1701",
+  "cardName": "谢米",
+  "rarity": "●",
+  "effectId": "fd1e9b0379f79156fbb304162cbe21ba",
+  "cardType": "Pokemon",
+  "yorenCode": "P492",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "10",
+  "nameEn": "Shaymin"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1702",
+  "cardName": "谢米",
+  "rarity": "●",
+  "effectId": "fd1e9b0379f79156fbb304162cbe21ba",
+  "cardType": "Pokemon",
+  "yorenCode": "P492",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "10",
+  "nameEn": "Shaymin"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1703",
+  "cardName": "谢米",
+  "rarity": "◆",
+  "effectId": "fd1e9b0379f79156fbb304162cbe21ba",
+  "cardType": "Pokemon",
+  "yorenCode": "P492",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "10",
+  "nameEn": "Shaymin"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1704",
+  "cardName": "谢米",
+  "rarity": "◆",
+  "effectId": "fd1e9b0379f79156fbb304162cbe21ba",
+  "cardType": "Pokemon",
+  "yorenCode": "P492",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "10",
+  "nameEn": "Shaymin"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1705",
+  "cardName": "谢米",
+  "rarity": "★",
+  "effectId": "fd1e9b0379f79156fbb304162cbe21ba",
+  "cardType": "Pokemon",
+  "yorenCode": "P492",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "10",
+  "nameEn": "Shaymin"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1706",
+  "cardName": "谢米",
+  "rarity": "★★",
+  "effectId": "fd1e9b0379f79156fbb304162cbe21ba",
+  "cardType": "Pokemon",
+  "yorenCode": "P492",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "10",
+  "nameEn": "Shaymin"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1707",
+  "cardName": "谢米",
+  "rarity": "★★★",
+  "effectId": "fd1e9b0379f79156fbb304162cbe21ba",
+  "cardType": "Pokemon",
+  "yorenCode": "P492",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "10",
+  "nameEn": "Shaymin"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1801",
+  "cardName": "岩殿居蟹",
+  "rarity": "●",
+  "effectId": "896c85e6588f5e35909fd0969201be21",
+  "cardType": "Pokemon",
+  "yorenCode": "P558",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "12",
+  "nameEn": "Crustle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1802",
+  "cardName": "岩殿居蟹",
+  "rarity": "●",
+  "effectId": "896c85e6588f5e35909fd0969201be21",
+  "cardType": "Pokemon",
+  "yorenCode": "P558",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "12",
+  "nameEn": "Crustle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1803",
+  "cardName": "岩殿居蟹",
+  "rarity": "◆",
+  "effectId": "896c85e6588f5e35909fd0969201be21",
+  "cardType": "Pokemon",
+  "yorenCode": "P558",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "12",
+  "nameEn": "Crustle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1804",
+  "cardName": "岩殿居蟹",
+  "rarity": "◆",
+  "effectId": "896c85e6588f5e35909fd0969201be21",
+  "cardType": "Pokemon",
+  "yorenCode": "P558",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "12",
+  "nameEn": "Crustle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1805",
+  "cardName": "岩殿居蟹",
+  "rarity": "★",
+  "effectId": "896c85e6588f5e35909fd0969201be21",
+  "cardType": "Pokemon",
+  "yorenCode": "P558",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "12",
+  "nameEn": "Crustle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1806",
+  "cardName": "岩殿居蟹",
+  "rarity": "★★",
+  "effectId": "896c85e6588f5e35909fd0969201be21",
+  "cardType": "Pokemon",
+  "yorenCode": "P558",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "12",
+  "nameEn": "Crustle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1807",
+  "cardName": "岩殿居蟹",
+  "rarity": "★★★",
+  "effectId": "896c85e6588f5e35909fd0969201be21",
+  "cardType": "Pokemon",
+  "yorenCode": "P558",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "12",
+  "nameEn": "Crustle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1901",
+  "cardName": "N的索罗亚",
+  "rarity": "●",
+  "effectId": "074f56036068708a4e2ad19a282fa726",
+  "cardType": "Pokemon",
+  "yorenCode": "P0570",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "136",
+  "nameEn": "N's Zorua"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1902",
+  "cardName": "N的索罗亚",
+  "rarity": "●",
+  "effectId": "074f56036068708a4e2ad19a282fa726",
+  "cardType": "Pokemon",
+  "yorenCode": "P0570",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "136",
+  "nameEn": "N's Zorua"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1903",
+  "cardName": "N的索罗亚",
+  "rarity": "◆",
+  "effectId": "074f56036068708a4e2ad19a282fa726",
+  "cardType": "Pokemon",
+  "yorenCode": "P0570",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "136",
+  "nameEn": "N's Zorua"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1904",
+  "cardName": "N的索罗亚",
+  "rarity": "◆",
+  "effectId": "074f56036068708a4e2ad19a282fa726",
+  "cardType": "Pokemon",
+  "yorenCode": "P0570",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "136",
+  "nameEn": "N's Zorua"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1905",
+  "cardName": "N的索罗亚",
+  "rarity": "★",
+  "effectId": "074f56036068708a4e2ad19a282fa726",
+  "cardType": "Pokemon",
+  "yorenCode": "P0570",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "136",
+  "nameEn": "N's Zorua"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1906",
+  "cardName": "N的索罗亚",
+  "rarity": "★★",
+  "effectId": "074f56036068708a4e2ad19a282fa726",
+  "cardType": "Pokemon",
+  "yorenCode": "P0570",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "136",
+  "nameEn": "N's Zorua"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "1907",
+  "cardName": "N的索罗亚",
+  "rarity": "★★★",
+  "effectId": "074f56036068708a4e2ad19a282fa726",
+  "cardType": "Pokemon",
+  "yorenCode": "P0570",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "136",
+  "nameEn": "N's Zorua"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2001",
+  "cardName": "莉莉艾的蝶结萌虻",
+  "rarity": "●",
+  "effectId": "b793a98a61f206702a98bed3dbe2b416",
+  "cardType": "Pokemon",
+  "yorenCode": "P0743",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "67",
+  "nameEn": "Lillie's Ribombee"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2002",
+  "cardName": "莉莉艾的蝶结萌虻",
+  "rarity": "●",
+  "effectId": "b793a98a61f206702a98bed3dbe2b416",
+  "cardType": "Pokemon",
+  "yorenCode": "P0743",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "67",
+  "nameEn": "Lillie's Ribombee"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2003",
+  "cardName": "莉莉艾的蝶结萌虻",
+  "rarity": "◆",
+  "effectId": "b793a98a61f206702a98bed3dbe2b416",
+  "cardType": "Pokemon",
+  "yorenCode": "P0743",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "67",
+  "nameEn": "Lillie's Ribombee"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2004",
+  "cardName": "莉莉艾的蝶结萌虻",
+  "rarity": "◆",
+  "effectId": "b793a98a61f206702a98bed3dbe2b416",
+  "cardType": "Pokemon",
+  "yorenCode": "P0743",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "67",
+  "nameEn": "Lillie's Ribombee"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2005",
+  "cardName": "莉莉艾的蝶结萌虻",
+  "rarity": "★",
+  "effectId": "b793a98a61f206702a98bed3dbe2b416",
+  "cardType": "Pokemon",
+  "yorenCode": "P0743",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "67",
+  "nameEn": "Lillie's Ribombee"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2006",
+  "cardName": "莉莉艾的蝶结萌虻",
+  "rarity": "★★",
+  "effectId": "b793a98a61f206702a98bed3dbe2b416",
+  "cardType": "Pokemon",
+  "yorenCode": "P0743",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "67",
+  "nameEn": "Lillie's Ribombee"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2007",
+  "cardName": "莉莉艾的蝶结萌虻",
+  "rarity": "★★★",
+  "effectId": "b793a98a61f206702a98bed3dbe2b416",
+  "cardType": "Pokemon",
+  "yorenCode": "P0743",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "67",
+  "nameEn": "Lillie's Ribombee"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2101",
+  "cardName": "鬃岩狼人",
+  "rarity": "●",
+  "effectId": "52d6e7a0eb426bce6daf869431f4e4ad",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "85",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2102",
+  "cardName": "鬃岩狼人",
+  "rarity": "●",
+  "effectId": "52d6e7a0eb426bce6daf869431f4e4ad",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "85",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2103",
+  "cardName": "鬃岩狼人",
+  "rarity": "◆",
+  "effectId": "52d6e7a0eb426bce6daf869431f4e4ad",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "85",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2104",
+  "cardName": "鬃岩狼人",
+  "rarity": "◆",
+  "effectId": "52d6e7a0eb426bce6daf869431f4e4ad",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "85",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2105",
+  "cardName": "鬃岩狼人",
+  "rarity": "★",
+  "effectId": "52d6e7a0eb426bce6daf869431f4e4ad",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "85",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2106",
+  "cardName": "鬃岩狼人",
+  "rarity": "★★",
+  "effectId": "52d6e7a0eb426bce6daf869431f4e4ad",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "85",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2107",
+  "cardName": "鬃岩狼人",
+  "rarity": "★★★",
+  "effectId": "52d6e7a0eb426bce6daf869431f4e4ad",
+  "cardType": "Pokemon",
+  "yorenCode": "P745",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "85",
+  "nameEn": "Lycanroc"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2201",
+  "cardName": "派帕的藏饱栗鼠",
+  "rarity": "●",
+  "effectId": "a43f9457986f98ac84942ab4b9656eb5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0820",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "159",
+  "nameEn": "Arven's Greedent"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2202",
+  "cardName": "派帕的藏饱栗鼠",
+  "rarity": "●",
+  "effectId": "a43f9457986f98ac84942ab4b9656eb5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0820",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "159",
+  "nameEn": "Arven's Greedent"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2203",
+  "cardName": "派帕的藏饱栗鼠",
+  "rarity": "◆",
+  "effectId": "a43f9457986f98ac84942ab4b9656eb5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0820",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "159",
+  "nameEn": "Arven's Greedent"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2204",
+  "cardName": "派帕的藏饱栗鼠",
+  "rarity": "◆",
+  "effectId": "a43f9457986f98ac84942ab4b9656eb5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0820",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "159",
+  "nameEn": "Arven's Greedent"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2205",
+  "cardName": "派帕的藏饱栗鼠",
+  "rarity": "★",
+  "effectId": "a43f9457986f98ac84942ab4b9656eb5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0820",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "159",
+  "nameEn": "Arven's Greedent"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2206",
+  "cardName": "派帕的藏饱栗鼠",
+  "rarity": "★★",
+  "effectId": "a43f9457986f98ac84942ab4b9656eb5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0820",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "159",
+  "nameEn": "Arven's Greedent"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2207",
+  "cardName": "派帕的藏饱栗鼠",
+  "rarity": "★★★",
+  "effectId": "a43f9457986f98ac84942ab4b9656eb5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0820",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "159",
+  "nameEn": "Arven's Greedent"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2301",
+  "cardName": "火箭队的以欧路普",
+  "rarity": "●",
+  "effectId": "b96e6e26e8e4935d6ffd8fe421d764b5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0826",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "89",
+  "nameEn": "Team Rocket's Orbeetle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2302",
+  "cardName": "火箭队的以欧路普",
+  "rarity": "●",
+  "effectId": "b96e6e26e8e4935d6ffd8fe421d764b5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0826",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "89",
+  "nameEn": "Team Rocket's Orbeetle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2303",
+  "cardName": "火箭队的以欧路普",
+  "rarity": "◆",
+  "effectId": "b96e6e26e8e4935d6ffd8fe421d764b5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0826",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "89",
+  "nameEn": "Team Rocket's Orbeetle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2304",
+  "cardName": "火箭队的以欧路普",
+  "rarity": "◆",
+  "effectId": "b96e6e26e8e4935d6ffd8fe421d764b5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0826",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "89",
+  "nameEn": "Team Rocket's Orbeetle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2305",
+  "cardName": "火箭队的以欧路普",
+  "rarity": "★",
+  "effectId": "b96e6e26e8e4935d6ffd8fe421d764b5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0826",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "89",
+  "nameEn": "Team Rocket's Orbeetle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2306",
+  "cardName": "火箭队的以欧路普",
+  "rarity": "★★",
+  "effectId": "b96e6e26e8e4935d6ffd8fe421d764b5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0826",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "89",
+  "nameEn": "Team Rocket's Orbeetle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2307",
+  "cardName": "火箭队的以欧路普",
+  "rarity": "★★★",
+  "effectId": "b96e6e26e8e4935d6ffd8fe421d764b5",
+  "cardType": "Pokemon",
+  "yorenCode": "P0826",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "89",
+  "nameEn": "Team Rocket's Orbeetle"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2401",
+  "cardName": "赫普的毛辫羊",
+  "rarity": "●",
+  "effectId": "1b7e2defba37461cfb2b81a310f0b18b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0831",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "135",
+  "nameEn": "Hop's Wooloo"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2402",
+  "cardName": "赫普的毛辫羊",
+  "rarity": "●",
+  "effectId": "1b7e2defba37461cfb2b81a310f0b18b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0831",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "135",
+  "nameEn": "Hop's Wooloo"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2403",
+  "cardName": "赫普的毛辫羊",
+  "rarity": "◆",
+  "effectId": "1b7e2defba37461cfb2b81a310f0b18b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0831",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "135",
+  "nameEn": "Hop's Wooloo"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2404",
+  "cardName": "赫普的毛辫羊",
+  "rarity": "◆",
+  "effectId": "1b7e2defba37461cfb2b81a310f0b18b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0831",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "135",
+  "nameEn": "Hop's Wooloo"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2405",
+  "cardName": "赫普的毛辫羊",
+  "rarity": "★",
+  "effectId": "1b7e2defba37461cfb2b81a310f0b18b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0831",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "135",
+  "nameEn": "Hop's Wooloo"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2406",
+  "cardName": "赫普的毛辫羊",
+  "rarity": "★★",
+  "effectId": "1b7e2defba37461cfb2b81a310f0b18b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0831",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "135",
+  "nameEn": "Hop's Wooloo"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2407",
+  "cardName": "赫普的毛辫羊",
+  "rarity": "★★★",
+  "effectId": "1b7e2defba37461cfb2b81a310f0b18b",
+  "cardType": "Pokemon",
+  "yorenCode": "P0831",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "JTG",
+  "cardIndexEn": "135",
+  "nameEn": "Hop's Wooloo"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2501",
+  "cardName": "玛俐的莫鲁贝可",
+  "rarity": "●",
+  "effectId": "046bba89abfe0be6ef012e1c64c6eb36",
+  "cardType": "Pokemon",
+  "yorenCode": "P0877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "137",
+  "nameEn": "Marnie's Morpeko"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2502",
+  "cardName": "玛俐的莫鲁贝可",
+  "rarity": "●",
+  "effectId": "046bba89abfe0be6ef012e1c64c6eb36",
+  "cardType": "Pokemon",
+  "yorenCode": "P0877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "137",
+  "nameEn": "Marnie's Morpeko"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2503",
+  "cardName": "玛俐的莫鲁贝可",
+  "rarity": "◆",
+  "effectId": "046bba89abfe0be6ef012e1c64c6eb36",
+  "cardType": "Pokemon",
+  "yorenCode": "P0877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "137",
+  "nameEn": "Marnie's Morpeko"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2504",
+  "cardName": "玛俐的莫鲁贝可",
+  "rarity": "◆",
+  "effectId": "046bba89abfe0be6ef012e1c64c6eb36",
+  "cardType": "Pokemon",
+  "yorenCode": "P0877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "137",
+  "nameEn": "Marnie's Morpeko"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2505",
+  "cardName": "玛俐的莫鲁贝可",
+  "rarity": "★",
+  "effectId": "046bba89abfe0be6ef012e1c64c6eb36",
+  "cardType": "Pokemon",
+  "yorenCode": "P0877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "137",
+  "nameEn": "Marnie's Morpeko"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2506",
+  "cardName": "玛俐的莫鲁贝可",
+  "rarity": "★★",
+  "effectId": "046bba89abfe0be6ef012e1c64c6eb36",
+  "cardType": "Pokemon",
+  "yorenCode": "P0877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "137",
+  "nameEn": "Marnie's Morpeko"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2507",
+  "cardName": "玛俐的莫鲁贝可",
+  "rarity": "★★★",
+  "effectId": "046bba89abfe0be6ef012e1c64c6eb36",
+  "cardType": "Pokemon",
+  "yorenCode": "P0877",
+  "is": [
+   "Basic"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "137",
+  "nameEn": "Marnie's Morpeko"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2601",
+  "cardName": "火箭队的操陷蛛",
+  "rarity": "●",
+  "effectId": "dcef9009286ec27896171611aca69f5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1571",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "20",
+  "nameEn": "Team Rocket's Spidops"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2602",
+  "cardName": "火箭队的操陷蛛",
+  "rarity": "●",
+  "effectId": "dcef9009286ec27896171611aca69f5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1571",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "20",
+  "nameEn": "Team Rocket's Spidops"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2603",
+  "cardName": "火箭队的操陷蛛",
+  "rarity": "◆",
+  "effectId": "dcef9009286ec27896171611aca69f5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1571",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "20",
+  "nameEn": "Team Rocket's Spidops"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2604",
+  "cardName": "火箭队的操陷蛛",
+  "rarity": "◆",
+  "effectId": "dcef9009286ec27896171611aca69f5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1571",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "20",
+  "nameEn": "Team Rocket's Spidops"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2605",
+  "cardName": "火箭队的操陷蛛",
+  "rarity": "★",
+  "effectId": "dcef9009286ec27896171611aca69f5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1571",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "20",
+  "nameEn": "Team Rocket's Spidops"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2606",
+  "cardName": "火箭队的操陷蛛",
+  "rarity": "★★",
+  "effectId": "dcef9009286ec27896171611aca69f5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1571",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "20",
+  "nameEn": "Team Rocket's Spidops"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2607",
+  "cardName": "火箭队的操陷蛛",
+  "rarity": "★★★",
+  "effectId": "dcef9009286ec27896171611aca69f5a",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1571",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "20",
+  "nameEn": "Team Rocket's Spidops"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2701",
+  "cardName": "奇树的大电海燕",
+  "rarity": "●",
+  "effectId": "c419e29a55a3f486fc14ca896f3037c2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1582",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "72",
+  "nameEn": "Iono's Kilowattrel"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2702",
+  "cardName": "奇树的大电海燕",
+  "rarity": "●",
+  "effectId": "c419e29a55a3f486fc14ca896f3037c2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1582",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "72",
+  "nameEn": "Iono's Kilowattrel"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2703",
+  "cardName": "奇树的大电海燕",
+  "rarity": "◆",
+  "effectId": "c419e29a55a3f486fc14ca896f3037c2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1582",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "72",
+  "nameEn": "Iono's Kilowattrel"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2704",
+  "cardName": "奇树的大电海燕",
+  "rarity": "◆",
+  "effectId": "c419e29a55a3f486fc14ca896f3037c2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1582",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "72",
+  "nameEn": "Iono's Kilowattrel"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2705",
+  "cardName": "奇树的大电海燕",
+  "rarity": "★",
+  "effectId": "c419e29a55a3f486fc14ca896f3037c2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1582",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "72",
+  "nameEn": "Iono's Kilowattrel"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2706",
+  "cardName": "奇树的大电海燕",
+  "rarity": "★★",
+  "effectId": "c419e29a55a3f486fc14ca896f3037c2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1582",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "72",
+  "nameEn": "Iono's Kilowattrel"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2707",
+  "cardName": "奇树的大电海燕",
+  "rarity": "★★★",
+  "effectId": "c419e29a55a3f486fc14ca896f3037c2",
+  "cardType": "Pokemon",
+  "yorenCode": "Y1582",
+  "is": [
+   "Stage 1"
+  ],
+  "setCodeEn": "ASC",
+  "cardIndexEn": "72",
+  "nameEn": "Iono's Kilowattrel"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2801",
+  "cardName": "蜜集大蛇",
+  "rarity": "●",
+  "effectId": "14a217d892bfd9ebc8176becdcbed5aa",
+  "cardType": "Pokemon",
+  "yorenCode": "P1019",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "18",
+  "nameEn": "Hydrapple"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2802",
+  "cardName": "蜜集大蛇",
+  "rarity": "●",
+  "effectId": "14a217d892bfd9ebc8176becdcbed5aa",
+  "cardType": "Pokemon",
+  "yorenCode": "P1019",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "18",
+  "nameEn": "Hydrapple"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2803",
+  "cardName": "蜜集大蛇",
+  "rarity": "◆",
+  "effectId": "14a217d892bfd9ebc8176becdcbed5aa",
+  "cardType": "Pokemon",
+  "yorenCode": "P1019",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "18",
+  "nameEn": "Hydrapple"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2804",
+  "cardName": "蜜集大蛇",
+  "rarity": "◆",
+  "effectId": "14a217d892bfd9ebc8176becdcbed5aa",
+  "cardType": "Pokemon",
+  "yorenCode": "P1019",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "18",
+  "nameEn": "Hydrapple"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2805",
+  "cardName": "蜜集大蛇",
+  "rarity": "★",
+  "effectId": "14a217d892bfd9ebc8176becdcbed5aa",
+  "cardType": "Pokemon",
+  "yorenCode": "P1019",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "18",
+  "nameEn": "Hydrapple"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2806",
+  "cardName": "蜜集大蛇",
+  "rarity": "★★",
+  "effectId": "14a217d892bfd9ebc8176becdcbed5aa",
+  "cardType": "Pokemon",
+  "yorenCode": "P1019",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "18",
+  "nameEn": "Hydrapple"
+ },
+ {
+  "setCode": "CBB7C",
+  "cardIndex": "2807",
+  "cardName": "蜜集大蛇",
+  "rarity": "★★★",
+  "effectId": "14a217d892bfd9ebc8176becdcbed5aa",
+  "cardType": "Pokemon",
+  "yorenCode": "P1019",
+  "is": [
+   "Stage 2"
+  ],
+  "setCodeEn": "DRI",
+  "cardIndexEn": "18",
+  "nameEn": "Hydrapple"
+ }
+]

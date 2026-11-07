@@ -1504,6 +1504,30 @@
     "group": "宝石包",
     "sets": [
      {
+      "code": "CBB7C",
+      "count": 196,
+      "drawable": true,
+      "group": "宝石包",
+      "id": "CBB7C",
+      "name": "宝石包 VOL.7",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 18,
+        "default": true,
+        "id": "4",
+        "key": "gem4",
+        "label": "4张装（全闪）",
+        "note": "每包4张均为闪卡：3张●/◆ + 1张★及以上（●=普通 ◆=非普通 ★=稀有）",
+        "packSize": 4,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "4张"
+       }
+      ]
+     },
+     {
       "code": "CBB6C",
       "count": 196,
       "drawable": true,
@@ -1658,7 +1682,7 @@
       "drawable": false,
       "group": "嗨皮系列",
       "id": "CSVH6aC",
-      "name": "嗨皮卡组 训练家的宝可梦 改造包",
+      "name": "嗨皮组合 训练家的宝可梦 改造包",
       "series": "Scarlet & Violet",
       "seriesZh": "朱&紫 系列",
       "specs": []
@@ -1669,7 +1693,7 @@
       "drawable": false,
       "group": "嗨皮系列",
       "id": "CSVH6pC",
-      "name": "嗨皮卡组 训练家的宝可梦 奖赏包",
+      "name": "嗨皮组合 训练家的宝可梦 奖赏包",
       "series": "Scarlet & Violet",
       "seriesZh": "朱&紫 系列",
       "specs": []
@@ -1680,7 +1704,7 @@
       "drawable": false,
       "group": "嗨皮系列",
       "id": "CSVH6eC",
-      "name": "嗨皮卡组 训练家的宝可梦 嗨皮包",
+      "name": "嗨皮组合 训练家的宝可梦 嗨皮包",
       "series": "Scarlet & Violet",
       "seriesZh": "朱&紫 系列",
       "specs": []
@@ -1691,7 +1715,7 @@
       "drawable": false,
       "group": "嗨皮系列",
       "id": "CSVH6C",
-      "name": "嗨皮卡组 训练家的宝可梦",
+      "name": "嗨皮组合 训练家的宝可梦",
       "series": "Scarlet & Violet",
       "seriesZh": "朱&紫 系列",
       "specs": []
@@ -1779,7 +1803,7 @@
       "drawable": false,
       "group": "嗨皮系列",
       "id": "CSVH4C",
-      "name": "嗨皮卡组 狙射树枭&美录梅塔&故勒顿&密勒顿",
+      "name": "嗨皮组合 狙射树枭&美录梅塔&故勒顿&密勒顿",
       "series": "Scarlet & Violet",
       "seriesZh": "朱&紫 系列",
       "specs": []
@@ -1812,7 +1836,7 @@
       "drawable": false,
       "group": "嗨皮系列",
       "id": "CSVH3C",
-      "name": "嗨皮卡组 七夕青鸟&拉帝欧斯&烈焰猴&一家鼠",
+      "name": "嗨皮组合 七夕青鸟&拉帝欧斯&烈焰猴&一家鼠",
       "series": "Scarlet & Violet",
       "seriesZh": "朱&紫 系列",
       "specs": []
@@ -2275,6 +2299,28 @@
    {
     "group": "礼盒·套装",
     "sets": [
+     {
+      "code": "CSV10.6C",
+      "count": 174,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSV10.6C",
+      "name": "白焰迸涌",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
+     {
+      "code": "CSV10.5C",
+      "count": 174,
+      "drawable": false,
+      "group": "礼盒·套装",
+      "id": "CSV10.5C",
+      "name": "黑雷奔流",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": []
+     },
      {
       "code": "CSVSC",
       "count": 74,
