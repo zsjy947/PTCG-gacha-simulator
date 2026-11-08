@@ -5,7 +5,8 @@
 - 太阳&月亮 / 剑&盾 主弹：5张装（必出1闪）+ 25张装（5闪）
 - 朱&紫 主弹 / 专题包 / 收集啦151：5张装（瘦包，4平+1闪）+ 20张装（肥包，6闪）
 - 太晶盛聚（特殊弹）：10张装 —— 7平+3闪 或 6平+4闪
-- 宝石包 VOL.1-6：4张装全闪 —— 3张普通稀有度闪卡 + 1张 R 及以上闪卡
+- 黑白 双弹（黑雷奔流/白焰迸涌）：5张装（4平+1闪，15包/盒）+ 20张装（13平+7闪，6包/盒）
+- 宝石包 VOL.1-7：4张装全闪 —— 3张普通稀有度闪卡 + 1张 R 及以上闪卡
 - 对战派对 王者奖赏包：1张装（高稀有度闪卡）
 - 嗨皮系列 / 大师战略卡组 / 起始卡组 / 专题包 / 礼盒·套装 / 特典卡等：
   无公开随机包规格，不开放拆卡（保留卡表浏览与分类）
@@ -27,10 +28,11 @@ NORMAL_WEIGHTS = {"C": 65, "U": 35}
 
 # 闪卡槽位（R 及以上；按弹内实际存在的稀有度归一化）
 # FUR/RGB 为 30 周年起登场、HR/RRR/SSR 等为太阳&月亮时代的扩展稀有度：
+# BWR（Black White Rare 黑白稀有）为黑白主题弹（黑雷奔流/白焰迸涌）专属顶级稀有度：
 # 权重留作全量兼容——弹内不存在时归一化自动剔除（其余档位概率不变），
 # 存在时保证可达（收藏 100% 理论可达，tests/test_rarity_reach.py 守卫）
 HOLO_WEIGHTS = {"R": 70, "RR": 15, "AR": 5, "SR": 4.5, "SAR": 4, "ACE": 1, "UR": 0.5,
-                "RGB": 0.5, "FUR": 0.3,
+                "RGB": 0.5, "FUR": 0.3, "BWR": 0.5,
                 "RRR": 3, "SSR": 2, "S": 2.5, "CHR": 1.5, "CSR": 1.5,
                 "HR": 1, "PR": 1, "K": 1, "A": 1}
 
@@ -69,7 +71,8 @@ def _holo(n: int) -> list:
 # 「整盒」按钮按 boxPacks 内部抽数，按钮本身不展示数字。
 # 未标注 = 无可确认的整盒商品，不提供整盒入口。
 # 依据（2026-09 用户核对）：瘦包 30 包/盒、肥包 20张装 6 包/盒、25张装 6 包/盒、
-#       太晶盛聚 10 包/盒、30周年庆典 20 包/盒、宝石包 Vol.1 15 包/盒、Vol.2 起各弹 18 包/盒。
+#       太晶盛聚 10 包/盒、30周年庆典 20 包/盒、宝石包 Vol.1 15 包/盒、Vol.2 起各弹 18 包/盒、
+#       黑白瘦包 15 包/盒、黑白肥包 6 包/盒（2026-11 依据神奇宝贝百科「黑雷奔流」条目）。
 SPECS = {
     "sm5": {
         "id": "5", "label": "5张装", "short": "5张",
@@ -94,6 +97,18 @@ SPECS = {
         "note": "14张平卡 + 6张闪卡", "price": "50元/包", "priceCny": 50,
         "boxPacks": 6,
         "slots": _normal(14) + _holo(6),
+    },
+    "bw5": {
+        "id": "5", "label": "5张装（瘦包）", "short": "5张",
+        "note": "4张平卡 + 1张闪卡", "price": "10元/包", "priceCny": 10,
+        "boxPacks": 15,
+        "slots": _normal(4) + _holo(1),
+    },
+    "bw20": {
+        "id": "20", "label": "20张装（肥包）", "short": "20张",
+        "note": "13张平卡 + 7张闪卡", "price": "50元/包", "priceCny": 50,
+        "boxPacks": 6,
+        "slots": _normal(13) + _holo(7),
     },
     "tera10": {
         "id": "10", "label": "10张装", "short": "10张",
@@ -147,6 +162,8 @@ _CSV_MAIN = {f"CSV{i}C" for i in range(1, 11)}
 _SPLIT_151 = {"151C-LV", "151C-WANG", "151C-JING", "151C-JU"}
 # 太阳&月亮 补充包（5张装 + 25张装）
 _CSM_MAIN = {"CSM1AC", "CSM1BC", "CSM1CC", "CSM1.5C", "CSM2AC", "CSM2BC", "CSM2CC", "CSM2.5C"}
+# 黑白 双弹（黑雷奔流/白焰迸涌，合众主题；包规格与朱&紫主弹不同）
+_BW_MAIN = {"CSV10.5C", "CSV10.6C"}
 # 对战派对（盒装/组合/改造包，固定内容）
 _PARTY_BOX = {"CSVE1C", "CSVE2C"} | {f"CSMP{c}C" for c in "ABCDEFGHI"}
 # 大师战略卡组构筑套装（固定卡组）
@@ -166,6 +183,8 @@ def product_group(code: str):
         return ("补充包", True)          # 30周年庆典：6张装全闪（每包必出特款皮卡丘）
     if c in _SPLIT_151:
         return ("收集啦151", True)       # 旅/望/惊/聚：5/20张装
+    if c in _BW_MAIN:
+        return ("补充包", True)          # 黑白双弹：5张装（15包/盒）+ 20张装（13平+7闪）
     if c in _CSV_MAIN:
         return ("补充包", True)          # 朱&紫补充包：5/20张装
     if c in _CS_MAIN:
@@ -200,6 +219,7 @@ FAMILY_SPECS = {
     "sm_main": ["sm5", "sm25"],
     "cs_main": ["sm5", "sm25"],
     "sv_main": ["sv5", "sv20"],
+    "bw_main": ["bw5", "bw20"],
     "tera_fes": ["tera10"],
     "gem_pack": ["gem4"],
     "reward_pack": ["reward1"],
@@ -214,6 +234,8 @@ def family_of(set_code: str, set_name: str = ""):
         return "tera_fes"
     if code == "30THC":
         return "fest30"
+    if code in _BW_MAIN:
+        return "bw_main"
     if code in _CSV_MAIN or code in _SPLIT_151:
         return "sv_main"
     if code in _CS_MAIN:

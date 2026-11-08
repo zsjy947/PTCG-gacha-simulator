@@ -6,6 +6,78 @@
     "group": "补充包",
     "sets": [
      {
+      "code": "CSV10.6C",
+      "count": 174,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV10.6C",
+      "name": "白焰迸涌",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 15,
+        "default": true,
+        "id": "5",
+        "key": "bw5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "bw20",
+        "label": "20张装（肥包）",
+        "note": "13张平卡 + 7张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
+      "code": "CSV10.5C",
+      "count": 174,
+      "drawable": true,
+      "group": "补充包",
+      "id": "CSV10.5C",
+      "name": "黑雷奔流",
+      "series": "Scarlet & Violet",
+      "seriesZh": "朱&紫 系列",
+      "specs": [
+       {
+        "boxPacks": 15,
+        "default": true,
+        "id": "5",
+        "key": "bw5",
+        "label": "5张装（瘦包）",
+        "note": "4张平卡 + 1张闪卡",
+        "packSize": 5,
+        "price": "10元/包",
+        "priceCny": 10,
+        "short": "5张"
+       },
+       {
+        "boxPacks": 6,
+        "default": false,
+        "id": "20",
+        "key": "bw20",
+        "label": "20张装（肥包）",
+        "note": "13张平卡 + 7张闪卡",
+        "packSize": 20,
+        "price": "50元/包",
+        "priceCny": 50,
+        "short": "20张"
+       }
+      ]
+     },
+     {
       "code": "CSV10C",
       "count": 287,
       "drawable": true,
@@ -2299,28 +2371,6 @@
    {
     "group": "礼盒·套装",
     "sets": [
-     {
-      "code": "CSV10.6C",
-      "count": 174,
-      "drawable": false,
-      "group": "礼盒·套装",
-      "id": "CSV10.6C",
-      "name": "白焰迸涌",
-      "series": "Scarlet & Violet",
-      "seriesZh": "朱&紫 系列",
-      "specs": []
-     },
-     {
-      "code": "CSV10.5C",
-      "count": 174,
-      "drawable": false,
-      "group": "礼盒·套装",
-      "id": "CSV10.5C",
-      "name": "黑雷奔流",
-      "series": "Scarlet & Violet",
-      "seriesZh": "朱&紫 系列",
-      "specs": []
-     },
      {
       "code": "CSVSC",
       "count": 74,
