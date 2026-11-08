@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="cn.ptcc.gacha"
-    android:versionCode="10301"
-    android:versionName="1.3.1">
+    package="cn.ptcc.gacha">
+
+    <!-- 版本号不在本文件声明：由 android-pack 管线经 aapt2 link 传参注入
+         （version.py 唯一改点）。aapt2 不覆盖 Manifest 显式属性，硬编码会导致注入失效。 -->
 
     <uses-sdk android:minSdkVersion="24" android:targetSdkVersion="34"/>
     <uses-permission android:name="android.permission.INTERNET"/>
