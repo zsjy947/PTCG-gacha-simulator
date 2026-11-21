@@ -86,9 +86,9 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "",
-  "cardIndexEn": "",
-  "nameEn": ""
+  "setCodeEn": "JTG",
+  "cardIndexEn": "129",
+  "nameEn": "Komala"
  },
  {
   "setCode": "CSVH6aC",
@@ -151,8 +151,8 @@
   "cardType": "Item",
   "yorenCode": "Y1472",
   "is": [],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "61",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "196",
   "nameEn": "Night Stretcher"
  },
  {
@@ -268,8 +268,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1294",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "185",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "237",
   "nameEn": "Iono"
  },
  {
@@ -308,7 +308,7 @@
   "yorenCode": "Y1544",
   "is": [],
   "setCodeEn": "SSP",
-  "cardIndexEn": "179",
+  "cardIndexEn": "246",
   "nameEn": "Lisia's Appeal"
  }
 ]

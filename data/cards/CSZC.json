@@ -58,8 +58,8 @@
    "V",
    "Basic"
   ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "40",
+  "setCodeEn": "SP",
+  "cardIndexEn": "250",
   "nameEn": "Lumineon V"
  },
  {
@@ -349,8 +349,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "121",
+  "setCodeEn": "SP",
+  "cardIndexEn": "188",
   "nameEn": "Bibarel"
  },
  {
@@ -557,7 +557,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {

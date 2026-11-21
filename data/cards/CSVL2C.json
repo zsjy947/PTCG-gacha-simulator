@@ -25,8 +25,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "4",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "61",
   "nameEn": "Pineco"
  },
  {
@@ -101,8 +101,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "24",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "4",
   "nameEn": "Toedscool"
  },
  {
@@ -254,8 +254,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "203",
   "nameEn": "Armarouge"
  },
  {
@@ -376,8 +376,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "71",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "119",
   "nameEn": "Toxel"
  },
  {
@@ -515,8 +515,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -530,8 +530,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -669,8 +669,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "125",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "196",
   "nameEn": "Charizard ex"
  },
  {
@@ -747,8 +747,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "71",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "156",
   "nameEn": "Lechonk"
  },
  {
@@ -762,8 +762,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "72",
+  "setCodeEn": "OBF",
+  "cardIndexEn": "184",
   "nameEn": "Oinkologne"
  },
  {
@@ -822,8 +822,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "4",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "61",
   "nameEn": "Pineco"
  },
  {
@@ -882,8 +882,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "24",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "4",
   "nameEn": "Toedscool"
  },
  {
@@ -987,8 +987,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "203",
   "nameEn": "Armarouge"
  },
  {
@@ -1077,8 +1077,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "71",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "119",
   "nameEn": "Toxel"
  },
  {
@@ -1167,8 +1167,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -1182,8 +1182,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -1317,8 +1317,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "71",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "156",
   "nameEn": "Lechonk"
  },
  {
@@ -1332,8 +1332,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "72",
+  "setCodeEn": "OBF",
+  "cardIndexEn": "184",
   "nameEn": "Oinkologne"
  },
  {
@@ -1407,8 +1407,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "24",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "4",
   "nameEn": "Toedscool"
  },
  {
@@ -1679,8 +1679,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "134",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "60",
   "nameEn": "Aegislash"
  },
  {
@@ -1851,8 +1851,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "125",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "196",
   "nameEn": "Charizard ex"
  },
  {
@@ -1949,8 +1949,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "125",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "196",
   "nameEn": "Charizard ex"
  },
  {

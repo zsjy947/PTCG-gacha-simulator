@@ -89,8 +89,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "38",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "142",
   "nameEn": "Fezandipiti ex"
  },
  {
@@ -182,8 +182,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "118",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "171",
   "nameEn": "Fan Rotom"
  },
  {
@@ -195,8 +195,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -303,8 +303,8 @@
   "is": [
    "ACE SPEC"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "119",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "157",
   "nameEn": "Prime Catcher"
  },
  {
@@ -317,7 +317,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -329,8 +329,8 @@
   "cardType": "Item",
   "yorenCode": "Y1472",
   "is": [],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "61",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "196",
   "nameEn": "Night Stretcher"
  },
  {
@@ -370,8 +370,8 @@
   "is": [
    "Ancient"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "170",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "120",
   "nameEn": "Professor Sada's Vitality"
  },
  {
@@ -396,8 +396,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1294",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "185",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "237",
   "nameEn": "Iono"
  },
  {
@@ -435,8 +435,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1547",
   "is": [],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "131",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "94",
   "nameEn": "Area Zero Underdepths"
  }
 ]

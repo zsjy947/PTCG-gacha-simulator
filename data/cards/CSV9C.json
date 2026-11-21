@@ -101,8 +101,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "ASC",
-  "cardIndexEn": "17",
+  "setCodeEn": "SCR",
+  "cardIndexEn": "9",
   "nameEn": "Grubbin"
  },
  {
@@ -161,8 +161,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "12",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "9",
   "nameEn": "Applin"
  },
  {
@@ -192,8 +192,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "14",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "11",
   "nameEn": "Hydrapple ex"
  },
  {
@@ -237,8 +237,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "24",
+  "setCodeEn": "SSP",
+  "cardIndexEn": "13",
   "nameEn": "Rellor"
  },
  {
@@ -373,8 +373,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "24",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "35",
   "nameEn": "Salazzle"
  },
  {
@@ -418,8 +418,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "ASC",
-  "cardIndexEn": "37",
+  "setCodeEn": "SCR",
+  "cardIndexEn": "27",
   "nameEn": "Raboot"
  },
  {
@@ -434,8 +434,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "28",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "38",
   "nameEn": "Cinderace ex"
  },
  {
@@ -815,7 +815,7 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "ASC",
+  "setCodeEn": "SSP",
   "cardIndexEn": "57",
   "nameEn": "Pikachu ex"
  },
@@ -845,8 +845,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "SSP",
-  "cardIndexEn": "59",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "153",
   "nameEn": "Magneton"
  },
  {
@@ -1102,8 +1102,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "ASC",
-  "cardIndexEn": "80",
+  "setCodeEn": "SSP",
+  "cardIndexEn": "70",
   "nameEn": "Togepi"
  },
  {
@@ -1117,8 +1117,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "ASC",
-  "cardIndexEn": "81",
+  "setCodeEn": "SSP",
+  "cardIndexEn": "71",
   "nameEn": "Togetic"
  },
  {
@@ -2314,8 +2314,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SSP",
-  "cardIndexEn": "143",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "173",
   "nameEn": "Eevee"
  },
  {
@@ -2435,8 +2435,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "118",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "171",
   "nameEn": "Fan Rotom"
  },
  {
@@ -2689,8 +2689,8 @@
   "cardType": "Item",
   "yorenCode": "Y1519",
   "is": [],
-  "setCodeEn": "ASC",
-  "cardIndexEn": "189",
+  "setCodeEn": "SCR",
+  "cardIndexEn": "135",
   "nameEn": "Glass Trumpet"
  },
  {
@@ -3040,7 +3040,7 @@
   "yorenCode": "Y1544",
   "is": [],
   "setCodeEn": "SSP",
-  "cardIndexEn": "179",
+  "cardIndexEn": "246",
   "nameEn": "Lisia's Appeal"
  },
  {
@@ -3080,8 +3080,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1547",
   "is": [],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "131",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "94",
   "nameEn": "Area Zero Underdepths"
  },
  {
@@ -3233,8 +3233,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "14",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "11",
   "nameEn": "Hydrapple ex"
  },
  {
@@ -3249,8 +3249,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "28",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "38",
   "nameEn": "Cinderace ex"
  },
  {
@@ -3297,7 +3297,7 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "ASC",
+  "setCodeEn": "SSP",
   "cardIndexEn": "57",
   "nameEn": "Pikachu ex"
  },
@@ -3591,7 +3591,7 @@
   "yorenCode": "Y1544",
   "is": [],
   "setCodeEn": "SSP",
-  "cardIndexEn": "179",
+  "cardIndexEn": "246",
   "nameEn": "Lisia's Appeal"
  },
  {
@@ -3638,8 +3638,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "14",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "11",
   "nameEn": "Hydrapple ex"
  },
  {
@@ -3654,7 +3654,7 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "ASC",
+  "setCodeEn": "SSP",
   "cardIndexEn": "57",
   "nameEn": "Pikachu ex"
  },
@@ -3829,7 +3829,7 @@
   "yorenCode": "Y1544",
   "is": [],
   "setCodeEn": "SSP",
-  "cardIndexEn": "179",
+  "cardIndexEn": "246",
   "nameEn": "Lisia's Appeal"
  },
  {
@@ -3844,8 +3844,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "28",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "38",
   "nameEn": "Cinderace ex"
  },
  {
@@ -3876,7 +3876,7 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "ASC",
+  "setCodeEn": "SSP",
   "cardIndexEn": "57",
   "nameEn": "Pikachu ex"
  },
@@ -3921,8 +3921,8 @@
   "cardType": "Item",
   "yorenCode": "Y1472",
   "is": [],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "61",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "196",
   "nameEn": "Night Stretcher"
  },
  {
@@ -3960,8 +3960,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1547",
   "is": [],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "131",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "94",
   "nameEn": "Area Zero Underdepths"
  }
 ]

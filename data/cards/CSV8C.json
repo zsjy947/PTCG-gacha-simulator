@@ -645,8 +645,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "40",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "17",
   "nameEn": "Hearthflame Mask Ogerpon ex"
  },
  {
@@ -1010,8 +1010,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "64",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "27",
   "nameEn": "Wellspring Mask Ogerpon ex"
  },
  {
@@ -1236,8 +1236,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "19",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "36",
   "nameEn": "Dusclops"
  },
  {
@@ -1432,8 +1432,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "96",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "45",
   "nameEn": "Fezandipiti"
  },
  {
@@ -1749,8 +1749,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "25",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "54",
   "nameEn": "Bloodmoon Ursaluna"
  },
  {
@@ -1810,8 +1810,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "57",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "111",
   "nameEn": "Okidogi"
  },
  {
@@ -2039,8 +2039,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "38",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "142",
   "nameEn": "Fezandipiti ex"
  },
  {
@@ -2372,8 +2372,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "71",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "158",
   "nameEn": "Dreepy"
  },
  {
@@ -2387,8 +2387,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "72",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "159",
   "nameEn": "Drakloak"
  },
  {
@@ -2403,8 +2403,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "73",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "130",
   "nameEn": "Dragapult ex"
  },
  {
@@ -2601,8 +2601,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "141",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "177",
   "nameEn": "Bloodmoon Ursaluna ex"
  },
  {
@@ -2728,8 +2728,8 @@
   "is": [
    "ACE SPEC"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "128",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "162",
   "nameEn": "Scoop Up Cyclone"
  },
  {
@@ -2754,8 +2754,8 @@
   "cardType": "Item",
   "yorenCode": "Y1472",
   "is": [],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "61",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "196",
   "nameEn": "Night Stretcher"
  },
  {
@@ -2875,8 +2875,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1481",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "112",
+  "setCodeEn": "SFA",
+  "cardIndexEn": "59",
   "nameEn": "Janine's Secret Art"
  },
  {
@@ -2966,8 +2966,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1440",
   "is": [],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "145",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "103",
   "nameEn": "Carmine"
  },
  {
@@ -2992,8 +2992,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1489",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "108",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "149",
   "nameEn": "Festival Grounds"
  },
  {
@@ -3134,8 +3134,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "19",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "36",
   "nameEn": "Dusclops"
  },
  {
@@ -3196,8 +3196,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "40",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "17",
   "nameEn": "Hearthflame Mask Ogerpon ex"
  },
  {
@@ -3276,8 +3276,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "64",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "27",
   "nameEn": "Wellspring Mask Ogerpon ex"
  },
  {
@@ -3372,8 +3372,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "38",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "142",
   "nameEn": "Fezandipiti ex"
  },
  {
@@ -3420,8 +3420,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "73",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "130",
   "nameEn": "Dragapult ex"
  },
  {
@@ -3452,8 +3452,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "141",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "177",
   "nameEn": "Bloodmoon Ursaluna ex"
  },
  {
@@ -3478,8 +3478,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1481",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "112",
+  "setCodeEn": "SFA",
+  "cardIndexEn": "59",
   "nameEn": "Janine's Secret Art"
  },
  {
@@ -3569,8 +3569,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1440",
   "is": [],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "145",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "103",
   "nameEn": "Carmine"
  },
  {
@@ -3614,8 +3614,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "40",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "17",
   "nameEn": "Hearthflame Mask Ogerpon ex"
  },
  {
@@ -3646,8 +3646,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "64",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "27",
   "nameEn": "Wellspring Mask Ogerpon ex"
  },
  {
@@ -3710,8 +3710,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "38",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "142",
   "nameEn": "Fezandipiti ex"
  },
  {
@@ -3742,8 +3742,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "141",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "177",
   "nameEn": "Bloodmoon Ursaluna ex"
  },
  {
@@ -3794,8 +3794,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1440",
   "is": [],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "145",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "103",
   "nameEn": "Carmine"
  },
  {
@@ -3842,8 +3842,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "141",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "177",
   "nameEn": "Bloodmoon Ursaluna ex"
  },
  {

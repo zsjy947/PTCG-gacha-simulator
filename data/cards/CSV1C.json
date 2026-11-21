@@ -298,7 +298,7 @@
    "Stage 1"
   ],
   "setCodeEn": "SVI",
-  "cardIndexEn": "29",
+  "cardIndexEn": "202",
   "nameEn": "Scovillain"
  },
  {
@@ -343,9 +343,9 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "33",
-  "nameEn": "Victini ex"
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
  },
  {
   "setCode": "CSV1C",
@@ -418,8 +418,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "203",
   "nameEn": "Armarouge"
  },
  {
@@ -675,7 +675,7 @@
    "Basic"
   ],
   "setCodeEn": "SVI",
-  "cardIndexEn": "68",
+  "cardIndexEn": "208",
   "nameEn": "Pachirisu"
  },
  {
@@ -704,8 +704,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "CRE",
-  "cardIndexEn": "52",
+  "setCodeEn": "OBF",
+  "cardIndexEn": "70",
   "nameEn": "Thundurus"
  },
  {
@@ -931,8 +931,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "99",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "39",
   "nameEn": "Dachsbun"
  },
  {
@@ -1006,8 +1006,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "167",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "20",
   "nameEn": "Tinkaton"
  },
  {
@@ -1037,8 +1037,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "45",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "107",
   "nameEn": "Mankey"
  },
  {
@@ -1052,8 +1052,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "108",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "46",
   "nameEn": "Primeape"
  },
  {
@@ -1067,8 +1067,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "109",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "47",
   "nameEn": "Annihilape"
  },
  {
@@ -1188,8 +1188,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "118",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "7",
   "nameEn": "Hawlucha"
  },
  {
@@ -1296,9 +1296,9 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "UPR",
-  "cardIndexEn": "100",
-  "nameEn": "Dialga-GX"
+  "setCodeEn": "OBF",
+  "cardIndexEn": "135",
+  "nameEn": "Absol ex"
  },
  {
   "setCode": "CSV1C",
@@ -1372,8 +1372,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "187",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "220",
   "nameEn": "Kingambit"
  },
  {
@@ -1462,8 +1462,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "65",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "142",
   "nameEn": "Revavroom"
  },
  {
@@ -1612,8 +1612,8 @@
   "cardType": "Item",
   "yorenCode": "Y1206",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "79",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "170",
   "nameEn": "Electric Generator"
  },
  {
@@ -1691,7 +1691,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -2120,9 +2120,9 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "UPR",
-  "cardIndexEn": "100",
-  "nameEn": "Dialga-GX"
+  "setCodeEn": "OBF",
+  "cardIndexEn": "135",
+  "nameEn": "Absol ex"
  },
  {
   "setCode": "CSV1C",
@@ -2463,7 +2463,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  }
 ]

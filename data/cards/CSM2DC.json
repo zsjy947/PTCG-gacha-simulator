@@ -2207,8 +2207,8 @@
    "Stage 2"
   ],
   "setCodeEn": "CEC",
-  "cardIndexEn": "101",
-  "nameEn": "Cosmoem"
+  "cardIndexEn": "110",
+  "nameEn": "Flygon-GX"
  },
  {
   "setCode": "CSM2DC",
@@ -3554,8 +3554,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -3736,8 +3736,8 @@
   "cardType": "Item",
   "yorenCode": "Y197",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "60",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "119",
   "nameEn": "Great Ball"
  },
  {
@@ -3906,7 +3906,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -3918,8 +3918,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {
@@ -4308,8 +4308,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y296",
   "is": [],
-  "setCodeEn": "HIF",
-  "cardIndexEn": "56",
+  "setCodeEn": "TEU",
+  "cardIndexEn": "140",
   "nameEn": "Erika's Hospitality"
  },
  {
@@ -4360,8 +4360,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y299",
   "is": [],
-  "setCodeEn": "HIF",
-  "cardIndexEn": "59",
+  "setCodeEn": "UNB",
+  "cardIndexEn": "177",
   "nameEn": "Koga's Trap"
  },
  {
@@ -4546,8 +4546,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y225",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "120",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "61",
   "nameEn": "Hau"
  },
  {
@@ -4940,8 +4940,8 @@
   "cardType": "Special Energy",
   "yorenCode": "Y174",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "69",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "136",
   "nameEn": "Double Colorless Energy"
  },
  {
@@ -4973,8 +4973,8 @@
    "Stage 2"
   ],
   "setCodeEn": "CEC",
-  "cardIndexEn": "101",
-  "nameEn": "Cosmoem"
+  "cardIndexEn": "110",
+  "nameEn": "Flygon-GX"
  },
  {
   "setCode": "CSM2DC",
@@ -4985,8 +4985,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y296",
   "is": [],
-  "setCodeEn": "HIF",
-  "cardIndexEn": "56",
+  "setCodeEn": "TEU",
+  "cardIndexEn": "140",
   "nameEn": "Erika's Hospitality"
  },
  {

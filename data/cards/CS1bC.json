@@ -402,8 +402,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "10",
+  "setCodeEn": "SHF",
+  "cardIndexEn": "11",
   "nameEn": "Grookey"
  },
  {
@@ -432,8 +432,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "14",
+  "setCodeEn": "SHF",
+  "cardIndexEn": "13",
   "nameEn": "Rillaboom"
  },
  {
@@ -1958,8 +1958,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y484",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "65",
+  "setCodeEn": "RCL",
+  "cardIndexEn": "167",
   "nameEn": "Sonia"
  },
  {
@@ -2038,8 +2038,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "10",
+  "setCodeEn": "SHF",
+  "cardIndexEn": "11",
   "nameEn": "Grookey"
  },
  {
@@ -2068,8 +2068,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "14",
+  "setCodeEn": "SHF",
+  "cardIndexEn": "13",
   "nameEn": "Rillaboom"
  },
  {
@@ -2846,8 +2846,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "14",
+  "setCodeEn": "SHF",
+  "cardIndexEn": "13",
   "nameEn": "Rillaboom"
  },
  {

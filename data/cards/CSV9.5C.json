@@ -55,8 +55,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "4",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "16",
   "nameEn": "Budew"
  },
  {
@@ -70,8 +70,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "5",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "11",
   "nameEn": "Leafeon"
  },
  {
@@ -101,8 +101,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "14",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "7",
   "nameEn": "Cottonee"
  },
  {
@@ -116,8 +116,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "8",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "15",
   "nameEn": "Whimsicott"
  },
  {
@@ -161,8 +161,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "12",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "9",
   "nameEn": "Applin"
  },
  {
@@ -329,8 +329,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "13",
+  "setCodeEn": "MEW",
+  "cardIndexEn": "136",
   "nameEn": "Flareon"
  },
  {
@@ -437,8 +437,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "40",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "17",
   "nameEn": "Hearthflame Mask Ogerpon ex"
  },
  {
@@ -529,8 +529,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "22",
+  "setCodeEn": "MEW",
+  "cardIndexEn": "134",
   "nameEn": "Vaporeon"
  },
  {
@@ -590,8 +590,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "41",
+  "setCodeEn": "FST",
+  "cardIndexEn": "57",
   "nameEn": "Feraligatr"
  },
  {
@@ -696,8 +696,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "54",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "25",
   "nameEn": "Glaceon"
  },
  {
@@ -852,8 +852,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "64",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "27",
   "nameEn": "Wellspring Mask Ogerpon ex"
  },
  {
@@ -1006,8 +1006,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "26",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "59",
   "nameEn": "Xatu"
  },
  {
@@ -1037,8 +1037,8 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "34",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "175",
   "nameEn": "Espeon ex"
  },
  {
@@ -1067,8 +1067,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "19",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "36",
   "nameEn": "Dusclops"
  },
  {
@@ -1173,8 +1173,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -1205,8 +1205,8 @@
    "Ancient",
    "Basic"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "43",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "78",
   "nameEn": "Flutter Mane"
  },
  {
@@ -1237,8 +1237,8 @@
    "Future",
    "Basic"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "89",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "68",
   "nameEn": "Iron Valiant ex"
  },
  {
@@ -1267,8 +1267,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "96",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "45",
   "nameEn": "Fezandipiti"
  },
  {
@@ -1450,8 +1450,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "118",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "7",
   "nameEn": "Hawlucha"
  },
  {
@@ -1465,8 +1465,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "25",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "54",
   "nameEn": "Bloodmoon Ursaluna"
  },
  {
@@ -1481,8 +1481,8 @@
    "Ancient",
    "Basic"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "97",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "55",
   "nameEn": "Great Tusk"
  },
  {
@@ -1514,8 +1514,8 @@
    "Ancient",
    "Basic"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "108",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "56",
   "nameEn": "Sandy Shocks ex"
  },
  {
@@ -1544,8 +1544,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "57",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "111",
   "nameEn": "Okidogi"
  },
  {
@@ -1591,8 +1591,8 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "60",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "176",
   "nameEn": "Umbreon ex"
  },
  {
@@ -1760,8 +1760,8 @@
    "Ancient",
    "Basic"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "124",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "67",
   "nameEn": "Roaring Moon ex"
  },
  {
@@ -1911,8 +1911,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "134",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "60",
   "nameEn": "Aegislash"
  },
  {
@@ -1926,8 +1926,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "69",
+  "setCodeEn": "SCR",
+  "cardIndexEn": "106",
   "nameEn": "Duraludon"
  },
  {
@@ -1971,8 +1971,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "65",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "142",
   "nameEn": "Revavroom"
  },
  {
@@ -2018,8 +2018,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "71",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "158",
   "nameEn": "Dreepy"
  },
  {
@@ -2033,8 +2033,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "72",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "159",
   "nameEn": "Drakloak"
  },
  {
@@ -2049,8 +2049,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "73",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "130",
   "nameEn": "Dragapult ex"
  },
  {
@@ -2128,8 +2128,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SSP",
-  "cardIndexEn": "143",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "173",
   "nameEn": "Eevee"
  },
  {
@@ -2204,8 +2204,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "129",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "80",
   "nameEn": "Dudunsparce"
  },
  {
@@ -2264,8 +2264,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "118",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "171",
   "nameEn": "Fan Rotom"
  },
  {
@@ -2355,8 +2355,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "141",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "177",
   "nameEn": "Bloodmoon Ursaluna ex"
  },
  {
@@ -2439,8 +2439,8 @@
   "cardType": "Item",
   "yorenCode": "Y1519",
   "is": [],
-  "setCodeEn": "ASC",
-  "cardIndexEn": "189",
+  "setCodeEn": "SCR",
+  "cardIndexEn": "135",
   "nameEn": "Glass Trumpet"
  },
  {
@@ -2497,8 +2497,8 @@
   "is": [
    "Future"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "130",
+  "setCodeEn": "PAR",
+  "cardIndexEn": "180",
   "nameEn": "Techno Radar"
  },
  {
@@ -2538,8 +2538,8 @@
   "cardType": "Item",
   "yorenCode": "Y1403",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "101",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "184",
   "nameEn": "Buddy-Buddy Poffin"
  },
  {
@@ -2553,8 +2553,8 @@
   "is": [
    "ACE SPEC"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "119",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "157",
   "nameEn": "Prime Catcher"
  },
  {
@@ -2568,8 +2568,8 @@
   "is": [
    "ACE SPEC"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "128",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "162",
   "nameEn": "Scoop Up Cyclone"
  },
  {
@@ -2594,8 +2594,8 @@
   "cardType": "Item",
   "yorenCode": "Y1472",
   "is": [],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "61",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "196",
   "nameEn": "Night Stretcher"
  },
  {
@@ -2622,8 +2622,8 @@
   "cardType": "Tool",
   "yorenCode": "Y1411",
   "is": [],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "159",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "126",
   "nameEn": "Rescue Board"
  },
  {
@@ -2706,8 +2706,8 @@
   "is": [
    "ACE SPEC"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "117",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "154",
   "nameEn": "Maximum Belt"
  },
  {
@@ -2799,8 +2799,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1481",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "112",
+  "setCodeEn": "SFA",
+  "cardIndexEn": "59",
   "nameEn": "Janine's Secret Art"
  },
  {
@@ -2814,8 +2814,8 @@
   "is": [
    "Ancient"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "170",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "120",
   "nameEn": "Professor Sada's Vitality"
  },
  {
@@ -2866,8 +2866,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1440",
   "is": [],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "145",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "103",
   "nameEn": "Carmine"
  },
  {
@@ -2894,8 +2894,8 @@
   "is": [
    "Ancient"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "147",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "107",
   "nameEn": "Explorer's Guidance"
  },
  {
@@ -2935,8 +2935,8 @@
   "is": [
    "Future"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "121",
+  "setCodeEn": "PAR",
+  "cardIndexEn": "171",
   "nameEn": "Professor Turo's Scenario"
  },
  {
@@ -3000,8 +3000,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1489",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "108",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "149",
   "nameEn": "Festival Grounds"
  },
  {
@@ -3026,8 +3026,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1547",
   "is": [],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "131",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "94",
   "nameEn": "Area Zero Underdepths"
  },
  {
@@ -3331,8 +3331,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "40",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "17",
   "nameEn": "Hearthflame Mask Ogerpon ex"
  },
  {
@@ -3395,8 +3395,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "64",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "27",
   "nameEn": "Wellspring Mask Ogerpon ex"
  },
  {
@@ -3444,8 +3444,8 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "34",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "175",
   "nameEn": "Espeon ex"
  },
  {
@@ -3493,8 +3493,8 @@
    "Future",
    "Basic"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "89",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "68",
   "nameEn": "Iron Valiant ex"
  },
  {
@@ -3527,8 +3527,8 @@
    "Ancient",
    "Basic"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "108",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "56",
   "nameEn": "Sandy Shocks ex"
  },
  {
@@ -3559,8 +3559,8 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "60",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "176",
   "nameEn": "Umbreon ex"
  },
  {
@@ -3576,8 +3576,8 @@
    "Ancient",
    "Basic"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "124",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "67",
   "nameEn": "Roaring Moon ex"
  },
  {
@@ -3624,8 +3624,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "73",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "130",
   "nameEn": "Dragapult ex"
  },
  {
@@ -3689,8 +3689,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "141",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "177",
   "nameEn": "Bloodmoon Ursaluna ex"
  },
  {
@@ -3731,8 +3731,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1481",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "112",
+  "setCodeEn": "SFA",
+  "cardIndexEn": "59",
   "nameEn": "Janine's Secret Art"
  },
  {
@@ -3849,7 +3849,7 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "ASC",
+  "setCodeEn": "SSP",
   "cardIndexEn": "57",
   "nameEn": "Pikachu ex"
  },

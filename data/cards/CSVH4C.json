@@ -484,8 +484,8 @@
   "cardType": "Item",
   "yorenCode": "Y197",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "60",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "119",
   "nameEn": "Great Ball"
  },
  {
@@ -527,8 +527,8 @@
   "is": [
    "Future"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "130",
+  "setCodeEn": "PAR",
+  "cardIndexEn": "180",
   "nameEn": "Techno Radar"
  },
  {
@@ -580,7 +580,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -592,8 +592,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {
@@ -676,8 +676,8 @@
   "is": [
    "Ancient"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "170",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "120",
   "nameEn": "Professor Sada's Vitality"
  },
  {
@@ -742,7 +742,7 @@
   "yorenCode": "Y1323",
   "is": [],
   "setCodeEn": "PAR",
-  "cardIndexEn": "172",
+  "cardIndexEn": "258",
   "nameEn": "Rika"
  },
  {
@@ -754,8 +754,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1179",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "238",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "180",
   "nameEn": "Nemona"
  },
  {
@@ -767,8 +767,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1179",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "238",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "180",
   "nameEn": "Nemona"
  },
  {
@@ -821,8 +821,8 @@
   "is": [
    "Future"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "121",
+  "setCodeEn": "PAR",
+  "cardIndexEn": "171",
   "nameEn": "Professor Turo's Scenario"
  },
  {

@@ -88,8 +88,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "38",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "142",
   "nameEn": "Fezandipiti ex"
  },
  {
@@ -134,8 +134,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "129",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "80",
   "nameEn": "Dudunsparce"
  },
  {
@@ -147,8 +147,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -201,8 +201,8 @@
   "cardType": "Item",
   "yorenCode": "Y1403",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "101",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "184",
   "nameEn": "Buddy-Buddy Poffin"
  },
  {
@@ -255,8 +255,8 @@
   "is": [
    "ACE SPEC"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "119",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "157",
   "nameEn": "Prime Catcher"
  },
  {
@@ -282,7 +282,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -294,8 +294,8 @@
   "cardType": "Item",
   "yorenCode": "Y1472",
   "is": [],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "61",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "196",
   "nameEn": "Night Stretcher"
  },
  {
@@ -361,8 +361,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1294",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "185",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "237",
   "nameEn": "Iono"
  },
  {
@@ -374,8 +374,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1378",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "121",
+  "setCodeEn": "PAR",
+  "cardIndexEn": "171",
   "nameEn": "Professor Turo's Scenario"
  },
  {
@@ -426,8 +426,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1265",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "171",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "76",
   "nameEn": "Artazon"
  },
  {

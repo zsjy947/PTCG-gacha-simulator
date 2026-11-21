@@ -101,9 +101,9 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "CRE",
-  "cardIndexEn": "119",
-  "nameEn": "Blissey V"
+  "setCodeEn": "OBF",
+  "cardIndexEn": "82",
+  "nameEn": "Clefable ex"
  },
  {
   "setCode": "CBB3C",
@@ -522,9 +522,9 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "134",
-  "nameEn": "Houndoom"
+  "setCodeEn": "SVP",
+  "cardIndexEn": "103",
+  "nameEn": "Houndoom ex"
  },
  {
   "setCode": "CBB3C",
@@ -840,9 +840,9 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "UPR",
-  "cardIndexEn": "100",
-  "nameEn": "Dialga-GX"
+  "setCodeEn": "OBF",
+  "cardIndexEn": "135",
+  "nameEn": "Absol ex"
  },
  {
   "setCode": "CBB3C",
@@ -1277,8 +1277,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -1292,8 +1292,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -1307,8 +1307,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -1322,8 +1322,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -1337,8 +1337,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -1352,8 +1352,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -1367,8 +1367,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -1487,8 +1487,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -1502,8 +1502,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -1517,8 +1517,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -1532,8 +1532,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -1547,8 +1547,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -1562,8 +1562,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -1577,8 +1577,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -1803,8 +1803,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "109",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "47",
   "nameEn": "Annihilape"
  },
  {
@@ -1818,8 +1818,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "109",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "47",
   "nameEn": "Annihilape"
  },
  {
@@ -1833,8 +1833,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "109",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "47",
   "nameEn": "Annihilape"
  },
  {
@@ -1848,8 +1848,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "109",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "47",
   "nameEn": "Annihilape"
  },
  {
@@ -1863,8 +1863,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "109",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "47",
   "nameEn": "Annihilape"
  },
  {
@@ -1878,8 +1878,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "109",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "47",
   "nameEn": "Annihilape"
  },
  {
@@ -1934,7 +1934,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {

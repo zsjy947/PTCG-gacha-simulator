@@ -85,8 +85,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "76",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "12",
   "nameEn": "Sprigatito"
  },
  {
@@ -115,8 +115,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "76",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "12",
   "nameEn": "Sprigatito"
  },
  {
@@ -340,8 +340,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "79",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "34",
   "nameEn": "Fuecoco"
  },
  {
@@ -595,8 +595,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "82",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "50",
   "nameEn": "Quaxly"
  },
  {
@@ -1596,8 +1596,8 @@
   "cardType": "Item",
   "yorenCode": "Y197",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "60",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "119",
   "nameEn": "Great Ball"
  },
  {
@@ -1622,8 +1622,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1179",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "238",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "180",
   "nameEn": "Nemona"
  },
  {

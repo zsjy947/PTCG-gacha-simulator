@@ -267,9 +267,9 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "CRE",
-  "cardIndexEn": "119",
-  "nameEn": "Blissey V"
+  "setCodeEn": "OBF",
+  "cardIndexEn": "82",
+  "nameEn": "Clefable ex"
  },
  {
   "setCode": "CSVH1C",
@@ -505,8 +505,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -544,8 +544,8 @@
   "cardType": "Item",
   "yorenCode": "Y1206",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "79",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "170",
   "nameEn": "Electric Generator"
  },
  {
@@ -609,8 +609,8 @@
   "cardType": "Item",
   "yorenCode": "Y1150",
   "is": [],
-  "setCodeEn": "ASR",
-  "cardIndexEn": "156",
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "145",
   "nameEn": "Trekking Shoes"
  },
  {
@@ -662,7 +662,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -674,8 +674,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {
@@ -784,8 +784,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1179",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "238",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "180",
   "nameEn": "Nemona"
  },
  {

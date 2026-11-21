@@ -85,8 +85,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "30C",
-  "cardIndexEn": "13",
+  "setCodeEn": "MEP",
+  "cardIndexEn": "102",
   "nameEn": "Victini"
  },
  {
@@ -100,8 +100,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "30C",
-  "cardIndexEn": "57",
+  "setCodeEn": "MEP",
+  "cardIndexEn": "103",
   "nameEn": "Zeraora"
  },
  {
@@ -206,9 +206,9 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "30C",
-  "cardIndexEn": "70",
-  "nameEn": "Espeon"
+  "setCodeEn": "MEP",
+  "cardIndexEn": "108",
+  "nameEn": "Espeon ex"
  },
  {
   "setCode": "30thDC",
@@ -252,8 +252,8 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "30C",
-  "cardIndexEn": "92",
+  "setCodeEn": "MEP",
+  "cardIndexEn": "110",
   "nameEn": "Umbreon ex"
  },
  {
@@ -468,7 +468,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -480,8 +480,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {
@@ -493,8 +493,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1617",
   "is": [],
-  "setCodeEn": "ASC",
-  "cardIndexEn": "190",
+  "setCodeEn": "JTG",
+  "cardIndexEn": "149",
   "nameEn": "Iris's Fighting Spirit"
  },
  {
@@ -571,8 +571,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1669",
   "is": [],
-  "setCodeEn": "MEG",
-  "cardIndexEn": "119",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "192",
   "nameEn": "Lillie's Determination"
  },
  {

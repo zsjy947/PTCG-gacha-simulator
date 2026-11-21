@@ -11,8 +11,8 @@
    "V",
    "Basic"
   ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "40",
+  "setCodeEn": "SP",
+  "cardIndexEn": "250",
   "nameEn": "Lumineon V"
  },
  {
@@ -149,8 +149,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -179,8 +179,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "43",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "78",
   "nameEn": "Flutter Mane"
  },
  {
@@ -264,8 +264,8 @@
   "cardType": "Item",
   "yorenCode": "Y1403",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "101",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "184",
   "nameEn": "Buddy-Buddy Poffin"
  },
  {
@@ -368,8 +368,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1294",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "185",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "237",
   "nameEn": "Iono"
  },
  {
@@ -396,8 +396,8 @@
   "is": [
    "Future"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "121",
+  "setCodeEn": "PAR",
+  "cardIndexEn": "171",
   "nameEn": "Professor Turo's Scenario"
  },
  {
@@ -461,8 +461,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1265",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "171",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "76",
   "nameEn": "Artazon"
  }
 ]

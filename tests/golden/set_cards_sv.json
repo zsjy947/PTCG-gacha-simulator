@@ -310,7 +310,7 @@
    },
    {
     "cardIndex": "020",
-    "cardIndexEn": "29",
+    "cardIndexEn": "202",
     "cardName": "狠辣椒",
     "cardType": "Pokemon",
     "effectId": "3485e244bcfe4ced6af866065eb06e6d",
@@ -358,7 +358,7 @@
    },
    {
     "cardIndex": "023",
-    "cardIndexEn": "33",
+    "cardIndexEn": "",
     "cardName": "比克提尼ex",
     "cardType": "Pokemon",
     "effectId": "c25e32bb68e899af82c3f0125e85cb6e",
@@ -367,10 +367,10 @@
      "ex",
      "Basic"
     ],
-    "nameEn": "Victini ex",
+    "nameEn": "",
     "rarity": "RR",
     "setCode": "CSV1C",
-    "setCodeEn": "OBF",
+    "setCodeEn": "",
     "yorenCode": "Y1194"
    },
    {
@@ -439,7 +439,7 @@
    },
    {
     "cardIndex": "028",
-    "cardIndexEn": "15",
+    "cardIndexEn": "203",
     "cardName": "红莲铠骑",
     "cardType": "Pokemon",
     "effectId": "4f4c17fe9f3429419f9e344fbecb140d",
@@ -450,7 +450,7 @@
     "nameEn": "Armarouge",
     "rarity": "R",
     "setCode": "CSV1C",
-    "setCodeEn": "PAF",
+    "setCodeEn": "SVI",
     "yorenCode": "P0936"
    },
    {
@@ -712,7 +712,7 @@
    },
    {
     "cardIndex": "045",
-    "cardIndexEn": "68",
+    "cardIndexEn": "208",
     "cardName": "帕奇利兹",
     "cardType": "Pokemon",
     "effectId": "28f0eae7856f4e8b207dd37d57452d07",
@@ -744,7 +744,7 @@
    },
    {
     "cardIndex": "047",
-    "cardIndexEn": "52",
+    "cardIndexEn": "70",
     "cardName": "雷电云",
     "cardType": "Pokemon",
     "effectId": "117b3c23cd11dd6a9a75456b04d4aa8f",
@@ -755,7 +755,7 @@
     "nameEn": "Thundurus",
     "rarity": "R",
     "setCode": "CSV1C",
-    "setCodeEn": "CRE",
+    "setCodeEn": "OBF",
     "yorenCode": "P642"
    },
    {
@@ -986,7 +986,7 @@
    },
    {
     "cardIndex": "062",
-    "cardIndexEn": "99",
+    "cardIndexEn": "39",
     "cardName": "麻花犬",
     "cardType": "Pokemon",
     "effectId": "2d300a3fe8950215cbf5cfc3f93526fd",
@@ -997,7 +997,7 @@
     "nameEn": "Dachsbun",
     "rarity": "U",
     "setCode": "CSV1C",
-    "setCodeEn": "SVI",
+    "setCodeEn": "PAF",
     "yorenCode": "P0927"
    },
    {
@@ -1066,7 +1066,7 @@
    },
    {
     "cardIndex": "067",
-    "cardIndexEn": "167",
+    "cardIndexEn": "20",
     "cardName": "巨锻匠",
     "cardType": "Pokemon",
     "effectId": "4facb3836ec30a5640ab3ce81d4310f1",
@@ -1077,7 +1077,7 @@
     "nameEn": "Tinkaton",
     "rarity": "R",
     "setCode": "CSV1C",
-    "setCodeEn": "PAF",
+    "setCodeEn": "SVP",
     "yorenCode": "P0959"
    },
    {
@@ -1099,7 +1099,7 @@
    },
    {
     "cardIndex": "069",
-    "cardIndexEn": "45",
+    "cardIndexEn": "107",
     "cardName": "猴怪",
     "cardType": "Pokemon",
     "effectId": "07bd70271ab6562f81feceac561dad3b",
@@ -1110,12 +1110,12 @@
     "nameEn": "Mankey",
     "rarity": "C",
     "setCode": "CSV1C",
-    "setCodeEn": "PAF",
+    "setCodeEn": "SVI",
     "yorenCode": "P056"
    },
    {
     "cardIndex": "070",
-    "cardIndexEn": "108",
+    "cardIndexEn": "46",
     "cardName": "火暴猴",
     "cardType": "Pokemon",
     "effectId": "a512436aeae2984be8f09beea632129c",
@@ -1126,12 +1126,12 @@
     "nameEn": "Primeape",
     "rarity": "C",
     "setCode": "CSV1C",
-    "setCodeEn": "SVI",
+    "setCodeEn": "PAF",
     "yorenCode": "P057"
    },
    {
     "cardIndex": "071",
-    "cardIndexEn": "109",
+    "cardIndexEn": "47",
     "cardName": "弃世猴",
     "cardType": "Pokemon",
     "effectId": "ea313f5fb16a8fa1ee1594a403534d27",
@@ -1142,7 +1142,7 @@
     "nameEn": "Annihilape",
     "rarity": "R",
     "setCode": "CSV1C",
-    "setCodeEn": "SVI",
+    "setCodeEn": "PAF",
     "yorenCode": "P0979"
    },
    {
@@ -1260,7 +1260,7 @@
    },
    {
     "cardIndex": "079",
-    "cardIndexEn": "118",
+    "cardIndexEn": "7",
     "cardName": "摔角鹰人",
     "cardType": "Pokemon",
     "effectId": "74b83ef8987d072950dfe3bde3364d87",
@@ -1271,7 +1271,7 @@
     "nameEn": "Hawlucha",
     "rarity": "R",
     "setCode": "CSV1C",
-    "setCodeEn": "SVI",
+    "setCodeEn": "SVP",
     "yorenCode": "P701"
    },
    {
@@ -1374,7 +1374,7 @@
    },
    {
     "cardIndex": "086",
-    "cardIndexEn": "100",
+    "cardIndexEn": "135",
     "cardName": "阿勃梭鲁ex",
     "cardType": "Pokemon",
     "effectId": "91d7344a8c2c7ebb238010c11a29e7b4",
@@ -1383,10 +1383,10 @@
      "ex",
      "Basic"
     ],
-    "nameEn": "Dialga-GX",
+    "nameEn": "Absol ex",
     "rarity": "RR",
     "setCode": "CSV1C",
-    "setCodeEn": "UPR",
+    "setCodeEn": "OBF",
     "yorenCode": "Y1202"
    },
    {
@@ -1456,7 +1456,7 @@
    },
    {
     "cardIndex": "091",
-    "cardIndexEn": "187",
+    "cardIndexEn": "220",
     "cardName": "仆刀将军",
     "cardType": "Pokemon",
     "effectId": "5a8448cd47c1cf074338f87a23cd140c",
@@ -1467,7 +1467,7 @@
     "nameEn": "Kingambit",
     "rarity": "R",
     "setCode": "CSV1C",
-    "setCodeEn": "PAF",
+    "setCodeEn": "SVI",
     "yorenCode": "P0983"
    },
    {
@@ -1552,7 +1552,7 @@
    },
    {
     "cardIndex": "097",
-    "cardIndexEn": "65",
+    "cardIndexEn": "142",
     "cardName": "普隆隆姆",
     "cardType": "Pokemon",
     "effectId": "a3fb29e6398509034c1f225f49ecb000",
@@ -1563,7 +1563,7 @@
     "nameEn": "Revavroom",
     "rarity": "R",
     "setCode": "CSV1C",
-    "setCodeEn": "PAF",
+    "setCodeEn": "SVI",
     "yorenCode": "P0966"
    },
    {
@@ -1714,7 +1714,7 @@
    },
    {
     "cardIndex": "107",
-    "cardIndexEn": "79",
+    "cardIndexEn": "170",
     "cardName": "电气发生器",
     "cardType": "Item",
     "effectId": "2234845fbc2e11ab95587e1b393bb318",
@@ -1723,7 +1723,7 @@
     "nameEn": "Electric Generator",
     "rarity": "U",
     "setCode": "CSV1C",
-    "setCodeEn": "PAF",
+    "setCodeEn": "SVI",
     "yorenCode": "Y1206"
    },
    {
@@ -1798,7 +1798,7 @@
    },
    {
     "cardIndex": "113",
-    "cardIndexEn": "132",
+    "cardIndexEn": "160",
     "cardName": "宝可梦交替",
     "cardType": "Item",
     "effectId": "7c0b20e121c9d0e0d2d8a43524f7494e",
@@ -2255,7 +2255,7 @@
    },
    {
     "cardIndex": "143",
-    "cardIndexEn": "100",
+    "cardIndexEn": "135",
     "cardName": "阿勃梭鲁ex",
     "cardType": "Pokemon",
     "effectId": "91d7344a8c2c7ebb238010c11a29e7b4",
@@ -2264,10 +2264,10 @@
      "ex",
      "Basic"
     ],
-    "nameEn": "Dialga-GX",
+    "nameEn": "Absol ex",
     "rarity": "SR",
     "setCode": "CSV1C",
-    "setCodeEn": "UPR",
+    "setCodeEn": "OBF",
     "yorenCode": "Y1202"
    },
    {
@@ -2624,7 +2624,7 @@
    },
    {
     "cardIndex": "167",
-    "cardIndexEn": "132",
+    "cardIndexEn": "160",
     "cardName": "宝可梦交替",
     "cardType": "Item",
     "effectId": "7c0b20e121c9d0e0d2d8a43524f7494e",

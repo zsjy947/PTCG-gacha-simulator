@@ -183,7 +183,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -286,8 +286,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y225",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "120",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "61",
   "nameEn": "Hau"
  },
  {
@@ -325,8 +325,8 @@
   "cardType": "Special Energy",
   "yorenCode": "Y174",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "69",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "136",
   "nameEn": "Double Colorless Energy"
  },
  {

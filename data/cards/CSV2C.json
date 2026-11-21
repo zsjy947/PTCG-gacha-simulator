@@ -11,7 +11,7 @@
    "Basic"
   ],
   "setCodeEn": "PAL",
-  "cardIndexEn": "6",
+  "cardIndexEn": "194",
   "nameEn": "Heracross"
  },
  {
@@ -176,8 +176,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "33",
   "nameEn": "Meowscarada ex"
  },
  {
@@ -342,8 +342,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "42",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC30",
   "nameEn": "Magikarp"
  },
  {
@@ -644,8 +644,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "74",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "226",
   "nameEn": "Pawmi"
  },
  {
@@ -674,8 +674,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "76",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "6",
   "nameEn": "Pawmot"
  },
  {
@@ -750,8 +750,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "79",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "143",
   "nameEn": "Miraidon ex"
  },
  {
@@ -795,8 +795,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "84",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "27",
   "nameEn": "Ralts"
  },
  {
@@ -1294,8 +1294,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "131",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "21",
   "nameEn": "Murkrow"
  },
  {
@@ -1877,8 +1877,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1265",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "171",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "76",
   "nameEn": "Artazon"
  },
  {
@@ -1950,8 +1950,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "84",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "27",
   "nameEn": "Ralts"
  },
  {
@@ -2026,8 +2026,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "33",
   "nameEn": "Meowscarada ex"
  },
  {
@@ -2245,8 +2245,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "33",
   "nameEn": "Meowscarada ex"
  },
  {
@@ -2364,8 +2364,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "33",
   "nameEn": "Meowscarada ex"
  },
  {
@@ -2409,8 +2409,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1265",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "171",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "76",
   "nameEn": "Artazon"
  }
 ]

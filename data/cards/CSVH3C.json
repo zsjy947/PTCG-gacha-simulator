@@ -145,8 +145,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "26",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "59",
   "nameEn": "Xatu"
  },
  {
@@ -548,8 +548,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -666,7 +666,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -678,8 +678,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {
@@ -782,8 +782,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1179",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "238",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "180",
   "nameEn": "Nemona"
  },
  {

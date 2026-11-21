@@ -965,8 +965,8 @@
    "V",
    "Basic"
   ],
-  "setCodeEn": "CRZ",
-  "cardIndexEn": "22",
+  "setCodeEn": "BRS",
+  "cardIndexEn": "27",
   "nameEn": "Simisear V"
  },
  {
@@ -3033,8 +3033,8 @@
    "V",
    "Basic"
   ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "68",
+  "setCodeEn": "BST",
+  "cardIndexEn": "62",
   "nameEn": "Mimikyu V"
  },
  {
@@ -4198,8 +4198,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "91",
+  "setCodeEn": "SP",
+  "cardIndexEn": "187",
   "nameEn": "Liepard"
  },
  {
@@ -5625,8 +5625,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -5731,8 +5731,8 @@
   "cardType": "Item",
   "yorenCode": "Y197",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "60",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "119",
   "nameEn": "Great Ball"
  },
  {
@@ -5784,7 +5784,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -5796,8 +5796,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {

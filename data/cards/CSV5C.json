@@ -207,8 +207,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "26",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "44",
   "nameEn": "Charmander"
  },
  {
@@ -632,7 +632,7 @@
    "Basic"
   ],
   "setCodeEn": "PAR",
-  "cardIndexEn": "60",
+  "cardIndexEn": "193",
   "nameEn": "Plusle"
  },
  {
@@ -647,7 +647,7 @@
    "Basic"
   ],
   "setCodeEn": "PAR",
-  "cardIndexEn": "61",
+  "cardIndexEn": "194",
   "nameEn": "Minun"
  },
  {
@@ -811,8 +811,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "26",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "59",
   "nameEn": "Xatu"
  },
  {
@@ -1131,8 +1131,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "125",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "196",
   "nameEn": "Charizard ex"
  },
  {
@@ -1674,8 +1674,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "72",
+  "setCodeEn": "OBF",
+  "cardIndexEn": "184",
   "nameEn": "Oinkologne"
  },
  {
@@ -1848,7 +1848,7 @@
   "yorenCode": "Y1352",
   "is": [],
   "setCodeEn": "PAF",
-  "cardIndexEn": "85",
+  "cardIndexEn": "230",
   "nameEn": "Paldean Student"
  },
  {
@@ -1861,7 +1861,7 @@
   "yorenCode": "Y1352",
   "is": [],
   "setCodeEn": "PAF",
-  "cardIndexEn": "85",
+  "cardIndexEn": "230",
   "nameEn": "Paldean Student"
  },
  {
@@ -2160,8 +2160,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "125",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "196",
   "nameEn": "Charizard ex"
  },
  {
@@ -2305,8 +2305,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "125",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "196",
   "nameEn": "Charizard ex"
  },
  {
@@ -2405,8 +2405,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "125",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "196",
   "nameEn": "Charizard ex"
  },
  {

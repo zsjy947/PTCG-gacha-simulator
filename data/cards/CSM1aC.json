@@ -300,8 +300,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "FLI",
-  "cardIndexEn": "59",
+  "setCodeEn": "UPR",
+  "cardIndexEn": "23",
   "nameEn": "Infernape"
  },
  {
@@ -1036,8 +1036,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "UPR",
-  "cardIndexEn": "82",
+  "setCodeEn": "FLI",
+  "cardIndexEn": "35",
   "nameEn": "Magneton"
  },
  {
@@ -1235,8 +1235,8 @@
    "GX",
    "Basic"
   ],
-  "setCodeEn": "FLI",
-  "cardIndexEn": "82",
+  "setCodeEn": "UPR",
+  "cardIndexEn": "100",
   "nameEn": "Dialga-GX"
  },
  {
@@ -1828,8 +1828,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -2388,8 +2388,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "UPR",
-  "cardIndexEn": "82",
+  "setCodeEn": "FLI",
+  "cardIndexEn": "35",
   "nameEn": "Magneton"
  },
  {

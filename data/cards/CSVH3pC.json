@@ -25,8 +25,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "59",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "64",
   "nameEn": "Arctibax"
  },
  {
@@ -55,8 +55,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "74",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "226",
   "nameEn": "Pawmi"
  },
  {
@@ -85,8 +85,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "76",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "6",
   "nameEn": "Pawmot"
  }
 ]

@@ -41,9 +41,9 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PGO",
-  "cardIndexEn": "29",
-  "nameEn": "Zapdos"
+  "setCodeEn": "DRI",
+  "cardIndexEn": "70",
+  "nameEn": "Team Rocket's Zapdos"
  },
  {
   "setCode": "CSVM1cC",
@@ -144,8 +144,8 @@
   "cardType": "Item",
   "yorenCode": "Y1206",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "79",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "170",
   "nameEn": "Electric Generator"
  },
  {
@@ -196,8 +196,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {
@@ -235,8 +235,8 @@
   "cardType": "Tool",
   "yorenCode": "Y1411",
   "is": [],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "159",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "126",
   "nameEn": "Rescue Board"
  },
  {
@@ -315,8 +315,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1294",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "185",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "237",
   "nameEn": "Iono"
  },
  {

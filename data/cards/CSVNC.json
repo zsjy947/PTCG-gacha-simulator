@@ -56,8 +56,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "SCR",
-  "cardIndexEn": "14",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "11",
   "nameEn": "Hydrapple ex"
  },
  {
@@ -192,8 +192,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "40",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "17",
   "nameEn": "Hearthflame Mask Ogerpon ex"
  },
  {
@@ -252,8 +252,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "64",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "27",
   "nameEn": "Wellspring Mask Ogerpon ex"
  },
  {
@@ -297,8 +297,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "96",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "45",
   "nameEn": "Fezandipiti"
  },
  {
@@ -312,8 +312,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "25",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "54",
   "nameEn": "Bloodmoon Ursaluna"
  },
  {
@@ -327,8 +327,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "57",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "111",
   "nameEn": "Okidogi"
  },
  {
@@ -405,8 +405,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SFA",
-  "cardIndexEn": "38",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "142",
   "nameEn": "Fezandipiti ex"
  },
  {
@@ -467,8 +467,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "141",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "177",
   "nameEn": "Bloodmoon Ursaluna ex"
  },
  {
@@ -545,8 +545,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1440",
   "is": [],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "145",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "103",
   "nameEn": "Carmine"
  },
  {
@@ -571,8 +571,8 @@
   "cardType": "Stadium",
   "yorenCode": "Y1489",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "108",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "149",
   "nameEn": "Festival Grounds"
  },
  {
@@ -642,8 +642,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1440",
   "is": [],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "145",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "103",
   "nameEn": "Carmine"
  }
 ]

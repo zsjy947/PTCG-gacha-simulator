@@ -296,8 +296,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "5",
+  "setCodeEn": "TWM",
+  "cardIndexEn": "11",
   "nameEn": "Leafeon"
  },
  {
@@ -326,8 +326,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "14",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "7",
   "nameEn": "Cottonee"
  },
  {
@@ -341,8 +341,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "8",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "15",
   "nameEn": "Whimsicott"
  },
  {
@@ -814,8 +814,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "41",
+  "setCodeEn": "FST",
+  "cardIndexEn": "57",
   "nameEn": "Feraligatr"
  },
  {
@@ -920,8 +920,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "TWM",
-  "cardIndexEn": "54",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "25",
   "nameEn": "Glaceon"
  },
  {
@@ -1656,8 +1656,8 @@
    "Ancient",
    "Basic"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "43",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "78",
   "nameEn": "Flutter Mane"
  },
  {
@@ -1992,8 +1992,8 @@
    "Ancient",
    "Basic"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "97",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "55",
   "nameEn": "Great Tusk"
  },
  {
@@ -2101,8 +2101,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "105",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "128",
   "nameEn": "Poochyena"
  },
  {
@@ -2470,8 +2470,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "129",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "80",
   "nameEn": "Dudunsparce"
  },
  {
@@ -2689,8 +2689,8 @@
   "cardType": "Item",
   "yorenCode": "Y1403",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "101",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "184",
   "nameEn": "Buddy-Buddy Poffin"
  },
  {
@@ -2732,8 +2732,8 @@
   "is": [
    "ACE SPEC"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "119",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "157",
   "nameEn": "Prime Catcher"
  },
  {
@@ -2799,8 +2799,8 @@
   "cardType": "Tool",
   "yorenCode": "Y1411",
   "is": [],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "159",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "126",
   "nameEn": "Rescue Board"
  },
  {
@@ -2857,8 +2857,8 @@
   "is": [
    "ACE SPEC"
   ],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "117",
+  "setCodeEn": "TEF",
+  "cardIndexEn": "154",
   "nameEn": "Maximum Belt"
  },
  {
@@ -2939,8 +2939,8 @@
   "is": [
    "Ancient"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "147",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "107",
   "nameEn": "Explorer's Guidance"
  },
  {
@@ -3498,8 +3498,8 @@
   "is": [
    "Ancient"
   ],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "147",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "107",
   "nameEn": "Explorer's Guidance"
  },
  {
@@ -3894,8 +3894,8 @@
   "cardType": "Item",
   "yorenCode": "Y1403",
   "is": [],
-  "setCodeEn": "PRE",
-  "cardIndexEn": "101",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "184",
   "nameEn": "Buddy-Buddy Poffin"
  },
  {
@@ -3907,8 +3907,8 @@
   "cardType": "Tool",
   "yorenCode": "Y1411",
   "is": [],
-  "setCodeEn": "TEF",
-  "cardIndexEn": "159",
+  "setCodeEn": "PRE",
+  "cardIndexEn": "126",
   "nameEn": "Rescue Board"
  }
 ]

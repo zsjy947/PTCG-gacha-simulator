@@ -3450,8 +3450,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -3580,8 +3580,8 @@
   "cardType": "Item",
   "yorenCode": "Y197",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "60",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "119",
   "nameEn": "Great Ball"
  },
  {
@@ -3802,7 +3802,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -3814,8 +3814,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {
@@ -4048,8 +4048,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y216",
   "is": [],
-  "setCodeEn": "DRM",
-  "cardIndexEn": "58",
+  "setCodeEn": "HIF",
+  "cardIndexEn": "52",
   "nameEn": "Blaine's Last Stand"
  },
  {
@@ -4295,8 +4295,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y225",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "120",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "61",
   "nameEn": "Hau"
  },
  {
@@ -4672,8 +4672,8 @@
   "cardType": "Special Energy",
   "yorenCode": "Y174",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "69",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "136",
   "nameEn": "Double Colorless Energy"
  },
  {

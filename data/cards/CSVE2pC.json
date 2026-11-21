@@ -11,8 +11,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "33",
   "nameEn": "Meowscarada ex"
  },
  {
@@ -42,8 +42,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "203",
   "nameEn": "Armarouge"
  },
  {
@@ -104,8 +104,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "121",
+  "setCodeEn": "SP",
+  "cardIndexEn": "188",
   "nameEn": "Bibarel"
  },
  {
@@ -117,8 +117,8 @@
   "cardType": "Item",
   "yorenCode": "Y1206",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "79",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "170",
   "nameEn": "Electric Generator"
  },
  {
@@ -185,9 +185,9 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "33",
-  "nameEn": "Victini ex"
+  "setCodeEn": "",
+  "cardIndexEn": "",
+  "nameEn": ""
  },
  {
   "setCode": "CSVE2pC",
@@ -216,8 +216,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "30",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "61",
   "nameEn": "Chien-Pao ex"
  },
  {
@@ -247,8 +247,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "118",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "7",
   "nameEn": "Hawlucha"
  },
  {
@@ -330,8 +330,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1294",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "185",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "237",
   "nameEn": "Iono"
  },
  {

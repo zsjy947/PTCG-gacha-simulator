@@ -25,8 +25,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "30C",
-  "cardIndexEn": "2",
+  "setCodeEn": "MEP",
+  "cardIndexEn": "94",
   "nameEn": "Alolan Exeggutor"
  },
  {
@@ -223,8 +223,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "30C",
-  "cardIndexEn": "21",
+  "setCodeEn": "MEP",
+  "cardIndexEn": "99",
   "nameEn": "Greninja ex"
  },
  {
@@ -892,9 +892,9 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "30C",
-  "cardIndexEn": "71",
-  "nameEn": "sylveon"
+  "setCodeEn": "MEP",
+  "cardIndexEn": "100",
+  "nameEn": "Sylveon ex"
  },
  {
   "setCode": "30thC",
@@ -1555,7 +1555,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -1569,8 +1569,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "30C",
-  "cardIndexEn": "2",
+  "setCodeEn": "MEP",
+  "cardIndexEn": "94",
   "nameEn": "Alolan Exeggutor"
  },
  {
@@ -1890,8 +1890,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "30C",
-  "cardIndexEn": "21",
+  "setCodeEn": "MEP",
+  "cardIndexEn": "99",
   "nameEn": "Greninja ex"
  },
  {
@@ -1970,9 +1970,9 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "30C",
-  "cardIndexEn": "71",
-  "nameEn": "sylveon"
+  "setCodeEn": "MEP",
+  "cardIndexEn": "100",
+  "nameEn": "Sylveon ex"
  },
  {
   "setCode": "30thC",
@@ -2065,8 +2065,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "BS",
-  "cardIndexEn": "58",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC1",
   "nameEn": "Pikachu"
  },
  {
@@ -2093,8 +2093,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1656",
   "is": [],
-  "setCodeEn": "G1",
-  "cardIndexEn": "18",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC3",
   "nameEn": "Misty"
  },
  {
@@ -2108,8 +2108,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "G2",
-  "cardIndexEn": "69",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC4",
   "nameEn": "Erika's Jigglypuff"
  },
  {
@@ -2124,8 +2124,8 @@
    "Rapid Strike",
    "Basic"
   ],
-  "setCodeEn": "N1",
-  "cardIndexEn": "25",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC5",
   "nameEn": "Sneasel"
  },
  {
@@ -2139,8 +2139,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "N4",
-  "cardIndexEn": "106",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC6",
   "nameEn": "Shining Celebi"
  },
  {
@@ -2154,8 +2154,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "E2",
-  "cardIndexEn": "149",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC7",
   "nameEn": "Lugia"
  },
  {
@@ -2169,8 +2169,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "RS",
-  "cardIndexEn": "5",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC8",
   "nameEn": "Delcatty"
  },
  {
@@ -2184,8 +2184,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "TRR",
-  "cardIndexEn": "19",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC9",
   "nameEn": "Dark Tyranitar"
  },
  {
@@ -2200,8 +2200,8 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "UF",
-  "cardIndexEn": "108",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC10",
   "nameEn": "Scizor ex"
  },
  {
@@ -2215,8 +2215,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "DS",
-  "cardIndexEn": "11",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC11",
   "nameEn": "Metagross"
  },
  {
@@ -2230,9 +2230,9 @@
   "is": [
    "Level Up"
   ],
-  "setCodeEn": "GE",
-  "cardIndexEn": "106",
-  "nameEn": "Palkia"
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC12",
+  "nameEn": "Palkia LV.X"
  },
  {
   "setCode": "30thC",
@@ -2245,8 +2245,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "LA",
-  "cardIndexEn": "43",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC13",
   "nameEn": "Uxie"
  },
  {
@@ -2261,8 +2261,8 @@
    "SP",
    "Basic"
   ],
-  "setCodeEn": "PL",
-  "cardIndexEn": "47",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC14",
   "nameEn": "Crobat G"
  },
  {
@@ -2276,8 +2276,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "TM",
-  "cardIndexEn": "94",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC15",
   "nameEn": "Gengar"
  },
  {
@@ -2291,8 +2291,8 @@
   "is": [
    "LEGEND"
   ],
-  "setCodeEn": "TM",
-  "cardIndexEn": "99",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC16",
   "nameEn": "Darkrai & Cresselia LEGEND"
  },
  {
@@ -2306,8 +2306,8 @@
   "is": [
    "LEGEND"
   ],
-  "setCodeEn": "TM",
-  "cardIndexEn": "99",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC16",
   "nameEn": "Darkrai & Cresselia LEGEND"
  },
  {
@@ -2319,8 +2319,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1661",
   "is": [],
-  "setCodeEn": "NVI",
-  "cardIndexEn": "101",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC18",
   "nameEn": "N"
  },
  {
@@ -2334,8 +2334,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "DRX",
-  "cardIndexEn": "85",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC19",
   "nameEn": "Rayquaza-EX"
  },
  {
@@ -2349,8 +2349,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PLB",
-  "cardIndexEn": "11",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC20",
   "nameEn": "Genesect-EX"
  },
  {
@@ -2366,8 +2366,8 @@
    "Mega",
    "Mega Evolution"
   ],
-  "setCodeEn": "PRC",
-  "cardIndexEn": "106",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC21",
   "nameEn": "M Gardevoir-EX"
  },
  {
@@ -2381,8 +2381,8 @@
   "is": [
    "BREAK Evolution"
   ],
-  "setCodeEn": "BKP",
-  "cardIndexEn": "41",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC22",
   "nameEn": "Greninja BREAK"
  },
  {
@@ -2414,8 +2414,8 @@
    "Ultra Beast",
    "Basic"
   ],
-  "setCodeEn": "CIN",
-  "cardIndexEn": "57",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC24",
   "nameEn": "Buzzwole-GX"
  },
  {
@@ -2431,8 +2431,8 @@
    "TAG TEAM",
    "Basic"
   ],
-  "setCodeEn": "TEU",
-  "cardIndexEn": "33",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC25",
   "nameEn": "Pikachu & Zekrom-GX"
  },
  {
@@ -2510,8 +2510,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "42",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC30",
   "nameEn": "Magikarp"
  },
  {

@@ -511,8 +511,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "RCL",
-  "cardIndexEn": "62",
+  "setCodeEn": "SHF",
+  "cardIndexEn": "33",
   "nameEn": "Luxray"
  },
  {
@@ -1829,8 +1829,8 @@
   "cardType": "Item",
   "yorenCode": "Y514",
   "is": [],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "166",
+  "setCodeEn": "CPA",
+  "cardIndexEn": "54",
   "nameEn": "Hyper Potion"
  },
  {
@@ -1868,8 +1868,8 @@
   "cardType": "Item",
   "yorenCode": "Y519",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "63",
+  "setCodeEn": "SSH",
+  "cardIndexEn": "181",
   "nameEn": "Rotom Bike"
  },
  {
@@ -1933,8 +1933,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y525",
   "is": [],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "184",
+  "setCodeEn": "CPA",
+  "cardIndexEn": "67",
   "nameEn": "Team Yell Grunt"
  },
  {
@@ -1946,8 +1946,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y528",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "50",
+  "setCodeEn": "SSH",
+  "cardIndexEn": "157",
   "nameEn": "Bede"
  },
  {
@@ -2833,8 +2833,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y525",
   "is": [],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "184",
+  "setCodeEn": "CPA",
+  "cardIndexEn": "67",
   "nameEn": "Team Yell Grunt"
  },
  {
@@ -2846,8 +2846,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y528",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "50",
+  "setCodeEn": "SSH",
+  "cardIndexEn": "157",
   "nameEn": "Bede"
  },
  {
@@ -3125,8 +3125,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y525",
   "is": [],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "184",
+  "setCodeEn": "CPA",
+  "cardIndexEn": "67",
   "nameEn": "Team Yell Grunt"
  },
  {
@@ -3138,8 +3138,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y528",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "50",
+  "setCodeEn": "SSH",
+  "cardIndexEn": "157",
   "nameEn": "Bede"
  },
  {

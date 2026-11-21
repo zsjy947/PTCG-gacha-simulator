@@ -191,8 +191,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "79",
+  "setCodeEn": "SP",
+  "cardIndexEn": "186",
   "nameEn": "Lucario"
  },
  {
@@ -670,7 +670,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -682,8 +682,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {
@@ -786,8 +786,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1179",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "238",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "180",
   "nameEn": "Nemona"
  },
  {

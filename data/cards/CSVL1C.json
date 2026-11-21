@@ -102,8 +102,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "33",
   "nameEn": "Meowscarada ex"
  },
  {
@@ -257,8 +257,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "30",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "61",
   "nameEn": "Chien-Pao ex"
  },
  {
@@ -318,7 +318,7 @@
    "Basic"
   ],
   "setCodeEn": "SVI",
-  "cardIndexEn": "68",
+  "cardIndexEn": "208",
   "nameEn": "Pachirisu"
  },
  {
@@ -332,8 +332,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "CRE",
-  "cardIndexEn": "52",
+  "setCodeEn": "OBF",
+  "cardIndexEn": "70",
   "nameEn": "Thundurus"
  },
  {
@@ -362,8 +362,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "84",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "27",
   "nameEn": "Ralts"
  },
  {
@@ -438,8 +438,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "45",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "107",
   "nameEn": "Mankey"
  },
  {
@@ -453,8 +453,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "108",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "46",
   "nameEn": "Primeape"
  },
  {
@@ -468,8 +468,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "109",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "47",
   "nameEn": "Annihilape"
  },
  {
@@ -528,8 +528,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "118",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "7",
   "nameEn": "Hawlucha"
  },
  {
@@ -606,8 +606,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "131",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "21",
   "nameEn": "Murkrow"
  },
  {
@@ -954,7 +954,7 @@
    "Basic"
   ],
   "setCodeEn": "SVI",
-  "cardIndexEn": "68",
+  "cardIndexEn": "208",
   "nameEn": "Pachirisu"
  },
  {
@@ -968,8 +968,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "CRE",
-  "cardIndexEn": "52",
+  "setCodeEn": "OBF",
+  "cardIndexEn": "70",
   "nameEn": "Thundurus"
  },
  {
@@ -998,8 +998,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "84",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "27",
   "nameEn": "Ralts"
  },
  {
@@ -1058,8 +1058,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "45",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "107",
   "nameEn": "Mankey"
  },
  {
@@ -1073,8 +1073,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "108",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "46",
   "nameEn": "Primeape"
  },
  {
@@ -1088,8 +1088,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "109",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "47",
   "nameEn": "Annihilape"
  },
  {
@@ -1148,8 +1148,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "SVI",
-  "cardIndexEn": "118",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "7",
   "nameEn": "Hawlucha"
  },
  {
@@ -1178,8 +1178,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "131",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "21",
   "nameEn": "Murkrow"
  },
  {
@@ -1298,8 +1298,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "MEW",
-  "cardIndexEn": "1",
+  "setCodeEn": "SCR",
+  "cardIndexEn": "143",
   "nameEn": "Bulbasaur"
  },
  {
@@ -1358,8 +1358,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "7",
+  "setCodeEn": "MEW",
+  "cardIndexEn": "4",
   "nameEn": "Charmander"
  },
  {
@@ -1388,8 +1388,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "MEW",
-  "cardIndexEn": "7",
+  "setCodeEn": "SCR",
+  "cardIndexEn": "148",
   "nameEn": "Squirtle"
  },
  {
@@ -1689,8 +1689,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "15",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "33",
   "nameEn": "Meowscarada ex"
  },
  {
@@ -1865,8 +1865,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "30",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "61",
   "nameEn": "Chien-Pao ex"
  },
  {

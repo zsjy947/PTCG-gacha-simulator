@@ -492,8 +492,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "71",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "119",
   "nameEn": "Toxel"
  },
  {
@@ -885,8 +885,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "40",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "98",
   "nameEn": "Ceruledge"
  },
  {
@@ -1278,8 +1278,8 @@
   "is": [
    "Stage 2"
   ],
-  "setCodeEn": "PAR",
-  "cardIndexEn": "134",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "60",
   "nameEn": "Aegislash"
  },
  {
@@ -1732,8 +1732,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -1824,7 +1824,7 @@
   "yorenCode": "Y1323",
   "is": [],
   "setCodeEn": "PAR",
-  "cardIndexEn": "172",
+  "cardIndexEn": "258",
   "nameEn": "Rika"
  },
  {
@@ -2221,7 +2221,7 @@
   "yorenCode": "Y1323",
   "is": [],
   "setCodeEn": "PAR",
-  "cardIndexEn": "172",
+  "cardIndexEn": "258",
   "nameEn": "Rika"
  },
  {
@@ -2369,7 +2369,7 @@
   "yorenCode": "Y1323",
   "is": [],
   "setCodeEn": "PAR",
-  "cardIndexEn": "172",
+  "cardIndexEn": "258",
   "nameEn": "Rika"
  },
  {

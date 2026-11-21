@@ -55,8 +55,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "4",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "61",
   "nameEn": "Pineco"
  },
  {
@@ -404,7 +404,7 @@
    "Stage 1"
   ],
   "setCodeEn": "PAL",
-  "cardIndexEn": "29",
+  "cardIndexEn": "199",
   "nameEn": "Fletchinder"
  },
  {
@@ -556,7 +556,7 @@
    "Basic"
   ],
   "setCodeEn": "PAL",
-  "cardIndexEn": "48",
+  "cardIndexEn": "205",
   "nameEn": "Eiscue"
  },
  {
@@ -615,8 +615,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "59",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "64",
   "nameEn": "Arctibax"
  },
  {
@@ -646,8 +646,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "30",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "61",
   "nameEn": "Chien-Pao ex"
  },
  {
@@ -677,7 +677,7 @@
    "Stage 1"
   ],
   "setCodeEn": "PAL",
-  "cardIndexEn": "64",
+  "cardIndexEn": "211",
   "nameEn": "Raichu"
  },
  {
@@ -933,8 +933,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "37",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "97",
   "nameEn": "Mimikyu"
  },
  {
@@ -1039,8 +1039,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "108",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "50",
   "nameEn": "Barboach"
  },
  {
@@ -1267,9 +1267,9 @@
    "ex",
    "Stage 1"
   ],
-  "setCodeEn": "OBF",
-  "cardIndexEn": "134",
-  "nameEn": "Houndoom"
+  "setCodeEn": "SVP",
+  "cardIndexEn": "103",
+  "nameEn": "Houndoom ex"
  },
  {
   "setCode": "CSV3C",
@@ -1745,8 +1745,8 @@
   "cardType": "Item",
   "yorenCode": "Y197",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "60",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "119",
   "nameEn": "Great Ball"
  },
  {
@@ -1836,8 +1836,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1294",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "185",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "237",
   "nameEn": "Iono"
  },
  {
@@ -1957,8 +1957,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "59",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "64",
   "nameEn": "Arctibax"
  },
  {
@@ -2143,8 +2143,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "30",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "61",
   "nameEn": "Chien-Pao ex"
  },
  {
@@ -2217,8 +2217,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1294",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "185",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "237",
   "nameEn": "Iono"
  },
  {
@@ -2333,8 +2333,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "30",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "61",
   "nameEn": "Chien-Pao ex"
  },
  {
@@ -2375,8 +2375,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1294",
   "is": [],
-  "setCodeEn": "PAL",
-  "cardIndexEn": "185",
+  "setCodeEn": "PAF",
+  "cardIndexEn": "237",
   "nameEn": "Iono"
  },
  {
@@ -2404,8 +2404,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "SVP",
-  "cardIndexEn": "30",
+  "setCodeEn": "PAL",
+  "cardIndexEn": "61",
   "nameEn": "Chien-Pao ex"
  },
  {

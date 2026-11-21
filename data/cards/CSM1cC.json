@@ -680,8 +680,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "FLI",
-  "cardIndexEn": "60",
+  "setCodeEn": "UPR",
+  "cardIndexEn": "96",
   "nameEn": "Gible"
  },
  {
@@ -972,8 +972,8 @@
    "Ultra Beast",
    "Basic"
   ],
-  "setCodeEn": "CIN",
-  "cardIndexEn": "57",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC24",
   "nameEn": "Buzzwole-GX"
  },
  {
@@ -1963,9 +1963,9 @@
   "cardType": "Tool",
   "yorenCode": "Y156",
   "is": [],
-  "setCodeEn": "UPR",
-  "cardIndexEn": "123",
-  "nameEn": "Fire Memory"
+  "setCodeEn": "CIN",
+  "cardIndexEn": "94",
+  "nameEn": "Fighting Memory"
  },
  {
   "setCode": "CSM1cC",
@@ -2199,8 +2199,8 @@
   "cardType": "Special Energy",
   "yorenCode": "Y174",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "69",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "136",
   "nameEn": "Double Colorless Energy"
  },
  {
@@ -2628,8 +2628,8 @@
    "Ultra Beast",
    "Basic"
   ],
-  "setCodeEn": "CIN",
-  "cardIndexEn": "57",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC24",
   "nameEn": "Buzzwole-GX"
  },
  {
@@ -2938,8 +2938,8 @@
    "Ultra Beast",
    "Basic"
   ],
-  "setCodeEn": "CIN",
-  "cardIndexEn": "57",
+  "setCodeEn": "30C",
+  "cardIndexEn": "CC24",
   "nameEn": "Buzzwole-GX"
  },
  {
@@ -3135,8 +3135,8 @@
   "cardType": "Special Energy",
   "yorenCode": "Y174",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "69",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "136",
   "nameEn": "Double Colorless Energy"
  }
 ]

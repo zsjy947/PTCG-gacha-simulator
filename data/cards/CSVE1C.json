@@ -10,8 +10,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "MEW",
-  "cardIndexEn": "1",
+  "setCodeEn": "SCR",
+  "cardIndexEn": "143",
   "nameEn": "Bulbasaur"
  },
  {
@@ -179,8 +179,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "7",
+  "setCodeEn": "MEW",
+  "cardIndexEn": "4",
   "nameEn": "Charmander"
  },
  {
@@ -361,8 +361,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "MEW",
-  "cardIndexEn": "7",
+  "setCodeEn": "SCR",
+  "cardIndexEn": "148",
   "nameEn": "Squirtle"
  },
  {
@@ -666,9 +666,9 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "PGO",
-  "cardIndexEn": "29",
-  "nameEn": "Zapdos"
+  "setCodeEn": "DRI",
+  "cardIndexEn": "70",
+  "nameEn": "Team Rocket's Zapdos"
  },
  {
   "setCode": "CSVE1C",
@@ -744,7 +744,7 @@
    "Basic"
   ],
   "setCodeEn": "SVI",
-  "cardIndexEn": "68",
+  "cardIndexEn": "208",
   "nameEn": "Pachirisu"
  },
  {
@@ -1132,8 +1132,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "79",
+  "setCodeEn": "SP",
+  "cardIndexEn": "186",
   "nameEn": "Lucario"
  },
  {
@@ -1488,8 +1488,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "BRS",
-  "cardIndexEn": "121",
+  "setCodeEn": "SP",
+  "cardIndexEn": "188",
   "nameEn": "Bibarel"
  },
  {
@@ -1587,8 +1587,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -1639,8 +1639,8 @@
   "cardType": "Item",
   "yorenCode": "Y1206",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "79",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "170",
   "nameEn": "Electric Generator"
  },
  {
@@ -1745,8 +1745,8 @@
   "cardType": "Item",
   "yorenCode": "Y1150",
   "is": [],
-  "setCodeEn": "ASR",
-  "cardIndexEn": "156",
+  "setCodeEn": "CRZ",
+  "cardIndexEn": "145",
   "nameEn": "Trekking Shoes"
  },
  {
@@ -1839,7 +1839,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {

@@ -40,8 +40,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "20",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "19",
   "nameEn": "Team Rocket's Spidops"
  },
  {
@@ -100,8 +100,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "35",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "23",
   "nameEn": "Ethan's Slugma"
  },
  {
@@ -236,8 +236,8 @@
    "ex",
    "Basic"
   ],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "81",
+  "setCodeEn": "SVP",
+  "cardIndexEn": "205",
   "nameEn": "Team Rocket's Mewtwo ex"
  },
  {
@@ -266,8 +266,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "ASC",
-  "cardIndexEn": "109",
+  "setCodeEn": "DRI",
+  "cardIndexEn": "102",
   "nameEn": "Cynthia's Gible"
  },
  {
@@ -281,8 +281,8 @@
   "is": [
    "Stage 1"
   ],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "103",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "110",
   "nameEn": "Cynthia's Gabite"
  },
  {
@@ -297,8 +297,8 @@
    "ex",
    "Stage 2"
   ],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "104",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "111",
   "nameEn": "Cynthia's Garchomp ex"
  },
  {
@@ -372,8 +372,8 @@
   "is": [
    "Basic"
   ],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "127",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "126",
   "nameEn": "Team Rocket's Murkrow"
  },
  {
@@ -524,7 +524,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -536,8 +536,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {
@@ -549,8 +549,8 @@
   "cardType": "Item",
   "yorenCode": "Y1611",
   "is": [],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "175",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "205",
   "nameEn": "Team Rocket's Great Ball"
  },
  {
@@ -640,8 +640,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1179",
   "is": [],
-  "setCodeEn": "PAF",
-  "cardIndexEn": "238",
+  "setCodeEn": "SVI",
+  "cardIndexEn": "180",
   "nameEn": "Nemona"
  },
  {
@@ -692,8 +692,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1622",
   "is": [],
-  "setCodeEn": "ASC",
-  "cardIndexEn": "202",
+  "setCodeEn": "DRI",
+  "cardIndexEn": "171",
   "nameEn": "Team Rocket's Ariana"
  },
  {
@@ -705,8 +705,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1623",
   "is": [],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "170",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "201",
   "nameEn": "Team Rocket's Archer"
  },
  {
@@ -731,8 +731,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1625",
   "is": [],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "176",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "207",
   "nameEn": "Team Rocket's Petrel"
  },
  {
@@ -744,8 +744,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y1626",
   "is": [],
-  "setCodeEn": "DRI",
-  "cardIndexEn": "177",
+  "setCodeEn": "ASC",
+  "cardIndexEn": "208",
   "nameEn": "Team Rocket's Proton"
  },
  {

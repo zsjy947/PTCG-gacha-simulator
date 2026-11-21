@@ -2474,8 +2474,8 @@
   "cardType": "Item",
   "yorenCode": "Y27",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "116",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "59",
   "nameEn": "Energy Retrieval"
  },
  {
@@ -2565,8 +2565,8 @@
   "cardType": "Item",
   "yorenCode": "Y197",
   "is": [],
-  "setCodeEn": "SLG",
-  "cardIndexEn": "60",
+  "setCodeEn": "SUM",
+  "cardIndexEn": "119",
   "nameEn": "Great Ball"
  },
  {
@@ -2578,8 +2578,8 @@
   "cardType": "Item",
   "yorenCode": "Y514",
   "is": [],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "166",
+  "setCodeEn": "CPA",
+  "cardIndexEn": "54",
   "nameEn": "Hyper Potion"
  },
  {
@@ -2617,8 +2617,8 @@
   "cardType": "Item",
   "yorenCode": "Y516",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "51",
+  "setCodeEn": "RCL",
+  "cardIndexEn": "159",
   "nameEn": "Full Heal"
  },
  {
@@ -2670,7 +2670,7 @@
   "yorenCode": "Y118",
   "is": [],
   "setCodeEn": "SUM",
-  "cardIndexEn": "132",
+  "cardIndexEn": "160",
   "nameEn": "Switch"
  },
  {
@@ -2682,8 +2682,8 @@
   "cardType": "Item",
   "yorenCode": "Y206",
   "is": [],
-  "setCodeEn": "SUM",
-  "cardIndexEn": "126",
+  "setCodeEn": "SLG",
+  "cardIndexEn": "64",
   "nameEn": "Pokémon Catcher"
  },
  {
@@ -2734,8 +2734,8 @@
   "cardType": "Item",
   "yorenCode": "Y519",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "63",
+  "setCodeEn": "SSH",
+  "cardIndexEn": "181",
   "nameEn": "Rotom Bike"
  },
  {
@@ -2838,8 +2838,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y525",
   "is": [],
-  "setCodeEn": "SSH",
-  "cardIndexEn": "184",
+  "setCodeEn": "CPA",
+  "cardIndexEn": "67",
   "nameEn": "Team Yell Grunt"
  },
  {
@@ -2864,8 +2864,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y484",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "65",
+  "setCodeEn": "RCL",
+  "cardIndexEn": "167",
   "nameEn": "Sonia"
  },
  {
@@ -2903,8 +2903,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y528",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "50",
+  "setCodeEn": "SSH",
+  "cardIndexEn": "157",
   "nameEn": "Bede"
  },
  {
@@ -3212,8 +3212,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y484",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "65",
+  "setCodeEn": "RCL",
+  "cardIndexEn": "167",
   "nameEn": "Sonia"
  },
  {
@@ -3254,8 +3254,8 @@
   "cardType": "Supporter",
   "yorenCode": "Y484",
   "is": [],
-  "setCodeEn": "CPA",
-  "cardIndexEn": "65",
+  "setCodeEn": "RCL",
+  "cardIndexEn": "167",
   "nameEn": "Sonia"
  },
  {
